@@ -34,10 +34,10 @@ namespace PublicReporter
             if (PluginLoader.CurrentPlugin != null)
             {
                 //检查当前是否允行退出
-                if (PluginLoader.CurrentPlugin.IsEnableClosing())
+                if (PluginLoader.CurrentPlugin.isEnableClosing())
                 {
                     //插件停止
-                    PluginLoader.CurrentPlugin.Stop();
+                    PluginLoader.CurrentPlugin.stop();
                 }
                 else 
                 {
@@ -64,13 +64,13 @@ namespace PublicReporter
                     PluginLoader.CurrentPlugin.WorkDir = PluginDir;
 
                     //初始化
-                    PluginLoader.CurrentPlugin.Init(tsButtonBar, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
+                    PluginLoader.CurrentPlugin.init(tsButtonBar, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
 
                     //添加日志事件
                     PluginLoader.CurrentPlugin.Logs += CurrentPlugin_Logs;
 
                     //启动插件
-                    PluginLoader.CurrentPlugin.Start();
+                    PluginLoader.CurrentPlugin.start();
                 }
                 else
                 {

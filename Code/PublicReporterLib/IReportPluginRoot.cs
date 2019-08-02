@@ -36,17 +36,17 @@ namespace PublicReporterLib
         /// <summary>
         /// 判断是否退出
         /// </summary>
-        public abstract bool IsEnableClosing();
+        public abstract bool isEnableClosing();
 
         /// <summary>
         /// 插件启动
         /// </summary>
-        public abstract void Start();
+        public abstract void start();
 
         /// <summary>
         /// 插件停止
         /// </summary>
-        public abstract void Stop();
+        public abstract void stop();
         
         /// <summary>
         /// 插件初始化
@@ -56,14 +56,14 @@ namespace PublicReporterLib
         /// <param name="contentObj">右边的内容面板</param>
         /// <param name="bottomStatusStrip">底部状态栏</param>
         /// <param name="defaultHintLabel">默认的提示标签</param>
-        public abstract void Init(ToolStrip topToolStrip, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip,ToolStripStatusLabel defaultHintLabel);
+        public abstract void init(ToolStrip topToolStrip, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip,ToolStripStatusLabel defaultHintLabel);
 
         /// <summary>
         /// 打印日志
         /// </summary>
         /// <param name="exObj"></param>
         /// <param name="exTxt"></param>
-        public virtual void PrintLog(Exception exObj, string exTxt)
+        public virtual void printLog(Exception exObj, string exTxt)
         {
             if (Logs != null)
             {

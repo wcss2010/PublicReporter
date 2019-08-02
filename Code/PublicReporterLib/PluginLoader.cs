@@ -30,7 +30,7 @@ namespace PublicReporterLib
             //判断是否需要停止先前的插件
             if (CurrentPlugin != null)
             {
-                CurrentPlugin.Stop();
+                CurrentPlugin.stop();
                 CurrentPlugin = null;
             }
 
