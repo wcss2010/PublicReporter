@@ -32,10 +32,10 @@
             this.ssHintBar = new System.Windows.Forms.StatusStrip();
             this.tsslHint = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsButtonBar = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.scContent = new System.Windows.Forms.SplitContainer();
             this.tvSubjects = new System.Windows.Forms.TreeView();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ssHintBar.SuspendLayout();
             this.tsButtonBar.SuspendLayout();
             this.scContent.Panel1.SuspendLayout();
@@ -54,6 +54,7 @@
             // 
             // tsslHint
             // 
+            this.tsslHint.Font = new System.Drawing.Font("仿宋", 15F);
             this.tsslHint.Name = "tsslHint";
             this.tsslHint.Size = new System.Drawing.Size(0, 17);
             // 
@@ -67,6 +68,11 @@
             this.tsButtonBar.Name = "tsButtonBar";
             this.tsButtonBar.Size = new System.Drawing.Size(982, 59);
             this.tsButtonBar.TabIndex = 1;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 59);
             // 
             // btnExit
             // 
@@ -99,15 +105,11 @@
             // tvSubjects
             // 
             this.tvSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvSubjects.Font = new System.Drawing.Font("仿宋", 15F);
             this.tvSubjects.Location = new System.Drawing.Point(0, 0);
             this.tvSubjects.Name = "tvSubjects";
             this.tvSubjects.Size = new System.Drawing.Size(327, 496);
             this.tvSubjects.TabIndex = 0;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 59);
             // 
             // MainForm
             // 
