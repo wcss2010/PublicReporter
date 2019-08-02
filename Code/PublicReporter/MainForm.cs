@@ -66,6 +66,9 @@ namespace PublicReporter
                     //初始化
                     PluginLoader.CurrentPlugin.Init(tsButtonBar, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
 
+                    //添加日志事件
+                    PluginLoader.CurrentPlugin.Logs += CurrentPlugin_Logs;
+
                     //启动插件
                     PluginLoader.CurrentPlugin.Start();
                 }
@@ -77,8 +80,13 @@ namespace PublicReporter
             catch (Exception ex)
             {
                 MessageBox.Show("对不起，插件加载失败！Ex:" + ex.ToString());
+                Application.Exit();
             }
+        }
 
+        void CurrentPlugin_Logs(object sender, LogEventArgs args)
+        {
+            System.Console.WriteLine(args.ExText);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
