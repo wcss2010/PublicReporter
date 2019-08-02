@@ -104,6 +104,8 @@ namespace TestReporterPlugin
             firstNode.Nodes.Add(item14);
 
             treeViewObj.Nodes.Add(firstNode);
+
+            defaultHintLabel.Text = "大大大大大大大大大大大大大大";
         }
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
