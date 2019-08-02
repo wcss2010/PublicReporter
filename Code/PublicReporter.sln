@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicReporter", "PublicReporter\PublicReporter.csproj", "{FC1FD693-D2CF-434D-9C84-29C6987DE3A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicReporterLib", "..\PublicReporterLib\PublicReporterLib.csproj", "{9E5CDD7B-9CE2-42A8-907E-C1F9D3E8312C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicReporterLib", "PublicReporterLib\PublicReporterLib.csproj", "{9E5CDD7B-9CE2-42A8-907E-C1F9D3E8312C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
