@@ -103,7 +103,6 @@
             this.tvSubjects.Name = "tvSubjects";
             this.tvSubjects.Size = new System.Drawing.Size(327, 496);
             this.tvSubjects.TabIndex = 0;
-            this.tvSubjects.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvSubjects_AfterSelect);
             // 
             // toolStripSeparator1
             // 
