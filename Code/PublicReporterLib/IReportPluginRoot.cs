@@ -24,11 +24,6 @@ namespace PublicReporterLib
         public event OutputLogDelegate Logs;
 
         /// <summary>
-        /// 工具条按钮
-        /// </summary>
-        public abstract ToolButtonNode[] TopBarButtons { get; }
-
-        /// <summary>
         /// 工作目录
         /// </summary>
         public string WorkDir { get; set; }
@@ -39,9 +34,9 @@ namespace PublicReporterLib
         public abstract string Title { get; }
 
         /// <summary>
-        /// 判断退出时是否需要提示
+        /// 判断是否退出
         /// </summary>
-        public abstract bool IsEnabledMsgBoxWithClosing { get; }
+        public abstract bool IsEnableClosing();
 
         /// <summary>
         /// 插件启动
@@ -52,11 +47,16 @@ namespace PublicReporterLib
         /// 插件停止
         /// </summary>
         public abstract void Stop();
-
+        
         /// <summary>
         /// 插件初始化
         /// </summary>
-        public abstract void Init(TreeView treeViewObj,Panel contentObj);
+        /// <param name="topToolStrip">顶部工具条控件</param>
+        /// <param name="treeViewObj">左边的树控件</param>
+        /// <param name="contentObj">右边的内容面板</param>
+        /// <param name="bottomStatusStrip">底部状态栏</param>
+        /// <param name="defaultHintLabel">默认的提示标签</param>
+        public abstract void Init(ToolStrip topToolStrip, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip,ToolStripStatusLabel defaultHintLabel);
 
         /// <summary>
         /// 打印日志
@@ -73,39 +73,5 @@ namespace PublicReporterLib
                 Logs(this, lea);
             }
         }
-    }
-
-    /// <summary>
-    /// 工具条按钮
-    /// </summary>
-    public class ToolButtonNode
-    {
-        /// <summary>
-        /// 构造器
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="txt"></param>
-        /// <param name="ico"></param>
-        public ToolButtonNode(string id, string txt, Image ico)
-        {
-            this.ID = id;
-            this.Text = txt;
-            this.Icon = ico;
-        }
-
-        /// <summary>
-        /// 按钮ID
-        /// </summary>
-        public string ID { get; set; }
-
-        /// <summary>
-        /// 按钮标题
-        /// </summary>
-        public string Text { get; set; }
-
-        /// <summary>
-        /// 按钮图标
-        /// </summary>
-        public Image Icon { get; set; }
     }
 }
