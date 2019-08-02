@@ -51,16 +51,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.Words">
-      <HintPath>..\..\..\Lib\Aspose.Words.dll</HintPath>
+      <HintPath>..\..\Lib\Aspose.Words.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Noear.Weed3">
-      <HintPath>..\..\..\Lib\Noear.Weed3.dll</HintPath>
+      <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
     </Reference>
     <Reference Include="SuperCodeFactoryUILib">
-      <HintPath>..\..\..\Lib\SuperCodeFactoryUILib.dll</HintPath>
+      <HintPath>..\..\Lib\SuperCodeFactoryUILib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -99,7 +99,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PublicReporterLib\PublicReporterLib.csproj">
+    <ProjectReference Include="..\PublicReporterLib\PublicReporterLib.csproj">
       <Project>{9e5cdd7b-9ce2-42a8-907e-c1f9d3e8312c}</Project>
       <Name>PublicReporterLib</Name>
     </ProjectReference>
