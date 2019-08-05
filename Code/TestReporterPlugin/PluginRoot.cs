@@ -44,17 +44,17 @@ namespace TestReporterPlugin
         }
 
         /// <summary>
-        /// 初始化
+        /// 插件初始化
         /// </summary>
+        /// <param name="mainForm">顶部工具条控件</param>
         /// <param name="topToolStrip">顶部工具条控件</param>
+        /// <param name="treeViewImageListObj">顶部工具条控件</param>
         /// <param name="treeViewObj">左边的树控件</param>
         /// <param name="contentObj">右边的内容面板</param>
         /// <param name="bottomStatusStrip">底部状态栏</param>
         /// <param name="defaultHintLabel">默认的提示标签</param>
-        public override void init(System.Windows.Forms.ToolStrip topToolStrip, System.Windows.Forms.TreeView treeViewObj, System.Windows.Forms.Panel contentObj, System.Windows.Forms.StatusStrip bottomStatusStrip, System.Windows.Forms.ToolStripStatusLabel defaultHintLabel)
+        public abstract void init(Form mainForm, ToolStrip topToolStrip, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip, ToolStripStatusLabel defaultHintLabel)
         {
-            TreeViewImageList = new ImageList();
-            treeViewObj.ImageList = TreeViewImageList;
             treeViewObj.AfterSelect += treeViewObj_AfterSelect;
 
             TreeNode firstNode = new TreeNode();
