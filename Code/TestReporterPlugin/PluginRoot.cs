@@ -53,7 +53,7 @@ namespace TestReporterPlugin
         /// <param name="contentObj">右边的内容面板</param>
         /// <param name="bottomStatusStrip">底部状态栏</param>
         /// <param name="defaultHintLabel">默认的提示标签</param>
-        public abstract void init(Form mainForm, ToolStrip topToolStrip, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip, ToolStripStatusLabel defaultHintLabel)
+        public override void init(Form mainForm, ToolStrip topToolStrip, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip, ToolStripStatusLabel defaultHintLabel)
         {
             treeViewObj.AfterSelect += treeViewObj_AfterSelect;
 
