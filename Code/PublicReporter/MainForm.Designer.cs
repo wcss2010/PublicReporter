@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ssHintBar = new System.Windows.Forms.StatusStrip();
             this.tsslHint = new System.Windows.Forms.ToolStripStatusLabel();
@@ -36,6 +37,7 @@
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.scContent = new System.Windows.Forms.SplitContainer();
             this.tvSubjects = new System.Windows.Forms.TreeView();
+            this.ilNodeImage = new System.Windows.Forms.ImageList(this.components);
             this.ssHintBar.SuspendLayout();
             this.tsButtonBar.SuspendLayout();
             this.scContent.Panel1.SuspendLayout();
@@ -106,10 +108,19 @@
             // 
             this.tvSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvSubjects.Font = new System.Drawing.Font("仿宋", 15F);
+            this.tvSubjects.ImageIndex = 0;
+            this.tvSubjects.ImageList = this.ilNodeImage;
             this.tvSubjects.Location = new System.Drawing.Point(0, 0);
             this.tvSubjects.Name = "tvSubjects";
+            this.tvSubjects.SelectedImageIndex = 0;
             this.tvSubjects.Size = new System.Drawing.Size(327, 496);
             this.tvSubjects.TabIndex = 0;
+            // 
+            // ilNodeImage
+            // 
+            this.ilNodeImage.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.ilNodeImage.ImageSize = new System.Drawing.Size(16, 16);
+            this.ilNodeImage.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // MainForm
             // 
@@ -146,6 +157,7 @@
         private System.Windows.Forms.TreeView tvSubjects;
         private System.Windows.Forms.ToolStripButton btnExit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ImageList ilNodeImage;
     }
 }
 

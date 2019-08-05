@@ -64,7 +64,7 @@ namespace PublicReporter
                     PluginLoader.CurrentPlugin.WorkDir = PluginDir;
 
                     //初始化
-                    PluginLoader.CurrentPlugin.init(tsButtonBar, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
+                    PluginLoader.CurrentPlugin.init(this, tsButtonBar, ilNodeImage, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
 
                     //添加日志事件
                     PluginLoader.CurrentPlugin.Logs += CurrentPlugin_Logs;

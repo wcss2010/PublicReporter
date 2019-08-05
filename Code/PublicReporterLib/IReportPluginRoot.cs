@@ -51,12 +51,14 @@ namespace PublicReporterLib
         /// <summary>
         /// 插件初始化
         /// </summary>
+        /// <param name="mainForm">顶部工具条控件</param>
         /// <param name="topToolStrip">顶部工具条控件</param>
+        /// <param name="treeViewImageListObj">顶部工具条控件</param>
         /// <param name="treeViewObj">左边的树控件</param>
         /// <param name="contentObj">右边的内容面板</param>
         /// <param name="bottomStatusStrip">底部状态栏</param>
         /// <param name="defaultHintLabel">默认的提示标签</param>
-        public abstract void init(ToolStrip topToolStrip, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip,ToolStripStatusLabel defaultHintLabel);
+        public abstract void init(Form mainForm, ToolStrip topToolStrip, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip, ToolStripStatusLabel defaultHintLabel);
 
         /// <summary>
         /// 打印日志
