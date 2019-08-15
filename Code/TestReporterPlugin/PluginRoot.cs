@@ -38,8 +38,7 @@ namespace TestReporterPlugin
         /// 失败
         /// </summary>
         public override void stop(FormClosingEventArgs e)
-        {
-            
+        {   
         }
 
         /// <summary>
@@ -195,7 +194,7 @@ namespace TestReporterPlugin
 
         private void initButtons(ToolStrip topToolStrip)
         {
-            Image img = topToolStrip.Items[topToolStrip.Items.Count - 1].Image;
+            Image img = Resource.w5;
             ToolStripButton tempButton = null;
             
             tempButton = GetTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
