@@ -1,6 +1,7 @@
 ﻿using PublicReporterLib;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -178,7 +179,62 @@ namespace TestReporterPlugin
             firstNode.ExpandAll();
             #endregion
 
-            defaultHintLabel.Text = "大大大大大大大大大大大大大大," + WorkDir;
+            //初始化按钮
+            initButtons(topToolStrip);
+
+            //初始化编辑控件
+            initEditors();
+
+            //defaultHintLabel.Text = "大大大大大大大大大大大大大大," + WorkDir;
+        }
+
+        private void initEditors()
+        {
+            
+        }
+
+        private void initButtons(ToolStrip topToolStrip)
+        {
+            Image img = topToolStrip.Items[topToolStrip.Items.Count - 1].Image;
+            ToolStripButton tempButton = null;
+            
+            tempButton = GetTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            topToolStrip.Items.Insert(0, tempButton);
+
+            tempButton = GetTopButton(img, "btnExport", "导出", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            topToolStrip.Items.Insert(0, tempButton);
+
+            tempButton = GetTopButton(img, "btnWordView", "预览", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            topToolStrip.Items.Insert(0, tempButton);
+
+            tempButton = GetTopButton(img, "btnLoad", "导入", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            topToolStrip.Items.Insert(0, tempButton);
+
+            tempButton = GetTopButton(img, "btnNew", "新建", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            topToolStrip.Items.Insert(0, tempButton);
+        }
+
+        void tempButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private ToolStripButton GetTopButton(Image imgg,string nameg,string textg,Size sizeg)
+        {
+            ToolStripButton tempButton = new ToolStripButton();
+            tempButton.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            tempButton.Image = imgg;
+            tempButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            tempButton.Name = nameg;
+            tempButton.Size = sizeg;
+            tempButton.Text = textg;
+            tempButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            return tempButton;
         }
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
