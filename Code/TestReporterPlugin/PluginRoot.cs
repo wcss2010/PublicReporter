@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TestReporterPlugin.Forms;
 
 namespace TestReporterPlugin
 {
@@ -302,7 +303,14 @@ namespace TestReporterPlugin
 
         void tempButton_Click(object sender, EventArgs e)
         {
-
+            ToolStripButton button = ((ToolStripButton)sender);
+            switch (button.Text)
+            {
+                case "帮助":
+                    frmHelp helpForm = new frmHelp();
+                    helpForm.ShowDialog();
+                    break;
+            }
         }
 
         protected ToolStripButton GetTopButton(Image imgg, string nameg, string textg, Size sizeg)
