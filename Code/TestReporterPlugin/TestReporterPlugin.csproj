@@ -57,6 +57,18 @@
     <Reference Include="Noear.Weed3">
       <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="SuperCodeFactoryUILib">
       <HintPath>..\..\Lib\SuperCodeFactoryUILib.dll</HintPath>
     </Reference>
@@ -67,8 +79,6 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -107,6 +117,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\ExcelHelper.cs" />
+    <Compile Include="Utility\FileOp.cs" />
+    <Compile Include="Utility\FormatCheckTool.cs" />
+    <Compile Include="Utility\WatermarkUtility.cs" />
+    <Compile Include="Utility\WordDocument.cs" />
+    <Compile Include="Utility\WordUtility.cs" />
+    <Compile Include="Utility\ZipUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PublicReporterLib\PublicReporterLib.csproj">
