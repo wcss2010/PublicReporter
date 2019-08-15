@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace ProjectReporter.Utility
+namespace TestReporterPlugin.Utility
 {
 	public class WatermarkUtility
 	{

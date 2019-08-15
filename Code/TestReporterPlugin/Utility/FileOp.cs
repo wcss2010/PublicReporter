@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace ProjectReporter.Utility
+namespace TestReporterPlugin.Utility
 {
 	public class FileOp
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjectReporter.Utility
+namespace TestReporterPlugin.Utility
 {
     /// <summary>
     /// 格式检查工具

@@ -7,7 +7,7 @@ using ICSharpCode.SharpZipLib.Zip;
 using ICSharpCode.SharpZipLib.GZip;
 using System.Windows.Forms;
 
-namespace ProjectReporter.Utility
+namespace TestReporterPlugin.Utility
 {
     /// <summary>
     /// 压缩文件格式

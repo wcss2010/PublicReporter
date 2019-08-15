@@ -12,7 +12,7 @@ using System.Threading;
 using NPOI.HSSF.UserModel;
 using System.Diagnostics;
 
-namespace ProjectReporter.Utility
+namespace TestReporterPlugin.Utility
 {
     public static class ExcelHelper
     {

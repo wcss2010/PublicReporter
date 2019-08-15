@@ -6,7 +6,7 @@ using System.IO;
 using Aspose.Words;
 using Microsoft.Win32;
 
-namespace ProjectReporter.Utility
+namespace TestReporterPlugin.Utility
 {
     public class WordUtility
     {
