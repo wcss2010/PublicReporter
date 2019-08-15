@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace TestReporterPlugin
 {
-    public class PluginRoot:IReportPluginRoot
+    public class PluginRoot : IReportPluginRoot
     {
         /// <summary>
         /// 程序标题
@@ -31,14 +31,14 @@ namespace TestReporterPlugin
         /// </summary>
         public override void start()
         {
-            
+
         }
 
         /// <summary>
         /// 失败
         /// </summary>
         public override void stop(FormClosingEventArgs e)
-        {   
+        {
         }
 
         /// <summary>
@@ -189,14 +189,14 @@ namespace TestReporterPlugin
 
         private void initEditors()
         {
-            
+
         }
 
         private void initButtons(ToolStrip topToolStrip)
         {
             Image img = Resource.w5;
             ToolStripButton tempButton = null;
-            
+
             tempButton = GetTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
@@ -220,10 +220,10 @@ namespace TestReporterPlugin
 
         void tempButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        private ToolStripButton GetTopButton(Image imgg,string nameg,string textg,Size sizeg)
+        private ToolStripButton GetTopButton(Image imgg, string nameg, string textg, Size sizeg)
         {
             ToolStripButton tempButton = new ToolStripButton();
             tempButton.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -238,7 +238,7 @@ namespace TestReporterPlugin
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            
+
         }
     }
 }
