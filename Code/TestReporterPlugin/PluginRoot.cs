@@ -13,7 +13,7 @@ namespace TestReporterPlugin
         /// </summary>
         public override string Title
         {
-            get { return "重点基础研究项目建议书填报系统（1.2版）"; }
+            get { return "重点基础研究项目建议书填报系统（1.3版）"; }
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace TestReporterPlugin
 
             treeViewObj.Nodes.Add(firstNode);
 
-            firstNode.Expand();
+            firstNode.ExpandAll();
             #endregion
 
             defaultHintLabel.Text = "大大大大大大大大大大大大大大," + WorkDir;

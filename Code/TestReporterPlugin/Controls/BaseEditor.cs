@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Text;
+using System.Windows.Forms;
+
+namespace TestReporterPlugin.Controls
+{
+    public delegate void SaveEventDelegate(object sender, EventArgs args);
+
+    public partial class BaseEditor : UserControl
+    {
+        public BaseEditor()
+        {
+            InitializeComponent();
+        }
+
+        public event SaveEventDelegate SaveEvent;
+
+        public virtual void OnSaveEvent()
+        {
+            if (SaveEvent != null)
+            {
+                SaveEvent(this, new EventArgs());
+            }
+        }
+
+        /// <summary>
+        /// 清理视图
+        /// </summary>
+        public virtual void ClearView() { }
+
+        /// <summary>
+        /// 刷新视图
+        /// </summary>
+        public virtual void RefreshView() { }
+
+        /// <summary>
+        /// 是否输入完成
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool IsInputCompleted() { return false; }
+    }
+}
