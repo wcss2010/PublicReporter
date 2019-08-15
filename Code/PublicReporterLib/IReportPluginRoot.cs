@@ -46,7 +46,8 @@ namespace PublicReporterLib
         /// <summary>
         /// 插件停止
         /// </summary>
-        public abstract void stop();
+        /// <param name="e">主窗体关闭事件</param>
+        public abstract void stop(FormClosingEventArgs e);
         
         /// <summary>
         /// 插件初始化

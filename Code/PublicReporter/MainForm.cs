@@ -37,7 +37,7 @@ namespace PublicReporter
                 if (PluginLoader.CurrentPlugin.isEnableClosing())
                 {
                     //插件停止
-                    PluginLoader.CurrentPlugin.stop();
+                    PluginLoader.CurrentPlugin.stop(e);
                 }
                 else 
                 {

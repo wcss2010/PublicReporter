@@ -36,7 +36,7 @@ namespace TestReporterPlugin
         /// <summary>
         /// 失败
         /// </summary>
-        public override void stop()
+        public override void stop(FormClosingEventArgs e)
         {
             
         }
