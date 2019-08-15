@@ -10,6 +10,31 @@ namespace TestReporterPlugin
     public class PluginRoot : IReportPluginRoot
     {
         /// <summary>
+        /// 顶部工具栏
+        /// </summary>
+        private ToolStrip topToolStrip;
+
+        /// <summary>
+        /// 左侧树控件的图片列表
+        /// </summary>
+        private ImageList treeViewImageListObj;
+
+        /// <summary>
+        /// 左侧树控件
+        /// </summary>
+        private TreeView treeViewObj;
+
+        /// <summary>
+        /// 内容控件
+        /// </summary>
+        private Panel contentObj;
+        
+        /// <summary>
+        /// 默认提示标签
+        /// </summary>
+        private ToolStripStatusLabel defaultHintLabel;
+
+        /// <summary>
         /// 程序标题
         /// </summary>
         public override string Title
@@ -39,6 +64,57 @@ namespace TestReporterPlugin
         /// </summary>
         public override void stop(FormClosingEventArgs e)
         {
+            if (e != null)
+            {
+                if (MessageBox.Show("真的要退出吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    #region 清理所有增加的内容
+                    treeViewImageListObj.Images.Clear();
+                    treeViewObj.Nodes.Clear();
+                    contentObj.Controls.Clear();
+                    defaultHintLabel.Text = string.Empty;
+
+                    List<ToolStripItem> list = new List<ToolStripItem>();
+                    foreach (ToolStripItem tsi in topToolStrip.Items)
+                    {
+                        if (tsi.Tag == "Dynamic")
+                        {
+                            list.Add(tsi);
+                        }
+                    }
+                    foreach (ToolStripItem tssi in list)
+                    {
+                        topToolStrip.Items.Remove(tssi);
+                    }
+                    #endregion
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                #region 清理所有增加的内容
+                treeViewImageListObj.Images.Clear();
+                treeViewObj.Nodes.Clear();
+                contentObj.Controls.Clear();
+                defaultHintLabel.Text = string.Empty;
+
+                List<ToolStripItem> list = new List<ToolStripItem>();
+                foreach (ToolStripItem tsi in topToolStrip.Items)
+                {
+                    if (tsi.Tag == "Dynamic")
+                    {
+                        list.Add(tsi);
+                    }
+                }
+                foreach (ToolStripItem tssi in list)
+                {
+                    topToolStrip.Items.Remove(tssi);
+                }
+                #endregion
+            }
         }
 
         /// <summary>
@@ -53,6 +129,12 @@ namespace TestReporterPlugin
         /// <param name="defaultHintLabel">默认的提示标签</param>
         public override void init(Form mainForm, ToolStrip topToolStrip, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip, ToolStripStatusLabel defaultHintLabel)
         {
+            this.topToolStrip = topToolStrip;
+            this.treeViewObj = treeViewObj;
+            this.contentObj = contentObj;
+            this.treeViewImageListObj = treeViewImageListObj;
+            this.defaultHintLabel = defaultHintLabel;
+
             //添加点击事件
             treeViewObj.AfterSelect += treeViewObj_AfterSelect;
 
@@ -198,7 +280,7 @@ namespace TestReporterPlugin
             ToolStripButton tempButton = null;
 
             tempButton = GetTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
+            tempButton.Click += tempButton_Click;            
             topToolStrip.Items.Insert(0, tempButton);
 
             tempButton = GetTopButton(img, "btnExport", "导出", new System.Drawing.Size(53, 56));
@@ -223,7 +305,7 @@ namespace TestReporterPlugin
 
         }
 
-        private ToolStripButton GetTopButton(Image imgg, string nameg, string textg, Size sizeg)
+        protected ToolStripButton GetTopButton(Image imgg, string nameg, string textg, Size sizeg)
         {
             ToolStripButton tempButton = new ToolStripButton();
             tempButton.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -232,6 +314,7 @@ namespace TestReporterPlugin
             tempButton.Name = nameg;
             tempButton.Size = sizeg;
             tempButton.Text = textg;
+            tempButton.Tag = "Dynamic";
             tempButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             return tempButton;
         }
