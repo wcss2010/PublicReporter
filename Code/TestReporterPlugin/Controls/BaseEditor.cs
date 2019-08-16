@@ -20,7 +20,7 @@ namespace TestReporterPlugin.Controls
         /// <summary>
         /// 编辑器名称
         /// </summary>
-        public virtual string GetEditorName() { return string.Empty; }
+        public virtual string EditorName { get; set; }
 
         public event SaveEventDelegate SaveEvent;
 
