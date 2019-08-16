@@ -121,9 +121,7 @@
     <Compile Include="Utility\FileOp.cs" />
     <Compile Include="Utility\FormatCheckTool.cs" />
     <Compile Include="Utility\WatermarkUtility.cs" />
-    <Compile Include="Utility\WordDocument.cs" />
     <Compile Include="Utility\WordUtility.cs" />
-    <Compile Include="Utility\ZipUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PublicReporterLib\PublicReporterLib.csproj">

@@ -7,13 +7,12 @@ using ICSharpCode.SharpZipLib.Zip;
 using ICSharpCode.SharpZipLib.GZip;
 using System.Windows.Forms;
 
-namespace TestReporterPlugin.Utility
+namespace PublicReporterLib.Utility
 {
     /// <summary>
     /// 压缩文件格式
     /// </summary>
-
-    public enum fileType
+    public enum PackageFileType
     {
         Zip = 1,
         RAR = 2,
@@ -22,12 +21,12 @@ namespace TestReporterPlugin.Utility
     /// <summary>
     /// 文件解压缩操作类库
     /// </summary>
-    public class FileZipOpr
+    public class ZipUtil
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public FileZipOpr()
+        public ZipUtil()
         {
 
         }

@@ -11,6 +11,11 @@ namespace TestReporterPlugin
     public class PluginRoot : IReportPluginRoot
     {
         /// <summary>
+        /// 数据目录
+        /// </summary>
+        private string DataDir = string.Empty;
+
+        /// <summary>
         /// 顶部工具栏
         /// </summary>
         private ToolStrip topToolStrip;

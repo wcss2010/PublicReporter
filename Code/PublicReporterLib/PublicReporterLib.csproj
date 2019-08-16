@@ -57,6 +57,9 @@
     <Reference Include="Noear.Weed3">
       <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
     </Reference>
+    <Reference Include="SuperCodeFactoryLib">
+      <HintPath>..\..\Lib\SuperCodeFactoryLib.dll</HintPath>
+    </Reference>
     <Reference Include="SuperCodeFactoryUILib">
       <HintPath>..\..\Lib\SuperCodeFactoryUILib.dll</HintPath>
     </Reference>
@@ -72,7 +75,10 @@
     <Compile Include="IReportPluginRoot.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\WordDocument.cs" />
+    <Compile Include="Utility\ZipUtil.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
