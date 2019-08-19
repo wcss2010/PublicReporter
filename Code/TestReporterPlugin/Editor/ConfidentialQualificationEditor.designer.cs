@@ -31,9 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLast = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.plTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -86,9 +84,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.tableLayoutPanel1.Controls.Add(this.btnLast, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnNext, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 492);
@@ -98,16 +94,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(910, 34);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // btnLast
-            // 
-            this.btnLast.Location = new System.Drawing.Point(913, 3);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(1, 25);
-            this.btnLast.TabIndex = 1;
-            this.btnLast.Text = "返回";
-            this.btnLast.Visible = false;
-            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(813, 3);
@@ -116,15 +102,6 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(913, 3);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(1, 27);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "下一步";
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnAdd
             // 
@@ -278,9 +255,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Panel plTitle;
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.Label label1;

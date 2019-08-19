@@ -18,7 +18,6 @@ namespace TestReporterPlugin.Editor
     /// </summary>
     public partial class DocumentPasteEditor : BaseEditor
     {
-        private string filesDir;
         /// <summary>
         /// 编辑器名称
         /// </summary>
@@ -82,8 +81,6 @@ namespace TestReporterPlugin.Editor
         public DocumentPasteEditor()
         {
             InitializeComponent();
-
-            filesDir = Path.Combine(PublicReporterLib.PluginLoader.CurrentPlugin.WorkDir, Path.Combine("Data", "Files"));
         }
 
         public DocumentPasteEditor(string name,string info) : this()
@@ -102,7 +99,7 @@ namespace TestReporterPlugin.Editor
                 }
                 else
                 {
-                    string file = Path.Combine(filesDir, EditorName + ".doc");
+                    string file = Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).FilesDir, EditorName + ".doc");
                     if (File.Exists(file))
                     {
                         try
@@ -141,8 +138,7 @@ namespace TestReporterPlugin.Editor
 
         public override bool IsInputCompleted()
         {
-            string file = Path.Combine(filesDir, EditorName + ".doc");
-            return File.Exists(file);
+            return File.Exists(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).FilesDir, EditorName + ".doc"));
         }
     }
 }

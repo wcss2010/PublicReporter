@@ -21,7 +21,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -39,17 +39,7 @@ namespace TestReporterPlugin.Editor
                 upf.Close();
             }            
         }
-
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            OnLastEvent();
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            OnNextEvent();
-        }
-
+        
         public override void ClearView()
         {
             base.ClearView();
@@ -62,7 +52,7 @@ namespace TestReporterPlugin.Editor
             base.RefreshView();
 
             dgvDetail.Rows.Clear();
-            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
             int index = 0;
             foreach (ExtFileList efl in list)
             {
@@ -101,11 +91,11 @@ namespace TestReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(MainForm.ProjectFilesDir, realFileName);
+                        string destFile = Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //旧地址
-                            string oldFile = Path.Combine(MainForm.ProjectFilesDir, efl.RealFileName);
+                            string oldFile = Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, efl.RealFileName);
                             try
                             {
                                 File.Delete(oldFile);
@@ -167,7 +157,7 @@ namespace TestReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(MainForm.ProjectFilesDir, realFileName);
+                        string destFile = Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //复制新地址
@@ -175,7 +165,7 @@ namespace TestReporterPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = MainForm.Instance.ProjectObj.ID;
+                            efll.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -187,7 +177,7 @@ namespace TestReporterPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = MainForm.Instance.ProjectObj.ID;
+                        efll.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;
@@ -220,11 +210,11 @@ namespace TestReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(MainForm.ProjectFilesDir, realFileName);
+                        string destFile = Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //旧地址
-                            string oldFile = Path.Combine(MainForm.ProjectFilesDir, efl.RealFileName);
+                            string oldFile = Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, efl.RealFileName);
                             try
                             {
                                 File.Delete(oldFile);
@@ -286,7 +276,7 @@ namespace TestReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(MainForm.ProjectFilesDir, realFileName);
+                        string destFile = Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //复制新地址
@@ -294,7 +284,7 @@ namespace TestReporterPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = MainForm.Instance.ProjectObj.ID;
+                            efll.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -306,7 +296,7 @@ namespace TestReporterPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = MainForm.Instance.ProjectObj.ID;
+                        efll.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;
@@ -345,7 +335,7 @@ namespace TestReporterPlugin.Editor
 
                             try
                             {
-                                File.Delete(Path.Combine(MainForm.ProjectFilesDir, task.RealFileName));
+                                File.Delete(Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, task.RealFileName));
                             }
                             catch (Exception ex) { }
 
@@ -393,7 +383,7 @@ namespace TestReporterPlugin.Editor
                         {
                             try
                             {
-                                Process.Start(Path.Combine(MainForm.ProjectFilesDir, task.RealFileName));
+                                Process.Start(Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, task.RealFileName));
                             }
                             catch (Exception ex) { }
                         }

@@ -27,7 +27,12 @@ namespace TestReporterPlugin
         /// <summary>
         /// 数据目录
         /// </summary>
-        private string dataDir = string.Empty;
+        public string DataDir { get; set; }
+
+        /// <summary>
+        /// 文件目录
+        /// </summary>
+        public string FilesDir { get; set; }
 
         /// <summary>
         /// 顶部工具栏
@@ -291,15 +296,25 @@ namespace TestReporterPlugin
 
         private void initEditors()
         {
-            //创建数据目录
-            dataDir = Path.Combine(WorkDir, "Data");
+            #region 创建数据目录
+            DataDir = Path.Combine(WorkDir, "Data");
             try
             {
-                Directory.CreateDirectory(dataDir);
+                Directory.CreateDirectory(DataDir);
             }
             catch (Exception ex) { }
+            #endregion
 
-            //初始化文档编辑器
+            #region 创建文件目录
+            FilesDir = Path.Combine(WorkDir, "Files");
+            try
+            {
+                Directory.CreateDirectory(FilesDir);
+            }
+            catch (Exception ex) { }
+            #endregion
+
+            #region 初始化文档编辑器
             editorMap.Add("项目摘要", new DocumentPasteEditor("项目摘要", "简述背景及必要性，介绍问题提出的军事应用背景或需求，重点阐述其现实“瓶颈”属性或引领未来重大技术发展方向属性，分析国内外研究现状和差距。介绍项目研究目标，概述拟突破的主要基础问题或关键技术、主要成果形式和预期技术指标，分析对解决国防科技现实瓶颈问题和支撑未来技术发展方面的预期支撑作用。围绕项目研究目标，突出国防基础研究的任务特点，从增强原始创新能力和支撑未来发展的角度出发，概述本项目需要重点研究解决的基础性问题。项目由XXX牵头，XXX等单位参研，研究周期X年，申请经费XXXX万元。项目负责人为XXX(院士/研究员/教授)(1000字以内)"));
             editorMap.Add("基本概念及内涵", new DocumentPasteEditor("基本概念及内涵", "简要介绍相关研究对象的基本概念及内涵等"));
             editorMap.Add("军事需求分析", new DocumentPasteEditor("军事需求分析", "分析本项目有关军事需求背景，提出面临的困难和瓶颈问题等"));
@@ -315,9 +330,12 @@ namespace TestReporterPlugin
             editorMap.Add("研究基础与保障条件", new DocumentPasteEditor("研究基础与保障条件", "已有研究基础和软硬件保障条件，包括国家研究中心、国家重点实验室、国家工程（技术）中心等，以及自筹经费情况，800字以内"));
             editorMap.Add("组织实施与风险控制", new DocumentPasteEditor("组织实施与风险控制", "对本项目可能存在的技术和管理风险进行分析，提出思路举措，500字以内"));
             editorMap.Add("与有关计划关系", new DocumentPasteEditor("与有关计划关系", "介绍与本项目研究内容相关的国家和军队各类科技计划安排情况，对本项目与有关计划安排的界面关系进行说明。"));
+            #endregion
 
-            //初始化其它的编辑器
+            #region 初始化其它的编辑器
             editorMap.Add("申报书", new ProjectEditor());
+            editorMap.Add("保密资质", new ConfidentialQualificationEditor());
+            #endregion
         }
 
         private void initButtons(ToolStrip topToolStrip)
