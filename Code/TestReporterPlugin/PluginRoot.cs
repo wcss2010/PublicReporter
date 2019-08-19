@@ -365,7 +365,12 @@ namespace TestReporterPlugin
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            if (editorMap.ContainsKey(e.Node.Text))
+            {
+                contentObj.Controls.Clear();
+                editorMap[e.Node.Text].Dock = DockStyle.Fill;
+                contentObj.Controls.Add(editorMap[e.Node.Text]);
+            }
         }
     }
 }
