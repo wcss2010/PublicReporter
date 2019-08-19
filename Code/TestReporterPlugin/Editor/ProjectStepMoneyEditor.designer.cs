@@ -33,8 +33,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExcelLoad = new System.Windows.Forms.Button();
-            this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
             this.plTitle = new System.Windows.Forms.Panel();
             this.label1 = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
@@ -61,6 +61,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,6 +127,15 @@
             this.btnExcelLoad.Text = "从Excel导入";
             this.btnExcelLoad.Click += new System.EventHandler(this.btnExcelLoad_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(493, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 27);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "增加";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // lklDownloadFuJian
             // 
             this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Right;
@@ -138,15 +148,6 @@
             this.lklDownloadFuJian.Text = "阶段划分导入模板.xls";
             this.lklDownloadFuJian.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lklDownloadFuJian.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklDownloadFuJian_LinkClicked);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(493, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 27);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "增加";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // plTitle
             // 
@@ -232,17 +233,15 @@
             this.colKeTiMingCheng.MinimumWidth = 60;
             this.colKeTiMingCheng.Name = "colKeTiMingCheng";
             this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colKeTiMingCheng.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colKeTiMingCheng.Width = 60;
             // 
             // colMiJi
             // 
             this.colMiJi.FillWeight = 59.21053F;
-            this.colMiJi.HeaderText = "阶段时间(月)";            
+            this.colMiJi.HeaderText = "阶段时间(月)";
             this.colMiJi.MinimumWidth = 110;
             this.colMiJi.Name = "colMiJi";
             this.colMiJi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMiJi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colMiJi.Width = 110;
             // 
             // colDest
@@ -379,19 +378,21 @@
             // 
             this.ofdExcelDialog.Filter = "*.xls|*.xls";
             // 
-            // JieDuanHuaFenEditor
+            // ProjectStepMoneyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel15);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "SubjectStepMoneyEditor";
+            this.Name = "ProjectStepMoneyEditor";
             this.Size = new System.Drawing.Size(896, 537);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.plTitle.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

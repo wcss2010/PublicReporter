@@ -46,6 +46,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel15
@@ -185,8 +186,6 @@
             this.colJieDuanJingFei.HeaderText = "阶段经费";
             this.colJieDuanJingFei.Name = "colJieDuanJingFei";
             this.colJieDuanJingFei.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colJieDuanJingFei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colJieDuanJingFei.Width = 259;
             // 
             // delete
             // 
@@ -198,18 +197,20 @@
             this.delete.Visible = false;
             this.delete.Width = 60;
             // 
-            // XiangMuJieDuanHuaFenEditor
+            // SubjectStepMoneyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel15);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "ProjectStepMoneyEditor";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "SubjectStepMoneyEditor";
             this.Size = new System.Drawing.Size(1043, 637);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.plTitle.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.ResumeLayout(false);
 
         }
