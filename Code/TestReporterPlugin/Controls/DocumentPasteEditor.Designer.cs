@@ -37,33 +37,36 @@
             // lblInfo
             // 
             this.lblInfo.AutoHeight = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblInfo.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInfo.Location = new System.Drawing.Point(0, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(1083, 58);
+            this.lblInfo.Size = new System.Drawing.Size(1083, 46);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "label1";
-            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // plContent
             // 
+            this.plContent.BackColor = System.Drawing.SystemColors.Control;
             this.plContent.Controls.Add(this.btnEditDocument);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(0, 58);
+            this.plContent.Location = new System.Drawing.Point(0, 46);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1083, 513);
+            this.plContent.Size = new System.Drawing.Size(1083, 525);
             this.plContent.TabIndex = 1;
             // 
             // btnEditDocument
             // 
+            this.btnEditDocument.BackColor = System.Drawing.SystemColors.Control;
             this.btnEditDocument.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnEditDocument.Location = new System.Drawing.Point(6, 8);
             this.btnEditDocument.Name = "btnEditDocument";
             this.btnEditDocument.Size = new System.Drawing.Size(167, 43);
             this.btnEditDocument.TabIndex = 0;
             this.btnEditDocument.Text = "使用Word编辑该文档";
-            this.btnEditDocument.UseVisualStyleBackColor = true;
+            this.btnEditDocument.UseVisualStyleBackColor = false;
             this.btnEditDocument.Click += new System.EventHandler(this.btnEditDocument_Click);
             // 
             // DocumentPasteEditor
