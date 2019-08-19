@@ -12,13 +12,13 @@ using TestReporterPlugin.DB;
 
 namespace TestReporterPlugin.Editor
 {
-    public partial class NewProjectEditor : BaseEditor
+    public partial class ProjectEditor : BaseEditor
     {   
         UnitExtService _unitInforService = new UnitExtService();
 
         public Person ProjectPersonObj { get; private set; }
 
-        public NewProjectEditor()
+        public ProjectEditor()
         {
             InitializeComponent();
             //toCenter();

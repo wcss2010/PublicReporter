@@ -122,11 +122,11 @@
     <Compile Include="DB\Entitys\UnitExt.cs" />
     <Compile Include="DB\Entitys\WhiteList.cs" />
     <Compile Include="DB\Services\UnitExtService.cs" />
-    <Compile Include="Editor\NewProjectEditor.cs">
+    <Compile Include="Editor\ProjectEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Editor\NewProjectEditor.designer.cs">
-      <DependentUpon>NewProjectEditor.cs</DependentUpon>
+    <Compile Include="Editor\ProjectEditor.designer.cs">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\ProjectKeyControl.cs">
       <SubType>UserControl</SubType>
@@ -169,8 +169,8 @@
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\NewProjectEditor.resx">
-      <DependentUpon>NewProjectEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Editor\ProjectEditor.resx">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectKeyControl.resx">
       <DependentUpon>ProjectKeyControl.cs</DependentUpon>

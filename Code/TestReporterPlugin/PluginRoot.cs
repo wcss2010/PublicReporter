@@ -317,7 +317,7 @@ namespace TestReporterPlugin
             editorMap.Add("与有关计划关系", new DocumentPasteEditor("与有关计划关系", "介绍与本项目研究内容相关的国家和军队各类科技计划安排情况，对本项目与有关计划安排的界面关系进行说明。"));
 
             //初始化其它的编辑器
-            editorMap.Add("申报书", new NewProjectEditor());
+            editorMap.Add("申报书", new ProjectEditor());
         }
 
         private void initButtons(ToolStrip topToolStrip)
