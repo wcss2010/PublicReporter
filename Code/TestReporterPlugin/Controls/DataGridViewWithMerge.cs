@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace TestReporterPlugin.Controls
 {

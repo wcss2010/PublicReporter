@@ -83,11 +83,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AutoHeightLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\BaseEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\BaseEditor.Designer.cs">
       <DependentUpon>BaseEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataGridViewWithMerge.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\DocumentPasteEditor.cs">
       <SubType>UserControl</SubType>

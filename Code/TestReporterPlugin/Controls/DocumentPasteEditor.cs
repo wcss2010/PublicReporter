@@ -63,6 +63,21 @@ namespace TestReporterPlugin.Controls
             }
         }
 
+        /// <summary>
+        /// 自动适应说明标签高度
+        /// </summary>
+        public bool InfoLabelAutoHeight
+        {
+            get
+            {
+                return lblInfo.AutoHeight;
+            }
+            set
+            {
+                lblInfo.AutoHeight = value;
+            }
+        }
+
         public DocumentPasteEditor()
         {
             InitializeComponent();

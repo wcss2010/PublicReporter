@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblInfo = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.plContent.SuspendLayout();
@@ -36,6 +36,7 @@
             // 
             // lblInfo
             // 
+            this.lblInfo.AutoHeight = true;
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblInfo.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInfo.Location = new System.Drawing.Point(0, 0);
@@ -80,7 +81,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblInfo;
+        private AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.Button btnEditDocument;
     }
