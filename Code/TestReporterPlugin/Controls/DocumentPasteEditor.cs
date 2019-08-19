@@ -85,6 +85,12 @@ namespace TestReporterPlugin.Controls
             filesDir = Path.Combine(PublicReporterLib.PluginLoader.CurrentPlugin.WorkDir, Path.Combine("Data", "Files"));
         }
 
+        public DocumentPasteEditor(string name,string info) : this()
+        {
+            EditorName = name;
+            InfoLabelText = info;
+        }
+
         private void btnEditDocument_Click(object sender, EventArgs e)
         {
             if (PluginLoader.CurrentPlugin != null)
