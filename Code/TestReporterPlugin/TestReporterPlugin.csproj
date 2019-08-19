@@ -158,17 +158,23 @@
     <Compile Include="Editor\ProjectStepMoneyEditor.designer.cs">
       <DependentUpon>ProjectStepMoneyEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmHelp.cs">
+    <Compile Include="Forms\FrmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmHelp.Designer.cs">
-      <DependentUpon>frmHelp.cs</DependentUpon>
+    <Compile Include="Forms\FrmHelp.Designer.cs">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UIDoWorkProcessForm.cs">
+    <Compile Include="Forms\FrmInputBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UIDoWorkProcessForm.designer.cs">
-      <DependentUpon>UIDoWorkProcessForm.cs</DependentUpon>
+    <Compile Include="Forms\FrmInputBox.designer.cs">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUIDoWorkProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUIDoWorkProcess.designer.cs">
+      <DependentUpon>FrmUIDoWorkProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="PluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,11 +217,14 @@
     <EmbeddedResource Include="Editor\ProjectStepMoneyEditor.resx">
       <DependentUpon>ProjectStepMoneyEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmHelp.resx">
-      <DependentUpon>frmHelp.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmHelp.resx">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UIDoWorkProcessForm.resx">
-      <DependentUpon>UIDoWorkProcessForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmInputBox.resx">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUIDoWorkProcess.resx">
+      <DependentUpon>FrmUIDoWorkProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

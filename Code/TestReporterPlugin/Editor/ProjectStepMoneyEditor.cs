@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TestReporterPlugin.DB;
@@ -17,12 +16,12 @@ namespace TestReporterPlugin.Editor
         {
             InitializeComponent();
 
-            //dgvDetail[dgvDetail.Columns.Count - 1, 0].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
+            //dgvDetail[dgvDetail.Columns.Count - 1, 0].Value = global::TestReporterPlugin.Resource.DELETE_28;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.FrmUIDoWorkProcess();
+            Forms.FrmUIDoWorkProcess upf = new Forms.FrmUIDoWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -41,19 +40,9 @@ namespace TestReporterPlugin.Editor
             }
         }
 
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            OnLastEvent();
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            OnNextEvent();
-        }
-
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::TestReporterPlugin.Resource.DELETE_28;
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -77,7 +66,7 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateStepList()
         {
-            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Step>(new Step());
+            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Step>(new Step());
             if (StepList != null)
             {
                 int indexx = 0;

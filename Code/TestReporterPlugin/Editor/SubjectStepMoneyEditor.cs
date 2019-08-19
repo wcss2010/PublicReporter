@@ -19,12 +19,12 @@ namespace TestReporterPlugin.Editor
         {
             InitializeComponent();
 
-            //dgvDetail[dgvDetail.Columns.Count - 1, 0].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
+            //dgvDetail[dgvDetail.Columns.Count - 1, 0].Value = global::TestReporterPlugin.Resource.DELETE_28;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.FrmUIDoWorkProcess();
+            Forms.FrmUIDoWorkProcess upf = new Forms.FrmUIDoWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -43,19 +43,9 @@ namespace TestReporterPlugin.Editor
             }
         }
 
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            OnLastEvent();
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            OnNextEvent();
-        }
-
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::TestReporterPlugin.Resource.DELETE_28;
         }
 
         public override void ClearView()
@@ -73,10 +63,10 @@ namespace TestReporterPlugin.Editor
         {
             base.RefreshView();
 
-            if (MainForm.Instance.ProjectObj != null)
+            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null)
             {
-                txtTotalTime.Text = MainForm.Instance.ProjectObj.TotalTime != null ? MainForm.Instance.ProjectObj.TotalTime.Value + "" : "0";
-                txtTotalMoney.Text = MainForm.Instance.ProjectObj.TotalMoney != null ? MainForm.Instance.ProjectObj.TotalMoney.Value + "" : "0";
+                txtTotalTime.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalTime != null ? ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalTime.Value + "" : "0";
+                txtTotalMoney.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalMoney != null ? ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalMoney.Value + "" : "0";
                 txtStepCount.Text = "0";
 
                 UpdateStepList();
@@ -85,12 +75,12 @@ namespace TestReporterPlugin.Editor
 
         public void UpdateStepList()
         {
-            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Step>(new Step());
-            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Project>(new Project());
+            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Step>(new Step());
+            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Project>(new Project());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();
-            ((DataGridViewImageColumn)dgvDetail.Columns[dgvDetail.Columns.Count - 1]).Image = ProjectReporter.Properties.Resources.DELETE_28;
+            ((DataGridViewImageColumn)dgvDetail.Columns[dgvDetail.Columns.Count - 1]).Image = TestReporterPlugin.Resource.DELETE_28;
             foreach (Step step in StepList)
             {
                 List<object> cells = new List<object>();
@@ -149,7 +139,7 @@ namespace TestReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = MainForm.Instance.ProjectObj.ID;
+                        step.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                     }
                     else
                     {
@@ -200,8 +190,8 @@ namespace TestReporterPlugin.Editor
                         return;
                     }
 
-                    step.StepIndex = Int32.Parse(((KryptonDataGridViewNumericUpDownCell)dgvRow.Cells[1]).Value.ToString());
-                    step.StepTime = Int32.Parse(((KryptonDataGridViewNumericUpDownCell)dgvRow.Cells[2]).Value.ToString());
+                    step.StepIndex = Int32.Parse(((DataGridViewTextBoxCell)dgvRow.Cells[1]).Value.ToString());
+                    step.StepTime = Int32.Parse(((DataGridViewTextBoxCell)dgvRow.Cells[2]).Value.ToString());
                     step.StepDest = dgvRow.Cells[3].Value.ToString();
                     step.StepContent = dgvRow.Cells[4].Value.ToString();
                     step.StepResult = dgvRow.Cells[5].Value.ToString();
@@ -264,9 +254,9 @@ namespace TestReporterPlugin.Editor
                 RefreshView();
 
                 //刷新课题阶段划分表
-                foreach (BaseEditor be in MainForm.Instance.EditorMaps.Values)
+                foreach (BaseEditor be in ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).editorMap.Values)
                 {
-                    if (be is KeTiJieDuanHuaFenEditor)
+                    if (be is ProjectStepMoneyEditor)
                     {
                         //刷新列表
                         be.RefreshView();
@@ -294,7 +284,7 @@ namespace TestReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = MainForm.Instance.ProjectObj.ID;
+                        step.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                     }
                     else
                     {
@@ -341,8 +331,8 @@ namespace TestReporterPlugin.Editor
                         dgvRow.Cells[7].Value = 0;
                     }
 
-                    step.StepIndex = Int32.Parse(((KryptonDataGridViewNumericUpDownCell)dgvRow.Cells[1]).Value.ToString());
-                    step.StepTime = Int32.Parse(((KryptonDataGridViewNumericUpDownCell)dgvRow.Cells[2]).Value.ToString());
+                    step.StepIndex = Int32.Parse(((DataGridViewTextBoxCell)dgvRow.Cells[1]).Value.ToString());
+                    step.StepTime = Int32.Parse(((DataGridViewTextBoxCell)dgvRow.Cells[2]).Value.ToString());
                     step.StepDest = dgvRow.Cells[3].Value.ToString();
                     step.StepContent = dgvRow.Cells[4].Value.ToString();
                     step.StepResult = dgvRow.Cells[5].Value.ToString();
@@ -443,7 +433,7 @@ namespace TestReporterPlugin.Editor
                             }
                         }
 
-                        MainForm.Instance.RefreshEditorWithoutRTFTextEditor();
+                        ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
                     }
                 }else
                 {
@@ -487,7 +477,7 @@ namespace TestReporterPlugin.Editor
             if (e.ColumnIndex == 3)
             {
                 string content = dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null ? dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() : string.Empty;
-                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.FrmInputBox(content);
+                Forms.FrmInputBox textboxForm = new Forms.FrmInputBox(content);
                 if (textboxForm.ShowDialog() == DialogResult.OK)
                 {
                     dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = textboxForm.SelectedText;
@@ -496,7 +486,7 @@ namespace TestReporterPlugin.Editor
             else if (e.ColumnIndex == 5)
             {
                 string content = dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null ? dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() : string.Empty;
-                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.FrmInputBox(content);
+                Forms.FrmInputBox textboxForm = new Forms.FrmInputBox(content);
                 if (textboxForm.ShowDialog() == DialogResult.OK)
                 {
                     dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = textboxForm.SelectedText;
@@ -510,11 +500,11 @@ namespace TestReporterPlugin.Editor
             {
                 try
                 {
-                    DataSet ds = ProjectReporter.Utility.ExcelHelper.ExcelToDataSet(ofdExcelDialog.FileName);
+                    DataSet ds = ExcelHelper.ExcelToDataSet(ofdExcelDialog.FileName);
                     if (ds != null && ds.Tables.Count >= 1)
                     {
                         //显示提示窗体
-                        ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.FrmUIDoWorkProcess();
+                        Forms.FrmUIDoWorkProcess upf = new Forms.FrmUIDoWorkProcess();
                         upf.EnabledDisplayProgress = false;
                         upf.LabalText = "正在导入，请稍等...";
                         upf.ShowProgress();

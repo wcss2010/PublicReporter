@@ -22,7 +22,7 @@ namespace TestReporterPlugin
         /// <summary>
         /// 编辑器字典
         /// </summary>
-        private SortedList<string, BaseEditor> editorMap = new SortedList<string, BaseEditor>();
+        public SortedList<string, BaseEditor> editorMap = new SortedList<string, BaseEditor>();
 
         /// <summary>
         /// 数据目录
