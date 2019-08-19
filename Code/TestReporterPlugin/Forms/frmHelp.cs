@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TestReporterPlugin.Forms
 {
-    public partial class frmHelp : Form
+    public partial class FrmHelp : Form
     {
-        public frmHelp()
+        public FrmHelp()
         {
             InitializeComponent();
         }

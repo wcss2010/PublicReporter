@@ -1,6 +1,6 @@
 ﻿namespace TestReporterPlugin.Forms
 {
-    partial class UIDoWorkProcessForm
+    partial class FrmUIDoWorkProcess
     {
         /// <summary>
         /// Required designer variable.

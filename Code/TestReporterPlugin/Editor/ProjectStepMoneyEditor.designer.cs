@@ -238,7 +238,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel15);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "XiangMuJieDuanHuaFenEditor";
+            this.Name = "ProjectStepMoneyEditor";
             this.Size = new System.Drawing.Size(1043, 637);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

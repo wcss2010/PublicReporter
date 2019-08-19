@@ -24,7 +24,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.FrmUIDoWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -487,7 +487,7 @@ namespace TestReporterPlugin.Editor
             if (e.ColumnIndex == 3)
             {
                 string content = dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null ? dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() : string.Empty;
-                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.TextBoxForm(content);
+                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.FrmInputBox(content);
                 if (textboxForm.ShowDialog() == DialogResult.OK)
                 {
                     dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = textboxForm.SelectedText;
@@ -496,7 +496,7 @@ namespace TestReporterPlugin.Editor
             else if (e.ColumnIndex == 5)
             {
                 string content = dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null ? dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() : string.Empty;
-                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.TextBoxForm(content);
+                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.FrmInputBox(content);
                 if (textboxForm.ShowDialog() == DialogResult.OK)
                 {
                     dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = textboxForm.SelectedText;
@@ -514,7 +514,7 @@ namespace TestReporterPlugin.Editor
                     if (ds != null && ds.Tables.Count >= 1)
                     {
                         //显示提示窗体
-                        ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+                        ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.FrmUIDoWorkProcess();
                         upf.EnabledDisplayProgress = false;
                         upf.LabalText = "正在导入，请稍等...";
                         upf.ShowProgress();

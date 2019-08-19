@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TestReporterPlugin.Forms
 {
-    public partial class UIDoWorkProcessForm : Form
+    public partial class FrmUIDoWorkProcess : Form
     {
         /// <summary>
         /// 是否显示进度条
@@ -50,7 +50,7 @@ namespace TestReporterPlugin.Forms
             set { label1.Text = value; }
         }
 
-        public UIDoWorkProcessForm()
+        public FrmUIDoWorkProcess()
         {
             InitializeComponent();
         }

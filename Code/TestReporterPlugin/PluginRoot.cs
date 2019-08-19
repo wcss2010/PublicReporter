@@ -371,7 +371,7 @@ namespace TestReporterPlugin
             switch (button.Text)
             {
                 case "帮助":
-                    frmHelp helpForm = new frmHelp();
+                    FrmHelp helpForm = new FrmHelp();
                     helpForm.ShowDialog();
                     break;
             }

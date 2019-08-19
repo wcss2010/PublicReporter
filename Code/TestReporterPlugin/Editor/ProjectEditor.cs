@@ -125,7 +125,7 @@ namespace TestReporterPlugin.Editor
         
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            Forms.FrmUIDoWorkProcess upf = new Forms.FrmUIDoWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();

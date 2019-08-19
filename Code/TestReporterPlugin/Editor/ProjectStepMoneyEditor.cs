@@ -22,7 +22,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.FrmUIDoWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
