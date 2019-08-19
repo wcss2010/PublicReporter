@@ -86,6 +86,9 @@
     <Compile Include="Controls\AutoHeightLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\TextBoxAndHintLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Editor\BaseEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,11 +122,29 @@
     <Compile Include="DB\Entitys\UnitExt.cs" />
     <Compile Include="DB\Entitys\WhiteList.cs" />
     <Compile Include="DB\Services\UnitExtService.cs" />
+    <Compile Include="Editor\NewProjectEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\NewProjectEditor.designer.cs">
+      <DependentUpon>NewProjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ProjectKeyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectKeyControl.designer.cs">
+      <DependentUpon>ProjectKeyControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmHelp.Designer.cs">
       <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UIDoWorkProcessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UIDoWorkProcessForm.designer.cs">
+      <DependentUpon>UIDoWorkProcessForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,8 +169,17 @@
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\NewProjectEditor.resx">
+      <DependentUpon>NewProjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectKeyControl.resx">
+      <DependentUpon>ProjectKeyControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmHelp.resx">
       <DependentUpon>frmHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UIDoWorkProcessForm.resx">
+      <DependentUpon>UIDoWorkProcessForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
