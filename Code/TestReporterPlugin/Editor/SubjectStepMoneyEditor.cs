@@ -24,7 +24,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Forms.FrmUIDoWorkProcess upf = new Forms.FrmUIDoWorkProcess();
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -504,7 +504,7 @@ namespace TestReporterPlugin.Editor
                     if (ds != null && ds.Tables.Count >= 1)
                     {
                         //显示提示窗体
-                        Forms.FrmUIDoWorkProcess upf = new Forms.FrmUIDoWorkProcess();
+                        Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
                         upf.EnabledDisplayProgress = false;
                         upf.LabalText = "正在导入，请稍等...";
                         upf.ShowProgress();
