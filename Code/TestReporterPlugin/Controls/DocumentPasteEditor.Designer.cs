@@ -30,6 +30,8 @@
         {
             this.lblInfo = new System.Windows.Forms.Label();
             this.plContent = new System.Windows.Forms.Panel();
+            this.btnEditDocument = new System.Windows.Forms.Button();
+            this.plContent.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -45,11 +47,23 @@
             // 
             // plContent
             // 
+            this.plContent.Controls.Add(this.btnEditDocument);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(0, 58);
             this.plContent.Name = "plContent";
             this.plContent.Size = new System.Drawing.Size(1083, 513);
             this.plContent.TabIndex = 1;
+            // 
+            // btnEditDocument
+            // 
+            this.btnEditDocument.Font = new System.Drawing.Font("仿宋", 12F);
+            this.btnEditDocument.Location = new System.Drawing.Point(6, 8);
+            this.btnEditDocument.Name = "btnEditDocument";
+            this.btnEditDocument.Size = new System.Drawing.Size(167, 43);
+            this.btnEditDocument.TabIndex = 0;
+            this.btnEditDocument.Text = "使用Word编辑该文档";
+            this.btnEditDocument.UseVisualStyleBackColor = true;
+            this.btnEditDocument.Click += new System.EventHandler(this.btnEditDocument_Click);
             // 
             // DocumentPasteEditor
             // 
@@ -59,6 +73,7 @@
             this.Controls.Add(this.lblInfo);
             this.Name = "DocumentPasteEditor";
             this.Size = new System.Drawing.Size(1083, 571);
+            this.plContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -67,5 +82,6 @@
 
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Panel plContent;
+        private System.Windows.Forms.Button btnEditDocument;
     }
 }
