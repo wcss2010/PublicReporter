@@ -1,6 +1,6 @@
 ﻿namespace TestReporterPlugin.Editor
 {
-    partial class ProjectKeyControl
+    partial class ProjectKeyEditor
     {
         /// <summary> 
         /// 必需的设计器变量。

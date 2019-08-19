@@ -89,6 +89,12 @@
     <Compile Include="Controls\TextBoxAndHintLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Editor\ConfidentialQualificationEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ConfidentialQualificationEditor.designer.cs">
+      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\BaseEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,11 +134,11 @@
     <Compile Include="Editor\ProjectEditor.designer.cs">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\ProjectKeyControl.cs">
+    <Compile Include="Editor\ProjectKeyEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Editor\ProjectKeyControl.designer.cs">
-      <DependentUpon>ProjectKeyControl.cs</DependentUpon>
+    <Compile Include="Editor\ProjectKeyEditor.designer.cs">
+      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmHelp.cs">
       <SubType>Form</SubType>
@@ -166,14 +172,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Editor\ConfidentialQualificationEditor.resx">
+      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectEditor.resx">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\ProjectKeyControl.resx">
-      <DependentUpon>ProjectKeyControl.cs</DependentUpon>
+    <EmbeddedResource Include="Editor\ProjectKeyEditor.resx">
+      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmHelp.resx">
       <DependentUpon>frmHelp.cs</DependentUpon>
@@ -191,6 +200,27 @@
     <None Include="static.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Attachment_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DELETE_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DELETE_28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DOWN_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UP_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

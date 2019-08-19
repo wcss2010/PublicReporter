@@ -67,7 +67,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtKeyWords = new TestReporterPlugin.Editor.ProjectKeyControl();
+            this.txtKeyWords = new TestReporterPlugin.Editor.ProjectKeyEditor();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.txtMPersonName = new System.Windows.Forms.TextBox();
@@ -973,7 +973,7 @@
         private System.Windows.Forms.TextBox txtTotalTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private ProjectKeyControl txtKeyWords;
+        private ProjectKeyEditor txtKeyWords;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtContactName;
         private System.Windows.Forms.Label label3;

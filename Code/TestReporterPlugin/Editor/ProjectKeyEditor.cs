@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace TestReporterPlugin.Editor
 {
-    public partial class ProjectKeyControl : UserControl
+    public partial class ProjectKeyEditor : UserControl
     {
-        public ProjectKeyControl()
+        public ProjectKeyEditor()
         {
             InitializeComponent();
         }
