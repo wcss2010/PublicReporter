@@ -91,9 +91,7 @@
             this.gcUnitBankName = new System.Windows.Forms.DataGridViewColumn();
             this.gcUnitBankNo = new System.Windows.Forms.DataGridViewColumn();
             this.plBottom = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLast = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.plTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
@@ -203,10 +201,10 @@
             // 
             this.txtDirection.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtDirection.HintText = "对应领域中的研究方向名称（军事智能基础、基础学科可不填；不在指南中的项目也可不填）";
-            this.txtDirection.Location = new System.Drawing.Point(233, 13);
+            this.txtDirection.Location = new System.Drawing.Point(256, 13);
             this.txtDirection.Multiline = true;
             this.txtDirection.Name = "txtDirection";
-            this.txtDirection.Size = new System.Drawing.Size(847, 29);
+            this.txtDirection.Size = new System.Drawing.Size(814, 29);
             this.txtDirection.TabIndex = 2;
             // 
             // label27
@@ -215,7 +213,7 @@
             this.label27.Location = new System.Drawing.Point(81, 2);
             this.label27.Margin = new System.Windows.Forms.Padding(3);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(159, 51);
+            this.label27.Size = new System.Drawing.Size(188, 51);
             this.label27.TabIndex = 200;
             this.label27.Text = "申报方向名称：";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -834,14 +832,12 @@
             // 
             // plBottom
             // 
-            this.plBottom.ColumnCount = 4;
+            this.plBottom.ColumnCount = 2;
             this.plBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.plBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.plBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.plBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.plBottom.Controls.Add(this.btnLast, 2, 0);
+            this.plBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.plBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.plBottom.Controls.Add(this.btnSave, 1, 0);
-            this.plBottom.Controls.Add(this.btnNext, 3, 0);
             this.plBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plBottom.Location = new System.Drawing.Point(0, 635);
             this.plBottom.Name = "plBottom";
@@ -849,15 +845,6 @@
             this.plBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.plBottom.Size = new System.Drawing.Size(1422, 34);
             this.plBottom.TabIndex = 46;
-            // 
-            // btnLast
-            // 
-            this.btnLast.Location = new System.Drawing.Point(1425, 3);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(1, 25);
-            this.btnLast.TabIndex = 1;
-            this.btnLast.Text = "返回";
-            this.btnLast.Visible = false;
             // 
             // btnSave
             // 
@@ -868,16 +855,6 @@
             this.btnSave.TabStop = false;
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(1425, 3);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(1, 27);
-            this.btnNext.TabIndex = 16;
-            this.btnNext.TabStop = false;
-            this.btnNext.Text = "下一步";
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // plTitle
             // 
@@ -1008,9 +985,7 @@
         private System.Windows.Forms.DataGridViewColumn gcUnitBankName;
         private System.Windows.Forms.DataGridViewColumn gcUnitBankNo;
         private System.Windows.Forms.TableLayoutPanel plBottom;
-        private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Panel plTitle;
         private TestReporterPlugin.Controls.AutoHeightLabel lblTitle;
         private System.Windows.Forms.Label label1;

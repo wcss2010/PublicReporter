@@ -122,36 +122,7 @@ namespace TestReporterPlugin.Editor
                 //txtMPersonBirthday.DateTime = ProjectPersonObj.Birthday != null ? ProjectPersonObj.Birthday.Value : DateTime.Now;
             }
         }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            UIDoWorkProcessForm upf = new UIDoWorkProcessForm();
-            upf.EnabledDisplayProgress = false;
-            upf.LabalText = "正在保存,请等待...";
-            upf.ShowProgress();
-
-            try
-            {
-                if (PublicReporterLib.PluginLoader.CurrentPlugin != null)
-                {
-                    long result = SaveProject();
-
-                    if (result >= 0)
-                    {
-                        ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).unlockProjectEditors();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("保存失败！Ex:" + ex.ToString());
-            }
-            finally
-            {
-                upf.Close();
-            }
-        }
-
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
             Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
