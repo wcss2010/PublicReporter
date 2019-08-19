@@ -9,8 +9,9 @@ using System.IO;
 using PublicReporterLib;
 using System.Diagnostics;
 using Aspose.Words;
+using TestReporterPlugin.Controls;
 
-namespace TestReporterPlugin.Controls
+namespace TestReporterPlugin.Editor
 {
     /// <summary>
     /// 文档编辑控件

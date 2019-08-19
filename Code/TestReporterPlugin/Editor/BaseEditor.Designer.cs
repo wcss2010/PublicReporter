@@ -1,4 +1,4 @@
-﻿namespace TestReporterPlugin.Controls
+﻿namespace TestReporterPlugin.Editor
 {
     partial class BaseEditor
     {

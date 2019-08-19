@@ -1,4 +1,4 @@
-﻿namespace TestReporterPlugin.Controls
+﻿namespace TestReporterPlugin.Editor
 {
     partial class DocumentPasteEditor
     {
@@ -84,7 +84,7 @@
 
         #endregion
 
-        private AutoHeightLabel lblInfo;
+        private TestReporterPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.Button btnEditDocument;
     }

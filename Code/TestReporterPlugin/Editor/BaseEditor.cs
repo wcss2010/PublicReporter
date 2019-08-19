@@ -6,7 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TestReporterPlugin.Controls
+namespace TestReporterPlugin.Editor
 {
     public delegate void SaveEventDelegate(object sender, EventArgs args);
 

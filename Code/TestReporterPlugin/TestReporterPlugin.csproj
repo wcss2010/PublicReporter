@@ -86,19 +86,19 @@
     <Compile Include="Controls\AutoHeightLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\BaseEditor.cs">
+    <Compile Include="Editor\BaseEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\BaseEditor.Designer.cs">
+    <Compile Include="Editor\BaseEditor.Designer.cs">
       <DependentUpon>BaseEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\DataGridViewWithMerge.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\DocumentPasteEditor.cs">
+    <Compile Include="Editor\DocumentPasteEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\DocumentPasteEditor.Designer.cs">
+    <Compile Include="Editor\DocumentPasteEditor.Designer.cs">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\HSkinTableLayoutPanel.cs">
@@ -145,7 +145,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\DocumentPasteEditor.resx">
+    <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmHelp.resx">

@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using TestReporterPlugin.Controls;
+using TestReporterPlugin.Editor;
 using TestReporterPlugin.Forms;
 
 namespace TestReporterPlugin
