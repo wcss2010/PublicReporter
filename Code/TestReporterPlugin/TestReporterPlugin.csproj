@@ -101,6 +101,9 @@
     <Compile Include="Controls\DocumentPasteEditor.Designer.cs">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\HSkinTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DB\ConnectionManager.cs" />
     <Compile Include="DB\Entitys\ExtFileList.cs" />
     <Compile Include="DB\Entitys\IEntity.cs" />
