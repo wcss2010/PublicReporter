@@ -147,7 +147,7 @@
             this.tableLayoutPanel20.RowCount = 2;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(944, 91);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(944, 81);
             this.tableLayoutPanel20.TabIndex = 5;
             // 
             // btnComsel
@@ -168,6 +168,7 @@
             this.kryptonLabel67.Size = new System.Drawing.Size(54, 40);
             this.kryptonLabel67.TabIndex = 1;
             this.kryptonLabel67.Text = "附件";
+            this.kryptonLabel67.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbcomattpath
             // 
@@ -179,6 +180,7 @@
             this.lbcomattpath.TabIndex = 8;
             this.lbcomattpath.TabStop = true;
             this.lbcomattpath.Text = "0";
+            this.lbcomattpath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 
@@ -187,7 +189,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(63, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(728, 45);
+            this.panel1.Size = new System.Drawing.Size(728, 35);
             this.panel1.TabIndex = 9;
             // 
             // lklDownloadFuJian
@@ -197,7 +199,7 @@
             this.lklDownloadFuJian.ForeColor = System.Drawing.Color.Black;
             this.lklDownloadFuJian.Location = new System.Drawing.Point(102, 0);
             this.lklDownloadFuJian.Name = "lklDownloadFuJian";
-            this.lklDownloadFuJian.Size = new System.Drawing.Size(152, 45);
+            this.lklDownloadFuJian.Size = new System.Drawing.Size(152, 35);
             this.lklDownloadFuJian.TabIndex = 0;
             this.lklDownloadFuJian.TabStop = true;
             this.lklDownloadFuJian.Text = "项目经费概算说明.doc";
@@ -210,9 +212,10 @@
             this.kryptonLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(102, 45);
+            this.kryptonLabel1.Size = new System.Drawing.Size(102, 35);
             this.kryptonLabel1.TabIndex = 2;
             this.kryptonLabel1.Text = "附件模板：";
+            this.kryptonLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ofdUpload
             // 
