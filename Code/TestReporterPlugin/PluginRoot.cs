@@ -334,7 +334,7 @@ namespace TestReporterPlugin
 
             #region 初始化其它的编辑器
             editorMap.Add("申报书", new ProjectEditor());
-            editorMap.Add("保密资质", new ConfidentialQualificationEditor());
+            editorMap.Add("附件2-保密资质", new ConfidentialQualificationEditor());
             #endregion
         }
 
