@@ -334,8 +334,8 @@ namespace TestReporterPlugin
 
             #region 初始化其它的编辑器
             editorMap.Add("申报书", new ProjectEditor());
-            editorMap.Add("项目阶段划分和经费安排", new ProjectStepMoneyEditor());
-            editorMap.Add("课题阶段划分和经费安排", new SubjectStepMoneyEditor());
+            editorMap.Add("项目阶段划分和经费安排", new SubjectStepMoneyEditor());
+            editorMap.Add("课题阶段划分和经费安排", new ProjectStepMoneyEditor());
             editorMap.Add("附件1-经费概算", new MoneySummaryEditor());
             editorMap.Add("附件2-保密资质", new ConfidentialQualificationEditor());
             #endregion
