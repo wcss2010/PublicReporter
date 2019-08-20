@@ -30,21 +30,21 @@
         {
             this.knKetiDetailTabs = new System.Windows.Forms.TabControl();
             this.kpInfo = new System.Windows.Forms.TabPage();
-            this.txtInfo = new Controls.TextBoxExt();
+            this.txtInfo = new TestReporterPlugin.Controls.TextBoxExt();
             this.kryptonPanel1 = new System.Windows.Forms.Panel();
-            this.autoHeightLabel1 = new Controls.AutoHeightLabel();
+            this.autoHeightLabel1 = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.kpDest = new System.Windows.Forms.TabPage();
+            this.btnEditDest = new System.Windows.Forms.Button();
             this.kpContent = new System.Windows.Forms.TabPage();
+            this.btnEditContent = new System.Windows.Forms.Button();
             this.kpNeed = new System.Windows.Forms.TabPage();
+            this.btnEditNeed = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.plTitle = new System.Windows.Forms.Panel();
-            this.lblTitle = new Controls.AutoHeightLabel();
+            this.lblTitle = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.btnEditDest = new System.Windows.Forms.Button();
-            this.btnEditContent = new System.Windows.Forms.Button();
-            this.btnEditNeed = new System.Windows.Forms.Button();
             this.knKetiDetailTabs.SuspendLayout();
             this.kpInfo.SuspendLayout();
             this.kryptonPanel1.SuspendLayout();
@@ -59,14 +59,13 @@
             // 
             // knKetiDetailTabs
             // 
+            this.knKetiDetailTabs.Controls.Add(this.kpInfo);
+            this.knKetiDetailTabs.Controls.Add(this.kpDest);
+            this.knKetiDetailTabs.Controls.Add(this.kpContent);
+            this.knKetiDetailTabs.Controls.Add(this.kpNeed);
             this.knKetiDetailTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.knKetiDetailTabs.Location = new System.Drawing.Point(0, 0);
             this.knKetiDetailTabs.Name = "knKetiDetailTabs";
-            this.knKetiDetailTabs.TabPages.AddRange(new System.Windows.Forms.TabPage[] {
-            this.kpInfo,
-            this.kpDest,
-            this.kpContent,
-            this.kpNeed});
             this.knKetiDetailTabs.SelectedIndex = 0;
             this.knKetiDetailTabs.Size = new System.Drawing.Size(752, 388);
             this.knKetiDetailTabs.TabIndex = 0;
@@ -76,9 +75,11 @@
             // 
             this.kpInfo.Controls.Add(this.txtInfo);
             this.kpInfo.Controls.Add(this.kryptonPanel1);
+            this.kpInfo.Location = new System.Drawing.Point(4, 22);
             this.kpInfo.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpInfo.Name = "kpInfo";
-            this.kpInfo.Size = new System.Drawing.Size(750, 361);
+            this.kpInfo.Size = new System.Drawing.Size(744, 362);
+            this.kpInfo.TabIndex = 0;
             this.kpInfo.Text = "简述";
             // 
             // txtInfo
@@ -88,7 +89,7 @@
             this.txtInfo.Location = new System.Drawing.Point(0, 28);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(750, 333);
+            this.txtInfo.Size = new System.Drawing.Size(744, 334);
             this.txtInfo.TabIndex = 0;
             // 
             // kryptonPanel1
@@ -100,7 +101,7 @@
             this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.kryptonPanel1.Size = new System.Drawing.Size(750, 28);
+            this.kryptonPanel1.Size = new System.Drawing.Size(744, 28);
             this.kryptonPanel1.TabIndex = 1;
             // 
             // autoHeightLabel1
@@ -111,7 +112,7 @@
             this.autoHeightLabel1.Font = new System.Drawing.Font("仿宋", 14.25F);
             this.autoHeightLabel1.Location = new System.Drawing.Point(6, 0);
             this.autoHeightLabel1.Name = "autoHeightLabel1";
-            this.autoHeightLabel1.Size = new System.Drawing.Size(744, 28);
+            this.autoHeightLabel1.Size = new System.Drawing.Size(738, 28);
             this.autoHeightLabel1.TabIndex = 0;
             this.autoHeightLabel1.Text = "(200字以内,此部分无需缩进,请顶格填写)";
             this.autoHeightLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -119,26 +120,59 @@
             // kpDest
             // 
             this.kpDest.Controls.Add(this.btnEditDest);
+            this.kpDest.Location = new System.Drawing.Point(4, 22);
             this.kpDest.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpDest.Name = "kpDest";
-            this.kpDest.Size = new System.Drawing.Size(750, 361);
+            this.kpDest.Size = new System.Drawing.Size(744, 362);
+            this.kpDest.TabIndex = 1;
             this.kpDest.Text = "研究目标";
+            // 
+            // btnEditDest
+            // 
+            this.btnEditDest.Location = new System.Drawing.Point(8, 9);
+            this.btnEditDest.Name = "btnEditDest";
+            this.btnEditDest.Size = new System.Drawing.Size(133, 40);
+            this.btnEditDest.TabIndex = 2;
+            this.btnEditDest.Text = "编辑文档";
+            this.btnEditDest.Click += new System.EventHandler(this.btnEditDest_Click);
             // 
             // kpContent
             // 
             this.kpContent.Controls.Add(this.btnEditContent);
+            this.kpContent.Location = new System.Drawing.Point(4, 22);
             this.kpContent.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpContent.Name = "kpContent";
-            this.kpContent.Size = new System.Drawing.Size(750, 361);
+            this.kpContent.Size = new System.Drawing.Size(744, 362);
+            this.kpContent.TabIndex = 2;
             this.kpContent.Text = "研究内容";
+            // 
+            // btnEditContent
+            // 
+            this.btnEditContent.Location = new System.Drawing.Point(8, 9);
+            this.btnEditContent.Name = "btnEditContent";
+            this.btnEditContent.Size = new System.Drawing.Size(133, 40);
+            this.btnEditContent.TabIndex = 2;
+            this.btnEditContent.Text = "编辑文档";
+            this.btnEditContent.Click += new System.EventHandler(this.btnEditContent_Click);
             // 
             // kpNeed
             // 
             this.kpNeed.Controls.Add(this.btnEditNeed);
+            this.kpNeed.Location = new System.Drawing.Point(4, 22);
             this.kpNeed.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpNeed.Name = "kpNeed";
-            this.kpNeed.Size = new System.Drawing.Size(750, 361);
+            this.kpNeed.Size = new System.Drawing.Size(744, 362);
+            this.kpNeed.TabIndex = 3;
             this.kpNeed.Text = "研究思路";
+            // 
+            // btnEditNeed
+            // 
+            this.btnEditNeed.Location = new System.Drawing.Point(7, 7);
+            this.btnEditNeed.Name = "btnEditNeed";
+            this.btnEditNeed.Size = new System.Drawing.Size(133, 40);
+            this.btnEditNeed.TabIndex = 2;
+            this.btnEditNeed.Text = "编辑文档";
+            this.btnEditNeed.Click += new System.EventHandler(this.btnEditNeed_Click);
             // 
             // tableLayoutPanel15
             // 
@@ -221,37 +255,11 @@
             this.plContent.Size = new System.Drawing.Size(752, 388);
             this.plContent.TabIndex = 7;
             // 
-            // btnEditDest
-            // 
-            this.btnEditDest.Location = new System.Drawing.Point(8, 9);
-            this.btnEditDest.Name = "btnEditDest";
-            this.btnEditDest.Size = new System.Drawing.Size(133, 40);
-            this.btnEditDest.TabIndex = 2;
-            this.btnEditDest.Text = "编辑文档";
-            this.btnEditDest.Click += new System.EventHandler(this.btnEditDest_Click);
-            // 
-            // btnEditContent
-            // 
-            this.btnEditContent.Location = new System.Drawing.Point(8, 9);
-            this.btnEditContent.Name = "btnEditContent";
-            this.btnEditContent.Size = new System.Drawing.Size(133, 40);
-            this.btnEditContent.TabIndex = 2;
-            this.btnEditContent.Text = "编辑文档";
-            this.btnEditContent.Click += new System.EventHandler(this.btnEditContent_Click);
-            // 
-            // btnEditNeed
-            // 
-            this.btnEditNeed.Location = new System.Drawing.Point(7, 7);
-            this.btnEditNeed.Name = "btnEditNeed";
-            this.btnEditNeed.Size = new System.Drawing.Size(133, 40);
-            this.btnEditNeed.TabIndex = 2;
-            this.btnEditNeed.Text = "编辑文档";
-            this.btnEditNeed.Click += new System.EventHandler(this.btnEditNeed_Click);
-            // 
-            // KeTiDetailEditor
+            // SubjectDetailEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel15);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SubjectDetailEditor";

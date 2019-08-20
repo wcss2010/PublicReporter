@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.plTitle = new System.Windows.Forms.Panel();
             this.label1 = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
@@ -51,13 +51,13 @@
             this.colMakePage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
             this.kvKetiTabs.SuspendLayout();
             this.kpKetiItems.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel15
@@ -108,6 +108,15 @@
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(386, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 27);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "增加";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // plTitle
             // 
             this.plTitle.AutoSize = true;
@@ -117,7 +126,7 @@
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
             this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.plTitle.Size = new System.Drawing.Size(681, 58);
+            this.plTitle.Size = new System.Drawing.Size(681, 68);
             this.plTitle.TabIndex = 0;
             // 
             // label1
@@ -128,7 +137,7 @@
             this.label1.Font = new System.Drawing.Font("仿宋", 14.25F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(675, 58);
+            this.label1.Size = new System.Drawing.Size(675, 68);
             this.label1.TabIndex = 0;
             this.label1.Text = "围绕如何全面的、有效的实现项目目标，进行课题分解，明确每个课题的密级，并简述研究内容；牵头申报单位承担的课题数不超过课题总数的三分之二";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -138,28 +147,29 @@
             this.plContent.BackColor = System.Drawing.Color.Transparent;
             this.plContent.Controls.Add(this.kvKetiTabs);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(53, 81);
+            this.plContent.Location = new System.Drawing.Point(53, 91);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(683, 367);
+            this.plContent.Size = new System.Drawing.Size(683, 357);
             this.plContent.TabIndex = 7;
             // 
             // kvKetiTabs
             // 
+            this.kvKetiTabs.Controls.Add(this.kpKetiItems);
             this.kvKetiTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kvKetiTabs.Location = new System.Drawing.Point(0, 0);
             this.kvKetiTabs.Name = "kvKetiTabs";
-            this.kvKetiTabs.TabPages.AddRange(new System.Windows.Forms.TabPage[] {
-            this.kpKetiItems});
             this.kvKetiTabs.SelectedIndex = 0;
-            this.kvKetiTabs.Size = new System.Drawing.Size(683, 367);
+            this.kvKetiTabs.Size = new System.Drawing.Size(683, 357);
             this.kvKetiTabs.TabIndex = 4;
             // 
             // kpKetiItems
             // 
             this.kpKetiItems.Controls.Add(this.dgvDetail);
+            this.kpKetiItems.Location = new System.Drawing.Point(4, 22);
             this.kpKetiItems.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpKetiItems.Name = "kpKetiItems";
-            this.kpKetiItems.Size = new System.Drawing.Size(681, 340);
+            this.kpKetiItems.Size = new System.Drawing.Size(675, 331);
+            this.kpKetiItems.TabIndex = 0;
             this.kpKetiItems.Text = "课题列表";
             // 
             // dgvDetail
@@ -185,11 +195,11 @@
             this.dgvDetail.Location = new System.Drawing.Point(0, 0);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.RowTemplate.Height = 35;
-            this.dgvDetail.Size = new System.Drawing.Size(681, 340);
+            this.dgvDetail.Size = new System.Drawing.Size(675, 331);
             this.dgvDetail.TabIndex = 3;
             this.dgvDetail.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDetail_CellBeginEdit);
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
@@ -208,7 +218,6 @@
             this.colKeTiMingCheng.HeaderText = "课题名称";
             this.colKeTiMingCheng.Name = "colKeTiMingCheng";
             this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colKeTiMingCheng.Width = 57;
             // 
             // colMiJi
             // 
@@ -291,19 +300,11 @@
             this.colDetail.Visible = false;
             this.colDetail.Width = 60;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(386, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 27);
-            this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "增加";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // KeTiTianBaoEditor
+            // SubjectTableEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel15);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SubjectTableEditor";
@@ -315,6 +316,7 @@
             this.plContent.ResumeLayout(false);
             this.kvKetiTabs.ResumeLayout(false);
             this.kpKetiItems.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.ResumeLayout(false);
 
         }
