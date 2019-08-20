@@ -469,7 +469,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel6.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel6.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel6.Location = new System.Drawing.Point(3, 270);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -480,7 +480,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA2_1Rm
             // 
             this.ProjectRFA2_1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA2_1Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA2_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA2_1Rm.Location = new System.Drawing.Point(339, 482);
             this.ProjectRFA2_1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA2_1Rm.Name = "ProjectRFA2_1Rm";
@@ -490,7 +490,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA2Rm
             // 
             this.ProjectRFA2Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA2Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA2Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA2Rm.Location = new System.Drawing.Point(339, 452);
             this.ProjectRFA2Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA2Rm.Name = "ProjectRFA2Rm";
@@ -500,7 +500,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_9Rm
             // 
             this.ProjectRFA1_9Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_9Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_9Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_9Rm.Location = new System.Drawing.Point(339, 422);
             this.ProjectRFA1_9Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_9Rm.Name = "ProjectRFA1_9Rm";
@@ -510,7 +510,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_8Rm
             // 
             this.ProjectRFA1_8Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_8Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_8Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_8Rm.Location = new System.Drawing.Point(339, 392);
             this.ProjectRFA1_8Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_8Rm.Name = "ProjectRFA1_8Rm";
@@ -520,7 +520,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_7Rm
             // 
             this.ProjectRFA1_7Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_7Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_7Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_7Rm.Location = new System.Drawing.Point(339, 362);
             this.ProjectRFA1_7Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_7Rm.Name = "ProjectRFA1_7Rm";
@@ -530,7 +530,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_6Rm
             // 
             this.ProjectRFA1_6Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_6Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_6Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_6Rm.Location = new System.Drawing.Point(339, 332);
             this.ProjectRFA1_6Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_6Rm.Name = "ProjectRFA1_6Rm";
@@ -540,7 +540,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_5Rm
             // 
             this.ProjectRFA1_5Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_5Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_5Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_5Rm.Location = new System.Drawing.Point(339, 302);
             this.ProjectRFA1_5Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_5Rm.Name = "ProjectRFA1_5Rm";
@@ -550,7 +550,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_4Rm
             // 
             this.ProjectRFA1_4Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_4Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_4Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_4Rm.Location = new System.Drawing.Point(339, 272);
             this.ProjectRFA1_4Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_4Rm.Name = "ProjectRFA1_4Rm";
@@ -560,7 +560,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_3Rm
             // 
             this.ProjectRFA1_3Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_3Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_3Rm.Location = new System.Drawing.Point(339, 242);
             this.ProjectRFA1_3Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_3Rm.Name = "ProjectRFA1_3Rm";
@@ -570,7 +570,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_2Rm
             // 
             this.ProjectRFA1_2Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_2Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_2Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_2Rm.Location = new System.Drawing.Point(339, 212);
             this.ProjectRFA1_2Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_2Rm.Name = "ProjectRFA1_2Rm";
@@ -580,7 +580,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_1_3Rm
             // 
             this.ProjectRFA1_1_3Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1_3Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_3Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_3Rm.Location = new System.Drawing.Point(339, 182);
             this.ProjectRFA1_1_3Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_3Rm.Name = "ProjectRFA1_1_3Rm";
@@ -590,7 +590,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_1_2Rm
             // 
             this.ProjectRFA1_1_2Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1_2Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_2Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_2Rm.Location = new System.Drawing.Point(339, 152);
             this.ProjectRFA1_1_2Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_2Rm.Name = "ProjectRFA1_1_2Rm";
@@ -600,7 +600,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_1_1Rm
             // 
             this.ProjectRFA1_1_1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1_1Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_1Rm.Location = new System.Drawing.Point(339, 122);
             this.ProjectRFA1_1_1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_1Rm.Name = "ProjectRFA1_1_1Rm";
@@ -610,7 +610,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_1Rm
             // 
             this.ProjectRFA1_1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1Rm.Location = new System.Drawing.Point(339, 92);
             this.ProjectRFA1_1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1Rm.Name = "ProjectRFA1_1Rm";
@@ -621,7 +621,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel39.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel39.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel39.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel39.Location = new System.Drawing.Point(3, 30);
             this.kryptonLabel39.Name = "kryptonLabel39";
             this.kryptonLabel39.Size = new System.Drawing.Size(211, 30);
@@ -631,7 +631,7 @@ namespace TestReporterPlugin.Editor
             // kryptonLabel38
             // 
             this.kryptonLabel38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel38.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold);
+            this.kryptonLabel38.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
             this.kryptonLabel38.Location = new System.Drawing.Point(540, 0);
             this.kryptonLabel38.Name = "kryptonLabel38";
             this.kryptonLabel38.Size = new System.Drawing.Size(1, 30);
@@ -644,7 +644,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel37.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel37.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold);
+            this.kryptonLabel37.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
             this.kryptonLabel37.Location = new System.Drawing.Point(340, 0);
             this.kryptonLabel37.Name = "kryptonLabel37";
             this.kryptonLabel37.Size = new System.Drawing.Size(194, 30);
@@ -656,7 +656,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel36.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel36.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold);
+            this.kryptonLabel36.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
             this.kryptonLabel36.Location = new System.Drawing.Point(220, 0);
             this.kryptonLabel36.Name = "kryptonLabel36";
             this.kryptonLabel36.Size = new System.Drawing.Size(114, 30);
@@ -668,7 +668,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel30.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel30.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel30.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel30.Location = new System.Drawing.Point(3, 0);
             this.kryptonLabel30.Name = "kryptonLabel30";
             this.kryptonLabel30.Size = new System.Drawing.Size(211, 30);
@@ -680,7 +680,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.ProjectRFA.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ProjectRFA.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ProjectRFA.Location = new System.Drawing.Point(220, 30);
             this.ProjectRFA.Name = "ProjectRFA";
             this.ProjectRFA.Size = new System.Drawing.Size(114, 30);
@@ -693,7 +693,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFARm
             // 
             this.ProjectRFARm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFARm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFARm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFARm.Location = new System.Drawing.Point(339, 32);
             this.ProjectRFARm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFARm.Name = "ProjectRFARm";
@@ -704,7 +704,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel42.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel42.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel42.Location = new System.Drawing.Point(3, 90);
             this.kryptonLabel42.Name = "kryptonLabel42";
             this.kryptonLabel42.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -716,7 +716,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel43.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel43.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel43.Location = new System.Drawing.Point(3, 120);
             this.kryptonLabel43.Name = "kryptonLabel43";
             this.kryptonLabel43.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -728,7 +728,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel44.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel44.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel44.Location = new System.Drawing.Point(3, 150);
             this.kryptonLabel44.Name = "kryptonLabel44";
             this.kryptonLabel44.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -740,7 +740,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel41.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel41.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel41.Location = new System.Drawing.Point(3, 60);
             this.kryptonLabel41.Name = "kryptonLabel41";
             this.kryptonLabel41.Size = new System.Drawing.Size(211, 30);
@@ -751,7 +751,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel46.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel46.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel46.Location = new System.Drawing.Point(3, 210);
             this.kryptonLabel46.Name = "kryptonLabel46";
             this.kryptonLabel46.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -763,7 +763,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel47.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel47.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel47.Location = new System.Drawing.Point(3, 180);
             this.kryptonLabel47.Name = "kryptonLabel47";
             this.kryptonLabel47.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -775,7 +775,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel48.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel48.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel48.Location = new System.Drawing.Point(3, 240);
             this.kryptonLabel48.Name = "kryptonLabel48";
             this.kryptonLabel48.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -787,7 +787,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.ProjectRFA1.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ProjectRFA1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ProjectRFA1.Location = new System.Drawing.Point(220, 60);
             this.ProjectRFA1.Name = "ProjectRFA1";
             this.ProjectRFA1.Size = new System.Drawing.Size(114, 30);
@@ -799,7 +799,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel50.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel50.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel50.Location = new System.Drawing.Point(3, 270);
             this.kryptonLabel50.Name = "kryptonLabel50";
             this.kryptonLabel50.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -811,7 +811,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel51.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel51.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel51.Location = new System.Drawing.Point(3, 300);
             this.kryptonLabel51.Name = "kryptonLabel51";
             this.kryptonLabel51.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -823,7 +823,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel52.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel52.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel52.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel52.Location = new System.Drawing.Point(3, 330);
             this.kryptonLabel52.Name = "kryptonLabel52";
             this.kryptonLabel52.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -835,7 +835,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel53.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel53.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel53.Location = new System.Drawing.Point(3, 360);
             this.kryptonLabel53.Name = "kryptonLabel53";
             this.kryptonLabel53.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -847,7 +847,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel54.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel54.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel54.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel54.Location = new System.Drawing.Point(3, 390);
             this.kryptonLabel54.Name = "kryptonLabel54";
             this.kryptonLabel54.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -859,7 +859,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel55.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel55.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel55.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel55.Location = new System.Drawing.Point(3, 420);
             this.kryptonLabel55.Name = "kryptonLabel55";
             this.kryptonLabel55.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -871,7 +871,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel56.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel56.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel56.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel56.Location = new System.Drawing.Point(3, 450);
             this.kryptonLabel56.Name = "kryptonLabel56";
             this.kryptonLabel56.Size = new System.Drawing.Size(211, 30);
@@ -882,7 +882,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel57.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel57.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel57.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel57.Location = new System.Drawing.Point(3, 480);
             this.kryptonLabel57.Name = "kryptonLabel57";
             this.kryptonLabel57.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -894,7 +894,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.ProjectRFA1_1.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA1_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1.Location = new System.Drawing.Point(220, 90);
             this.ProjectRFA1_1.Name = "ProjectRFA1_1";
             this.ProjectRFA1_1.Size = new System.Drawing.Size(114, 30);
@@ -905,7 +905,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_1_1
             // 
             this.ProjectRFA1_1_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_1.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_1.Location = new System.Drawing.Point(219, 122);
             this.ProjectRFA1_1_1.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_1.Name = "ProjectRFA1_1_1";
@@ -918,7 +918,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_1_2
             // 
             this.ProjectRFA1_1_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_2.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_2.Location = new System.Drawing.Point(219, 152);
             this.ProjectRFA1_1_2.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_2.Name = "ProjectRFA1_1_2";
@@ -931,7 +931,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_1_3
             // 
             this.ProjectRFA1_1_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_1_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_3.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_3.Location = new System.Drawing.Point(219, 182);
             this.ProjectRFA1_1_3.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_3.Name = "ProjectRFA1_1_3";
@@ -944,7 +944,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_2
             // 
             this.ProjectRFA1_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_2.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_2.Location = new System.Drawing.Point(219, 212);
             this.ProjectRFA1_2.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_2.Name = "ProjectRFA1_2";
@@ -957,7 +957,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_3
             // 
             this.ProjectRFA1_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_3.Location = new System.Drawing.Point(219, 242);
             this.ProjectRFA1_3.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_3.Name = "ProjectRFA1_3";
@@ -970,7 +970,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_4
             // 
             this.ProjectRFA1_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_4.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_4.Location = new System.Drawing.Point(219, 272);
             this.ProjectRFA1_4.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_4.Name = "ProjectRFA1_4";
@@ -983,7 +983,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1Rm
             // 
             this.ProjectRFA1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1Rm.Location = new System.Drawing.Point(339, 62);
             this.ProjectRFA1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1Rm.Name = "ProjectRFA1Rm";
@@ -993,7 +993,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_5
             // 
             this.ProjectRFA1_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_5.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_5.Location = new System.Drawing.Point(219, 302);
             this.ProjectRFA1_5.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_5.Name = "ProjectRFA1_5";
@@ -1006,7 +1006,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_6
             // 
             this.ProjectRFA1_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_6.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_6.Location = new System.Drawing.Point(219, 332);
             this.ProjectRFA1_6.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_6.Name = "ProjectRFA1_6";
@@ -1019,7 +1019,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_7
             // 
             this.ProjectRFA1_7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_7.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_7.Location = new System.Drawing.Point(219, 362);
             this.ProjectRFA1_7.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_7.Name = "ProjectRFA1_7";
@@ -1032,7 +1032,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_8
             // 
             this.ProjectRFA1_8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_8.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_8.Location = new System.Drawing.Point(219, 392);
             this.ProjectRFA1_8.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_8.Name = "ProjectRFA1_8";
@@ -1045,7 +1045,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA1_9
             // 
             this.ProjectRFA1_9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_9.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_9.Location = new System.Drawing.Point(219, 422);
             this.ProjectRFA1_9.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_9.Name = "ProjectRFA1_9";
@@ -1058,7 +1058,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA2_1
             // 
             this.ProjectRFA2_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA2_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA2_1.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA2_1.Location = new System.Drawing.Point(219, 482);
             this.ProjectRFA2_1.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA2_1.Name = "ProjectRFA2_1";
@@ -1071,7 +1071,7 @@ namespace TestReporterPlugin.Editor
             // ProjectRFA2
             // 
             this.ProjectRFA2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ProjectRFA2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ProjectRFA2.Location = new System.Drawing.Point(220, 450);
             this.ProjectRFA2.Name = "ProjectRFA2";
             this.ProjectRFA2.Size = new System.Drawing.Size(114, 30);
@@ -1081,7 +1081,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_5zb
             // 
-            this.ProjectRFA1_5zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_5zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_5zb.Location = new System.Drawing.Point(540, 300);
             this.ProjectRFA1_5zb.Name = "ProjectRFA1_5zb";
             this.ProjectRFA1_5zb.Size = new System.Drawing.Size(1, 23);
@@ -1091,7 +1091,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1zb
             // 
-            this.ProjectRFA1zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1zb.Location = new System.Drawing.Point(540, 60);
             this.ProjectRFA1zb.Name = "ProjectRFA1zb";
             this.ProjectRFA1zb.Size = new System.Drawing.Size(1, 23);
@@ -1101,7 +1101,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_1zb
             // 
-            this.ProjectRFA1_1zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1zb.Location = new System.Drawing.Point(540, 90);
             this.ProjectRFA1_1zb.Name = "ProjectRFA1_1zb";
             this.ProjectRFA1_1zb.Size = new System.Drawing.Size(1, 23);
@@ -1111,7 +1111,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_1_1zb
             // 
-            this.ProjectRFA1_1_1zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_1zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_1zb.Location = new System.Drawing.Point(540, 120);
             this.ProjectRFA1_1_1zb.Name = "ProjectRFA1_1_1zb";
             this.ProjectRFA1_1_1zb.Size = new System.Drawing.Size(1, 23);
@@ -1121,7 +1121,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_1_2zb
             // 
-            this.ProjectRFA1_1_2zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_2zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_2zb.Location = new System.Drawing.Point(540, 150);
             this.ProjectRFA1_1_2zb.Name = "ProjectRFA1_1_2zb";
             this.ProjectRFA1_1_2zb.Size = new System.Drawing.Size(1, 23);
@@ -1131,7 +1131,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_1_3zb
             // 
-            this.ProjectRFA1_1_3zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_1_3zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_1_3zb.Location = new System.Drawing.Point(540, 180);
             this.ProjectRFA1_1_3zb.Name = "ProjectRFA1_1_3zb";
             this.ProjectRFA1_1_3zb.Size = new System.Drawing.Size(1, 23);
@@ -1141,7 +1141,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_2zb
             // 
-            this.ProjectRFA1_2zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_2zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_2zb.Location = new System.Drawing.Point(540, 210);
             this.ProjectRFA1_2zb.Name = "ProjectRFA1_2zb";
             this.ProjectRFA1_2zb.Size = new System.Drawing.Size(1, 23);
@@ -1151,7 +1151,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_3zb
             // 
-            this.ProjectRFA1_3zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_3zb.Location = new System.Drawing.Point(540, 240);
             this.ProjectRFA1_3zb.Name = "ProjectRFA1_3zb";
             this.ProjectRFA1_3zb.Size = new System.Drawing.Size(1, 23);
@@ -1161,7 +1161,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_4zb
             // 
-            this.ProjectRFA1_4zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_4zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_4zb.Location = new System.Drawing.Point(540, 270);
             this.ProjectRFA1_4zb.Name = "ProjectRFA1_4zb";
             this.ProjectRFA1_4zb.Size = new System.Drawing.Size(1, 23);
@@ -1171,7 +1171,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_6zb
             // 
-            this.ProjectRFA1_6zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_6zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_6zb.Location = new System.Drawing.Point(540, 330);
             this.ProjectRFA1_6zb.Name = "ProjectRFA1_6zb";
             this.ProjectRFA1_6zb.Size = new System.Drawing.Size(1, 23);
@@ -1181,7 +1181,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_8zb
             // 
-            this.ProjectRFA1_8zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_8zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_8zb.Location = new System.Drawing.Point(540, 390);
             this.ProjectRFA1_8zb.Name = "ProjectRFA1_8zb";
             this.ProjectRFA1_8zb.Size = new System.Drawing.Size(1, 23);
@@ -1191,7 +1191,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_7zb
             // 
-            this.ProjectRFA1_7zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_7zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_7zb.Location = new System.Drawing.Point(540, 360);
             this.ProjectRFA1_7zb.Name = "ProjectRFA1_7zb";
             this.ProjectRFA1_7zb.Size = new System.Drawing.Size(1, 23);
@@ -1201,7 +1201,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_9zb
             // 
-            this.ProjectRFA1_9zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_9zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_9zb.Location = new System.Drawing.Point(540, 420);
             this.ProjectRFA1_9zb.Name = "ProjectRFA1_9zb";
             this.ProjectRFA1_9zb.Size = new System.Drawing.Size(1, 23);
@@ -1211,7 +1211,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA2zb
             // 
-            this.ProjectRFA2zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA2zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA2zb.Location = new System.Drawing.Point(540, 450);
             this.ProjectRFA2zb.Name = "ProjectRFA2zb";
             this.ProjectRFA2zb.Size = new System.Drawing.Size(1, 23);
@@ -1221,7 +1221,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA2_1zb
             // 
-            this.ProjectRFA2_1zb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA2_1zb.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA2_1zb.Location = new System.Drawing.Point(540, 480);
             this.ProjectRFA2_1zb.Name = "ProjectRFA2_1zb";
             this.ProjectRFA2_1zb.Size = new System.Drawing.Size(1, 23);
@@ -1233,7 +1233,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel7.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel7.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel7.Location = new System.Drawing.Point(3, 270);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -1290,7 +1290,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_3_1
             // 
-            this.ProjectRFA1_3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3_1.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_3_1.Location = new System.Drawing.Point(180, -1);
             this.ProjectRFA1_3_1.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_3_1.Name = "ProjectRFA1_3_1";
@@ -1303,7 +1303,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_3_1Rm
             // 
-            this.ProjectRFA1_3_1Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_3_1Rm.Location = new System.Drawing.Point(486, 3);
             this.ProjectRFA1_3_1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_3_1Rm.Name = "ProjectRFA1_3_1Rm";
@@ -1313,7 +1313,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_3_2Rm
             // 
-            this.ProjectRFA1_3_2Rm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3_2Rm.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_3_2Rm.Location = new System.Drawing.Point(410, 3);
             this.ProjectRFA1_3_2Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_3_2Rm.Name = "ProjectRFA1_3_2Rm";
@@ -1324,7 +1324,7 @@ namespace TestReporterPlugin.Editor
             // kryptonLabel92
             // 
             this.kryptonLabel92.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonLabel92.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel92.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel92.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel92.Name = "kryptonLabel92";
             this.kryptonLabel92.Size = new System.Drawing.Size(193, 27);
@@ -1333,7 +1333,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA1_3_2
             // 
-            this.ProjectRFA1_3_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3_2.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectRFA1_3_2.Location = new System.Drawing.Point(323, 3);
             this.ProjectRFA1_3_2.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_3_2.Name = "ProjectRFA1_3_2";
@@ -1348,7 +1348,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel93.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel93.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel93.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel93.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel93.Location = new System.Drawing.Point(3, 29);
             this.kryptonLabel93.Name = "kryptonLabel93";
             this.kryptonLabel93.Size = new System.Drawing.Size(101, 29);
@@ -1360,7 +1360,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel94.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel94.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel94.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel94.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel94.Location = new System.Drawing.Point(110, 29);
             this.kryptonLabel94.Name = "kryptonLabel94";
             this.kryptonLabel94.Size = new System.Drawing.Size(101, 29);
@@ -1372,7 +1372,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel95.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel95.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel95.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel95.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel95.Location = new System.Drawing.Point(324, 29);
             this.kryptonLabel95.Name = "kryptonLabel95";
             this.kryptonLabel95.Size = new System.Drawing.Size(101, 29);
@@ -1384,7 +1384,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel96.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel96.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel96.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel96.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel96.Location = new System.Drawing.Point(217, 29);
             this.kryptonLabel96.Name = "kryptonLabel96";
             this.kryptonLabel96.Size = new System.Drawing.Size(101, 29);
@@ -1396,7 +1396,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.kryptonLabel97.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel97.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel97.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel97.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel97.Location = new System.Drawing.Point(431, 29);
             this.kryptonLabel97.Name = "kryptonLabel97";
             this.kryptonLabel97.Size = new System.Drawing.Size(103, 29);
@@ -1407,7 +1407,7 @@ namespace TestReporterPlugin.Editor
             // ProjectOutlay1
             // 
             this.ProjectOutlay1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectOutlay1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectOutlay1.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectOutlay1.Location = new System.Drawing.Point(3, 61);
             this.ProjectOutlay1.Name = "ProjectOutlay1";
             this.ProjectOutlay1.Size = new System.Drawing.Size(101, 26);
@@ -1419,7 +1419,7 @@ namespace TestReporterPlugin.Editor
             // ProjectOutlay2
             // 
             this.ProjectOutlay2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectOutlay2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectOutlay2.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectOutlay2.Location = new System.Drawing.Point(110, 61);
             this.ProjectOutlay2.Name = "ProjectOutlay2";
             this.ProjectOutlay2.Size = new System.Drawing.Size(101, 26);
@@ -1431,7 +1431,7 @@ namespace TestReporterPlugin.Editor
             // ProjectOutlay3
             // 
             this.ProjectOutlay3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectOutlay3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectOutlay3.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectOutlay3.Location = new System.Drawing.Point(217, 61);
             this.ProjectOutlay3.Name = "ProjectOutlay3";
             this.ProjectOutlay3.Size = new System.Drawing.Size(101, 26);
@@ -1443,7 +1443,7 @@ namespace TestReporterPlugin.Editor
             // ProjectOutlay4
             // 
             this.ProjectOutlay4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectOutlay4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectOutlay4.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectOutlay4.Location = new System.Drawing.Point(324, 61);
             this.ProjectOutlay4.Name = "ProjectOutlay4";
             this.ProjectOutlay4.Size = new System.Drawing.Size(101, 26);
@@ -1455,7 +1455,7 @@ namespace TestReporterPlugin.Editor
             // ProjectOutlay5
             // 
             this.ProjectOutlay5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectOutlay5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectOutlay5.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectOutlay5.Location = new System.Drawing.Point(431, 61);
             this.ProjectOutlay5.Name = "ProjectOutlay5";
             this.ProjectOutlay5.Size = new System.Drawing.Size(103, 26);
@@ -1476,7 +1476,7 @@ namespace TestReporterPlugin.Editor
             // kryptonLabel1
             // 
             this.kryptonLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel1.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel1.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(537, 29);
@@ -1506,7 +1506,7 @@ namespace TestReporterPlugin.Editor
             // 
             // txtZiChouJingFei
             // 
-            this.txtZiChouJingFei.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtZiChouJingFei.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtZiChouJingFei.Location = new System.Drawing.Point(323, 2);
             this.txtZiChouJingFei.Margin = new System.Windows.Forms.Padding(2);
             this.txtZiChouJingFei.Name = "txtZiChouJingFei";
@@ -1516,7 +1516,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel4.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel4.Location = new System.Drawing.Point(416, 5);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -1526,7 +1526,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel3.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel3.Location = new System.Drawing.Point(4, 5);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -1548,7 +1548,7 @@ namespace TestReporterPlugin.Editor
             // lklDownloadFuJian
             // 
             this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lklDownloadFuJian.Font = new System.Drawing.Font("宋体", 10.5F);
+            this.lklDownloadFuJian.Font = new System.Drawing.Font("仿宋", 10.5F);
             this.lklDownloadFuJian.Location = new System.Drawing.Point(102, 23);
             this.lklDownloadFuJian.Name = "lklDownloadFuJian";
             this.lklDownloadFuJian.Size = new System.Drawing.Size(153, 35);
@@ -1561,7 +1561,7 @@ namespace TestReporterPlugin.Editor
             // kryptonLabel5
             // 
             this.kryptonLabel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel5.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel5.Location = new System.Drawing.Point(0, 23);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(102, 35);
@@ -1571,7 +1571,7 @@ namespace TestReporterPlugin.Editor
             // kryptonLabel2
             // 
             this.kryptonLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel2.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel2.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -1621,7 +1621,7 @@ namespace TestReporterPlugin.Editor
             // lklDownloadExcel
             // 
             this.lklDownloadExcel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lklDownloadExcel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lklDownloadExcel.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lklDownloadExcel.Location = new System.Drawing.Point(349, 0);
             this.lklDownloadExcel.Name = "lklDownloadExcel";
             this.lklDownloadExcel.Size = new System.Drawing.Size(154, 40);

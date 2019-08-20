@@ -111,7 +111,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("宋体", 14.25F);
+            this.label1.Font = new System.Drawing.Font("仿宋", 14.25F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(936, 30);
@@ -162,7 +162,7 @@
             // kryptonLabel67
             // 
             this.kryptonLabel67.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel67.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel67.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel67.Location = new System.Drawing.Point(3, 0);
             this.kryptonLabel67.Name = "kryptonLabel67";
             this.kryptonLabel67.Size = new System.Drawing.Size(54, 40);
@@ -173,7 +173,7 @@
             // lbcomattpath
             // 
             this.lbcomattpath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbcomattpath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbcomattpath.Font = new System.Drawing.Font("仿宋", 12F);
             this.lbcomattpath.Location = new System.Drawing.Point(63, 0);
             this.lbcomattpath.Name = "lbcomattpath";
             this.lbcomattpath.Size = new System.Drawing.Size(728, 40);
@@ -195,7 +195,7 @@
             // lklDownloadFuJian
             // 
             this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lklDownloadFuJian.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lklDownloadFuJian.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lklDownloadFuJian.ForeColor = System.Drawing.Color.Black;
             this.lklDownloadFuJian.Location = new System.Drawing.Point(102, 0);
             this.lklDownloadFuJian.Name = "lklDownloadFuJian";
@@ -209,7 +209,7 @@
             // kryptonLabel1
             // 
             this.kryptonLabel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.kryptonLabel1.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(102, 35);
