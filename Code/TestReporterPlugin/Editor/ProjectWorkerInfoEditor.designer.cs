@@ -1,6 +1,6 @@
 ﻿namespace TestReporterPlugin.Editor
 {
-    partial class ProjectWorkerEditor
+    partial class ProjectWorkerInfoEditor
     {
         /// <summary> 
         /// 必需的设计器变量。

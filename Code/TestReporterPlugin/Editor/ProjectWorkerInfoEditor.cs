@@ -14,9 +14,9 @@ using System.Diagnostics;
 
 namespace TestReporterPlugin.Editor
 {
-    public partial class ProjectWorkerEditor : BaseEditor
+    public partial class ProjectWorkerInfoEditor : BaseEditor
     {
-        public ProjectWorkerEditor()
+        public ProjectWorkerInfoEditor()
         {
             InitializeComponent();
         }
