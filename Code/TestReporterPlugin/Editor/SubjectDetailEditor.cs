@@ -39,7 +39,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -80,22 +80,22 @@ namespace TestReporterPlugin.Editor
 
         public string GetNeedFilePath()
         {
-            return Path.Combine(MainForm.ProjectFilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_need" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_need" + ".doc");
         }
 
         public string GetContentFilePath()
         {
-            return Path.Combine(MainForm.ProjectFilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_cnt" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_cnt" + ".doc");
         }
 
         public string GetDestFilePath()
         {
-            return Path.Combine(MainForm.ProjectFilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_dest" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_dest" + ".doc");
         }
 
         public string GetInfoFilePath()
         {
-            return Path.Combine(MainForm.ProjectFilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_info" + ".rtf");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_info" + ".rtf");
         }
 
         public override void RefreshView()

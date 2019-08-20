@@ -23,15 +23,15 @@ namespace TestReporterPlugin.Editor
             EnabledAutoNextPage = false;
 
             //显示图标
-            //dgvDetail[dgvDetail.Columns.Count - 1, 0].Value = global::ProjectReporter.Properties.Resources.exclamation_16;
-            //dgvDetail[dgvDetail.Columns.Count - 2, 0].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
+            //dgvDetail[dgvDetail.Columns.Count - 1, 0].Value = global::TestReporterPlugin.Resource.exclamation_16;
+            //dgvDetail[dgvDetail.Columns.Count - 2, 0].Value = global::TestReporterPlugin.Resource.DELETE_28;
             //dgvDetail[dgvDetail.Columns.Count - 3, 0].Value = "填报课题内容";
 
             //显示密级
-            ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("公开");
-            ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("秘密");
-            ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("机密");
-            //((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("绝密");
+            ((DataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("公开");
+            ((DataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("秘密");
+            ((DataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("机密");
+            //((DataGridViewComboBoxColumn)dgvDetail.Columns[2]).Items.Add("绝密");
         }
 
         private void UpdateUnitList()
@@ -39,10 +39,10 @@ namespace TestReporterPlugin.Editor
             UnitList = ConnectionManager.Context.table("UnitExt").select("*").getList<UnitExt>(new UnitExt());
             if (UnitList != null)
             {
-                //((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[4]).Items.Clear();
+                //((DataGridViewComboBoxColumn)dgvDetail.Columns[4]).Items.Clear();
                 //foreach (Unit u in UnitList)
                 //{
-                //    ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[4]).Items.Add(u.UnitName);
+                //    ((DataGridViewComboBoxColumn)dgvDetail.Columns[4]).Items.Add(u.UnitName);
                 //}
             }
         }
@@ -52,12 +52,12 @@ namespace TestReporterPlugin.Editor
             //PersonList = ConnectionManager.Context.table("Person").select("*").getList<Person>(new Person());
             //if (PersonList != null)
             //{
-            //    ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[3]).Items.Clear();
+            //    ((DataGridViewComboBoxColumn)dgvDetail.Columns[3]).Items.Clear();
             //    PersonDict.Clear();
             //    foreach (Person p in PersonList)
             //    {
             //        string key = p.Name + "(" + p.IDCard + ")";
-            //        ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[3]).Items.Add(key);
+            //        ((DataGridViewComboBoxColumn)dgvDetail.Columns[3]).Items.Add(key);
             //        PersonDict.Add(key, p);
             //    }
             //}
@@ -65,12 +65,12 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateKeTiList()
         {
-            if (MainForm.Instance.ProjectObj != null)
+            if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null)
             {
-                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Project>(new Project());
+                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Project>(new Project());
 
                 dgvDetail.Rows.Clear();
-                ((DataGridViewImageColumn)dgvDetail.Columns[dgvDetail.Columns.Count - 1]).Image = ProjectReporter.Properties.Resources.DELETE_28;
+                ((DataGridViewImageColumn)dgvDetail.Columns[dgvDetail.Columns.Count - 1]).Image = TestReporterPlugin.Resource.DELETE_28;
                 int indexx = 0;
                 foreach (Project keti in KeTiList)
                 {
@@ -165,7 +165,7 @@ namespace TestReporterPlugin.Editor
                             ConnectionManager.Context.table("MoneyAndType").where("ProjectID='" + kett.ID + "'").delete();
 
                             //UpdateKeTiList();
-                            MainForm.Instance.RefreshEditorWithoutRTFTextEditor();
+                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RefreshEditorWithoutRTFTextEditor();
                         }
                         #endregion
                     }
@@ -306,13 +306,13 @@ namespace TestReporterPlugin.Editor
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 1, e.RowIndex].Value = global::ProjectReporter.Properties.Resources.exclamation_16;
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 2, e.RowIndex].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 3, e.RowIndex].Value = "填报课题内容";
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex].Value = global::TestReporterPlugin.Resource.exclamation_16;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex].Value = global::TestReporterPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex].Value = "填报课题内容";
 
-            if (((KryptonDataGridView)sender)[6, e.RowIndex].Value == null || ((KryptonDataGridView)sender)[6, e.RowIndex].Value == "")
+            if (((DataGridView)sender)[6, e.RowIndex].Value == null || ((DataGridView)sender)[6, e.RowIndex].Value == "")
             {
-                ((KryptonDataGridView)sender)[6, e.RowIndex].Value = "选择单位帐号";
+                ((DataGridView)sender)[6, e.RowIndex].Value = "选择单位帐号";
             }
         }
 
@@ -420,7 +420,7 @@ namespace TestReporterPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = MainForm.Instance.ProjectObj.ID;
+                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
@@ -429,11 +429,11 @@ namespace TestReporterPlugin.Editor
                     {
                         Unit unitObj = (Unit)dgvRow.Cells[5].Tag;
                         unitObj.UnitName = dgvRow.Cells[5].Value.ToString();
-                        NewProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.UnitName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.UnitName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
                     }
                     else
                     {
-                        NewProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), "未知", "未知", "课题单位", "未知");
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), "未知", "未知", "课题单位", "未知");
                     }
 
                     //添加或更新课题数据
@@ -512,7 +512,7 @@ namespace TestReporterPlugin.Editor
                 RefreshView();
 
                 //刷新课题阶段划分表
-                foreach (BaseEditor be in MainForm.Instance.EditorMaps.Values)
+                foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps.Values)
                 {
                     if (be is KeTiJieDuanHuaFenEditor)
                     {
@@ -627,7 +627,7 @@ namespace TestReporterPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = MainForm.Instance.ProjectObj.ID;
+                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
@@ -636,11 +636,11 @@ namespace TestReporterPlugin.Editor
                     {
                         Unit unitObj = (Unit)dgvRow.Cells[5].Tag;
                         unitObj.UnitName = dgvRow.Cells[5].Value.ToString();
-                        NewProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.UnitName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.UnitName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
                     }
                     else
                     {
-                        NewProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), "未知", "未知", "课题单位", "未知");
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), "未知", "未知", "课题单位", "未知");
                     }
 
                     //添加或更新课题数据
@@ -714,10 +714,10 @@ namespace TestReporterPlugin.Editor
             base.RefreshView();
 
             //获得上一级的Tab控件
-            ParentNavigator = MainForm.Instance.GetTabControl(this);
+            ParentNavigator = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).GetTabControl(this);
 
             //修改课题关系的下一页代码
-            BaseEditor linkEditor = MainForm.Instance.EditorMaps["feUI7"];
+            BaseEditor linkEditor = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps["feUI7"];
             linkEditor.EnabledAutoNextPage = false;
             try
             {
@@ -762,7 +762,7 @@ namespace TestReporterPlugin.Editor
         /// </summary>
         private void SyncStepList()
         {
-            foreach (BaseEditor be in MainForm.Instance.EditorMaps.Values)
+            foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps.Values)
             {
                 if (be is JieDuanHuaFenEditor)
                 {
@@ -875,7 +875,7 @@ namespace TestReporterPlugin.Editor
                 if (ParentNavigator.Pages.Count - 1 == ParentNavigator.SelectedIndex)
                 {
                     //切换到下一页
-                    MainForm.Instance.SwitchToNextPage(MainForm.Instance.EditorMaps["feUI7"]);
+                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).SwitchToNextPage(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps["feUI7"]);
                 }
                 else
                 {
@@ -902,7 +902,7 @@ namespace TestReporterPlugin.Editor
             BaseEditor current = (BaseEditor)sender;
 
             //保存当前页
-            MainForm.Instance.SaveEditor(current);
+            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).SaveEditor(current);
 
             //判断列表中是否有数据，如果有则执行课题页签下一页的过程，如果没有则调用系统的下一页
             if (dgvDetail.Rows.Count >= 1)
@@ -911,7 +911,7 @@ namespace TestReporterPlugin.Editor
             }
             else
             {
-                MainForm.Instance.SwitchToNextPage(current);
+                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).SwitchToNextPage(current);
             }
         }
 
