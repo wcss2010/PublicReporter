@@ -51,6 +51,9 @@
     <Reference Include="Aspose.Words">
       <HintPath>..\..\Lib\Aspose.Words.dll</HintPath>
     </Reference>
+    <Reference Include="Balloon.NET">
+      <HintPath>..\..\Lib\Balloon.NET.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>

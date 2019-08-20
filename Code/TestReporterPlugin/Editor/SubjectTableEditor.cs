@@ -14,8 +14,6 @@ namespace TestReporterPlugin.Editor
 {
     public partial class SubjectTableEditor : BaseEditor
     {
-        private TabControl ParentNavigator = null;
-
         public SubjectTableEditor()
         {
             InitializeComponent();
@@ -285,7 +283,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -801,17 +799,17 @@ namespace TestReporterPlugin.Editor
             if (KeTiList != null)
             {
                 //删除除第一页之外其它标签页
-                List<KryptonPage> deletePageList = new List<KryptonPage>();
-                foreach (KryptonPage kp in ParentNavigator.Pages)
+                List<TabPage> deletePageList = new List<TabPage>();
+                foreach (TabPage kp in ParentNavigator.TabPages)
                 {
                     if (kp.Tag != null && kp.Tag.ToString() == "KeTiDynamic")
                     {
                         deletePageList.Add(kp);
                     }
                 }
-                foreach (KryptonPage kpp in deletePageList)
+                foreach (TabPage kpp in deletePageList)
                 {
-                    ParentNavigator.Pages.Remove(kpp);
+                    ParentNavigator.TabPages.Remove(kpp);
                 }
 
                 foreach (Project proj in KeTiList)
@@ -845,49 +843,6 @@ namespace TestReporterPlugin.Editor
             return kp;
         }
 
-        private void RtfTextEditor_NextEvent(object sender, EventArgs args)
-        {
-            KeTiDetailEditor textEditor = (KeTiDetailEditor)sender;
-
-            #region 保存过程
-            ProjectReporter.Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
-            upf.EnabledDisplayProgress = false;
-            upf.LabalText = "正在保存,请等待...";
-            upf.ShowProgress();
-
-            try
-            {
-                //保存
-                textEditor.OnSaveEvent();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("保存失败！Ex:" + ex.ToString());
-            }
-            finally
-            {
-                upf.Close();
-            }
-            #endregion
-
-            if (textEditor.DetailTabs.Pages.Count - 1 == textEditor.DetailTabs.SelectedIndex)
-            {
-                if (ParentNavigator.Pages.Count - 1 == ParentNavigator.SelectedIndex)
-                {
-                    //切换到下一页
-                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).SwitchToNextPage(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps["feUI7"]);
-                }
-                else
-                {
-                    ParentNavigator.SelectedIndex += 1;
-                }
-            }
-            else
-            {
-                textEditor.DetailTabs.SelectedIndex += 1;
-            }
-        }
-
         private void dgvDetail_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             if (e.ColumnIndex == 1 && e.RowIndex == 0)
@@ -896,25 +851,7 @@ namespace TestReporterPlugin.Editor
                 ttcHintTool.ShowHint("项目原则上需设置一个总体课题，由牵头申报单位承担，课题负责人由项目负责人担任。", dgvDetail.PointToScreen(dgvDetail.GetCellDisplayRectangle(1, e.RowIndex, false).Location));
             }
         }
-
-        void linkEditor_NextEvent(object sender, EventArgs args)
-        {
-            BaseEditor current = (BaseEditor)sender;
-
-            //保存当前页
-            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).SaveEditor(current);
-
-            //判断列表中是否有数据，如果有则执行课题页签下一页的过程，如果没有则调用系统的下一页
-            if (dgvDetail.Rows.Count >= 1)
-            {
-                BuildOneKeTiDetailPageWithKeTiRow(0);
-            }
-            else
-            {
-                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).SwitchToNextPage(current);
-            }
-        }
-
+        
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int rowIndex = dgvDetail.Rows.Add();
