@@ -290,10 +290,10 @@ namespace TestReporterPlugin.Editor
             this.kryptonLabel7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new TestReporterPlugin.Controls.HSkinTableLayoutPanel();
             this.kryptonPanel18 = new System.Windows.Forms.Panel();
+            this.ProjectRFA1_3_1 = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_3_1Rm = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_3_2Rm = new System.Windows.Forms.TextBox();
             this.kryptonLabel92 = new System.Windows.Forms.Label();
-            this.ProjectRFA1_3_1 = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_3_2 = new System.Windows.Forms.TextBox();
             this.kryptonLabel93 = new System.Windows.Forms.Label();
             this.kryptonLabel94 = new System.Windows.Forms.Label();
@@ -362,6 +362,7 @@ namespace TestReporterPlugin.Editor
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel2.BorderColor = System.Drawing.Color.Black;
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -466,6 +467,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel6
             // 
+            this.kryptonLabel6.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel6.Location = new System.Drawing.Point(3, 270);
@@ -617,10 +619,12 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel39
             // 
+            this.kryptonLabel39.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel39.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel39.Location = new System.Drawing.Point(3, 30);
             this.kryptonLabel39.Name = "kryptonLabel39";
-            this.kryptonLabel39.Size = new System.Drawing.Size(127, 23);
+            this.kryptonLabel39.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel39.TabIndex = 4;
             this.kryptonLabel39.Text = "一、项目总经费";
             // 
@@ -638,6 +642,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel37
             // 
+            this.kryptonLabel37.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel37.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold);
             this.kryptonLabel37.Location = new System.Drawing.Point(340, 0);
@@ -649,6 +654,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel36
             // 
+            this.kryptonLabel36.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel36.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold);
             this.kryptonLabel36.Location = new System.Drawing.Point(220, 0);
@@ -660,6 +666,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel30
             // 
+            this.kryptonLabel30.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel30.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel30.Location = new System.Drawing.Point(3, 0);
@@ -671,6 +678,7 @@ namespace TestReporterPlugin.Editor
             // 
             // ProjectRFA
             // 
+            this.ProjectRFA.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ProjectRFA.Location = new System.Drawing.Point(220, 30);
@@ -694,75 +702,90 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel42
             // 
+            this.kryptonLabel42.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel42.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel42.Location = new System.Drawing.Point(3, 90);
             this.kryptonLabel42.Name = "kryptonLabel42";
             this.kryptonLabel42.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel42.Size = new System.Drawing.Size(97, 23);
+            this.kryptonLabel42.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel42.TabIndex = 8;
             this.kryptonLabel42.Text = "1.设备费";
             // 
             // kryptonLabel43
             // 
+            this.kryptonLabel43.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel43.Location = new System.Drawing.Point(3, 120);
             this.kryptonLabel43.Name = "kryptonLabel43";
             this.kryptonLabel43.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel43.Size = new System.Drawing.Size(175, 23);
+            this.kryptonLabel43.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel43.TabIndex = 9;
             this.kryptonLabel43.Text = "（1）设备购置费";
             // 
             // kryptonLabel44
             // 
+            this.kryptonLabel44.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel44.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel44.Location = new System.Drawing.Point(3, 150);
             this.kryptonLabel44.Name = "kryptonLabel44";
             this.kryptonLabel44.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel44.Size = new System.Drawing.Size(175, 23);
+            this.kryptonLabel44.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel44.TabIndex = 10;
             this.kryptonLabel44.Text = "（2）设备试制费";
             // 
             // kryptonLabel41
             // 
+            this.kryptonLabel41.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel41.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel41.Location = new System.Drawing.Point(3, 60);
             this.kryptonLabel41.Name = "kryptonLabel41";
-            this.kryptonLabel41.Size = new System.Drawing.Size(139, 23);
+            this.kryptonLabel41.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel41.TabIndex = 12;
             this.kryptonLabel41.Text = "（一）直接费用";
             // 
             // kryptonLabel46
             // 
+            this.kryptonLabel46.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel46.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel46.Location = new System.Drawing.Point(3, 210);
             this.kryptonLabel46.Name = "kryptonLabel46";
             this.kryptonLabel46.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel46.Size = new System.Drawing.Size(97, 23);
+            this.kryptonLabel46.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel46.TabIndex = 13;
             this.kryptonLabel46.Text = "2.材料费";
             // 
             // kryptonLabel47
             // 
+            this.kryptonLabel47.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel47.Location = new System.Drawing.Point(3, 180);
             this.kryptonLabel47.Name = "kryptonLabel47";
             this.kryptonLabel47.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel47.Size = new System.Drawing.Size(120, 23);
+            this.kryptonLabel47.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel47.TabIndex = 14;
             this.kryptonLabel47.Text = "（3）其他";
             // 
             // kryptonLabel48
             // 
+            this.kryptonLabel48.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel48.Location = new System.Drawing.Point(3, 240);
             this.kryptonLabel48.Name = "kryptonLabel48";
             this.kryptonLabel48.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel48.Size = new System.Drawing.Size(133, 23);
+            this.kryptonLabel48.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel48.TabIndex = 15;
             this.kryptonLabel48.Text = "3.外部协作费";
             // 
             // ProjectRFA1
             // 
+            this.ProjectRFA1.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ProjectRFA1.Location = new System.Drawing.Point(220, 60);
@@ -774,85 +797,102 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel50
             // 
+            this.kryptonLabel50.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel50.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel50.Location = new System.Drawing.Point(3, 270);
             this.kryptonLabel50.Name = "kryptonLabel50";
             this.kryptonLabel50.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel50.Size = new System.Drawing.Size(133, 23);
+            this.kryptonLabel50.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel50.TabIndex = 17;
             this.kryptonLabel50.Text = "4.燃料动力费";
             // 
             // kryptonLabel51
             // 
+            this.kryptonLabel51.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel51.Location = new System.Drawing.Point(3, 300);
             this.kryptonLabel51.Name = "kryptonLabel51";
             this.kryptonLabel51.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel51.Size = new System.Drawing.Size(211, 23);
+            this.kryptonLabel51.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel51.TabIndex = 18;
             this.kryptonLabel51.Text = "5.会议、差旅、国际合作与交流费";
             // 
             // kryptonLabel52
             // 
+            this.kryptonLabel52.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel52.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel52.Location = new System.Drawing.Point(3, 330);
             this.kryptonLabel52.Name = "kryptonLabel52";
             this.kryptonLabel52.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel52.Size = new System.Drawing.Size(211, 23);
+            this.kryptonLabel52.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel52.TabIndex = 19;
             this.kryptonLabel52.Text = "6.出版、文献、信息传播、知识产权事务费";
             // 
             // kryptonLabel53
             // 
+            this.kryptonLabel53.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel53.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel53.Location = new System.Drawing.Point(3, 360);
             this.kryptonLabel53.Name = "kryptonLabel53";
             this.kryptonLabel53.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel53.Size = new System.Drawing.Size(97, 23);
+            this.kryptonLabel53.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel53.TabIndex = 20;
             this.kryptonLabel53.Text = "7.劳务费";
             // 
             // kryptonLabel54
             // 
+            this.kryptonLabel54.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel54.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel54.Location = new System.Drawing.Point(3, 390);
             this.kryptonLabel54.Name = "kryptonLabel54";
             this.kryptonLabel54.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel54.Size = new System.Drawing.Size(133, 23);
+            this.kryptonLabel54.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel54.TabIndex = 21;
             this.kryptonLabel54.Text = "8.专家咨询费";
             // 
             // kryptonLabel55
             // 
+            this.kryptonLabel55.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel55.Location = new System.Drawing.Point(3, 420);
             this.kryptonLabel55.Name = "kryptonLabel55";
             this.kryptonLabel55.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel55.Size = new System.Drawing.Size(115, 23);
+            this.kryptonLabel55.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel55.TabIndex = 22;
             this.kryptonLabel55.Text = "9.其他支出";
             // 
             // kryptonLabel56
             // 
+            this.kryptonLabel56.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel56.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel56.Location = new System.Drawing.Point(3, 450);
             this.kryptonLabel56.Name = "kryptonLabel56";
-            this.kryptonLabel56.Size = new System.Drawing.Size(139, 23);
+            this.kryptonLabel56.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel56.TabIndex = 23;
             this.kryptonLabel56.Text = "（二）间接费用";
             // 
             // kryptonLabel57
             // 
+            this.kryptonLabel57.BackColor = System.Drawing.Color.Transparent;
+            this.kryptonLabel57.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel57.Location = new System.Drawing.Point(3, 480);
             this.kryptonLabel57.Name = "kryptonLabel57";
             this.kryptonLabel57.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel57.Size = new System.Drawing.Size(211, 23);
+            this.kryptonLabel57.Size = new System.Drawing.Size(211, 30);
             this.kryptonLabel57.TabIndex = 24;
             this.kryptonLabel57.Text = "10.管理费、科研绩效支出";
             // 
             // ProjectRFA1_1
             // 
+            this.ProjectRFA1_1.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA1_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ProjectRFA1_1.Location = new System.Drawing.Point(220, 90);
@@ -1191,6 +1231,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel7
             // 
+            this.kryptonLabel7.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel7.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel7.Location = new System.Drawing.Point(3, 270);
@@ -1235,10 +1276,10 @@ namespace TestReporterPlugin.Editor
             // kryptonPanel18
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.kryptonPanel18, 5);
+            this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_1);
             this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_1Rm);
             this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_2Rm);
             this.kryptonPanel18.Controls.Add(this.kryptonLabel92);
-            this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_1);
             this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_2);
             this.kryptonPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel18.Location = new System.Drawing.Point(1, 1);
@@ -1246,6 +1287,19 @@ namespace TestReporterPlugin.Editor
             this.kryptonPanel18.Name = "kryptonPanel18";
             this.kryptonPanel18.Size = new System.Drawing.Size(535, 27);
             this.kryptonPanel18.TabIndex = 0;
+            // 
+            // ProjectRFA1_3_1
+            // 
+            this.ProjectRFA1_3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ProjectRFA1_3_1.Location = new System.Drawing.Point(180, -1);
+            this.ProjectRFA1_3_1.Margin = new System.Windows.Forms.Padding(2);
+            this.ProjectRFA1_3_1.Name = "ProjectRFA1_3_1";
+            this.ProjectRFA1_3_1.Size = new System.Drawing.Size(56, 26);
+            this.ProjectRFA1_3_1.TabIndex = 31;
+            this.ProjectRFA1_3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectRFA1_3_1.Visible = false;
+            this.ProjectRFA1_3_1.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
+            this.ProjectRFA1_3_1.Leave += new System.EventHandler(this.ProjectRFA_Leave);
             // 
             // ProjectRFA1_3_1Rm
             // 
@@ -1277,19 +1331,6 @@ namespace TestReporterPlugin.Editor
             this.kryptonLabel92.TabIndex = 0;
             this.kryptonLabel92.Text = "年度申请经费预算(万元)";
             // 
-            // ProjectRFA1_3_1
-            // 
-            this.ProjectRFA1_3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ProjectRFA1_3_1.Location = new System.Drawing.Point(180, -1);
-            this.ProjectRFA1_3_1.Margin = new System.Windows.Forms.Padding(2);
-            this.ProjectRFA1_3_1.Name = "ProjectRFA1_3_1";
-            this.ProjectRFA1_3_1.Size = new System.Drawing.Size(56, 26);
-            this.ProjectRFA1_3_1.TabIndex = 31;
-            this.ProjectRFA1_3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ProjectRFA1_3_1.Visible = false;
-            this.ProjectRFA1_3_1.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
-            this.ProjectRFA1_3_1.Leave += new System.EventHandler(this.ProjectRFA_Leave);
-            // 
             // ProjectRFA1_3_2
             // 
             this.ProjectRFA1_3_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -1305,6 +1346,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel93
             // 
+            this.kryptonLabel93.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel93.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel93.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel93.Location = new System.Drawing.Point(3, 29);
@@ -1316,6 +1358,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel94
             // 
+            this.kryptonLabel94.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel94.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel94.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel94.Location = new System.Drawing.Point(110, 29);
@@ -1327,6 +1370,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel95
             // 
+            this.kryptonLabel95.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel95.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel95.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel95.Location = new System.Drawing.Point(324, 29);
@@ -1338,6 +1382,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel96
             // 
+            this.kryptonLabel96.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel96.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel96.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel96.Location = new System.Drawing.Point(217, 29);
@@ -1349,6 +1394,7 @@ namespace TestReporterPlugin.Editor
             // 
             // kryptonLabel97
             // 
+            this.kryptonLabel97.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel97.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel97.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.kryptonLabel97.Location = new System.Drawing.Point(431, 29);
@@ -1502,9 +1548,10 @@ namespace TestReporterPlugin.Editor
             // lklDownloadFuJian
             // 
             this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lklDownloadFuJian.Font = new System.Drawing.Font("宋体", 10.5F);
             this.lklDownloadFuJian.Location = new System.Drawing.Point(102, 23);
             this.lklDownloadFuJian.Name = "lklDownloadFuJian";
-            this.lklDownloadFuJian.Size = new System.Drawing.Size(125, 35);
+            this.lklDownloadFuJian.Size = new System.Drawing.Size(153, 35);
             this.lklDownloadFuJian.TabIndex = 31;
             this.lklDownloadFuJian.TabStop = true;
             this.lklDownloadFuJian.Text = "经费预算填报说明.doc";
