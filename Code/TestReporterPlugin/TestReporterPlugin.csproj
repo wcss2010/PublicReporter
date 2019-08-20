@@ -89,6 +89,9 @@
     <Compile Include="Controls\TextBoxAndHintLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\TextBoxExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Editor\ConfidentialQualificationEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>

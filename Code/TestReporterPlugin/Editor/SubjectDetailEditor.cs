@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using ComponentFactory.Krypton.Navigator;
 
 namespace TestReporterPlugin.Editor
 {
@@ -26,11 +24,7 @@ namespace TestReporterPlugin.Editor
 
         public bool EnabledSaveButton { get { return btnSave.Enabled; } set { btnSave.Enabled = value; } }
 
-        public bool EnabledLastButton { get { return btnLast.Enabled; } set { btnLast.Enabled = value; } }
-
-        public bool EnabledNextButton { get { return btnNext.Enabled; } set { btnNext.Enabled = value; } }
-
-        public KryptonNavigator DetailTabs
+        public TabControl DetailTabs
         {
             get { return knKetiDetailTabs; }
         }
@@ -45,7 +39,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            ProjectReporter.Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -62,16 +56,6 @@ namespace TestReporterPlugin.Editor
             {
                 upf.Close();
             }
-        }
-
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            OnLastEvent();
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            OnNextEvent();
         }
 
         public override void ClearView()

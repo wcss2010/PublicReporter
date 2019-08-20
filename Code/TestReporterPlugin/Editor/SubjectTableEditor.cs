@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using ProjectReporter.Forms;
-using ProjectReporter.DB;
-using ProjectReporter.DB.Entitys;
-using ComponentFactory.Krypton.Navigator;
+using TestReporterPlugin.Forms;
+using TestReporterPlugin.DB;
+using TestReporterPlugin.DB.Entitys;
 using System.IO;
 
 namespace TestReporterPlugin.Editor
 {
     public partial class SubjectTableEditor : BaseEditor
     {
-        private KryptonNavigator ParentNavigator = null;
+        private TabControl ParentNavigator = null;
 
         public SubjectTableEditor()
         {
@@ -288,7 +285,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            ProjectReporter.Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -305,16 +302,6 @@ namespace TestReporterPlugin.Editor
             {
                 upf.Close();
             }
-        }
-
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            OnLastEvent();
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            OnNextEvent();
         }
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -834,7 +821,7 @@ namespace TestReporterPlugin.Editor
             }
         }
 
-        private KryptonPage BuildOneKetiReadmePage(string ketiID, string ketiName)
+        private TabPage BuildOneKetiReadmePage(string ketiID, string ketiName)
         {
             KryptonPage kp = new KryptonPage();
             kp.Name = ketiID;
@@ -863,7 +850,7 @@ namespace TestReporterPlugin.Editor
             KeTiDetailEditor textEditor = (KeTiDetailEditor)sender;
 
             #region 保存过程
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            ProjectReporter.Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -908,14 +895,6 @@ namespace TestReporterPlugin.Editor
                 ttcHintTool.HideHint();
                 ttcHintTool.ShowHint("项目原则上需设置一个总体课题，由牵头申报单位承担，课题负责人由项目负责人担任。", dgvDetail.PointToScreen(dgvDetail.GetCellDisplayRectangle(1, e.RowIndex, false).Location));
             }
-        }
-
-        public override void NextPage()
-        {
-            base.NextPage();
-
-            //切换到课题关系而
-            MainForm.Instance.SwitchToNextPage(this);
         }
 
         void linkEditor_NextEvent(object sender, EventArgs args)
