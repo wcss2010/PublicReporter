@@ -14,11 +14,11 @@ namespace TestReporterPlugin.Editor
 {
     public partial class SubjectTableEditor : BaseEditor
     {
+        private Balloon.NET.BalloonHelp balloonHelp;
+
         public SubjectTableEditor()
         {
             InitializeComponent();
-
-            EnabledAutoNextPage = false;
 
             //显示图标
             //dgvDetail[dgvDetail.Columns.Count - 1, 0].Value = global::TestReporterPlugin.Resource.exclamation_16;
@@ -141,8 +141,8 @@ namespace TestReporterPlugin.Editor
                 {
                     if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                     {
-                        KeTiXiangXiForm form = new KeTiXiangXiForm(kett);
-                        form.ShowDialog();
+                        //KeTiXiangXiForm form = new KeTiXiangXiForm(kett);
+                        //form.ShowDialog();
                     }
                     else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                     {
@@ -163,28 +163,28 @@ namespace TestReporterPlugin.Editor
                             ConnectionManager.Context.table("MoneyAndType").where("ProjectID='" + kett.ID + "'").delete();
 
                             //UpdateKeTiList();
-                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RefreshEditorWithoutRTFTextEditor();
+                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
                         }
                         #endregion
                     }
                     else if (e.ColumnIndex == 6)
                     {
-                        UnitExtSelectForm usf = new UnitExtSelectForm(kett.UnitID);
-                        if (usf.ShowDialog() == DialogResult.OK)
-                        {
-                            if (usf.SelectedUnitExt != null)
-                            {
-                                dgvDetail.Rows[e.RowIndex].Cells[6].Value = usf.SelectedUnitExt.UnitBankNo;
-                                dgvDetail.Rows[e.RowIndex].Cells[6].Tag = usf.SelectedUnitExt.ID;
+                        //UnitExtSelectForm usf = new UnitExtSelectForm(kett.UnitID);
+                        //if (usf.ShowDialog() == DialogResult.OK)
+                        //{
+                        //    if (usf.SelectedUnitExt != null)
+                        //    {
+                        //        dgvDetail.Rows[e.RowIndex].Cells[6].Value = usf.SelectedUnitExt.UnitBankNo;
+                        //        dgvDetail.Rows[e.RowIndex].Cells[6].Tag = usf.SelectedUnitExt.ID;
 
-                                Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + usf.SelectedUnitExt.ID + "'").select("*").getItem<Unit>(new Unit());
-                                if (unitObj != null)
-                                {
-                                    dgvDetail.Rows[e.RowIndex].Cells[5].Value = unitObj.UnitName;
-                                    dgvDetail.Rows[e.RowIndex].Cells[5].Tag = unitObj;
-                                }
-                            }
-                        }
+                        //        Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + usf.SelectedUnitExt.ID + "'").select("*").getItem<Unit>(new Unit());
+                        //        if (unitObj != null)
+                        //        {
+                        //            dgvDetail.Rows[e.RowIndex].Cells[5].Value = unitObj.UnitName;
+                        //            dgvDetail.Rows[e.RowIndex].Cells[5].Tag = unitObj;
+                        //        }
+                        //    }
+                        //}
                     }
                     else if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
                     {
@@ -207,22 +207,22 @@ namespace TestReporterPlugin.Editor
                 }
                 else if (e.ColumnIndex == 6)
                 {
-                    UnitExtSelectForm usf = new UnitExtSelectForm(string.Empty);
-                    if (usf.ShowDialog() == DialogResult.OK)
-                    {
-                        if (usf.SelectedUnitExt != null)
-                        {
-                            dgvDetail.Rows[e.RowIndex].Cells[6].Value = usf.SelectedUnitExt.UnitBankNo;
-                            dgvDetail.Rows[e.RowIndex].Cells[6].Tag = usf.SelectedUnitExt.ID;
+                    //UnitExtSelectForm usf = new UnitExtSelectForm(string.Empty);
+                    //if (usf.ShowDialog() == DialogResult.OK)
+                    //{
+                    //    if (usf.SelectedUnitExt != null)
+                    //    {
+                    //        dgvDetail.Rows[e.RowIndex].Cells[6].Value = usf.SelectedUnitExt.UnitBankNo;
+                    //        dgvDetail.Rows[e.RowIndex].Cells[6].Tag = usf.SelectedUnitExt.ID;
 
-                            Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + usf.SelectedUnitExt.ID + "'").select("*").getItem<Unit>(new Unit());
-                            if (unitObj != null)
-                            {
-                                dgvDetail.Rows[e.RowIndex].Cells[5].Value = unitObj.UnitName;
-                                dgvDetail.Rows[e.RowIndex].Cells[5].Tag = unitObj;
-                            }
-                        }
-                    }
+                    //        Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + usf.SelectedUnitExt.ID + "'").select("*").getItem<Unit>(new Unit());
+                    //        if (unitObj != null)
+                    //        {
+                    //            dgvDetail.Rows[e.RowIndex].Cells[5].Value = unitObj.UnitName;
+                    //            dgvDetail.Rows[e.RowIndex].Cells[5].Tag = unitObj;
+                    //        }
+                    //    }
+                    //}
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
                 {
@@ -263,8 +263,8 @@ namespace TestReporterPlugin.Editor
             }
 
             //查找是否已存在
-            KryptonPage oldPage = null;
-            foreach (KryptonPage kp in ParentNavigator.Pages)
+            TabPage oldPage = null;
+            foreach (TabPage kp in kvKetiTabs.TabPages)
             {
                 if (kp.Name == ketiID)
                 {
@@ -278,7 +278,7 @@ namespace TestReporterPlugin.Editor
                 oldPage = BuildOneKetiReadmePage(ketiID, ketiName);
             }
 
-            ParentNavigator.SelectedPage = oldPage;
+            kvKetiTabs.SelectedTab = oldPage;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -464,7 +464,7 @@ namespace TestReporterPlugin.Editor
                         //新行
                         task = new Task();
                         task.ProjectID = proj.ID;
-                        task.DisplayOrder = YanJiuGuGanEditor.GetMaxDisplayOrder() + 1;
+                        task.DisplayOrder = ProjectWorkerInfoEditor.GetMaxDisplayOrder() + 1;
                     }
 
                     task.PersonID = personObj.ID;
@@ -488,7 +488,7 @@ namespace TestReporterPlugin.Editor
                 SyncStepList();
 
                 //保存详细页所写的内容
-                foreach (KryptonPage kp in ParentNavigator.Pages)
+                foreach (TabPage kp in kvKetiTabs.TabPages)
                 {
                     if (kp.Tag != null && kp.Tag.ToString() == "KeTiDynamic")
                     {
@@ -510,14 +510,14 @@ namespace TestReporterPlugin.Editor
                 RefreshView();
 
                 //刷新课题阶段划分表
-                foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps.Values)
+                foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).editorMap.Values)
                 {
-                    if (be is KeTiJieDuanHuaFenEditor)
+                    if (be is SubjectStepMoneyEditor)
                     {
                         //刷新列表
                         be.RefreshView();
                     }
-                    else if (be is YanJiuGuGanEditor)
+                    else if (be is ProjectWorkerInfoEditor)
                     {
                         //刷新列表
                         be.RefreshView();
@@ -671,7 +671,7 @@ namespace TestReporterPlugin.Editor
                         //新行
                         task = new Task();
                         task.ProjectID = proj.ID;
-                        task.DisplayOrder = YanJiuGuGanEditor.GetMaxDisplayOrder() + 1;
+                        task.DisplayOrder = ProjectWorkerInfoEditor.GetMaxDisplayOrder() + 1;
                     }
 
                     task.PersonID = personObj.ID;
@@ -711,19 +711,6 @@ namespace TestReporterPlugin.Editor
         {
             base.RefreshView();
 
-            //获得上一级的Tab控件
-            ParentNavigator = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).GetTabControl(this);
-
-            //修改课题关系的下一页代码
-            BaseEditor linkEditor = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps["feUI7"];
-            linkEditor.EnabledAutoNextPage = false;
-            try
-            {
-                linkEditor.NextEvent -= linkEditor_NextEvent;
-            }
-            catch (Exception) { }
-            linkEditor.NextEvent += linkEditor_NextEvent;
-
             //显示负责人
             UpdatePersonList();
 
@@ -760,18 +747,18 @@ namespace TestReporterPlugin.Editor
         /// </summary>
         private void SyncStepList()
         {
-            foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).EditorMaps.Values)
+            foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).editorMap.Values)
             {
-                if (be is JieDuanHuaFenEditor)
+                if (be is ProjectStepMoneyEditor)
                 {
                     //刷新列表
                     be.RefreshView();
 
                     //尝试创建4个初始项目
-                    ((JieDuanHuaFenEditor)be).Build4StepItems();
+                    ((ProjectStepMoneyEditor)be).Build4StepItems();
 
                     //保存数据
-                    ((JieDuanHuaFenEditor)be).SaveOnly();
+                    ((ProjectStepMoneyEditor)be).SaveOnly();
                     break;
                 }
             }
@@ -800,7 +787,7 @@ namespace TestReporterPlugin.Editor
             {
                 //删除除第一页之外其它标签页
                 List<TabPage> deletePageList = new List<TabPage>();
-                foreach (TabPage kp in ParentNavigator.TabPages)
+                foreach (TabPage kp in kvKetiTabs.TabPages)
                 {
                     if (kp.Tag != null && kp.Tag.ToString() == "KeTiDynamic")
                     {
@@ -809,7 +796,7 @@ namespace TestReporterPlugin.Editor
                 }
                 foreach (TabPage kpp in deletePageList)
                 {
-                    ParentNavigator.TabPages.Remove(kpp);
+                    kvKetiTabs.TabPages.Remove(kpp);
                 }
 
                 foreach (Project proj in KeTiList)
@@ -821,12 +808,12 @@ namespace TestReporterPlugin.Editor
 
         private TabPage BuildOneKetiReadmePage(string ketiID, string ketiName)
         {
-            KryptonPage kp = new KryptonPage();
+            TabPage kp = new TabPage();
             kp.Name = ketiID;
             kp.Text = ketiName;
             kp.Tag = "KeTiDynamic";
 
-            KeTiDetailEditor rtfTextEditor = new KeTiDetailEditor();
+            SubjectDetailEditor rtfTextEditor = new SubjectDetailEditor();
             rtfTextEditor.TitleLabelText = "课题(" + ketiName + ")详细内容";
             rtfTextEditor.Dock = DockStyle.Fill;
             rtfTextEditor.BackColor = Color.White;
@@ -834,12 +821,11 @@ namespace TestReporterPlugin.Editor
             rtfTextEditor.RTFFileFirstName = "keti_" + rtfTextEditor.RTFFileFirstName;
             rtfTextEditor.Name = rtfTextEditor.RTFEditorNameKey + ketiID;
             rtfTextEditor.RefreshView();
-            rtfTextEditor.NextEvent += RtfTextEditor_NextEvent;
 
             kp.Controls.Add(rtfTextEditor);
 
             //插入到课题关系之后
-            ParentNavigator.Pages.Add(kp);
+            kvKetiTabs.TabPages.Add(kp);
             return kp;
         }
 
@@ -847,8 +833,7 @@ namespace TestReporterPlugin.Editor
         {
             if (e.ColumnIndex == 1 && e.RowIndex == 0)
             {
-                ttcHintTool.HideHint();
-                ttcHintTool.ShowHint("项目原则上需设置一个总体课题，由牵头申报单位承担，课题负责人由项目负责人担任。", dgvDetail.PointToScreen(dgvDetail.GetCellDisplayRectangle(1, e.RowIndex, false).Location));
+                showBalloon("提示", "项目原则上需设置一个总体课题，由牵头申报单位承担，课题负责人由项目负责人担任。", dgvDetail.PointToScreen(dgvDetail.GetCellDisplayRectangle(1, e.RowIndex, false).Location));
             }
         }
         
@@ -856,6 +841,15 @@ namespace TestReporterPlugin.Editor
         {
             int rowIndex = dgvDetail.Rows.Add();
             dgvDetail.Rows[rowIndex].Cells[0].Value = (dgvDetail.Rows.Count).ToString();
+        }
+
+        private void showBalloon(string title, string content,Point displayPoint)
+        {
+            balloonHelp.Caption = title;
+            balloonHelp.Content = content;
+            balloonHelp.Icon = SystemIcons.Warning;
+            balloonHelp.ShowBalloon(dgvDetail);
+            balloonHelp.AnchorPoint = displayPoint;
         }
     }
 }
