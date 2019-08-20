@@ -330,6 +330,7 @@ namespace TestReporterPlugin
 
             #region 初始化其它的编辑器
             editorMap.Add("申报书", new ProjectEditor());
+            editorMap.Add("课题列表", new SubjectTableEditor());
             editorMap.Add("各课题负责人及研究骨干情况表", new ProjectWorkerInfoEditor());
             editorMap.Add("经费预算表", new MoneyTableEditor());
             editorMap.Add("项目阶段划分和经费安排", new ProjectStepMoneyEditor());
