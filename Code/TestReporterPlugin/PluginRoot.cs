@@ -208,10 +208,6 @@ namespace TestReporterPlugin
             subItemObj.Text = "课题之间的关系";
             itemObj.Nodes.Add(subItemObj);
 
-            subItemObj = new TreeNode();
-            subItemObj.Text = "课题详细";
-            itemObj.Nodes.Add(subItemObj);
-
             itemObj = new TreeNode();
             itemObj.Text = "研究成果";
             firstNode.Nodes.Add(itemObj);
@@ -334,6 +330,7 @@ namespace TestReporterPlugin
 
             #region 初始化其它的编辑器
             editorMap.Add("申报书", new ProjectEditor());
+            editorMap.Add("各课题负责人及研究骨干情况表", new ProjectWorkerInfoEditor());
             editorMap.Add("经费预算表", new MoneyTableEditor());
             editorMap.Add("项目阶段划分和经费安排", new ProjectStepMoneyEditor());
             editorMap.Add("课题阶段划分和经费安排", new SubjectStepMoneyEditor());
