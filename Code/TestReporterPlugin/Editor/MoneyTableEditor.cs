@@ -1534,13 +1534,13 @@ namespace TestReporterPlugin.Editor
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 6;
+            this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.btnSave, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnExcelLoad, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.lklDownloadExcel, 0, 0);
@@ -1555,7 +1555,7 @@ namespace TestReporterPlugin.Editor
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(659, 3);
+            this.btnSave.Location = new System.Drawing.Point(759, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 28);
             this.btnSave.TabIndex = 0;
@@ -1564,7 +1564,7 @@ namespace TestReporterPlugin.Editor
             // 
             // btnExcelLoad
             // 
-            this.btnExcelLoad.Location = new System.Drawing.Point(559, 3);
+            this.btnExcelLoad.Location = new System.Drawing.Point(659, 3);
             this.btnExcelLoad.Name = "btnExcelLoad";
             this.btnExcelLoad.Size = new System.Drawing.Size(94, 29);
             this.btnExcelLoad.TabIndex = 7;
@@ -1575,7 +1575,7 @@ namespace TestReporterPlugin.Editor
             // 
             this.lklDownloadExcel.Dock = System.Windows.Forms.DockStyle.Right;
             this.lklDownloadExcel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lklDownloadExcel.Location = new System.Drawing.Point(249, 0);
+            this.lklDownloadExcel.Location = new System.Drawing.Point(349, 0);
             this.lklDownloadExcel.Name = "lklDownloadExcel";
             this.lklDownloadExcel.Size = new System.Drawing.Size(154, 40);
             this.lklDownloadExcel.TabIndex = 6;
