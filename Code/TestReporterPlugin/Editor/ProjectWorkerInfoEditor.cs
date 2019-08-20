@@ -23,19 +23,19 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            NewGuGanLianXiRenForm form = new NewGuGanLianXiRenForm(null);
+            FrmEditWorkerInfo form = new FrmEditWorkerInfo(null);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                MainForm.Instance.RefreshEditorWithoutRTFTextEditor();
+                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
             }
         }
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "编辑";
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "向下";
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 4, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "向上";
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::TestReporterPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "编辑";
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "向下";
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 4, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "向上";
         }
 
         public override void ClearView()
@@ -58,27 +58,27 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateJobList()
         {
-            KryptonDataGridViewComboBoxColumn comboboxColumn = (KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[9];
+            DataGridViewComboBoxColumn comboboxColumn = (DataGridViewComboBoxColumn)dgvDetail.Columns[9];
             comboboxColumn.Items.Clear();
             JobDict.Clear();
 
             //项目的负责人和成员
             string projectA = "项目负责人";
             //string projectB = "项目-成员";
-            ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectA);
-            //((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectB);
-            JobDict.Add(projectA, MainForm.Instance.ProjectObj);
-            //JobDict.Add(projectB, MainForm.Instance.ProjectObj);
+            ((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectA);
+            //((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectB);
+            JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj);
+            //JobDict.Add(projectB, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj);
 
-            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Project>(new Project());
+            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Project>(new Project());
             if (ketiList != null)
             {
                 foreach (Project proj in ketiList)
                 {
                     projectA = proj.Name + "负责人";
                     string projectB = proj.Name + "成员";
-                    ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectA);
-                    ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectB);
+                    ((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectA);
+                    ((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectB);
                     JobDict[projectA] = proj;
                     JobDict[projectB] = proj;
                 }
@@ -87,7 +87,7 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateTaskList()
         {
-            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + MainForm.Instance.ProjectObj.ID + "') or ProjectID='" + MainForm.Instance.ProjectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "') or ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();            
@@ -153,7 +153,7 @@ namespace TestReporterPlugin.Editor
 
         private void UpatePersonList()
         {
-            KryptonDataGridViewComboBoxColumn comobobxColumn = ((KryptonDataGridViewComboBoxColumn)dgvDetail.Columns[1]);
+            DataGridViewComboBoxColumn comobobxColumn = ((DataGridViewComboBoxColumn)dgvDetail.Columns[1]);
             comobobxColumn.Items.Clear();
             PersonDict.Clear();
 
@@ -181,7 +181,7 @@ namespace TestReporterPlugin.Editor
             //    {
             //        //新行
             //        task = new Task();
-            //        task.ProjectID = MainForm.Instance.ProjectObj.ID;
+            //        task.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
             //        task.Type = "项目";
             //    }
             //    else
@@ -256,7 +256,7 @@ namespace TestReporterPlugin.Editor
             //    }
             //}
 
-            //MainForm.Instance.RefreshEditorWithoutRTFTextEditor();
+            //((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
         }
 
         public List<Person> PersonList { get; set; }
@@ -269,7 +269,7 @@ namespace TestReporterPlugin.Editor
         {
             if (e.ColumnIndex == 1)
             {
-                KryptonDataGridViewComboBoxCell comboboxCell = (KryptonDataGridViewComboBoxCell)dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                DataGridViewComboBoxCell comboboxCell = (DataGridViewComboBoxCell)dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (comboboxCell.EditedFormattedValue != null)
                 {
                     string key = comboboxCell.EditedFormattedValue.ToString();
@@ -345,10 +345,10 @@ namespace TestReporterPlugin.Editor
                     {
                         Task task = (Task)dgvDetail.Rows[e.RowIndex].Tag;
 
-                        NewGuGanLianXiRenForm form = new NewGuGanLianXiRenForm(task);
+                        FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
                         if (form.ShowDialog() == DialogResult.OK)
                         {
-                            MainForm.Instance.RefreshEditorWithoutRTFTextEditor();
+                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
                         }
                     }
                 }
@@ -361,7 +361,7 @@ namespace TestReporterPlugin.Editor
                         if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             ConnectionManager.Context.table("Task").where("ID='" + task.ID + "'").delete();
-                            MainForm.Instance.RefreshEditorWithoutRTFTextEditor();
+                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
                         }
                     }
                     else
@@ -470,10 +470,10 @@ namespace TestReporterPlugin.Editor
             if (dgvDetail.Rows[e.RowIndex].Tag != null)
             {
                 Task task = (Task)dgvDetail.Rows[e.RowIndex].Tag;
-                NewGuGanLianXiRenForm form = new NewGuGanLianXiRenForm(task);
+                FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    MainForm.Instance.RefreshEditorWithoutRTFTextEditor();
+                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
                 }
             }
         }
@@ -484,11 +484,11 @@ namespace TestReporterPlugin.Editor
             {
                 try
                 {
-                    DataSet ds = ProjectReporter.Utility.ExcelHelper.ExcelToDataSet(ofdExcelDialog.FileName);
+                    DataSet ds = TestReporterPlugin.Utility.ExcelHelper.ExcelToDataSet(ofdExcelDialog.FileName);
                     if (ds != null && ds.Tables.Count >= 1)
                     {
                         //显示提示窗体
-                        ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+                        Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
                         upf.EnabledDisplayProgress = false;
                         upf.LabalText = "正在导入，请稍等...";
                         upf.ShowProgress();
@@ -639,7 +639,7 @@ namespace TestReporterPlugin.Editor
                 unitID = ConnectionManager.Context.table("Unit").where("UnitName='" + unitName + "'").select("ID").getValue<string>(Guid.NewGuid().ToString());
 
                 //创建单位信息
-                NewProjectEditor.BuildUnitRecord(unitID, unitName, unitName, unitName, unitContact, unitTelephone, unitType, unitAddress);
+                ProjectEditor.BuildUnitRecord(unitID, unitName, unitName, unitName, unitContact, unitTelephone, unitType, unitAddress);
 
                 //创建人员
                 Person PersonObj = ConnectionManager.Context.table("Person").where("IDCard = '" + personIDCard + "'").select("*").getItem<Person>(new Person());
@@ -672,16 +672,16 @@ namespace TestReporterPlugin.Editor
                 PersonObj.copyTo(ConnectionManager.Context.table("Person")).insert();
 
                 //添加/修改Task
-                Task task = ConnectionManager.Context.table("Task").where("IDCard='" + personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(subjectName) ? MainForm.Instance.ProjectObj.Name : subjectName) + "')").select("*").getItem<Task>(new Task());
+                Task task = ConnectionManager.Context.table("Task").where("IDCard='" + personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name : subjectName) + "')").select("*").getItem<Task>(new Task());
                 if (task == null || string.IsNullOrEmpty(task.ID))
                 {
                     //新行
                     task = new Task();
-                    task.ProjectID = ConnectionManager.Context.table("Project").where("Name = '" + (string.IsNullOrEmpty(subjectName) ? MainForm.Instance.ProjectObj.Name : subjectName) + "'").select("ID").getValue<string>(string.Empty);
+                    task.ProjectID = ConnectionManager.Context.table("Project").where("Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name : subjectName) + "'").select("ID").getValue<string>(string.Empty);
                     task.DisplayOrder = GetMaxDisplayOrder() + 1;
                 }
 
-                task.Type = string.IsNullOrEmpty(subjectName) || subjectName == MainForm.Instance.ProjectObj.Name ? "项目" : "课题";
+                task.Type = string.IsNullOrEmpty(subjectName) || subjectName == ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name ? "项目" : "课题";
                 task.Role = jobInProjectOrSubject;
 
                 task.PersonID = PersonObj.ID;

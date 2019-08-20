@@ -33,9 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLast = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.btnExcelLoad = new System.Windows.Forms.Button();
             this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
             this.plContent = new System.Windows.Forms.Panel();
