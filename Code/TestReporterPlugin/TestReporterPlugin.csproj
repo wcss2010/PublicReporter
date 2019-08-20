@@ -161,11 +161,11 @@
     <Compile Include="Editor\SubjectStepMoneyEditor.designer.cs">
       <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmHelp.cs">
+    <Compile Include="Forms\FrmHelpBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmHelp.Designer.cs">
-      <DependentUpon>FrmHelp.cs</DependentUpon>
+    <Compile Include="Forms\FrmHelpBox.Designer.cs">
+      <DependentUpon>FrmHelpBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmInputBox.cs">
       <SubType>Form</SubType>
@@ -223,8 +223,8 @@
     <EmbeddedResource Include="Editor\SubjectStepMoneyEditor.resx">
       <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmHelp.resx">
-      <DependentUpon>FrmHelp.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmHelpBox.resx">
+      <DependentUpon>FrmHelpBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmInputBox.resx">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
