@@ -128,6 +128,18 @@
     <Compile Include="DB\Entitys\UnitExt.cs" />
     <Compile Include="DB\Entitys\WhiteList.cs" />
     <Compile Include="DB\Services\UnitExtService.cs" />
+    <Compile Include="Editor\SubjectDetailEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubjectDetailEditor.designer.cs">
+      <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SubjectTableEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubjectTableEditor.designer.cs">
+      <DependentUpon>SubjectTableEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\MoneyTableEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -216,6 +228,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubjectDetailEditor.resx">
+      <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubjectTableEditor.resx">
+      <DependentUpon>SubjectTableEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
       <DependentUpon>MoneyTableEditor.cs</DependentUpon>
