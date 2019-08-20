@@ -1,6 +1,6 @@
 ﻿namespace TestReporterPlugin.Forms
 {
-    partial class FrmHelp
+    partial class FrmHelpBox
     {
         /// <summary>
         /// Required designer variable.
