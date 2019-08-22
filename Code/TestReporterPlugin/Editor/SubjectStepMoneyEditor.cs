@@ -9,6 +9,7 @@ using TestReporterPlugin.DB;
 using TestReporterPlugin.DB.Entitys;
 using System.IO;
 using System.Diagnostics;
+using System.Linq;
 
 namespace TestReporterPlugin.Editor
 {
