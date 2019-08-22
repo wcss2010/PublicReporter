@@ -317,13 +317,16 @@ namespace TestReporterPlugin
 
                 if (string.IsNullOrEmpty(ProjectObj.ID))
                 {
+                    //项目数据清空
+                    ProjectObj = null;
+
                     //切换到工程信息编辑器
-                    SwitchToProjectEditor();
+                    switchToProjectEditor();
                 }
                 else
                 {
                     //切换到内容页
-                    SwitchToProjectContentEditor();
+                    switchToProjectContentEditor();
                 }
             }
             catch (Exception ex)
@@ -359,7 +362,7 @@ namespace TestReporterPlugin
         /// <summary>
         /// 切换到内容页
         /// </summary>
-        private void SwitchToProjectContentEditor()
+        private void switchToProjectContentEditor()
         {
             treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1].Nodes[0].Nodes[0];
             refreshEditors();
@@ -368,7 +371,7 @@ namespace TestReporterPlugin
         /// <summary>
         /// 切换到项目编辑页
         /// </summary>
-        private void SwitchToProjectEditor()
+        private void switchToProjectEditor()
         {
             treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
             if (treeViewObj.SelectedNode != null)
@@ -421,23 +424,23 @@ namespace TestReporterPlugin
             Image img = Resource.w5;
             ToolStripButton tempButton = null;
 
-            tempButton = GetTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;            
             topToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = GetTopButton(img, "btnExport", "导出", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(img, "btnExport", "导出", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = GetTopButton(img, "btnWordView", "预览", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(img, "btnWordView", "预览", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = GetTopButton(img, "btnLoad", "导入", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(img, "btnLoad", "导入", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = GetTopButton(img, "btnNew", "新建", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(img, "btnNew", "新建", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
         }
@@ -467,7 +470,7 @@ namespace TestReporterPlugin
         /// <param name="textg"></param>
         /// <param name="sizeg"></param>
         /// <returns></returns>
-        protected ToolStripButton GetTopButton(Image imgg, string nameg, string textg, Size sizeg)
+        protected ToolStripButton getTopButton(Image imgg, string nameg, string textg, Size sizeg)
         {
             ToolStripButton tempButton = new ToolStripButton();
             tempButton.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -515,9 +518,12 @@ namespace TestReporterPlugin
         /// </summary>
         public void refreshEditors()
         {
-            foreach (BaseEditor be in editorMap.Values)
+            if (ProjectObj != null)
             {
-                be.RefreshView();
+                foreach (BaseEditor be in editorMap.Values)
+                {
+                    be.RefreshView();
+                }
             }
         }
     }
