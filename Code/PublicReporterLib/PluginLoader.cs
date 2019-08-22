@@ -11,6 +11,15 @@ namespace PublicReporterLib
     /// </summary>
     public class PluginLoader
     {
+        private static List<string> ignoreLoadDllFiles = new List<string>();
+        /// <summary>
+        /// 需要忽略的DLL
+        /// </summary>
+        public static List<string> IgnoreLoadDllFiles
+        {
+            get { return ignoreLoadDllFiles; }
+        }
+
         /// <summary>
         /// 当前插件
         /// </summary>
@@ -40,6 +49,16 @@ namespace PublicReporterLib
                 string[] filess = Directory.GetFiles(dir);
                 foreach (string sFile in filess)
                 {
+                    //文件信息
+                    FileInfo fi = new FileInfo(sFile);
+                    
+                    //检查是否需要忽略这个DLL
+                    if (IgnoreLoadDllFiles.Contains(fi.Name))
+                    {
+                        continue;
+                    }
+
+                    //加载DLL
                     if (sFile.ToLower().EndsWith("dll"))
                     {
                         try

@@ -13,6 +13,9 @@ namespace PublicReporter
         [STAThread]
         static void Main()
         {
+            //添加忽略
+            PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("PublicReporterLib.dll");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
