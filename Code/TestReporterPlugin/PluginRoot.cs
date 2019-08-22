@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using TestReporterPlugin.Controls;
+using TestReporterPlugin.DB;
 using TestReporterPlugin.DB.Entitys;
 using TestReporterPlugin.Editor;
 using TestReporterPlugin.Forms;
@@ -287,9 +288,49 @@ namespace TestReporterPlugin
             //初始化编辑控件
             initEditors();
 
-            //defaultHintLabel.Text = "大大大大大大大大大大大大大大," + WorkDir;
+            //加载工程对象
+            try
+            {
+                Project pList = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
+                if (pList != null && !string.IsNullOrEmpty(pList.ID))
+                {
+                    //保存工程对象
+                    ProjectObj = pList;
+
+                    //切换到工程信息编辑器
+                    SwitchToProjectEditor();
+                }
+                else
+                {
+                    //切换到内容编辑页
+                    SwitchToProjectContentEditor();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("对不起，数据库加载失败！Ex:" + ex.ToString());
+            }
         }
 
+        /// <summary>
+        /// 切换到内容页
+        /// </summary>
+        private void SwitchToProjectContentEditor()
+        {
+            
+        }
+
+        /// <summary>
+        /// 切换到项目编辑页
+        /// </summary>
+        private void SwitchToProjectEditor()
+        {
+            
+        }
+
+        /// <summary>
+        /// 初始化编辑器列表
+        /// </summary>
         private void initEditors()
         {
             #region 创建数据目录
@@ -340,6 +381,10 @@ namespace TestReporterPlugin
             #endregion
         }
 
+        /// <summary>
+        /// 初始化按钮
+        /// </summary>
+        /// <param name="topToolStrip"></param>
         private void initButtons(ToolStrip topToolStrip)
         {
             Image img = Resource.w5;
@@ -366,6 +411,11 @@ namespace TestReporterPlugin
             topToolStrip.Items.Insert(0, tempButton);
         }
 
+        /// <summary>
+        /// 按钮事件处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void tempButton_Click(object sender, EventArgs e)
         {
             ToolStripButton button = ((ToolStripButton)sender);
@@ -378,6 +428,14 @@ namespace TestReporterPlugin
             }
         }
 
+        /// <summary>
+        /// 生成按钮对象
+        /// </summary>
+        /// <param name="imgg"></param>
+        /// <param name="nameg"></param>
+        /// <param name="textg"></param>
+        /// <param name="sizeg"></param>
+        /// <returns></returns>
         protected ToolStripButton GetTopButton(Image imgg, string nameg, string textg, Size sizeg)
         {
             ToolStripButton tempButton = new ToolStripButton();
