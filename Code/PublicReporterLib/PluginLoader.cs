@@ -45,7 +45,7 @@ namespace PublicReporterLib
                         try
                         {
                             //加载DLL文件
-                            Assembly asmm = Assembly.LoadFile(sFile);
+                            Assembly asmm = Assembly.LoadFrom(sFile);
                             if (asmm != null)
                             {
                                 //获得所有类
