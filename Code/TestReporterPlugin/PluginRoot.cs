@@ -146,20 +146,20 @@ namespace TestReporterPlugin
         /// <summary>
         /// 插件初始化
         /// </summary>
-        /// <param name="mainForm">顶部工具条控件</param>
-        /// <param name="topToolStrip">顶部工具条控件</param>
+        /// <param name="mainFormObj">顶部工具条控件</param>
+        /// <param name="topToolStripObj">顶部工具条控件</param>
         /// <param name="treeViewImageListObj">顶部工具条控件</param>
         /// <param name="treeViewObj">左边的树控件</param>
         /// <param name="contentObj">右边的内容面板</param>
-        /// <param name="bottomStatusStrip">底部状态栏</param>
-        /// <param name="defaultHintLabel">默认的提示标签</param>
-        public override void init(Form mainForm, ToolStrip topToolStrip, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStrip, ToolStripStatusLabel defaultHintLabel)
+        /// <param name="bottomStatusStripObj">底部状态栏</param>
+        /// <param name="defaultHintLabelObj">默认的提示标签</param>
+        public override void init(Form mainFormObj, ToolStrip topToolStripObj, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStripObj, ToolStripStatusLabel defaultHintLabelObj)
         {
-            this.topToolStrip = topToolStrip;
+            this.topToolStrip = topToolStripObj;
             this.treeViewObj = treeViewObj;
             this.contentObj = contentObj;
             this.treeViewImageListObj = treeViewImageListObj;
-            this.defaultHintLabel = defaultHintLabel;
+            this.defaultHintLabel = defaultHintLabelObj;
 
             //添加点击事件
             treeViewObj.AfterSelect += treeViewObj_AfterSelect;
@@ -282,8 +282,11 @@ namespace TestReporterPlugin
             firstNode.ExpandAll();
             #endregion
 
+            //初始化DB
+            initDB();
+
             //初始化按钮
-            initButtons(topToolStrip);
+            initButtons(topToolStripObj);
 
             //初始化编辑控件
             initEditors();
@@ -313,11 +316,29 @@ namespace TestReporterPlugin
         }
 
         /// <summary>
+        /// 初始化ID
+        /// </summary>
+        private void initDB()
+        {
+            //数据库文件
+            string dbFile = Path.Combine(DataDir, "static.db");
+
+            //复制数据库文件
+            File.Copy(Path.Combine(WorkDir, "static.db"), dbFile, true);
+            
+            //判断是否可以打开数据库
+            if (File.Exists(dbFile))
+            {
+                ConnectionManager.Open(dbFile);
+            }
+        }
+
+        /// <summary>
         /// 切换到内容页
         /// </summary>
         private void SwitchToProjectContentEditor()
         {
-            
+            treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1].Nodes[0].Nodes[0];
         }
 
         /// <summary>
@@ -325,7 +346,7 @@ namespace TestReporterPlugin
         /// </summary>
         private void SwitchToProjectEditor()
         {
-            
+            treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
         }
 
         /// <summary>
@@ -334,7 +355,7 @@ namespace TestReporterPlugin
         private void initEditors()
         {
             #region 创建数据目录
-            DataDir = Path.Combine(WorkDir, "Data");
+            DataDir = Path.Combine(WorkDir, Path.Combine("Data", "Current"));
             try
             {
                 Directory.CreateDirectory(DataDir);
@@ -343,7 +364,7 @@ namespace TestReporterPlugin
             #endregion
 
             #region 创建文件目录
-            FilesDir = Path.Combine(WorkDir, "Files");
+            FilesDir = Path.Combine(DataDir, "Files");
             try
             {
                 Directory.CreateDirectory(FilesDir);
