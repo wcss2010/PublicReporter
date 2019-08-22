@@ -281,6 +281,24 @@ namespace TestReporterPlugin
 
             firstNode.ExpandAll();
             #endregion
+            
+            #region 创建数据目录
+            DataDir = Path.Combine(WorkDir, Path.Combine("Data", "Current"));
+            try
+            {
+                Directory.CreateDirectory(DataDir);
+            }
+            catch (Exception ex) { }
+            #endregion
+
+            #region 创建文件目录
+            FilesDir = Path.Combine(DataDir, "Files");
+            try
+            {
+                Directory.CreateDirectory(FilesDir);
+            }
+            catch (Exception ex) { }
+            #endregion
 
             //初始化DB
             initDB();
@@ -354,24 +372,6 @@ namespace TestReporterPlugin
         /// </summary>
         private void initEditors()
         {
-            #region 创建数据目录
-            DataDir = Path.Combine(WorkDir, Path.Combine("Data", "Current"));
-            try
-            {
-                Directory.CreateDirectory(DataDir);
-            }
-            catch (Exception ex) { }
-            #endregion
-
-            #region 创建文件目录
-            FilesDir = Path.Combine(DataDir, "Files");
-            try
-            {
-                Directory.CreateDirectory(FilesDir);
-            }
-            catch (Exception ex) { }
-            #endregion
-
             #region 初始化文档编辑器
             editorMap.Add("项目摘要", new DocumentPasteEditor("项目摘要", "简述背景及必要性，介绍问题提出的军事应用背景或需求，重点阐述其现实“瓶颈”属性或引领未来重大技术发展方向属性，分析国内外研究现状和差距。介绍项目研究目标，概述拟突破的主要基础问题或关键技术、主要成果形式和预期技术指标，分析对解决国防科技现实瓶颈问题和支撑未来技术发展方面的预期支撑作用。围绕项目研究目标，突出国防基础研究的任务特点，从增强原始创新能力和支撑未来发展的角度出发，概述本项目需要重点研究解决的基础性问题。项目由XXX牵头，XXX等单位参研，研究周期X年，申请经费XXXX万元。项目负责人为XXX(院士/研究员/教授)(1000字以内)"));
             editorMap.Add("基本概念及内涵", new DocumentPasteEditor("基本概念及内涵", "简要介绍相关研究对象的基本概念及内涵等"));
