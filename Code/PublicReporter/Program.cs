@@ -15,6 +15,8 @@ namespace PublicReporter
         {
             //添加忽略
             PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("PublicReporterLib.dll");
+            PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("Noear.Weed3.dll");
+            PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("Aspose.Words.dll");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
