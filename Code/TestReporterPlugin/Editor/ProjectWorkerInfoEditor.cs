@@ -163,7 +163,7 @@ namespace TestReporterPlugin.Editor
                 foreach (Person person in PersonList)
                 {
                     string key = person.Name + "(" + person.IDCard + ")";
-                    PersonDict.Add(key, person);
+                    PersonDict[key] = person;
 
                     comobobxColumn.Items.Add(key);
                 }
