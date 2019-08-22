@@ -54,7 +54,8 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="Noear.Weed3">
+    <Reference Include="Noear.Weed3, Version=3.0.7082.27069, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
     </Reference>
     <Reference Include="SuperCodeFactoryLib">
@@ -65,7 +66,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
