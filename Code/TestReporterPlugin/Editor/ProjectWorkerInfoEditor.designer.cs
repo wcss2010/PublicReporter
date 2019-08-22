@@ -39,8 +39,10 @@
             this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colXingMing = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colXingMing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colZhiWu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCongShiZhuanYe = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,13 +50,11 @@
             this.colMeiNianGongZuoShiJian = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRenWuFenGong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colXiangMuZhongZhiWu = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colXiangMuZhongZhiWu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMoveUp = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colMoveDown = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colEditThis = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
             this.plTitle.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -217,6 +217,19 @@
             this.dgvDetail.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvDetail_CellParsing);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "删除";
+            this.dataGridViewImageColumn1.Image = global::TestReporterPlugin.Resource.DELETE_16;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 45;
+            // 
+            // ofdExcelDialog
+            // 
+            this.ofdExcelDialog.Filter = "*.xls|*.xls";
+            // 
             // selpersonid
             // 
             this.selpersonid.HeaderText = "序号";
@@ -227,13 +240,11 @@
             // 
             // colXingMing
             // 
-            this.colXingMing.DropDownWidth = 200;
             this.colXingMing.HeaderText = "姓名";
             this.colXingMing.MinimumWidth = 50;
             this.colXingMing.Name = "colXingMing";
             this.colXingMing.ReadOnly = true;
             this.colXingMing.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colXingMing.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colXingMing.Width = 50;
             // 
             // colSex
@@ -296,13 +307,11 @@
             // 
             // colXiangMuZhongZhiWu
             // 
-            this.colXiangMuZhongZhiWu.DropDownWidth = 200;
             this.colXiangMuZhongZhiWu.HeaderText = "项目中职务";
             this.colXiangMuZhongZhiWu.MinimumWidth = 100;
             this.colXiangMuZhongZhiWu.Name = "colXiangMuZhongZhiWu";
             this.colXiangMuZhongZhiWu.ReadOnly = true;
             this.colXiangMuZhongZhiWu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colXiangMuZhongZhiWu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // colMoveUp
             // 
@@ -342,19 +351,6 @@
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.Width = 45;
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "删除";
-            this.dataGridViewImageColumn1.Image = global::TestReporterPlugin.Resource.DELETE_16;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 45;
-            // 
-            // ofdExcelDialog
-            // 
-            this.ofdExcelDialog.Filter = "*.xls|*.xls";
-            // 
             // ProjectWorkerInfoEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -387,7 +383,7 @@
         private System.Windows.Forms.OpenFileDialog ofdExcelDialog;
         private System.Windows.Forms.LinkLabel lklDownloadFuJian;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colXingMing;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colXingMing;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn colZhiWu;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCongShiZhuanYe;
@@ -395,7 +391,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMeiNianGongZuoShiJian;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRenWuFenGong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDCard;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colXiangMuZhongZhiWu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colXiangMuZhongZhiWu;
         private System.Windows.Forms.DataGridViewButtonColumn colMoveUp;
         private System.Windows.Forms.DataGridViewButtonColumn colMoveDown;
         private System.Windows.Forms.DataGridViewButtonColumn colEditThis;

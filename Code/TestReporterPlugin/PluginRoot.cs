@@ -374,10 +374,6 @@ namespace TestReporterPlugin
         private void switchToProjectEditor()
         {
             treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
-            if (treeViewObj.SelectedNode != null)
-            {
-                editorMap[treeViewObj.SelectedNode.Text].RefreshView();
-            }
         }
 
         /// <summary>

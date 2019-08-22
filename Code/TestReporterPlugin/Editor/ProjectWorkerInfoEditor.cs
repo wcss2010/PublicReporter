@@ -58,17 +58,11 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateJobList()
         {
-            DataGridViewComboBoxColumn comboboxColumn = (DataGridViewComboBoxColumn)dgvDetail.Columns[9];
-            comboboxColumn.Items.Clear();
             JobDict.Clear();
 
             //项目的负责人和成员
             string projectA = "项目负责人";
-            //string projectB = "项目-成员";
-            ((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectA);
-            //((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectB);
             JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj);
-            //JobDict.Add(projectB, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj);
 
             List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Project>(new Project());
             if (ketiList != null)
@@ -77,8 +71,6 @@ namespace TestReporterPlugin.Editor
                 {
                     projectA = proj.Name + "负责人";
                     string projectB = proj.Name + "成员";
-                    ((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectA);
-                    ((DataGridViewComboBoxColumn)dgvDetail.Columns[9]).Items.Add(projectB);
                     JobDict[projectA] = proj;
                     JobDict[projectB] = proj;
                 }
@@ -153,8 +145,6 @@ namespace TestReporterPlugin.Editor
 
         private void UpatePersonList()
         {
-            DataGridViewComboBoxColumn comobobxColumn = ((DataGridViewComboBoxColumn)dgvDetail.Columns[1]);
-            comobobxColumn.Items.Clear();
             PersonDict.Clear();
 
             PersonList = ConnectionManager.Context.table("Person").select("*").getList<Person>(new Person());
@@ -164,8 +154,6 @@ namespace TestReporterPlugin.Editor
                 {
                     string key = person.Name + "(" + person.IDCard + ")";
                     PersonDict[key] = person;
-
-                    comobobxColumn.Items.Add(key);
                 }
             }
         }
@@ -173,90 +161,6 @@ namespace TestReporterPlugin.Editor
         public override void OnSaveEvent()
         {
             base.OnSaveEvent();
-
-            //foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
-            //{
-            //    Task task = null;
-            //    if (dgvRow.Tag == null)
-            //    {
-            //        //新行
-            //        task = new Task();
-            //        task.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
-            //        task.Type = "项目";
-            //    }
-            //    else
-            //    {
-            //        //已存在
-            //        task = (Task)dgvRow.Tag;
-            //    }
-
-            //    if (dgvRow.Cells[1].Value == null || string.IsNullOrEmpty(dgvRow.Cells[1].Value.ToString()))
-            //    {
-            //        continue;
-            //    }
-            //    if (dgvRow.Cells[5].Value == null || string.IsNullOrEmpty(dgvRow.Cells[5].Value.ToString()))
-            //    {
-            //        MessageBox.Show("对不起,请选择项目内职务");
-            //        return;
-            //    }
-            //    if (dgvRow.Cells[6].Value == null || string.IsNullOrEmpty(dgvRow.Cells[6].Value.ToString()))
-            //    {
-            //        MessageBox.Show("对不起,请输入任务分工");
-            //        return;
-            //    }
-            //    if (dgvRow.Cells[7].Value == null || string.IsNullOrEmpty(dgvRow.Cells[7].Value.ToString()))
-            //    {
-            //        MessageBox.Show("对不起,请输入每年为项目工作时间(月)");
-            //        return;
-            //    }
-
-            //    if (PersonDict.ContainsKey(dgvRow.Cells[1].Value.ToString()))
-            //    {
-            //        task.PersonID = PersonDict[dgvRow.Cells[1].Value.ToString()].ID;
-            //        task.IDCard = PersonDict[dgvRow.Cells[1].Value.ToString()].IDCard;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("对不起,人员不存在");
-            //        return;
-            //    }
-
-            //    string roleName = dgvRow.Cells[5].Value.ToString();
-            //    if (JobDict.ContainsKey(roleName))
-            //    {
-            //        if (roleName.StartsWith("项目-"))
-            //        {
-            //            //项目
-            //            task.Type = "项目";
-            //            task.Role = roleName.Replace("项目-", string.Empty);
-            //        }
-            //        else
-            //        {
-            //            //课题
-            //            task.Type = "课题";
-            //            task.Role = roleName.Split('-')[1];
-            //        }
-
-            //        task.ProjectID = JobDict[roleName].ID;
-            //    }
-
-            //    task.Content = dgvRow.Cells[6].Value.ToString();
-            //    task.TotalTime = Int32.Parse(dgvRow.Cells[7].Value.ToString());
-
-            //    if (string.IsNullOrEmpty(task.ID))
-            //    {
-            //        //insert
-            //        task.ID = Guid.NewGuid().ToString();
-            //        task.copyTo(ConnectionManager.Context.table("Task")).insert();
-            //    }
-            //    else
-            //    {
-            //        //update
-            //        task.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + task.ID + "'").update();
-            //    }
-            //}
-
-            //((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
         }
 
         public List<Person> PersonList { get; set; }
@@ -266,29 +170,7 @@ namespace TestReporterPlugin.Editor
         protected Dictionary<string, Project> JobDict = new Dictionary<string, Project>();
 
         private void dgvDetail_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
-        {
-            if (e.ColumnIndex == 1)
-            {
-                DataGridViewComboBoxCell comboboxCell = (DataGridViewComboBoxCell)dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if (comboboxCell.EditedFormattedValue != null)
-                {
-                    string key = comboboxCell.EditedFormattedValue.ToString();
-
-                    if (PersonDict.ContainsKey(key))
-                    {
-                        Person person = PersonDict[key];
-
-                        Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + person.UnitID + "'").select("*").getItem<Unit>(new Unit());
-                        if (unitObj != null)
-                        {
-                            dgvDetail[2, e.RowIndex].Value = unitObj.UnitName;
-                            dgvDetail[3, e.RowIndex].Value = person.Job;
-                            dgvDetail[4, e.RowIndex].Value = person.Specialty;
-                        }
-                    }
-                }
-            }
-        }
+        {  }
 
         public List<Task> TaskList { get; set; }
 
