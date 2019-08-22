@@ -134,6 +134,12 @@
     <Compile Include="DB\Entitys\UnitExt.cs" />
     <Compile Include="DB\Entitys\WhiteList.cs" />
     <Compile Include="DB\Services\UnitExtService.cs" />
+    <Compile Include="Editor\SubjectStepMoneyEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubjectStepMoneyEditor.designer.cs">
+      <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\SubjectDetailEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,12 +178,6 @@
     </Compile>
     <Compile Include="Editor\MoneySummaryEditor.designer.cs">
       <DependentUpon>MoneySummaryEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\SubjectStepMoneyEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectStepMoneyEditor.designer.cs">
-      <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\ProjectWorkerInfoEditor.cs">
       <SubType>UserControl</SubType>
@@ -235,6 +235,9 @@
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubjectStepMoneyEditor.resx">
+      <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubjectDetailEditor.resx">
       <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,9 +258,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\MoneySummaryEditor.resx">
       <DependentUpon>MoneySummaryEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectStepMoneyEditor.resx">
-      <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectWorkerInfoEditor.resx">
       <DependentUpon>ProjectWorkerInfoEditor.cs</DependentUpon>
