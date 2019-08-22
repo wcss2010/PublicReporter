@@ -339,13 +339,19 @@ namespace TestReporterPlugin
         {
             //数据库文件
             string dbFile = Path.Combine(DataDir, "static.db");
-
-            //复制数据库文件
-            File.Copy(Path.Combine(WorkDir, "static.db"), dbFile, true);
             
             //判断是否可以打开数据库
             if (File.Exists(dbFile))
             {
+                //打开数据库连接
+                ConnectionManager.Open(dbFile);
+            }
+            else
+            {
+                //复制数据库文件
+                File.Copy(Path.Combine(WorkDir, "static.db"), dbFile, true);
+
+                //打开数据库连接
                 ConnectionManager.Open(dbFile);
             }
         }
