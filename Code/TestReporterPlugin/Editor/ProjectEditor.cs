@@ -414,6 +414,13 @@ namespace TestReporterPlugin.Editor
             //plMain.Left = (Width - plMain.Width) / 2;
             //plMain.Top = (Height - plMain.Height) / 2;
         }
+
+        public override void RefreshView()
+        {
+            base.RefreshView();
+
+            LoadProject();
+        }
     }
 
     public delegate void EditValueChangedDelegate(object sender, EventArgs e);

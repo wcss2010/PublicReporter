@@ -312,18 +312,17 @@ namespace TestReporterPlugin
             //加载工程对象
             try
             {
-                Project pList = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
-                if (pList != null && !string.IsNullOrEmpty(pList.ID))
-                {
-                    //保存工程对象
-                    ProjectObj = pList;
+                //加载项目信息
+                ProjectObj = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
 
+                if (string.IsNullOrEmpty(ProjectObj.ID))
+                {
                     //切换到工程信息编辑器
                     SwitchToProjectEditor();
                 }
                 else
                 {
-                    //切换到内容编辑页
+                    //切换到内容页
                     SwitchToProjectContentEditor();
                 }
             }
@@ -357,6 +356,7 @@ namespace TestReporterPlugin
         private void SwitchToProjectContentEditor()
         {
             treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1].Nodes[0].Nodes[0];
+            refreshEditors();
         }
 
         /// <summary>
@@ -365,6 +365,10 @@ namespace TestReporterPlugin
         private void SwitchToProjectEditor()
         {
             treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
+            if (treeViewObj.SelectedNode != null)
+            {
+                editorMap[treeViewObj.SelectedNode.Text].RefreshView();
+            }
         }
 
         /// <summary>
@@ -473,11 +477,30 @@ namespace TestReporterPlugin
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (editorMap.ContainsKey(e.Node.Text))
+            if (ProjectObj == null || string.IsNullOrEmpty(ProjectObj.ID))
+            {
+                //因为项目信息为空，所以锁定在项目信息页
+                treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
+                showEditor(treeViewObj.SelectedNode.Text);
+                defaultHintLabel.Text = "对不起，请先填写项目信息！";
+            }
+            else
+            {
+                showEditor(e.Node.Text);
+            }
+        }
+
+        /// <summary>
+        /// 显示编辑器
+        /// </summary>
+        /// <param name="nodeTexts"></param>
+        private void showEditor(string nodeTexts)
+        {
+            if (editorMap.ContainsKey(nodeTexts))
             {
                 contentObj.Controls.Clear();
-                editorMap[e.Node.Text].Dock = DockStyle.Fill;
-                contentObj.Controls.Add(editorMap[e.Node.Text]);
+                editorMap[nodeTexts].Dock = DockStyle.Fill;
+                contentObj.Controls.Add(editorMap[nodeTexts]);
             }
         }
 
@@ -486,15 +509,10 @@ namespace TestReporterPlugin
         /// </summary>
         public void refreshEditors()
         {
-            
-        }
-
-        /// <summary>
-        /// 解锁项目编辑锁
-        /// </summary>
-        public void unlockProjectEditors()
-        {
-            
+            foreach (BaseEditor be in editorMap.Values)
+            {
+                be.RefreshView();
+            }
         }
     }
 }
