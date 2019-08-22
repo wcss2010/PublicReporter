@@ -57,9 +57,8 @@ namespace PublicReporterLib
                                     //判断是否为启动类
                                     if (t.BaseType != null && t.BaseType.FullName.Equals(typeof(IReportPluginRoot).FullName))
                                     {
-                                        //调用默认构造器实例化
-                                        ConstructorInfo ci = t.GetConstructors()[0];
-                                        CurrentPlugin = (IReportPluginRoot)ci.Invoke(null);
+                                        //调用默认构造器实例化                                        
+                                        CurrentPlugin = (IReportPluginRoot)asmm.CreateInstance(t.FullName);
                                     }
                                 }
                             }
