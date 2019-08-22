@@ -14,7 +14,7 @@ namespace TestReporterPlugin.Editor
 {
     public partial class SubjectTableEditor : BaseEditor
     {
-        private Balloon.NET.BalloonHelp balloonHelp;
+        private Balloon.NET.BalloonHelp balloonHelp = null;
 
         public SubjectTableEditor()
         {
@@ -845,6 +845,7 @@ namespace TestReporterPlugin.Editor
 
         private void showBalloon(string title, string content,Point displayPoint)
         {
+            balloonHelp = new Balloon.NET.BalloonHelp();
             balloonHelp.Caption = title;
             balloonHelp.Content = content;
             balloonHelp.Icon = SystemIcons.Warning;
