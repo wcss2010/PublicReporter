@@ -176,6 +176,7 @@
             // 
             // tableLayoutPanel15
             // 
+            this.tableLayoutPanel15.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel15.ColumnCount = 3;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
