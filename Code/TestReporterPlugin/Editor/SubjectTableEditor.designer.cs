@@ -63,9 +63,9 @@
             // tableLayoutPanel15
             // 
             this.tableLayoutPanel15.ColumnCount = 3;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel1, 1, 3);
             this.tableLayoutPanel15.Controls.Add(this.plTitle, 1, 1);
             this.tableLayoutPanel15.Controls.Add(this.plContent, 1, 2);
@@ -73,11 +73,11 @@
             this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 5;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(789, 511);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
@@ -92,17 +92,17 @@
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 454);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 464);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(683, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(763, 34);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(586, 3);
+            this.btnSave.Location = new System.Drawing.Point(666, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 0;
@@ -112,7 +112,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(486, 3);
+            this.btnAdd.Location = new System.Drawing.Point(566, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 27);
             this.btnAdd.TabIndex = 7;
@@ -124,11 +124,11 @@
             this.plTitle.AutoSize = true;
             this.plTitle.Controls.Add(this.label1);
             this.plTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plTitle.Location = new System.Drawing.Point(54, 20);
+            this.plTitle.Location = new System.Drawing.Point(14, 10);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
             this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.plTitle.Size = new System.Drawing.Size(681, 68);
+            this.plTitle.Size = new System.Drawing.Size(761, 68);
             this.plTitle.TabIndex = 0;
             // 
             // label1
@@ -139,7 +139,7 @@
             this.label1.Font = new System.Drawing.Font("仿宋", 14.25F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(675, 68);
+            this.label1.Size = new System.Drawing.Size(755, 68);
             this.label1.TabIndex = 0;
             this.label1.Text = "围绕如何全面的、有效的实现项目目标，进行课题分解，明确每个课题的密级，并简述研究内容；牵头申报单位承担的课题数不超过课题总数的三分之二";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,9 +149,9 @@
             this.plContent.BackColor = System.Drawing.Color.Transparent;
             this.plContent.Controls.Add(this.kvKetiTabs);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(53, 91);
+            this.plContent.Location = new System.Drawing.Point(13, 81);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(683, 357);
+            this.plContent.Size = new System.Drawing.Size(763, 377);
             this.plContent.TabIndex = 7;
             // 
             // kvKetiTabs
@@ -162,7 +162,7 @@
             this.kvKetiTabs.Location = new System.Drawing.Point(0, 0);
             this.kvKetiTabs.Name = "kvKetiTabs";
             this.kvKetiTabs.SelectedIndex = 0;
-            this.kvKetiTabs.Size = new System.Drawing.Size(683, 357);
+            this.kvKetiTabs.Size = new System.Drawing.Size(763, 377);
             this.kvKetiTabs.TabIndex = 4;
             // 
             // kpKetiItems
@@ -171,7 +171,7 @@
             this.kpKetiItems.Location = new System.Drawing.Point(4, 26);
             this.kpKetiItems.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpKetiItems.Name = "kpKetiItems";
-            this.kpKetiItems.Size = new System.Drawing.Size(675, 327);
+            this.kpKetiItems.Size = new System.Drawing.Size(755, 347);
             this.kpKetiItems.TabIndex = 0;
             this.kpKetiItems.Text = "课题列表";
             // 
@@ -202,7 +202,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.RowTemplate.Height = 35;
-            this.dgvDetail.Size = new System.Drawing.Size(675, 327);
+            this.dgvDetail.Size = new System.Drawing.Size(755, 347);
             this.dgvDetail.TabIndex = 3;
             this.dgvDetail.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDetail_CellBeginEdit);
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);

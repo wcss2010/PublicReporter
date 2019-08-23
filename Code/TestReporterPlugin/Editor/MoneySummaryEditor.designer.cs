@@ -53,9 +53,9 @@
             // tableLayoutPanel15
             // 
             this.tableLayoutPanel15.ColumnCount = 3;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel1, 1, 3);
             this.tableLayoutPanel15.Controls.Add(this.plTitle, 1, 1);
             this.tableLayoutPanel15.Controls.Add(this.plContent, 1, 2);
@@ -63,11 +63,11 @@
             this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 5;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(1050, 562);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
@@ -80,17 +80,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 505);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 515);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(944, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1024, 34);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(847, 3);
+            this.btnSave.Location = new System.Drawing.Point(927, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 0;
@@ -101,11 +101,11 @@
             // 
             this.plTitle.Controls.Add(this.label1);
             this.plTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plTitle.Location = new System.Drawing.Point(54, 20);
+            this.plTitle.Location = new System.Drawing.Point(14, 10);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
             this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.plTitle.Size = new System.Drawing.Size(942, 30);
+            this.plTitle.Size = new System.Drawing.Size(1022, 30);
             this.plTitle.TabIndex = 0;
             // 
             // label1
@@ -115,7 +115,7 @@
             this.label1.Font = new System.Drawing.Font("仿宋", 14.25F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(936, 30);
+            this.label1.Size = new System.Drawing.Size(1016, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "介绍本项目总经费预算构成，应能够支撑对项目总经费及相关课题经费安排合理性进行审核评估";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,9 +125,9 @@
             this.plContent.BackColor = System.Drawing.Color.Transparent;
             this.plContent.Controls.Add(this.tableLayoutPanel20);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(53, 53);
+            this.plContent.Location = new System.Drawing.Point(13, 43);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(944, 446);
+            this.plContent.Size = new System.Drawing.Size(1024, 466);
             this.plContent.TabIndex = 7;
             // 
             // tableLayoutPanel20
@@ -148,13 +148,13 @@
             this.tableLayoutPanel20.RowCount = 2;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(944, 81);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(1024, 81);
             this.tableLayoutPanel20.TabIndex = 5;
             // 
             // btnComsel
             // 
             this.btnComsel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnComsel.Location = new System.Drawing.Point(797, 3);
+            this.btnComsel.Location = new System.Drawing.Point(877, 3);
             this.btnComsel.Name = "btnComsel";
             this.btnComsel.Size = new System.Drawing.Size(82, 34);
             this.btnComsel.TabIndex = 5;
@@ -178,7 +178,7 @@
             this.lbcomattpath.Font = new System.Drawing.Font("仿宋", 12F);
             this.lbcomattpath.Location = new System.Drawing.Point(63, 0);
             this.lbcomattpath.Name = "lbcomattpath";
-            this.lbcomattpath.Size = new System.Drawing.Size(728, 40);
+            this.lbcomattpath.Size = new System.Drawing.Size(808, 40);
             this.lbcomattpath.TabIndex = 8;
             this.lbcomattpath.TabStop = true;
             this.lbcomattpath.Text = "0";
@@ -191,7 +191,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(63, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(728, 35);
+            this.panel1.Size = new System.Drawing.Size(808, 35);
             this.panel1.TabIndex = 9;
             // 
             // lklDownloadFuJian

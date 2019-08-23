@@ -59,9 +59,9 @@
             // tableLayoutPanel15
             // 
             this.tableLayoutPanel15.ColumnCount = 3;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel1, 1, 3);
             this.tableLayoutPanel15.Controls.Add(this.plTitle, 1, 1);
             this.tableLayoutPanel15.Controls.Add(this.plContent, 1, 2);
@@ -69,11 +69,11 @@
             this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 5;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(921, 623);
             this.tableLayoutPanel15.TabIndex = 5;
             // 
@@ -88,17 +88,17 @@
             this.tableLayoutPanel1.Controls.Add(this.btnExcelLoad, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lklDownloadFuJian, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 566);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 576);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(815, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(895, 34);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(718, 3);
+            this.btnSave.Location = new System.Drawing.Point(798, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 0;
@@ -109,7 +109,7 @@
             // 
             this.btnExcelLoad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnExcelLoad.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExcelLoad.Location = new System.Drawing.Point(598, 3);
+            this.btnExcelLoad.Location = new System.Drawing.Point(678, 3);
             this.btnExcelLoad.Name = "btnExcelLoad";
             this.btnExcelLoad.Size = new System.Drawing.Size(114, 28);
             this.btnExcelLoad.TabIndex = 4;
@@ -120,7 +120,7 @@
             // 
             this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Right;
             this.lklDownloadFuJian.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lklDownloadFuJian.Location = new System.Drawing.Point(248, 0);
+            this.lklDownloadFuJian.Location = new System.Drawing.Point(328, 0);
             this.lklDownloadFuJian.Name = "lklDownloadFuJian";
             this.lklDownloadFuJian.Size = new System.Drawing.Size(214, 34);
             this.lklDownloadFuJian.TabIndex = 5;
@@ -133,11 +133,11 @@
             // 
             this.plTitle.Controls.Add(this.label1);
             this.plTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plTitle.Location = new System.Drawing.Point(54, 20);
+            this.plTitle.Location = new System.Drawing.Point(14, 10);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
             this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.plTitle.Size = new System.Drawing.Size(813, 30);
+            this.plTitle.Size = new System.Drawing.Size(893, 30);
             this.plTitle.TabIndex = 0;
             // 
             // label1
@@ -147,7 +147,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 14.25F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(807, 30);
+            this.label1.Size = new System.Drawing.Size(887, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "课题阶段划分和经费安排";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,9 +157,9 @@
             this.plContent.BackColor = System.Drawing.Color.Transparent;
             this.plContent.Controls.Add(this.dgvDetail);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(53, 53);
+            this.plContent.Location = new System.Drawing.Point(13, 43);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(815, 507);
+            this.plContent.Size = new System.Drawing.Size(895, 527);
             this.plContent.TabIndex = 7;
             // 
             // dgvDetail
@@ -195,7 +195,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetail.RowTemplate.Height = 35;
-            this.dgvDetail.Size = new System.Drawing.Size(815, 507);
+            this.dgvDetail.Size = new System.Drawing.Size(895, 527);
             this.dgvDetail.TabIndex = 5;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentDoubleClick);

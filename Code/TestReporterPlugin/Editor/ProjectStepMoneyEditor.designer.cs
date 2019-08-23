@@ -69,9 +69,9 @@
             // tableLayoutPanel15
             // 
             this.tableLayoutPanel15.ColumnCount = 3;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel1, 1, 3);
             this.tableLayoutPanel15.Controls.Add(this.plTitle, 1, 1);
             this.tableLayoutPanel15.Controls.Add(this.plContent, 1, 2);
@@ -79,11 +79,11 @@
             this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 5;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(896, 537);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
@@ -102,17 +102,17 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lklDownloadFuJian, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 480);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 490);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(790, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(870, 34);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(693, 3);
+            this.btnSave.Location = new System.Drawing.Point(773, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 0;
@@ -123,7 +123,7 @@
             // 
             this.btnExcelLoad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnExcelLoad.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExcelLoad.Location = new System.Drawing.Point(473, 3);
+            this.btnExcelLoad.Location = new System.Drawing.Point(553, 3);
             this.btnExcelLoad.Name = "btnExcelLoad";
             this.btnExcelLoad.Size = new System.Drawing.Size(114, 28);
             this.btnExcelLoad.TabIndex = 4;
@@ -133,7 +133,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(593, 3);
+            this.btnAdd.Location = new System.Drawing.Point(673, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 27);
             this.btnAdd.TabIndex = 6;
@@ -144,7 +144,7 @@
             // 
             this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Right;
             this.lklDownloadFuJian.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lklDownloadFuJian.Location = new System.Drawing.Point(154, 0);
+            this.lklDownloadFuJian.Location = new System.Drawing.Point(234, 0);
             this.lklDownloadFuJian.Name = "lklDownloadFuJian";
             this.lklDownloadFuJian.Size = new System.Drawing.Size(183, 34);
             this.lklDownloadFuJian.TabIndex = 5;
@@ -158,11 +158,11 @@
             this.plTitle.AutoSize = true;
             this.plTitle.Controls.Add(this.label1);
             this.plTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plTitle.Location = new System.Drawing.Point(54, 20);
+            this.plTitle.Location = new System.Drawing.Point(14, 10);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
             this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.plTitle.Size = new System.Drawing.Size(788, 65);
+            this.plTitle.Size = new System.Drawing.Size(868, 65);
             this.plTitle.TabIndex = 0;
             // 
             // label1
@@ -173,7 +173,7 @@
             this.label1.Font = new System.Drawing.Font("仿宋", 14.25F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(782, 65);
+            this.label1.Size = new System.Drawing.Size(862, 65);
             this.label1.TabIndex = 0;
             this.label1.Text = "请根据项目研究需要，合理设置项目（课题）研究阶段和进度计划\r\n原则上全周期研究阶段设置应不少于4个。为便于经费管理工作统筹,建议每个阶段截止时间按年中或年底进行筹" +
     "划";
@@ -185,9 +185,9 @@
             this.plContent.Controls.Add(this.dgvDetail);
             this.plContent.Controls.Add(this.panel1);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(53, 88);
+            this.plContent.Location = new System.Drawing.Point(13, 78);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(790, 386);
+            this.plContent.Size = new System.Drawing.Size(870, 406);
             this.plContent.TabIndex = 7;
             // 
             // dgvDetail
@@ -223,7 +223,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetail.RowTemplate.Height = 105;
-            this.dgvDetail.Size = new System.Drawing.Size(790, 360);
+            this.dgvDetail.Size = new System.Drawing.Size(870, 380);
             this.dgvDetail.TabIndex = 4;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentDoubleClick);
@@ -318,7 +318,7 @@
             this.panel1.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(790, 26);
+            this.panel1.Size = new System.Drawing.Size(870, 26);
             this.panel1.TabIndex = 5;
             // 
             // label5
