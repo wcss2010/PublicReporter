@@ -105,7 +105,7 @@ namespace TestReporterPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
@@ -126,9 +126,9 @@ namespace TestReporterPlugin.Editor
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((KryptonDataGridView)sender)[((KryptonDataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::ProjectReporter.Properties.Resources.DELETE_28;
-            ((KryptonDataGridView)sender).Rows[e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Height = 150;
-            ((KryptonDataGridView)sender).Rows[((KryptonDataGridView)sender).Rows.Count - 1].Height = 150;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::TestReporterPlugin.Resource.DELETE_28;
+            ((DataGridView)sender).Rows[e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Height = 150;
+            ((DataGridView)sender).Rows[((DataGridView)sender).Rows.Count - 1].Height = 150;
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -152,10 +152,10 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateStepList()
         {
-            if (MainForm.Instance.ProjectObj != null)
+            if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null)
             {
-                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Project>(new Project());
-                StepList = ConnectionManager.Context.table("Step").where("ProjectID in (select ID from Project where Type='" + "课题" + "' and ParentID='" + MainForm.Instance.ProjectObj.ID + "')").select("*").getList<Step>(new Step());
+                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Project>(new Project());
+                StepList = ConnectionManager.Context.table("Step").where("ProjectID in (select ID from Project where Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "')").select("*").getList<Step>(new Step());
                 if (StepList != null && KeTiList != null && StepList.Count >= 1 && KeTiList.Count >= 1)
                 {
                     //数据行列表，先生成然后等待排序
@@ -293,7 +293,7 @@ namespace TestReporterPlugin.Editor
             if (e.ColumnIndex == 3)
             {
                 string content = dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null ? dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() : string.Empty;
-                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.TextBoxForm(content);
+                Forms.FrmInputBox textboxForm = new Forms.FrmInputBox(content);
                 if (textboxForm.ShowDialog() == DialogResult.OK)
                 {
                     dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = textboxForm.SelectedText;
@@ -302,7 +302,7 @@ namespace TestReporterPlugin.Editor
             else if (e.ColumnIndex == 5)
             {
                 string content = dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null ? dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() : string.Empty;
-                ProjectReporter.Forms.TextBoxForm textboxForm = new Forms.TextBoxForm(content);
+                Forms.FrmInputBox textboxForm = new Forms.FrmInputBox(content);
                 if (textboxForm.ShowDialog() == DialogResult.OK)
                 {
                     dgvDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = textboxForm.SelectedText;
@@ -316,11 +316,11 @@ namespace TestReporterPlugin.Editor
             {
                 try
                 {
-                    DataSet ds = ProjectReporter.Utility.ExcelHelper.ExcelToDataSet(ofdExcelDialog.FileName);
+                    DataSet ds = TestReporterPlugin.Utility.ExcelHelper.ExcelToDataSet(ofdExcelDialog.FileName);
                     if (ds != null && ds.Tables.Count >= 1)
                     {
                         //显示提示窗体
-                        ProjectReporter.Forms.UIDoWorkProcessForm upf = new Forms.UIDoWorkProcessForm();
+                        Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
                         upf.EnabledDisplayProgress = false;
                         upf.LabalText = "正在导入，请稍等...";
                         upf.ShowProgress();
