@@ -24,7 +24,8 @@ namespace TestReporterPlugin.Controls
             Multiline = true;
             infoLabel = new Label();
             infoLabel.AutoSize = true;
-            infoLabel.Font = new System.Drawing.Font("仿宋", 9);
+            infoLabel.Font = new System.Drawing.Font("仿宋", 12, System.Drawing.FontStyle.Italic);
+            infoLabel.ForeColor = System.Drawing.Color.Blue;
             infoLabel.Dock = DockStyle.Right;
             Controls.Add(infoLabel);
             infoLabel.BringToFront();
@@ -35,8 +36,8 @@ namespace TestReporterPlugin.Controls
         /// </summary>
         public string HintText
         {
-            get { return InfoLabel.Text; }
-            set { InfoLabel.Text = value; }
-        }        
+            get { return InfoLabel.Text.Replace("#", string.Empty); }
+            set { InfoLabel.Text = "#" + value; }
+        }
     }
 }
