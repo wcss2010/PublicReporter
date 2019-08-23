@@ -64,6 +64,7 @@
             this.knKetiDetailTabs.Controls.Add(this.kpContent);
             this.knKetiDetailTabs.Controls.Add(this.kpNeed);
             this.knKetiDetailTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.knKetiDetailTabs.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.knKetiDetailTabs.Location = new System.Drawing.Point(0, 0);
             this.knKetiDetailTabs.Name = "knKetiDetailTabs";
             this.knKetiDetailTabs.SelectedIndex = 0;
@@ -75,10 +76,10 @@
             // 
             this.kpInfo.Controls.Add(this.txtInfo);
             this.kpInfo.Controls.Add(this.kryptonPanel1);
-            this.kpInfo.Location = new System.Drawing.Point(4, 22);
+            this.kpInfo.Location = new System.Drawing.Point(4, 26);
             this.kpInfo.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpInfo.Name = "kpInfo";
-            this.kpInfo.Size = new System.Drawing.Size(744, 362);
+            this.kpInfo.Size = new System.Drawing.Size(744, 358);
             this.kpInfo.TabIndex = 0;
             this.kpInfo.Text = "简述";
             // 
@@ -89,7 +90,7 @@
             this.txtInfo.Location = new System.Drawing.Point(0, 28);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(744, 334);
+            this.txtInfo.Size = new System.Drawing.Size(744, 330);
             this.txtInfo.TabIndex = 0;
             // 
             // kryptonPanel1
@@ -198,11 +199,11 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 445);
@@ -214,7 +215,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(555, 3);
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(655, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 0;

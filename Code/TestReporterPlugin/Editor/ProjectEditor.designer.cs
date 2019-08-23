@@ -848,6 +848,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSave.Location = new System.Drawing.Point(1325, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
@@ -900,14 +901,14 @@
             this.plContent.Size = new System.Drawing.Size(1422, 565);
             this.plContent.TabIndex = 7;
             // 
-            // NewProjectEditor
+            // ProjectEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "NewProjectEditor";
+            this.Name = "ProjectEditor";
             this.Size = new System.Drawing.Size(1422, 669);
             this.SizeChanged += new System.EventHandler(this.NewProjectEditor_SizeChanged);
             this.tlpContent.ResumeLayout(false);

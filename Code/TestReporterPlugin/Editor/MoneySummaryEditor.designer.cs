@@ -89,6 +89,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSave.Location = new System.Drawing.Point(847, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
@@ -152,6 +153,7 @@
             // 
             // btnComsel
             // 
+            this.btnComsel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnComsel.Location = new System.Drawing.Point(797, 3);
             this.btnComsel.Name = "btnComsel";
             this.btnComsel.Size = new System.Drawing.Size(82, 34);

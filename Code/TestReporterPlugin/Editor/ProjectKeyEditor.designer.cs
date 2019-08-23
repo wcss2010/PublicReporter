@@ -52,48 +52,49 @@
             // txtWord1
             // 
             this.txtWord1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWord1.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtWord1.Location = new System.Drawing.Point(0, 0);
             this.txtWord1.Name = "txtWord1";
-            this.txtWord1.Size = new System.Drawing.Size(128, 29);
-            this.txtWord1.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtWord1.Size = new System.Drawing.Size(128, 30);
             this.txtWord1.TabIndex = 6;
             // 
             // txtWord2
             // 
             this.txtWord2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWord2.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtWord2.Location = new System.Drawing.Point(0, 0);
             this.txtWord2.Name = "txtWord2";
-            this.txtWord2.Size = new System.Drawing.Size(126, 29);
-            this.txtWord2.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtWord2.Size = new System.Drawing.Size(126, 30);
             this.txtWord2.TabIndex = 5;
             // 
             // txtWord3
             // 
             this.txtWord3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWord3.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtWord3.Location = new System.Drawing.Point(0, 0);
             this.txtWord3.Name = "txtWord3";
-            this.txtWord3.Size = new System.Drawing.Size(127, 29);
-            this.txtWord3.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtWord3.Size = new System.Drawing.Size(127, 30);
             this.txtWord3.TabIndex = 4;
             // 
             // txtWord4
             // 
             this.txtWord4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWord4.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtWord4.Location = new System.Drawing.Point(0, 0);
             this.txtWord4.Name = "txtWord4";
-            this.txtWord4.Size = new System.Drawing.Size(128, 29);
-            this.txtWord4.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtWord4.Size = new System.Drawing.Size(128, 30);
             this.txtWord4.TabIndex = 3;
             // 
             // txtWord5
             // 
             this.txtWord5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtWord5.Location = new System.Drawing.Point(0, 0);
-            this.txtWord5.Name = "txtWord5";
-            this.txtWord5.Size = new System.Drawing.Size(431, 29);
             this.txtWord5.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtWord5.TabIndex = 2;
             this.txtWord5.HintText = "关键字需至少填写三个，最多填写五个";
+            this.txtWord5.Location = new System.Drawing.Point(0, 0);
+            this.txtWord5.Multiline = true;
+            this.txtWord5.Name = "txtWord5";
+            this.txtWord5.Size = new System.Drawing.Size(431, 31);
+            this.txtWord5.TabIndex = 2;
             // 
             // panel1
             // 
@@ -195,7 +196,7 @@
             this.panel5.Size = new System.Drawing.Size(431, 31);
             this.panel5.TabIndex = 21;
             // 
-            // ProjectKeyControl
+            // ProjectKeyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -205,7 +206,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
-            this.Name = "ProjectKeyControl";
+            this.Name = "ProjectKeyEditor";
             this.Size = new System.Drawing.Size(1060, 31);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
