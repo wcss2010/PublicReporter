@@ -209,6 +209,12 @@
     <Compile Include="Forms\FrmEditWorkerInfo.designer.cs">
       <DependentUpon>FrmEditWorkerInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmProjectManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmProjectManager.designer.cs">
+      <DependentUpon>FrmProjectManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="PluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -273,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditWorkerInfo.resx">
       <DependentUpon>FrmEditWorkerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmProjectManager.resx">
+      <DependentUpon>FrmProjectManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

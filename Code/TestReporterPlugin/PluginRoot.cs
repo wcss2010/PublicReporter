@@ -61,6 +61,11 @@ namespace TestReporterPlugin
         private ToolStripStatusLabel defaultHintLabel;
 
         /// <summary>
+        /// 是否显示关闭提示
+        /// </summary>
+        public bool enabledShowExitHint = true;
+
+        /// <summary>
         /// 程序标题
         /// </summary>
         public override string Title
@@ -90,7 +95,7 @@ namespace TestReporterPlugin
         /// </summary>
         public override void stop(FormClosingEventArgs e)
         {
-            if (e != null)
+            if (e != null && enabledShowExitHint)
             {
                 if (MessageBox.Show("真的要退出吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -439,6 +444,10 @@ namespace TestReporterPlugin
             tempButton = getTopButton(img, "btnNew", "新建", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
+
+            tempButton = getTopButton(img, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            topToolStrip.Items.Insert(0, tempButton);
         }
 
         /// <summary>
@@ -454,6 +463,22 @@ namespace TestReporterPlugin
                 case "帮助":
                     FrmHelpBox helpForm = new FrmHelpBox();
                     helpForm.ShowDialog();
+                    break;
+                case "导出":
+                    
+                    break;
+                case "预览":
+                    
+                    break;
+                case "导入":
+                    
+                    break;
+                case "新建":
+                    
+                    break;
+                case "项目管理":
+                    FrmProjectManager manager = new FrmProjectManager();
+                    manager.ShowDialog();
                     break;
             }
         }
