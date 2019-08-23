@@ -152,10 +152,10 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateStepList()
         {
-            if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null)
+            if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
             {
-                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Project>(new Project());
-                StepList = ConnectionManager.Context.table("Step").where("ProjectID in (select ID from Project where Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "')").select("*").getList<Step>(new Step());
+                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+                StepList = ConnectionManager.Context.table("Step").where("ProjectID in (select ID from Project where Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "')").select("*").getList<Step>(new Step());
                 if (StepList != null && KeTiList != null && StepList.Count >= 1 && KeTiList.Count >= 1)
                 {
                     //数据行列表，先生成然后等待排序

@@ -62,9 +62,9 @@ namespace TestReporterPlugin.Editor
 
             //项目的负责人和成员
             string projectA = "项目负责人";
-            JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj);
+            JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj);
 
-            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").select("*").getList<Project>(new Project());
+            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
             if (ketiList != null)
             {
                 foreach (Project proj in ketiList)
@@ -79,7 +79,7 @@ namespace TestReporterPlugin.Editor
 
         private void UpdateTaskList()
         {
-            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "') or ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "') or ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();            
@@ -554,16 +554,16 @@ namespace TestReporterPlugin.Editor
                 PersonObj.copyTo(ConnectionManager.Context.table("Person")).insert();
 
                 //添加/修改Task
-                Task task = ConnectionManager.Context.table("Task").where("IDCard='" + personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name : subjectName) + "')").select("*").getItem<Task>(new Task());
+                Task task = ConnectionManager.Context.table("Task").where("IDCard='" + personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name : subjectName) + "')").select("*").getItem<Task>(new Task());
                 if (task == null || string.IsNullOrEmpty(task.ID))
                 {
                     //新行
                     task = new Task();
-                    task.ProjectID = ConnectionManager.Context.table("Project").where("Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name : subjectName) + "'").select("ID").getValue<string>(string.Empty);
+                    task.ProjectID = ConnectionManager.Context.table("Project").where("Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name : subjectName) + "'").select("ID").getValue<string>(string.Empty);
                     task.DisplayOrder = GetMaxDisplayOrder() + 1;
                 }
 
-                task.Type = string.IsNullOrEmpty(subjectName) || subjectName == ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name ? "项目" : "课题";
+                task.Type = string.IsNullOrEmpty(subjectName) || subjectName == ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name ? "项目" : "课题";
                 task.Role = jobInProjectOrSubject;
 
                 task.PersonID = PersonObj.ID;

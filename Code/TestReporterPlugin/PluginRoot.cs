@@ -18,7 +18,7 @@ namespace TestReporterPlugin
         /// <summary>
         /// 当前项目
         /// </summary>
-        public Project ProjectObj { get; set; }
+        public Project projectObj = null;
 
         /// <summary>
         /// 编辑器字典
@@ -28,12 +28,12 @@ namespace TestReporterPlugin
         /// <summary>
         /// 数据目录
         /// </summary>
-        public string DataDir { get; set; }
+        public string dataDir = string.Empty;
 
         /// <summary>
         /// 文件目录
         /// </summary>
-        public string FilesDir { get; set; }
+        public string filesDir = string.Empty;
 
         /// <summary>
         /// 顶部工具栏
@@ -288,19 +288,19 @@ namespace TestReporterPlugin
             #endregion
             
             #region 创建数据目录
-            DataDir = Path.Combine(WorkDir, Path.Combine("Data", "Current"));
+            dataDir = Path.Combine(WorkDir, Path.Combine("Data", "Current"));
             try
             {
-                Directory.CreateDirectory(DataDir);
+                Directory.CreateDirectory(dataDir);
             }
             catch (Exception ex) { }
             #endregion
 
             #region 创建文件目录
-            FilesDir = Path.Combine(DataDir, "Files");
+            filesDir = Path.Combine(dataDir, "Files");
             try
             {
-                Directory.CreateDirectory(FilesDir);
+                Directory.CreateDirectory(filesDir);
             }
             catch (Exception ex) { }
             #endregion
@@ -318,12 +318,12 @@ namespace TestReporterPlugin
             try
             {
                 //加载项目信息
-                ProjectObj = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
+                projectObj = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
 
-                if (string.IsNullOrEmpty(ProjectObj.ID))
+                if (string.IsNullOrEmpty(projectObj.ID))
                 {
                     //项目数据清空
-                    ProjectObj = null;
+                    projectObj = null;
 
                     //切换到工程信息编辑器
                     switchToProjectEditor();
@@ -346,7 +346,7 @@ namespace TestReporterPlugin
         private void initDB()
         {
             //数据库文件
-            string dbFile = Path.Combine(DataDir, "static.db");
+            string dbFile = Path.Combine(dataDir, "static.db");
             
             //判断是否可以打开数据库
             if (File.Exists(dbFile))
@@ -507,7 +507,7 @@ namespace TestReporterPlugin
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (ProjectObj == null || string.IsNullOrEmpty(ProjectObj.ID))
+            if (projectObj == null || string.IsNullOrEmpty(projectObj.ID))
             {
                 //因为项目信息为空，所以锁定在项目信息页
                 treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
@@ -539,7 +539,7 @@ namespace TestReporterPlugin
         /// </summary>
         public void refreshEditors()
         {
-            if (ProjectObj != null)
+            if (projectObj != null)
             {
                 foreach (BaseEditor be in editorMap.Values)
                 {

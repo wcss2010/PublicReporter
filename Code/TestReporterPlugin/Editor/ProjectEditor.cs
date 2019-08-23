@@ -43,18 +43,18 @@ namespace TestReporterPlugin.Editor
 
         public void LoadProject()
         {
-            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null)
+            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
             {
-                txtProjectName.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name;
-                cbxSecret.SelectedItem = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.SecretLevel;
-                txtTotalTime.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalTime + "";
-                txtTotalMoney.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalMoney + "";
-                txtKeyWords.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Keywords;
-                txtDomain.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Domain;
-                txtDirection.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Direction;
-                txtDirectionCode.Value = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.DirectionCode != null ? ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.DirectionCode.Value : 0;
+                txtProjectName.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name;
+                cbxSecret.SelectedItem = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.SecretLevel;
+                txtTotalTime.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalTime + "";
+                txtTotalMoney.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalMoney + "";
+                txtKeyWords.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Keywords;
+                txtDomain.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Domain;
+                txtDirection.Text = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Direction;
+                txtDirectionCode.Value = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.DirectionCode != null ? ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.DirectionCode.Value : 0;
 
-                Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.UnitID + "'").select("*").getItem<Unit>(new Unit());
+                Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID + "'").select("*").getItem<Unit>(new Unit());
                 if (unitObj != null)
                 {
                     txtUnitName.Text = unitObj.UnitName;
@@ -104,9 +104,9 @@ namespace TestReporterPlugin.Editor
 
         private void UpdatePersonList()
         {   
-            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null)
+            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
             {
-                ProjectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "')").select("*").getItem<Person>(new Person());
+                ProjectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "')").select("*").getItem<Person>(new Person());
 
             }
 
@@ -237,17 +237,17 @@ namespace TestReporterPlugin.Editor
             //}
             
             //创建单位信息
-            string unitExtId = (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null && !string.IsNullOrEmpty(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.UnitID)) ? ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.UnitID : Guid.NewGuid().ToString();
+            string unitExtId = (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null && !string.IsNullOrEmpty(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID)) ? ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID : Guid.NewGuid().ToString();
             BuildUnitRecord(unitExtId, txtUnitName.Text, txtUnitName.Text, txtNormalName.Text, txtContactName.Text, txtTelephone.Text, "申报单位", txtAddress.Text);
 
             string projectIDs = string.Empty;
-            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj == null)
+            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj == null)
             {
                 projectIDs = Guid.NewGuid().ToString();
             }
             else
             {
-                projectIDs = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
+                projectIDs = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
             }
 
             //新的人员ID
@@ -295,39 +295,39 @@ namespace TestReporterPlugin.Editor
             projectPerson.copyTo(ConnectionManager.Context.table("Task")).insert();
 
             //工程
-            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj == null)
+            if (((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj == null)
             {
-                ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj = new Project();
+                ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = new Project();
             }
 
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ParentID = string.Empty;
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.UnitID = unitExtId;
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Type = "项目";
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.SecretLevel = cbxSecret.SelectedItem != null ? cbxSecret.SelectedItem.ToString() : "公开";
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Name = txtProjectName.Text;
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalTime = int.Parse(txtTotalTime.Text);
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.TotalMoney = decimal.Parse(txtTotalMoney.Text);
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Keywords = txtKeyWords.Text;
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Domain = txtDomain.Text;
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.Direction = txtDirection.Text;
-            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.DirectionCode = (int)txtDirectionCode.Value;
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ParentID = string.Empty;
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID = unitExtId;
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Type = "项目";
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.SecretLevel = cbxSecret.SelectedItem != null ? cbxSecret.SelectedItem.ToString() : "公开";
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name = txtProjectName.Text;
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalTime = int.Parse(txtTotalTime.Text);
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalMoney = decimal.Parse(txtTotalMoney.Text);
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Keywords = txtKeyWords.Text;
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Domain = txtDomain.Text;
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Direction = txtDirection.Text;
+            ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.DirectionCode = (int)txtDirectionCode.Value;
 
             //添加/修改工程
-            if (string.IsNullOrEmpty(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID))
+            if (string.IsNullOrEmpty(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID))
             {
-                ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID = projectIDs;
+                ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID = projectIDs;
 
                 //创建候选单位
                 BuildWhiteList();
 
-                return ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.copyTo(ConnectionManager.Context.table("Project")).insert();
+                return ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.copyTo(ConnectionManager.Context.table("Project")).insert();
             }
             else
             {
                 //创建候选单位
                 BuildWhiteList();
 
-                return ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.copyTo(ConnectionManager.Context.table("Project")).where("ID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID + "'").update();
+                return ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.copyTo(ConnectionManager.Context.table("Project")).where("ID='" + ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").update();
             }
         }
 
@@ -391,8 +391,8 @@ namespace TestReporterPlugin.Editor
             //创建新的记录
             WhiteList wl = new WhiteList();
             wl.ID = Guid.NewGuid().ToString();
-            wl.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.ID;
-            wl.UnitID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.UnitID;
+            wl.ProjectID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+            wl.UnitID = ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID;
             wl.copyTo(ConnectionManager.Context.table("WhiteList")).insert();
         }
 

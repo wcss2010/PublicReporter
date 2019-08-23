@@ -80,22 +80,22 @@ namespace TestReporterPlugin.Editor
 
         public string GetNeedFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_need" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_need" + ".doc");
         }
 
         public string GetContentFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_cnt" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_cnt" + ".doc");
         }
 
         public string GetDestFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_dest" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_dest" + ".doc");
         }
 
         public string GetInfoFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_info" + ".rtf");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_info" + ".rtf");
         }
 
         public override void RefreshView()

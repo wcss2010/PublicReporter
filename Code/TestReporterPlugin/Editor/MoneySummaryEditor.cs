@@ -55,9 +55,9 @@ namespace TestReporterPlugin.Editor
         {
             base.RefreshView();
 
-            if (Directory.Exists(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir))
+            if (Directory.Exists(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir))
             {
-                string[] files = Directory.GetFiles(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir);
+                string[] files = Directory.GetFiles(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir);
                 if (files != null)
                 {
                     foreach (string f in files)
@@ -87,7 +87,7 @@ namespace TestReporterPlugin.Editor
                         File.Delete(FilePath);
                     }
 
-                    File.Copy(ofdUpload.FileName, Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).FilesDir, FileFirstName + "_" + new FileInfo(ofdUpload.FileName).Name));
+                    File.Copy(ofdUpload.FileName, Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, FileFirstName + "_" + new FileInfo(ofdUpload.FileName).Name));
                     RefreshView();
                 }
             }

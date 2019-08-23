@@ -113,7 +113,7 @@ namespace TestReporterPlugin.Forms
                     ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
                     DB.ConnectionManager.Close();
                     System.Diagnostics.Process.Start(Application.ExecutablePath);
-                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj = null;
+                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
                     Application.Exit();
                 }
             }
