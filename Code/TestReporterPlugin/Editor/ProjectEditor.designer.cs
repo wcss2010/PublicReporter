@@ -187,9 +187,9 @@
             // 
             this.panel15.BackColor = System.Drawing.Color.White;
             this.tlpContent.SetColumnSpan(this.panel15, 4);
+            this.panel15.Controls.Add(this.txtDirectionCode);
             this.panel15.Controls.Add(this.txtDirection);
             this.panel15.Controls.Add(this.label27);
-            this.panel15.Controls.Add(this.txtDirectionCode);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(185, 58);
             this.panel15.Margin = new System.Windows.Forms.Padding(1);
@@ -228,7 +228,7 @@
             0,
             0});
             this.txtDirectionCode.Name = "txtDirectionCode";
-            this.txtDirectionCode.Size = new System.Drawing.Size(62, 30);
+            this.txtDirectionCode.Size = new System.Drawing.Size(75, 30);
             this.txtDirectionCode.TabIndex = 202;
             // 
             // panel14
@@ -483,7 +483,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(1015, 17);
+            this.label21.Location = new System.Drawing.Point(1086, 17);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(19, 20);
             this.label21.TabIndex = 100;
@@ -495,7 +495,7 @@
             this.txtAddress.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtAddress.Location = new System.Drawing.Point(10, 16);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(1001, 30);
+            this.txtAddress.Size = new System.Drawing.Size(1070, 30);
             this.txtAddress.TabIndex = 10;
             // 
             // panel8
@@ -757,7 +757,7 @@
             "机密"});
             this.cbxSecret.Location = new System.Drawing.Point(8, 12);
             this.cbxSecret.Name = "cbxSecret";
-            this.cbxSecret.Size = new System.Drawing.Size(268, 28);
+            this.cbxSecret.Size = new System.Drawing.Size(258, 28);
             this.cbxSecret.TabIndex = 4;
             // 
             // panel13
@@ -894,6 +894,7 @@
             // plContent
             // 
             this.plContent.AutoScroll = true;
+            this.plContent.BackColor = System.Drawing.Color.White;
             this.plContent.Controls.Add(this.tlpContent);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(0, 70);
