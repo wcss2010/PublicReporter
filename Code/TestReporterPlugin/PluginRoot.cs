@@ -26,6 +26,11 @@ namespace TestReporterPlugin
         public SortedList<string, BaseEditor> editorMap = new SortedList<string, BaseEditor>();
 
         /// <summary>
+        /// 基础目录
+        /// </summary>
+        public string baseDir = string.Empty;
+
+        /// <summary>
         /// 数据目录
         /// </summary>
         public string dataDir = string.Empty;
@@ -286,9 +291,18 @@ namespace TestReporterPlugin
 
             firstNode.ExpandAll();
             #endregion
-            
+
+            #region 创建基础目录
+            baseDir = Path.Combine(WorkDir, "Data");
+            try
+            {
+                Directory.CreateDirectory(baseDir);
+            }
+            catch (Exception ex) { }
+            #endregion
+
             #region 创建数据目录
-            dataDir = Path.Combine(WorkDir, Path.Combine("Data", "Current"));
+            dataDir = Path.Combine(baseDir, "Current");
             try
             {
                 Directory.CreateDirectory(dataDir);
