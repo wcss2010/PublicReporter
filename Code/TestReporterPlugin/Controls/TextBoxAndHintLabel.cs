@@ -23,6 +23,8 @@ namespace TestReporterPlugin.Controls
         {
             Multiline = true;
             infoLabel = new Label();
+            infoLabel.AutoSize = true;
+            infoLabel.Font = new System.Drawing.Font("仿宋", 9);
             infoLabel.Dock = DockStyle.Right;
             Controls.Add(infoLabel);
             infoLabel.BringToFront();
