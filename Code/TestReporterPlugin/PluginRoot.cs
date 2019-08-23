@@ -488,7 +488,26 @@ namespace TestReporterPlugin
                     
                     break;
                 case "新建":
-                    
+                    if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        //关闭连接
+                        DB.ConnectionManager.Close();
+
+                        //当前项目目录
+                        string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
+
+                        //移动当前目录
+                        if (System.IO.Directory.Exists(currentPath))
+                        {
+                            System.IO.Directory.Delete(currentPath, true);
+                        }
+            
+                        ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
+                        DB.ConnectionManager.Close();
+                        System.Diagnostics.Process.Start(Application.ExecutablePath);
+                        ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
+                        Application.Exit();
+                    }
                     break;
                 case "项目管理":
                     FrmProjectManager manager = new FrmProjectManager();
