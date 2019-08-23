@@ -487,7 +487,7 @@ namespace TestReporterPlugin
                 //因为项目信息为空，所以锁定在项目信息页
                 treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
                 showEditor(treeViewObj.SelectedNode.Text);
-                defaultHintLabel.Text = "对不起，请先填写项目信息！";
+                defaultHintLabel.Text = "请填写完整项目信息......";
             }
             else
             {
