@@ -2,12 +2,14 @@
 using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using TestReporterPlugin.DB;
 using TestReporterPlugin.DB.Entitys;
+using TestReporterPlugin.Editor;
 
 namespace TestReporterPlugin.Utility
 {
@@ -55,7 +57,7 @@ namespace TestReporterPlugin.Utility
                 #endregion
 
                 #region 查询项目负责人及单位信息
-                Person projectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + MainForm.Instance.ProjectObj.ID + "')").select("*").getItem<Person>(new Person());
+                Person projectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Person>(new Person());
                 if (projectPersonObj == null)
                 {
                     return;
@@ -70,27 +72,27 @@ namespace TestReporterPlugin.Utility
                 Report(progressDialog, 30, "写入基本信息...", 1000);
 
                 #region 固定文本替换
-                wu.InsertValue("项目名称", MainForm.Instance.ProjectObj.Name);
-                wu.InsertValue("首页密级", MainForm.Instance.ProjectObj.SecretLevel);
-                wu.InsertValue("申报领域", MainForm.Instance.ProjectObj.Domain);
-                wu.InsertValue("申报方向", MainForm.Instance.ProjectObj.Direction);
+                wu.InsertValue("项目名称", pt.projectObj.Name);
+                wu.InsertValue("首页密级", pt.projectObj.SecretLevel);
+                wu.InsertValue("申报领域", pt.projectObj.Domain);
+                wu.InsertValue("申报方向", pt.projectObj.Direction);
                 wu.InsertValue("单位名称", projectUnitObj.UnitName);
                 wu.InsertValue("单位常用名", projectUnitObj.NormalName);
                 wu.InsertValue("项目负责人", projectPersonObj.Name);
                 wu.InsertValue("单位联系人", projectUnitObj.ContactName);
                 wu.InsertValue("联系电话", projectUnitObj.Telephone, 18, false, false, true);
                 wu.InsertValue("通信地址", projectUnitObj.Address);
-                wu.InsertValue("研究周期", MainForm.Instance.ProjectObj.TotalTime + "");
-                wu.InsertValue("研究经费", MainForm.Instance.ProjectObj.TotalMoney + "");
-                wu.InsertValue("项目关键字", MainForm.Instance.ProjectObj.Keywords != null ? MainForm.Instance.ProjectObj.Keywords : string.Empty);
+                wu.InsertValue("研究周期", pt.projectObj.TotalTime + "");
+                wu.InsertValue("研究经费", pt.projectObj.TotalMoney + "");
+                wu.InsertValue("项目关键字", pt.projectObj.Keywords != null ? pt.projectObj.Keywords : string.Empty);
 
-                List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID = '" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Project>(new Project());
+                List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID = '" + pt.projectObj.ID + "'").select("*").getList<Project>(new Project());
                 wu.InsertValue("课题数量", ketiList.Count + "");
 
-                wu.InsertValue("研究周期B", MainForm.Instance.ProjectObj.TotalTime + "");
-                wu.InsertValue("研究经费B", MainForm.Instance.ProjectObj.TotalMoney + "");
+                wu.InsertValue("研究周期B", pt.projectObj.TotalTime + "");
+                wu.InsertValue("研究经费B", pt.projectObj.TotalMoney + "");
 
-                List<Step> projectStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<Step>(new Step());
+                List<Step> projectStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + pt.projectObj.ID + "'").select("*").getList<Step>(new Step());
                 wu.InsertValue("阶段数量", projectStepList.Count + "");
                 StringBuilder stepBuilders = new StringBuilder();
                 foreach (Step step in projectStepList)
@@ -110,7 +112,7 @@ namespace TestReporterPlugin.Utility
                 wu.InsertValue("项目负责人座机", projectPersonObj.Specialty);
                 wu.InsertValue("项目负责人手机", projectPersonObj.MobilePhone);
 
-                Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + MainForm.Instance.ProjectObj.ID + "')").select("*").getItem<Unit>(new Unit());
+                Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Unit>(new Unit());
                 wu.InsertValue("候选单位名称", whiteUnit.UnitName);
                 wu.InsertValue("候选单位联系人", whiteUnit.ContactName);
                 wu.InsertValue("候选单位联系电话", whiteUnit.Telephone);
@@ -120,32 +122,32 @@ namespace TestReporterPlugin.Utility
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
                 #region 插入固定RTF文件
-                wu.InsertFile("项目摘要", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_0.doc"), true);
-                wu.InsertFile("基本概念及内涵", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_1.doc"), true);
-                wu.InsertFile("军事需求分析", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_2.doc"), true);
-                wu.InsertFile("研究现状", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_3.doc"), true);
-                wu.InsertFile("研究目标", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_4.doc"), false);
-                wu.InsertFile("基础性问题", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_5.doc"), true);
-                wu.InsertFile("课题之间的关系", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_7.doc"), true);
-                wu.InsertFile("研究成果及考核指标", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_8.doc"), true);
-                wu.InsertFile("评估方案", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_9.doc"), true);
-                wu.InsertFile("预期效益", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_10.doc"), true);
-                wu.InsertFile("项目负责人C", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_14.doc"), true);
-                wu.InsertFile("研究团队", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_15.doc"), true);
-                wu.InsertFile("研究基础与保障条件", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_17.doc"), true);
-                wu.InsertFile("组织实施与风险控制", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_18.doc"), true);
-                wu.InsertFile("与有关计划关系", Path.Combine(MainForm.ProjectFilesDir, "rtpinput_19.doc"), false);
+                wu.InsertFile("项目摘要", Path.Combine(pt.filesDir, "rtpinput_0.doc"), true);
+                wu.InsertFile("基本概念及内涵", Path.Combine(pt.filesDir, "rtpinput_1.doc"), true);
+                wu.InsertFile("军事需求分析", Path.Combine(pt.filesDir, "rtpinput_2.doc"), true);
+                wu.InsertFile("研究现状", Path.Combine(pt.filesDir, "rtpinput_3.doc"), true);
+                wu.InsertFile("研究目标", Path.Combine(pt.filesDir, "rtpinput_4.doc"), false);
+                wu.InsertFile("基础性问题", Path.Combine(pt.filesDir, "rtpinput_5.doc"), true);
+                wu.InsertFile("课题之间的关系", Path.Combine(pt.filesDir, "rtpinput_7.doc"), true);
+                wu.InsertFile("研究成果及考核指标", Path.Combine(pt.filesDir, "rtpinput_8.doc"), true);
+                wu.InsertFile("评估方案", Path.Combine(pt.filesDir, "rtpinput_9.doc"), true);
+                wu.InsertFile("预期效益", Path.Combine(pt.filesDir, "rtpinput_10.doc"), true);
+                wu.InsertFile("项目负责人C", Path.Combine(pt.filesDir, "rtpinput_14.doc"), true);
+                wu.InsertFile("研究团队", Path.Combine(pt.filesDir, "rtpinput_15.doc"), true);
+                wu.InsertFile("研究基础与保障条件", Path.Combine(pt.filesDir, "rtpinput_17.doc"), true);
+                wu.InsertFile("组织实施与风险控制", Path.Combine(pt.filesDir, "rtpinput_18.doc"), true);
+                wu.InsertFile("与有关计划关系", Path.Combine(pt.filesDir, "rtpinput_19.doc"), false);
 
                 wu.InsertFile("附件1", uploadA, true);
 
                 //插入保密资质
-                List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + MainForm.Instance.ProjectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+                List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + pt.projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
                 foreach (ExtFileList efl in list)
                 {
                     if (efl.IsIgnore == 0)
                     {
                         //图片文件
-                        string picFile = Path.Combine(MainForm.ProjectFilesDir, efl.RealFileName);
+                        string picFile = Path.Combine(pt.filesDir, efl.RealFileName);
 
                         //检查图片是否存在，如果存在则插入
                         if (File.Exists(picFile))
@@ -158,7 +160,7 @@ namespace TestReporterPlugin.Utility
                 //处理诚信承诺书
                 uploadC = Path.Combine(pt.WorkDir, Path.Combine("Helper", "chengnuoshu.doc"));
                 wu.InsertFile("附件3", uploadC, true);
-                wu.InsertValue("诚信负责人", MainForm.Instance.ProjectObj.Name);
+                wu.InsertValue("诚信负责人", pt.projectObj.Name);
                 #endregion
 
                 #region 插入课题详细标签
@@ -217,7 +219,7 @@ namespace TestReporterPlugin.Utility
                 string[] chsNumbers = new string[] { "", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
                 try
                 {
-                    ketiMap.Add(new KeyValuePair<string, Project>("项目", MainForm.Instance.ProjectObj));
+                    ketiMap.Add(new KeyValuePair<string, Project>("项目", pt.projectObj));
 
                     //替换课题详细内容
                     int ketiIndex = 1;
@@ -229,9 +231,9 @@ namespace TestReporterPlugin.Utility
                         wu.ReplaceA("F2-" + ketiIndex, ketiCode + ":" + proj.Name);
 
                         //研究目标，研究内容，技术要求等文档
-                        wu.InsertFile("课题详细_" + ketiIndex + "_1", Path.Combine(MainForm.ProjectFilesDir, "keti_rtpinput_" + proj.ID + "_dest" + ".doc"), false);
-                        wu.InsertFile("课题详细_" + ketiIndex + "_2", Path.Combine(MainForm.ProjectFilesDir, "keti_rtpinput_" + proj.ID + "_cnt" + ".doc"), false);
-                        wu.InsertFile("课题详细_" + ketiIndex + "_3", Path.Combine(MainForm.ProjectFilesDir, "keti_rtpinput_" + proj.ID + "_need" + ".doc"), false);
+                        wu.InsertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_dest" + ".doc"), false);
+                        wu.InsertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_cnt" + ".doc"), false);
+                        wu.InsertFile("课题详细_" + ketiIndex + "_3", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_need" + ".doc"), false);
 
                         //负责人
                         string fuzeUnit = string.Empty;
@@ -271,9 +273,9 @@ namespace TestReporterPlugin.Utility
                         Task tt = ConnectionManager.Context.table("Task").where("ProjectID = '" + proj.ID + "'").select("*").getItem<Task>(new Task());
 
                         string shortContent = "无";
-                        if (File.Exists(Path.Combine(MainForm.ProjectFilesDir, "keti_rtpinput_" + proj.ID + "_info" + ".doc")))
+                        if (File.Exists(Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_info" + ".doc")))
                         {
-                            shortContent = File.ReadAllText(Path.Combine(MainForm.ProjectFilesDir, "keti_rtpinput_" + proj.ID + "_info" + ".rtf"));
+                            shortContent = File.ReadAllText(Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_info" + ".rtf"));
                         }
 
                         //ketiStringBuilder.Append("课题").Append(indexx).Append("(").Append(proj.Type2.Contains("非") ? string.Empty : proj.Type2).Append(proj.Type2.Contains("非") ? string.Empty : ",").Append(proj.SecretLevel).Append("):").Append(proj.Name).Append(",").Append(shortContent).Append("\n");
@@ -472,7 +474,7 @@ namespace TestReporterPlugin.Utility
                         if (table.Range.Text.Contains("年投入"))
                         {
                             //获得课题与研究骨干关系表
-                            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + MainForm.Instance.ProjectObj.ID + "') or ProjectID='" + MainForm.Instance.ProjectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+                            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + pt.projectObj.ID + "') or ProjectID='" + pt.projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
                             //生成行和列
                             int rowCount = taskList.Count;
@@ -542,7 +544,7 @@ namespace TestReporterPlugin.Utility
                 #region 插入经费预算表
                 try
                 {
-                    ProjectBudgetInfo pbinfo = ProjectReporter.Controls.JingFeiYuSuanEditor.GetBudgetInfoObject(MainForm.Instance.ProjectObj.ID);
+                    ProjectBudgetInfo pbinfo = MoneyTableEditor.GetBudgetInfoObject(pt.projectObj.ID);
                     if (pbinfo != null)
                     {
                         wu.InsertValue("本项目申请经费", pbinfo.ProjectRFA + "");
@@ -927,7 +929,6 @@ namespace TestReporterPlugin.Utility
                     toWordPath = ToWordFile;
                 }
                 #endregion
-
             }
             catch (Exception ex)
             {
