@@ -17,6 +17,8 @@ namespace TestReporterPlugin.Utility
     {
         private static string uploadC;
         private static string uploadA;
+        private static string toWordPath;
+        private static string ToWordFile;
         /// <summary>
         /// 输出word内容
         /// </summary>
