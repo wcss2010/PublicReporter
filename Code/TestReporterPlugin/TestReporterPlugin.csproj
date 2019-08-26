@@ -290,18 +290,42 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Helper\chengnuoshu.doc" />
-    <None Include="Helper\help.rtf" />
-    <None Include="Helper\introduction.rtf" />
-    <None Include="Helper\jieduanhuafen.xls" />
-    <None Include="Helper\jingfei.xls" />
-    <None Include="Helper\jingfeifujian.doc" />
-    <None Include="Helper\ketijieduanhuafen.xls" />
-    <None Include="Helper\lianxiren.xls" />
-    <None Include="Helper\newtemplete.docx" />
-    <None Include="Helper\tianbaoshuoming.docx" />
-    <None Include="Helper\xiangmuzhaiyaomoban.rtf" />
-    <None Include="Helper\xitixiangxi.rtf" />
+    <None Include="Helper\chengnuoshu.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\help.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\introduction.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\jieduanhuafen.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\jingfei.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\jingfeifujian.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\ketijieduanhuafen.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\lianxiren.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\newtemplete.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\tianbaoshuoming.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\xiangmuzhaiyaomoban.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\xitixiangxi.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\w5.png" />
     <None Include="static.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -329,7 +353,9 @@
     <None Include="Resources\UP_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Helper\readme.txt" />
+    <Content Include="Helper\readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
