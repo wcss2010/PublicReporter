@@ -31,6 +31,7 @@ namespace TestReporterPlugin.Utility
         /// <param name="progressDialog"></param>
         public static void wordOutput(CircleProgressBarDialog progressDialog)
         {
+            //判断是否加载了项目信息
             PluginRoot pt = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin);
             if (pt.projectObj == null)
             {
@@ -39,6 +40,25 @@ namespace TestReporterPlugin.Utility
 
             Report(progressDialog, 10, "准备Word...", 1000);
 
+            //查找附件文件
+            string[] filess = Directory.GetFiles(pt.filesDir);
+            foreach (string f in filess)
+            {
+                if (f.Contains("upload_1"))
+                {
+                    uploadA = f;
+                }
+                else if (f.Contains("upload_2"))
+                {
+                    //uploadBTemp = f;
+                }
+                else if (f.Contains("upload_3"))
+                {
+                    uploadC = f;
+                }
+            }
+
+            //创建word文档
             string fileName = pt.projectObj.Name + "-项目建议书.docx";
             WordUtility wu = new WordUtility();
             wu.createNewDocument(Path.Combine(Path.Combine(pt.WorkDir, "Helper"), "newtemplete.docx"));
@@ -132,21 +152,21 @@ namespace TestReporterPlugin.Utility
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
                 #region 插入固定RTF文件
-                wu.insertFile("项目摘要", Path.Combine(pt.filesDir, "rtpinput_0.doc"), true);
-                wu.insertFile("基本概念及内涵", Path.Combine(pt.filesDir, "rtpinput_1.doc"), true);
-                wu.insertFile("军事需求分析", Path.Combine(pt.filesDir, "rtpinput_2.doc"), true);
-                wu.insertFile("研究现状", Path.Combine(pt.filesDir, "rtpinput_3.doc"), true);
-                wu.insertFile("研究目标", Path.Combine(pt.filesDir, "rtpinput_4.doc"), false);
-                wu.insertFile("基础性问题", Path.Combine(pt.filesDir, "rtpinput_5.doc"), true);
-                wu.insertFile("课题之间的关系", Path.Combine(pt.filesDir, "rtpinput_7.doc"), true);
-                wu.insertFile("研究成果及考核指标", Path.Combine(pt.filesDir, "rtpinput_8.doc"), true);
-                wu.insertFile("评估方案", Path.Combine(pt.filesDir, "rtpinput_9.doc"), true);
-                wu.insertFile("预期效益", Path.Combine(pt.filesDir, "rtpinput_10.doc"), true);
-                wu.insertFile("项目负责人C", Path.Combine(pt.filesDir, "rtpinput_14.doc"), true);
-                wu.insertFile("研究团队", Path.Combine(pt.filesDir, "rtpinput_15.doc"), true);
-                wu.insertFile("研究基础与保障条件", Path.Combine(pt.filesDir, "rtpinput_17.doc"), true);
-                wu.insertFile("组织实施与风险控制", Path.Combine(pt.filesDir, "rtpinput_18.doc"), true);
-                wu.insertFile("与有关计划关系", Path.Combine(pt.filesDir, "rtpinput_19.doc"), false);
+                wu.insertFile("项目摘要", Path.Combine(pt.filesDir, "项目摘要.doc"), true);
+                wu.insertFile("基本概念及内涵", Path.Combine(pt.filesDir, "基本概念及内涵.doc"), true);
+                wu.insertFile("军事需求分析", Path.Combine(pt.filesDir, "军事需求分析.doc"), true);
+                wu.insertFile("研究现状", Path.Combine(pt.filesDir, "研究现状.doc"), true);
+                wu.insertFile("研究目标", Path.Combine(pt.filesDir, "研究目标.doc"), false);
+                wu.insertFile("基础性问题", Path.Combine(pt.filesDir, "基础性问题.doc"), true);
+                wu.insertFile("课题之间的关系", Path.Combine(pt.filesDir, "课题之间的关系.doc"), true);
+                wu.insertFile("研究成果及考核指标", Path.Combine(pt.filesDir, "研究成果及考核指标.doc"), true);
+                wu.insertFile("评估方案", Path.Combine(pt.filesDir, "评估方案.doc"), true);
+                wu.insertFile("预期效益", Path.Combine(pt.filesDir, "预期效益.doc"), true);
+                wu.insertFile("项目负责人C", Path.Combine(pt.filesDir, "项目负责人.doc"), true);
+                wu.insertFile("研究团队", Path.Combine(pt.filesDir, "研究团队.doc"), true);
+                wu.insertFile("研究基础与保障条件", Path.Combine(pt.filesDir, "研究基础与保障条件.doc"), true);
+                wu.insertFile("组织实施与风险控制", Path.Combine(pt.filesDir, "组织实施与风险控制.doc"), true);
+                wu.insertFile("与有关计划关系", Path.Combine(pt.filesDir, "与有关计划关系.doc"), false);
 
                 wu.insertFile("附件1", uploadA, true);
 
