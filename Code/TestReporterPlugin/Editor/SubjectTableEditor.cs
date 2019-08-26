@@ -818,8 +818,7 @@ namespace TestReporterPlugin.Editor
             rtfTextEditor.Dock = DockStyle.Fill;
             rtfTextEditor.BackColor = Color.White;
 
-            rtfTextEditor.RTFFileFirstName = "keti_" + rtfTextEditor.RTFFileFirstName;
-            rtfTextEditor.Name = rtfTextEditor.RTFEditorNameKey + ketiID;
+            rtfTextEditor.Name = ketiName;
             rtfTextEditor.RefreshView();
 
             kp.Controls.Add(rtfTextEditor);

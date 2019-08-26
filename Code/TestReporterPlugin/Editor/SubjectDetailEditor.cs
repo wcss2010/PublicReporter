@@ -13,8 +13,6 @@ namespace TestReporterPlugin.Editor
     {
         public string RTFFileFirstName { get; set; }
 
-        public string RTFEditorNameKey { get; set; }
-
         public string TitleLabelText { get { return TitleLabelControl.Text; } set { TitleLabelControl.Text = value; } }
 
         public Label TitleLabelControl
@@ -33,8 +31,7 @@ namespace TestReporterPlugin.Editor
         {
             InitializeComponent();
 
-            RTFFileFirstName = "rtpinput_";
-            RTFEditorNameKey = "feUI";
+            RTFFileFirstName = "课题详细_";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -80,22 +77,22 @@ namespace TestReporterPlugin.Editor
 
         public string GetNeedFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_need" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name + "_研究思路" + ".doc");
         }
 
         public string GetContentFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_cnt" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name + "_研究内容" + ".doc");
         }
 
         public string GetDestFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_dest" + ".doc");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name + "_研究目标" + ".doc");
         }
 
         public string GetInfoFilePath()
         {
-            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name.Replace(RTFEditorNameKey, string.Empty) + "_info" + ".rtf");
+            return Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, RTFFileFirstName + Name + "_简介" + ".txt");
         }
 
         public override void RefreshView()
