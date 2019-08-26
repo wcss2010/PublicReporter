@@ -140,22 +140,28 @@ namespace TestReporterPlugin
             else
             {
                 #region 清理所有增加的内容
-                treeViewImageListObj.Images.Clear();
-                treeViewObj.Nodes.Clear();
-                contentObj.Controls.Clear();
-                defaultHintLabel.Text = string.Empty;
-
-                List<ToolStripItem> list = new List<ToolStripItem>();
-                foreach (ToolStripItem tsi in topToolStrip.Items)
+                if (contentObj.IsHandleCreated)
                 {
-                    if (tsi.Tag == "Dynamic")
+                    contentObj.Invoke(new MethodInvoker(delegate()
                     {
-                        list.Add(tsi);
-                    }
-                }
-                foreach (ToolStripItem tssi in list)
-                {
-                    topToolStrip.Items.Remove(tssi);
+                        treeViewImageListObj.Images.Clear();
+                        treeViewObj.Nodes.Clear();
+                        contentObj.Controls.Clear();
+                        defaultHintLabel.Text = string.Empty;
+
+                        List<ToolStripItem> list = new List<ToolStripItem>();
+                        foreach (ToolStripItem tsi in topToolStrip.Items)
+                        {
+                            if (tsi.Tag == "Dynamic")
+                            {
+                                list.Add(tsi);
+                            }
+                        }
+                        foreach (ToolStripItem tssi in list)
+                        {
+                            topToolStrip.Items.Remove(tssi);
+                        }
+                    }));
                 }
                 #endregion
             }
