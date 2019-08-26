@@ -1,4 +1,5 @@
 ﻿using PublicReporterLib;
+using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,6 +11,7 @@ using TestReporterPlugin.DB;
 using TestReporterPlugin.DB.Entitys;
 using TestReporterPlugin.Editor;
 using TestReporterPlugin.Forms;
+using TestReporterPlugin.Utility;
 
 namespace TestReporterPlugin
 {
@@ -479,13 +481,136 @@ namespace TestReporterPlugin
                     helpForm.ShowDialog();
                     break;
                 case "导出":
-                    
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.Filter = "ZIP申报包|*.zip";
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        if (MessageBox.Show("真的要导出吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
+                            dialoga.TransparencyKey = dialoga.BackColor;
+                            dialoga.ProgressBar.ForeColor = Color.Red;
+                            dialoga.MessageLabel.ForeColor = Color.Blue;
+                            dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                            {
+                                ((CircleProgressBarDialog)thisObject).ReportProgress(10, 100);
+                                ((CircleProgressBarDialog)thisObject).ReportInfo("准备导出...");
+                                try { System.Threading.Thread.Sleep(1000); }
+                                catch (Exception ex) { }
+
+                                //关闭连接
+                                DB.ConnectionManager.Close();
+
+                                //当前项目目录
+                                string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
+
+                                ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
+                                ((CircleProgressBarDialog)thisObject).ReportInfo("正在导出...");
+                                try { System.Threading.Thread.Sleep(1000); }
+                                catch (Exception ex) { }
+
+                                //压缩
+                                PublicReporterLib.Utility.ZipUtil zu = new PublicReporterLib.Utility.ZipUtil();
+                                zu.ZipFileDirectory(currentPath, sfd.FileName);
+
+                                ((CircleProgressBarDialog)thisObject).ReportProgress(90, 100);
+                                ((CircleProgressBarDialog)thisObject).ReportInfo("导出完成，准备重启...");
+                                try { System.Threading.Thread.Sleep(1000); }
+                                catch (Exception ex) { }
+
+                                //重启软件
+                                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
+                                DB.ConnectionManager.Close();
+                                System.Diagnostics.Process.Start(Application.ExecutablePath);
+                                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
+                                Application.Exit();
+                            }));
+                        }
+                    }
                     break;
                 case "预览":
-                    
+                    CircleProgressBarDialog dialogc = new CircleProgressBarDialog();
+                            dialogc.TransparencyKey = dialogc.BackColor;
+                            dialogc.ProgressBar.ForeColor = Color.Red;
+                            dialogc.MessageLabel.ForeColor = Color.Blue;
+                            dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                            {
+                                //word预览
+                                WordReView.wordOutput(((CircleProgressBarDialog)thisObject));
+                            }
+                    ));
                     break;
                 case "导入":
-                    
+                    OpenFileDialog ofd = new OpenFileDialog();
+                    ofd.Filter = "ZIP申报包|*.zip";
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        if (MessageBox.Show("真的要导入吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            CircleProgressBarDialog dialogb = new CircleProgressBarDialog();
+                            dialogb.TransparencyKey = dialogb.BackColor;
+                            dialogb.ProgressBar.ForeColor = Color.Red;
+                            dialogb.MessageLabel.ForeColor = Color.Blue;
+                            dialogb.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                                {
+                                    ((CircleProgressBarDialog)thisObject).ReportProgress(10, 100);
+                                    ((CircleProgressBarDialog)thisObject).ReportInfo("准备导入...");
+                                    try { System.Threading.Thread.Sleep(1000); }
+                                    catch (Exception ex) { }
+
+                                    //关闭连接
+                                    DB.ConnectionManager.Close();
+
+                                    //当前项目目录
+                                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
+
+                                    ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
+                                    ((CircleProgressBarDialog)thisObject).ReportInfo("清空当前目录...");
+                                    try { System.Threading.Thread.Sleep(1000); }
+                                    catch (Exception ex) { }
+
+                                    //移动当前目录
+                                    if (System.IO.Directory.Exists(currentPath))
+                                    {
+                                        System.IO.Directory.Delete(currentPath, true);
+                                    }
+
+                                    ((CircleProgressBarDialog)thisObject).ReportProgress(30, 100);
+                                    ((CircleProgressBarDialog)thisObject).ReportInfo("创建导入目录...");
+                                    try { System.Threading.Thread.Sleep(1000); }
+                                    catch (Exception ex) { }
+
+                                    //创建当前目录
+                                    try
+                                    {
+                                        Directory.CreateDirectory(currentPath);
+                                    }
+                                    catch (Exception ex) { }
+
+                                    ((CircleProgressBarDialog)thisObject).ReportProgress(40, 100);
+                                    ((CircleProgressBarDialog)thisObject).ReportInfo("正在导入...");
+                                    try { System.Threading.Thread.Sleep(1000); }
+                                    catch (Exception ex) { }
+
+                                    //解压
+                                    PublicReporterLib.Utility.ZipUtil zu = new PublicReporterLib.Utility.ZipUtil();
+                                    zu.UnZipFile(ofd.FileName, currentPath, string.Empty, true);
+
+                                    ((CircleProgressBarDialog)thisObject).ReportProgress(90, 100);
+                                    ((CircleProgressBarDialog)thisObject).ReportInfo("导入完成，准备重启...");
+                                    try { System.Threading.Thread.Sleep(1000); }
+                                    catch (Exception ex) { }
+
+                                    //重启软件
+                                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
+                                    DB.ConnectionManager.Close();
+                                    System.Diagnostics.Process.Start(Application.ExecutablePath);
+                                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
+                                    Application.Exit();
+                                
+                                }));
+                        }
+                    }
                     break;
                 case "新建":
                     if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
