@@ -248,9 +248,9 @@ namespace TestReporterPlugin.Utility
                         wu.replaceA("F2-" + ketiIndex, ketiCode + ":" + proj.Name);
 
                         //研究目标，研究内容，技术要求等文档
-                        wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_dest" + ".doc"), false);
-                        wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_cnt" + ".doc"), false);
-                        wu.insertFile("课题详细_" + ketiIndex + "_3", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_need" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究目标" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究内容" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_3", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究思路" + ".doc"), false);
 
                         //负责人
                         string fuzeUnit = string.Empty;
@@ -290,9 +290,9 @@ namespace TestReporterPlugin.Utility
                         Task tt = ConnectionManager.Context.table("Task").where("ProjectID = '" + proj.ID + "'").select("*").getItem<Task>(new Task());
 
                         string shortContent = "无";
-                        if (File.Exists(Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_info" + ".doc")))
+                        if (File.Exists(Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_简介" + ".txt")))
                         {
-                            shortContent = File.ReadAllText(Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_info" + ".rtf"));
+                            shortContent = File.ReadAllText(Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_简介" + ".txt"));
                         }
 
                         //ketiStringBuilder.Append("课题").Append(indexx).Append("(").Append(proj.Type2.Contains("非") ? string.Empty : proj.Type2).Append(proj.Type2.Contains("非") ? string.Empty : ",").Append(proj.SecretLevel).Append("):").Append(proj.Name).Append(",").Append(shortContent).Append("\n");
