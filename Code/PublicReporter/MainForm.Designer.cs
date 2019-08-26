@@ -108,6 +108,8 @@
             // 
             this.tvSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvSubjects.Font = new System.Drawing.Font("仿宋", 15F);
+            this.tvSubjects.FullRowSelect = true;
+            this.tvSubjects.HideSelection = false;
             this.tvSubjects.ImageIndex = 0;
             this.tvSubjects.ImageList = this.ilNodeImage;
             this.tvSubjects.Location = new System.Drawing.Point(0, 0);
