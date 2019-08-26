@@ -15,6 +15,8 @@ namespace TestReporterPlugin.Utility
 {
     public class WordReView
     {
+        private static string uploadC;
+        private static string uploadA;
         /// <summary>
         /// 输出word内容
         /// </summary>
