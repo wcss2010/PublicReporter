@@ -107,22 +107,28 @@ namespace TestReporterPlugin
                 if (MessageBox.Show("真的要退出吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     #region 清理所有增加的内容
-                    treeViewImageListObj.Images.Clear();
-                    treeViewObj.Nodes.Clear();
-                    contentObj.Controls.Clear();
-                    defaultHintLabel.Text = string.Empty;
+                    if (contentObj.IsHandleCreated)
+                    {
+                        contentObj.Invoke(new MethodInvoker(delegate()
+                            {
+                                treeViewImageListObj.Images.Clear();
+                                treeViewObj.Nodes.Clear();
+                                contentObj.Controls.Clear();
+                                defaultHintLabel.Text = string.Empty;
 
-                    List<ToolStripItem> list = new List<ToolStripItem>();
-                    foreach (ToolStripItem tsi in topToolStrip.Items)
-                    {
-                        if (tsi.Tag == "Dynamic")
-                        {
-                            list.Add(tsi);
-                        }
-                    }
-                    foreach (ToolStripItem tssi in list)
-                    {
-                        topToolStrip.Items.Remove(tssi);
+                                List<ToolStripItem> list = new List<ToolStripItem>();
+                                foreach (ToolStripItem tsi in topToolStrip.Items)
+                                {
+                                    if (tsi.Tag == "Dynamic")
+                                    {
+                                        list.Add(tsi);
+                                    }
+                                }
+                                foreach (ToolStripItem tssi in list)
+                                {
+                                    topToolStrip.Items.Remove(tssi);
+                                }
+                            }));
                     }
                     #endregion
                 }
