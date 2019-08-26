@@ -550,6 +550,7 @@ namespace TestReporterPlugin
             else
             {
                 showEditor(e.Node.Text);
+                defaultHintLabel.Text = "";
             }
         }
 
