@@ -20,8 +20,6 @@ namespace TestReporterPlugin.Editor
             get { return lblTitle; }
         }
 
-        public bool EnabledSaveButton { get { return btnSave.Enabled; } set { btnSave.Enabled = value; } }
-
         public TabControl DetailTabs
         {
             get { return knKetiDetailTabs; }
@@ -32,27 +30,6 @@ namespace TestReporterPlugin.Editor
             InitializeComponent();
 
             RTFFileFirstName = "课题详细_";
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
-            upf.EnabledDisplayProgress = false;
-            upf.LabalText = "正在保存,请等待...";
-            upf.ShowProgress();
-
-            try
-            {
-                OnSaveEvent();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("保存失败！Ex:" + ex.ToString());
-            }
-            finally
-            {
-                upf.Close();
-            }
         }
 
         public override void ClearView()
