@@ -15,10 +15,16 @@ namespace TestReporterPlugin.Utility
 {
     public class WordReView
     {
-        private static string uploadC;
-        private static string uploadA;
-        private static string toWordPath;
-        private static string ToWordFile;
+        /// <summary>
+        /// 经费概算附件
+        /// </summary>
+        private static string uploadA = string.Empty;
+
+        /// <summary>
+        /// 承诺书附件
+        /// </summary>
+        private static string uploadC = string.Empty;
+
         /// <summary>
         /// 输出word内容
         /// </summary>
@@ -35,7 +41,7 @@ namespace TestReporterPlugin.Utility
 
             string fileName = pt.projectObj.Name + "-项目建议书.docx";
             WordUtility wu = new WordUtility();
-            wu.CreateNewDocument(Path.Combine(Path.Combine(pt.WorkDir, "Helper"), "newtemplete.docx"));
+            wu.createNewDocument(Path.Combine(Path.Combine(pt.WorkDir, "Helper"), "newtemplete.docx"));
 
             try
             {
@@ -76,28 +82,28 @@ namespace TestReporterPlugin.Utility
                 Report(progressDialog, 30, "写入基本信息...", 1000);
 
                 #region 固定文本替换
-                wu.InsertValue("项目名称", pt.projectObj.Name);
-                wu.InsertValue("首页密级", pt.projectObj.SecretLevel);
-                wu.InsertValue("申报领域", pt.projectObj.Domain);
-                wu.InsertValue("申报方向", pt.projectObj.Direction);
-                wu.InsertValue("单位名称", projectUnitObj.UnitName);
-                wu.InsertValue("单位常用名", projectUnitObj.NormalName);
-                wu.InsertValue("项目负责人", projectPersonObj.Name);
-                wu.InsertValue("单位联系人", projectUnitObj.ContactName);
-                wu.InsertValue("联系电话", projectUnitObj.Telephone, 18, false, false, true);
-                wu.InsertValue("通信地址", projectUnitObj.Address);
-                wu.InsertValue("研究周期", pt.projectObj.TotalTime + "");
-                wu.InsertValue("研究经费", pt.projectObj.TotalMoney + "");
-                wu.InsertValue("项目关键字", pt.projectObj.Keywords != null ? pt.projectObj.Keywords : string.Empty);
+                wu.insertValue("项目名称", pt.projectObj.Name);
+                wu.insertValue("首页密级", pt.projectObj.SecretLevel);
+                wu.insertValue("申报领域", pt.projectObj.Domain);
+                wu.insertValue("申报方向", pt.projectObj.Direction);
+                wu.insertValue("单位名称", projectUnitObj.UnitName);
+                wu.insertValue("单位常用名", projectUnitObj.NormalName);
+                wu.insertValue("项目负责人", projectPersonObj.Name);
+                wu.insertValue("单位联系人", projectUnitObj.ContactName);
+                wu.insertValue("联系电话", projectUnitObj.Telephone, 18, false, false, true);
+                wu.insertValue("通信地址", projectUnitObj.Address);
+                wu.insertValue("研究周期", pt.projectObj.TotalTime + "");
+                wu.insertValue("研究经费", pt.projectObj.TotalMoney + "");
+                wu.insertValue("项目关键字", pt.projectObj.Keywords != null ? pt.projectObj.Keywords : string.Empty);
 
                 List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID = '" + pt.projectObj.ID + "'").select("*").getList<Project>(new Project());
-                wu.InsertValue("课题数量", ketiList.Count + "");
+                wu.insertValue("课题数量", ketiList.Count + "");
 
-                wu.InsertValue("研究周期B", pt.projectObj.TotalTime + "");
-                wu.InsertValue("研究经费B", pt.projectObj.TotalMoney + "");
+                wu.insertValue("研究周期B", pt.projectObj.TotalTime + "");
+                wu.insertValue("研究经费B", pt.projectObj.TotalMoney + "");
 
                 List<Step> projectStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + pt.projectObj.ID + "'").select("*").getList<Step>(new Step());
-                wu.InsertValue("阶段数量", projectStepList.Count + "");
+                wu.insertValue("阶段数量", projectStepList.Count + "");
                 StringBuilder stepBuilders = new StringBuilder();
                 foreach (Step step in projectStepList)
                 {
@@ -107,42 +113,42 @@ namespace TestReporterPlugin.Utility
                 {
                     stepBuilders.Remove(stepBuilders.Length - 1, 1);
                 }
-                wu.InsertValue("阶段时间摘要", stepBuilders.ToString());
+                wu.insertValue("阶段时间摘要", stepBuilders.ToString());
 
-                wu.InsertValue("项目负责人B", projectPersonObj.Name);
-                wu.InsertValue("项目负责人性别", projectPersonObj.Sex);
-                wu.InsertValue("项目负责人生日", (projectPersonObj.Birthday != null ? projectPersonObj.Birthday.Value.ToString("yyyy-MM-dd") : "未知"));
-                wu.InsertValue("项目负责人职务", projectPersonObj.Job);
-                wu.InsertValue("项目负责人座机", projectPersonObj.Specialty);
-                wu.InsertValue("项目负责人手机", projectPersonObj.MobilePhone);
+                wu.insertValue("项目负责人B", projectPersonObj.Name);
+                wu.insertValue("项目负责人性别", projectPersonObj.Sex);
+                wu.insertValue("项目负责人生日", (projectPersonObj.Birthday != null ? projectPersonObj.Birthday.Value.ToString("yyyy-MM-dd") : "未知"));
+                wu.insertValue("项目负责人职务", projectPersonObj.Job);
+                wu.insertValue("项目负责人座机", projectPersonObj.Specialty);
+                wu.insertValue("项目负责人手机", projectPersonObj.MobilePhone);
 
                 Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Unit>(new Unit());
-                wu.InsertValue("候选单位名称", whiteUnit.UnitName);
-                wu.InsertValue("候选单位联系人", whiteUnit.ContactName);
-                wu.InsertValue("候选单位联系电话", whiteUnit.Telephone);
-                wu.InsertValue("候选单位通信地址", whiteUnit.Address);
+                wu.insertValue("候选单位名称", whiteUnit.UnitName);
+                wu.insertValue("候选单位联系人", whiteUnit.ContactName);
+                wu.insertValue("候选单位联系电话", whiteUnit.Telephone);
+                wu.insertValue("候选单位通信地址", whiteUnit.Address);
                 #endregion
 
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
                 #region 插入固定RTF文件
-                wu.InsertFile("项目摘要", Path.Combine(pt.filesDir, "rtpinput_0.doc"), true);
-                wu.InsertFile("基本概念及内涵", Path.Combine(pt.filesDir, "rtpinput_1.doc"), true);
-                wu.InsertFile("军事需求分析", Path.Combine(pt.filesDir, "rtpinput_2.doc"), true);
-                wu.InsertFile("研究现状", Path.Combine(pt.filesDir, "rtpinput_3.doc"), true);
-                wu.InsertFile("研究目标", Path.Combine(pt.filesDir, "rtpinput_4.doc"), false);
-                wu.InsertFile("基础性问题", Path.Combine(pt.filesDir, "rtpinput_5.doc"), true);
-                wu.InsertFile("课题之间的关系", Path.Combine(pt.filesDir, "rtpinput_7.doc"), true);
-                wu.InsertFile("研究成果及考核指标", Path.Combine(pt.filesDir, "rtpinput_8.doc"), true);
-                wu.InsertFile("评估方案", Path.Combine(pt.filesDir, "rtpinput_9.doc"), true);
-                wu.InsertFile("预期效益", Path.Combine(pt.filesDir, "rtpinput_10.doc"), true);
-                wu.InsertFile("项目负责人C", Path.Combine(pt.filesDir, "rtpinput_14.doc"), true);
-                wu.InsertFile("研究团队", Path.Combine(pt.filesDir, "rtpinput_15.doc"), true);
-                wu.InsertFile("研究基础与保障条件", Path.Combine(pt.filesDir, "rtpinput_17.doc"), true);
-                wu.InsertFile("组织实施与风险控制", Path.Combine(pt.filesDir, "rtpinput_18.doc"), true);
-                wu.InsertFile("与有关计划关系", Path.Combine(pt.filesDir, "rtpinput_19.doc"), false);
+                wu.insertFile("项目摘要", Path.Combine(pt.filesDir, "rtpinput_0.doc"), true);
+                wu.insertFile("基本概念及内涵", Path.Combine(pt.filesDir, "rtpinput_1.doc"), true);
+                wu.insertFile("军事需求分析", Path.Combine(pt.filesDir, "rtpinput_2.doc"), true);
+                wu.insertFile("研究现状", Path.Combine(pt.filesDir, "rtpinput_3.doc"), true);
+                wu.insertFile("研究目标", Path.Combine(pt.filesDir, "rtpinput_4.doc"), false);
+                wu.insertFile("基础性问题", Path.Combine(pt.filesDir, "rtpinput_5.doc"), true);
+                wu.insertFile("课题之间的关系", Path.Combine(pt.filesDir, "rtpinput_7.doc"), true);
+                wu.insertFile("研究成果及考核指标", Path.Combine(pt.filesDir, "rtpinput_8.doc"), true);
+                wu.insertFile("评估方案", Path.Combine(pt.filesDir, "rtpinput_9.doc"), true);
+                wu.insertFile("预期效益", Path.Combine(pt.filesDir, "rtpinput_10.doc"), true);
+                wu.insertFile("项目负责人C", Path.Combine(pt.filesDir, "rtpinput_14.doc"), true);
+                wu.insertFile("研究团队", Path.Combine(pt.filesDir, "rtpinput_15.doc"), true);
+                wu.insertFile("研究基础与保障条件", Path.Combine(pt.filesDir, "rtpinput_17.doc"), true);
+                wu.insertFile("组织实施与风险控制", Path.Combine(pt.filesDir, "rtpinput_18.doc"), true);
+                wu.insertFile("与有关计划关系", Path.Combine(pt.filesDir, "rtpinput_19.doc"), false);
 
-                wu.InsertFile("附件1", uploadA, true);
+                wu.insertFile("附件1", uploadA, true);
 
                 //插入保密资质
                 List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + pt.projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
@@ -156,15 +162,15 @@ namespace TestReporterPlugin.Utility
                         //检查图片是否存在，如果存在则插入
                         if (File.Exists(picFile))
                         {
-                            wu.InsertPicture("附件2", picFile);
+                            wu.insertPicture("附件2", picFile);
                         }
                     }
                 }
 
                 //处理诚信承诺书
                 uploadC = Path.Combine(pt.WorkDir, Path.Combine("Helper", "chengnuoshu.doc"));
-                wu.InsertFile("附件3", uploadC, true);
-                wu.InsertValue("诚信负责人", pt.projectObj.Name);
+                wu.insertFile("附件3", uploadC, true);
+                wu.insertValue("诚信负责人", pt.projectObj.Name);
                 #endregion
 
                 #region 插入课题详细标签
@@ -231,13 +237,13 @@ namespace TestReporterPlugin.Utility
                     {
                         string ketiCode = "课题" + chsNumbers[ketiIndex];
 
-                        wu.SelectBookMark("课题详细_" + ketiIndex);
-                        wu.ReplaceA("F2-" + ketiIndex, ketiCode + ":" + proj.Name);
+                        wu.selectBookMark("课题详细_" + ketiIndex);
+                        wu.replaceA("F2-" + ketiIndex, ketiCode + ":" + proj.Name);
 
                         //研究目标，研究内容，技术要求等文档
-                        wu.InsertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_dest" + ".doc"), false);
-                        wu.InsertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_cnt" + ".doc"), false);
-                        wu.InsertFile("课题详细_" + ketiIndex + "_3", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_need" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_dest" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_cnt" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_3", Path.Combine(pt.filesDir, "keti_rtpinput_" + proj.ID + "_need" + ".doc"), false);
 
                         //负责人
                         string fuzeUnit = string.Empty;
@@ -290,7 +296,7 @@ namespace TestReporterPlugin.Utility
                         ketiStringBuilder.Remove(ketiStringBuilder.Length - 1, 1);
                     }
 
-                    wu.InsertValue("课题摘要", ketiStringBuilder.ToString());
+                    wu.insertValue("课题摘要", ketiStringBuilder.ToString());
                 }
                 catch (Exception ex)
                 {
@@ -356,9 +362,9 @@ namespace TestReporterPlugin.Utility
                                         table.Rows[rowIndex].Cells[0].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[1].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[2].RemoveAllChildren();
-                                        table.Rows[rowIndex].Cells[0].AppendChild(wu.GetCellContentObj(table, curStep.StepIndex + ""));
-                                        table.Rows[rowIndex].Cells[1].AppendChild(wu.GetCellContentObj(table, curStep.StepTime + ""));
-                                        table.Rows[rowIndex].Cells[2].AppendChild(wu.GetCellContentObj(table, resultStr));
+                                        table.Rows[rowIndex].Cells[0].AppendChild(wu.getCellContentObj(table, curStep.StepIndex + ""));
+                                        table.Rows[rowIndex].Cells[1].AppendChild(wu.getCellContentObj(table, curStep.StepTime + ""));
+                                        table.Rows[rowIndex].Cells[2].AppendChild(wu.getCellContentObj(table, resultStr));
 
                                         rowIndex++;
                                     }
@@ -399,7 +405,7 @@ namespace TestReporterPlugin.Utility
                             foreach (Step step in projectStepList)
                             {
                                 table.Rows[0].Cells[colIndex].RemoveAllChildren();
-                                table.Rows[0].Cells[colIndex].AppendChild(wu.GetCellContentObj(table, "阶段" + step.StepIndex + "(" + step.StepTime + "个月)"));
+                                table.Rows[0].Cells[colIndex].AppendChild(wu.getCellContentObj(table, "阶段" + step.StepIndex + "(" + step.StepTime + "个月)"));
                                 //table.Cell(1, colIndex).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
                                 colIndex++;
                             }
@@ -439,7 +445,7 @@ namespace TestReporterPlugin.Utility
                                     }
 
                                     table.Rows[rowIndex].Cells[dataColIndex].RemoveAllChildren();
-                                    table.Rows[rowIndex].Cells[dataColIndex].AppendChild(wu.GetCellContentObj(table, resultStr));
+                                    table.Rows[rowIndex].Cells[dataColIndex].AppendChild(wu.getCellContentObj(table, resultStr));
                                     dataColIndex++;
                                 }
 
@@ -447,12 +453,12 @@ namespace TestReporterPlugin.Utility
                                 if (kvp.Key != "项目")
                                 {
                                     table.Rows[rowIndex].Cells[0].RemoveAllChildren();
-                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.GetCellContentObj(table, kvp.Key + "(" + totalMoney + "万)"));
+                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.getCellContentObj(table, kvp.Key + "(" + totalMoney + "万)"));
                                 }
                                 else
                                 {
                                     table.Rows[rowIndex].Cells[0].RemoveAllChildren();
-                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.GetCellContentObj(table, kvp.Key));
+                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.getCellContentObj(table, kvp.Key));
                                 }
 
                                 rowIndex++;
@@ -509,15 +515,15 @@ namespace TestReporterPlugin.Utility
                                 table.Rows[rowIndex].Cells[8].RemoveAllChildren();
                                 table.Rows[rowIndex].Cells[9].RemoveAllChildren();
 
-                                table.Rows[rowIndex].Cells[0].AppendChild(wu.GetCellContentObj(table, rowIndex.ToString()));
-                                table.Rows[rowIndex].Cells[1].AppendChild(wu.GetCellContentObj(table, person.Name));
-                                table.Rows[rowIndex].Cells[2].AppendChild(wu.GetCellContentObj(table, person.Sex));
-                                table.Rows[rowIndex].Cells[3].AppendChild(wu.GetCellContentObj(table, person.Job));
-                                table.Rows[rowIndex].Cells[4].AppendChild(wu.GetCellContentObj(table, person.Specialty));
-                                table.Rows[rowIndex].Cells[5].AppendChild(wu.GetCellContentObj(table, unit.UnitName));
-                                table.Rows[rowIndex].Cells[6].AppendChild(wu.GetCellContentObj(table, curTask.TotalTime.ToString()));
-                                table.Rows[rowIndex].Cells[7].AppendChild(wu.GetCellContentObj(table, curTask.Content));
-                                table.Rows[rowIndex].Cells[8].AppendChild(wu.GetCellContentObj(table, person.IDCard));
+                                table.Rows[rowIndex].Cells[0].AppendChild(wu.getCellContentObj(table, rowIndex.ToString()));
+                                table.Rows[rowIndex].Cells[1].AppendChild(wu.getCellContentObj(table, person.Name));
+                                table.Rows[rowIndex].Cells[2].AppendChild(wu.getCellContentObj(table, person.Sex));
+                                table.Rows[rowIndex].Cells[3].AppendChild(wu.getCellContentObj(table, person.Job));
+                                table.Rows[rowIndex].Cells[4].AppendChild(wu.getCellContentObj(table, person.Specialty));
+                                table.Rows[rowIndex].Cells[5].AppendChild(wu.getCellContentObj(table, unit.UnitName));
+                                table.Rows[rowIndex].Cells[6].AppendChild(wu.getCellContentObj(table, curTask.TotalTime.ToString()));
+                                table.Rows[rowIndex].Cells[7].AppendChild(wu.getCellContentObj(table, curTask.Content));
+                                table.Rows[rowIndex].Cells[8].AppendChild(wu.getCellContentObj(table, person.IDCard));
 
                                 string KetiInProject = string.Empty;
                                 foreach (KeyValuePair<string, Project> kvp in ketiMap)
@@ -528,7 +534,7 @@ namespace TestReporterPlugin.Utility
                                         break;
                                     }
                                 }
-                                table.Rows[rowIndex].Cells[9].AppendChild(wu.GetCellContentObj(table, KetiInProject));
+                                table.Rows[rowIndex].Cells[9].AppendChild(wu.getCellContentObj(table, KetiInProject));
 
                                 rowIndex++;
                             }
@@ -551,134 +557,134 @@ namespace TestReporterPlugin.Utility
                     ProjectBudgetInfo pbinfo = MoneyTableEditor.GetBudgetInfoObject(pt.projectObj.ID);
                     if (pbinfo != null)
                     {
-                        wu.InsertValue("本项目申请经费", pbinfo.ProjectRFA + "");
-                        wu.InsertValue("本项目自筹经费", pbinfo.ProjectZiChouJingFei + "");
+                        wu.insertValue("本项目申请经费", pbinfo.ProjectRFA + "");
+                        wu.insertValue("本项目自筹经费", pbinfo.ProjectZiChouJingFei + "");
 
                         string bookmark = "ProjectRFAs";
                         object obj4 = pbinfo.ProjectRFA;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA";
-                        wu.InsertValue(bookmark, obj4 + "万");
+                        wu.insertValue(bookmark, obj4 + "万");
                         bookmark = "ProjectRFA1";
                         obj4 = pbinfo.ProjectRFA1;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_1";
                         obj4 = pbinfo.ProjectRFA1_1;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_1_1";
                         obj4 = pbinfo.ProjectRFA1_1_1;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_1_2";
                         obj4 = pbinfo.ProjectRFA1_1_2;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_1_3";
                         obj4 = pbinfo.ProjectRFA1_1_3;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_2";
                         obj4 = pbinfo.ProjectRFA1_2;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_3";
                         obj4 = pbinfo.ProjectRFA1_3;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_3_1";
                         obj4 = pbinfo.ProjectRFA1_3_1;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_3_2";
                         obj4 = pbinfo.ProjectRFA1_3_2;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_4";
                         obj4 = pbinfo.ProjectRFA1_4;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_5";
                         obj4 = pbinfo.ProjectRFA1_5;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_6";
                         obj4 = pbinfo.ProjectRFA1_6;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_7";
                         obj4 = pbinfo.ProjectRFA1_7;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_8";
                         obj4 = pbinfo.ProjectRFA1_8;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA1_9";
                         obj4 = pbinfo.ProjectRFA1_9;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA2";
                         obj4 = pbinfo.ProjectRFA2;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFA2_1";
                         obj4 = pbinfo.ProjectRFA2_1;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectOutlay1";
                         obj4 = pbinfo.Projectoutlay1;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectOutlay2";
                         obj4 = pbinfo.Projectoutlay2;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectOutlay3";
                         obj4 = pbinfo.Projectoutlay3;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectOutlay4";
                         obj4 = pbinfo.Projectoutlay4;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectOutlay5";
                         obj4 = pbinfo.Projectoutlay5;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : "0");
                         bookmark = "ProjectRFARm";
                         obj4 = pbinfo.ProjectRFArm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1Rm";
                         obj4 = pbinfo.ProjectRFA1rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_1Rm";
                         obj4 = pbinfo.ProjectRFA1_1rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_1_1Rm";
                         obj4 = pbinfo.ProjectRFA1_1_1rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_1_2Rm";
                         obj4 = pbinfo.ProjectRFA1_1_2rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_1_3Rm";
                         obj4 = pbinfo.ProjectRFA1_1_3rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_2Rm";
                         obj4 = pbinfo.ProjectRFA1_2rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_3Rm";
                         obj4 = pbinfo.ProjectRFA1_3rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_3_1Rm";
                         obj4 = pbinfo.ProjectRFA1_3_1rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_3_2Rm";
                         obj4 = pbinfo.ProjectRFA1_3_2rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_4Rm";
                         obj4 = pbinfo.ProjectRFA1_4rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_5Rm";
                         obj4 = pbinfo.ProjectRFA1_5rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_6Rm";
                         obj4 = pbinfo.ProjectRFA1_6rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_7Rm";
                         obj4 = pbinfo.ProjectRFA1_7rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_8Rm";
                         obj4 = pbinfo.ProjectRFA1_8rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA1_9Rm";
                         obj4 = pbinfo.ProjectRFA1_9rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA2Rm";
                         obj4 = pbinfo.ProjectRFA2rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                         bookmark = "ProjectRFA2_1Rm";
                         obj4 = pbinfo.ProjectRFA2_1rm;
-                        wu.InsertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
+                        wu.insertValue(bookmark, obj4 != null ? obj4.ToString() : string.Empty);
                     }
                 }
                 catch (Exception ex)
@@ -718,56 +724,56 @@ namespace TestReporterPlugin.Utility
 
                                     #region 写入标签
                                     table.Rows[rowStart].Cells[0].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[0].AppendChild(wu.GetCellContentObj(table, "课题" + chsNumbers[(k + 1)]));
+                                    table.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(table, "课题" + chsNumbers[(k + 1)]));
                                     //table.Rows[rowStart].Cells[1).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[1).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart].Cells[1].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[1].AppendChild(wu.GetCellContentObj(table, "负责人"));
+                                    table.Rows[rowStart].Cells[1].AppendChild(wu.getCellContentObj(table, "负责人"));
                                     //table.Rows[rowStart].Cells[2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[2).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart].Cells[3].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[3].AppendChild(wu.GetCellContentObj(table, "性别"));
+                                    table.Rows[rowStart].Cells[3].AppendChild(wu.getCellContentObj(table, "性别"));
                                     //table.Rows[rowStart].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[4).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart].Cells[5].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[5].AppendChild(wu.GetCellContentObj(table, "出生年月"));
+                                    table.Rows[rowStart].Cells[5].AppendChild(wu.getCellContentObj(table, "出生年月"));
                                     //table.Rows[rowStart].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[6).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 1].Cells[1].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[1].AppendChild(wu.GetCellContentObj(table, "职务职称"));
+                                    table.Rows[rowStart + 1].Cells[1].AppendChild(wu.getCellContentObj(table, "职务职称"));
                                     //table.Rows[rowStart + 1].Cells[2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[2).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 1].Cells[3].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[3].AppendChild(wu.GetCellContentObj(table, "技术方向"));
+                                    table.Rows[rowStart + 1].Cells[3].AppendChild(wu.getCellContentObj(table, "技术方向"));
                                     //table.Rows[rowStart + 1].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[4).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 1].Cells[5].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[5].AppendChild(wu.GetCellContentObj(table, "手机"));
+                                    table.Rows[rowStart + 1].Cells[5].AppendChild(wu.getCellContentObj(table, "手机"));
                                     //table.Rows[rowStart + 1].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[6).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 2].Cells[1].RemoveAllChildren();
-                                    table.Rows[rowStart + 2].Cells[1].AppendChild(wu.GetCellContentObj(table, "承担单位及通信地址"));
+                                    table.Rows[rowStart + 2].Cells[1].AppendChild(wu.getCellContentObj(table, "承担单位及通信地址"));
                                     //table.Cell(rowStart + 2, 2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Cell(rowStart + 2, 2).Select();
@@ -782,49 +788,49 @@ namespace TestReporterPlugin.Utility
                                     Person personObj = ConnectionManager.Context.table("Person").where("ID ='" + taskObj.PersonID + "'").select("*").getItem<Person>(new Person());
 
                                     table.Rows[rowStart].Cells[2].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[2].AppendChild(wu.GetCellContentObj(table, personObj.Name));
+                                    table.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(table, personObj.Name));
                                     //table.Rows[rowStart].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[3).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart].Cells[4].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[4].AppendChild(wu.GetCellContentObj(table, personObj.Sex));
+                                    table.Rows[rowStart].Cells[4].AppendChild(wu.getCellContentObj(table, personObj.Sex));
                                     //table.Rows[rowStart].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[5).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart].Cells[6].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[6].AppendChild(wu.GetCellContentObj(table, personObj.Birthday != null ? personObj.Birthday.Value.ToString("yyyy-MM-dd") : string.Empty));
+                                    table.Rows[rowStart].Cells[6].AppendChild(wu.getCellContentObj(table, personObj.Birthday != null ? personObj.Birthday.Value.ToString("yyyy-MM-dd") : string.Empty));
                                     //table.Rows[rowStart].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[7).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 1].Cells[2].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[2].AppendChild(wu.GetCellContentObj(table, personObj.Job));
+                                    table.Rows[rowStart + 1].Cells[2].AppendChild(wu.getCellContentObj(table, personObj.Job));
                                     //table.Rows[rowStart + 1].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[3).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 1].Cells[4].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[4].AppendChild(wu.GetCellContentObj(table, personObj.Specialty));
+                                    table.Rows[rowStart + 1].Cells[4].AppendChild(wu.getCellContentObj(table, personObj.Specialty));
                                     //table.Rows[rowStart + 1].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[5).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 1].Cells[6].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[6].AppendChild(wu.GetCellContentObj(table, personObj.MobilePhone));
+                                    table.Rows[rowStart + 1].Cells[6].AppendChild(wu.getCellContentObj(table, personObj.MobilePhone));
                                     //table.Rows[rowStart + 1].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[7).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 2].Cells[2].RemoveAllChildren();
-                                    table.Rows[rowStart + 2].Cells[2].AppendChild(wu.GetCellContentObj(table, unitObj.UnitName + "," + unitObj.Address));
+                                    table.Rows[rowStart + 2].Cells[2].AppendChild(wu.getCellContentObj(table, unitObj.UnitName + "," + unitObj.Address));
                                     //table.Cell(rowStart + 2, 3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Cell(rowStart + 2, 3).Select();
@@ -909,29 +915,13 @@ namespace TestReporterPlugin.Utility
                 Report(progressDialog, 90, "生成文档...", 1000);
 
                 #region 显示文档或生成文档
+                //关闭word
+                wu.killWinWordProcess();
 
-                //临时文件及目录
-                string tempDir = Path.Combine(pt.WorkDir, "TempDocs");
-                if (!Directory.Exists(tempDir))
-                {
-                    Directory.CreateDirectory(tempDir);
-                }
-                string tempFile = Path.Combine(tempDir, Guid.NewGuid().ToString() + ".doc");
-                if (string.IsNullOrEmpty(ToWordFile))
-                {
-                    //预览文档,需要显示
-                    wu.SaveDocument(tempFile);
-                    toWordPath = tempFile;
-
-                    //打开Word文件
-                    Process.Start(toWordPath);
-                }
-                else
-                {
-                    //导出时生成文档,不需要显示
-                    wu.SaveDocument(ToWordFile);
-                    toWordPath = ToWordFile;
-                }
+                //保存word
+                string docFile = Path.Combine(pt.dataDir, "项目申报书.doc");
+                wu.saveDocument(docFile);
+                Process.Start(docFile);
                 #endregion
             }
             catch (Exception ex)

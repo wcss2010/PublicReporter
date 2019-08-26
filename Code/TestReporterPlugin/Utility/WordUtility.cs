@@ -16,7 +16,7 @@ namespace TestReporterPlugin.Utility
         /// 通过模板创建新文件
         /// </summary>
         /// <param name="filePath"></param>
-        public void CreateNewDocument(string filePath)
+        public void createNewDocument(string filePath)
         {
             Document = new WordDocument(filePath);
         }
@@ -25,7 +25,7 @@ namespace TestReporterPlugin.Utility
         /// 保存文档
         /// </summary>
         /// <param name="filePath"></param>
-        public void SaveDocument(string filePath)
+        public void saveDocument(string filePath)
         {
             Document.WordDoc.Save(filePath, SaveFormat.Doc);
         }
@@ -35,14 +35,14 @@ namespace TestReporterPlugin.Utility
         /// </summary>
         /// <param name="bookmark">书签</param>
         /// <returns></returns>
-        public bool SelectBookMark(string bookmark)
+        public bool selectBookMark(string bookmark)
         {
             return Document.WordDocBuilder.MoveToBookmark(bookmark);
         }
 
-        public bool InsertValue(string bookmark, string value)
+        public bool insertValue(string bookmark, string value)
         {
-            return InsertValue(bookmark, value, false);
+            return insertValue(bookmark, value, false);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace TestReporterPlugin.Utility
         /// <param name="bookmark">书签</param>
         /// <param name="value">要插入的值</param>
         /// <returns></returns>
-        public bool InsertValue(string bookmark, string value, bool isNeedNewLine)
+        public bool insertValue(string bookmark, string value, bool isNeedNewLine)
         {
             object bkObj = bookmark;
             if (Document.WordDocBuilder.MoveToBookmark(bookmark))
@@ -75,7 +75,7 @@ namespace TestReporterPlugin.Utility
         /// <param name="bookmark">书签</param>
         /// <param name="value">要插入的值</param>
         /// <returns></returns>
-        public bool InsertValue(string bookmark, string value, int fontSize, bool isBold, bool isItalic, bool isUnderline)
+        public bool insertValue(string bookmark, string value, int fontSize, bool isBold, bool isItalic, bool isUnderline)
         {
             object bkObj = bookmark;
             if (Document.WordDocBuilder.MoveToBookmark(bookmark))
@@ -111,7 +111,7 @@ namespace TestReporterPlugin.Utility
         /// <param name="bookmark">书签</param>
         /// <param name="value">要插入的文件路径</param>
         /// <returns></returns>
-        public bool InsertFile(string bookmark, string filePath, bool enabledDeleteEnterFlag)
+        public bool insertFile(string bookmark, string filePath, bool enabledDeleteEnterFlag)
         {
             if (File.Exists(filePath))
             {
@@ -132,7 +132,7 @@ namespace TestReporterPlugin.Utility
             }
         }
 
-        public void Delete()
+        public void delete()
         {
             if (Document.WordDocBuilder.CurrentParagraph != null)
             {
@@ -140,7 +140,7 @@ namespace TestReporterPlugin.Utility
             }
         }
 
-        public void DeleteCurrentAll()
+        public void deleteCurrentAll()
         {
             if (Document.WordDocBuilder.CurrentParagraph != null)
             {
@@ -148,7 +148,7 @@ namespace TestReporterPlugin.Utility
             }
         }
 
-        public void DeleteCurrentAndLast()
+        public void deleteCurrentAndLast()
         {
             //object _unitObj = Microsoft.Office.Interop.Word.WdUnits.wdLine;
             //object _countObj = 1;
@@ -165,7 +165,7 @@ namespace TestReporterPlugin.Utility
         /// </summary> 
         /// <param name="strOld">旧的</param> 
         /// <param name="strNew">新的</param> 
-        public void ReplaceA(string strOld, string strNew)
+        public void replaceA(string strOld, string strNew)
         {
             Document.WordDoc.Range.Replace(strOld, strNew, false, false);
         }
@@ -175,7 +175,7 @@ namespace TestReporterPlugin.Utility
         /// </summary>
         /// <param name="bookmark"></param>
         /// <param name="picturePath"></param>
-        public void InsertPicture(string bookmark, string picturePath)
+        public void insertPicture(string bookmark, string picturePath)
         {
             if (File.Exists(picturePath))
             {
@@ -192,7 +192,7 @@ namespace TestReporterPlugin.Utility
         /// <param name="table"></param>
         /// <param name="txt"></param>
         /// <returns></returns>
-        public Paragraph GetCellContentObj(Aspose.Words.Tables.Table table, string txt)
+        public Paragraph getCellContentObj(Aspose.Words.Tables.Table table, string txt)
         {
             Aspose.Words.Paragraph p = new Paragraph(table.Document);
             p.AppendChild(new Run(table.Document, txt));
@@ -202,7 +202,7 @@ namespace TestReporterPlugin.Utility
         /// <summary>
         /// 关闭Word进程
         /// </summary>
-        public void killWnWordProcess()
+        public void killWinWordProcess()
         {
             System.Diagnostics.Process[] processes = System.Diagnostics.Process.GetProcessesByName("WINWORD");
             foreach (System.Diagnostics.Process process in processes)
