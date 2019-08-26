@@ -21,11 +21,6 @@ namespace TestReporterPlugin.Utility
         private static string uploadA = string.Empty;
 
         /// <summary>
-        /// 承诺书附件
-        /// </summary>
-        private static string uploadC = string.Empty;
-
-        /// <summary>
         /// 输出word内容
         /// </summary>
         /// <param name="progressDialog"></param>
@@ -44,17 +39,9 @@ namespace TestReporterPlugin.Utility
             string[] filess = Directory.GetFiles(pt.filesDir);
             foreach (string f in filess)
             {
-                if (f.Contains("upload_1"))
+                if (f.Contains("自定义附件1"))
                 {
                     uploadA = f;
-                }
-                else if (f.Contains("upload_2"))
-                {
-                    //uploadBTemp = f;
-                }
-                else if (f.Contains("upload_3"))
-                {
-                    uploadC = f;
                 }
             }
 
@@ -188,7 +175,7 @@ namespace TestReporterPlugin.Utility
                 }
 
                 //处理诚信承诺书
-                uploadC = Path.Combine(pt.WorkDir, Path.Combine("Helper", "chengnuoshu.doc"));
+                string uploadC = Path.Combine(pt.WorkDir, Path.Combine("Helper", "chengnuoshu.doc"));
                 wu.insertFile("附件3", uploadC, true);
                 wu.insertValue("诚信负责人", pt.projectObj.Name);
                 #endregion

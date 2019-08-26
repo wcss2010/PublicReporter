@@ -15,7 +15,7 @@ namespace TestReporterPlugin.Editor
     {
         public string FilePath { get; set; }
 
-        public string FileFirstName = "upload_1";
+        public string FileFirstName = "自定义附件1";
 
         public MoneySummaryEditor()
         {
