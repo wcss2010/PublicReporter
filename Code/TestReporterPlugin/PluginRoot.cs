@@ -491,6 +491,7 @@ namespace TestReporterPlugin
                             dialoga.TransparencyKey = dialoga.BackColor;
                             dialoga.ProgressBar.ForeColor = Color.Red;
                             dialoga.MessageLabel.ForeColor = Color.Blue;
+                            dialoga.FormBorderStyle = FormBorderStyle.None;
                             dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                             {
                                 ((CircleProgressBarDialog)thisObject).ReportProgress(10, 100);
@@ -533,6 +534,7 @@ namespace TestReporterPlugin
                             dialogc.TransparencyKey = dialogc.BackColor;
                             dialogc.ProgressBar.ForeColor = Color.Red;
                             dialogc.MessageLabel.ForeColor = Color.Blue;
+                            dialogc.FormBorderStyle = FormBorderStyle.None;
                             dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                             {
                                 //word预览
@@ -551,6 +553,7 @@ namespace TestReporterPlugin
                             dialogb.TransparencyKey = dialogb.BackColor;
                             dialogb.ProgressBar.ForeColor = Color.Red;
                             dialogb.MessageLabel.ForeColor = Color.Blue;
+                            dialogb.FormBorderStyle = FormBorderStyle.None;
                             dialogb.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                                 {
                                     ((CircleProgressBarDialog)thisObject).ReportProgress(10, 100);
