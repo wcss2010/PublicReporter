@@ -830,6 +830,7 @@ namespace TestReporterPlugin
                 dialoga.ProgressBar.ForeColor = Color.Red;
                 dialoga.MessageLabel.ForeColor = Color.Blue;
                 dialoga.FormBorderStyle = FormBorderStyle.None;
+                dialoga.MessageLabel.Text = "正在保存,请等待...";
                 dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                 {
                     //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
