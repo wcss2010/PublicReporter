@@ -392,6 +392,7 @@ namespace TestReporterPlugin.Editor
                         }
 
                         upf.Stop();
+                        upf.Close();
 
                         RefreshView();
                         MessageBox.Show("操作完成！");

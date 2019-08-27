@@ -2062,6 +2062,7 @@ namespace TestReporterPlugin.Editor
             finally
             {
                 upf.Stop();
+                upf.Close();
             }
         }
         
@@ -2231,6 +2232,7 @@ namespace TestReporterPlugin.Editor
                         insertDataFromData(ds.Tables[0]);
 
                         upf.Stop();
+                        upf.Close();
 
                         btnSave.PerformClick();
                         MessageBox.Show("操作完成！");

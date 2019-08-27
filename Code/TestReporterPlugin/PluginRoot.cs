@@ -926,6 +926,7 @@ namespace TestReporterPlugin
                 finally
                 {
                     upf.Stop();
+                    upf.Close();
                 }
 
                 return isSucesss;

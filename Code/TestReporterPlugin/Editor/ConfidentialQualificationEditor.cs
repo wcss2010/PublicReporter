@@ -36,7 +36,8 @@ namespace TestReporterPlugin.Editor
             finally
             {
                 upf.Stop();
-            }            
+                upf.Close();
+            }           
         }
         
         public override void ClearView()
