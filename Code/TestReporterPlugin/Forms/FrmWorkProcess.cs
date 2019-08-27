@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace TestReporterPlugin.Forms
 {
     /// <summary>
-    /// 显示一个假的进度条
+    /// 显示一个假的进度条(只能在UI线程下用)
     /// </summary>
     public partial class FrmWorkProcess : CircleProgressBarDialog
     {
@@ -32,87 +32,55 @@ namespace TestReporterPlugin.Forms
         /// <summary>
         /// 显示进度条
         /// </summary>
-        public void ShowProgress()
+        public void ShowProgressWithOnlyUI()
         {
             TransparencyKey = BackColor;
             ProgressBar.ForeColor = Color.Red;
             MessageLabel.ForeColor = Color.Blue;
             FormBorderStyle = FormBorderStyle.None;
-            Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
-                {
-                    CircleProgressBarDialog dialog = ((CircleProgressBarDialog)thisObject);
+            Show();            
+        }
 
-                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
+        /// <summary>
+        /// 播放进度条动画
+        /// </summary>
+        /// <param name="playProgressMax">进度值</param>
+        public void PlayProgressWithOnlyUI(int playProgressMax)
+        {
+            for (int kk = 1; kk <= playProgressMax; kk++)
+            {
+                ReportProgressWithOnlyUI(kk);
+            }
+        }
 
-                    try
-                    {
-                        ReportProgress(10, 100);
-                    }
-                    catch (Exception ex) { }
+        /// <summary>
+        /// 设置进度(只能在UI线程下用)
+        /// </summary>
+        /// <param name="value"></param>
+        public void ReportProgressWithOnlyUI(int value)
+        {
+            ProgressBar.CurrentProgress = value;
+            Application.DoEvents();
+        }
 
-                    try
-                    {
-                        Thread.Sleep(100);
-                    }
-                    catch (Exception ex) { }
+        /// <summary>
+        /// 设置文本(只能在UI线程下用)
+        /// </summary>
+        /// <param name="txt"></param>
+        public void ReportInfoWithOnlyUI(string txt)
+        {
+            MessageLabel.Text = txt;
+            Application.DoEvents();
+        }
 
-                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
-
-                    try
-                    {
-                        ReportProgress(20, 100);
-                    }
-                    catch (Exception ex) { }
-
-                    try
-                    {
-                        Thread.Sleep(100);
-                    }
-                    catch (Exception ex) { }
-
-                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
-
-                    try
-                    {
-                        ReportProgress(30, 100);
-                    }
-                    catch (Exception ex) { }
-
-                    try
-                    {
-                        Thread.Sleep(100);
-                    }
-                    catch (Exception ex) { }
-
-                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
-
-                    try
-                    {
-                        ReportProgress(80, 100);
-                    }
-                    catch (Exception ex) { }
-
-                    try
-                    {
-                        Thread.Sleep(100);
-                    }
-                    catch (Exception ex) { }
-
-                    while (!(dialog.IsDisposed || dialog.CancellationPending))
-                    {
-                        try
-                        {
-                            Thread.Sleep(100);
-                        }
-                        catch (Exception ex) { }
-                    }
-
-                    try
-                    {
-                        ReportProgress(100, 100);
-                    }
-                    catch (Exception ex) { }
-                }));
+        /// <summary>
+        /// 关闭进度条
+        /// </summary>
+        public void CloseProgressWithOnlyUI()
+        {
+            ProgressBar.CurrentProgress = 100;
+            Application.DoEvents();
+            Close();
         }
     }
 }
