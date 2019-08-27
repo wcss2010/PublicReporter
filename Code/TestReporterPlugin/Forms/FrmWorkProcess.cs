@@ -1,53 +1,27 @@
-﻿using System;
+﻿using SuperCodeFactoryUILib.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace TestReporterPlugin.Forms
 {
-    public partial class FrmWorkProcess : Form
+    /// <summary>
+    /// 显示一个假的进度条
+    /// </summary>
+    public partial class FrmWorkProcess : CircleProgressBarDialog
     {
-        /// <summary>
-        /// 是否显示进度条
-        /// </summary>
-        public bool EnabledDisplayProgress
-        {
-            get
-            {
-                return pbProgress.Visible;
-            }
-            set
-            {
-                pbProgress.Visible = value;
-            }
-        }
-
-        /// <summary>
-        /// 最大值
-        /// </summary>
-        public int ProgresBarMaximum
-        {
-            get
-            {
-                return pbProgress.Maximum;
-            }
-            set
-            {
-                pbProgress.Maximum = value;
-                pbProgress.Value = 0;
-            }
-        }
-
         /// <summary>
         /// 标签文本
         /// </summary>
         public string LabalText
         {
-            get { return label1.Text; }
-            set { label1.Text = value; }
+            get { return MessageLabel.Text; }
+            set { MessageLabel.Text = value; }
         }
 
         public FrmWorkProcess()
@@ -56,29 +30,63 @@ namespace TestReporterPlugin.Forms
         }
 
         /// <summary>
-        /// 进度条+1
+        /// 显示进度条
         /// </summary>
-        public void Next()
-        {
-            if (pbProgress.Value + 1 > pbProgress.Maximum)
-            {
-                return;
-            }
-            else
-            {
-                pbProgress.Value++;
-            }
-
-            //立即执行
-            Application.DoEvents();
-        }
-
         public void ShowProgress()
         {
-            Show();
+            TransparencyKey = BackColor;
+            ProgressBar.ForeColor = Color.Red;
+            MessageLabel.ForeColor = Color.Blue;
+            FormBorderStyle = FormBorderStyle.None;
+            Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                {
+                    ReportProgress(10, 100);
+                    try
+                    {
+                        Thread.Sleep(500);
+                    }
+                    catch (Exception ex) { }
 
-            //立即执行
-            Application.DoEvents();
+                    ReportProgress(20, 100);
+                    try
+                    {
+                        Thread.Sleep(500);
+                    }
+                    catch (Exception ex) { }
+
+                    ReportProgress(30, 100);
+                    try
+                    {
+                        Thread.Sleep(500);
+                    }
+                    catch (Exception ex) { }
+
+                    ReportProgress(70, 100);
+                    try
+                    {
+                        Thread.Sleep(500);
+                    }
+                    catch (Exception ex) { }
+
+                    if (IsDisposed)
+                    {
+                        ReportProgress(100, 100);
+                        try
+                        {
+                            Thread.Sleep(500);
+                        }
+                        catch (Exception ex) { }
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Thread.Sleep(500);
+                        }
+                        catch (Exception ex) { }
+                    }
+                }));
         }
     }
 }
