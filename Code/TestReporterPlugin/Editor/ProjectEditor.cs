@@ -420,6 +420,13 @@ namespace TestReporterPlugin.Editor
 
             LoadProject();
         }
+
+        public override void OnSaveEvent()
+        {
+            base.OnSaveEvent();
+
+            SaveProject();
+        }
     }
 
     public delegate void EditValueChangedDelegate(object sender, EventArgs e);

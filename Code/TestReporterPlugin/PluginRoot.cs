@@ -695,7 +695,45 @@ namespace TestReporterPlugin
             dialoga.FormBorderStyle = FormBorderStyle.None;
             dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
             {
+                //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
+                List<BaseEditor> tempLists = new List<BaseEditor>();
+                tempLists.AddRange(editorMap.Values);
+                tempLists.Reverse();
 
+                //循环所有控件，一个一个保存
+                int currentIndex = 0;
+                foreach (BaseEditor be in tempLists)
+                {
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                    {
+                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                            {
+                                currentIndex++;
+
+                                //保存
+                                try
+                                {
+                                    be.OnSaveEvent();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("对不起，页签(" + be.EditorName + ")保存失败！Ex:" + ex.ToString());
+                                }
+
+                                //进度条移动
+                                ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
+                            }));
+                    }
+                }
+
+                //刷新
+                if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                {
+                    ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                        {
+                            refreshEditors();
+                        }));
+                }
             }));
         }
 
