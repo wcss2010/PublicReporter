@@ -2049,7 +2049,8 @@ namespace TestReporterPlugin.Editor
         {
             Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.LabalText = "正在保存,请等待...";
-            upf.ShowProgress();
+            upf.ShowProgressWithOnlyUI();
+            upf.PlayProgressWithOnlyUI(80);
 
             try
             {
@@ -2227,12 +2228,12 @@ namespace TestReporterPlugin.Editor
                         //显示提示窗体
                         Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
                         upf.LabalText = "正在导入，请稍等...";
-                        upf.ShowProgress();
+                        upf.ShowProgressWithOnlyUI();
+                        upf.PlayProgressWithOnlyUI(80);
 
                         insertDataFromData(ds.Tables[0]);
 
-                        upf.Stop();
-                        upf.Close();
+                        upf.CloseProgressWithOnlyUI();
 
                         btnSave.PerformClick();
                         MessageBox.Show("操作完成！");

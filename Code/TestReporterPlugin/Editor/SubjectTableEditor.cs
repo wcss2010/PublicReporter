@@ -285,7 +285,8 @@ namespace TestReporterPlugin.Editor
         {
             Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
             upf.LabalText = "正在保存,请等待...";
-            upf.ShowProgress();
+            upf.ShowProgressWithOnlyUI();
+            upf.PlayProgressWithOnlyUI(80);
 
             try
             {
@@ -297,8 +298,7 @@ namespace TestReporterPlugin.Editor
             }
             finally
             {
-                upf.Stop();
-                upf.Close();
+                upf.CloseProgressWithOnlyUI();
             }
         }
 

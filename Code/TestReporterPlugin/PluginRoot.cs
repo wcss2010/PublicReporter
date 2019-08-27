@@ -892,7 +892,8 @@ namespace TestReporterPlugin
 
                 Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
                 upf.LabalText = "正在保存,请等待...";
-                upf.ShowProgress();
+                upf.ShowProgressWithOnlyUI();
+                upf.PlayProgressWithOnlyUI(80);
 
                 try
                 {
@@ -915,8 +916,6 @@ namespace TestReporterPlugin
                             isSucesss = false;
                             break;
                         }
-
-                        Application.DoEvents();
                     }
                 }
                 catch (Exception ex)
@@ -925,8 +924,7 @@ namespace TestReporterPlugin
                 }
                 finally
                 {
-                    upf.Stop();
-                    upf.Close();
+                    upf.CloseProgressWithOnlyUI();
                 }
 
                 return isSucesss;
