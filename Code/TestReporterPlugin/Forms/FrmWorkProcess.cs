@@ -44,7 +44,12 @@ namespace TestReporterPlugin.Forms
 
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
-                    ReportProgress(10, 100);
+                    try
+                    {
+                        ReportProgress(10, 100);
+                    }
+                    catch (Exception ex) { }
+
                     try
                     {
                         Thread.Sleep(100);
@@ -53,7 +58,12 @@ namespace TestReporterPlugin.Forms
 
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
-                    ReportProgress(20, 100);
+                    try
+                    {
+                        ReportProgress(20, 100);
+                    }
+                    catch (Exception ex) { }
+
                     try
                     {
                         Thread.Sleep(100);
@@ -62,7 +72,12 @@ namespace TestReporterPlugin.Forms
 
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
-                    ReportProgress(30, 100);
+                    try
+                    {
+                        ReportProgress(30, 100);
+                    }
+                    catch (Exception ex) { }
+
                     try
                     {
                         Thread.Sleep(100);
@@ -71,7 +86,12 @@ namespace TestReporterPlugin.Forms
 
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
-                    ReportProgress(70, 100);
+                    try
+                    {
+                        ReportProgress(80, 100);
+                    }
+                    catch (Exception ex) { }
+
                     try
                     {
                         Thread.Sleep(100);
@@ -86,7 +106,12 @@ namespace TestReporterPlugin.Forms
                         }
                         catch (Exception ex) { }
                     }
-                    ReportProgress(100, 100);                    
+
+                    try
+                    {
+                        ReportProgress(100, 100);
+                    }
+                    catch (Exception ex) { }
                 }));
         }
     }
