@@ -208,6 +208,7 @@ namespace TestReporterPlugin.Utility
             foreach (System.Diagnostics.Process process in processes)
             {
                 process.Kill();
+                process.WaitForExit();
             }
         }
     }
