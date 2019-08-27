@@ -207,11 +207,7 @@ namespace TestReporterPlugin.Utility
             System.Diagnostics.Process[] processes = System.Diagnostics.Process.GetProcessesByName("WINWORD");
             foreach (System.Diagnostics.Process process in processes)
             {
-                bool b = process.MainWindowTitle == "";
-                if (process.MainWindowTitle == "")
-                {
-                    process.Kill();
-                }
+                process.Kill();
             }
         }
     }
