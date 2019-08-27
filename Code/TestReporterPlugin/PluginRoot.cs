@@ -705,7 +705,7 @@ namespace TestReporterPlugin
         /// 检查时间与金额一致性
         /// </summary>
         /// <returns></returns>
-        private bool IsRightMoneyOrTime()
+        private bool isRightMoneyOrTime()
         {
             //项目总时间
             int totalTime = ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalTime").getValue<int>(0);
@@ -907,6 +907,28 @@ namespace TestReporterPlugin
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// 判断是否输入完成
+        /// </summary>
+        /// <returns></returns>
+        public bool isInputCompleted()
+        {
+            foreach (BaseEditor be in editorMap.Values)
+            {
+                if (be.IsInputCompleted())
+                {
+                    continue;
+                }
+                else
+                {
+                    MessageBox.Show("对不起，页签(" + be.EditorName + ")未填写完成，请检查！");
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
