@@ -61,7 +61,7 @@ namespace TestReporterPlugin
         /// 内容控件
         /// </summary>
         private Panel contentObj;
-        
+
         /// <summary>
         /// 默认提示标签
         /// </summary>
@@ -375,7 +375,7 @@ namespace TestReporterPlugin
         {
             //数据库文件
             string dbFile = Path.Combine(dataDir, "static.db");
-            
+
             //判断是否可以打开数据库
             if (File.Exists(dbFile))
             {
@@ -454,7 +454,7 @@ namespace TestReporterPlugin
             ToolStripButton tempButton = null;
 
             tempButton = getTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;            
+            tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
 
             tempButton = getTopButton(img, "btnExport", "导出", new System.Drawing.Size(53, 56));
@@ -493,8 +493,28 @@ namespace TestReporterPlugin
                     helpForm.ShowDialog();
                     break;
                 case "导出":
+                    string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.ID + "')").select("UnitName").getValue<string>(string.Empty);
+                    string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.ID + "')").select("Name").getValue<string>(string.Empty);
+                    string zipName = string.Empty;
+                    if (projectObj.DirectionCode == 0)
+                    {
+                        //方向代码为0,忽略此项,然后生成压缩包名
+                        zipName = projectObj.Domain + "-" + projectObj.Name + "-" + unitName + "-" + personName;
+                    }
+                    else
+                    {
+                        //生成完整的压缩包名
+                        string directionCode = projectObj.DirectionCode.ToString();
+                        if (projectObj.DirectionCode < 10)
+                        {
+                            directionCode = "0" + directionCode;
+                        }
+                        zipName = projectObj.Domain + "-" + directionCode + "-" + projectObj.Name + "-" + unitName + "-" + personName;
+                    }
+
                     SaveFileDialog sfd = new SaveFileDialog();
                     sfd.Filter = "ZIP申报包|*.zip";
+                    sfd.FileName = zipName;
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         if (MessageBox.Show("真的要导出吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -543,16 +563,16 @@ namespace TestReporterPlugin
                     break;
                 case "预览":
                     CircleProgressBarDialog dialogc = new CircleProgressBarDialog();
-                            dialogc.TransparencyKey = dialogc.BackColor;
-                            dialogc.ProgressBar.ForeColor = Color.Red;
-                            dialogc.MessageLabel.ForeColor = Color.Blue;
-                            dialogc.FormBorderStyle = FormBorderStyle.None;
-                            dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
-                            {
-                                //word预览
-                                WordReView.wordOutput(((CircleProgressBarDialog)thisObject));
-                            }
-                    ));
+                    dialogc.TransparencyKey = dialogc.BackColor;
+                    dialogc.ProgressBar.ForeColor = Color.Red;
+                    dialogc.MessageLabel.ForeColor = Color.Blue;
+                    dialogc.FormBorderStyle = FormBorderStyle.None;
+                    dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                    {
+                        //word预览
+                        WordReView.wordOutput(((CircleProgressBarDialog)thisObject));
+                    }
+            ));
                     break;
                 case "导入":
                     OpenFileDialog ofd = new OpenFileDialog();
@@ -622,7 +642,7 @@ namespace TestReporterPlugin
                                     System.Diagnostics.Process.Start(Application.ExecutablePath);
                                     ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
                                     Application.Exit();
-                                
+
                                 }));
                         }
                     }
@@ -641,7 +661,7 @@ namespace TestReporterPlugin
                         {
                             System.IO.Directory.Delete(currentPath, true);
                         }
-            
+
                         ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
                         DB.ConnectionManager.Close();
                         System.Diagnostics.Process.Start(Application.ExecutablePath);
