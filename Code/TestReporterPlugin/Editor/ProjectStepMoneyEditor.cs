@@ -38,7 +38,7 @@ namespace TestReporterPlugin.Editor
             }
             finally
             {
-                upf.Close();
+                upf.Stop();
             }
         }
 
@@ -519,7 +519,7 @@ namespace TestReporterPlugin.Editor
                             }
                         }
 
-                        upf.Close();
+                        upf.Stop();
 
                         RefreshView();
                         MessageBox.Show("操作完成！");

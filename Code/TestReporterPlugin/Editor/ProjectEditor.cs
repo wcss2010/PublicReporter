@@ -140,7 +140,7 @@ namespace TestReporterPlugin.Editor
             }
             finally
             {
-                upf.Close();
+                upf.Stop();
             }
         }
 
