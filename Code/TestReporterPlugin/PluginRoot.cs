@@ -895,14 +895,14 @@ namespace TestReporterPlugin
                     List<BaseEditor> tempLists = new List<BaseEditor>();
                     tempLists.AddRange(editorMap.Values);
                     tempLists.Reverse();
-
-                    //循环所有控件，一个一个保存
-                    int currentIndex = 0;
-                    foreach (BaseEditor be in tempLists)
+                    
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
                     {
-                        if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
                         {
-                            ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                            //循环所有控件，一个一个保存
+                            int currentIndex = 0;
+                            foreach (BaseEditor be in tempLists)
                             {
                                 currentIndex++;
 
@@ -915,16 +915,17 @@ namespace TestReporterPlugin
                                 {
                                     MessageBox.Show("对不起，页签(" + be.EditorName + ")保存失败！Ex:" + ex.ToString());
                                     isSucesss = false;
+                                    break;
                                 }
 
                                 //进度条移动
                                 ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
-                            }));
-                        }
+                            }
+                        }));
                     }
-
+                    
                     //刷新
-                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated && isSucesss)
                     {
                         ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
                         {
