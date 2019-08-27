@@ -40,52 +40,53 @@ namespace TestReporterPlugin.Forms
             FormBorderStyle = FormBorderStyle.None;
             Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                 {
+                    CircleProgressBarDialog dialog = ((CircleProgressBarDialog)thisObject);
+
+                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
+
                     ReportProgress(10, 100);
                     try
                     {
-                        Thread.Sleep(500);
+                        Thread.Sleep(100);
                     }
                     catch (Exception ex) { }
+
+                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
                     ReportProgress(20, 100);
                     try
                     {
-                        Thread.Sleep(500);
+                        Thread.Sleep(100);
                     }
                     catch (Exception ex) { }
+
+                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
                     ReportProgress(30, 100);
                     try
                     {
-                        Thread.Sleep(500);
+                        Thread.Sleep(100);
                     }
                     catch (Exception ex) { }
+
+                    if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
                     ReportProgress(70, 100);
                     try
                     {
-                        Thread.Sleep(500);
+                        Thread.Sleep(100);
                     }
                     catch (Exception ex) { }
 
-                    if (IsDisposed)
-                    {
-                        ReportProgress(100, 100);
-                        try
-                        {
-                            Thread.Sleep(500);
-                        }
-                        catch (Exception ex) { }
-                        return;
-                    }
-                    else
+                    while (!(dialog.IsDisposed || dialog.CancellationPending))
                     {
                         try
                         {
-                            Thread.Sleep(500);
+                            Thread.Sleep(100);
                         }
                         catch (Exception ex) { }
                     }
+                    ReportProgress(100, 100);                    
                 }));
         }
     }

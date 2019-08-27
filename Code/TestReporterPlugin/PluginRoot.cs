@@ -836,14 +836,14 @@ namespace TestReporterPlugin
                     List<BaseEditor> tempLists = new List<BaseEditor>();
                     tempLists.AddRange(editorMap.Values);
                     tempLists.Reverse();
-
-                    //循环所有控件，一个一个保存
-                    int currentIndex = 0;
-                    foreach (BaseEditor be in tempLists)
+                    
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
                     {
-                        if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
                         {
-                            ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                            //循环所有控件，一个一个保存
+                            int currentIndex = 0;
+                            foreach (BaseEditor be in tempLists)
                             {
                                 currentIndex++;
 
@@ -859,10 +859,13 @@ namespace TestReporterPlugin
 
                                 //进度条移动
                                 ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
-                            }));
-                        }
-                    }
 
+                                //立即执行消息
+                                Application.DoEvents();
+                            }
+                        }));
+                    }
+                    
                     //刷新
                     if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
                     {
