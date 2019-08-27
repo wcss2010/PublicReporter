@@ -473,6 +473,10 @@ namespace TestReporterPlugin
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
 
+            tempButton = getTopButton(img, "btnSaveAll", "保存所有", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            topToolStrip.Items.Insert(0, tempButton);
+
             tempButton = getTopButton(img, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             topToolStrip.Items.Insert(0, tempButton);
@@ -488,6 +492,9 @@ namespace TestReporterPlugin
             ToolStripButton button = ((ToolStripButton)sender);
             switch (button.Text)
             {
+                case "保存所有":
+                    saveAllEditors();
+                    break;
                 case "帮助":
                     FrmHelpBox helpForm = new FrmHelpBox();
                     helpForm.ShowDialog();
@@ -674,6 +681,22 @@ namespace TestReporterPlugin
                     manager.ShowDialog();
                     break;
             }
+        }
+
+        /// <summary>
+        /// 保存所有编辑器
+        /// </summary>
+        private void saveAllEditors()
+        {
+            CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
+            dialoga.TransparencyKey = dialoga.BackColor;
+            dialoga.ProgressBar.ForeColor = Color.Red;
+            dialoga.MessageLabel.ForeColor = Color.Blue;
+            dialoga.FormBorderStyle = FormBorderStyle.None;
+            dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+            {
+
+            }));
         }
 
         /// <summary>
