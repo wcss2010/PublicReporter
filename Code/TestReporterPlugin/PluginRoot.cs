@@ -533,9 +533,10 @@ namespace TestReporterPlugin
                         return;
                     }
 
-                    if (!isInputCompleted())
+                    string errorPage = string.Empty;
+                    if (!isInputCompleted(ref errorPage))
                     {
-                        MessageBox.Show("请将所有内容填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("请将页签[" + errorPage + "]填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
 
@@ -938,7 +939,7 @@ namespace TestReporterPlugin
         /// 判断是否输入完成
         /// </summary>
         /// <returns></returns>
-        public bool isInputCompleted()
+        public bool isInputCompleted(ref string errorPageName)
         {
             foreach (BaseEditor be in editorMap.Values)
             {
@@ -948,7 +949,7 @@ namespace TestReporterPlugin
                 }
                 else
                 {
-                    MessageBox.Show("对不起，页签(" + be.EditorName + ")未填写完成，请检查！");
+                    errorPageName = be.EditorName;
                     return false;
                 }
             }
