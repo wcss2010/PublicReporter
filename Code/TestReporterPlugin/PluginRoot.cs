@@ -493,6 +493,12 @@ namespace TestReporterPlugin
             switch (button.Text)
             {
                 case "保存所有":
+                    if (projectObj == null)
+                    {
+                        MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
+                        return;
+                    }
+
                     saveAllWithNoResult();
                     break;
                 case "帮助":
@@ -500,6 +506,12 @@ namespace TestReporterPlugin
                     helpForm.ShowDialog();
                     break;
                 case "导出":
+                    if (projectObj == null)
+                    {
+                        MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
+                        return;
+                    }
+
                     string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.ID + "')").select("UnitName").getValue<string>(string.Empty);
                     string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.ID + "')").select("Name").getValue<string>(string.Empty);
                     string zipName = string.Empty;
@@ -569,6 +581,12 @@ namespace TestReporterPlugin
                     }
                     break;
                 case "预览":
+                    if (projectObj == null)
+                    {
+                        MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
+                        return;
+                    }
+
                     CircleProgressBarDialog dialogc = new CircleProgressBarDialog();
                     dialogc.TransparencyKey = dialogc.BackColor;
                     dialogc.ProgressBar.ForeColor = Color.Red;
