@@ -15,7 +15,7 @@ namespace TestReporterPlugin.Editor
     {
         public string FilePath { get; set; }
 
-        public string FileFirstName = "自定义附件1";
+        public static string FileFirstName = "自定义附件1";
 
         public MoneySummaryEditor()
         {
@@ -25,7 +25,6 @@ namespace TestReporterPlugin.Editor
         private void btnSave_Click(object sender, EventArgs e)
         {
             Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
-            upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
 

@@ -106,7 +106,6 @@ namespace TestReporterPlugin.Editor
         private void btnSave_Click(object sender, EventArgs e)
         {
             Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
-            upf.EnabledDisplayProgress = false;
             upf.LabalText = "正在保存,请等待...";
             upf.ShowProgress();
 
@@ -321,7 +320,6 @@ namespace TestReporterPlugin.Editor
                     {
                         //显示提示窗体
                         Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
-                        upf.EnabledDisplayProgress = false;
                         upf.LabalText = "正在导入，请稍等...";
                         upf.ShowProgress();
 
