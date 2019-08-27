@@ -936,7 +936,7 @@ namespace TestReporterPlugin
                 }));
 
                 //等待保存过程结束
-                if (currentIndex <= editorMap.Count)
+                while (currentIndex <= editorMap.Count && isSucesss)
                 {
                     try
                     {
