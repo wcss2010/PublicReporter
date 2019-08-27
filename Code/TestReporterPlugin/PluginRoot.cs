@@ -493,7 +493,7 @@ namespace TestReporterPlugin
             switch (button.Text)
             {
                 case "保存所有":
-                    saveAllEditors();
+                    saveAllWithNoResult();
                     break;
                 case "帮助":
                     FrmHelpBox helpForm = new FrmHelpBox();
@@ -684,29 +684,116 @@ namespace TestReporterPlugin
         }
 
         /// <summary>
+        /// 检查时间与金额一致性
+        /// </summary>
+        /// <returns></returns>
+        private bool IsRightMoneyOrTime()
+        {
+            //项目总时间
+            int totalTime = ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalTime").getValue<int>(0);
+
+            //项目总金额
+            decimal totalMoney = ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalMoney").getValue<decimal>(0);
+
+            //经费表总额
+            string projectMoneyStr = ConnectionManager.Context.table("MoneyAndYear").where("Name = 'ProjectRFA'").select("Value").getValue<string>("0");
+            decimal projectMoney = 0;
+            try
+            {
+                projectMoney = decimal.Parse(projectMoneyStr);
+            }
+            catch (Exception ex) { }
+
+            //阶段总额
+            long totalStepMoney = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepMoney)").getValue<long>(0);
+
+            //阶段总时间
+            long totalStepTime = (long)Math.Round(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepTime)").getValue<long>(0) / 12d);
+
+            //课题阶段经费总额
+            long totalKetiStepMoney = ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题'))").select("sum(Money)").getValue<long>(0);
+
+            //阶段经费表
+            Noear.Weed.DataList dlStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("StepIndex,StepMoney").getDataList();
+
+            //课题阶段经费表
+            int totalRightStepCount = 0;
+            int totalStepCount = 0;
+            if (dlStepList != null && dlStepList.getRowCount() >= 1)
+            {
+                //阶段数量
+                totalStepCount = dlStepList.getRowCount();
+
+                //检查课题阶段金额
+                foreach (Noear.Weed.DataItem di in dlStepList.getRows())
+                {
+                    try
+                    {
+                        int stepIndex = di.getInt("StepIndex");
+                        long stepMoney = long.Parse(di.get("StepMoney").ToString());
+                        long subjectStepMoney = ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题') and StepIndex = " + stepIndex + ")").select("sum(Money)").getValue<long>(0);
+
+                        //判断阶段经费是不是相等
+                        if (stepMoney == subjectStepMoney)
+                        {
+                            totalRightStepCount++;
+                        }
+                    }
+                    catch (Exception ex) { }
+                }
+            }
+
+            if (totalMoney != projectMoney)
+            {
+                MessageBox.Show("对不起，项目总金额与经费表总金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (totalMoney != totalStepMoney)
+            {
+                MessageBox.Show("对不起，项目总金额与阶段总金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (totalMoney != totalKetiStepMoney)
+            {
+                MessageBox.Show("对不起，项目总金额与课题阶段总金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (totalTime != totalStepTime)
+            {
+                MessageBox.Show("对不起，项目总时间与阶段总时间不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (totalRightStepCount != totalStepCount)
+            {
+                MessageBox.Show("对不起，阶段金额与课题阶段金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            //判断条件是否符合
+            return totalMoney == projectMoney && totalMoney == totalStepMoney && totalMoney == totalKetiStepMoney && totalTime == totalStepTime && totalRightStepCount == totalStepCount;
+        }
+
+        /// <summary>
         /// 保存所有编辑器
         /// </summary>
-        private void saveAllEditors()
+        private void saveAllWithNoResult()
         {
-            CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
-            dialoga.TransparencyKey = dialoga.BackColor;
-            dialoga.ProgressBar.ForeColor = Color.Red;
-            dialoga.MessageLabel.ForeColor = Color.Blue;
-            dialoga.FormBorderStyle = FormBorderStyle.None;
-            dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+            if (projectObj != null)
             {
-                //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
-                List<BaseEditor> tempLists = new List<BaseEditor>();
-                tempLists.AddRange(editorMap.Values);
-                tempLists.Reverse();
-
-                //循环所有控件，一个一个保存
-                int currentIndex = 0;
-                foreach (BaseEditor be in tempLists)
+                CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
+                dialoga.TransparencyKey = dialoga.BackColor;
+                dialoga.ProgressBar.ForeColor = Color.Red;
+                dialoga.MessageLabel.ForeColor = Color.Blue;
+                dialoga.FormBorderStyle = FormBorderStyle.None;
+                dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                 {
-                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                    //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
+                    List<BaseEditor> tempLists = new List<BaseEditor>();
+                    tempLists.AddRange(editorMap.Values);
+                    tempLists.Reverse();
+
+                    //循环所有控件，一个一个保存
+                    int currentIndex = 0;
+                    foreach (BaseEditor be in tempLists)
                     {
-                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                        if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                        {
+                            ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
                             {
                                 currentIndex++;
 
@@ -723,18 +810,85 @@ namespace TestReporterPlugin
                                 //进度条移动
                                 ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
                             }));
+                        }
                     }
-                }
 
-                //刷新
-                if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
-                {
-                    ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                    //刷新
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                    {
+                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
                         {
                             refreshEditors();
                         }));
-                }
-            }));
+                    }
+                }));
+            }
+        }
+
+        /// <summary>
+        /// 保存所有(返回是否成功)
+        /// </summary>
+        public bool isSaveAllSucess()
+        {
+            if (projectObj != null)
+            {
+                bool isSucesss = true;
+
+                CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
+                dialoga.TransparencyKey = dialoga.BackColor;
+                dialoga.ProgressBar.ForeColor = Color.Red;
+                dialoga.MessageLabel.ForeColor = Color.Blue;
+                dialoga.FormBorderStyle = FormBorderStyle.None;
+                dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                {
+                    //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
+                    List<BaseEditor> tempLists = new List<BaseEditor>();
+                    tempLists.AddRange(editorMap.Values);
+                    tempLists.Reverse();
+
+                    //循环所有控件，一个一个保存
+                    int currentIndex = 0;
+                    foreach (BaseEditor be in tempLists)
+                    {
+                        if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                        {
+                            ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                            {
+                                currentIndex++;
+
+                                //保存
+                                try
+                                {
+                                    be.OnSaveEvent();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("对不起，页签(" + be.EditorName + ")保存失败！Ex:" + ex.ToString());
+                                    isSucesss = false;
+                                }
+
+                                //进度条移动
+                                ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
+                            }));
+                        }
+                    }
+
+                    //刷新
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                    {
+                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                        {
+                            refreshEditors();
+                        }));
+                    }
+                }));
+
+                return isSucesss;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
