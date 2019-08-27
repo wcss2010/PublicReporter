@@ -427,6 +427,11 @@ namespace TestReporterPlugin.Editor
 
             SaveProject();
         }
+
+        public override bool IsInputCompleted()
+        {
+            return true;
+        }
     }
 
     public delegate void EditValueChangedDelegate(object sender, EventArgs e);
