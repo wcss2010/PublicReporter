@@ -512,6 +512,29 @@ namespace TestReporterPlugin
                         return;
                     }
 
+                    if (isSaveAllSucess() == false)
+                    {
+                        MessageBox.Show("对不起，保存失败，请检查！");
+                        return;
+                    }
+
+                    if (File.Exists(Path.Combine(dataDir, "项目申报书.doc")) == false)
+                    {
+                        MessageBox.Show("对不起，请先点击预览按钮生成项目申报书！");
+                        return;
+                    }
+
+                    if (!isInputCompleted())
+                    {
+                        MessageBox.Show("请将所有内容填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
+                    if (!isRightMoneyOrTime())
+                    {
+                        return;
+                    }
+
                     string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.ID + "')").select("UnitName").getValue<string>(string.Empty);
                     string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.ID + "')").select("Name").getValue<string>(string.Empty);
                     string zipName = string.Empty;
