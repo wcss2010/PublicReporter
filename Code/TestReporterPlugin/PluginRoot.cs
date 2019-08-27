@@ -882,68 +882,42 @@ namespace TestReporterPlugin
         {
             if (projectObj != null)
             {
-                int currentIndex = 0;
                 bool isSucesss = true;
 
-                CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
-                dialoga.TransparencyKey = dialoga.BackColor;
-                dialoga.ProgressBar.ForeColor = Color.Red;
-                dialoga.MessageLabel.ForeColor = Color.Blue;
-                dialoga.FormBorderStyle = FormBorderStyle.None;
-                dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+                upf.LabalText = "正在保存,请等待...";
+                upf.ShowProgress();
+
+                try
                 {
                     //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
                     List<BaseEditor> tempLists = new List<BaseEditor>();
                     tempLists.AddRange(editorMap.Values);
                     tempLists.Reverse();
-                    
-                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+
+                    //循环所有控件，一个一个保存
+                    foreach (BaseEditor be in tempLists)
                     {
-                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                        //保存
+                        try
                         {
-                            //循环所有控件，一个一个保存
-                            foreach (BaseEditor be in tempLists)
-                            {
-                                currentIndex++;
-
-                                //保存
-                                try
-                                {
-                                    be.OnSaveEvent();
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show("对不起，页签(" + be.EditorName + ")保存失败！Ex:" + ex.ToString());
-                                    isSucesss = false;
-                                    break;
-                                }
-
-                                //进度条移动
-                                ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
-                            }
-                            currentIndex++;
-                        }));
-                    }
-                    
-                    //刷新
-                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated && isSucesss)
-                    {
-                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                            be.OnSaveEvent();
+                        }
+                        catch (Exception ex)
                         {
-                            refreshEditors();
-                        }));
+                            MessageBox.Show("对不起，页签(" + be.EditorName + ")保存失败！Ex:" + ex.ToString());
+                            isSucesss = false;
+                            break;
+                        }
                     }
-                }));
-
-                //等待保存过程结束
-                Application.DoEvents();
-                while (currentIndex <= editorMap.Count && isSucesss)
+                }
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        System.Threading.Thread.Sleep(100);
-                    }
-                    catch (Exception ex) { }
+                    MessageBox.Show("保存失败！Ex:" + ex.ToString());
+                }
+                finally
+                {
+                    upf.Stop();
                 }
 
                 return isSucesss;
