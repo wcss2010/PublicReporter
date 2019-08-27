@@ -39,7 +39,7 @@ namespace TestReporterPlugin.Utility
             string[] filess = Directory.GetFiles(pt.filesDir);
             foreach (string f in filess)
             {
-                if (f.Contains("自定义附件1"))
+                if (f.Contains(MoneySummaryEditor.FileKeyName))
                 {
                     uploadA = f;
                 }

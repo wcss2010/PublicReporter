@@ -15,7 +15,10 @@ namespace TestReporterPlugin.Editor
     {
         public string FilePath { get; set; }
 
-        public static string FileFirstName = "自定义附件1";
+        /// <summary>
+        /// 经费概算附件标识
+        /// </summary>
+        public static string FileKeyName = "--经费概算附件";
 
         public MoneySummaryEditor()
         {
@@ -62,10 +65,10 @@ namespace TestReporterPlugin.Editor
                     foreach (string f in files)
                     {
                         FileInfo fi = new FileInfo(f);
-                        if (fi.Name.StartsWith(FileFirstName))
+                        if (fi.Name.StartsWith(FileKeyName))
                         {
                             FilePath = f;
-                            lbcomattpath.Text = fi.Name.Replace(FileFirstName + "_", string.Empty);
+                            lbcomattpath.Text = fi.Name.Replace(FileKeyName + "_", string.Empty);
                             break;
                         }
                     }
@@ -86,7 +89,7 @@ namespace TestReporterPlugin.Editor
                         File.Delete(FilePath);
                     }
 
-                    File.Copy(ofdUpload.FileName, Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, FileFirstName + "_" + new FileInfo(ofdUpload.FileName).Name));
+                    File.Copy(ofdUpload.FileName, Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, FileKeyName + "_" + new FileInfo(ofdUpload.FileName).Name));
                     RefreshView();
                 }
             }
