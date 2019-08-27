@@ -912,6 +912,8 @@ namespace TestReporterPlugin
                             isSucesss = false;
                             break;
                         }
+
+                        Application.DoEvents();
                     }
                 }
                 catch (Exception ex)

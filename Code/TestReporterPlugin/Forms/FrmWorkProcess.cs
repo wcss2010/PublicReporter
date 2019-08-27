@@ -45,6 +45,7 @@ namespace TestReporterPlugin.Forms
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
                     ReportProgress(10, 100);
+                    Application.DoEvents();
                     try
                     {
                         Thread.Sleep(100);
@@ -54,6 +55,7 @@ namespace TestReporterPlugin.Forms
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
                     ReportProgress(20, 100);
+                    Application.DoEvents();
                     try
                     {
                         Thread.Sleep(100);
@@ -63,6 +65,7 @@ namespace TestReporterPlugin.Forms
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
                     ReportProgress(30, 100);
+                    Application.DoEvents();
                     try
                     {
                         Thread.Sleep(100);
@@ -72,6 +75,7 @@ namespace TestReporterPlugin.Forms
                     if (dialog.IsDisposed || dialog.CancellationPending) { return; }
 
                     ReportProgress(70, 100);
+                    Application.DoEvents();
                     try
                     {
                         Thread.Sleep(100);
