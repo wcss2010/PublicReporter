@@ -882,6 +882,7 @@ namespace TestReporterPlugin
         {
             if (projectObj != null)
             {
+                int currentIndex = 0;
                 bool isSucesss = true;
 
                 CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
@@ -901,7 +902,6 @@ namespace TestReporterPlugin
                         ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
                         {
                             //循环所有控件，一个一个保存
-                            int currentIndex = 0;
                             foreach (BaseEditor be in tempLists)
                             {
                                 currentIndex++;
@@ -921,6 +921,7 @@ namespace TestReporterPlugin
                                 //进度条移动
                                 ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
                             }
+                            currentIndex++;
                         }));
                     }
                     
@@ -933,6 +934,16 @@ namespace TestReporterPlugin
                         }));
                     }
                 }));
+
+                //等待保存过程结束
+                if (currentIndex <= editorMap.Count)
+                {
+                    try
+                    {
+                        System.Threading.Thread.Sleep(100);
+                    }
+                    catch (Exception ex) { }
+                }
 
                 return isSucesss;
             }
