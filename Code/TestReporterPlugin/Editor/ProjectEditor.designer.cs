@@ -200,7 +200,7 @@
             // txtDirection
             // 
             this.txtDirection.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDirection.HintText = "对应领域中的研究方向名称（军事智能基础、基础学科可不填；不在指南中的项目也可不填）";
+            this.txtDirection.HintText = "对应领域中的研究方向名称(军事智能基础,基础学科可不填;不在指南中的项目也可不填)";
             this.txtDirection.Location = new System.Drawing.Point(256, 13);
             this.txtDirection.Multiline = true;
             this.txtDirection.Name = "txtDirection";
