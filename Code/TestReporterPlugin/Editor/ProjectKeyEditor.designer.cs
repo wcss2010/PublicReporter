@@ -89,7 +89,7 @@
             // 
             this.txtWord5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtWord5.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtWord5.HintText = "关键字需至少填写三个，最多填写五个";
+            this.txtWord5.HintText = "关键字需至少填写三个,最多填写五个";
             this.txtWord5.Location = new System.Drawing.Point(0, 0);
             this.txtWord5.Multiline = true;
             this.txtWord5.Name = "txtWord5";
