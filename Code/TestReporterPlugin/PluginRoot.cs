@@ -652,7 +652,7 @@ namespace TestReporterPlugin
                                     try { System.Threading.Thread.Sleep(1000); }
                                     catch (Exception ex) { }
 
-                                    string uuid = projectObj.ID;
+                                    string uuid = projectObj != null ? projectObj.ID : string.Empty;
 
                                     //关闭连接
                                     DB.ConnectionManager.Close();
