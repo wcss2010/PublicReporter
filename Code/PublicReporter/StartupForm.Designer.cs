@@ -49,7 +49,7 @@
             // btnStartB
             // 
             this.btnStartB.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStartB.Location = new System.Drawing.Point(365, 369);
+            this.btnStartB.Location = new System.Drawing.Point(478, 369);
             this.btnStartB.Name = "btnStartB";
             this.btnStartB.Size = new System.Drawing.Size(222, 87);
             this.btnStartB.TabIndex = 0;
@@ -63,7 +63,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(704, 342);
+            this.pictureBox1.Size = new System.Drawing.Size(801, 342);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -72,7 +72,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 492);
+            this.ClientSize = new System.Drawing.Size(801, 492);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnStartB);
             this.Controls.Add(this.btnStartA);
