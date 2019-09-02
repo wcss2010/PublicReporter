@@ -652,22 +652,30 @@ namespace TestReporterPlugin
                                     try { System.Threading.Thread.Sleep(1000); }
                                     catch (Exception ex) { }
 
+                                    string uuid = projectObj.ID;
+
                                     //关闭连接
                                     DB.ConnectionManager.Close();
 
                                     //当前项目目录
                                     string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
 
+                                    //backup
+                                    string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), uuid);
+
                                     ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
                                     ((CircleProgressBarDialog)thisObject).ReportInfo("清空当前目录...");
                                     try { System.Threading.Thread.Sleep(1000); }
                                     catch (Exception ex) { }
 
-                                    //移动当前目录
-                                    if (System.IO.Directory.Exists(currentPath))
+                                    //移动backupDir
+                                    if (System.IO.Directory.Exists(backupPath))
                                     {
-                                        System.IO.Directory.Delete(currentPath, true);
+                                        System.IO.Directory.Delete(backupPath, true);
                                     }
+
+                                    //备份当前
+                                    System.IO.Directory.Move(currentPath, backupPath);
 
                                     ((CircleProgressBarDialog)thisObject).ReportProgress(30, 100);
                                     ((CircleProgressBarDialog)thisObject).ReportInfo("创建导入目录...");
