@@ -95,6 +95,8 @@ namespace TestReporterPlugin.Forms
             {
                 if (MessageBox.Show("真的要切换吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
+                    string uuid = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID : Guid.NewGuid().ToString();
+
                     //关闭连接
                     DB.ConnectionManager.Close();
 
@@ -104,7 +106,7 @@ namespace TestReporterPlugin.Forms
                     //移动当前目录
                     if (System.IO.Directory.Exists(currentPath))
                     {
-                        System.IO.Directory.Move(currentPath, System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), Guid.NewGuid().ToString()));
+                        System.IO.Directory.Move(currentPath, System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), uuid));
                     }
 
                     //将这个目录切换为当前目录
