@@ -669,7 +669,7 @@ namespace TestReporterPlugin
                                     catch (Exception ex) { }
 
                                     //检查是否需要备份
-                                    if (backupPath != null && backupPath.Length >= 2)
+                                    if (uuid != null && uuid.Length >= 2)
                                     {
                                         //移动backupDir
                                         if (System.IO.Directory.Exists(backupPath))
