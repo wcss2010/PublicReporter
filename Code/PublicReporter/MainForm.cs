@@ -15,7 +15,7 @@ namespace PublicReporter
         /// <summary>
         /// 插件目录
         /// </summary>
-        public static string PluginDir = Path.Combine(Application.StartupPath, "Plugins");
+        public static string PluginDirs = Path.Combine(Application.StartupPath, "Plugins");
 
         public MainForm()
         {
@@ -23,7 +23,7 @@ namespace PublicReporter
 
             try
             {
-                Directory.CreateDirectory(MainForm.PluginDir);
+                Directory.CreateDirectory(MainForm.PluginDirs);
             }
             catch (Exception ex) { }
         }
@@ -49,10 +49,20 @@ namespace PublicReporter
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        /// <summary>
+        /// 载入插件
+        /// </summary>
+        /// <param name="workDir">插件工作目录</param>
+        /// <returns></returns>
+        public void loadPlugin(string workDir)
+        {
             try
             {
                 //加载插件
-                PluginLoader.searchAndLoadPlugin(PluginDir);
+                PluginLoader.searchAndLoadPlugin(workDir);
 
                 //判断是否可用
                 if (PluginLoader.CurrentPlugin != null)
@@ -61,7 +71,7 @@ namespace PublicReporter
                     this.Text = PluginLoader.CurrentPlugin.Title;
 
                     //设置工作目录
-                    PluginLoader.CurrentPlugin.WorkDir = PluginDir;
+                    PluginLoader.CurrentPlugin.WorkDir = workDir;
 
                     //初始化
                     PluginLoader.CurrentPlugin.init(this, tsButtonBar, ilNodeImage, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
@@ -79,8 +89,7 @@ namespace PublicReporter
             }
             catch (Exception ex)
             {
-                MessageBox.Show("对不起，插件加载失败！Ex:" + ex.ToString());
-                Application.Exit();
+                throw ex;
             }
         }
 
