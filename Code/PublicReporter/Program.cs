@@ -20,7 +20,7 @@ namespace PublicReporter
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DisplayForm());
+            Application.Run(new StartupForm());
         }
     }
 }
