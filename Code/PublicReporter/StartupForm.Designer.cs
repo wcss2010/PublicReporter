@@ -53,7 +53,7 @@
             this.btnStartB.Name = "btnStartB";
             this.btnStartB.Size = new System.Drawing.Size(222, 87);
             this.btnStartB.TabIndex = 0;
-            this.btnStartB.Text = "启动产品填报";
+            this.btnStartB.Text = "启动合同书填报";
             this.btnStartB.UseVisualStyleBackColor = true;
             this.btnStartB.Click += new System.EventHandler(this.btnStartB_Click);
             // 
