@@ -668,14 +668,25 @@ namespace TestReporterPlugin
                                     try { System.Threading.Thread.Sleep(1000); }
                                     catch (Exception ex) { }
 
-                                    //移动backupDir
-                                    if (System.IO.Directory.Exists(backupPath))
+                                    //检查是否需要备份
+                                    if (backupPath != null && backupPath.Length >= 2)
                                     {
-                                        System.IO.Directory.Delete(backupPath, true);
+                                        //移动backupDir
+                                        if (System.IO.Directory.Exists(backupPath))
+                                        {
+                                            System.IO.Directory.Delete(backupPath, true);
+                                        }
+                                        //备份当前
+                                        System.IO.Directory.Move(currentPath, backupPath);
                                     }
-
-                                    //备份当前
-                                    System.IO.Directory.Move(currentPath, backupPath);
+                                    else
+                                    {
+                                        //直接删除Current
+                                        if (System.IO.Directory.Exists(currentPath))
+                                        {
+                                            System.IO.Directory.Delete(currentPath, true);
+                                        }
+                                    }
 
                                     ((CircleProgressBarDialog)thisObject).ReportProgress(30, 100);
                                     ((CircleProgressBarDialog)thisObject).ReportInfo("创建导入目录...");
