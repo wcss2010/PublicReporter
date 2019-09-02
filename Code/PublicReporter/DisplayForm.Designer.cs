@@ -1,6 +1,6 @@
 ﻿namespace PublicReporter
 {
-    partial class MainForm
+    partial class DisplayForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayForm));
             this.ssHintBar = new System.Windows.Forms.StatusStrip();
             this.tsslHint = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsButtonBar = new System.Windows.Forms.ToolStrip();

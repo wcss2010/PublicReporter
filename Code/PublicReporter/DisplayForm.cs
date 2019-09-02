@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace PublicReporter
 {
-    public partial class MainForm : Form
+    public partial class DisplayForm : Form
     {
         /// <summary>
         /// 插件目录
         /// </summary>
         public static string PluginDirs = Path.Combine(Application.StartupPath, "Plugins");
 
-        public MainForm()
+        public DisplayForm()
         {
             InitializeComponent();
 
             try
             {
-                Directory.CreateDirectory(MainForm.PluginDirs);
+                Directory.CreateDirectory(DisplayForm.PluginDirs);
             }
             catch (Exception ex) { }
         }
