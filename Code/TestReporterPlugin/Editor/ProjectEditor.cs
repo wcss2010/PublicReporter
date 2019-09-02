@@ -64,6 +64,12 @@ namespace TestReporterPlugin.Editor
                     txtAddress.Text = unitObj.Address;
                     txtTelephone.Text = unitObj.Telephone;
                 }
+
+                string errorPath = System.IO.Path.Combine(((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).baseDir, ((TestReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID);
+                if (System.IO.Directory.Exists(errorPath))
+                {
+                    System.IO.Directory.Delete(errorPath, true);
+                }
             }
 
             UpdateUnitList();
