@@ -42,7 +42,7 @@
             this.btnStartA.Name = "btnStartA";
             this.btnStartA.Size = new System.Drawing.Size(222, 87);
             this.btnStartA.TabIndex = 0;
-            this.btnStartA.Text = "启动重大专项填报";
+            this.btnStartA.Text = "启动建议书填报";
             this.btnStartA.UseVisualStyleBackColor = true;
             this.btnStartA.Click += new System.EventHandler(this.btnStartA_Click);
             // 
