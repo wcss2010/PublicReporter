@@ -79,6 +79,7 @@
             this.plWordViewConent.Name = "plWordViewConent";
             this.plWordViewConent.Size = new System.Drawing.Size(1063, 467);
             this.plWordViewConent.TabIndex = 4;
+            this.plWordViewConent.Visible = false;
             // 
             // pbWordView
             // 
