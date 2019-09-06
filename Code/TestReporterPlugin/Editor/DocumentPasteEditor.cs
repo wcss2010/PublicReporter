@@ -156,7 +156,7 @@ namespace TestReporterPlugin.Editor
                 lblWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
 
                 //判断是否需要显示
-                if (wbWordView.Visible)
+                if (plConent.Visible)
                 {
                     //保存附件
                     string tempPDF = Path.Combine(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).dataDir, "TempPDF"), GetHashCode() + ".mhtml");
