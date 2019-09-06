@@ -30,10 +30,17 @@
         {
             this.lblInfo = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
+            this.pbWordView = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblWordInfo = new System.Windows.Forms.Label();
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.plContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWordView)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -52,20 +59,52 @@
             // plContent
             // 
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
-            this.plContent.Controls.Add(this.btnEditDocument);
+            this.plContent.Controls.Add(this.panel3);
+            this.plContent.Controls.Add(this.panel2);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 56);
             this.plContent.Name = "plContent";
             this.plContent.Size = new System.Drawing.Size(1063, 505);
             this.plContent.TabIndex = 1;
             // 
+            // pbWordView
+            // 
+            this.pbWordView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbWordView.Location = new System.Drawing.Point(0, 0);
+            this.pbWordView.Name = "pbWordView";
+            this.pbWordView.Size = new System.Drawing.Size(1063, 177);
+            this.pbWordView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbWordView.TabIndex = 2;
+            this.pbWordView.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblWordInfo);
+            this.panel2.Controls.Add(this.btnEditDocument);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1063, 38);
+            this.panel2.TabIndex = 1;
+            // 
+            // lblWordInfo
+            // 
+            this.lblWordInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblWordInfo.Font = new System.Drawing.Font("仿宋", 12F);
+            this.lblWordInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblWordInfo.Name = "lblWordInfo";
+            this.lblWordInfo.Size = new System.Drawing.Size(893, 38);
+            this.lblWordInfo.TabIndex = 1;
+            this.lblWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnEditDocument
             // 
             this.btnEditDocument.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEditDocument.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEditDocument.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditDocument.Location = new System.Drawing.Point(6, 8);
+            this.btnEditDocument.Location = new System.Drawing.Point(893, 0);
             this.btnEditDocument.Name = "btnEditDocument";
-            this.btnEditDocument.Size = new System.Drawing.Size(167, 43);
+            this.btnEditDocument.Size = new System.Drawing.Size(170, 38);
             this.btnEditDocument.TabIndex = 0;
             this.btnEditDocument.Text = "使用Word编辑该文档";
             this.btnEditDocument.UseVisualStyleBackColor = false;
@@ -83,6 +122,16 @@
             this.panel1.Size = new System.Drawing.Size(1083, 571);
             this.panel1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.Controls.Add(this.pbWordView);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 38);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1063, 467);
+            this.panel3.TabIndex = 3;
+            // 
             // DocumentPasteEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -92,7 +141,11 @@
             this.Name = "DocumentPasteEditor";
             this.Size = new System.Drawing.Size(1083, 571);
             this.plContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbWordView)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +156,9 @@
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.Button btnEditDocument;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblWordInfo;
+        private System.Windows.Forms.PictureBox pbWordView;
+        private System.Windows.Forms.Panel panel3;
     }
 }

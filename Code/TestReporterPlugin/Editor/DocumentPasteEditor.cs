@@ -104,7 +104,12 @@ namespace TestReporterPlugin.Editor
                     {
                         try
                         {
-                            Process.Start(file);
+                            //启动word
+                            Process p = Process.Start(file);
+                            //等待退出
+                            p.WaitForExit();
+                            //更新文档信息
+                            updateDocumentInfo(file);
                         }
                         catch (Exception ex)
                         {
@@ -125,13 +130,56 @@ namespace TestReporterPlugin.Editor
 
                         try
                         {
-                            Process.Start(file);
+                            //启动word
+                            Process p = Process.Start(file);
+                            //等待退出
+                            p.WaitForExit();
+                            //更新文档信息
+                            updateDocumentInfo(file);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
                         }
                     }
+                }
+            }
+        }
+
+        private void updateDocumentInfo(string file)
+        {
+            if (File.Exists(file))
+            {
+                WordDocument wd = new WordDocument(file);
+                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
+                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
+                lblWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
+
+                //保存附件
+                string tempPDF = Path.Combine(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).dataDir, "TempPDF"), GetHashCode() + ".png");
+                wd.WordDoc.Save(tempPDF, SaveFormat.Png);
+
+                //显示附件
+                if (pbWordView.Visible)
+                {
+                    pbWordView.Image = Image.FromFile(tempPDF);
+                }
+            }
+        }
+
+        public override void RefreshView()
+        {
+            base.RefreshView();
+
+            if (PluginLoader.CurrentPlugin != null)
+            {
+                if (string.IsNullOrEmpty(EditorName))
+                {
+                    return;
+                }
+                else
+                {
+                    updateDocumentInfo(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).filesDir, EditorName + ".doc"));
                 }
             }
         }
