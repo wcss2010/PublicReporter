@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Aspose.Words;
 
 namespace TestReporterPlugin.Editor
 {
@@ -83,17 +84,17 @@ namespace TestReporterPlugin.Editor
 
             if (File.Exists(GetDestFilePath()))
             {
-                //txtDest.LoadDoc(GetDestFilePath());
+                updateDestDocumentLabel(GetDestFilePath());
             }
 
             if (File.Exists(GetContentFilePath()))
             {
-                //txtContent.LoadDoc(GetContentFilePath());
+                updateContentDocumentLabel(GetContentFilePath());
             }
 
             if (File.Exists(GetNeedFilePath()))
             {
-                //txtNeed.LoadDoc(GetNeedFilePath());
+                updateNeedDocumentLabel(GetNeedFilePath());
             }
         }
 
@@ -104,43 +105,184 @@ namespace TestReporterPlugin.Editor
 
         private void btnEditDest_Click(object sender, EventArgs e)
         {
-            if (File.Exists(GetDestFilePath()))
+            string tempFile = GetDestFilePath();
+
+            if (File.Exists(tempFile))
             {
-                System.Diagnostics.Process.Start(GetDestFilePath());
+                try
+                {
+                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
+                    p.WaitForExit();
+
+                    //更新显示标签
+                    updateDestDocumentLabel(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
             }
             else
             {
-                Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                wd.WordDoc.Save(GetDestFilePath());
-                System.Diagnostics.Process.Start(GetDestFilePath());
+                try
+                {
+                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                    wd.WordDoc.Save(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+
+                try
+                {
+                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
+                    p.WaitForExit();
+
+                    //更新显示标签
+                    updateDestDocumentLabel(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 更新研究目标标签
+        /// </summary>
+        /// <param name="tempFile"></param>
+        private void updateDestDocumentLabel(string tempFile)
+        {
+            if (File.Exists(tempFile))
+            {
+                WordDocument wd = new WordDocument(tempFile);
+                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
+                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
+                lblDestWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
             }
         }
 
         private void btnEditContent_Click(object sender, EventArgs e)
         {
-            if (File.Exists(GetContentFilePath()))
+            //临时文件
+            string tempFile = GetContentFilePath();
+
+            if (File.Exists(tempFile))
             {
-                System.Diagnostics.Process.Start(GetContentFilePath());
+                try
+                {
+                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
+                    p.WaitForExit();
+
+                    //更新显示标签
+                    updateContentDocumentLabel(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
             }
             else
             {
-                Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                wd.WordDoc.Save(GetContentFilePath());
-                System.Diagnostics.Process.Start(GetContentFilePath());
+                try
+                {
+                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                    wd.WordDoc.Save(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+                try
+                {
+                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
+                    p.WaitForExit();
+
+                    //更新显示标签
+                    updateContentDocumentLabel(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 更新研究内容标签
+        /// </summary>
+        /// <param name="tempFile"></param>
+        private void updateContentDocumentLabel(string tempFile)
+        {
+            if (File.Exists(tempFile))
+            {
+                WordDocument wd = new WordDocument(tempFile);
+                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
+                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
+                lblContentWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
             }
         }
 
         private void btnEditNeed_Click(object sender, EventArgs e)
         {
-            if (File.Exists(GetNeedFilePath()))
+            string tempFile = GetNeedFilePath();
+
+            if (File.Exists(tempFile))
             {
-                System.Diagnostics.Process.Start(GetNeedFilePath());
+                try
+                {
+                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
+                    p.WaitForExit();
+
+                    //更新显示标签
+                    updateNeedDocumentLabel(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
             }
             else
             {
-                Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                wd.WordDoc.Save(GetNeedFilePath());
-                System.Diagnostics.Process.Start(GetNeedFilePath());
+                try
+                {
+                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                    wd.WordDoc.Save(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+
+                try
+                {
+                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
+                    p.WaitForExit();
+
+                    //更新显示标签
+                    updateNeedDocumentLabel(tempFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 更新研究思路标签
+        /// </summary>
+        /// <param name="tempFile"></param>
+        private void updateNeedDocumentLabel(string tempFile)
+        {
+            if (File.Exists(tempFile))
+            {
+                WordDocument wd = new WordDocument(tempFile);
+                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
+                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
+                lblNeedWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";                
             }
         }
     }
