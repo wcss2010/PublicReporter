@@ -69,8 +69,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.wbWordView);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 38);
             this.panel3.Name = "panel3";
@@ -79,13 +79,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(4, 5);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(557, 19);
+            this.label1.Size = new System.Drawing.Size(1063, 19);
             this.label1.TabIndex = 3;
             this.label1.Text = "这个是预览的文档，只用于查看，实际效果以Word中为准！";
             // 
@@ -93,10 +93,10 @@
             // 
             this.wbWordView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wbWordView.IsWebBrowserContextMenuEnabled = false;
-            this.wbWordView.Location = new System.Drawing.Point(0, 0);
+            this.wbWordView.Location = new System.Drawing.Point(0, 19);
             this.wbWordView.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbWordView.Name = "wbWordView";
-            this.wbWordView.Size = new System.Drawing.Size(1063, 467);
+            this.wbWordView.Size = new System.Drawing.Size(1063, 448);
             this.wbWordView.TabIndex = 2;
             // 
             // panel2
@@ -154,7 +154,6 @@
             this.Size = new System.Drawing.Size(1083, 571);
             this.plContent.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
