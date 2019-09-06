@@ -109,7 +109,10 @@ namespace ProjectReporterPlugin.Editor
                 }
                 else
                 {
-                    txtContent.Text = File.ReadAllText(getTxtFilePath());
+                    if (File.Exists(getTxtFilePath()))
+                    {
+                        txtContent.Text = File.ReadAllText(getTxtFilePath());
+                    }
                 }
             }
         }
