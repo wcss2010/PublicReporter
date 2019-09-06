@@ -31,8 +31,8 @@
             this.lblInfo = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.wbWordView = new System.Windows.Forms.WebBrowser();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblWordInfo = new System.Windows.Forms.Label();
             this.btnEditDocument = new System.Windows.Forms.Button();
@@ -77,18 +77,6 @@
             this.panel3.Size = new System.Drawing.Size(1063, 467);
             this.panel3.TabIndex = 4;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1063, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "这个是预览的文档，只用于查看，实际效果以Word中为准！";
-            // 
             // wbWordView
             // 
             this.wbWordView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,6 +86,19 @@
             this.wbWordView.Name = "wbWordView";
             this.wbWordView.Size = new System.Drawing.Size(1063, 448);
             this.wbWordView.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1063, 19);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "这是一个预览的文档，只用于查看，实际效果以Word中为准！";
             // 
             // panel2
             // 
