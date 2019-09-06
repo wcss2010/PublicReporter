@@ -97,7 +97,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1063, 19);
             this.label1.TabIndex = 3;
-            this.label1.Text = "这是一个预览的文档，只用于查看，实际效果以Word中为准！";
+            this.label1.Text = "以下内容只用于查看，实际效果以Word中显示的为准！";
             // 
             // panel2
             // 
