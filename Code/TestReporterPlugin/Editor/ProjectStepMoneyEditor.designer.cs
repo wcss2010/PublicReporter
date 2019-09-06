@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExcelLoad = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
             this.plTitle = new System.Windows.Forms.Panel();
             this.label1 = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
@@ -58,8 +59,10 @@
             this.txtTotalTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -91,16 +94,14 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnExcelLoad, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lklDownloadFuJian, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 490);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -108,6 +109,29 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(870, 34);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.lklDownloadFuJian);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(544, 28);
+            this.panel2.TabIndex = 1;
+            // 
+            // lklDownloadFuJian
+            // 
+            this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lklDownloadFuJian.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lklDownloadFuJian.Location = new System.Drawing.Point(361, 0);
+            this.lklDownloadFuJian.Name = "lklDownloadFuJian";
+            this.lklDownloadFuJian.Size = new System.Drawing.Size(183, 28);
+            this.lklDownloadFuJian.TabIndex = 5;
+            this.lklDownloadFuJian.TabStop = true;
+            this.lklDownloadFuJian.Text = "阶段划分导入模板.xls";
+            this.lklDownloadFuJian.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lklDownloadFuJian.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklDownloadFuJian_LinkClicked);
             // 
             // btnSave
             // 
@@ -139,19 +163,6 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "增加";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // lklDownloadFuJian
-            // 
-            this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lklDownloadFuJian.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lklDownloadFuJian.Location = new System.Drawing.Point(234, 0);
-            this.lklDownloadFuJian.Name = "lklDownloadFuJian";
-            this.lklDownloadFuJian.Size = new System.Drawing.Size(183, 34);
-            this.lklDownloadFuJian.TabIndex = 5;
-            this.lklDownloadFuJian.TabStop = true;
-            this.lklDownloadFuJian.Text = "阶段划分导入模板.xls";
-            this.lklDownloadFuJian.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lklDownloadFuJian.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklDownloadFuJian_LinkClicked);
             // 
             // plTitle
             // 
@@ -211,17 +222,17 @@
             this.dgvDetail.Location = new System.Drawing.Point(0, 26);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetail.RowTemplate.Height = 105;
             this.dgvDetail.Size = new System.Drawing.Size(870, 380);
             this.dgvDetail.TabIndex = 4;
@@ -390,6 +401,17 @@
             // 
             this.ofdExcelDialog.Filter = "*.xls|*.xls";
             // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(361, 28);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "双击可编辑“完成内容及阶段目标”，“阶段成果、考核指标及考核方式进行”！";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ProjectStepMoneyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -402,6 +424,7 @@
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.plTitle.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
@@ -440,5 +463,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTarget;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMoney;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label6;
     }
 }
