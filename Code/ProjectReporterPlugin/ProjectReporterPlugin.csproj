@@ -185,6 +185,12 @@
     <Compile Include="Editor\ProjectWorkerInfoEditor.designer.cs">
       <DependentUpon>ProjectWorkerInfoEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\TextContentEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\TextContentEditor.Designer.cs">
+      <DependentUpon>TextContentEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmHelpBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectWorkerInfoEditor.resx">
       <DependentUpon>ProjectWorkerInfoEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextContentEditor.resx">
+      <DependentUpon>TextContentEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmHelpBox.resx">
       <DependentUpon>FrmHelpBox.cs</DependentUpon>
