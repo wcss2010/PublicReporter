@@ -156,13 +156,13 @@ namespace TestReporterPlugin.Editor
                 lblWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
 
                 //保存附件
-                string tempPDF = Path.Combine(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).dataDir, "TempPDF"), GetHashCode() + ".png");
-                wd.WordDoc.Save(tempPDF, SaveFormat.Png);
+                string tempPDF = Path.Combine(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).dataDir, "TempPDF"), GetHashCode() + ".html");
+                wd.WordDoc.Save(tempPDF, SaveFormat.Html);
 
                 //显示附件
-                if (pbWordView.Visible)
+                if (wbWordView.Visible)
                 {
-                    pbWordView.Image = Image.FromFile(tempPDF);
+                    wbWordView.Navigate(tempPDF);
                 }
             }
         }

@@ -30,17 +30,14 @@
         {
             this.lblInfo = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.pbWordView = new System.Windows.Forms.PictureBox();
+            this.wbWordView = new System.Windows.Forms.WebBrowser();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblWordInfo = new System.Windows.Forms.Label();
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.plContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbWordView)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -59,7 +56,7 @@
             // plContent
             // 
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
-            this.plContent.Controls.Add(this.panel3);
+            this.plContent.Controls.Add(this.wbWordView);
             this.plContent.Controls.Add(this.panel2);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 56);
@@ -67,15 +64,15 @@
             this.plContent.Size = new System.Drawing.Size(1063, 505);
             this.plContent.TabIndex = 1;
             // 
-            // pbWordView
+            // wbWordView
             // 
-            this.pbWordView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pbWordView.Location = new System.Drawing.Point(0, 0);
-            this.pbWordView.Name = "pbWordView";
-            this.pbWordView.Size = new System.Drawing.Size(1063, 177);
-            this.pbWordView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbWordView.TabIndex = 2;
-            this.pbWordView.TabStop = false;
+            this.wbWordView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbWordView.IsWebBrowserContextMenuEnabled = false;
+            this.wbWordView.Location = new System.Drawing.Point(0, 38);
+            this.wbWordView.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbWordView.Name = "wbWordView";
+            this.wbWordView.Size = new System.Drawing.Size(1063, 467);
+            this.wbWordView.TabIndex = 2;
             // 
             // panel2
             // 
@@ -122,16 +119,6 @@
             this.panel1.Size = new System.Drawing.Size(1083, 571);
             this.panel1.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.AutoScroll = true;
-            this.panel3.Controls.Add(this.pbWordView);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 38);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1063, 467);
-            this.panel3.TabIndex = 3;
-            // 
             // DocumentPasteEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -141,11 +128,8 @@
             this.Name = "DocumentPasteEditor";
             this.Size = new System.Drawing.Size(1083, 571);
             this.plContent.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbWordView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,7 +142,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblWordInfo;
-        private System.Windows.Forms.PictureBox pbWordView;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.WebBrowser wbWordView;
     }
 }
