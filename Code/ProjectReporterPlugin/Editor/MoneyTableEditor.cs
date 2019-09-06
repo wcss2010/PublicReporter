@@ -1530,9 +1530,9 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel3.Location = new System.Drawing.Point(4, 5);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel3.Size = new System.Drawing.Size(292, 23);
+            this.kryptonLabel3.Size = new System.Drawing.Size(299, 23);
             this.kryptonLabel3.TabIndex = 29;
-            this.kryptonLabel3.Text = "本项目申请经费0万元，自筹经费";
+            this.kryptonLabel3.Text = "本项目申请经费0万元，各自自筹经费";
             // 
             // panel2
             // 
@@ -1745,7 +1745,7 @@ namespace ProjectReporterPlugin.Editor
                 }
             }
 
-            kryptonLabel3.Text = "本项目申请经费" + ProjectRFA.Text + "万元，自筹经费";
+            kryptonLabel3.Text = "本项目申请经费" + ProjectRFA.Text + "万元，各自自筹经费";
         }
 
 		private void ProjectRFA_Leave(object sender, EventArgs e)
