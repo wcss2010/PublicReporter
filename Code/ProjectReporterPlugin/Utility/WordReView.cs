@@ -139,7 +139,9 @@ namespace ProjectReporterPlugin.Utility
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
                 #region 插入固定RTF文件
-                wu.insertFile("项目摘要", Path.Combine(pt.filesDir, "项目摘要.doc"), true);
+                //wu.insertFile("项目摘要", Path.Combine(pt.filesDir, "项目摘要.doc"), true);
+                wu.insertTxtFile("项目摘要", Path.Combine(pt.filesDir, "项目摘要.txt"));
+
                 wu.insertFile("基本概念及内涵", Path.Combine(pt.filesDir, "基本概念及内涵.doc"), true);
                 wu.insertFile("军事需求分析", Path.Combine(pt.filesDir, "军事需求分析.doc"), true);
                 wu.insertFile("研究现状", Path.Combine(pt.filesDir, "研究现状.doc"), true);
@@ -149,8 +151,12 @@ namespace ProjectReporterPlugin.Utility
                 wu.insertFile("研究成果及考核指标", Path.Combine(pt.filesDir, "研究成果及考核指标.doc"), true);
                 wu.insertFile("评估方案", Path.Combine(pt.filesDir, "评估方案.doc"), true);
                 wu.insertFile("预期效益", Path.Combine(pt.filesDir, "预期效益.doc"), true);
-                wu.insertFile("项目负责人C", Path.Combine(pt.filesDir, "项目负责人.doc"), true);
-                wu.insertFile("研究团队", Path.Combine(pt.filesDir, "研究团队.doc"), true);
+
+                //wu.insertFile("项目负责人C", Path.Combine(pt.filesDir, "项目负责人.doc"), true);
+                //wu.insertFile("研究团队", Path.Combine(pt.filesDir, "研究团队.doc"), true);
+                wu.insertTxtFile("项目负责人C", Path.Combine(pt.filesDir, "项目负责人.txt"));
+                wu.insertTxtFile("研究团队", Path.Combine(pt.filesDir, "研究团队.txt"));
+
                 wu.insertFile("研究基础与保障条件", Path.Combine(pt.filesDir, "研究基础与保障条件.doc"), true);
                 wu.insertFile("组织实施与风险控制", Path.Combine(pt.filesDir, "组织实施与风险控制.doc"), true);
                 wu.insertFile("与有关计划关系", Path.Combine(pt.filesDir, "与有关计划关系.doc"), false);

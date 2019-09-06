@@ -132,6 +132,21 @@ namespace ProjectReporterPlugin.Utility
             }
         }
 
+        /// <summary>
+        /// 插入文本文件
+        /// </summary>
+        /// <param name="bookmark"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public bool insertTxtFile(string bookmark, string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                insertValue(bookmark, File.ReadAllText(filePath));
+            }
+            return true;
+        }
+
         public void delete()
         {
             if (Document.WordDocBuilder.CurrentParagraph != null)
