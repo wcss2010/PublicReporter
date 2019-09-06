@@ -30,7 +30,7 @@
         {
             this.lblInfo = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.plConent = new System.Windows.Forms.Panel();
+            this.plWordViewConent = new System.Windows.Forms.Panel();
             this.wbWordView = new System.Windows.Forms.WebBrowser();
             this.lblViewHint = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
@@ -38,7 +38,7 @@
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent.SuspendLayout();
-            this.plConent.SuspendLayout();
+            this.plWordViewConent.SuspendLayout();
             this.plButtons.SuspendLayout();
             this.plMain.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             // plContent
             // 
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
-            this.plContent.Controls.Add(this.plConent);
+            this.plContent.Controls.Add(this.plWordViewConent);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 56);
@@ -67,15 +67,16 @@
             this.plContent.Size = new System.Drawing.Size(1063, 505);
             this.plContent.TabIndex = 1;
             // 
-            // plConent
+            // plWordViewConent
             // 
-            this.plConent.Controls.Add(this.wbWordView);
-            this.plConent.Controls.Add(this.lblViewHint);
-            this.plConent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plConent.Location = new System.Drawing.Point(0, 38);
-            this.plConent.Name = "plConent";
-            this.plConent.Size = new System.Drawing.Size(1063, 467);
-            this.plConent.TabIndex = 4;
+            this.plWordViewConent.Controls.Add(this.wbWordView);
+            this.plWordViewConent.Controls.Add(this.lblViewHint);
+            this.plWordViewConent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plWordViewConent.Location = new System.Drawing.Point(0, 38);
+            this.plWordViewConent.Name = "plWordViewConent";
+            this.plWordViewConent.Size = new System.Drawing.Size(1063, 467);
+            this.plWordViewConent.TabIndex = 4;
+            this.plWordViewConent.Visible = false;
             // 
             // wbWordView
             // 
@@ -153,7 +154,7 @@
             this.Name = "DocumentPasteEditor";
             this.Size = new System.Drawing.Size(1083, 571);
             this.plContent.ResumeLayout(false);
-            this.plConent.ResumeLayout(false);
+            this.plWordViewConent.ResumeLayout(false);
             this.plButtons.ResumeLayout(false);
             this.plMain.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -169,7 +170,7 @@
         private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.Label lblWordInfo;
         private System.Windows.Forms.WebBrowser wbWordView;
-        private System.Windows.Forms.Panel plConent;
+        private System.Windows.Forms.Panel plWordViewConent;
         private System.Windows.Forms.Label lblViewHint;
     }
 }
