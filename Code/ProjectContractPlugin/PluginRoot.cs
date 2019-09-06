@@ -77,7 +77,7 @@ namespace ProjectContractPlugin
         /// </summary>
         public override string Title
         {
-            get { return "重点基础研究项目建议书填报系统（1.3版）"; }
+            get { return "重点基础研究项目合同书填报系统（1.3版）"; }
         }
 
         /// <summary>

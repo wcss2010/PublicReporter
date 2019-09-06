@@ -34,7 +34,12 @@ namespace PublicReporter
 
         private void btnStartB_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("对不起，正在开发中...", "提示");
+            Hide();
+            DisplayForm df = new DisplayForm();
+            df.FormClosed += df_FormClosed;
+            df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, "ProjectContractPlugin"));
+            df.Show();
+            df.WindowState = FormWindowState.Maximized;
         }
     }
 }
