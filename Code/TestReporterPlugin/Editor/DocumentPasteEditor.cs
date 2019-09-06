@@ -159,11 +159,11 @@ namespace TestReporterPlugin.Editor
                 if (plWordViewConent.Visible)
                 {
                     //保存附件
-                    string tempPDF = Path.Combine(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).dataDir, "TempPDF"), GetHashCode() + ".mhtml");
-                    wd.WordDoc.Save(tempPDF, SaveFormat.Mhtml);
+                    string tempPDF = Path.Combine(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).dataDir, "TempPDF"), GetHashCode() + ".jpg");
+                    wd.WordDoc.Save(tempPDF, SaveFormat.Jpeg);
 
                     //显示附件
-                    wbWordView.Navigate(tempPDF);
+                    pbWordView.Load(tempPDF);
                 }
             }
         }

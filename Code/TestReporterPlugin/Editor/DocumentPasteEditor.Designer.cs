@@ -31,7 +31,7 @@
             this.lblInfo = new TestReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
             this.plWordViewConent = new System.Windows.Forms.Panel();
-            this.wbWordView = new System.Windows.Forms.WebBrowser();
+            this.pbWordView = new System.Windows.Forms.PictureBox();
             this.lblViewHint = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
             this.lblWordInfo = new System.Windows.Forms.Label();
@@ -39,6 +39,7 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent.SuspendLayout();
             this.plWordViewConent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWordView)).BeginInit();
             this.plButtons.SuspendLayout();
             this.plMain.SuspendLayout();
             this.SuspendLayout();
@@ -69,24 +70,25 @@
             // 
             // plWordViewConent
             // 
-            this.plWordViewConent.Controls.Add(this.wbWordView);
+            this.plWordViewConent.AutoScroll = true;
+            this.plWordViewConent.BackColor = System.Drawing.Color.White;
+            this.plWordViewConent.Controls.Add(this.pbWordView);
             this.plWordViewConent.Controls.Add(this.lblViewHint);
             this.plWordViewConent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plWordViewConent.Location = new System.Drawing.Point(0, 38);
             this.plWordViewConent.Name = "plWordViewConent";
             this.plWordViewConent.Size = new System.Drawing.Size(1063, 467);
             this.plWordViewConent.TabIndex = 4;
-            this.plWordViewConent.Visible = false;
             // 
-            // wbWordView
+            // pbWordView
             // 
-            this.wbWordView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wbWordView.IsWebBrowserContextMenuEnabled = false;
-            this.wbWordView.Location = new System.Drawing.Point(0, 19);
-            this.wbWordView.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbWordView.Name = "wbWordView";
-            this.wbWordView.Size = new System.Drawing.Size(1063, 448);
-            this.wbWordView.TabIndex = 2;
+            this.pbWordView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbWordView.Location = new System.Drawing.Point(0, 19);
+            this.pbWordView.Name = "pbWordView";
+            this.pbWordView.Size = new System.Drawing.Size(1063, 206);
+            this.pbWordView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbWordView.TabIndex = 4;
+            this.pbWordView.TabStop = false;
             // 
             // lblViewHint
             // 
@@ -155,6 +157,8 @@
             this.Size = new System.Drawing.Size(1083, 571);
             this.plContent.ResumeLayout(false);
             this.plWordViewConent.ResumeLayout(false);
+            this.plWordViewConent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWordView)).EndInit();
             this.plButtons.ResumeLayout(false);
             this.plMain.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -169,8 +173,8 @@
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.Label lblWordInfo;
-        private System.Windows.Forms.WebBrowser wbWordView;
         private System.Windows.Forms.Panel plWordViewConent;
         private System.Windows.Forms.Label lblViewHint;
+        private System.Windows.Forms.PictureBox pbWordView;
     }
 }
