@@ -698,7 +698,7 @@ namespace TestReporterPlugin.Editor
             this.ProjectRFARm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFARm.Name = "ProjectRFARm";
             this.ProjectRFARm.Size = new System.Drawing.Size(196, 26);
-            this.ProjectRFARm.TabIndex = 6;
+            this.ProjectRFARm.TabIndex = 71;
             // 
             // kryptonLabel42
             // 
@@ -988,7 +988,7 @@ namespace TestReporterPlugin.Editor
             this.ProjectRFA1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1Rm.Name = "ProjectRFA1Rm";
             this.ProjectRFA1Rm.Size = new System.Drawing.Size(196, 26);
-            this.ProjectRFA1Rm.TabIndex = 33;
+            this.ProjectRFA1Rm.TabIndex = 72;
             // 
             // ProjectRFA1_5
             // 
