@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace PublicReporter
             Hide();
             DisplayForm df = new DisplayForm();
             df.FormClosed += df_FormClosed;
-            df.loadPlugin(DisplayForm.PluginDirs);
+            df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, "ProjectReporterPlugin"));
             df.Show();
             df.WindowState = FormWindowState.Maximized;
         }
