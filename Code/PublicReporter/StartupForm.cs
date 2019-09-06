@@ -29,7 +29,13 @@ namespace PublicReporter
 
         void df_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Show();
+            if (IsHandleCreated)
+            {
+                Invoke(new MethodInvoker(delegate()
+                    {
+                        Show();
+                    }));
+            }
         }
 
         private void btnStartB_Click(object sender, EventArgs e)
