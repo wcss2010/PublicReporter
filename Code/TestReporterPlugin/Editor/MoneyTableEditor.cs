@@ -686,7 +686,7 @@ namespace TestReporterPlugin.Editor
             this.ProjectRFA.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA.TabIndex = 5;
             this.ProjectRFA.Text = "0";
-            this.ProjectRFA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ProjectRFA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ProjectRFA.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
             this.ProjectRFA.Leave += new System.EventHandler(this.ProjectRFA_Leave);
             // 
@@ -793,7 +793,7 @@ namespace TestReporterPlugin.Editor
             this.ProjectRFA1.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA1.TabIndex = 16;
             this.ProjectRFA1.Text = "0";
-            this.ProjectRFA1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ProjectRFA1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // kryptonLabel50
             // 
@@ -900,7 +900,7 @@ namespace TestReporterPlugin.Editor
             this.ProjectRFA1_1.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA1_1.TabIndex = 26;
             this.ProjectRFA1_1.Text = "0";
-            this.ProjectRFA1_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ProjectRFA1_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ProjectRFA1_1_1
             // 
@@ -1077,7 +1077,7 @@ namespace TestReporterPlugin.Editor
             this.ProjectRFA2.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA2.TabIndex = 41;
             this.ProjectRFA2.Text = "0";
-            this.ProjectRFA2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ProjectRFA2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ProjectRFA1_5zb
             // 
