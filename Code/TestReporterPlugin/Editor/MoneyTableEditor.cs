@@ -2173,7 +2173,7 @@ namespace TestReporterPlugin.Editor
          
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(Application.StartupPath, Path.Combine("Helper", "TianBaoShuoMing.docx"));
+            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, Path.Combine("Helper", "TianBaoShuoMing.docx"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.docx|*.docx";
@@ -2195,7 +2195,7 @@ namespace TestReporterPlugin.Editor
 
         private void lklDownloadExcel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(Application.StartupPath, Path.Combine("Helper", "jingfei.xls"));
+            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, Path.Combine("Helper", "jingfei.xls"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.xls|*.xls";

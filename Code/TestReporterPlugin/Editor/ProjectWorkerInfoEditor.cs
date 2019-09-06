@@ -593,7 +593,7 @@ namespace TestReporterPlugin.Editor
 
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(Application.StartupPath, Path.Combine("Helper", "lianxiren.xls"));
+            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, Path.Combine("Helper", "lianxiren.xls"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.xls|*.xls";
