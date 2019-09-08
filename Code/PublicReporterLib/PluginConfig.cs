@@ -56,7 +56,7 @@ namespace PublicReporterLib
         {
             //初始化配置
             CurrentConfig = new PluginConfig();
-            CurrentConfig.PluginName = "<<插件目录名称>>";
+            CurrentConfig.PluginName = "--插件目录名称--";
 
             //保存配置
             saveConfig();
