@@ -70,6 +70,7 @@
             this.MinimizeBox = false;
             this.Name = "StartupForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.StartupForm_Load);
