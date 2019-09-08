@@ -73,8 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IReportPluginRoot.cs" />
+    <Compile Include="PluginConfig.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialDictionary.cs" />
     <Compile Include="Utility\WordDocument.cs" />
     <Compile Include="Utility\ZipUtil.cs" />
   </ItemGroup>
