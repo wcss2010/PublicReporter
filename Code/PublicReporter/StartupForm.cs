@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublicReporterLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,35 +18,40 @@ namespace PublicReporter
             InitializeComponent();
         }
 
-        private void btnStartA_Click(object sender, EventArgs e)
-        {
-            Hide();
-            DisplayForm df = new DisplayForm();
-            df.FormClosed += df_FormClosed;
-            df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, "ProjectReporterPlugin"));
-            df.Show();
-            df.WindowState = FormWindowState.Maximized;
-        }
-
         void df_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (IsHandleCreated)
             {
                 Invoke(new MethodInvoker(delegate()
                     {
-                        Show();
+                        try
+                        {
+                            System.Diagnostics.Process.GetCurrentProcess().Kill();
+                        }
+                        catch (Exception ex) { }
                     }));
             }
         }
 
-        private void btnStartB_Click(object sender, EventArgs e)
+        private void StartupForm_Load(object sender, EventArgs e)
         {
-            Hide();
-            DisplayForm df = new DisplayForm();
-            df.FormClosed += df_FormClosed;
-            df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, "ProjectContractPlugin"));
-            df.Show();
-            df.WindowState = FormWindowState.Maximized;
+            //载入配置
+            PluginConfig.loadConfig();
+
+            //尝试载入插件
+            if (PluginConfig.CurrentConfig != null && Directory.Exists(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName)))
+            {
+                Hide();
+                DisplayForm df = new DisplayForm();
+                df.FormClosed += df_FormClosed;
+                df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName));
+                df.Show();
+                df.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                MessageBox.Show("对不起，没有找到填报插件！");
+            }
         }
     }
 }

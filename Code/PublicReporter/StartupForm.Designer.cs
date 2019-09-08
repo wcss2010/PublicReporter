@@ -29,69 +29,58 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartupForm));
-            this.btnStartA = new System.Windows.Forms.Button();
-            this.btnStartB = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbLog = new System.Windows.Forms.PictureBox();
+            this.lblMsg = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLog)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnStartA
+            // pbLog
             // 
-            this.btnStartA.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStartA.Location = new System.Drawing.Point(95, 369);
-            this.btnStartA.Name = "btnStartA";
-            this.btnStartA.Size = new System.Drawing.Size(222, 87);
-            this.btnStartA.TabIndex = 0;
-            this.btnStartA.Text = "启动建议书填报";
-            this.btnStartA.UseVisualStyleBackColor = true;
-            this.btnStartA.Click += new System.EventHandler(this.btnStartA_Click);
+            this.pbLog.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbLog.Image = ((System.Drawing.Image)(resources.GetObject("pbLog.Image")));
+            this.pbLog.Location = new System.Drawing.Point(0, 0);
+            this.pbLog.Name = "pbLog";
+            this.pbLog.Size = new System.Drawing.Size(801, 342);
+            this.pbLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLog.TabIndex = 1;
+            this.pbLog.TabStop = false;
             // 
-            // btnStartB
+            // lblMsg
             // 
-            this.btnStartB.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStartB.Location = new System.Drawing.Point(478, 369);
-            this.btnStartB.Name = "btnStartB";
-            this.btnStartB.Size = new System.Drawing.Size(222, 87);
-            this.btnStartB.TabIndex = 0;
-            this.btnStartB.Text = "启动合同书填报";
-            this.btnStartB.UseVisualStyleBackColor = true;
-            this.btnStartB.Click += new System.EventHandler(this.btnStartB_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(801, 342);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMsg.Font = new System.Drawing.Font("仿宋", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMsg.Location = new System.Drawing.Point(0, 342);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(801, 47);
+            this.lblMsg.TabIndex = 2;
+            this.lblMsg.Text = "正在启动,请等待...";
+            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StartupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 492);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnStartB);
-            this.Controls.Add(this.btnStartA);
+            this.ClientSize = new System.Drawing.Size(801, 389);
+            this.ControlBox = false;
+            this.Controls.Add(this.lblMsg);
+            this.Controls.Add(this.pbLog);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StartupForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "请选择要启动的项目！";
             this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.StartupForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLog)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnStartA;
-        private System.Windows.Forms.Button btnStartB;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbLog;
+        private System.Windows.Forms.Label lblMsg;
     }
 }
