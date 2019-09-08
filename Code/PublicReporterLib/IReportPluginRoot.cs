@@ -6,11 +6,26 @@ using System.Windows.Forms;
 
 namespace PublicReporterLib
 {
+    /// <summary>
+    /// 日志委托
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="args"></param>
     public delegate void OutputLogDelegate(object sender,LogEventArgs args);
+    /// <summary>
+    /// 日志事件对象
+    /// </summary>
     public class LogEventArgs : EventArgs
     {
-        public Exception ExObj { get; set; }
-        public string ExText { get; set; }
+        /// <summary>
+        /// 错误对象
+        /// </summary>
+        public Exception ErrorObj { get; set; }
+
+        /// <summary>
+        /// 错误消息
+        /// </summary>
+        public string ErrorMsg { get; set; }
     }
 
     /// <summary>
@@ -21,22 +36,22 @@ namespace PublicReporterLib
         /// <summary>
         /// 日志事件
         /// </summary>
-        public event OutputLogDelegate Logs;
+        public event OutputLogDelegate Log;
 
         /// <summary>
-        /// 工作目录
+        /// 根目录
         /// </summary>
-        public string WorkDir { get; set; }
+        public string RootDir { get; set; }
 
         /// <summary>
         /// 标题
         /// </summary>
-        public abstract string Title { get; }
+        public abstract string DefaultTitle { get; }
 
         /// <summary>
-        /// 判断是否退出
+        /// 判断是否允许关闭
         /// </summary>
-        public abstract bool isEnableClosing();
+        public abstract bool isAcceptClose();
 
         /// <summary>
         /// 插件启动
@@ -66,14 +81,14 @@ namespace PublicReporterLib
         /// </summary>
         /// <param name="exObj"></param>
         /// <param name="exTxt"></param>
-        public virtual void printLog(Exception exObj, string exTxt)
+        public virtual void onLog(Exception exObj, string exTxt)
         {
-            if (Logs != null)
+            if (Log != null)
             {
                 LogEventArgs lea = new LogEventArgs();
-                lea.ExObj = exObj;
-                lea.ExText = exTxt;
-                Logs(this, lea);
+                lea.ErrorObj = exObj;
+                lea.ErrorMsg = exTxt;
+                Log(this, lea);
             }
         }
     }

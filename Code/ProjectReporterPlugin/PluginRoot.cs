@@ -75,7 +75,7 @@ namespace ProjectReporterPlugin
         /// <summary>
         /// 程序标题
         /// </summary>
-        public override string Title
+        public override string DefaultTitle
         {
             get { return "重点基础研究项目建议书填报系统（1.3版）"; }
         }
@@ -84,7 +84,7 @@ namespace ProjectReporterPlugin
         /// 是否允许关闭
         /// </summary>
         /// <returns></returns>
-        public override bool isEnableClosing()
+        public override bool isAcceptClose()
         {
             return true;
         }
@@ -307,7 +307,7 @@ namespace ProjectReporterPlugin
             #endregion
 
             #region 创建基础目录
-            baseDir = Path.Combine(WorkDir, "Data");
+            baseDir = Path.Combine(RootDir, "Data");
             try
             {
                 Directory.CreateDirectory(baseDir);
@@ -385,7 +385,7 @@ namespace ProjectReporterPlugin
             else
             {
                 //复制数据库文件
-                File.Copy(Path.Combine(WorkDir, "static.db"), dbFile, true);
+                File.Copy(Path.Combine(RootDir, "static.db"), dbFile, true);
 
                 //打开数据库连接
                 ConnectionManager.Open(dbFile);
@@ -588,7 +588,7 @@ namespace ProjectReporterPlugin
                                 DB.ConnectionManager.Close();
 
                                 //当前项目目录
-                                string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
+                                string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), "Current");
 
                                 ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
                                 ((CircleProgressBarDialog)thisObject).ReportInfo("正在导出...");
@@ -658,10 +658,10 @@ namespace ProjectReporterPlugin
                                     DB.ConnectionManager.Close();
 
                                     //当前项目目录
-                                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
+                                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), "Current");
 
                                     //backup
-                                    string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), uuid);
+                                    string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), uuid);
 
                                     ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
                                     ((CircleProgressBarDialog)thisObject).ReportInfo("清空当前目录...");
@@ -732,7 +732,7 @@ namespace ProjectReporterPlugin
                         DB.ConnectionManager.Close();
 
                         //当前项目目录
-                        string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
+                        string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), "Current");
 
                         //移动当前目录
                         if (System.IO.Directory.Exists(currentPath))

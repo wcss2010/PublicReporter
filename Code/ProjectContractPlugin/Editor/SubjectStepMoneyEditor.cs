@@ -410,7 +410,7 @@ namespace ProjectContractPlugin.Editor
 
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, Path.Combine("Helper", "ketijieduanhuafen.xls"));
+            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, Path.Combine("Helper", "ketijieduanhuafen.xls"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.xls|*.xls";

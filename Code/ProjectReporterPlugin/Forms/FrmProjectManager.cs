@@ -21,7 +21,7 @@ namespace ProjectReporterPlugin.Forms
         private void updateProjects()
         {
             tvProject.Nodes.Clear();
-            string[] dirs = System.IO.Directory.GetDirectories(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"));
+            string[] dirs = System.IO.Directory.GetDirectories(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"));
             foreach (string s in dirs)
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(s);
@@ -91,7 +91,7 @@ namespace ProjectReporterPlugin.Forms
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            if (tvProject.SelectedNode != null && System.IO.Directory.Exists(System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), tvProject.SelectedNode.Name)))
+            if (tvProject.SelectedNode != null && System.IO.Directory.Exists(System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), tvProject.SelectedNode.Name)))
             {
                 if (MessageBox.Show("真的要切换吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -101,10 +101,10 @@ namespace ProjectReporterPlugin.Forms
                     DB.ConnectionManager.Close();
 
                     //当前项目目录
-                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), "Current");
+                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), "Current");
 
                     //目标目录
-                    string destPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), uuid);
+                    string destPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), uuid);
 
                     //移动当前目录
                     if (System.IO.Directory.Exists(currentPath))
@@ -118,7 +118,7 @@ namespace ProjectReporterPlugin.Forms
                     }
 
                     //将这个目录切换为当前目录
-                    System.IO.Directory.Move(System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), tvProject.SelectedNode.Name), currentPath);
+                    System.IO.Directory.Move(System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), tvProject.SelectedNode.Name), currentPath);
 
                     ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
                     DB.ConnectionManager.Close();
@@ -134,7 +134,7 @@ namespace ProjectReporterPlugin.Forms
             if (ofdSelect.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //新项目目录
-                string newProjectDir = System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, System.IO.Path.Combine("Data", Guid.NewGuid().ToString()));
+                string newProjectDir = System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, System.IO.Path.Combine("Data", Guid.NewGuid().ToString()));
 
                 SuperCodeFactoryUILib.Forms.CircleProgressBarDialog dialog = new SuperCodeFactoryUILib.Forms.CircleProgressBarDialog();
                 dialog.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -207,7 +207,7 @@ namespace ProjectReporterPlugin.Forms
                 {
                     try
                     {
-                        System.IO.Directory.Delete(System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, "Data"), tvProject.SelectedNode.Name), true);
+                        System.IO.Directory.Delete(System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), tvProject.SelectedNode.Name), true);
                     }
                     catch (Exception ex)
                     {

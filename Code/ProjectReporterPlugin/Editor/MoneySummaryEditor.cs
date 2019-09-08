@@ -114,7 +114,7 @@ namespace ProjectReporterPlugin.Editor
         }
 
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).WorkDir, Path.Combine("Helper", "JingFeiFuJian.doc"));
+            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, Path.Combine("Helper", "JingFeiFuJian.doc"));
             string destPath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "项目经费概算说明.doc");
             File.Copy(sourcePath, destPath, true);
             MessageBox.Show("已下载到桌面！");

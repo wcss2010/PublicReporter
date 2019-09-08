@@ -48,7 +48,7 @@ namespace ProjectReporterPlugin.Utility
             //创建word文档
             string fileName = pt.projectObj.Name + "-项目建议书.docx";
             WordUtility wu = new WordUtility();
-            wu.createNewDocument(Path.Combine(Path.Combine(pt.WorkDir, "Helper"), "newtemplete.docx"));
+            wu.createNewDocument(Path.Combine(Path.Combine(pt.RootDir, "Helper"), "newtemplete.docx"));
 
             try
             {
@@ -181,7 +181,7 @@ namespace ProjectReporterPlugin.Utility
                 }
 
                 //处理诚信承诺书
-                string uploadC = Path.Combine(pt.WorkDir, Path.Combine("Helper", "chengnuoshu.doc"));
+                string uploadC = Path.Combine(pt.RootDir, Path.Combine("Helper", "chengnuoshu.doc"));
                 wu.insertFile("附件3", uploadC, true);
                 wu.insertValue("诚信负责人", pt.projectObj.Name);
                 #endregion

@@ -34,7 +34,7 @@ namespace PublicReporter
             if (PluginLoader.CurrentPlugin != null)
             {
                 //检查当前是否允行退出
-                if (PluginLoader.CurrentPlugin.isEnableClosing())
+                if (PluginLoader.CurrentPlugin.isAcceptClose())
                 {
                     //插件停止
                     PluginLoader.CurrentPlugin.stop(e);
@@ -68,16 +68,16 @@ namespace PublicReporter
                 if (PluginLoader.CurrentPlugin != null)
                 {
                     //设置程序标题
-                    this.Text = PluginLoader.CurrentPlugin.Title;
+                    this.Text = PluginLoader.CurrentPlugin.DefaultTitle;
 
                     //设置工作目录
-                    PluginLoader.CurrentPlugin.WorkDir = workDir;
+                    PluginLoader.CurrentPlugin.RootDir = workDir;
 
                     //初始化
                     PluginLoader.CurrentPlugin.init(this, tsButtonBar, ilNodeImage, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
 
                     //添加日志事件
-                    PluginLoader.CurrentPlugin.Logs += CurrentPlugin_Logs;
+                    PluginLoader.CurrentPlugin.Log += CurrentPlugin_Logs;
 
                     //启动插件
                     PluginLoader.CurrentPlugin.start();
@@ -95,7 +95,7 @@ namespace PublicReporter
 
         void CurrentPlugin_Logs(object sender, LogEventArgs args)
         {
-            System.Console.WriteLine(args.ExText);
+            System.Console.WriteLine(args.ErrorMsg);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
