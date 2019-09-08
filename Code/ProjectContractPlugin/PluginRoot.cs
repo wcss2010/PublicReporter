@@ -180,6 +180,8 @@ namespace ProjectContractPlugin
         /// <param name="defaultHintLabelObj">默认的提示标签</param>
         public override void init(Form mainFormObj, ToolStrip topToolStripObj, ImageList treeViewImageListObj, TreeView treeViewObj, Panel treeViewControlObj, Panel contentObj, StatusStrip bottomStatusStripObj, ToolStripStatusLabel defaultHintLabelObj)
         {
+            #region 保存引用并且添加事件
+            treeViewControlObj.Visible = false;
             this.topToolStrip = topToolStripObj;
             this.treeViewObj = treeViewObj;
             this.contentObj = contentObj;
@@ -188,122 +190,82 @@ namespace ProjectContractPlugin
 
             //添加点击事件
             treeViewObj.AfterSelect += treeViewObj_AfterSelect;
+            #endregion
 
             #region 构建树结构
             TreeNode firstNode = new TreeNode();
             firstNode.Name = "root";
-            firstNode.Text = "申报书";
+            firstNode.Text = "基本信息";
 
             TreeNode itemObj = new TreeNode();
-            itemObj.Text = "概述";
-            firstNode.Nodes.Add(itemObj);
-
-            TreeNode subItemObj = new TreeNode();
-            subItemObj.Text = "项目摘要";
-            itemObj.Nodes.Add(subItemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "基本概念及内涵";
-            itemObj.Nodes.Add(subItemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "军事需求分析";
-            itemObj.Nodes.Add(subItemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "研究现状";
-            itemObj.Nodes.Add(subItemObj);
-
-            itemObj = new TreeNode();
             itemObj.Text = "研究目标";
             firstNode.Nodes.Add(itemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "基础性问题";
+            itemObj.Text = "主要研究内容";
             firstNode.Nodes.Add(itemObj);
 
-            itemObj = new TreeNode();
-            itemObj.Text = "项目分解";
-            firstNode.Nodes.Add(itemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "课题列表";
+            TreeNode subItemObj = new TreeNode();
+            subItemObj.Text = "项目分解情况";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "课题之间的关系";
+            subItemObj.Text = "课题情况";
             itemObj.Nodes.Add(subItemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "研究成果";
+            itemObj.Text = "技术要求及指标";
             firstNode.Nodes.Add(itemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "研究成果及考核指标";
+            subItemObj.Text = "技术要求";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "评估方案";
-            itemObj.Nodes.Add(subItemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "预期效益";
+            subItemObj.Text = "主要指标名称、要求及考核方式";
             itemObj.Nodes.Add(subItemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "研究周期、阶段划分和经费安排";
+            itemObj.Text = "研究进度安排";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "经费预算";
             firstNode.Nodes.Add(itemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "项目阶段划分和经费安排";
+            subItemObj.Text = "经费预算表";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "课题阶段划分和经费安排";
-            itemObj.Nodes.Add(subItemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "项目负责人和研究团队";
-            firstNode.Nodes.Add(itemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "项目负责人";
+            subItemObj.Text = "双方认为需要说明的经费使用事项";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "研究团队";
+            subItemObj.Text = "经费拨付约定";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "各课题负责人及研究骨干情况表";
+            subItemObj.Text = "经费管理要求";
             itemObj.Nodes.Add(subItemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "研究基础与保障条件";
+            itemObj.Text = "提交要求";
             firstNode.Nodes.Add(itemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "组织实施与风险控制";
+            itemObj.Text = "主要研究人员";
             firstNode.Nodes.Add(itemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "与有关计划关系";
+            itemObj.Text = "共同条款";
             firstNode.Nodes.Add(itemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "经费预算表";
-            firstNode.Nodes.Add(itemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "附件1-经费概算";
-            firstNode.Nodes.Add(itemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "附件2-保密资质";
+            itemObj.Text = "附加条款";
             firstNode.Nodes.Add(itemObj);
 
             treeViewObj.Nodes.Add(firstNode);
-
             firstNode.ExpandAll();
             #endregion
 
@@ -347,7 +309,7 @@ namespace ProjectContractPlugin
             try
             {
                 //加载项目信息
-                projectObj = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
+                projectObj = ConnectionManager.Context.table("JiBenXinXiBiao").select("*").getItem<JiBenXinXiBiao>(new JiBenXinXiBiao());
 
                 if (string.IsNullOrEmpty(projectObj.BianHao))
                 {
@@ -528,7 +490,7 @@ namespace ProjectContractPlugin
                         return;
                     }
 
-                    if (File.Exists(Path.Combine(dataDir, "项目申报书.doc")) == false)
+                    if (File.Exists(Path.Combine(dataDir, "合同书.doc")) == false)
                     {
                         MessageBox.Show("对不起，请先点击预览按钮生成项目申报书！");
                         return;
@@ -542,33 +504,8 @@ namespace ProjectContractPlugin
                         return;
                     }
 
-                    if (!isRightMoneyOrTime())
-                    {
-                        return;
-                    }
-
-                    string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.BianHao + "')").select("UnitName").getValue<string>(string.Empty);
-                    string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.BianHao + "')").select("Name").getValue<string>(string.Empty);
-                    string zipName = string.Empty;
-                    if (projectObj.DirectionCode == 0)
-                    {
-                        //方向代码为0,忽略此项,然后生成压缩包名
-                        zipName = projectObj.Domain + "-" + projectObj.Name + "-" + unitName + "-" + personName;
-                    }
-                    else
-                    {
-                        //生成完整的压缩包名
-                        string directionCode = projectObj.DirectionCode.ToString();
-                        if (projectObj.DirectionCode < 10)
-                        {
-                            directionCode = "0" + directionCode;
-                        }
-                        zipName = projectObj.Domain + "-" + directionCode + "-" + projectObj.Name + "-" + unitName + "-" + personName;
-                    }
-
                     SaveFileDialog sfd = new SaveFileDialog();
                     sfd.Filter = "ZIP申报包|*.zip";
-                    sfd.FileName = zipName;
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         if (MessageBox.Show("真的要导出吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -753,91 +690,6 @@ namespace ProjectContractPlugin
                     manager.ShowDialog();
                     break;
             }
-        }
-
-        /// <summary>
-        /// 检查时间与金额一致性
-        /// </summary>
-        /// <returns></returns>
-        private bool isRightMoneyOrTime()
-        {
-            //项目总时间
-            int totalTime = ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalTime").getValue<int>(0);
-
-            //项目总金额
-            decimal totalMoney = ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalMoney").getValue<decimal>(0);
-
-            //经费表总额
-            string projectMoneyStr = ConnectionManager.Context.table("MoneyAndYear").where("Name = 'ProjectRFA'").select("Value").getValue<string>("0");
-            decimal projectMoney = 0;
-            try
-            {
-                projectMoney = decimal.Parse(projectMoneyStr);
-            }
-            catch (Exception ex) { }
-
-            //阶段总额
-            long totalStepMoney = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.BianHao + "'").select("sum(StepMoney)").getValue<long>(0);
-
-            //阶段总时间
-            long totalStepTime = (long)Math.Round(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.BianHao + "'").select("sum(StepTime)").getValue<long>(0) / 12d);
-
-            //课题阶段经费总额
-            long totalKetiStepMoney = ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题'))").select("sum(Money)").getValue<long>(0);
-
-            //阶段经费表
-            Noear.Weed.DataList dlStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.BianHao + "'").select("StepIndex,StepMoney").getDataList();
-
-            //课题阶段经费表
-            int totalRightStepCount = 0;
-            int totalStepCount = 0;
-            if (dlStepList != null && dlStepList.getRowCount() >= 1)
-            {
-                //阶段数量
-                totalStepCount = dlStepList.getRowCount();
-
-                //检查课题阶段金额
-                foreach (Noear.Weed.DataItem di in dlStepList.getRows())
-                {
-                    try
-                    {
-                        int stepIndex = di.getInt("StepIndex");
-                        long stepMoney = long.Parse(di.get("StepMoney").ToString());
-                        long subjectStepMoney = ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题') and StepIndex = " + stepIndex + ")").select("sum(Money)").getValue<long>(0);
-
-                        //判断阶段经费是不是相等
-                        if (stepMoney == subjectStepMoney)
-                        {
-                            totalRightStepCount++;
-                        }
-                    }
-                    catch (Exception ex) { }
-                }
-            }
-
-            if (totalMoney != projectMoney)
-            {
-                MessageBox.Show("对不起，项目总金额与经费表总金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (totalMoney != totalStepMoney)
-            {
-                MessageBox.Show("对不起，项目总金额与阶段总金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (totalMoney != totalKetiStepMoney)
-            {
-                MessageBox.Show("对不起，项目总金额与课题阶段总金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (totalTime != totalStepTime)
-            {
-                MessageBox.Show("对不起，项目总时间与阶段总时间不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (totalRightStepCount != totalStepCount)
-            {
-                MessageBox.Show("对不起，阶段金额与课题阶段金额不同，请检查!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-            //判断条件是否符合
-            return totalMoney == projectMoney && totalMoney == totalStepMoney && totalMoney == totalKetiStepMoney && totalTime == totalStepTime && totalRightStepCount == totalStepCount;
         }
 
         /// <summary>
