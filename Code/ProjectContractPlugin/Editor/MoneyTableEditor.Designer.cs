@@ -83,6 +83,11 @@
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.textBox26 = new System.Windows.Forms.TextBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox31 = new System.Windows.Forms.TextBox();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -261,7 +266,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(222, 32);
             this.label4.TabIndex = 1;
-            this.label4.Text = "合同编号";
+            this.label4.Text = "1.设备费";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -273,7 +278,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(222, 32);
             this.label5.TabIndex = 1;
-            this.label5.Text = "合同编号";
+            this.label5.Text = "2.材料费";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
@@ -285,7 +290,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(222, 32);
             this.label6.TabIndex = 1;
-            this.label6.Text = "合同编号";
+            this.label6.Text = "3.外部协作费";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
@@ -297,7 +302,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(222, 32);
             this.label7.TabIndex = 1;
-            this.label7.Text = "合同编号";
+            this.label7.Text = "4.燃料动力费";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
@@ -309,7 +314,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(222, 32);
             this.label8.TabIndex = 1;
-            this.label8.Text = "合同编号";
+            this.label8.Text = "5.会议、差旅、国际合作与交流费";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
@@ -321,7 +326,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(222, 32);
             this.label9.TabIndex = 1;
-            this.label9.Text = "合同编号";
+            this.label9.Text = "6.出版、文献、信息传播、知识产权事务费";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
@@ -333,7 +338,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(222, 32);
             this.label10.TabIndex = 1;
-            this.label10.Text = "合同编号";
+            this.label10.Text = "7.劳务费";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
@@ -345,7 +350,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(222, 32);
             this.label11.TabIndex = 1;
-            this.label11.Text = "合同编号";
+            this.label11.Text = "8.专家咨询费";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
@@ -357,7 +362,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(222, 32);
             this.label12.TabIndex = 1;
-            this.label12.Text = "合同编号";
+            this.label12.Text = "9.其他支出";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
@@ -369,7 +374,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(222, 32);
             this.label13.TabIndex = 1;
-            this.label13.Text = "合同编号";
+            this.label13.Text = "（二）间接费用";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label14
@@ -381,7 +386,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(222, 35);
             this.label14.TabIndex = 1;
-            this.label14.Text = "合同编号";
+            this.label14.Text = "10.管理费/科研绩效津贴";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label18
@@ -417,6 +422,11 @@
             this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox31, 4, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox30, 3, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox29, 2, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox28, 1, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox27, 0, 2);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label15, 0, 0);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label16, 0, 1);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label17, 1, 1);
@@ -739,6 +749,51 @@
             this.textBox26.Size = new System.Drawing.Size(464, 35);
             this.textBox26.TabIndex = 2;
             // 
+            // textBox27
+            // 
+            this.textBox27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox27.Location = new System.Drawing.Point(3, 69);
+            this.textBox27.Multiline = true;
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(157, 28);
+            this.textBox27.TabIndex = 3;
+            // 
+            // textBox28
+            // 
+            this.textBox28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox28.Location = new System.Drawing.Point(166, 69);
+            this.textBox28.Multiline = true;
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(157, 28);
+            this.textBox28.TabIndex = 4;
+            // 
+            // textBox29
+            // 
+            this.textBox29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox29.Location = new System.Drawing.Point(329, 69);
+            this.textBox29.Multiline = true;
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(157, 28);
+            this.textBox29.TabIndex = 5;
+            // 
+            // textBox30
+            // 
+            this.textBox30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox30.Location = new System.Drawing.Point(492, 69);
+            this.textBox30.Multiline = true;
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(157, 28);
+            this.textBox30.TabIndex = 6;
+            // 
+            // textBox31
+            // 
+            this.textBox31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox31.Location = new System.Drawing.Point(655, 69);
+            this.textBox31.Multiline = true;
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(157, 28);
+            this.textBox31.TabIndex = 7;
+            // 
             // MoneyTableEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -752,6 +807,7 @@
             this.hSkinTableLayoutPanel1.ResumeLayout(false);
             this.hSkinTableLayoutPanel1.PerformLayout();
             this.hSkinTableLayoutPanel2.ResumeLayout(false);
+            this.hSkinTableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -813,5 +869,10 @@
         private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.TextBox textBox25;
         private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.TextBox textBox30;
+        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.TextBox textBox27;
     }
 }
