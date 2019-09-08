@@ -406,7 +406,7 @@ namespace ProjectContractPlugin
             editorMap.Add("附件2-保密资质", new ConfidentialQualificationEditor());
             #endregion
 
-            //检查哪个Editor没有设置Name
+            #region 检查哪个Editor没有设置Name
             foreach (KeyValuePair<string, BaseEditor> kvp in editorMap)
             {
                 if (string.IsNullOrEmpty(kvp.Value.EditorName))
@@ -414,6 +414,7 @@ namespace ProjectContractPlugin
                     kvp.Value.EditorName = kvp.Key;
                 }
             }
+            #endregion
         }
 
         /// <summary>

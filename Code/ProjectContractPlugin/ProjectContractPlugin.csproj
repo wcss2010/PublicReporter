@@ -104,12 +104,6 @@
     <Compile Include="DB\Entitys\TiJiaoYaoQiuBiao.cs" />
     <Compile Include="DB\Entitys\YuSuanBiao.cs" />
     <Compile Include="DB\Entitys\ZhiBiaoBiao.cs" />
-    <Compile Include="Editor\ConfidentialQualificationEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\ConfidentialQualificationEditor.designer.cs">
-      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\BaseEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,62 +125,23 @@
     <Compile Include="DB\ConnectionManager.cs" />
     <Compile Include="DB\Entitys\IEntity.cs" />
     <Compile Include="DB\Services\UnitExtService.cs" />
-    <Compile Include="Editor\SubjectStepMoneyEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectStepMoneyEditor.designer.cs">
-      <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\SubjectDetailEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectDetailEditor.designer.cs">
-      <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\SubjectTableEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectTableEditor.designer.cs">
-      <DependentUpon>SubjectTableEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\MoneyTableEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\ProjectStepMoneyEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\ProjectStepMoneyEditor.designer.cs">
-      <DependentUpon>ProjectStepMoneyEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\ProjectEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Editor\ProjectEditor.designer.cs">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\ProjectKeyEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\ProjectKeyEditor.designer.cs">
-      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\MoneySummaryEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\MoneySummaryEditor.designer.cs">
-      <DependentUpon>MoneySummaryEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\ProjectWorkerInfoEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\ProjectWorkerInfoEditor.designer.cs">
-      <DependentUpon>ProjectWorkerInfoEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\TextContentEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Editor\TextContentEditor.Designer.cs">
       <DependentUpon>TextContentEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\TextOnlyEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\TextOnlyEditor.Designer.cs">
+      <DependentUpon>TextOnlyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmHelpBox.cs">
       <SubType>Form</SubType>
@@ -239,38 +194,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editor\ConfidentialQualificationEditor.resx">
-      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectStepMoneyEditor.resx">
-      <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectDetailEditor.resx">
-      <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectTableEditor.resx">
-      <DependentUpon>SubjectTableEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
-      <DependentUpon>MoneyTableEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\ProjectStepMoneyEditor.resx">
-      <DependentUpon>ProjectStepMoneyEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectEditor.resx">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\ProjectKeyEditor.resx">
-      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\MoneySummaryEditor.resx">
-      <DependentUpon>MoneySummaryEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\ProjectWorkerInfoEditor.resx">
-      <DependentUpon>ProjectWorkerInfoEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextContentEditor.resx">
       <DependentUpon>TextContentEditor.cs</DependentUpon>
