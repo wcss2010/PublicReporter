@@ -27,8 +27,8 @@ namespace ProjectContractPlugin.DB.Entitys
         }
 
         public string BianHao { get; set; }
-        public int32 JieDian { get; set; }
-        public datetime ShiJian { get; set; }
+        public int JieDian { get; set; }
+        public DateTime ShiJian { get; set; }
         public string JieDuanMuBiao { get; set; }
         public string WanChengNeiRong { get; set; }
         public string JieDuanChengGuo { get; set; }
@@ -37,8 +37,8 @@ namespace ProjectContractPlugin.DB.Entitys
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
             BianHao = source("BianHao").value<string>("");
-            JieDian = source("JieDian").value<int32>("");
-            ShiJian = source("ShiJian").value<datetime>("");
+            JieDian = source("JieDian").value<int>("");
+            ShiJian = source("ShiJian").value<DateTime>("");
             JieDuanMuBiao = source("JieDuanMuBiao").value<string>("");
             WanChengNeiRong = source("WanChengNeiRong").value<string>("");
             JieDuanChengGuo = source("JieDuanChengGuo").value<string>("");

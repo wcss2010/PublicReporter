@@ -37,7 +37,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public string ZhiCheng { get; set; }
         public string ZhuanYe { get; set; }
         public string GongZuoDanWei { get; set; }
-        public int32 MeiNianTouRuShiJian { get; set; }
+        public int MeiNianTouRuShiJian { get; set; }
         public string RenWuFenGong { get; set; }
         public string ShenFenZhengHao { get; set; }
         public string KeTiBiaoHao { get; set; }
@@ -52,7 +52,7 @@ namespace ProjectContractPlugin.DB.Entitys
             ZhiCheng = source("ZhiCheng").value<string>("");
             ZhuanYe = source("ZhuanYe").value<string>("");
             GongZuoDanWei = source("GongZuoDanWei").value<string>("");
-            MeiNianTouRuShiJian = source("MeiNianTouRuShiJian").value<int32>("");
+            MeiNianTouRuShiJian = source("MeiNianTouRuShiJian").value<int>("");
             RenWuFenGong = source("RenWuFenGong").value<string>("");
             ShenFenZhengHao = source("ShenFenZhengHao").value<string>("");
             KeTiBiaoHao = source("KeTiBiaoHao").value<string>("");

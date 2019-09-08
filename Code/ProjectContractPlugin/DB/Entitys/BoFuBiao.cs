@@ -26,16 +26,16 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public string BianHao { get; set; }
         public string BoFuTiaoJian { get; set; }
-        public datetime YuJiShiJian { get; set; }
-        public single JingFeiJinQian { get; set; }
+        public DateTime YuJiShiJian { get; set; }
+        public decimal JingFeiJinQian { get; set; }
         public string ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
             BianHao = source("BianHao").value<string>("");
             BoFuTiaoJian = source("BoFuTiaoJian").value<string>("");
-            YuJiShiJian = source("YuJiShiJian").value<datetime>("");
-            JingFeiJinQian = source("JingFeiJinQian").value<single>("");
+            YuJiShiJian = source("YuJiShiJian").value<DateTime>("");
+            JingFeiJinQian = source("JingFeiJinQian").value<decimal>("");
             ZhuangTai = source("ZhuangTai").value<string>("");
         }
 

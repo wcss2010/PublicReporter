@@ -24,14 +24,14 @@ namespace ProjectContractPlugin.DB.Entitys
         }
 
         public string BianHao { get; set; }
-        public int32 NianDu { get; set; }
+        public int NianDu { get; set; }
         public string NeiRong { get; set; }
         public string ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
             BianHao = source("BianHao").value<string>("");
-            NianDu = source("NianDu").value<int32>("");
+            NianDu = source("NianDu").value<int>("");
             NeiRong = source("NeiRong").value<string>("");
             ZhuangTai = source("ZhuangTai").value<string>("");
         }
