@@ -32,10 +32,6 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnDelAll = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +39,10 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -104,47 +104,6 @@
             this.dgvDetail.Size = new System.Drawing.Size(1233, 569);
             this.dgvDetail.TabIndex = 1;
             // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnNew);
-            this.plButtons.Controls.Add(this.btnDelAll);
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 569);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(1233, 30);
-            this.plButtons.TabIndex = 0;
-            // 
-            // btnDelAll
-            // 
-            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelAll.Location = new System.Drawing.Point(1053, 0);
-            this.btnDelAll.Name = "btnDelAll";
-            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
-            this.btnDelAll.TabIndex = 2;
-            this.btnDelAll.Text = "删除选中";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(1143, 0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 30);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "保存";
-            // 
-            // btnNew
-            // 
-            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNew.Location = new System.Drawing.Point(963, 0);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(90, 30);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "新增";
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "序号";
@@ -196,10 +155,52 @@
             this.Column7.Text = "编辑";
             this.Column7.UseColumnTextForButtonValue = true;
             // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnNew);
+            this.plButtons.Controls.Add(this.btnDelAll);
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(0, 569);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Size = new System.Drawing.Size(1233, 30);
+            this.plButtons.TabIndex = 0;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnNew.Location = new System.Drawing.Point(963, 0);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(90, 30);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "新增";
+            // 
+            // btnDelAll
+            // 
+            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDelAll.Location = new System.Drawing.Point(1053, 0);
+            this.btnDelAll.Name = "btnDelAll";
+            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
+            this.btnDelAll.TabIndex = 2;
+            this.btnDelAll.Text = "删除选中";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(1143, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "保存";
+            // 
             // SubjectEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Name = "SubjectEditor";
             this.Size = new System.Drawing.Size(1253, 665);

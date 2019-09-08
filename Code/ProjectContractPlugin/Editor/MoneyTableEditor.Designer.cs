@@ -31,8 +31,18 @@
             this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.hSkinTableLayoutPanel2 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.hSkinTableLayoutPanel1 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,13 +60,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.hSkinTableLayoutPanel2 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -83,16 +86,13 @@
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
-            this.plButtons.SuspendLayout();
-            this.hSkinTableLayoutPanel1.SuspendLayout();
             this.hSkinTableLayoutPanel2.SuspendLayout();
+            this.hSkinTableLayoutPanel1.SuspendLayout();
+            this.plButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -106,7 +106,6 @@
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(1219, 46);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "label1";
             // 
             // plMain
             // 
@@ -133,24 +132,152 @@
             this.plContent.Size = new System.Drawing.Size(1219, 601);
             this.plContent.TabIndex = 1;
             // 
-            // plButtons
+            // hSkinTableLayoutPanel2
             // 
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 646);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(1203, 30);
-            this.plButtons.TabIndex = 0;
+            this.hSkinTableLayoutPanel2.BorderColor = System.Drawing.Color.Black;
+            this.hSkinTableLayoutPanel2.ColumnCount = 5;
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox31, 4, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox30, 3, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox29, 2, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox28, 1, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox27, 0, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.label15, 0, 0);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.label16, 0, 1);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.label17, 1, 1);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.label20, 2, 1);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.label21, 3, 1);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.label22, 4, 1);
+            this.hSkinTableLayoutPanel2.Location = new System.Drawing.Point(6, 546);
+            this.hSkinTableLayoutPanel2.Name = "hSkinTableLayoutPanel2";
+            this.hSkinTableLayoutPanel2.RowCount = 3;
+            this.hSkinTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.hSkinTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.hSkinTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.hSkinTableLayoutPanel2.Size = new System.Drawing.Size(815, 100);
+            this.hSkinTableLayoutPanel2.TabIndex = 2;
             // 
-            // btnSave
+            // textBox31
             // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(1113, 0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 30);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "保存";
+            this.textBox31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox31.Location = new System.Drawing.Point(655, 69);
+            this.textBox31.Multiline = true;
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(157, 28);
+            this.textBox31.TabIndex = 7;
+            // 
+            // textBox30
+            // 
+            this.textBox30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox30.Location = new System.Drawing.Point(492, 69);
+            this.textBox30.Multiline = true;
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(157, 28);
+            this.textBox30.TabIndex = 6;
+            // 
+            // textBox29
+            // 
+            this.textBox29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox29.Location = new System.Drawing.Point(329, 69);
+            this.textBox29.Multiline = true;
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(157, 28);
+            this.textBox29.TabIndex = 5;
+            // 
+            // textBox28
+            // 
+            this.textBox28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox28.Location = new System.Drawing.Point(166, 69);
+            this.textBox28.Multiline = true;
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(157, 28);
+            this.textBox28.TabIndex = 4;
+            // 
+            // textBox27
+            // 
+            this.textBox27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox27.Location = new System.Drawing.Point(3, 69);
+            this.textBox27.Multiline = true;
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(157, 28);
+            this.textBox27.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.hSkinTableLayoutPanel2.SetColumnSpan(this.label15, 5);
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label15.Location = new System.Drawing.Point(3, 3);
+            this.label15.Margin = new System.Windows.Forms.Padding(3);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(809, 27);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "年度经费预算";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label16.Location = new System.Drawing.Point(3, 36);
+            this.label16.Margin = new System.Windows.Forms.Padding(3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(157, 27);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "20xx";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label17.Location = new System.Drawing.Point(166, 36);
+            this.label17.Margin = new System.Windows.Forms.Padding(3);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(157, 27);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "20xx";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label20.Location = new System.Drawing.Point(329, 36);
+            this.label20.Margin = new System.Windows.Forms.Padding(3);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(157, 27);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "20xx";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label21.Location = new System.Drawing.Point(492, 36);
+            this.label21.Margin = new System.Windows.Forms.Padding(3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(157, 27);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "20xx";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label22.Location = new System.Drawing.Point(655, 36);
+            this.label22.Margin = new System.Windows.Forms.Padding(3);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(157, 27);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "20xx";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hSkinTableLayoutPanel1
             // 
@@ -413,108 +540,6 @@
             this.label19.Text = "备注";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // hSkinTableLayoutPanel2
-            // 
-            this.hSkinTableLayoutPanel2.BorderColor = System.Drawing.Color.Black;
-            this.hSkinTableLayoutPanel2.ColumnCount = 5;
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox31, 4, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox30, 3, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox29, 2, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox28, 1, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox27, 0, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label15, 0, 0);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label16, 0, 1);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label17, 1, 1);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label20, 2, 1);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label21, 3, 1);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label22, 4, 1);
-            this.hSkinTableLayoutPanel2.Location = new System.Drawing.Point(6, 546);
-            this.hSkinTableLayoutPanel2.Name = "hSkinTableLayoutPanel2";
-            this.hSkinTableLayoutPanel2.RowCount = 3;
-            this.hSkinTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.hSkinTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.hSkinTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.hSkinTableLayoutPanel2.Size = new System.Drawing.Size(815, 100);
-            this.hSkinTableLayoutPanel2.TabIndex = 2;
-            // 
-            // label15
-            // 
-            this.hSkinTableLayoutPanel2.SetColumnSpan(this.label15, 5);
-            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label15.Location = new System.Drawing.Point(3, 3);
-            this.label15.Margin = new System.Windows.Forms.Padding(3);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(809, 27);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "年度经费预算";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label16.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label16.Location = new System.Drawing.Point(3, 36);
-            this.label16.Margin = new System.Windows.Forms.Padding(3);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(157, 27);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "20xx";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label17.Location = new System.Drawing.Point(166, 36);
-            this.label17.Margin = new System.Windows.Forms.Padding(3);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(157, 27);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "20xx";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label20
-            // 
-            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label20.Location = new System.Drawing.Point(329, 36);
-            this.label20.Margin = new System.Windows.Forms.Padding(3);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(157, 27);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "20xx";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label21.Location = new System.Drawing.Point(492, 36);
-            this.label21.Margin = new System.Windows.Forms.Padding(3);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(157, 27);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "20xx";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label22.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label22.Location = new System.Drawing.Point(655, 36);
-            this.label22.Margin = new System.Windows.Forms.Padding(3);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(157, 27);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "20xx";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -749,65 +774,40 @@
             this.textBox26.Size = new System.Drawing.Size(464, 35);
             this.textBox26.TabIndex = 2;
             // 
-            // textBox27
+            // plButtons
             // 
-            this.textBox27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox27.Location = new System.Drawing.Point(3, 69);
-            this.textBox27.Multiline = true;
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(157, 28);
-            this.textBox27.TabIndex = 3;
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(0, 646);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Size = new System.Drawing.Size(1203, 30);
+            this.plButtons.TabIndex = 0;
             // 
-            // textBox28
+            // btnSave
             // 
-            this.textBox28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox28.Location = new System.Drawing.Point(166, 69);
-            this.textBox28.Multiline = true;
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(157, 28);
-            this.textBox28.TabIndex = 4;
-            // 
-            // textBox29
-            // 
-            this.textBox29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox29.Location = new System.Drawing.Point(329, 69);
-            this.textBox29.Multiline = true;
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(157, 28);
-            this.textBox29.TabIndex = 5;
-            // 
-            // textBox30
-            // 
-            this.textBox30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox30.Location = new System.Drawing.Point(492, 69);
-            this.textBox30.Multiline = true;
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(157, 28);
-            this.textBox30.TabIndex = 6;
-            // 
-            // textBox31
-            // 
-            this.textBox31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox31.Location = new System.Drawing.Point(655, 69);
-            this.textBox31.Multiline = true;
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(157, 28);
-            this.textBox31.TabIndex = 7;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(1113, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "保存";
             // 
             // MoneyTableEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Name = "MoneyTableEditor";
             this.Size = new System.Drawing.Size(1239, 667);
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
-            this.plButtons.ResumeLayout(false);
-            this.hSkinTableLayoutPanel1.ResumeLayout(false);
-            this.hSkinTableLayoutPanel1.PerformLayout();
             this.hSkinTableLayoutPanel2.ResumeLayout(false);
             this.hSkinTableLayoutPanel2.PerformLayout();
+            this.hSkinTableLayoutPanel1.ResumeLayout(false);
+            this.hSkinTableLayoutPanel1.PerformLayout();
+            this.plButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

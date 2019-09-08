@@ -59,7 +59,6 @@
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(1160, 46);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "label1";
             // 
             // plMain
             // 
@@ -191,6 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Name = "DestNameAndQuestionEditor";
             this.Size = new System.Drawing.Size(1180, 663);
