@@ -560,7 +560,7 @@ namespace ProjectContractPlugin
                     dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                     {
                         //word预览
-                        WordReView.wordOutput(((CircleProgressBarDialog)thisObject));
+                        WordPrinter.wordOutput(((CircleProgressBarDialog)thisObject));
                     }
             ));
                     break;

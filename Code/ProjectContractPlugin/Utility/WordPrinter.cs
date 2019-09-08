@@ -13,7 +13,7 @@ using ProjectContractPlugin.Editor;
 
 namespace ProjectContractPlugin.Utility
 {
-    public class WordReView
+    public class WordPrinter
     {
         /// <summary>
         /// 经费概算附件
