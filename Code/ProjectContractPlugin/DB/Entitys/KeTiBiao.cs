@@ -34,7 +34,7 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
-            BianHao = source("BianHao").value<string>("");
+            BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
             KeTiMingCheng = source("KeTiMingCheng").value<string>("");
             KeTiYanJiuMuBiao = source("KeTiYanJiuMuBiao").value<string>("");
             KeTiYanJiuNeiRong = source("KeTiYanJiuNeiRong").value<string>("");
