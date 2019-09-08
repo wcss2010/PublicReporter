@@ -113,6 +113,12 @@
     <Compile Include="Controls\DataGridViewWithMerge.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Editor\DestNameAndQuestionEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\DestNameAndQuestionEditor.Designer.cs">
+      <DependentUpon>DestNameAndQuestionEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\DocumentPasteEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,11 +130,41 @@
     </Compile>
     <Compile Include="DB\ConnectionManager.cs" />
     <Compile Include="DB\Entitys\IEntity.cs" />
+    <Compile Include="Editor\MoneySendRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MoneySendRuleEditor.Designer.cs">
+      <DependentUpon>MoneySendRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\MoneyTableEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MoneyTableEditor.Designer.cs">
+      <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\ProjectEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Editor\ProjectEditor.designer.cs">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SubjectEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubjectEditor.Designer.cs">
+      <DependentUpon>SubjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SubmitQuestionEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubmitQuestionEditor.Designer.cs">
+      <DependentUpon>SubmitQuestionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\TechnologyQuestionEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\TechnologyQuestionEditor.Designer.cs">
+      <DependentUpon>TechnologyQuestionEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\TextContentEditor.cs">
       <SubType>UserControl</SubType>
@@ -141,6 +177,18 @@
     </Compile>
     <Compile Include="Editor\TextReadOnlyEditor.Designer.cs">
       <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\WorkerEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\WorkerEditor.Designer.cs">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\WorkProgressEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\WorkProgressEditor.Designer.cs">
+      <DependentUpon>WorkProgressEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmHelpBox.cs">
       <SubType>Form</SubType>
@@ -187,17 +235,41 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Editor\DestNameAndQuestionEditor.resx">
+      <DependentUpon>DestNameAndQuestionEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\MoneySendRuleEditor.resx">
+      <DependentUpon>MoneySendRuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
+      <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectEditor.resx">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubjectEditor.resx">
+      <DependentUpon>SubjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubmitQuestionEditor.resx">
+      <DependentUpon>SubmitQuestionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TechnologyQuestionEditor.resx">
+      <DependentUpon>TechnologyQuestionEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextContentEditor.resx">
       <DependentUpon>TextContentEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextReadOnlyEditor.resx">
       <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\WorkerEditor.resx">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\WorkProgressEditor.resx">
+      <DependentUpon>WorkProgressEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmHelpBox.resx">
       <DependentUpon>FrmHelpBox.cs</DependentUpon>

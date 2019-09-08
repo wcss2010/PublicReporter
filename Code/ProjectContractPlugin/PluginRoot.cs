@@ -388,14 +388,14 @@ namespace ProjectContractPlugin
 
             #region 初始化其它的编辑器
             editorMap.Add("基本信息", new ProjectEditor());
-            editorMap.Add("课题情况", new ProjectEditor());
-            editorMap.Add("技术要求", new ProjectEditor());
-            editorMap.Add("主要指标名称、要求及考核方式", new ProjectEditor());
-            editorMap.Add("研究进度安排", new ProjectEditor());
-            editorMap.Add("经费预算表", new ProjectEditor());
-            editorMap.Add("经费拨付约定", new ProjectEditor());
-            editorMap.Add("提交要求", new ProjectEditor());
-            editorMap.Add("主要研究人员", new ProjectEditor());            
+            editorMap.Add("课题情况", new SubjectEditor());
+            editorMap.Add("技术要求", new TechnologyQuestionEditor());
+            editorMap.Add("主要指标名称、要求及考核方式", new DestNameAndQuestionEditor());
+            editorMap.Add("研究进度安排", new WorkProgressEditor());
+            editorMap.Add("经费预算表", new MoneyTableEditor());
+            editorMap.Add("经费拨付约定", new MoneySendRuleEditor());
+            editorMap.Add("提交要求", new SubmitQuestionEditor());
+            editorMap.Add("主要研究人员", new WorkerEditor());            
             #endregion
 
             #region 检查哪个Editor没有设置Name
