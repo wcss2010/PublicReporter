@@ -137,11 +137,11 @@
     <Compile Include="Editor\TextContentEditor.Designer.cs">
       <DependentUpon>TextContentEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\TextOnlyEditor.cs">
+    <Compile Include="Editor\TextReadOnlyEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Editor\TextOnlyEditor.Designer.cs">
-      <DependentUpon>TextOnlyEditor.cs</DependentUpon>
+    <Compile Include="Editor\TextReadOnlyEditor.Designer.cs">
+      <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmHelpBox.cs">
       <SubType>Form</SubType>
@@ -202,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextContentEditor.resx">
       <DependentUpon>TextContentEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextReadOnlyEditor.resx">
+      <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmHelpBox.resx">
       <DependentUpon>FrmHelpBox.cs</DependentUpon>
