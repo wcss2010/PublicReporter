@@ -67,14 +67,15 @@ namespace PublicReporterLib
         /// <summary>
         /// 插件初始化
         /// </summary>
-        /// <param name="mainFormObj">顶部工具条控件</param>
+        /// <param name="mainFormObj">主窗体</param>
         /// <param name="topToolStripObj">顶部工具条控件</param>
-        /// <param name="treeViewImageListObj">顶部工具条控件</param>
+        /// <param name="treeViewImageListObj">左边的树控件图标列表</param>
         /// <param name="treeViewObj">左边的树控件</param>
+        /// <param name="treeViewControlObj">左边的树控件下面的控制面板</param>
         /// <param name="contentObj">右边的内容面板</param>
         /// <param name="bottomStatusStripObj">底部状态栏</param>
         /// <param name="defaultHintLabelObj">默认的提示标签</param>
-        public abstract void init(Form mainFormObj, ToolStrip topToolStripObj, ImageList treeViewImageListObj, TreeView treeViewObj, Panel contentObj, StatusStrip bottomStatusStripObj, ToolStripStatusLabel defaultHintLabelObj);
+        public abstract void init(Form mainFormObj, ToolStrip topToolStripObj, ImageList treeViewImageListObj, TreeView treeViewObj, Panel treeViewControlObj,Panel contentObj, StatusStrip bottomStatusStripObj, ToolStripStatusLabel defaultHintLabelObj);
 
         /// <summary>
         /// 打印日志

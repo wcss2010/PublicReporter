@@ -47,11 +47,6 @@ namespace PublicReporter
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// 载入插件
         /// </summary>
@@ -74,7 +69,7 @@ namespace PublicReporter
                     PluginLoader.CurrentPlugin.RootDir = workDir;
 
                     //初始化
-                    PluginLoader.CurrentPlugin.init(this, tsButtonBar, ilNodeImage, tvSubjects, scContent.Panel2, ssHintBar, tsslHint);
+                    PluginLoader.CurrentPlugin.init(this, tsButtonBar, ilNodeImage, tvSubjects, plTreeButtons, scContent.Panel2, ssHintBar, tsslHint);
 
                     //添加日志事件
                     PluginLoader.CurrentPlugin.Log += CurrentPlugin_Logs;

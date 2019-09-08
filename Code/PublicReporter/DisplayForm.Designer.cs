@@ -38,6 +38,7 @@
             this.scContent = new System.Windows.Forms.SplitContainer();
             this.tvSubjects = new System.Windows.Forms.TreeView();
             this.ilNodeImage = new System.Windows.Forms.ImageList(this.components);
+            this.plTreeButtons = new System.Windows.Forms.Panel();
             this.ssHintBar.SuspendLayout();
             this.tsButtonBar.SuspendLayout();
             this.scContent.Panel1.SuspendLayout();
@@ -96,6 +97,7 @@
             // scContent.Panel1
             // 
             this.scContent.Panel1.Controls.Add(this.tvSubjects);
+            this.scContent.Panel1.Controls.Add(this.plTreeButtons);
             // 
             // scContent.Panel2
             // 
@@ -115,7 +117,7 @@
             this.tvSubjects.Location = new System.Drawing.Point(0, 0);
             this.tvSubjects.Name = "tvSubjects";
             this.tvSubjects.SelectedImageIndex = 0;
-            this.tvSubjects.Size = new System.Drawing.Size(327, 496);
+            this.tvSubjects.Size = new System.Drawing.Size(327, 486);
             this.tvSubjects.TabIndex = 0;
             // 
             // ilNodeImage
@@ -124,7 +126,16 @@
             this.ilNodeImage.ImageSize = new System.Drawing.Size(16, 16);
             this.ilNodeImage.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // MainForm
+            // plTreeButtons
+            // 
+            this.plTreeButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plTreeButtons.Location = new System.Drawing.Point(0, 486);
+            this.plTreeButtons.Margin = new System.Windows.Forms.Padding(0);
+            this.plTreeButtons.Name = "plTreeButtons";
+            this.plTreeButtons.Size = new System.Drawing.Size(327, 10);
+            this.plTreeButtons.TabIndex = 1;
+            // 
+            // DisplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,11 +145,10 @@
             this.Controls.Add(this.ssHintBar);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MainForm";
+            this.Name = "DisplayForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "申报系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ssHintBar.ResumeLayout(false);
             this.ssHintBar.PerformLayout();
             this.tsButtonBar.ResumeLayout(false);
@@ -160,6 +170,7 @@
         private System.Windows.Forms.ToolStripButton btnExit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ImageList ilNodeImage;
+        private System.Windows.Forms.Panel plTreeButtons;
     }
 }
 
