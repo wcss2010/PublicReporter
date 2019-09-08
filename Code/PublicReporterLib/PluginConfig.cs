@@ -36,7 +36,7 @@ namespace PublicReporterLib
             {
                 try
                 {
-                    CurrentConfig = SuperCodeFactoryLib.Utilities.XmlSerializeUtil.Deserialize<PluginConfig>(dir);
+                    CurrentConfig = SuperCodeFactoryLib.Utilities.XmlSerializeUtil.Deserialize<PluginConfig>(File.ReadAllText(dir));
                 }
                 catch (Exception ex)
                 {
