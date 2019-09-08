@@ -95,7 +95,7 @@ namespace ProjectContractPlugin.Forms
             {
                 if (MessageBox.Show("真的要切换吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    string uuid = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID : Guid.NewGuid().ToString();
+                    string uuid = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao : Guid.NewGuid().ToString();
 
                     //关闭连接
                     DB.ConnectionManager.Close();

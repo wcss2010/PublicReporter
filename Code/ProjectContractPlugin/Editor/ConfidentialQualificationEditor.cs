@@ -52,7 +52,7 @@ namespace ProjectContractPlugin.Editor
             base.RefreshView();
 
             dgvDetail.Rows.Clear();
-            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").select("*").getList<ExtFileList>(new ExtFileList());
             int index = 0;
             foreach (ExtFileList efl in list)
             {
@@ -165,7 +165,7 @@ namespace ProjectContractPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                            efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -177,7 +177,7 @@ namespace ProjectContractPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;
@@ -284,7 +284,7 @@ namespace ProjectContractPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                            efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -296,7 +296,7 @@ namespace ProjectContractPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        efll.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;

@@ -65,7 +65,7 @@ namespace ProjectContractPlugin.Editor
                     txtTelephone.Text = unitObj.Telephone;
                 }
 
-                string errorPath = System.IO.Path.Combine(((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).baseDir, ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID);
+                string errorPath = System.IO.Path.Combine(((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).baseDir, ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao);
                 if (System.IO.Directory.Exists(errorPath))
                 {
                     System.IO.Directory.Delete(errorPath, true);
@@ -112,7 +112,7 @@ namespace ProjectContractPlugin.Editor
         {   
             if (((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
             {
-                ProjectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "')").select("*").getItem<Person>(new Person());
+                ProjectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "')").select("*").getItem<Person>(new Person());
 
             }
 
@@ -253,7 +253,7 @@ namespace ProjectContractPlugin.Editor
             }
             else
             {
-                projectIDs = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                projectIDs = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
             }
 
             //新的人员ID
@@ -319,9 +319,9 @@ namespace ProjectContractPlugin.Editor
             ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.DirectionCode = (int)txtDirectionCode.Value;
 
             //添加/修改工程
-            if (string.IsNullOrEmpty(((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID))
+            if (string.IsNullOrEmpty(((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao))
             {
-                ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID = projectIDs;
+                ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao = projectIDs;
 
                 //创建候选单位
                 BuildWhiteList();
@@ -333,7 +333,7 @@ namespace ProjectContractPlugin.Editor
                 //创建候选单位
                 BuildWhiteList();
 
-                return ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.copyTo(ConnectionManager.Context.table("Project")).where("ID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").update();
+                return ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.copyTo(ConnectionManager.Context.table("Project")).where("ID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").update();
             }
         }
 
@@ -397,7 +397,7 @@ namespace ProjectContractPlugin.Editor
             //创建新的记录
             WhiteList wl = new WhiteList();
             wl.ID = Guid.NewGuid().ToString();
-            wl.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+            wl.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
             wl.UnitID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID;
             wl.copyTo(ConnectionManager.Context.table("WhiteList")).insert();
         }

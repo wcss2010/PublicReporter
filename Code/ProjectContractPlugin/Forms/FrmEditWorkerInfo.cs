@@ -88,7 +88,7 @@ namespace ProjectContractPlugin.Forms
             JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj);
             //JobDict.Add(projectB, MainForm.Instance.ProjectObj);
 
-            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").select("*").getList<Project>(new Project());
             if (ketiList != null)
             {
                 foreach (Project proj in ketiList)
@@ -229,7 +229,7 @@ namespace ProjectContractPlugin.Forms
             {
                 //新行
                 task = new Task();
-                task.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                task.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                 task.Type = "项目";
             }
             else

@@ -64,7 +64,7 @@ namespace ProjectContractPlugin.Editor
             string projectA = "项目负责人";
             JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj);
 
-            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").select("*").getList<Project>(new Project());
             if (ketiList != null)
             {
                 foreach (Project proj in ketiList)
@@ -79,7 +79,7 @@ namespace ProjectContractPlugin.Editor
 
         private void UpdateTaskList()
         {
-            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "') or ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "') or ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();            

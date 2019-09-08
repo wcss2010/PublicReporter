@@ -20,7 +20,7 @@ namespace ProjectContractPlugin
         /// <summary>
         /// 当前项目
         /// </summary>
-        public Project projectObj = null;
+        public JiBenXinXiBiao projectObj = null;
 
         /// <summary>
         /// 编辑器字典
@@ -349,7 +349,7 @@ namespace ProjectContractPlugin
                 //加载项目信息
                 projectObj = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
 
-                if (string.IsNullOrEmpty(projectObj.ID))
+                if (string.IsNullOrEmpty(projectObj.BianHao))
                 {
                     //项目数据清空
                     projectObj = null;
@@ -547,8 +547,8 @@ namespace ProjectContractPlugin
                         return;
                     }
 
-                    string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.ID + "')").select("UnitName").getValue<string>(string.Empty);
-                    string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.ID + "')").select("Name").getValue<string>(string.Empty);
+                    string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.BianHao + "')").select("UnitName").getValue<string>(string.Empty);
+                    string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.BianHao + "')").select("Name").getValue<string>(string.Empty);
                     string zipName = string.Empty;
                     if (projectObj.DirectionCode == 0)
                     {
@@ -653,7 +653,7 @@ namespace ProjectContractPlugin
                                     try { System.Threading.Thread.Sleep(1000); }
                                     catch (Exception ex) { }
 
-                                    string uuid = projectObj != null ? projectObj.ID : string.Empty;
+                                    string uuid = projectObj != null ? projectObj.BianHao : string.Empty;
 
                                     //关闭连接
                                     DB.ConnectionManager.Close();
@@ -777,16 +777,16 @@ namespace ProjectContractPlugin
             catch (Exception ex) { }
 
             //阶段总额
-            long totalStepMoney = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepMoney)").getValue<long>(0);
+            long totalStepMoney = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.BianHao + "'").select("sum(StepMoney)").getValue<long>(0);
 
             //阶段总时间
-            long totalStepTime = (long)Math.Round(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepTime)").getValue<long>(0) / 12d);
+            long totalStepTime = (long)Math.Round(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.BianHao + "'").select("sum(StepTime)").getValue<long>(0) / 12d);
 
             //课题阶段经费总额
             long totalKetiStepMoney = ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题'))").select("sum(Money)").getValue<long>(0);
 
             //阶段经费表
-            Noear.Weed.DataList dlStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("StepIndex,StepMoney").getDataList();
+            Noear.Weed.DataList dlStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.BianHao + "'").select("StepIndex,StepMoney").getDataList();
 
             //课题阶段经费表
             int totalRightStepCount = 0;
@@ -1001,7 +1001,7 @@ namespace ProjectContractPlugin
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (projectObj == null || string.IsNullOrEmpty(projectObj.ID))
+            if (projectObj == null || string.IsNullOrEmpty(projectObj.BianHao))
             {
                 //因为项目信息为空，所以锁定在项目信息页
                 treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];

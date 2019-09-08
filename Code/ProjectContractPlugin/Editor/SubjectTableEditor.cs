@@ -65,7 +65,7 @@ namespace ProjectContractPlugin.Editor
         {
             if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
             {
-                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").select("*").getList<Project>(new Project());
 
                 dgvDetail.Rows.Clear();
                 ((DataGridViewImageColumn)dgvDetail.Columns[dgvDetail.Columns.Count - 1]).Image = ProjectContractPlugin.Resource.DELETE_28;
@@ -418,7 +418,7 @@ namespace ProjectContractPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
@@ -625,7 +625,7 @@ namespace ProjectContractPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 

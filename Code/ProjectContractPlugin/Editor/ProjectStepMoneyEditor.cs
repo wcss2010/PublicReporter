@@ -75,8 +75,8 @@ namespace ProjectContractPlugin.Editor
 
         public void UpdateStepList()
         {
-            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Step>(new Step());
-            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").select("*").getList<Step>(new Step());
+            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").select("*").getList<Project>(new Project());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();
@@ -139,7 +139,7 @@ namespace ProjectContractPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        step.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                     }
                     else
                     {
@@ -284,7 +284,7 @@ namespace ProjectContractPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        step.ProjectID = ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                     }
                     else
                     {

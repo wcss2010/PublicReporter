@@ -2084,7 +2084,7 @@ namespace ProjectContractPlugin.Editor
 
         private void ConvertMoneyData()
         {
-            pbinfo = GetBudgetInfoObject(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID);
+            pbinfo = GetBudgetInfoObject(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao);
         }
 
         public static ProjectBudgetInfo GetBudgetInfoObject(string projectId)
@@ -2138,7 +2138,7 @@ namespace ProjectContractPlugin.Editor
             //清空年度经费表
             if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
             {
-                ConnectionManager.Context.table("MoneyAndYear").where("ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").delete();
+                ConnectionManager.Context.table("MoneyAndYear").where("ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao + "'").delete();
                 if (pbinfo != null)
                 {
                     PropertyInfo[] props = pbinfo.GetType().GetProperties();
@@ -2155,7 +2155,7 @@ namespace ProjectContractPlugin.Editor
                         {
                             MoneyAndYear may = new MoneyAndYear();
                             may.ID = Guid.NewGuid().ToString();
-                            may.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                            may.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.BianHao;
                             may.Name = pi.Name;
                             may.Value = val.ToString();
 

@@ -74,7 +74,7 @@ namespace ProjectContractPlugin.Utility
                 #endregion
 
                 #region 查询项目负责人及单位信息
-                Person projectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Person>(new Person());
+                Person projectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + pt.projectObj.BianHao + "')").select("*").getItem<Person>(new Person());
                 if (projectPersonObj == null)
                 {
                     return;
@@ -103,13 +103,13 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("研究经费", pt.projectObj.TotalMoney + "");
                 wu.insertValue("项目关键字", pt.projectObj.Keywords != null ? pt.projectObj.Keywords : string.Empty);
 
-                List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID = '" + pt.projectObj.ID + "'").select("*").getList<Project>(new Project());
+                List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID = '" + pt.projectObj.BianHao + "'").select("*").getList<Project>(new Project());
                 wu.insertValue("课题数量", ketiList.Count + "");
 
                 wu.insertValue("研究周期B", pt.projectObj.TotalTime + "");
                 wu.insertValue("研究经费B", pt.projectObj.TotalMoney + "");
 
-                List<Step> projectStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + pt.projectObj.ID + "'").select("*").getList<Step>(new Step());
+                List<Step> projectStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + pt.projectObj.BianHao + "'").select("*").getList<Step>(new Step());
                 wu.insertValue("阶段数量", projectStepList.Count + "");
                 StringBuilder stepBuilders = new StringBuilder();
                 foreach (Step step in projectStepList)
@@ -129,7 +129,7 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("项目负责人座机", projectPersonObj.Specialty);
                 wu.insertValue("项目负责人手机", projectPersonObj.MobilePhone);
 
-                Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Unit>(new Unit());
+                Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + pt.projectObj.BianHao + "')").select("*").getItem<Unit>(new Unit());
                 wu.insertValue("候选单位名称", whiteUnit.UnitName);
                 wu.insertValue("候选单位联系人", whiteUnit.ContactName);
                 wu.insertValue("候选单位联系电话", whiteUnit.Telephone);
@@ -164,7 +164,7 @@ namespace ProjectContractPlugin.Utility
                 wu.insertFile("附件1", uploadA, true);
 
                 //插入保密资质
-                List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + pt.projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+                List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + pt.projectObj.BianHao + "'").select("*").getList<ExtFileList>(new ExtFileList());
                 foreach (ExtFileList efl in list)
                 {
                     if (efl.IsIgnore == 0)
@@ -497,7 +497,7 @@ namespace ProjectContractPlugin.Utility
                         if (table.Range.Text.Contains("年投入"))
                         {
                             //获得课题与研究骨干关系表
-                            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + pt.projectObj.ID + "') or ProjectID='" + pt.projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+                            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + pt.projectObj.BianHao + "') or ProjectID='" + pt.projectObj.BianHao + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
                             //生成行和列
                             int rowCount = taskList.Count;
@@ -567,7 +567,7 @@ namespace ProjectContractPlugin.Utility
                 #region 插入经费预算表
                 try
                 {
-                    ProjectBudgetInfo pbinfo = MoneyTableEditor.GetBudgetInfoObject(pt.projectObj.ID);
+                    ProjectBudgetInfo pbinfo = MoneyTableEditor.GetBudgetInfoObject(pt.projectObj.BianHao);
                     if (pbinfo != null)
                     {
                         wu.insertValue("本项目申请经费", pbinfo.ProjectRFA + "");
