@@ -46,24 +46,43 @@ namespace PublicReporter
                 //载入配置
                 PluginConfig.loadConfig();
 
-                //尝试载入插件
-                if (PluginConfig.CurrentConfig != null && Directory.Exists(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName)))
-                {
-                    //创建并显示窗体
-                    DisplayForm df = new DisplayForm();
-                    df.FormClosed += df_FormClosed;
-                    df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName));
-                    df.Show();
-                    df.WindowState = FormWindowState.Maximized;
+                //启动一个第三方线程进行这个操作
+                System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(delegate(object obj)
+                    {
+                        if (IsHandleCreated)
+                        {
+                            Invoke(new MethodInvoker(delegate()
+                                {
+                                    try
+                                    {
+                                        //尝试载入插件
+                                        if (PluginConfig.CurrentConfig != null && Directory.Exists(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName)))
+                                        {
+                                            //创建并显示窗体
+                                            DisplayForm df = new DisplayForm();
+                                            df.FormClosed += df_FormClosed;
+                                            df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName));
+                                            df.Show();
+                                            df.WindowState = FormWindowState.Maximized;
 
-                    //隐藏这个界面
-                    this.Hide();                   
-                }
-                else
-                {
-                    MessageBox.Show("对不起，没有找到填报插件！");
-                    System.Diagnostics.Process.GetCurrentProcess().Kill();
-                }
+                                            //隐藏这个界面
+                                            this.Width = 0;
+                                            this.Height = 0;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("对不起，没有找到填报插件！");
+                                            System.Diagnostics.Process.GetCurrentProcess().Kill();
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show("对不起，填报系统启动失败！Ex:" + ex.ToString());
+                                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                                    }
+                                }));
+                        }
+                    }));
             }
             catch (Exception ex)
             {
