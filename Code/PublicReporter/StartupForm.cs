@@ -62,11 +62,13 @@ namespace PublicReporter
                 else
                 {
                     MessageBox.Show("对不起，没有找到填报插件！");
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("对不起，填报系统启动失败！Ex:" + ex.ToString());
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
         }
     }
