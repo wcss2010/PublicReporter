@@ -106,12 +106,12 @@ namespace ProjectContractPlugin.DB.Entitys
             HeTongBianHao = source("HeTongBianHao").value<string>("");
             HeTongMingCheng = source("HeTongMingCheng").value<string>("");
             HeTongMiJi = source("HeTongMiJi").value<string>("");
-            HeTongMiQi = source("HeTongMiQi").value<int>("");
+            HeTongMiQi = source("HeTongMiQi").value<int>(0);
             HeTongFuZeRen = source("HeTongFuZeRen").value<string>("");
             HeTongFuZeRenShenFenZheng = source("HeTongFuZeRenShenFenZheng").value<string>("");
-            HeTongKaiShiShiJian = source("HeTongKaiShiShiJian").value<DateTime>("");
-            HeTongJieShuShiJian = source("HeTongJieShuShiJian").value<DateTime>("");
-            HeTongJiaKuan = source("HeTongJiaKuan").value<decimal>("");
+            HeTongKaiShiShiJian = source("HeTongKaiShiShiJian").value<DateTime>(DateTime.Now);
+            HeTongJieShuShiJian = source("HeTongJieShuShiJian").value<DateTime>(DateTime.Now);
+            HeTongJiaKuan = source("HeTongJiaKuan").value<decimal>(0);
             HeTongJingFeiGuanLiMoShi = source("HeTongJingFeiGuanLiMoShi").value<string>("");
             WeiTuoDanWeiMingCheng = source("WeiTuoDanWeiMingCheng").value<string>("");
             WeiTuoDanWeiXingZhi = source("WeiTuoDanWeiXingZhi").value<string>("");

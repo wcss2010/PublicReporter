@@ -34,8 +34,8 @@ namespace ProjectContractPlugin.DB.Entitys
         {
             BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
             BoFuTiaoJian = source("BoFuTiaoJian").value<string>("");
-            YuJiShiJian = source("YuJiShiJian").value<DateTime>("");
-            JingFeiJinQian = source("JingFeiJinQian").value<decimal>("");
+            YuJiShiJian = source("YuJiShiJian").value<DateTime>(DateTime.Now);
+            JingFeiJinQian = source("JingFeiJinQian").value<decimal>(0);
             ZhuangTai = source("ZhuangTai").value<string>("");
         }
 

@@ -52,7 +52,7 @@ namespace ProjectContractPlugin.DB.Entitys
             ZhiCheng = source("ZhiCheng").value<string>("");
             ZhuanYe = source("ZhuanYe").value<string>("");
             GongZuoDanWei = source("GongZuoDanWei").value<string>("");
-            MeiNianTouRuShiJian = source("MeiNianTouRuShiJian").value<int>("");
+            MeiNianTouRuShiJian = source("MeiNianTouRuShiJian").value<int>(0);
             RenWuFenGong = source("RenWuFenGong").value<string>("");
             ShenFenZhengHao = source("ShenFenZhengHao").value<string>("");
             KeTiBiaoHao = source("KeTiBiaoHao").value<string>("");
