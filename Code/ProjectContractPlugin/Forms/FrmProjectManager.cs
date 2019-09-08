@@ -25,17 +25,17 @@ namespace ProjectContractPlugin.Forms
             foreach (string s in dirs)
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(s);
-                Project proj = getProjectObject(s);
-                if (proj != null && proj.Name != null && proj.Name.Length >= 1)
+                JiBenXinXiBiao proj = getProjectObject(s);
+                if (proj != null && proj.HeTongMingCheng != null && proj.HeTongMingCheng.Length >= 1)
                 {
                     if (di.Name == "Current")
                     {
-                        Text = "项目管理(当前:" + proj.Name + ")";
+                        Text = "项目管理(当前:" + proj.HeTongMingCheng + ")";
                     }
                     else
                     {
                         TreeNode tn = new TreeNode();
-                        tn.Text = di.Name + "(" + proj.Name + ")";
+                        tn.Text = di.Name + "(" + proj.HeTongMingCheng + ")";
                         tn.Name = di.Name;
                         tn.Tag = proj;
                         tvProject.Nodes.Add(tn);
@@ -49,9 +49,9 @@ namespace ProjectContractPlugin.Forms
         /// </summary>
         /// <param name="projectDir"></param>
         /// <returns></returns>
-        public Project getProjectObject(string projectDir)
+        public JiBenXinXiBiao getProjectObject(string projectDir)
         {
-            Project proj = null;
+            JiBenXinXiBiao proj = null;
             string dbFile = System.IO.Path.Combine(projectDir, "static.db");
 
             if (System.IO.File.Exists(dbFile))
@@ -62,7 +62,7 @@ namespace ProjectContractPlugin.Forms
                 context.IsSupportGCAfterDispose = true;
                 try
                 {
-                    proj = context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
+                    proj = context.table("JiBenXinXiBiao").select("*").getItem<JiBenXinXiBiao>(new JiBenXinXiBiao());
                 }
                 catch (Exception ex)
                 {
