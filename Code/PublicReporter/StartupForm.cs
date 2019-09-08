@@ -35,22 +35,38 @@ namespace PublicReporter
 
         private void StartupForm_Load(object sender, EventArgs e)
         {
-            //载入配置
-            PluginConfig.loadConfig();
+            try
+            {
+                //载入欢迎画面
+                if (File.Exists(Path.Combine(Application.StartupPath, "welcome.jpg")))
+                {
+                    pbLog.Image = Image.FromFile(Path.Combine(Application.StartupPath, "welcome.jpg"));
+                }
 
-            //尝试载入插件
-            if (PluginConfig.CurrentConfig != null && Directory.Exists(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName)))
-            {
-                Hide();
-                DisplayForm df = new DisplayForm();
-                df.FormClosed += df_FormClosed;
-                df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName));
-                df.Show();
-                df.WindowState = FormWindowState.Maximized;
+                //载入配置
+                PluginConfig.loadConfig();
+
+                //尝试载入插件
+                if (PluginConfig.CurrentConfig != null && Directory.Exists(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName)))
+                {
+                    //创建并显示窗体
+                    DisplayForm df = new DisplayForm();
+                    df.FormClosed += df_FormClosed;
+                    df.loadPlugin(Path.Combine(DisplayForm.PluginDirs, PluginConfig.CurrentConfig.PluginName));
+                    df.Show();
+                    df.WindowState = FormWindowState.Maximized;
+
+                    //隐藏这个界面
+                    this.Hide();                   
+                }
+                else
+                {
+                    MessageBox.Show("对不起，没有找到填报插件！");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("对不起，没有找到填报插件！");
+                MessageBox.Show("对不起，填报系统启动失败！Ex:" + ex.ToString());
             }
         }
     }
