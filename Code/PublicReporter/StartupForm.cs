@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace PublicReporter
@@ -49,6 +50,14 @@ namespace PublicReporter
                 //启动一个第三方线程进行这个操作
                 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(delegate(object obj)
                     {
+                        //稍微停留一会显示欢迎画面
+                        try
+                        {
+                            Thread.Sleep(1500);
+                        }
+                        catch (Exception ex) { }
+
+                        //准备显示界面
                         if (IsHandleCreated)
                         {
                             Invoke(new MethodInvoker(delegate()
