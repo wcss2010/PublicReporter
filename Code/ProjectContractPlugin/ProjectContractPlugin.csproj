@@ -95,6 +95,15 @@
     <Compile Include="Controls\TextBoxExt.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DB\Entitys\BoFuBiao.cs" />
+    <Compile Include="DB\Entitys\JiBenXinXiBiao.cs" />
+    <Compile Include="DB\Entitys\JinDuBiao.cs" />
+    <Compile Include="DB\Entitys\JiShuBiao.cs" />
+    <Compile Include="DB\Entitys\KeTiBiao.cs" />
+    <Compile Include="DB\Entitys\RenYuanBiao.cs" />
+    <Compile Include="DB\Entitys\TiJiaoYaoQiuBiao.cs" />
+    <Compile Include="DB\Entitys\YuSuanBiao.cs" />
+    <Compile Include="DB\Entitys\ZhiBiaoBiao.cs" />
     <Compile Include="Editor\ConfidentialQualificationEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,19 +129,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DB\ConnectionManager.cs" />
-    <Compile Include="DB\Entitys\ExtFileList.cs" />
     <Compile Include="DB\Entitys\IEntity.cs" />
-    <Compile Include="DB\Entitys\MoneyAndType.cs" />
-    <Compile Include="DB\Entitys\MoneyAndYear.cs" />
-    <Compile Include="DB\Entitys\Person.cs" />
-    <Compile Include="DB\Entitys\Project.cs" />
-    <Compile Include="DB\Entitys\ProjectAndStep.cs" />
-    <Compile Include="DB\Entitys\ProjectBudgetInfo.cs" />
-    <Compile Include="DB\Entitys\Step.cs" />
-    <Compile Include="DB\Entitys\Task.cs" />
-    <Compile Include="DB\Entitys\Unit.cs" />
-    <Compile Include="DB\Entitys\UnitExt.cs" />
-    <Compile Include="DB\Entitys\WhiteList.cs" />
     <Compile Include="DB\Services\UnitExtService.cs" />
     <Compile Include="Editor\SubjectStepMoneyEditor.cs">
       <SubType>UserControl</SubType>
