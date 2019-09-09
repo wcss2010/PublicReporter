@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ProjectContractPlugin.DB;
 using ProjectContractPlugin.DB.Entitys;
 using ProjectContractPlugin.Editor;
+using System.Data;
 
 namespace ProjectContractPlugin.Utility
 {
@@ -279,42 +280,235 @@ namespace ProjectContractPlugin.Utility
                 }
                 #endregion
 
-                //插入提交要求数据
+                #region 插入提交要求数据
+                //查询数据
+                List<TiJiaoYaoQiuBiao> tjyqList = ConnectionManager.Context.table("TiJiaoYaoQiuBiao").orderBy("ModifyTime").select("*").getList<TiJiaoYaoQiuBiao>(new TiJiaoYaoQiuBiao());
+                //填充数据
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("序号") && t.GetText().Contains("名称") && t.GetText().Contains("要求"))
+                    {
+                        //创建行
+                        for (int k = 0; k < tjyqList.Count - 1; k++)
+                        {
+                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                        }
 
+                        int rowStart = 1;
+                        foreach (TiJiaoYaoQiuBiao data in tjyqList)
+                        {
+                            t.Rows[rowStart].Cells[0].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(t, (rowStart).ToString()));
+                            t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[1].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[1].AppendChild(wu.getCellContentObj(t, data.MingCheng));
+                            t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[2].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.YaoQiu));
+                            t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            rowStart++;
+                        }
+                    }
                 }
-                //插入经费拨付约定数据
+                #endregion
+
+                #region 插入经费拨付约定数据
+                //查询数据
+                List<BoFuBiao> bfydList = ConnectionManager.Context.table("BoFuBiao").orderBy("ModifyTime").select("*").getList<BoFuBiao>(new BoFuBiao());
+                //填充数据
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("拨付条件") && t.GetText().Contains("预计时间") && t.GetText().Contains("经费金额"))
+                    {
+                        //创建行
+                        for (int k = 0; k < bfydList.Count - 1; k++)
+                        {
+                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                        }
 
+                        int rowStart = 1;
+                        foreach (BoFuBiao data in bfydList)
+                        {
+                            t.Rows[rowStart].Cells[0].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(t, (rowStart).ToString()));
+                            t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[1].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[1].AppendChild(wu.getCellContentObj(t, data.BoFuTiaoJian));
+                            t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[2].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.YuJiShiJian.ToString("yyyy年MM月")));
+                            t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[3].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[3].AppendChild(wu.getCellContentObj(t, data.JingFeiJinQian.ToString()));
+                            t.Rows[rowStart].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            rowStart++;
+                        }
+                    }
                 }
-                //插入研究进度安排数据
+                #endregion
+
+                #region 插入研究进度安排数据
+                //查询数据
+                List<JinDuBiao> jdList = ConnectionManager.Context.table("JinDuBiao").orderBy("ModifyTime").select("*").getList<JinDuBiao>(new JinDuBiao());
+                //填充数据
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("节点") && t.GetText().Contains("时间") && t.GetText().Contains("进度要求"))
+                    {
+                        //创建行
+                        for (int k = 0; k < jdList.Count - 1; k++)
+                        {
+                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                        }
 
+                        int rowStart = 1;
+                        foreach (JinDuBiao data in jdList)
+                        {
+                            t.Rows[rowStart].Cells[0].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(t, data.JieDian.ToString()));
+                            t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[1].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[1].AppendChild(wu.getCellContentObj(t, data.ShiJian.ToString("yyyy年MM月")));
+                            t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            string stringFormat = "阶段目标：{0}\n完成内容：{0}\n阶段成果：{0}\n";
+                            
+                            t.Rows[rowStart].Cells[2].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, string.Format(stringFormat, data.JieDuanMuBiao, data.WanChengNeiRong, data.JieDuanChengGuo)));
+                            t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            rowStart++;
+                        }
+                    }
                 }
-                //插入技术要求及考核方式数据
+                #endregion
+
+                #region 插入技术要求数据
+                wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_年度技术要求");
+                //查询数据
+                List<JiShuBiao> jsList = ConnectionManager.Context.table("JiShuBiao").orderBy("ModifyTime").select("*").getList<JiShuBiao>(new JiShuBiao());
+
+                int index = 1;
+                foreach (JiShuBiao data in jsList)
+                {
+                    wu.Document.WordDocBuilder.Writeln("(" + index + ") " + data.NianDu + "年度：" + data.NeiRong);
+
+                    index++;
+                }
+                #endregion
+
+                #region 插入考核方式数据
+                wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_主要指标名称及要求与考核方式");
+                List<ZhiBiaoBiao> zbbList = ConnectionManager.Context.table("ZhiBiaoBiao").orderBy("ModifyTime").select("*").getList<ZhiBiaoBiao>(new ZhiBiaoBiao());
+                index = 1;
+                foreach (ZhiBiaoBiao data in zbbList)
+                {
+                    wu.Document.WordDocBuilder.Writeln(index + ".指标名称：" + data.ZhiBiaoMingCheng);
+                    wu.Document.WordDocBuilder.Writeln("(1) 指标要求：" + data.ZhiBiaoYaoQiu);
+                    wu.Document.WordDocBuilder.Writeln("(2) 考核方式：" + data.KaoHeFangShi);
+
+                    index++;
+                }
+                #endregion
+
+                //课题关系表
+                Dictionary<string, string> subjectDict = new Dictionary<string, string>();
+
+                #region 插入课题情况数据
+                wu.Document.WordDocBuilder.MoveToBookmark("主要研究内容_各课题情况_摘要");
+                List<KeTiBiao> ktList = ConnectionManager.Context.table("KeTiBiao").orderBy("ModifyTime").select("*").getList<KeTiBiao>(new KeTiBiao());
+
+                index = 1;
+                foreach (KeTiBiao data in ktList)
+                {
+                    string subjectRealName = "课题" + index;
+                    subjectDict[data.BianHao] = subjectRealName;
+
+                    wu.Document.WordDocBuilder.Writeln(subjectRealName + "：" + data.KeTiMingCheng);
+                    wu.Document.WordDocBuilder.Writeln("（1）研究目标：" + data.KeTiYanJiuMuBiao);
+                    wu.Document.WordDocBuilder.Writeln("（2）研究内容：" + data.KeTiYanJiuNeiRong);
+                    wu.Document.WordDocBuilder.Writeln("（3）参加单位分工：" + data.KeTiCanJiaDanWeiFenGong);
+
+                    index++;
+                }
+                #endregion
+
+                #region 插入人员数据
+                //查询数据
+                List<RenYuanBiao> rylist = ConnectionManager.Context.table("RenYuanBiao").orderBy("ModifyTime").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+                //填充数据
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("拨付条件") && t.GetText().Contains("预计时间") && t.GetText().Contains("经费金额"))
+                    {
+                        //创建行
+                        for (int k = 0; k < rylist.Count - 1; k++)
+                        {
+                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                        }
 
-                }
-                //插入课题情况数据
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                        int rowStart = 1;
+                        foreach (RenYuanBiao data in rylist)
+                        {
+                            t.Rows[rowStart].Cells[0].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(t, (rowStart).ToString()));
+                            t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
-                }
-                //插入人员数据
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                            t.Rows[rowStart].Cells[1].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[1].AppendChild(wu.getCellContentObj(t, data.XingMing));
+                            t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
+                            t.Rows[rowStart].Cells[2].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.XingBie));
+                            t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[3].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[3].AppendChild(wu.getCellContentObj(t, data.ZhiCheng));
+                            t.Rows[rowStart].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[4].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[4].AppendChild(wu.getCellContentObj(t, data.ZhuanYe));
+                            t.Rows[rowStart].Cells[4].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[5].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[5].AppendChild(wu.getCellContentObj(t, data.GongZuoDanWei));
+                            t.Rows[rowStart].Cells[5].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[6].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[6].AppendChild(wu.getCellContentObj(t, data.MeiNianTouRuShiJian + ""));
+                            t.Rows[rowStart].Cells[6].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[7].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[7].AppendChild(wu.getCellContentObj(t, data.RenWuFenGong));
+                            t.Rows[rowStart].Cells[7].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            t.Rows[rowStart].Cells[8].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[8].AppendChild(wu.getCellContentObj(t, data.ShenFenZhengHao));
+                            t.Rows[rowStart].Cells[8].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            string roleName = subjectDict[data.KeTiBiaoHao] + data.ZhiWu;
+
+                            t.Rows[rowStart].Cells[9].RemoveAllChildren();
+                            t.Rows[rowStart].Cells[9].AppendChild(wu.getCellContentObj(t, roleName));
+                            t.Rows[rowStart].Cells[9].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                            rowStart++;
+                        }
+                    }
                 }
+                #endregion
 
                 #endregion
 
