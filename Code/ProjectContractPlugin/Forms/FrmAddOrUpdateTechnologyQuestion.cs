@@ -43,7 +43,7 @@ namespace ProjectContractPlugin.Forms
             if (txtContent.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入内容！");
-                return;
+           
             }
 
             DataObj.NianDu = (int)txtYear.Value;

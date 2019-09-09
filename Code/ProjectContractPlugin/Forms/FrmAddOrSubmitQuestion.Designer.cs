@@ -59,7 +59,6 @@
             // 
             // btnSave
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnSave.Location = new System.Drawing.Point(413, 230);
             this.btnSave.Name = "btnSave";

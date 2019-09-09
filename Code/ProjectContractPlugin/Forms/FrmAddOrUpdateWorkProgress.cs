@@ -48,7 +48,7 @@ namespace ProjectContractPlugin.Forms
                 ||String.IsNullOrEmpty(txtContent.Text))
             {
                 MessageBox.Show("对不起，请完善内容！");
-                return;
+              
             }
 
             DataObj.ShiJian = dateTimePicker1.Value;

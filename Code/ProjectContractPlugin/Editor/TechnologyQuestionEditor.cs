@@ -51,10 +51,9 @@ namespace ProjectContractPlugin.Editor
 
             //显示编辑窗体
             FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion(null, list.Count);
-            form.ShowDialog();
-
-            //刷新列表
-            RefreshView();
+            if (form.ShowDialog() == DialogResult.OK)
+                //刷新列表
+                RefreshView();
         }
 
         private void btnDelAll_Click(object sender, EventArgs e)
@@ -85,10 +84,9 @@ namespace ProjectContractPlugin.Editor
 
                     //显示编辑窗体
                     FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion((JiShuBiao)dgvDetail.Rows[e.RowIndex].Tag);
-                    form.ShowDialog();
-
-                    //刷新列表
-                    RefreshView();
+                    if (form.ShowDialog() == DialogResult.OK)
+                        //刷新列表
+                        RefreshView();
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
@@ -113,10 +111,9 @@ namespace ProjectContractPlugin.Editor
 
                 //显示编辑窗体
                 FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion((JiShuBiao)dgvDetail.Rows[e.RowIndex].Tag);
-                form.ShowDialog();
-
-                //刷新列表
-                RefreshView();
+                if (form.ShowDialog() == DialogResult.OK)
+                    //刷新列表
+                    RefreshView();
             }
         }
 

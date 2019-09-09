@@ -12,7 +12,7 @@ namespace ProjectContractPlugin.Editor
 {
     public partial class SubjectEditor : BaseEditor
     {
-        List<KeTiBiao> list = new List<KeTiBiao>();
+        public List<KeTiBiao> list = new List<KeTiBiao>();
         public SubjectEditor()
         {
             InitializeComponent();
@@ -106,10 +106,9 @@ namespace ProjectContractPlugin.Editor
 
                     //显示编辑窗体
                     FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag);
-                    form.ShowDialog();
-
-                    //刷新列表
-                    RefreshView();
+                    if (form.ShowDialog() == DialogResult.OK)
+                        //刷新列表
+                        RefreshView();
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
@@ -134,10 +133,9 @@ namespace ProjectContractPlugin.Editor
 
                 //显示编辑窗体
                 FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag);
-                form.ShowDialog();
-
-                //刷新列表
-                RefreshView();
+                if (form.ShowDialog() == DialogResult.OK)
+                    //刷新列表
+                    RefreshView();
             }
         }
     }

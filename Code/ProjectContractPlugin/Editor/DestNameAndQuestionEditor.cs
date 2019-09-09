@@ -101,10 +101,9 @@ namespace ProjectContractPlugin.Editor
 
                     //显示编辑窗体
                     FrmAddOrUpdateDestNameAndQuestion form = new FrmAddOrUpdateDestNameAndQuestion((ZhiBiaoBiao)dgvDetail.Rows[e.RowIndex].Tag);
-                    form.ShowDialog();
-
-                    //刷新列表
-                    RefreshView();
+                    if(form.ShowDialog()==DialogResult.OK)
+                        //刷新列表
+                        RefreshView();
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
@@ -129,10 +128,9 @@ namespace ProjectContractPlugin.Editor
 
                 //显示编辑窗体
                 FrmAddOrUpdateDestNameAndQuestion form = new FrmAddOrUpdateDestNameAndQuestion((ZhiBiaoBiao)dgvDetail.Rows[e.RowIndex].Tag);
-                form.ShowDialog();
-
-                //刷新列表
-                RefreshView();
+                if (form.ShowDialog() == DialogResult.OK)
+                    //刷新列表
+                    RefreshView();
             }
         }
     }
