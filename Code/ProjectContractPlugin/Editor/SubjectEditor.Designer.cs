@@ -103,6 +103,8 @@
             this.dgvDetail.RowTemplate.Height = 23;
             this.dgvDetail.Size = new System.Drawing.Size(1233, 569);
             this.dgvDetail.TabIndex = 1;
+            this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
+            this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
             // 
             // Column1
             // 
@@ -175,6 +177,7 @@
             this.btnNew.Size = new System.Drawing.Size(90, 30);
             this.btnNew.TabIndex = 4;
             this.btnNew.Text = "新增";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnDelAll
             // 
@@ -185,6 +188,7 @@
             this.btnDelAll.Size = new System.Drawing.Size(90, 30);
             this.btnDelAll.TabIndex = 2;
             this.btnDelAll.Text = "删除选中";
+            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
             // 
             // btnSave
             // 
@@ -194,7 +198,8 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 30);
             this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "保存";
+            this.btnSave.Text = "插入";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SubjectEditor
             // 

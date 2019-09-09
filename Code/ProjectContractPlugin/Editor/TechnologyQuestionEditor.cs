@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using ProjectContractPlugin.DB.Entitys;
 using ProjectContractPlugin.Forms;
@@ -98,7 +93,7 @@ namespace ProjectContractPlugin.Editor
                     if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //删除数据
-                        ConnectionManager.Context.table("JiShuBiao").where("BianHao='" + ((JiShuBiao)(JiShuBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();                        
+                        ConnectionManager.Context.table("JiShuBiao").where("BianHao='" + ((JiShuBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();                        
 
                         //刷新
                         RefreshView();

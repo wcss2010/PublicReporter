@@ -27,5 +27,7 @@ namespace ProjectContractPlugin.DB.Entitys
         {
             return (IBinder)this.MemberwiseClone();
         }
+
+        public DateTime ModifyTime { get; set; }
     }
 }

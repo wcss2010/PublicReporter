@@ -14,6 +14,7 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
+            query.set("ModifyTime", DateTime.Now);
             //设置值
             query.set("BianHao", BianHao);
             query.set("XingMing", XingMing);
@@ -27,6 +28,7 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("KeTiBiaoHao", KeTiBiaoHao);
             query.set("ZhiWu", ZhiWu);
             query.set("ZhuangTai", ZhuangTai);
+  
 
             return query;
         }
@@ -58,6 +60,7 @@ namespace ProjectContractPlugin.DB.Entitys
             KeTiBiaoHao = source("KeTiBiaoHao").value<string>("");
             ZhiWu = source("ZhiWu").value<string>("");
             ZhuangTai = source("ZhuangTai").value<string>("");
+            ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
         }
 
         public override Noear.Weed.IBinder clone()
