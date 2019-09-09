@@ -37,10 +37,11 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContent = new System.Windows.Forms.TextBox();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -76,7 +77,7 @@
             // 
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
             this.plContent.Controls.Add(this.dgvDetail);
-            this.plContent.Controls.Add(this.textBox1);
+            this.plContent.Controls.Add(this.txtContent);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 56);
@@ -139,19 +140,20 @@
             this.Column5.Text = "编辑";
             this.Column5.UseColumnTextForButtonValue = true;
             // 
-            // textBox1
+            // txtContent
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1155, 120);
-            this.textBox1.TabIndex = 2;
+            this.txtContent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Multiline = true;
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Size = new System.Drawing.Size(1155, 120);
+            this.txtContent.TabIndex = 2;
             // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnNew);
             this.plButtons.Controls.Add(this.btnDelAll);
+            this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Location = new System.Drawing.Point(0, 605);
             this.plButtons.Name = "plButtons";
@@ -162,7 +164,7 @@
             // 
             this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNew.Location = new System.Drawing.Point(975, 0);
+            this.btnNew.Location = new System.Drawing.Point(885, 0);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(90, 30);
             this.btnNew.TabIndex = 4;
@@ -173,12 +175,23 @@
             // 
             this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelAll.Location = new System.Drawing.Point(1065, 0);
+            this.btnDelAll.Location = new System.Drawing.Point(975, 0);
             this.btnDelAll.Name = "btnDelAll";
             this.btnDelAll.Size = new System.Drawing.Size(90, 30);
             this.btnDelAll.TabIndex = 2;
             this.btnDelAll.Text = "删除选中";
             this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(1065, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // TechnologyQuestionEditor
             // 
@@ -205,12 +218,13 @@
         private System.Windows.Forms.DataGridView dgvDetail;
         private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.Button btnDelAll;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private System.Windows.Forms.Button btnSave;
     }
 }

@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using ProjectContractPlugin.DB.Entitys;
 using ProjectContractPlugin.Forms;
 using ProjectContractPlugin.DB;
+using PublicReporterLib;
+using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
@@ -37,6 +39,11 @@ namespace ProjectContractPlugin.Editor
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
+            }
+
+            if (File.Exists(getTxtFilePath()))
+            {
+                txtContent.Text = File.ReadAllText(getTxtFilePath());
             }
         }
 
@@ -113,6 +120,16 @@ namespace ProjectContractPlugin.Editor
                 //刷新列表
                 RefreshView();
             }
+        }
+
+        private string getTxtFilePath()
+        {
+            return Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).filesDir, EditorName + ".txt");
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText(getTxtFilePath(), txtContent.Text);
         }
     }
 }
