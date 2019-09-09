@@ -31,7 +31,7 @@ namespace ProjectContractPlugin.Editor
                 index++;
                 List<object> cells = new List<object>();
                 cells.Add(index.ToString());
-                cells.Add(data.ShiJian);
+                cells.Add(data.ShiJian.ToString("yyyy年MM月dd日"));
                 cells.Add(data.JieDuanMuBiao);
                 cells.Add(data.WanChengNeiRong);
                 cells.Add(data.JieDuanChengGuo);
