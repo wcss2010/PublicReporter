@@ -87,7 +87,7 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("基本信息_承研_财务负责人", pt.projectObj.ChengYanDanWeiCaiWuFuZeRen);
                 wu.insertValue("基本信息_委托_财务联系电话", pt.projectObj.WeiTuoDanWeiCaiWuFuZeRenDianHua);
                 wu.insertValue("基本信息_承研_财务联系电话", pt.projectObj.ChengYanDanWeiCaiWuFuZeRenDianHua);
-                
+
                 #endregion
 
                 Report(progressDialog, 40, "写入文档文件...", 1000);
@@ -101,6 +101,220 @@ namespace ProjectContractPlugin.Utility
 
                 Report(progressDialog, 60, "写入表格数据...", 1000);
                 #region 写入表格数据
+
+                //查找所有表格
+                NodeCollection ncc = wu.Document.WordDoc.GetChildNodes(NodeType.Table, true);
+
+                #region 插入经费预算数据
+                List<YuSuanBiao> ysList = ConnectionManager.Context.table("YuSuanBiao").orderBy("ModifyTime").select("*").getList<YuSuanBiao>(new YuSuanBiao());
+
+                //取数放于字典中
+                Dictionary<string, string> tempDict = new Dictionary<string, string>();
+                foreach (YuSuanBiao ysb in ysList)
+                {
+                    tempDict[ysb.MingCheng] = ysb.ShuJu;
+                }
+
+                //生成年份名称
+                int yearStart = pt.projectObj.HeTongKaiShiShiJian.Year;
+                for (int kk = 0; kk < 5; kk++)
+                {
+                    tempDict["YearName" + (kk + 1)] = (yearStart + kk).ToString();
+                }
+
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("科目名称"))
+                    {
+                        //金额
+                        t.Rows[2].Cells[1].RemoveAllChildren();
+                        t.Rows[2].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money1"]));
+                        t.Rows[2].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[3].Cells[1].RemoveAllChildren();
+                        t.Rows[3].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money2"]));
+                        t.Rows[3].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[4].Cells[1].RemoveAllChildren();
+                        t.Rows[4].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money3"]));
+                        t.Rows[4].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[5].Cells[1].RemoveAllChildren();
+                        t.Rows[5].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money4"]));
+                        t.Rows[5].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[6].Cells[1].RemoveAllChildren();
+                        t.Rows[6].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money5"]));
+                        t.Rows[6].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[7].Cells[1].RemoveAllChildren();
+                        t.Rows[7].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money6"]));
+                        t.Rows[7].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[8].Cells[1].RemoveAllChildren();
+                        t.Rows[8].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money7"]));
+                        t.Rows[8].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[9].Cells[1].RemoveAllChildren();
+                        t.Rows[9].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money8"]));
+                        t.Rows[9].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[10].Cells[1].RemoveAllChildren();
+                        t.Rows[10].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money9"]));
+                        t.Rows[10].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[11].Cells[1].RemoveAllChildren();
+                        t.Rows[11].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money10"]));
+                        t.Rows[11].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[12].Cells[1].RemoveAllChildren();
+                        t.Rows[12].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money11"]));
+                        t.Rows[12].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[13].Cells[1].RemoveAllChildren();
+                        t.Rows[13].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money12"]));
+                        t.Rows[13].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[14].Cells[1].RemoveAllChildren();
+                        t.Rows[14].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Money13"]));
+                        t.Rows[14].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        //备注
+                        t.Rows[2].Cells[2].RemoveAllChildren();
+                        t.Rows[2].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info1"]));
+                        t.Rows[2].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[3].Cells[2].RemoveAllChildren();
+                        t.Rows[3].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info2"]));
+                        t.Rows[3].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[4].Cells[2].RemoveAllChildren();
+                        t.Rows[4].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info3"]));
+                        t.Rows[4].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[5].Cells[2].RemoveAllChildren();
+                        t.Rows[5].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info4"]));
+                        t.Rows[5].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[6].Cells[2].RemoveAllChildren();
+                        t.Rows[6].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info5"]));
+                        t.Rows[6].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[7].Cells[2].RemoveAllChildren();
+                        t.Rows[7].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info6"]));
+                        t.Rows[7].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[8].Cells[2].RemoveAllChildren();
+                        t.Rows[8].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info7"]));
+                        t.Rows[8].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[9].Cells[2].RemoveAllChildren();
+                        t.Rows[9].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info8"]));
+                        t.Rows[9].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[10].Cells[2].RemoveAllChildren();
+                        t.Rows[10].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info9"]));
+                        t.Rows[10].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[11].Cells[2].RemoveAllChildren();
+                        t.Rows[11].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info10"]));
+                        t.Rows[11].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[12].Cells[2].RemoveAllChildren();
+                        t.Rows[12].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info11"]));
+                        t.Rows[12].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[13].Cells[2].RemoveAllChildren();
+                        t.Rows[13].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info12"]));
+                        t.Rows[13].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[14].Cells[2].RemoveAllChildren();
+                        t.Rows[14].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Info13"]));
+                        t.Rows[14].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        //年份
+                        t.Rows[t.Rows.Count - 2].Cells[0].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 2].Cells[0].AppendChild(wu.getCellContentObj(t, tempDict["YearName1"]));
+                        t.Rows[t.Rows.Count - 2].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 2].Cells[1].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 2].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["YearName2"]));
+                        t.Rows[t.Rows.Count - 2].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 2].Cells[2].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 2].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["YearName3"]));
+                        t.Rows[t.Rows.Count - 2].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 2].Cells[3].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 2].Cells[3].AppendChild(wu.getCellContentObj(t, tempDict["YearName4"]));
+                        t.Rows[t.Rows.Count - 2].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 2].Cells[4].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 2].Cells[4].AppendChild(wu.getCellContentObj(t, tempDict["YearName5"]));
+                        t.Rows[t.Rows.Count - 2].Cells[4].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        //年度金额
+                        t.Rows[t.Rows.Count - 1].Cells[0].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 1].Cells[0].AppendChild(wu.getCellContentObj(t, tempDict["Year1"]));
+                        t.Rows[t.Rows.Count - 1].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 1].Cells[1].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 1].Cells[1].AppendChild(wu.getCellContentObj(t, tempDict["Year2"]));
+                        t.Rows[t.Rows.Count - 1].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 1].Cells[2].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 1].Cells[2].AppendChild(wu.getCellContentObj(t, tempDict["Year3"]));
+                        t.Rows[t.Rows.Count - 1].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 1].Cells[3].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 1].Cells[3].AppendChild(wu.getCellContentObj(t, tempDict["Year4"]));
+                        t.Rows[t.Rows.Count - 1].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+
+                        t.Rows[t.Rows.Count - 1].Cells[4].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 1].Cells[4].AppendChild(wu.getCellContentObj(t, tempDict["Year5"]));
+                        t.Rows[t.Rows.Count - 1].Cells[4].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+                        break;
+                    }
+                }
+                #endregion
+
+                //插入提交要求数据
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+
+                }
+                //插入经费拨付约定数据
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+
+                }
+                //插入研究进度安排数据
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+
+                }
+                //插入技术要求及考核方式数据
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+
+                }
+                //插入课题情况数据
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+
+                }
+                //插入人员数据
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+
+                }
 
                 #endregion
 
