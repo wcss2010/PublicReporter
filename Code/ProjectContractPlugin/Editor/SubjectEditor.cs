@@ -25,7 +25,7 @@ namespace ProjectContractPlugin.Editor
 
             dgvDetail.Rows.Clear();
             list = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
-            list = list.OrderBy(t => t.ZhuangTai).ThenByDescending(p=>p.ModifyTime).ToList();
+            list = list.OrderBy(t => t.ZhuangTai).ThenBy(p=>p.ModifyTime).ToList();
             int index = 0;
             foreach (KeTiBiao data in list)
             {

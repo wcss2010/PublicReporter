@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateSubject : Form
+    public partial class FrmAddOrSubmitQuestion : Form
     {
-        public FrmAddOrUpdateSubject(KeTiBiao obj,int count=-1)
+        public FrmAddOrSubmitQuestion(TiJiaoYaoQiuBiao obj,int count=-1)
         {
             InitializeComponent();
 
@@ -21,18 +21,16 @@ namespace ProjectContractPlugin.Forms
             Count = count;
             if (DataObj != null)
             {
-                textBox1.Text = DataObj.KeTiMingCheng;
-                txtContent.Text = DataObj.KeTiYanJiuMuBiao;
-                textBox2.Text = DataObj.KeTiYanJiuNeiRong;
-                textBox3.Text = DataObj.KeTiCanJiaDanWeiFenGong;
+                textBox1.Text = DataObj.MingCheng;
+                txtContent.Text = DataObj.YaoQiu;
             }
             else
             {
-                DataObj = new KeTiBiao();
+                DataObj = new TiJiaoYaoQiuBiao();
             }
         }
 
-        public KeTiBiao DataObj { get; set; }
+        public TiJiaoYaoQiuBiao DataObj { get; set; }
         public int  Count { get; set; }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -43,29 +41,25 @@ namespace ProjectContractPlugin.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox1.Text)
-                || String.IsNullOrEmpty(textBox2.Text)
-                || String.IsNullOrEmpty(textBox3.Text)
                 ||String.IsNullOrEmpty(txtContent.Text))
             {
                 MessageBox.Show("对不起，请完善内容！");
                 return;
             }
 
-            DataObj.KeTiMingCheng = textBox1.Text;
-            DataObj.KeTiYanJiuMuBiao = txtContent.Text;
-            DataObj.KeTiYanJiuNeiRong = textBox2.Text;
-            DataObj.KeTiCanJiaDanWeiFenGong = textBox3.Text;
+            DataObj.MingCheng = textBox1.Text;
+            DataObj.YaoQiu = txtContent.Text;
 
             if (string.IsNullOrEmpty(DataObj.BianHao))
             {
                 DataObj.BianHao = Guid.NewGuid().ToString();
                 if (Count >= 0)
                     DataObj.ZhuangTai = Count.ToString("D3");
-                DataObj.copyTo(ConnectionManager.Context.table("KeTiBiao")).insert();
+                DataObj.copyTo(ConnectionManager.Context.table("TiJiaoYaoQiuBiao")).insert();
             }
             else
             {
-                DataObj.copyTo(ConnectionManager.Context.table("KeTiBiao")).where("BianHao='" + DataObj.BianHao + "'").update();
+                DataObj.copyTo(ConnectionManager.Context.table("TiJiaoYaoQiuBiao")).where("BianHao='" + DataObj.BianHao + "'").update();
             }
             DialogResult = System.Windows.Forms.DialogResult.OK;
         }

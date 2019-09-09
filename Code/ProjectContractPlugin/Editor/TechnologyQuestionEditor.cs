@@ -6,11 +6,13 @@ using ProjectContractPlugin.Forms;
 using ProjectContractPlugin.DB;
 using PublicReporterLib;
 using System.IO;
+using System.Linq;
 
 namespace ProjectContractPlugin.Editor
 {
     public partial class TechnologyQuestionEditor : BaseEditor
     {
+        List<JiShuBiao> list = new List<JiShuBiao>();
         public TechnologyQuestionEditor()
         {
             InitializeComponent();
@@ -21,7 +23,8 @@ namespace ProjectContractPlugin.Editor
             base.RefreshView();
 
             dgvDetail.Rows.Clear();
-            List<JiShuBiao> list = ProjectContractPlugin.DB.ConnectionManager.Context.table("JiShuBiao").select("*").getList<JiShuBiao>(new JiShuBiao());
+            list = ProjectContractPlugin.DB.ConnectionManager.Context.table("JiShuBiao").select("*").getList<JiShuBiao>(new JiShuBiao());
+            list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
             foreach (JiShuBiao data in list)
             {
@@ -47,7 +50,7 @@ namespace ProjectContractPlugin.Editor
             //新增
 
             //显示编辑窗体
-            FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion(null);
+            FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion(null, list.Count);
             form.ShowDialog();
 
             //刷新列表
@@ -125,6 +128,25 @@ namespace ProjectContractPlugin.Editor
         private void btnSave_Click(object sender, EventArgs e)
         {
             File.WriteAllText(getTxtFilePath(), txtContent.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgvDetail.SelectedRows.Count == 1)
+            {
+
+                //显示编辑窗体
+                FrmAddOrUpdateWorkProgress form = new FrmAddOrUpdateWorkProgress(null, dgvDetail.SelectedRows[0].Index);
+                if (form.ShowDialog() == DialogResult.OK)
+                    //刷新列表
+                    RefreshView();
+
+            }
+            else
+            {
+                MessageBox.Show("请选中需要一条数据，新数据将在其后插入");
+                return;
+            }
         }
     }
 }

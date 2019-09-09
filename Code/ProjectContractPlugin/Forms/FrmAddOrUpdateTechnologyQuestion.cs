@@ -13,7 +13,7 @@ namespace ProjectContractPlugin.Forms
 {
     public partial class FrmAddOrUpdateTechnologyQuestion : Form
     {
-        public FrmAddOrUpdateTechnologyQuestion(JiShuBiao obj)
+        public FrmAddOrUpdateTechnologyQuestion(JiShuBiao obj, int count = -1)
         {
             InitializeComponent();
 
@@ -30,6 +30,8 @@ namespace ProjectContractPlugin.Forms
         }
 
         public JiShuBiao DataObj { get; set; }
+
+        public int Count { get; set; }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -50,6 +52,8 @@ namespace ProjectContractPlugin.Forms
             if (string.IsNullOrEmpty(DataObj.BianHao))
             {
                 DataObj.BianHao = Guid.NewGuid().ToString();
+                if (Count >= 0)
+                    DataObj.ZhuangTai = Count.ToString("D3");
                 DataObj.copyTo(ConnectionManager.Context.table("JiShuBiao")).insert();
             }
             else

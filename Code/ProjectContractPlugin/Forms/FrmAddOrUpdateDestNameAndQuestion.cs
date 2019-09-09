@@ -57,8 +57,8 @@ namespace ProjectContractPlugin.Forms
             if (string.IsNullOrEmpty(DataObj.BianHao))
             {
                 DataObj.BianHao = Guid.NewGuid().ToString();
-                if(Count<0)
-                   DataObj.ZhuangTai = (++Count).ToString("D3");
+                if (Count >= 0)
+                    DataObj.ZhuangTai = Count.ToString("D3");
                 DataObj.copyTo(ConnectionManager.Context.table("ZhiBiaoBiao")).insert();
             }
             else

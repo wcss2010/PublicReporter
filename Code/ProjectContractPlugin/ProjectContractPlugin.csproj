@@ -190,11 +190,27 @@
     <Compile Include="Editor\WorkProgressEditor.Designer.cs">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAddOrSubmitQuestion.cs" />
+    <Compile Include="Forms\FrmAddOrSubmitQuestion.Designer.cs">
+      <DependentUpon>FrmAddOrSubmitQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.Designer.cs">
       <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateMoneySendRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateMoneySendRule.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateMoneySendRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorkProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorkProgress.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateWorkProgress.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAddOrUpdateSubject.cs">
       <SubType>Form</SubType>
@@ -289,8 +305,17 @@
     <EmbeddedResource Include="Editor\WorkProgressEditor.resx">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrSubmitQuestion.resx">
+      <DependentUpon>FrmAddOrSubmitQuestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateDestNameAndQuestion.resx">
       <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateMoneySendRule.resx">
+      <DependentUpon>FrmAddOrUpdateMoneySendRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateWorkProgress.resx">
+      <DependentUpon>FrmAddOrUpdateWorkProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateSubject.resx">
       <DependentUpon>FrmAddOrUpdateSubject.cs</DependentUpon>
@@ -358,12 +383,6 @@
     <None Include="Resources\UP_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\export.png" />
-    <None Include="Resources\help.png" />
-    <None Include="Resources\import.png" />
-    <None Include="Resources\manager.png" />
-    <None Include="Resources\new.png" />
-    <None Include="Resources\word.png" />
     <Content Include="word模板中的书签.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
