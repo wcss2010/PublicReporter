@@ -358,6 +358,12 @@
     <None Include="Resources\UP_16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\export.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\manager.png" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\word.png" />
     <Content Include="word模板中的书签.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
