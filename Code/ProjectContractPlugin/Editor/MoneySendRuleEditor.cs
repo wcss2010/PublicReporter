@@ -32,7 +32,7 @@ namespace ProjectContractPlugin.Editor
                 List<object> cells = new List<object>();
                 cells.Add(index.ToString());
                 cells.Add(data.BoFuTiaoJian);
-                cells.Add(data.YuJiShiJian);
+                cells.Add(data.YuJiShiJian.ToString("yyyy年MM月dd日"));
                 cells.Add(data.JingFeiJinQian);
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
