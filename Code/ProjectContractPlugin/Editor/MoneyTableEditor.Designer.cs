@@ -238,7 +238,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(157, 27);
             this.label16.TabIndex = 1;
-            this.label16.Text = "20xx";
+            this.label16.Text = "第一年";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
@@ -250,7 +250,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(157, 27);
             this.label17.TabIndex = 1;
-            this.label17.Text = "20xx";
+            this.label17.Text = "第二年";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label20
@@ -262,7 +262,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(157, 27);
             this.label20.TabIndex = 1;
-            this.label20.Text = "20xx";
+            this.label20.Text = "第三年";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
@@ -274,7 +274,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(157, 27);
             this.label21.TabIndex = 1;
-            this.label21.Text = "20xx";
+            this.label21.Text = "第四年";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
@@ -286,7 +286,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(157, 27);
             this.label22.TabIndex = 1;
-            this.label22.Text = "20xx";
+            this.label22.Text = "第五年";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hSkinTableLayoutPanel1
