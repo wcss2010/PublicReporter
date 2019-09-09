@@ -190,6 +190,12 @@
     <Compile Include="Editor\WorkProgressEditor.Designer.cs">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateTechnologyQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateTechnologyQuestion.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateTechnologyQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmHelpBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\WorkProgressEditor.resx">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateTechnologyQuestion.resx">
+      <DependentUpon>FrmAddOrUpdateTechnologyQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmHelpBox.resx">
       <DependentUpon>FrmHelpBox.cs</DependentUpon>
