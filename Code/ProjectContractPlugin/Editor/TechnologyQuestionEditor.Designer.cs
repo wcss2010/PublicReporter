@@ -88,6 +88,8 @@
             // dgvDetail
             // 
             this.dgvDetail.AllowUserToAddRows = false;
+            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.dgvDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -109,13 +111,14 @@
             this.Column1.HeaderText = "序号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 80;
+            this.Column1.Width = 5;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "年度";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 5;
             // 
             // Column3
             // 
@@ -131,6 +134,7 @@
             this.Column4.ReadOnly = true;
             this.Column4.Text = "删除";
             this.Column4.UseColumnTextForButtonValue = true;
+            this.Column4.Width = 5;
             // 
             // Column5
             // 
@@ -139,6 +143,7 @@
             this.Column5.ReadOnly = true;
             this.Column5.Text = "编辑";
             this.Column5.UseColumnTextForButtonValue = true;
+            this.Column5.Width = 5;
             // 
             // txtContent
             // 

@@ -32,11 +32,11 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.hSkinTableLayoutPanel2 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.ibEditYear5 = new System.Windows.Forms.TextBox();
+            this.ibEditYear4 = new System.Windows.Forms.TextBox();
+            this.ibEditYear3 = new System.Windows.Forms.TextBox();
+            this.ibEditYear2 = new System.Windows.Forms.TextBox();
+            this.ibEditYear1 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -60,32 +60,32 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney1 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney2 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney3 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney4 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney5 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney6 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney7 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney8 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney9 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney10 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney11 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney12 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney13 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo1 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo2 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo3 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo4 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo5 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo6 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo7 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo8 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo9 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo10 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo11 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo12 = new System.Windows.Forms.TextBox();
+            this.ibEditInfo13 = new System.Windows.Forms.TextBox();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
@@ -104,19 +104,20 @@
             this.lblInfo.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(1219, 46);
+            this.lblInfo.Size = new System.Drawing.Size(903, 46);
             this.lblInfo.TabIndex = 0;
             // 
             // plMain
             // 
             this.plMain.Controls.Add(this.plContent);
             this.plMain.Controls.Add(this.lblInfo);
+            this.plMain.Controls.Add(this.plButtons);
             this.plMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plMain.Location = new System.Drawing.Point(0, 0);
             this.plMain.Margin = new System.Windows.Forms.Padding(0);
             this.plMain.Name = "plMain";
             this.plMain.Padding = new System.Windows.Forms.Padding(10);
-            this.plMain.Size = new System.Drawing.Size(1239, 667);
+            this.plMain.Size = new System.Drawing.Size(923, 667);
             this.plMain.TabIndex = 2;
             // 
             // plContent
@@ -125,11 +126,10 @@
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
             this.plContent.Controls.Add(this.hSkinTableLayoutPanel2);
             this.plContent.Controls.Add(this.hSkinTableLayoutPanel1);
-            this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 56);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1219, 601);
+            this.plContent.Size = new System.Drawing.Size(903, 571);
             this.plContent.TabIndex = 1;
             // 
             // hSkinTableLayoutPanel2
@@ -141,11 +141,11 @@
             this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox31, 4, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox30, 3, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox29, 2, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox28, 1, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.textBox27, 0, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear5, 4, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear4, 3, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear3, 2, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear2, 1, 2);
+            this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear1, 0, 2);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label15, 0, 0);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label16, 0, 1);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label17, 1, 1);
@@ -161,50 +161,60 @@
             this.hSkinTableLayoutPanel2.Size = new System.Drawing.Size(815, 100);
             this.hSkinTableLayoutPanel2.TabIndex = 2;
             // 
-            // textBox31
+            // ibEditYear5
             // 
-            this.textBox31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox31.Location = new System.Drawing.Point(655, 69);
-            this.textBox31.Multiline = true;
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(157, 28);
-            this.textBox31.TabIndex = 7;
+            this.ibEditYear5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditYear5.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditYear5.Location = new System.Drawing.Point(655, 69);
+            this.ibEditYear5.Multiline = true;
+            this.ibEditYear5.Name = "ibEditYear5";
+            this.ibEditYear5.Size = new System.Drawing.Size(157, 28);
+            this.ibEditYear5.TabIndex = 7;
+            this.ibEditYear5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox30
+            // ibEditYear4
             // 
-            this.textBox30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox30.Location = new System.Drawing.Point(492, 69);
-            this.textBox30.Multiline = true;
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(157, 28);
-            this.textBox30.TabIndex = 6;
+            this.ibEditYear4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditYear4.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditYear4.Location = new System.Drawing.Point(492, 69);
+            this.ibEditYear4.Multiline = true;
+            this.ibEditYear4.Name = "ibEditYear4";
+            this.ibEditYear4.Size = new System.Drawing.Size(157, 28);
+            this.ibEditYear4.TabIndex = 6;
+            this.ibEditYear4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox29
+            // ibEditYear3
             // 
-            this.textBox29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox29.Location = new System.Drawing.Point(329, 69);
-            this.textBox29.Multiline = true;
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(157, 28);
-            this.textBox29.TabIndex = 5;
+            this.ibEditYear3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditYear3.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditYear3.Location = new System.Drawing.Point(329, 69);
+            this.ibEditYear3.Multiline = true;
+            this.ibEditYear3.Name = "ibEditYear3";
+            this.ibEditYear3.Size = new System.Drawing.Size(157, 28);
+            this.ibEditYear3.TabIndex = 5;
+            this.ibEditYear3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox28
+            // ibEditYear2
             // 
-            this.textBox28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox28.Location = new System.Drawing.Point(166, 69);
-            this.textBox28.Multiline = true;
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(157, 28);
-            this.textBox28.TabIndex = 4;
+            this.ibEditYear2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditYear2.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditYear2.Location = new System.Drawing.Point(166, 69);
+            this.ibEditYear2.Multiline = true;
+            this.ibEditYear2.Name = "ibEditYear2";
+            this.ibEditYear2.Size = new System.Drawing.Size(157, 28);
+            this.ibEditYear2.TabIndex = 4;
+            this.ibEditYear2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox27
+            // ibEditYear1
             // 
-            this.textBox27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox27.Location = new System.Drawing.Point(3, 69);
-            this.textBox27.Multiline = true;
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(157, 28);
-            this.textBox27.TabIndex = 3;
+            this.ibEditYear1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditYear1.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditYear1.Location = new System.Drawing.Point(3, 69);
+            this.ibEditYear1.Multiline = true;
+            this.ibEditYear1.Name = "ibEditYear1";
+            this.ibEditYear1.Size = new System.Drawing.Size(157, 28);
+            this.ibEditYear1.TabIndex = 3;
+            this.ibEditYear1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
             // 
@@ -302,32 +312,32 @@
             this.hSkinTableLayoutPanel1.Controls.Add(this.label14, 0, 13);
             this.hSkinTableLayoutPanel1.Controls.Add(this.label18, 1, 0);
             this.hSkinTableLayoutPanel1.Controls.Add(this.label19, 2, 0);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox2, 1, 2);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox4, 1, 4);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox5, 1, 5);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox6, 1, 6);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox7, 1, 7);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox8, 1, 8);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox9, 1, 9);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox10, 1, 10);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox11, 1, 11);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox12, 1, 12);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox13, 1, 13);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox14, 2, 1);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox15, 2, 2);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox16, 2, 3);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox17, 2, 4);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox18, 2, 5);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox19, 2, 6);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox20, 2, 7);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox21, 2, 8);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox22, 2, 9);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox23, 2, 10);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox24, 2, 11);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox25, 2, 12);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.textBox26, 2, 13);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney1, 1, 1);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney2, 1, 2);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney3, 1, 3);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney4, 1, 4);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney5, 1, 5);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney6, 1, 6);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney7, 1, 7);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney8, 1, 8);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney9, 1, 9);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney10, 1, 10);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney11, 1, 11);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney12, 1, 12);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditMoney13, 1, 13);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo1, 2, 1);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo2, 2, 2);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo3, 2, 3);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo4, 2, 4);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo5, 2, 5);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo6, 2, 6);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo7, 2, 7);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo8, 2, 8);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo9, 2, 9);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo10, 2, 10);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo11, 2, 11);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo12, 2, 12);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo13, 2, 13);
             this.hSkinTableLayoutPanel1.Location = new System.Drawing.Point(6, 5);
             this.hSkinTableLayoutPanel1.Name = "hSkinTableLayoutPanel1";
             this.hSkinTableLayoutPanel1.RowCount = 14;
@@ -540,258 +550,313 @@
             this.label19.Text = "备注";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // ibEditMoney1
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(231, 41);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 32);
-            this.textBox1.TabIndex = 2;
+            this.ibEditMoney1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney1.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ibEditMoney1.Location = new System.Drawing.Point(231, 41);
+            this.ibEditMoney1.Multiline = true;
+            this.ibEditMoney1.Name = "ibEditMoney1";
+            this.ibEditMoney1.ReadOnly = true;
+            this.ibEditMoney1.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney1.TabIndex = 2;
+            this.ibEditMoney1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox2
+            // ibEditMoney2
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(231, 79);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 32);
-            this.textBox2.TabIndex = 2;
+            this.ibEditMoney2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney2.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ibEditMoney2.Location = new System.Drawing.Point(231, 79);
+            this.ibEditMoney2.Multiline = true;
+            this.ibEditMoney2.Name = "ibEditMoney2";
+            this.ibEditMoney2.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney2.TabIndex = 2;
+            this.ibEditMoney2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox3
+            // ibEditMoney3
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(231, 117);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(111, 32);
-            this.textBox3.TabIndex = 2;
+            this.ibEditMoney3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney3.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney3.Location = new System.Drawing.Point(231, 117);
+            this.ibEditMoney3.Multiline = true;
+            this.ibEditMoney3.Name = "ibEditMoney3";
+            this.ibEditMoney3.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney3.TabIndex = 2;
+            this.ibEditMoney3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox4
+            // ibEditMoney4
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(231, 155);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(111, 32);
-            this.textBox4.TabIndex = 2;
+            this.ibEditMoney4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney4.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney4.Location = new System.Drawing.Point(231, 155);
+            this.ibEditMoney4.Multiline = true;
+            this.ibEditMoney4.Name = "ibEditMoney4";
+            this.ibEditMoney4.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney4.TabIndex = 2;
+            this.ibEditMoney4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney4.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox5
+            // ibEditMoney5
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(231, 193);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(111, 32);
-            this.textBox5.TabIndex = 2;
+            this.ibEditMoney5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney5.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney5.Location = new System.Drawing.Point(231, 193);
+            this.ibEditMoney5.Multiline = true;
+            this.ibEditMoney5.Name = "ibEditMoney5";
+            this.ibEditMoney5.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney5.TabIndex = 2;
+            this.ibEditMoney5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney5.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox6
+            // ibEditMoney6
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(231, 231);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(111, 32);
-            this.textBox6.TabIndex = 2;
+            this.ibEditMoney6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney6.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney6.Location = new System.Drawing.Point(231, 231);
+            this.ibEditMoney6.Multiline = true;
+            this.ibEditMoney6.Name = "ibEditMoney6";
+            this.ibEditMoney6.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney6.TabIndex = 2;
+            this.ibEditMoney6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney6.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox7
+            // ibEditMoney7
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(231, 269);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(111, 32);
-            this.textBox7.TabIndex = 2;
+            this.ibEditMoney7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney7.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney7.Location = new System.Drawing.Point(231, 269);
+            this.ibEditMoney7.Multiline = true;
+            this.ibEditMoney7.Name = "ibEditMoney7";
+            this.ibEditMoney7.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney7.TabIndex = 2;
+            this.ibEditMoney7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney7.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox8
+            // ibEditMoney8
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(231, 307);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(111, 32);
-            this.textBox8.TabIndex = 2;
+            this.ibEditMoney8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney8.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney8.Location = new System.Drawing.Point(231, 307);
+            this.ibEditMoney8.Multiline = true;
+            this.ibEditMoney8.Name = "ibEditMoney8";
+            this.ibEditMoney8.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney8.TabIndex = 2;
+            this.ibEditMoney8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney8.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox9
+            // ibEditMoney9
             // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Location = new System.Drawing.Point(231, 345);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(111, 32);
-            this.textBox9.TabIndex = 2;
+            this.ibEditMoney9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney9.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney9.Location = new System.Drawing.Point(231, 345);
+            this.ibEditMoney9.Multiline = true;
+            this.ibEditMoney9.Name = "ibEditMoney9";
+            this.ibEditMoney9.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney9.TabIndex = 2;
+            this.ibEditMoney9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney9.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox10
+            // ibEditMoney10
             // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Location = new System.Drawing.Point(231, 383);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(111, 32);
-            this.textBox10.TabIndex = 2;
+            this.ibEditMoney10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney10.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney10.Location = new System.Drawing.Point(231, 383);
+            this.ibEditMoney10.Multiline = true;
+            this.ibEditMoney10.Name = "ibEditMoney10";
+            this.ibEditMoney10.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney10.TabIndex = 2;
+            this.ibEditMoney10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney10.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox11
+            // ibEditMoney11
             // 
-            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Location = new System.Drawing.Point(231, 421);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(111, 32);
-            this.textBox11.TabIndex = 2;
+            this.ibEditMoney11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney11.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney11.Location = new System.Drawing.Point(231, 421);
+            this.ibEditMoney11.Multiline = true;
+            this.ibEditMoney11.Name = "ibEditMoney11";
+            this.ibEditMoney11.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney11.TabIndex = 2;
+            this.ibEditMoney11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney11.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox12
+            // ibEditMoney12
             // 
-            this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Location = new System.Drawing.Point(231, 459);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(111, 32);
-            this.textBox12.TabIndex = 2;
+            this.ibEditMoney12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney12.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ibEditMoney12.Location = new System.Drawing.Point(231, 459);
+            this.ibEditMoney12.Multiline = true;
+            this.ibEditMoney12.Name = "ibEditMoney12";
+            this.ibEditMoney12.ReadOnly = true;
+            this.ibEditMoney12.Size = new System.Drawing.Size(111, 32);
+            this.ibEditMoney12.TabIndex = 2;
+            this.ibEditMoney12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney12.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox13
+            // ibEditMoney13
             // 
-            this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox13.Location = new System.Drawing.Point(231, 497);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(111, 35);
-            this.textBox13.TabIndex = 2;
+            this.ibEditMoney13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditMoney13.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditMoney13.Location = new System.Drawing.Point(231, 497);
+            this.ibEditMoney13.Multiline = true;
+            this.ibEditMoney13.Name = "ibEditMoney13";
+            this.ibEditMoney13.Size = new System.Drawing.Size(111, 35);
+            this.ibEditMoney13.TabIndex = 2;
+            this.ibEditMoney13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney13.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
-            // textBox14
+            // ibEditInfo1
             // 
-            this.textBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox14.Location = new System.Drawing.Point(348, 41);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(464, 32);
-            this.textBox14.TabIndex = 2;
+            this.ibEditInfo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo1.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo1.Location = new System.Drawing.Point(348, 41);
+            this.ibEditInfo1.Multiline = true;
+            this.ibEditInfo1.Name = "ibEditInfo1";
+            this.ibEditInfo1.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo1.TabIndex = 2;
             // 
-            // textBox15
+            // ibEditInfo2
             // 
-            this.textBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox15.Location = new System.Drawing.Point(348, 79);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(464, 32);
-            this.textBox15.TabIndex = 2;
+            this.ibEditInfo2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo2.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo2.Location = new System.Drawing.Point(348, 79);
+            this.ibEditInfo2.Multiline = true;
+            this.ibEditInfo2.Name = "ibEditInfo2";
+            this.ibEditInfo2.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo2.TabIndex = 2;
             // 
-            // textBox16
+            // ibEditInfo3
             // 
-            this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox16.Location = new System.Drawing.Point(348, 117);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(464, 32);
-            this.textBox16.TabIndex = 2;
+            this.ibEditInfo3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo3.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo3.Location = new System.Drawing.Point(348, 117);
+            this.ibEditInfo3.Multiline = true;
+            this.ibEditInfo3.Name = "ibEditInfo3";
+            this.ibEditInfo3.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo3.TabIndex = 2;
             // 
-            // textBox17
+            // ibEditInfo4
             // 
-            this.textBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox17.Location = new System.Drawing.Point(348, 155);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(464, 32);
-            this.textBox17.TabIndex = 2;
+            this.ibEditInfo4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo4.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo4.Location = new System.Drawing.Point(348, 155);
+            this.ibEditInfo4.Multiline = true;
+            this.ibEditInfo4.Name = "ibEditInfo4";
+            this.ibEditInfo4.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo4.TabIndex = 2;
             // 
-            // textBox18
+            // ibEditInfo5
             // 
-            this.textBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox18.Location = new System.Drawing.Point(348, 193);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(464, 32);
-            this.textBox18.TabIndex = 2;
+            this.ibEditInfo5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo5.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo5.Location = new System.Drawing.Point(348, 193);
+            this.ibEditInfo5.Multiline = true;
+            this.ibEditInfo5.Name = "ibEditInfo5";
+            this.ibEditInfo5.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo5.TabIndex = 2;
             // 
-            // textBox19
+            // ibEditInfo6
             // 
-            this.textBox19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox19.Location = new System.Drawing.Point(348, 231);
-            this.textBox19.Multiline = true;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(464, 32);
-            this.textBox19.TabIndex = 2;
+            this.ibEditInfo6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo6.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo6.Location = new System.Drawing.Point(348, 231);
+            this.ibEditInfo6.Multiline = true;
+            this.ibEditInfo6.Name = "ibEditInfo6";
+            this.ibEditInfo6.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo6.TabIndex = 2;
             // 
-            // textBox20
+            // ibEditInfo7
             // 
-            this.textBox20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox20.Location = new System.Drawing.Point(348, 269);
-            this.textBox20.Multiline = true;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(464, 32);
-            this.textBox20.TabIndex = 2;
+            this.ibEditInfo7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo7.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo7.Location = new System.Drawing.Point(348, 269);
+            this.ibEditInfo7.Multiline = true;
+            this.ibEditInfo7.Name = "ibEditInfo7";
+            this.ibEditInfo7.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo7.TabIndex = 2;
             // 
-            // textBox21
+            // ibEditInfo8
             // 
-            this.textBox21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox21.Location = new System.Drawing.Point(348, 307);
-            this.textBox21.Multiline = true;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(464, 32);
-            this.textBox21.TabIndex = 2;
+            this.ibEditInfo8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo8.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo8.Location = new System.Drawing.Point(348, 307);
+            this.ibEditInfo8.Multiline = true;
+            this.ibEditInfo8.Name = "ibEditInfo8";
+            this.ibEditInfo8.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo8.TabIndex = 2;
             // 
-            // textBox22
+            // ibEditInfo9
             // 
-            this.textBox22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox22.Location = new System.Drawing.Point(348, 345);
-            this.textBox22.Multiline = true;
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(464, 32);
-            this.textBox22.TabIndex = 2;
+            this.ibEditInfo9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo9.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo9.Location = new System.Drawing.Point(348, 345);
+            this.ibEditInfo9.Multiline = true;
+            this.ibEditInfo9.Name = "ibEditInfo9";
+            this.ibEditInfo9.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo9.TabIndex = 2;
             // 
-            // textBox23
+            // ibEditInfo10
             // 
-            this.textBox23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox23.Location = new System.Drawing.Point(348, 383);
-            this.textBox23.Multiline = true;
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(464, 32);
-            this.textBox23.TabIndex = 2;
+            this.ibEditInfo10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo10.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo10.Location = new System.Drawing.Point(348, 383);
+            this.ibEditInfo10.Multiline = true;
+            this.ibEditInfo10.Name = "ibEditInfo10";
+            this.ibEditInfo10.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo10.TabIndex = 2;
             // 
-            // textBox24
+            // ibEditInfo11
             // 
-            this.textBox24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox24.Location = new System.Drawing.Point(348, 421);
-            this.textBox24.Multiline = true;
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(464, 32);
-            this.textBox24.TabIndex = 2;
+            this.ibEditInfo11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo11.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo11.Location = new System.Drawing.Point(348, 421);
+            this.ibEditInfo11.Multiline = true;
+            this.ibEditInfo11.Name = "ibEditInfo11";
+            this.ibEditInfo11.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo11.TabIndex = 2;
             // 
-            // textBox25
+            // ibEditInfo12
             // 
-            this.textBox25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox25.Location = new System.Drawing.Point(348, 459);
-            this.textBox25.Multiline = true;
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(464, 32);
-            this.textBox25.TabIndex = 2;
+            this.ibEditInfo12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo12.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo12.Location = new System.Drawing.Point(348, 459);
+            this.ibEditInfo12.Multiline = true;
+            this.ibEditInfo12.Name = "ibEditInfo12";
+            this.ibEditInfo12.Size = new System.Drawing.Size(464, 32);
+            this.ibEditInfo12.TabIndex = 2;
             // 
-            // textBox26
+            // ibEditInfo13
             // 
-            this.textBox26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox26.Location = new System.Drawing.Point(348, 497);
-            this.textBox26.Multiline = true;
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(464, 35);
-            this.textBox26.TabIndex = 2;
+            this.ibEditInfo13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEditInfo13.Font = new System.Drawing.Font("仿宋", 14F);
+            this.ibEditInfo13.Location = new System.Drawing.Point(348, 497);
+            this.ibEditInfo13.Multiline = true;
+            this.ibEditInfo13.Name = "ibEditInfo13";
+            this.ibEditInfo13.Size = new System.Drawing.Size(464, 35);
+            this.ibEditInfo13.TabIndex = 2;
             // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 646);
+            this.plButtons.Location = new System.Drawing.Point(10, 627);
             this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(1203, 30);
+            this.plButtons.Size = new System.Drawing.Size(903, 30);
             this.plButtons.TabIndex = 0;
             // 
             // btnSave
             // 
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(1113, 0);
+            this.btnSave.Location = new System.Drawing.Point(813, 0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 30);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MoneyTableEditor
             // 
@@ -800,7 +865,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Name = "MoneyTableEditor";
-            this.Size = new System.Drawing.Size(1239, 667);
+            this.Size = new System.Drawing.Size(923, 667);
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
             this.hSkinTableLayoutPanel2.ResumeLayout(false);
@@ -843,36 +908,36 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.TextBox ibEditMoney1;
+        private System.Windows.Forms.TextBox ibEditMoney2;
+        private System.Windows.Forms.TextBox ibEditMoney3;
+        private System.Windows.Forms.TextBox ibEditMoney4;
+        private System.Windows.Forms.TextBox ibEditMoney5;
+        private System.Windows.Forms.TextBox ibEditMoney6;
+        private System.Windows.Forms.TextBox ibEditMoney7;
+        private System.Windows.Forms.TextBox ibEditMoney8;
+        private System.Windows.Forms.TextBox ibEditMoney9;
+        private System.Windows.Forms.TextBox ibEditMoney10;
+        private System.Windows.Forms.TextBox ibEditMoney11;
+        private System.Windows.Forms.TextBox ibEditMoney12;
+        private System.Windows.Forms.TextBox ibEditMoney13;
+        private System.Windows.Forms.TextBox ibEditInfo1;
+        private System.Windows.Forms.TextBox ibEditInfo2;
+        private System.Windows.Forms.TextBox ibEditInfo3;
+        private System.Windows.Forms.TextBox ibEditInfo4;
+        private System.Windows.Forms.TextBox ibEditInfo5;
+        private System.Windows.Forms.TextBox ibEditInfo6;
+        private System.Windows.Forms.TextBox ibEditInfo7;
+        private System.Windows.Forms.TextBox ibEditInfo8;
+        private System.Windows.Forms.TextBox ibEditInfo9;
+        private System.Windows.Forms.TextBox ibEditInfo10;
+        private System.Windows.Forms.TextBox ibEditInfo11;
+        private System.Windows.Forms.TextBox ibEditInfo12;
+        private System.Windows.Forms.TextBox ibEditInfo13;
+        private System.Windows.Forms.TextBox ibEditYear5;
+        private System.Windows.Forms.TextBox ibEditYear4;
+        private System.Windows.Forms.TextBox ibEditYear3;
+        private System.Windows.Forms.TextBox ibEditYear2;
+        private System.Windows.Forms.TextBox ibEditYear1;
     }
 }
