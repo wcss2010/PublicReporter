@@ -451,12 +451,12 @@ namespace ProjectContractPlugin.Utility
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("拨付条件") && t.GetText().Contains("预计时间") && t.GetText().Contains("经费金额"))
+                    if (t.GetText().Contains("任务分工") && t.GetText().Contains("身份证号码") && t.GetText().Contains("项目中职务"))
                     {
                         //创建行
                         for (int k = 0; k < rylist.Count - 1; k++)
                         {
-                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 2].Clone(true));
                         }
 
                         int rowStart = 1;
