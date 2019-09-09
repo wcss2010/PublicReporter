@@ -99,5 +99,20 @@ namespace ProjectContractPlugin.Editor
                 }
             }
         }
+
+        private void dgvDetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDetail.Rows.Count >= 1)
+            {
+                //编辑
+
+                //显示编辑窗体
+                FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion((JiShuBiao)dgvDetail.Rows[e.RowIndex].Tag);
+                form.ShowDialog();
+
+                //刷新列表
+                RefreshView();
+            }
+        }
     }
 }
