@@ -459,9 +459,12 @@ namespace ProjectContractPlugin.Utility
                             t.Rows.Insert(1, (Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 2].Clone(true));
                         }
 
+                        int totalMonth = 0;
                         int rowStart = 1;
                         foreach (RenYuanBiao data in rylist)
                         {
+                            totalMonth += data.MeiNianTouRuShiJian;
+
                             t.Rows[rowStart].Cells[0].RemoveAllChildren();
                             t.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(t, (rowStart).ToString()));
                             t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
@@ -506,6 +509,9 @@ namespace ProjectContractPlugin.Utility
 
                             rowStart++;
                         }
+
+                        t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].RemoveAllChildren();
+                        t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].AppendChild(wu.getCellContentObj(t, (totalMonth / 12).ToString()));
                     }
                 }
                 #endregion
