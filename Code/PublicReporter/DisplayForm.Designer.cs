@@ -103,7 +103,7 @@
             // 
             this.scContent.Panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.scContent.Size = new System.Drawing.Size(982, 496);
-            this.scContent.SplitterDistance = 327;
+            this.scContent.SplitterDistance = 250;
             this.scContent.TabIndex = 2;
             // 
             // tvSubjects
@@ -117,7 +117,7 @@
             this.tvSubjects.Location = new System.Drawing.Point(0, 0);
             this.tvSubjects.Name = "tvSubjects";
             this.tvSubjects.SelectedImageIndex = 0;
-            this.tvSubjects.Size = new System.Drawing.Size(327, 486);
+            this.tvSubjects.Size = new System.Drawing.Size(250, 486);
             this.tvSubjects.TabIndex = 0;
             // 
             // ilNodeImage
@@ -132,7 +132,7 @@
             this.plTreeButtons.Location = new System.Drawing.Point(0, 486);
             this.plTreeButtons.Margin = new System.Windows.Forms.Padding(0);
             this.plTreeButtons.Name = "plTreeButtons";
-            this.plTreeButtons.Size = new System.Drawing.Size(327, 10);
+            this.plTreeButtons.Size = new System.Drawing.Size(250, 10);
             this.plTreeButtons.TabIndex = 1;
             // 
             // DisplayForm
