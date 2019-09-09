@@ -456,7 +456,7 @@ namespace ProjectContractPlugin.Utility
                         //创建行
                         for (int k = 0; k < rylist.Count - 1; k++)
                         {
-                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 2].Clone(true));
+                            t.Rows.Insert(1, (Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 2].Clone(true));
                         }
 
                         int rowStart = 1;
