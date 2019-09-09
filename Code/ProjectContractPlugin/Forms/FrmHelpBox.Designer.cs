@@ -47,7 +47,6 @@
             this.ClientSize = new System.Drawing.Size(687, 568);
             this.Controls.Add(this.txtContent);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmHelpBox";
