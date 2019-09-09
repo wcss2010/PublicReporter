@@ -190,6 +190,18 @@
     <Compile Include="Editor\WorkProgressEditor.Designer.cs">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubject.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAddOrUpdateTechnologyQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +288,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\WorkProgressEditor.resx">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateDestNameAndQuestion.resx">
+      <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubject.resx">
+      <DependentUpon>FrmAddOrUpdateSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateTechnologyQuestion.resx">
       <DependentUpon>FrmAddOrUpdateTechnologyQuestion.cs</DependentUpon>
