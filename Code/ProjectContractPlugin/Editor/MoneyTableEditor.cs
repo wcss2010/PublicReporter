@@ -100,6 +100,11 @@ namespace ProjectContractPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!this.isComplete())
+            {
+                return;
+            }
+
             OnSaveEvent();
         }
 
