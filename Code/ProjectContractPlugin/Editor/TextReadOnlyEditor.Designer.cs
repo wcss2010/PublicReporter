@@ -74,6 +74,7 @@
             // txtContent
             // 
             this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContent.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtContent.Location = new System.Drawing.Point(0, 0);
             this.txtContent.Name = "txtContent";
             this.txtContent.ReadOnly = true;

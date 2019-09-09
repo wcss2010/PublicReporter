@@ -31,9 +31,9 @@
             this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
+            this.txtContent = new System.Windows.Forms.TextBox();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtContent = new System.Windows.Forms.TextBox();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -75,6 +75,17 @@
             this.plContent.Size = new System.Drawing.Size(1063, 505);
             this.plContent.TabIndex = 1;
             // 
+            // txtContent
+            // 
+            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContent.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Multiline = true;
+            this.txtContent.Name = "txtContent";
+            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtContent.Size = new System.Drawing.Size(1063, 475);
+            this.txtContent.TabIndex = 1;
+            // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnSave);
@@ -94,16 +105,6 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtContent
-            // 
-            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtContent.Location = new System.Drawing.Point(0, 0);
-            this.txtContent.Multiline = true;
-            this.txtContent.Name = "txtContent";
-            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtContent.Size = new System.Drawing.Size(1063, 475);
-            this.txtContent.TabIndex = 1;
             // 
             // TextContentEditor
             // 
