@@ -101,9 +101,7 @@
     <Compile Include="Editor\ConfidentialQualificationEditor.designer.cs">
       <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\BaseEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Editor\BaseEditor.cs" />
     <Compile Include="Editor\BaseEditor.Designer.cs">
       <DependentUpon>BaseEditor.cs</DependentUpon>
     </Compile>

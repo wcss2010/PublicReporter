@@ -10,7 +10,7 @@ namespace ProjectContractPlugin.Editor
 {
     public delegate void SaveEventDelegate(object sender, EventArgs args);
 
-    public partial class BaseEditor : UserControl
+    public partial class BaseEditor : PublicReporterLib.SuperControl
     {
         public BaseEditor()
         {
