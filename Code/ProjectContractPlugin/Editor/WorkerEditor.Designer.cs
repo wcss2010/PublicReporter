@@ -224,10 +224,10 @@
             // Column7
             // 
             this.Column7.HeaderText = "每年投入时间（月）";
-            this.Column7.MinimumWidth = 60;
+            this.Column7.MinimumWidth = 70;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 60;
+            this.Column7.Width = 70;
             // 
             // Column8
             // 
@@ -245,11 +245,11 @@
             // 
             // Column10
             // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column10.HeaderText = "课题";
             this.Column10.MinimumWidth = 60;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 60;
             // 
             // Column11
             // 
