@@ -108,12 +108,28 @@ namespace ProjectContractPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!this.isComplete())
-            {
-                return;
-            }
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+            upf.LabalText = "正在保存,请等待...";
+            upf.ShowProgressWithOnlyUI();
+            upf.PlayProgressWithOnlyUI(80);
 
-            OnSaveEvent();
+            try
+            {
+                if (!this.isComplete())
+                {
+                    return;
+                }
+
+                OnSaveEvent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存失败！Ex:" + ex.ToString());
+            }
+            finally
+            {
+                upf.CloseProgressWithOnlyUI();
+            }
         }
 
         public override bool IsInputCompleted()

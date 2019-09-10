@@ -129,7 +129,23 @@ namespace ProjectContractPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            OnSaveEvent();
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+            upf.LabalText = "正在保存,请等待...";
+            upf.ShowProgressWithOnlyUI();
+            upf.PlayProgressWithOnlyUI(80);
+
+            try
+            {
+                OnSaveEvent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存失败！Ex:" + ex.ToString());
+            }
+            finally
+            {
+                upf.CloseProgressWithOnlyUI();
+            }
         }
     }
 }

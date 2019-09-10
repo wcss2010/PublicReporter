@@ -106,10 +106,6 @@ namespace ProjectContractPlugin.Editor
                         {
                             //启动word
                             Process p = Process.Start(file);
-                            //等待退出
-                            p.WaitForExit();
-                            //更新文档信息
-                            updateDocumentInfo(file);
                         }
                         catch (Exception ex)
                         {
@@ -132,10 +128,6 @@ namespace ProjectContractPlugin.Editor
                         {
                             //启动word
                             Process p = Process.Start(file);
-                            //等待退出
-                            p.WaitForExit();
-                            //更新文档信息
-                            updateDocumentInfo(file);
                         }
                         catch (Exception ex)
                         {
@@ -146,43 +138,9 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        private void updateDocumentInfo(string file)
-        {
-            if (File.Exists(file))
-            {
-                WordDocument wd = new WordDocument(file);
-                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
-                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
-                lblWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
-
-                //判断是否需要显示
-                if (plWordViewConent.Visible)
-                {
-                    //保存附件
-                    string tempPDF = Path.Combine(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).dataDir, "TempPDF"), GetHashCode() + ".jpg");
-                    wd.WordDoc.Save(tempPDF, SaveFormat.Jpeg);
-
-                    //显示附件
-                    pbWordView.Load(tempPDF);
-                }
-            }
-        }
-
         public override void RefreshView()
         {
             base.RefreshView();
-
-            if (PluginLoader.CurrentPlugin != null)
-            {
-                if (string.IsNullOrEmpty(EditorName))
-                {
-                    return;
-                }
-                else
-                {
-                    updateDocumentInfo(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).filesDir, EditorName + ".doc"));
-                }
-            }
         }
 
         public override bool IsInputCompleted()
