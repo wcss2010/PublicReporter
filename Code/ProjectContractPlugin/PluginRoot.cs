@@ -25,7 +25,7 @@ namespace ProjectContractPlugin
         /// <summary>
         /// 编辑器字典
         /// </summary>
-        public SortedList<string, BaseEditor> editorMap = new SortedList<string, BaseEditor>();
+        public CustomDictionary<string, BaseEditor> editorMap = new CustomDictionary<string, BaseEditor>();
 
         /// <summary>
         /// 基础目录
