@@ -72,6 +72,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAndForms\PluginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAndForms\PluginControl.Designer.cs">
+      <DependentUpon>PluginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAndForms\PluginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlAndForms\PluginForm.Designer.cs">
+      <DependentUpon>PluginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomDictionary.cs" />
     <Compile Include="IReportPluginRoot.cs" />
     <Compile Include="PluginConfig.cs" />
@@ -81,7 +93,14 @@
     <Compile Include="Utility\WordDocument.cs" />
     <Compile Include="Utility\ZipUtil.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="ControlAndForms\PluginControl.resx">
+      <DependentUpon>PluginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAndForms\PluginForm.resx">
+      <DependentUpon>PluginForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
