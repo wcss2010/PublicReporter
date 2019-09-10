@@ -88,10 +88,21 @@ namespace ProjectContractPlugin.Editor
         {
             EditorName = name;
             InfoLabelText = info;
+            RTFFile = rtfFile;
 
-            if (File.Exists(rtfFile))
+            updateTextControl();
+        }
+
+        private void updateTextControl()
+        {
+            if (File.Exists(RTFFile))
             {
-                txtContent.LoadFile(rtfFile);
+                txtContent.LoadFile(RTFFile);
+
+                txtContent.Text = txtContent.Text.Replace("{%Num1%}", "XX");
+                txtContent.Text = txtContent.Text.Replace("{%Num2%}", "XX");
+                txtContent.Text = txtContent.Text.Replace("{%Num3%}", "XX");
+                txtContent.Text = txtContent.Text.Replace("{%Num4%}", "XX");
             }
         }
 
@@ -99,5 +110,7 @@ namespace ProjectContractPlugin.Editor
         {
             return true;
         }
+
+        public string RTFFile { get; set; }
     }
 }
