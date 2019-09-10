@@ -11,7 +11,7 @@
 ; 注: AppId的值为单独标识该应用程序。
 ; 不要为其他安装程序使用相同的AppId值。
 ; (生成新的GUID，点击 工具|在IDE中生成GUID。)
-AppId={{716FF8E4-4E3E-44B8-AEB6-4CC164E1B476}
+AppId={{716FF8E4-4E3E-44B8-AEB6-4CC164E1B478}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -22,7 +22,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\PublicReporterForJY
 DisableProgramGroupPage=yes
 OutputDir=C:\Users\wcss\Desktop\Setups
-OutputBaseFilename=PublicReporterSetup
+OutputBaseFilename=PublicReporterSetupForJY
 Compression=lzma
 SolidCompression=yes
 

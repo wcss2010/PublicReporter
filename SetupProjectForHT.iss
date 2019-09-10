@@ -22,7 +22,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\PublicReporterForHT
 DisableProgramGroupPage=yes
 OutputDir=C:\Users\wcss\Desktop\Setups
-OutputBaseFilename=PublicReporterSetup
+OutputBaseFilename=PublicReporterSetupForHT
 Compression=lzma
 SolidCompression=yes
 
