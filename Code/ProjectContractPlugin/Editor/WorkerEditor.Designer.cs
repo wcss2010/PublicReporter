@@ -245,11 +245,11 @@
             // 
             // Column10
             // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column10.HeaderText = "课题";
-            this.Column10.MinimumWidth = 60;
+            this.Column10.MinimumWidth = 110;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
+            this.Column10.Width = 110;
             // 
             // Column11
             // 
