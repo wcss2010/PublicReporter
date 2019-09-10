@@ -33,10 +33,6 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnDelAll = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +46,10 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -132,48 +132,6 @@
             this.dgvDetail.TabIndex = 1;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
-            // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnNew);
-            this.plButtons.Controls.Add(this.btnDelAll);
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 583);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(1272, 30);
-            this.plButtons.TabIndex = 0;
-            // 
-            // btnNew
-            // 
-            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNew.Location = new System.Drawing.Point(1002, 0);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(90, 30);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "新增";
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnDelAll
-            // 
-            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelAll.Location = new System.Drawing.Point(1092, 0);
-            this.btnDelAll.Name = "btnDelAll";
-            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
-            this.btnDelAll.TabIndex = 2;
-            this.btnDelAll.Text = "删除选中";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(1182, 0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 30);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "插入";
             // 
             // Column1
             // 
@@ -279,6 +237,49 @@
             this.Column13.Text = "编辑";
             this.Column13.UseColumnTextForButtonValue = true;
             this.Column13.Width = 5;
+            // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnNew);
+            this.plButtons.Controls.Add(this.btnDelAll);
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(0, 583);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Size = new System.Drawing.Size(1272, 30);
+            this.plButtons.TabIndex = 0;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnNew.Location = new System.Drawing.Point(1002, 0);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(90, 30);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "新增";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnDelAll
+            // 
+            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDelAll.Location = new System.Drawing.Point(1092, 0);
+            this.btnDelAll.Name = "btnDelAll";
+            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
+            this.btnDelAll.TabIndex = 2;
+            this.btnDelAll.Text = "删除选中";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(1182, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "插入";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // WorkerEditor
             // 

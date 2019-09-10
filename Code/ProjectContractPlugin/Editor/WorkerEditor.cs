@@ -106,5 +106,23 @@ namespace ProjectContractPlugin.Editor
         {
             return dgvDetail.Rows.Count >= 1;
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (dgvDetail.SelectedRows.Count == 1)
+            {
+                //显示编辑窗体
+                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, dgvDetail.SelectedRows[0].Index);
+                if (form.ShowDialog() == DialogResult.OK)
+                    //刷新列表
+                    RefreshView();
+
+            }
+            else
+            {
+                MessageBox.Show("请选中需要一条数据，新数据将在其后插入");
+                return;
+            }
+        }
     }
 }
