@@ -51,11 +51,18 @@ namespace ProjectContractPlugin.Editor
             //设置间接费用
             boxDict["ibEditMoney12"].Text = boxDict["ibEditMoney13"].Text;
 
+            decimal secondMoney = 0;
+            try
+            {
+                secondMoney = decimal.Parse(boxDict["ibEditMoney12"].Text);
+            }
+            catch (Exception ex) { }
+
             //总费用
             decimal total = 0;
 
             //计算总费用
-            for (int k = 2; k <= 12; k++)
+            for (int k = 3; k <= 11; k++)
             {
                 string cnt = boxDict["ibEditMoney" + k].Text;
                 try
@@ -65,7 +72,8 @@ namespace ProjectContractPlugin.Editor
                 catch (Exception ex) { }
             }
 
-            boxDict["ibEditMoney1"].Text = total.ToString();
+            boxDict["ibEditMoney2"].Text = total.ToString();
+            boxDict["ibEditMoney1"].Text = (total + secondMoney).ToString();
         }
 
         public override void RefreshView()

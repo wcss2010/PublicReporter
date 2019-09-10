@@ -570,6 +570,7 @@
             this.ibEditMoney2.Location = new System.Drawing.Point(231, 79);
             this.ibEditMoney2.Multiline = true;
             this.ibEditMoney2.Name = "ibEditMoney2";
+            this.ibEditMoney2.ReadOnly = true;
             this.ibEditMoney2.Size = new System.Drawing.Size(111, 32);
             this.ibEditMoney2.TabIndex = 2;
             this.ibEditMoney2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
