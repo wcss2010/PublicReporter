@@ -263,6 +263,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="SuperControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Utility\ExcelHelper.cs" />
     <Compile Include="Utility\FileOp.cs" />
     <Compile Include="Utility\FormatCheckTool.cs" />
