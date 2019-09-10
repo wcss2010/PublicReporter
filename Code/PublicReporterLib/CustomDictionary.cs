@@ -101,5 +101,37 @@ namespace PublicReporterLib
             }
             return this.Remove(existObj);
         }
+
+        /// <summary>
+        /// 键列表
+        /// </summary>
+        public IList<TKey> Keys
+        {
+            get
+            {
+                IList<TKey> results = new List<TKey>();
+                foreach (KeyValuePair<TKey, TValue> kvp in this)
+                {
+                    results.Add(kvp.Key);
+                }
+                return results;
+            }
+        }
+
+        /// <summary>
+        /// 值列表
+        /// </summary>
+        public IList<TValue> Values
+        {
+            get
+            {
+                IList<TValue> results = new List<TValue>();
+                foreach (KeyValuePair<TKey, TValue> kvp in this)
+                {
+                    results.Add(kvp.Value);
+                }
+                return results;
+            }
+        }
     }
 }
