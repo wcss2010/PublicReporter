@@ -266,7 +266,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 30);
             this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "保存";
+            this.btnSave.Text = "插入";
             // 
             // WorkerEditor
             // 

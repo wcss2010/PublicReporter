@@ -98,7 +98,7 @@ namespace ProjectContractPlugin.Editor
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDetail.Rows.Count >= 1)
+            if (dgvDetail.Rows.Count >= 1 && e.RowIndex >= 0)
             {
                 if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                 {
@@ -127,7 +127,7 @@ namespace ProjectContractPlugin.Editor
 
         private void dgvDetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDetail.Rows.Count >= 1)
+            if (dgvDetail.Rows.Count >= 1 && e.RowIndex >= 0)
             {
                 //编辑
 
