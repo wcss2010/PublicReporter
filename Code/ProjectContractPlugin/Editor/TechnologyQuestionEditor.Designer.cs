@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
@@ -45,6 +45,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelAll = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -62,7 +63,7 @@
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1155, 46);
+            this.lblInfo.Size = new System.Drawing.Size(1155, 51);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "研究初一套可以处理xx材料的缺陷理论，根据理论设计出xxx材料，实验验证xxx ";
             // 
@@ -85,9 +86,9 @@
             this.plContent.Controls.Add(this.panel1);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 56);
+            this.plContent.Location = new System.Drawing.Point(10, 61);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1155, 635);
+            this.plContent.Size = new System.Drawing.Size(1155, 630);
             this.plContent.TabIndex = 1;
             // 
             // dgvDetail
@@ -105,19 +106,19 @@
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 73);
             this.dgvDetail.Name = "dgvDetail";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("仿宋", 12F);
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 23;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(1155, 532);
+            this.dgvDetail.Size = new System.Drawing.Size(1155, 527);
             this.dgvDetail.TabIndex = 1;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
@@ -166,6 +167,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.txtContent);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -177,10 +179,10 @@
             // 
             this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtContent.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Location = new System.Drawing.Point(112, 0);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(1103, 73);
+            this.txtContent.Size = new System.Drawing.Size(991, 73);
             this.txtContent.TabIndex = 2;
             // 
             // btnSave
@@ -200,7 +202,7 @@
             this.plButtons.Controls.Add(this.btnDelAll);
             this.plButtons.Controls.Add(this.button1);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 605);
+            this.plButtons.Location = new System.Drawing.Point(0, 600);
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(1155, 30);
             this.plButtons.TabIndex = 0;
@@ -238,6 +240,17 @@
             this.button1.Text = "插入";
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 73);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "总技术要求：";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // TechnologyQuestionEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -274,5 +287,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
