@@ -382,10 +382,16 @@ namespace ProjectContractPlugin.Utility
                             t.Rows[rowStart].Cells[1].AppendChild(wu.getCellContentObj(t, data.ShiJian.ToString("yyyy年MM月")));
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
-                            string stringFormat = "阶段目标：{0}\n完成内容：{0}\n阶段成果：{0}\n";
-                            
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, string.Format(stringFormat, data.JieDuanMuBiao, data.WanChengNeiRong, data.JieDuanChengGuo)));
+                            Paragraph p = wu.getCellContentObj(t, "阶段目标：");                            
+                            t.Rows[rowStart].Cells[2].AppendChild(p);
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanMuBiao));
+                            p = wu.getCellContentObj(t, "完成内容：");
+                            t.Rows[rowStart].Cells[2].AppendChild(p);
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.WanChengNeiRong));
+                            p = wu.getCellContentObj(t, "阶段成果：");
+                            t.Rows[rowStart].Cells[2].AppendChild(p);
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanChengGuo));
                             t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             rowStart++;
