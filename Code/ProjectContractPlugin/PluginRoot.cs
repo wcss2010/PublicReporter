@@ -43,31 +43,6 @@ namespace ProjectContractPlugin
         public string filesDir = string.Empty;
 
         /// <summary>
-        /// 顶部工具栏
-        /// </summary>
-        private ToolStrip topToolStrip;
-
-        /// <summary>
-        /// 左侧树控件的图片列表
-        /// </summary>
-        private ImageList treeViewImageListObj;
-
-        /// <summary>
-        /// 左侧树控件
-        /// </summary>
-        private TreeView treeViewObj;
-
-        /// <summary>
-        /// 内容控件
-        /// </summary>
-        private Panel contentObj;
-
-        /// <summary>
-        /// 默认提示标签
-        /// </summary>
-        private ToolStripStatusLabel defaultHintLabel;
-
-        /// <summary>
         /// 是否显示关闭提示
         /// </summary>
         public bool enabledShowExitHint = true;
@@ -90,14 +65,6 @@ namespace ProjectContractPlugin
         }
 
         /// <summary>
-        /// 启动
-        /// </summary>
-        public override void start()
-        {
-
-        }
-
-        /// <summary>
         /// 失败
         /// </summary>
         public override void stop(FormClosingEventArgs e)
@@ -107,17 +74,17 @@ namespace ProjectContractPlugin
                 if (MessageBox.Show("真的要退出吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     #region 清理所有增加的内容
-                    if (contentObj.IsHandleCreated)
+                    if (Parent_RightContentPanel.IsHandleCreated)
                     {
-                        contentObj.Invoke(new MethodInvoker(delegate()
+                        Parent_RightContentPanel.Invoke(new MethodInvoker(delegate()
                             {
-                                treeViewImageListObj.Images.Clear();
-                                treeViewObj.Nodes.Clear();
-                                contentObj.Controls.Clear();
-                                defaultHintLabel.Text = string.Empty;
+                                Parent_LeftTreeViewImageList.Images.Clear();
+                                Parent_LeftTreeView.Nodes.Clear();
+                                Parent_RightContentPanel.Controls.Clear();
+                                Parent_BottomDefaultHintLabel.Text = string.Empty;
 
                                 List<ToolStripItem> list = new List<ToolStripItem>();
-                                foreach (ToolStripItem tsi in topToolStrip.Items)
+                                foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
                                 {
                                     if (tsi.Tag == "Dynamic")
                                     {
@@ -126,7 +93,7 @@ namespace ProjectContractPlugin
                                 }
                                 foreach (ToolStripItem tssi in list)
                                 {
-                                    topToolStrip.Items.Remove(tssi);
+                                    Parent_TopToolStrip.Items.Remove(tssi);
                                 }
                             }));
                     }
@@ -140,17 +107,17 @@ namespace ProjectContractPlugin
             else
             {
                 #region 清理所有增加的内容
-                if (contentObj.IsHandleCreated)
+                if (Parent_RightContentPanel.IsHandleCreated)
                 {
-                    contentObj.Invoke(new MethodInvoker(delegate()
+                    Parent_RightContentPanel.Invoke(new MethodInvoker(delegate()
                     {
-                        treeViewImageListObj.Images.Clear();
-                        treeViewObj.Nodes.Clear();
-                        contentObj.Controls.Clear();
-                        defaultHintLabel.Text = string.Empty;
+                        Parent_LeftTreeViewImageList.Images.Clear();
+                        Parent_LeftTreeView.Nodes.Clear();
+                        Parent_RightContentPanel.Controls.Clear();
+                        Parent_BottomDefaultHintLabel.Text = string.Empty;
 
                         List<ToolStripItem> list = new List<ToolStripItem>();
-                        foreach (ToolStripItem tsi in topToolStrip.Items)
+                        foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
                         {
                             if (tsi.Tag == "Dynamic")
                             {
@@ -159,7 +126,7 @@ namespace ProjectContractPlugin
                         }
                         foreach (ToolStripItem tssi in list)
                         {
-                            topToolStrip.Items.Remove(tssi);
+                            Parent_TopToolStrip.Items.Remove(tssi);
                         }
                     }));
                 }
@@ -172,25 +139,16 @@ namespace ProjectContractPlugin
         /// </summary>
         /// <param name="mainFormObj">主窗体</param>
         /// <param name="topToolStripObj">顶部工具条控件</param>
-        /// <param name="treeViewImageListObj">左边的树控件图标列表</param>
-        /// <param name="treeViewObj">左边的树控件</param>
-        /// <param name="treeViewControlObj">左边的树控件下面的控制面板</param>
-        /// <param name="contentObj">右边的内容面板</param>
+        /// <param name="Parent_LeftTreeViewImageList">左边的树控件图标列表</param>
+        /// <param name="Parent_LeftTreeView">左边的树控件</param>
+        /// <param name="Parent_LeftTreeViewBottomButtonPanel">左边的树控件下面的控制面板</param>
+        /// <param name="Parent_RightContentPanel">右边的内容面板</param>
         /// <param name="bottomStatusStripObj">底部状态栏</param>
         /// <param name="defaultHintLabelObj">默认的提示标签</param>
-        public override void init(Form mainFormObj, ToolStrip topToolStripObj, ImageList treeViewImageListObj, TreeView treeViewObj, Panel treeViewControlObj, Panel contentObj, StatusStrip bottomStatusStripObj, ToolStripStatusLabel defaultHintLabelObj)
+        public override void start()
         {
-            #region 保存引用并且添加事件
-            treeViewControlObj.Visible = false;
-            this.topToolStrip = topToolStripObj;
-            this.treeViewObj = treeViewObj;
-            this.contentObj = contentObj;
-            this.treeViewImageListObj = treeViewImageListObj;
-            this.defaultHintLabel = defaultHintLabelObj;
-
             //添加点击事件
-            treeViewObj.AfterSelect += treeViewObj_AfterSelect;
-            #endregion
+            Parent_LeftTreeView.AfterSelect += treeViewObj_AfterSelect;
 
             #region 构建树结构
             TreeNode firstNode = new TreeNode();
@@ -265,7 +223,7 @@ namespace ProjectContractPlugin
             itemObj.Text = "附加条款";
             firstNode.Nodes.Add(itemObj);
 
-            treeViewObj.Nodes.Add(firstNode);
+            Parent_LeftTreeView.Nodes.Add(firstNode);
             firstNode.ExpandAll();
             #endregion
 
@@ -300,7 +258,7 @@ namespace ProjectContractPlugin
             initDB();
 
             //初始化按钮
-            initButtons(topToolStripObj);
+            initButtons(Parent_TopToolStrip);
 
             //初始化编辑控件
             initEditors();
@@ -360,7 +318,7 @@ namespace ProjectContractPlugin
         /// </summary>
         private void switchToProjectContentEditor()
         {
-            treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1].Nodes[0];
+            Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1].Nodes[0];
             refreshEditors();
         }
 
@@ -369,7 +327,7 @@ namespace ProjectContractPlugin
         /// </summary>
         private void switchToProjectEditor()
         {
-            treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
+            Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
         }
 
         /// <summary>
@@ -412,38 +370,38 @@ namespace ProjectContractPlugin
         /// <summary>
         /// 初始化按钮
         /// </summary>
-        /// <param name="topToolStrip"></param>
-        private void initButtons(ToolStrip topToolStrip)
+        /// <param name="Parent_TopToolStrip"></param>
+        private void initButtons(ToolStrip Parent_TopToolStrip)
         {
             ToolStripButton tempButton = null;
 
             tempButton = getTopButton(Resource.help, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            topToolStrip.Items.Insert(0, tempButton);
+            Parent_TopToolStrip.Items.Insert(0, tempButton);
 
             tempButton = getTopButton(Resource.export, "btnExport", "导出", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            topToolStrip.Items.Insert(0, tempButton);
+            Parent_TopToolStrip.Items.Insert(0, tempButton);
 
             tempButton = getTopButton(Resource.word, "btnWordView", "预览", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            topToolStrip.Items.Insert(0, tempButton);
+            Parent_TopToolStrip.Items.Insert(0, tempButton);
 
             tempButton = getTopButton(Resource.import, "btnLoad", "导入", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            topToolStrip.Items.Insert(0, tempButton);
+            Parent_TopToolStrip.Items.Insert(0, tempButton);
 
             tempButton = getTopButton(Resource.w5, "btnNew", "新建", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            topToolStrip.Items.Insert(0, tempButton);
+            Parent_TopToolStrip.Items.Insert(0, tempButton);
 
             tempButton = getTopButton(Resource._new, "btnSaveAll", "保存所有", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            topToolStrip.Items.Insert(0, tempButton);
+            Parent_TopToolStrip.Items.Insert(0, tempButton);
 
             tempButton = getTopButton(Resource.manager, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            topToolStrip.Items.Insert(0, tempButton);
+            Parent_TopToolStrip.Items.Insert(0, tempButton);
         }
 
         /// <summary>
@@ -848,14 +806,14 @@ namespace ProjectContractPlugin
             if (projectObj == null || string.IsNullOrEmpty(projectObj.BianHao))
             {
                 //因为项目信息为空，所以锁定在项目信息页
-                treeViewObj.SelectedNode = treeViewObj.Nodes[treeViewObj.Nodes.Count - 1];
-                showEditor(treeViewObj.SelectedNode.Text);
-                defaultHintLabel.Text = "请填写完整项目信息......";
+                Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
+                showEditor(Parent_LeftTreeView.SelectedNode.Text);
+                Parent_BottomDefaultHintLabel.Text = "请填写完整项目信息......";
             }
             else
             {
                 showEditor(e.Node.Text);
-                defaultHintLabel.Text = "";
+                Parent_BottomDefaultHintLabel.Text = "";
             }
         }
 
@@ -867,9 +825,9 @@ namespace ProjectContractPlugin
         {
             if (editorMap.ContainsKey(nodeTexts))
             {
-                contentObj.Controls.Clear();
+                Parent_RightContentPanel.Controls.Clear();
                 editorMap[nodeTexts].Dock = DockStyle.Fill;
-                contentObj.Controls.Add(editorMap[nodeTexts]);
+                Parent_RightContentPanel.Controls.Add(editorMap[nodeTexts]);
             }
         }
 
