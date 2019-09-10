@@ -48,6 +48,7 @@
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(1063, 51);
             this.lblInfo.TabIndex = 0;
+            this.lblInfo.Visible = false;
             // 
             // plMain
             // 

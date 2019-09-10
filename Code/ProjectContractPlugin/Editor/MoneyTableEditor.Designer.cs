@@ -105,8 +105,9 @@
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(903, 46);
+            this.lblInfo.Size = new System.Drawing.Size(903, 51);
             this.lblInfo.TabIndex = 0;
+            this.lblInfo.Visible = false;
             // 
             // plMain
             // 
@@ -128,9 +129,9 @@
             this.plContent.Controls.Add(this.hSkinTableLayoutPanel2);
             this.plContent.Controls.Add(this.hSkinTableLayoutPanel1);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 56);
+            this.plContent.Location = new System.Drawing.Point(10, 61);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(903, 571);
+            this.plContent.Size = new System.Drawing.Size(903, 566);
             this.plContent.TabIndex = 1;
             // 
             // hSkinTableLayoutPanel2
