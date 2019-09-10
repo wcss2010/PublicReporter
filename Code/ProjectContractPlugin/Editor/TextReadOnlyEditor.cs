@@ -94,5 +94,10 @@ namespace ProjectContractPlugin.Editor
                 txtContent.LoadFile(rtfFile);
             }
         }
+
+        public override bool IsInputCompleted()
+        {
+            return true;
+        }
     }
 }
