@@ -18,7 +18,7 @@ namespace PublicReporterLib.ControlAndForms
         /// <summary>
         /// 插件入口
         /// </summary>
-        public PluginRootClass PluginRoot
+        public PluginRootClass PluginRootObj
         {
             get
             {
