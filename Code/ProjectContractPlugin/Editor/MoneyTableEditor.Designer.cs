@@ -101,9 +101,10 @@
             this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
             this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(903, 46);
             this.lblInfo.TabIndex = 0;
             // 

@@ -129,6 +129,7 @@
             this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(1063, 51);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "合同书是开展合同过程管理和监督评估的重要依据，请科学严谨、实事求是填写合同书，表述要清晰准确。";

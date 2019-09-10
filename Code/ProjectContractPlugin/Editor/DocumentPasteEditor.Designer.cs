@@ -44,21 +44,21 @@
             this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
             this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(1063, 46);
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1063, 51);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "label1";
             // 
             // plContent
             // 
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 56);
+            this.plContent.Location = new System.Drawing.Point(10, 61);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1063, 505);
+            this.plContent.Size = new System.Drawing.Size(1063, 500);
             this.plContent.TabIndex = 1;
             // 
             // plButtons
