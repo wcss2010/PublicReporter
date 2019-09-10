@@ -94,6 +94,8 @@
             // dgvDetail
             // 
             this.dgvDetail.AllowUserToAddRows = false;
+            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.dgvDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -134,67 +136,77 @@
             this.Column1.HeaderText = "序号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 80;
+            this.Column1.Width = 5;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "姓名";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 5;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "性别";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 5;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "职称";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 5;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "专业";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 5;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "工作单位";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 5;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "每年投入时间（月）";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Width = 5;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "任务分工";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 5;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "身份证号码";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Width = 5;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "课题";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
+            this.Column10.Width = 5;
             // 
             // Column11
             // 
             this.Column11.HeaderText = "职务";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            this.Column11.Width = 5;
             // 
             // Column12
             // 
@@ -203,6 +215,7 @@
             this.Column12.ReadOnly = true;
             this.Column12.Text = "删除";
             this.Column12.UseColumnTextForButtonValue = true;
+            this.Column12.Width = 5;
             // 
             // Column13
             // 
@@ -211,6 +224,7 @@
             this.Column13.ReadOnly = true;
             this.Column13.Text = "编辑";
             this.Column13.UseColumnTextForButtonValue = true;
+            this.Column13.Width = 5;
             // 
             // plButtons
             // 

@@ -122,6 +122,7 @@
             this.lblWordInfo.Size = new System.Drawing.Size(893, 38);
             this.lblWordInfo.TabIndex = 1;
             this.lblWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblWordInfo.Visible = false;
             // 
             // btnEditDocument
             // 

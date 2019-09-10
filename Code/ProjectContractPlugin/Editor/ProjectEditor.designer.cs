@@ -327,7 +327,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 27);
             this.label5.TabIndex = 0;
-            this.label5.Text = "起目时间";
+            this.label5.Text = "起止时间";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
