@@ -101,5 +101,10 @@ namespace ProjectContractPlugin.Editor
             }
 
         }
+
+        public override bool IsInputCompleted()
+        {
+            return dgvDetail.Rows.Count >= 1;
+        }
     }
 }

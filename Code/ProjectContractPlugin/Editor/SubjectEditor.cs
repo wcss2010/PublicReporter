@@ -138,5 +138,10 @@ namespace ProjectContractPlugin.Editor
                     RefreshView();
             }
         }
+
+        public override bool IsInputCompleted()
+        {
+            return dgvDetail.Rows.Count >= 1;
+        }
     }
 }
