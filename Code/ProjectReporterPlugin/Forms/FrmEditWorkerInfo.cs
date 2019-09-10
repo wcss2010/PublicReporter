@@ -10,7 +10,7 @@ using ProjectReporterPlugin.DB.Entitys;
 
 namespace ProjectReporterPlugin.Forms
 {
-    public partial class FrmEditWorkerInfo : Form
+    public partial class FrmEditWorkerInfo : PublicReporterLib.SuperForm
     {
         protected Dictionary<string, Project> JobDict = new Dictionary<string, Project>();
 

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateTechnologyQuestion : Form
+    public partial class FrmAddOrUpdateTechnologyQuestion : PublicReporterLib.SuperForm
     {
         public FrmAddOrUpdateTechnologyQuestion(JiShuBiao obj, int count = -1)
         {

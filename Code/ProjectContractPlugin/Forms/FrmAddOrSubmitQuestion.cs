@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrSubmitQuestion : Form
+    public partial class FrmAddOrSubmitQuestion : PublicReporterLib.SuperForm
     {
         public FrmAddOrSubmitQuestion(TiJiaoYaoQiuBiao obj,int count=-1)
         {

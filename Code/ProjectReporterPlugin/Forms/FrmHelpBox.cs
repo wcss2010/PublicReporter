@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ProjectReporterPlugin.Forms
 {
-    public partial class FrmHelpBox : Form
+    public partial class FrmHelpBox : PublicReporterLib.SuperForm
     {
         public FrmHelpBox()
         {

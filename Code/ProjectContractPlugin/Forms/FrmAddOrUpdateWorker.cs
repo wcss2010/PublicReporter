@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateWorker : Form
+    public partial class FrmAddOrUpdateWorker : PublicReporterLib.SuperForm
     {
         List<KeTiBiao> List = new List<KeTiBiao>();
         public FrmAddOrUpdateWorker(RenYuanBiao obj,List<KeTiBiao> list, int count = -1)

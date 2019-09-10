@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmHelpBox : Form
+    public partial class FrmHelpBox : PublicReporterLib.SuperForm
     {
         public FrmHelpBox()
         {

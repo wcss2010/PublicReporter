@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProjectReporterPlugin.Forms
 {
-    public partial class FrmProjectManager : Form
+    public partial class FrmProjectManager : PublicReporterLib.SuperForm
     {
         public FrmProjectManager()
         {
