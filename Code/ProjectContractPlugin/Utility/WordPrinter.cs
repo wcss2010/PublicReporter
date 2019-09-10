@@ -107,7 +107,7 @@ namespace ProjectContractPlugin.Utility
                 NodeCollection ncc = wu.Document.WordDoc.GetChildNodes(NodeType.Table, true);
 
                 #region 插入经费预算数据
-                List<YuSuanBiao> ysList = ConnectionManager.Context.table("YuSuanBiao").orderBy("ModifyTime").select("*").getList<YuSuanBiao>(new YuSuanBiao());
+                List<YuSuanBiao> ysList = ConnectionManager.Context.table("YuSuanBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<YuSuanBiao>(new YuSuanBiao());
 
                 //取数放于字典中
                 Dictionary<string, string> tempDict = new Dictionary<string, string>();
@@ -282,7 +282,7 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入提交要求数据
                 //查询数据
-                List<TiJiaoYaoQiuBiao> tjyqList = ConnectionManager.Context.table("TiJiaoYaoQiuBiao").orderBy("ModifyTime").select("*").getList<TiJiaoYaoQiuBiao>(new TiJiaoYaoQiuBiao());
+                List<TiJiaoYaoQiuBiao> tjyqList = ConnectionManager.Context.table("TiJiaoYaoQiuBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<TiJiaoYaoQiuBiao>(new TiJiaoYaoQiuBiao());
                 //填充数据
                 foreach (Node node in ncc)
                 {
@@ -318,7 +318,7 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入经费拨付约定数据
                 //查询数据
-                List<BoFuBiao> bfydList = ConnectionManager.Context.table("BoFuBiao").orderBy("ModifyTime").select("*").getList<BoFuBiao>(new BoFuBiao());
+                List<BoFuBiao> bfydList = ConnectionManager.Context.table("BoFuBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<BoFuBiao>(new BoFuBiao());
                 //填充数据
                 foreach (Node node in ncc)
                 {
@@ -358,7 +358,7 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入研究进度安排数据
                 //查询数据
-                List<JinDuBiao> jdList = ConnectionManager.Context.table("JinDuBiao").orderBy("ModifyTime").select("*").getList<JinDuBiao>(new JinDuBiao());
+                List<JinDuBiao> jdList = ConnectionManager.Context.table("JinDuBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<JinDuBiao>(new JinDuBiao());
                 //填充数据
                 foreach (Node node in ncc)
                 {
@@ -397,7 +397,7 @@ namespace ProjectContractPlugin.Utility
                 #region 插入技术要求数据
                 wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_年度技术要求");
                 //查询数据
-                List<JiShuBiao> jsList = ConnectionManager.Context.table("JiShuBiao").orderBy("ModifyTime").select("*").getList<JiShuBiao>(new JiShuBiao());
+                List<JiShuBiao> jsList = ConnectionManager.Context.table("JiShuBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<JiShuBiao>(new JiShuBiao());
 
                 int index = 1;
                 foreach (JiShuBiao data in jsList)
@@ -410,7 +410,7 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入考核方式数据
                 wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_主要指标名称及要求与考核方式");
-                List<ZhiBiaoBiao> zbbList = ConnectionManager.Context.table("ZhiBiaoBiao").orderBy("ModifyTime").select("*").getList<ZhiBiaoBiao>(new ZhiBiaoBiao());
+                List<ZhiBiaoBiao> zbbList = ConnectionManager.Context.table("ZhiBiaoBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<ZhiBiaoBiao>(new ZhiBiaoBiao());
                 index = 1;
                 foreach (ZhiBiaoBiao data in zbbList)
                 {
@@ -427,7 +427,7 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入课题情况数据
                 wu.Document.WordDocBuilder.MoveToBookmark("主要研究内容_各课题情况_摘要");
-                List<KeTiBiao> ktList = ConnectionManager.Context.table("KeTiBiao").orderBy("ModifyTime").select("*").getList<KeTiBiao>(new KeTiBiao());
+                List<KeTiBiao> ktList = ConnectionManager.Context.table("KeTiBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<KeTiBiao>(new KeTiBiao());
 
                 index = 1;
                 foreach (KeTiBiao data in ktList)
@@ -446,7 +446,7 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入人员数据
                 //查询数据
-                List<RenYuanBiao> rylist = ConnectionManager.Context.table("RenYuanBiao").orderBy("ModifyTime").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+                List<RenYuanBiao> rylist = ConnectionManager.Context.table("RenYuanBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<RenYuanBiao>(new RenYuanBiao());
                 //填充数据
                 foreach (Node node in ncc)
                 {
