@@ -75,7 +75,17 @@ namespace PublicReporterLib
         /// <param name="contentObj">右边的内容面板</param>
         /// <param name="bottomStatusStripObj">底部状态栏</param>
         /// <param name="defaultHintLabelObj">默认的提示标签</param>
-        public abstract void init(Form mainFormObj, ToolStrip topToolStripObj, ImageList treeViewImageListObj, TreeView treeViewObj, Panel treeViewControlObj,Panel contentObj, StatusStrip bottomStatusStripObj, ToolStripStatusLabel defaultHintLabelObj);
+        public virtual void init(Form mainFormObj, ToolStrip topToolStripObj, ImageList treeViewImageListObj, TreeView treeViewObj, Panel treeViewControlObj, Panel contentObj, StatusStrip bottomStatusStripObj, ToolStripStatusLabel defaultHintLabelObj)
+        {
+            Parent_Form = mainFormObj;
+            Parent_TopToolStrip = topToolStripObj;
+            Parent_LeftTreeViewImageList = treeViewImageListObj;
+            Parent_LeftTreeView = treeViewObj;
+            Parent_LeftTreeViewBottomButtonPanel = treeViewControlObj;
+            Parent_RightContentPanel = contentObj;
+            Parent_BottomStatusStrip = bottomStatusStripObj;
+            Parent_BottomDefaultHintLabel = defaultHintLabelObj;
+        }
 
         /// <summary>
         /// 打印日志
@@ -92,5 +102,45 @@ namespace PublicReporterLib
                 Log(this, lea);
             }
         }
+
+        /// <summary>
+        /// 主窗体的引用
+        /// </summary>
+        public Form Parent_Form { get; set; }
+
+        /// <summary>
+        /// 主窗体中顶部工具条控件的引用
+        /// </summary>
+        public ToolStrip Parent_TopToolStrip { get; set; }
+
+        /// <summary>
+        /// 主窗体中左边的树控件图标列表的引用
+        /// </summary>
+        public ImageList Parent_LeftTreeViewImageList { get; set; }
+
+        /// <summary>
+        /// 主窗体中左边的树控件的引用
+        /// </summary>
+        public TreeView Parent_LeftTreeView { get; set; }
+
+        /// <summary>
+        /// 主窗体中左边的树控件下面的控制面板的引用
+        /// </summary>
+        public Panel Parent_LeftTreeViewBottomButtonPanel { get; set; }
+
+        /// <summary>
+        /// 主窗体中右边的内容面板的引用
+        /// </summary>
+        public Panel Parent_RightContentPanel { get; set; }
+
+        /// <summary>
+        /// 主窗体中底部状态栏的引用
+        /// </summary>
+        public StatusStrip Parent_BottomStatusStrip { get; set; }
+
+        /// <summary>
+        /// 主窗体中默认的提示标签的引用
+        /// </summary>
+        public ToolStripStatusLabel Parent_BottomDefaultHintLabel { get; set; }
     }
 }
