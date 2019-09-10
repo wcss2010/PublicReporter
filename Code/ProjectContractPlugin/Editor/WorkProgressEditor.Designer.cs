@@ -177,10 +177,10 @@
             // Column2
             // 
             this.Column2.HeaderText = "时间";
-            this.Column2.MinimumWidth = 120;
+            this.Column2.MinimumWidth = 130;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 120;
+            this.Column2.Width = 130;
             // 
             // Column3
             // 
