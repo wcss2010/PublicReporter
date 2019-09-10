@@ -383,13 +383,16 @@ namespace ProjectContractPlugin.Utility
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            Paragraph p = wu.getCellContentObj(t, "阶段目标：");                            
+                            Paragraph p = wu.getCellContentObj(t, "阶段目标：");
+                            ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanMuBiao));
                             p = wu.getCellContentObj(t, "完成内容：");
+                            ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.WanChengNeiRong));
                             p = wu.getCellContentObj(t, "阶段成果：");
+                            ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanChengGuo));
                             t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
@@ -408,7 +411,11 @@ namespace ProjectContractPlugin.Utility
                 int index = 1;
                 foreach (JiShuBiao data in jsList)
                 {
-                    wu.Document.WordDocBuilder.Writeln("(" + index + ") " + data.NianDu + "年度：" + data.NeiRong);
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write("(" + index + ") " + data.NianDu + "年度：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.NeiRong);
+                    wu.Document.WordDocBuilder.Writeln();
 
                     index++;
                 }
@@ -420,9 +427,23 @@ namespace ProjectContractPlugin.Utility
                 index = 1;
                 foreach (ZhiBiaoBiao data in zbbList)
                 {
-                    wu.Document.WordDocBuilder.Writeln(index + ".指标名称：" + data.ZhiBiaoMingCheng);
-                    wu.Document.WordDocBuilder.Writeln("(1) 指标要求：" + data.ZhiBiaoYaoQiu);
-                    wu.Document.WordDocBuilder.Writeln("(2) 考核方式：" + data.KaoHeFangShi);
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write(index + ".指标名称：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.ZhiBiaoMingCheng);
+                    wu.Document.WordDocBuilder.Writeln();
+                    
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write("(1) 指标要求：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.ZhiBiaoYaoQiu);
+                    wu.Document.WordDocBuilder.Writeln();
+
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write("(2) 考核方式：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.KaoHeFangShi);
+                    wu.Document.WordDocBuilder.Writeln();
 
                     index++;
                 }
@@ -441,10 +462,29 @@ namespace ProjectContractPlugin.Utility
                     string subjectRealName = "课题" + index;
                     subjectDict[data.BianHao] = subjectRealName;
 
-                    wu.Document.WordDocBuilder.Writeln(subjectRealName + "：" + data.KeTiMingCheng);
-                    wu.Document.WordDocBuilder.Writeln("（1）研究目标：" + data.KeTiYanJiuMuBiao);
-                    wu.Document.WordDocBuilder.Writeln("（2）研究内容：" + data.KeTiYanJiuNeiRong);
-                    wu.Document.WordDocBuilder.Writeln("（3）参加单位分工：" + data.KeTiCanJiaDanWeiFenGong);
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write(subjectRealName + "：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.KeTiMingCheng);
+                    wu.Document.WordDocBuilder.Writeln();
+
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write("（1）研究目标：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.KeTiYanJiuMuBiao);
+                    wu.Document.WordDocBuilder.Writeln();
+
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write("（2）研究内容：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.KeTiYanJiuNeiRong);
+                    wu.Document.WordDocBuilder.Writeln();
+
+                    wu.Document.WordDocBuilder.Font.Bold = true;
+                    wu.Document.WordDocBuilder.Write("（3）参加单位分工：");
+                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    wu.Document.WordDocBuilder.Write(data.KeTiCanJiaDanWeiFenGong);
+                    wu.Document.WordDocBuilder.Writeln();
 
                     index++;
                 }
