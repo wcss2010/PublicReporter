@@ -99,7 +99,7 @@ namespace ProjectReporterPlugin.Editor
                 }
                 else
                 {
-                    string file = Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).filesDir, EditorName + ".doc");
+                    string file = Path.Combine(PluginRootObj.filesDir, EditorName + ".doc");
                     if (File.Exists(file))
                     {
                         try
@@ -140,7 +140,7 @@ namespace ProjectReporterPlugin.Editor
 
         public override bool IsInputCompleted()
         {
-            return File.Exists(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).filesDir, EditorName + ".doc"));
+            return File.Exists(Path.Combine(PluginRootObj.filesDir, EditorName + ".doc"));
         }
     }
 }

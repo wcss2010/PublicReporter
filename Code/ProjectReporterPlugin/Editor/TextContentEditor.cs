@@ -119,7 +119,7 @@ namespace ProjectReporterPlugin.Editor
 
         private string getTxtFilePath()
         {
-            return Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).filesDir, EditorName + ".txt");
+            return Path.Combine(PluginRootObj.filesDir, EditorName + ".txt");
         }
 
         public override bool IsInputCompleted()
