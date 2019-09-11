@@ -275,7 +275,6 @@
             this.plTitle.Location = new System.Drawing.Point(9, 5);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
-            this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.plTitle.Size = new System.Drawing.Size(840, 28);
             this.plTitle.TabIndex = 0;
             // 
@@ -286,9 +285,9 @@
             this.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Font = new System.Drawing.Font("仿宋", 15F);
-            this.lblTitle.Location = new System.Drawing.Point(6, 0);
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(834, 28);
+            this.lblTitle.Size = new System.Drawing.Size(840, 28);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = ".............";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -161,7 +161,6 @@
             this.plTitle.Location = new System.Drawing.Point(14, 10);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
-            this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.plTitle.Size = new System.Drawing.Size(893, 40);
             this.plTitle.TabIndex = 0;
             // 
@@ -171,10 +170,10 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("仿宋", 15F);
-            this.label1.Location = new System.Drawing.Point(6, 0);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(887, 40);
+            this.label1.Size = new System.Drawing.Size(893, 40);
             this.label1.TabIndex = 1;
             this.label1.Text = "课题阶段划分和经费安排";
             // 
