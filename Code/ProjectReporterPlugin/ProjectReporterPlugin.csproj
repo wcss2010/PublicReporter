@@ -368,6 +368,13 @@
     <Content Include="Helper\readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\word.png" />
+    <None Include="Resources\w51.png" />
+    <None Include="Resources\manager.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -421,34 +421,33 @@ namespace ProjectReporterPlugin
         /// <param name="Parent_TopToolStrip"></param>
         private void initButtons(ToolStrip Parent_TopToolStrip)
         {
-            Image img = Resource.w5;
             ToolStripButton tempButton = null;
 
-            tempButton = getTopButton(img, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.help, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             Parent_TopToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = getTopButton(img, "btnExport", "导出", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.export, "btnExport", "导出", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             Parent_TopToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = getTopButton(img, "btnWordView", "预览", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.word, "btnWordView", "预览", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             Parent_TopToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = getTopButton(img, "btnLoad", "导入", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.import, "btnLoad", "导入", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             Parent_TopToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = getTopButton(img, "btnNew", "新建", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.w5, "btnNew", "新建", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             Parent_TopToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = getTopButton(img, "btnSaveAll", "保存所有", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource._new, "btnSaveAll", "保存所有", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             Parent_TopToolStrip.Items.Insert(0, tempButton);
 
-            tempButton = getTopButton(img, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.manager, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             Parent_TopToolStrip.Items.Insert(0, tempButton);
         }
