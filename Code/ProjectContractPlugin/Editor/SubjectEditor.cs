@@ -80,9 +80,15 @@ namespace ProjectContractPlugin.Editor
         {
             if (dgvDetail.SelectedRows.Count == 1)
             {
+                int statusNum = 0;
+                try
+                {
+                    statusNum = Int32.Parse(((KeTiBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai);
+                }
+                catch (Exception ex) { }
 
                 //显示编辑窗体
-                FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject(null, Int32.Parse(((KeTiBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai) + 1);
+                FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject(null, statusNum + 1);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();

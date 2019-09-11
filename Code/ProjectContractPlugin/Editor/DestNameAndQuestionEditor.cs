@@ -76,9 +76,15 @@ namespace ProjectContractPlugin.Editor
         {
             if (dgvDetail.SelectedRows.Count == 1)
             {
+                int statusNum = 0;
+                try
+                {
+                    statusNum = Int32.Parse(((ZhiBiaoBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai);
+                }
+                catch (Exception ex) { }
 
                 //显示编辑窗体
-                FrmAddOrUpdateDestNameAndQuestion form = new FrmAddOrUpdateDestNameAndQuestion(null, Int32.Parse(((ZhiBiaoBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai) + 1);
+                FrmAddOrUpdateDestNameAndQuestion form = new FrmAddOrUpdateDestNameAndQuestion(null, statusNum + 1);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();
