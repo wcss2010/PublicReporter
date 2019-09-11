@@ -90,5 +90,22 @@ namespace PublicReporterLib
                 }
             }
         }
+
+        /// <summary>
+        /// 获得本地插件入口
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T getLocalPluginRoot<T>() where T : IReportPluginRoot
+        {
+            if (CurrentPlugin != null)
+            {
+                return (T)CurrentPlugin;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
