@@ -44,9 +44,9 @@ namespace ProjectContractPlugin.Editor
         {
             base.RefreshView();
 
-            if (((PluginRoot)PluginLoader.CurrentPlugin).projectObj != null)
+            if (PluginRootObj.projectObj != null)
             {
-                JiBenXinXiBiao obj = ((PluginRoot)PluginLoader.CurrentPlugin).projectObj;
+                JiBenXinXiBiao obj = PluginRootObj.projectObj;
                 ibEdit1.Text = obj.HeTongBianHao;
                 ibEdit2.Text = obj.HeTongMingCheng;
                 ibEdit3.Text = obj.HeTongMiJi;

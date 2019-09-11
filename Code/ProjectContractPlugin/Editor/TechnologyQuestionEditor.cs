@@ -119,7 +119,7 @@ namespace ProjectContractPlugin.Editor
 
         private string getTxtFilePath()
         {
-            return Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).filesDir, EditorName + ".txt");
+            return Path.Combine(PluginRootObj.filesDir, EditorName + ".txt");
         }
 
         private void btnSave_Click(object sender, EventArgs e)

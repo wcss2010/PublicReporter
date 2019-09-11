@@ -16,7 +16,7 @@ namespace ProjectContractPlugin.Forms
         {
             InitializeComponent();
 
-            this.txtContent.LoadFile(Path.Combine(((PluginRoot)PluginLoader.CurrentPlugin).RootDir, Path.Combine("Helper", "help.rtf")));
+            this.txtContent.LoadFile(Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "help.rtf")));
         }
     }
 }
