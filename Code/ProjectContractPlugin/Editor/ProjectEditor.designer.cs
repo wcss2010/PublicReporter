@@ -607,6 +607,11 @@
             this.ibEdit4.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit4.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit4.Location = new System.Drawing.Point(127, 0);
+            this.ibEdit4.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.ibEdit4.Name = "ibEdit4";
             this.ibEdit4.Size = new System.Drawing.Size(68, 26);
             this.ibEdit4.TabIndex = 3;
@@ -630,6 +635,7 @@
             this.ibEdit3.FormattingEnabled = true;
             this.ibEdit3.ItemHeight = 16;
             this.ibEdit3.Items.AddRange(new object[] {
+            "公开",
             "秘密",
             "机密",
             "绝密"});
@@ -760,6 +766,11 @@
             this.ibEdit9.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit9.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit9.Location = new System.Drawing.Point(0, 0);
+            this.ibEdit9.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.ibEdit9.Name = "ibEdit9";
             this.ibEdit9.Size = new System.Drawing.Size(121, 26);
             this.ibEdit9.TabIndex = 0;

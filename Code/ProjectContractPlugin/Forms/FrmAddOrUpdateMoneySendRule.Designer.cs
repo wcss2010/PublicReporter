@@ -43,7 +43,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(16, 18);
+            this.label1.Location = new System.Drawing.Point(66, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 16);
             this.label1.TabIndex = 0;
@@ -53,19 +54,21 @@
             // 
             this.txtContent.AcceptsReturn = true;
             this.txtContent.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtContent.Location = new System.Drawing.Point(99, 57);
+            this.txtContent.Location = new System.Drawing.Point(152, 76);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtContent.Size = new System.Drawing.Size(486, 120);
+            this.txtContent.Size = new System.Drawing.Size(647, 159);
             this.txtContent.TabIndex = 2;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(413, 287);
+            this.btnSave.Location = new System.Drawing.Point(551, 383);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 32);
+            this.btnSave.Size = new System.Drawing.Size(111, 43);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -75,7 +78,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(16, 103);
+            this.label2.Location = new System.Drawing.Point(66, 137);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 0;
@@ -84,9 +88,10 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(502, 287);
+            this.btnClose.Location = new System.Drawing.Point(669, 383);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(83, 32);
+            this.btnClose.Size = new System.Drawing.Size(111, 43);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "取消";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -94,17 +99,19 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 16);
+            this.dateTimePicker1.Location = new System.Drawing.Point(152, 21);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(215, 21);
+            this.dateTimePicker1.Size = new System.Drawing.Size(285, 26);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(16, 209);
+            this.label4.Location = new System.Drawing.Point(-5, 266);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 44);
+            this.label4.Size = new System.Drawing.Size(168, 59);
             this.label4.TabIndex = 13;
             this.label4.Text = "经费金额（万元）：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -117,16 +124,22 @@
             0,
             0,
             65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(99, 214);
+            this.numericUpDown1.Location = new System.Drawing.Point(152, 285);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(215, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(285, 26);
             this.numericUpDown1.TabIndex = 14;
             // 
             // FrmAddOrUpdateMoneySendRule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 347);
+            this.ClientSize = new System.Drawing.Size(836, 463);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnClose);
@@ -136,10 +149,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddOrUpdateMoneySendRule";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新增/编辑进度要求";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
