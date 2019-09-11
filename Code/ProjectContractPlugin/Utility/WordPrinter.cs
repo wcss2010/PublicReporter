@@ -550,7 +550,7 @@ namespace ProjectContractPlugin.Utility
                             string roleName = subjectDict.ContainsKey(data.KeTiBiaoHao) ? subjectDict[data.KeTiBiaoHao] + data.ZhiWu : "未知";
 
                             t.Rows[rowStart].Cells[9].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[9].AppendChild(wu.getCellContentObj(t, roleName));
+                            t.Rows[rowStart].Cells[9].AppendChild(wu.getCellContentObj(t, (data.ShiXiangMuFuZeRen == "true"?"项目负责人兼":"") + roleName));
                             t.Rows[rowStart].Cells[9].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             rowStart++;
