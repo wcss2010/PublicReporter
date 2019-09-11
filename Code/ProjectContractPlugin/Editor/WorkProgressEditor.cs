@@ -125,7 +125,7 @@ namespace ProjectContractPlugin.Editor
                     if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //删除数据
-                        ConnectionManager.Context.table("JiShuBiao").where("BianHao='" + ((JinDuBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
+                        ConnectionManager.Context.table("JinDuBiao").where("BianHao='" + ((JinDuBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
 
                         //刷新
                         RefreshView();
