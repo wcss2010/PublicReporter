@@ -27,7 +27,7 @@ namespace ProjectReporterPlugin.Utility
         public static void wordOutput(CircleProgressBarDialog progressDialog)
         {
             //判断是否加载了项目信息
-            PluginRoot pt = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin);
+            PluginRoot pt = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>();
             if (pt.projectObj == null)
             {
                 return;

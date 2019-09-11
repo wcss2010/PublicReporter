@@ -85,10 +85,10 @@ namespace ProjectReporterPlugin.Forms
             //string projectB = "项目-成员";
             cbxItemJobs.Items.Add(projectA);
             //cbxItemJobs.Items.Add(projectB);
-            JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj);
+            JobDict.Add(projectA, PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj);
             //JobDict.Add(projectB, MainForm.Instance.ProjectObj);
 
-            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
             if (ketiList != null)
             {
                 foreach (Project proj in ketiList)
@@ -229,7 +229,7 @@ namespace ProjectReporterPlugin.Forms
             {
                 //新行
                 task = new Task();
-                task.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                task.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID;
                 task.Type = "项目";
             }
             else

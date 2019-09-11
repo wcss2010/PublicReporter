@@ -26,7 +26,7 @@ namespace ProjectReporterPlugin.Editor
             FrmEditWorkerInfo form = new FrmEditWorkerInfo(null);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
             }
         }
 
@@ -62,9 +62,9 @@ namespace ProjectReporterPlugin.Editor
 
             //项目的负责人和成员
             string projectA = "项目负责人";
-            JobDict.Add(projectA, ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj);
+            JobDict.Add(projectA, PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj);
 
-            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+            List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
             if (ketiList != null)
             {
                 foreach (Project proj in ketiList)
@@ -79,7 +79,7 @@ namespace ProjectReporterPlugin.Editor
 
         private void UpdateTaskList()
         {
-            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "') or ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+            TaskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID + "') or ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();            
@@ -230,7 +230,7 @@ namespace ProjectReporterPlugin.Editor
                         FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
                         if (form.ShowDialog() == DialogResult.OK)
                         {
-                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                            PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
                         }
                     }
                 }
@@ -243,7 +243,7 @@ namespace ProjectReporterPlugin.Editor
                         if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             ConnectionManager.Context.table("Task").where("ID='" + task.ID + "'").delete();
-                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                            PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
                         }
                     }
                     else
@@ -355,7 +355,7 @@ namespace ProjectReporterPlugin.Editor
                 FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
                 }
             }
         }
@@ -554,16 +554,16 @@ namespace ProjectReporterPlugin.Editor
                 PersonObj.copyTo(ConnectionManager.Context.table("Person")).insert();
 
                 //添加/修改Task
-                Task task = ConnectionManager.Context.table("Task").where("IDCard='" + personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name : subjectName) + "')").select("*").getItem<Task>(new Task());
+                Task task = ConnectionManager.Context.table("Task").where("IDCard='" + personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(subjectName) ? PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.Name : subjectName) + "')").select("*").getItem<Task>(new Task());
                 if (task == null || string.IsNullOrEmpty(task.ID))
                 {
                     //新行
                     task = new Task();
-                    task.ProjectID = ConnectionManager.Context.table("Project").where("Name = '" + (string.IsNullOrEmpty(subjectName) ? ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name : subjectName) + "'").select("ID").getValue<string>(string.Empty);
+                    task.ProjectID = ConnectionManager.Context.table("Project").where("Name = '" + (string.IsNullOrEmpty(subjectName) ? PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.Name : subjectName) + "'").select("ID").getValue<string>(string.Empty);
                     task.DisplayOrder = GetMaxDisplayOrder() + 1;
                 }
 
-                task.Type = string.IsNullOrEmpty(subjectName) || subjectName == ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name ? "项目" : "课题";
+                task.Type = string.IsNullOrEmpty(subjectName) || subjectName == PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.Name ? "项目" : "课题";
                 task.Role = jobInProjectOrSubject;
 
                 task.PersonID = PersonObj.ID;
@@ -593,7 +593,7 @@ namespace ProjectReporterPlugin.Editor
 
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, Path.Combine("Helper", "lianxiren.xls"));
+            string sourcePath = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, Path.Combine("Helper", "lianxiren.xls"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.xls|*.xls";

@@ -2083,7 +2083,7 @@ namespace ProjectReporterPlugin.Editor
 
         private void ConvertMoneyData()
         {
-            pbinfo = GetBudgetInfoObject(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID);
+            pbinfo = GetBudgetInfoObject(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID);
         }
 
         public static ProjectBudgetInfo GetBudgetInfoObject(string projectId)
@@ -2135,9 +2135,9 @@ namespace ProjectReporterPlugin.Editor
             #endregion
 
             //清空年度经费表
-            if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj != null)
             {
-                ConnectionManager.Context.table("MoneyAndYear").where("ProjectID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").delete();
+                ConnectionManager.Context.table("MoneyAndYear").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID + "'").delete();
                 if (pbinfo != null)
                 {
                     PropertyInfo[] props = pbinfo.GetType().GetProperties();
@@ -2154,7 +2154,7 @@ namespace ProjectReporterPlugin.Editor
                         {
                             MoneyAndYear may = new MoneyAndYear();
                             may.ID = Guid.NewGuid().ToString();
-                            may.ProjectID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                            may.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID;
                             may.Name = pi.Name;
                             may.Value = val.ToString();
 
@@ -2172,7 +2172,7 @@ namespace ProjectReporterPlugin.Editor
          
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, Path.Combine("Helper", "TianBaoShuoMing.docx"));
+            string sourcePath = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, Path.Combine("Helper", "TianBaoShuoMing.docx"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.docx|*.docx";
@@ -2194,7 +2194,7 @@ namespace ProjectReporterPlugin.Editor
 
         private void lklDownloadExcel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, Path.Combine("Helper", "jingfei.xls"));
+            string sourcePath = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, Path.Combine("Helper", "jingfei.xls"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.xls|*.xls";

@@ -287,11 +287,11 @@ namespace ProjectContractPlugin.Editor
                 return;
             }
 
-            JiBenXinXiBiao obj = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj;
+            JiBenXinXiBiao obj = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj;
             if (obj == null)
             {
-                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = new JiBenXinXiBiao();
-                obj = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj;
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj = new JiBenXinXiBiao();
+                obj = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj;
             }
 
             obj.HeTongBianHao = ibEdit1.Text;

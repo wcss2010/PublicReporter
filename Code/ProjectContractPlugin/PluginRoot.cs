@@ -476,7 +476,7 @@ namespace ProjectContractPlugin
                                 DB.ConnectionManager.Close();
 
                                 //当前项目目录
-                                string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), "Current");
+                                string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
 
                                 ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
                                 ((CircleProgressBarDialog)thisObject).ReportInfo("正在导出...");
@@ -493,10 +493,10 @@ namespace ProjectContractPlugin
                                 catch (Exception ex) { }
 
                                 //重启软件
-                                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
+                                PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().enabledShowExitHint = false;
                                 DB.ConnectionManager.Close();
                                 System.Diagnostics.Process.Start(Application.ExecutablePath);
-                                ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
+                                PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj = null;
                                 Application.Exit();
                             }));
                         }
@@ -546,10 +546,10 @@ namespace ProjectContractPlugin
                                     DB.ConnectionManager.Close();
 
                                     //当前项目目录
-                                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), "Current");
+                                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
 
                                     //backup
-                                    string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), uuid);
+                                    string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), uuid);
 
                                     ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
                                     ((CircleProgressBarDialog)thisObject).ReportInfo("清空当前目录...");
@@ -603,10 +603,10 @@ namespace ProjectContractPlugin
                                     catch (Exception ex) { }
 
                                     //重启软件
-                                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
+                                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().enabledShowExitHint = false;
                                     DB.ConnectionManager.Close();
                                     System.Diagnostics.Process.Start(Application.ExecutablePath);
-                                    ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
+                                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj = null;
                                     Application.Exit();
 
                                 }));
@@ -620,7 +620,7 @@ namespace ProjectContractPlugin
                         DB.ConnectionManager.Close();
 
                         //当前项目目录
-                        string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).RootDir, "Data"), "Current");
+                        string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
 
                         //移动当前目录
                         if (System.IO.Directory.Exists(currentPath))
@@ -628,10 +628,10 @@ namespace ProjectContractPlugin
                             System.IO.Directory.Delete(currentPath, true);
                         }
 
-                        ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).enabledShowExitHint = false;
+                        PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().enabledShowExitHint = false;
                         DB.ConnectionManager.Close();
                         System.Diagnostics.Process.Start(Application.ExecutablePath);
-                        ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = null;
+                        PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj = null;
                         Application.Exit();
                     }
                     break;

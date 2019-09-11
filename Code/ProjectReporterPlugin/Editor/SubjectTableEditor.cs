@@ -63,9 +63,9 @@ namespace ProjectReporterPlugin.Editor
 
         private void UpdateKeTiList()
         {
-            if (((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj != null)
             {
-                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
 
                 dgvDetail.Rows.Clear();
                 ((DataGridViewImageColumn)dgvDetail.Columns[dgvDetail.Columns.Count - 1]).Image = ProjectReporterPlugin.Resource.DELETE_28;
@@ -163,7 +163,7 @@ namespace ProjectReporterPlugin.Editor
                             ConnectionManager.Context.table("MoneyAndType").where("ProjectID='" + kett.ID + "'").delete();
 
                             //UpdateKeTiList();
-                            ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                            PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
                         }
                         #endregion
                     }
@@ -418,7 +418,7 @@ namespace ProjectReporterPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                    proj.ParentID = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
@@ -510,7 +510,7 @@ namespace ProjectReporterPlugin.Editor
                 RefreshView();
 
                 //刷新课题阶段划分表
-                foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).editorMap.Values)
+                foreach (BaseEditor be in PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().editorMap.Values)
                 {
                     if (be is SubjectStepMoneyEditor)
                     {
@@ -625,7 +625,7 @@ namespace ProjectReporterPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                    proj.ParentID = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
@@ -747,7 +747,7 @@ namespace ProjectReporterPlugin.Editor
         /// </summary>
         private void SyncStepList()
         {
-            foreach (BaseEditor be in ((PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).editorMap.Values)
+            foreach (BaseEditor be in PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().editorMap.Values)
             {
                 if (be is ProjectStepMoneyEditor)
                 {
