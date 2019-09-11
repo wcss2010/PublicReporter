@@ -111,15 +111,25 @@ namespace ProjectContractPlugin.Editor
         {
             if (dgvDetail.SelectedRows.Count == 1)
             {
-                int statusNum = 0;
+                double statusNum = 0;
                 try
                 {
-                    statusNum = Int32.Parse(((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai);
+                    if (dgvDetail.SelectedRows[0].Index + 1 == dgvDetail.Rows.Count)
+                    {
+                        statusNum = ((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai + 1;
+                    }
+                    else
+                    {
+                        double a = ((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai;
+                        double b = ((RenYuanBiao)dgvDetail.Rows[dgvDetail.SelectedRows[0].Index + 1].Tag).ZhuangTai;
+
+                        statusNum = (a + b) / 2;
+                    }
                 }
                 catch (Exception ex) { }
 
                 //显示编辑窗体
-                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, statusNum + 1);
+                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, statusNum);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();
@@ -129,6 +139,24 @@ namespace ProjectContractPlugin.Editor
             {
                 MessageBox.Show("请选中需要一条数据，新数据将在其后插入");
                 return;
+            }
+        }
+
+        private void btnDelAll_Click(object sender, EventArgs e)
+        {
+            if (dgvDetail.SelectedRows.Count >= 1)
+            {
+                if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //删除数据
+                    foreach (DataGridViewRow dgvRow in dgvDetail.SelectedRows)
+                    {
+                        ConnectionManager.Context.table("RenYuanBiao").where("BianHao='" + ((RenYuanBiao)dgvRow.Tag).BianHao + "'").delete();
+                    }
+
+                    //刷新
+                    RefreshView();
+                }
             }
         }
     }

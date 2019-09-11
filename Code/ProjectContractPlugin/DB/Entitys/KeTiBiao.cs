@@ -31,7 +31,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public string KeTiYanJiuMuBiao { get; set; }
         public string KeTiYanJiuNeiRong { get; set; }
         public string KeTiCanJiaDanWeiFenGong { get; set; }
-        public string ZhuangTai { get; set; }
+        public double ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
@@ -40,7 +40,7 @@ namespace ProjectContractPlugin.DB.Entitys
             KeTiYanJiuMuBiao = source("KeTiYanJiuMuBiao").value<string>("");
             KeTiYanJiuNeiRong = source("KeTiYanJiuNeiRong").value<string>("");
             KeTiCanJiaDanWeiFenGong = source("KeTiCanJiaDanWeiFenGong").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<string>("");
+            ZhuangTai = source("ZhuangTai").value<double>(0);
 
             ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
         }

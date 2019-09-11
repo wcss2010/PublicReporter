@@ -27,14 +27,14 @@ namespace ProjectContractPlugin.DB.Entitys
         public string BianHao { get; set; }
         public string MingCheng { get; set; }
         public string ShuJu { get; set; }
-        public string ZhuangTai { get; set; }
+        public double ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
             BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
             MingCheng = source("MingCheng").value<string>("");
             ShuJu = source("ShuJu").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<string>("");
+            ZhuangTai = source("ZhuangTai").value<double>(0);
             ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
         }
 

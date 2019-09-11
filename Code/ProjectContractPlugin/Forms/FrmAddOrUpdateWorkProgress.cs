@@ -13,7 +13,7 @@ namespace ProjectContractPlugin.Forms
 {
     public partial class FrmAddOrUpdateWorkProgress : PublicReporterLib.SuperForm
     {
-        public FrmAddOrUpdateWorkProgress(JinDuBiao obj,int count=-1)
+        public FrmAddOrUpdateWorkProgress(JinDuBiao obj, double count = -1)
         {
             InitializeComponent();
 
@@ -33,7 +33,7 @@ namespace ProjectContractPlugin.Forms
         }
 
         public JinDuBiao DataObj { get; set; }
-        public int  Count { get; set; }
+        public double Count { get; set; }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -60,7 +60,7 @@ namespace ProjectContractPlugin.Forms
             {
                 DataObj.BianHao = Guid.NewGuid().ToString();
                 if (Count >= 0)
-                    DataObj.ZhuangTai = Count.ToString("D3");
+                    DataObj.ZhuangTai = Count;
                 DataObj.copyTo(ConnectionManager.Context.table("JinDuBiao")).insert();
             }
             else

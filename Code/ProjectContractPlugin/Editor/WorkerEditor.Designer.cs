@@ -269,6 +269,7 @@
             this.btnDelAll.Size = new System.Drawing.Size(90, 30);
             this.btnDelAll.TabIndex = 2;
             this.btnDelAll.Text = "删除选中";
+            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
             // 
             // btnSave
             // 

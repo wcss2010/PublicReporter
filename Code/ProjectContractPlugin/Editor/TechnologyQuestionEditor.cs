@@ -147,15 +147,25 @@ namespace ProjectContractPlugin.Editor
         {
             if (dgvDetail.SelectedRows.Count == 1)
             {
-                int statusNum = 0;
+                double statusNum = 0;
                 try
                 {
-                    statusNum = Int32.Parse(((JiShuBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai);
+                    if (dgvDetail.SelectedRows[0].Index + 1 == dgvDetail.Rows.Count)
+                    {
+                        statusNum = ((JiShuBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai + 1;
+                    }
+                    else
+                    {
+                        double a = ((JiShuBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai;
+                        double b = ((JiShuBiao)dgvDetail.Rows[dgvDetail.SelectedRows[0].Index + 1].Tag).ZhuangTai;
+
+                        statusNum = (a + b) / 2;
+                    }
                 }
                 catch (Exception ex) { }
-
+                
                 //显示编辑窗体
-                FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion(null, statusNum + 1);
+                FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion(null, statusNum);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();

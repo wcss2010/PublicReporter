@@ -13,7 +13,7 @@ namespace ProjectContractPlugin.Forms
 {
     public partial class FrmAddOrUpdateMoneySendRule : PublicReporterLib.SuperForm
     {
-        public FrmAddOrUpdateMoneySendRule(BoFuBiao obj,int count=-1)
+        public FrmAddOrUpdateMoneySendRule(BoFuBiao obj, double count = -1)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace ProjectContractPlugin.Forms
         }
 
         public BoFuBiao DataObj { get; set; }
-        public int  Count { get; set; }
+        public double Count { get; set; }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -57,7 +57,7 @@ namespace ProjectContractPlugin.Forms
             {
                 DataObj.BianHao = Guid.NewGuid().ToString();
                 if (Count >= 0)
-                    DataObj.ZhuangTai = Count.ToString("D3");
+                    DataObj.ZhuangTai = Count;
                 DataObj.copyTo(ConnectionManager.Context.table("BoFuBiao")).insert();
             }
             else

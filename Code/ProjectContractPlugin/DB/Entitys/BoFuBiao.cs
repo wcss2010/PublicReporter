@@ -29,7 +29,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public string BoFuTiaoJian { get; set; }
         public DateTime YuJiShiJian { get; set; }
         public decimal JingFeiJinQian { get; set; }
-        public string ZhuangTai { get; set; }
+        public double ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
@@ -37,7 +37,7 @@ namespace ProjectContractPlugin.DB.Entitys
             BoFuTiaoJian = source("BoFuTiaoJian").value<string>("");
             YuJiShiJian = source("YuJiShiJian").value<DateTime>(DateTime.Now);
             JingFeiJinQian = source("JingFeiJinQian").value<decimal>(0);
-            ZhuangTai = source("ZhuangTai").value<string>("");
+            ZhuangTai = source("ZhuangTai").value<double>(0);
             ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
         }
 
