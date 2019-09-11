@@ -50,7 +50,6 @@
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(1063, 50);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "label1";
             // 
             // plContent
             // 
