@@ -16,7 +16,7 @@ namespace ProjectContractPlugin.Editor
     /// <summary>
     /// 文档编辑控件
     /// </summary>
-    public partial class TextReadOnlyEditor : BaseEditor
+    public partial class TogetherRuleEditor : BaseEditor
     {
         /// <summary>
         /// 编辑器名称
@@ -78,12 +78,12 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public TextReadOnlyEditor()
+        public TogetherRuleEditor()
         {
             InitializeComponent();
         }
 
-        public TextReadOnlyEditor(string name, string info,string rtfFile)
+        public TogetherRuleEditor(string name, string info,string rtfFile)
             : this()
         {
             EditorName = name;
@@ -98,6 +98,11 @@ namespace ProjectContractPlugin.Editor
             if (File.Exists(RTFFile))
             {
                 txtContent.LoadFile(RTFFile);
+
+                txtContent.Text = txtContent.Text.Replace("{%Num1%}", "XX");
+                txtContent.Text = txtContent.Text.Replace("{%Num2%}", "XX");
+                txtContent.Text = txtContent.Text.Replace("{%Num3%}", "XX");
+                txtContent.Text = txtContent.Text.Replace("{%Num4%}", "XX");
             }
         }
 

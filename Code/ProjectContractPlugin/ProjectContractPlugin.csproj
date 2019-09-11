@@ -191,6 +191,12 @@
     <Compile Include="Editor\WorkProgressEditor.Designer.cs">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\TogetherRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\TogetherRuleEditor.Designer.cs">
+      <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\WorkProgressEditor.resx">
       <DependentUpon>WorkProgressEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TogetherRuleEditor.resx">
+      <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateDestNameAndQuestion.resx">
       <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>

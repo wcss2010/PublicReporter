@@ -43,6 +43,7 @@ namespace ProjectContractPlugin.Forms
                 comboBox2.SelectedValue = DataObj.KeTiBiaoHao;
                 comboBox3.SelectedItem = DataObj.ZhiWu;
                 numericUpDown1.Value = DataObj.MeiNianTouRuShiJian;
+                isProjectMaster.Checked = DataObj.ShiXiangMuFuZeRen == "true";
             }
             else
             {
@@ -87,6 +88,7 @@ namespace ProjectContractPlugin.Forms
                 DataObj.KeTiBiaoHao = comboBox2.SelectedValue.ToString();
                 DataObj.ZhiWu = comboBox3.SelectedItem.ToString();
                 DataObj.MeiNianTouRuShiJian = Convert.ToInt32(numericUpDown1.Value);
+                DataObj.ShiXiangMuFuZeRen = isProjectMaster.Checked ? "true" : "false";
 
                 if (string.IsNullOrEmpty(DataObj.BianHao))
                 {

@@ -50,6 +50,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.isProjectMaster = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,8 +68,8 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(551, 415);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(550, 440);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 43);
             this.btnSave.TabIndex = 3;
@@ -79,8 +80,8 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(669, 415);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Location = new System.Drawing.Point(668, 440);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 43);
             this.btnClose.TabIndex = 3;
@@ -91,7 +92,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(132, 19);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(253, 26);
             this.textBox1.TabIndex = 4;
@@ -115,7 +116,7 @@
             "男",
             "女"});
             this.comboBox1.Location = new System.Drawing.Point(600, 20);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(179, 24);
             this.comboBox1.TabIndex = 10;
@@ -123,7 +124,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(132, 81);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(253, 26);
             this.textBox2.TabIndex = 12;
@@ -142,7 +143,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(600, 77);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(179, 26);
             this.textBox4.TabIndex = 14;
@@ -161,7 +162,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(132, 149);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(647, 26);
             this.textBox5.TabIndex = 16;
@@ -180,7 +181,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(132, 208);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(647, 26);
             this.textBox6.TabIndex = 18;
@@ -199,7 +200,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(132, 271);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(253, 26);
             this.textBox7.TabIndex = 22;
@@ -229,7 +230,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(600, 271);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -247,7 +248,7 @@
             "负责人",
             "成员"});
             this.comboBox2.Location = new System.Drawing.Point(132, 335);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(253, 24);
             this.comboBox2.TabIndex = 25;
@@ -271,7 +272,7 @@
             "负责人",
             "成员"});
             this.comboBox3.Location = new System.Drawing.Point(600, 335);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(179, 24);
             this.comboBox3.TabIndex = 27;
@@ -287,11 +288,23 @@
             this.label10.TabIndex = 26;
             this.label10.Text = "课题：";
             // 
+            // isProjectMaster
+            // 
+            this.isProjectMaster.AutoSize = true;
+            this.isProjectMaster.ForeColor = System.Drawing.Color.Black;
+            this.isProjectMaster.Location = new System.Drawing.Point(132, 393);
+            this.isProjectMaster.Name = "isProjectMaster";
+            this.isProjectMaster.Size = new System.Drawing.Size(155, 20);
+            this.isProjectMaster.TabIndex = 28;
+            this.isProjectMaster.Text = "是否为项目负责人";
+            this.isProjectMaster.UseVisualStyleBackColor = true;
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 501);
+            this.ClientSize = new System.Drawing.Size(836, 509);
+            this.Controls.Add(this.isProjectMaster);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox2);
@@ -315,7 +328,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddOrUpdateWorker";
@@ -351,5 +364,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox isProjectMaster;
     }
 }
