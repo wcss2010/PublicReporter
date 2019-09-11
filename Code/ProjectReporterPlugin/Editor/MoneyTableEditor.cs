@@ -1650,7 +1650,6 @@ namespace ProjectReporterPlugin.Editor
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.panel4);
-            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MoneyTableEditor";
             this.Size = new System.Drawing.Size(906, 737);

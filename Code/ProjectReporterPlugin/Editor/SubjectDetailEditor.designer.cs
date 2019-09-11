@@ -34,33 +34,33 @@
             this.kryptonPanel1 = new System.Windows.Forms.Panel();
             this.autoHeightLabel1 = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.kpDest = new System.Windows.Forms.TabPage();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.lblDestWordInfo = new System.Windows.Forms.Label();
             this.btnEditDest = new System.Windows.Forms.Button();
             this.kpContent = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblContentWordInfo = new System.Windows.Forms.Label();
             this.btnEditContent = new System.Windows.Forms.Button();
             this.kpNeed = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNeedWordInfo = new System.Windows.Forms.Label();
             this.btnEditNeed = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.plTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.lblDestWordInfo = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblContentWordInfo = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblNeedWordInfo = new System.Windows.Forms.Label();
             this.knKetiDetailTabs.SuspendLayout();
             this.kpInfo.SuspendLayout();
             this.kryptonPanel1.SuspendLayout();
             this.kpDest.SuspendLayout();
+            this.plButtons.SuspendLayout();
             this.kpContent.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.kpNeed.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
-            this.plButtons.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // knKetiDetailTabs
@@ -93,10 +93,10 @@
             // 
             this.txtInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtInfo.Font = new System.Drawing.Font("仿宋", 14.25F);
-            this.txtInfo.Location = new System.Drawing.Point(0, 28);
+            this.txtInfo.Location = new System.Drawing.Point(0, 34);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(834, 400);
+            this.txtInfo.Size = new System.Drawing.Size(834, 394);
             this.txtInfo.TabIndex = 0;
             // 
             // kryptonPanel1
@@ -108,18 +108,20 @@
             this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.kryptonPanel1.Size = new System.Drawing.Size(834, 28);
+            this.kryptonPanel1.Size = new System.Drawing.Size(834, 34);
             this.kryptonPanel1.TabIndex = 1;
             // 
             // autoHeightLabel1
             // 
             this.autoHeightLabel1.AutoHeight = false;
             this.autoHeightLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.autoHeightLabel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.autoHeightLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.autoHeightLabel1.Font = new System.Drawing.Font("仿宋", 14.25F);
+            this.autoHeightLabel1.Font = new System.Drawing.Font("仿宋", 15F);
             this.autoHeightLabel1.Location = new System.Drawing.Point(6, 0);
             this.autoHeightLabel1.Name = "autoHeightLabel1";
-            this.autoHeightLabel1.Size = new System.Drawing.Size(828, 28);
+            this.autoHeightLabel1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.autoHeightLabel1.Size = new System.Drawing.Size(828, 34);
             this.autoHeightLabel1.TabIndex = 0;
             this.autoHeightLabel1.Text = "(200字以内,此部分无需缩进,请顶格填写)";
             this.autoHeightLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -133,6 +135,26 @@
             this.kpDest.Size = new System.Drawing.Size(834, 428);
             this.kpDest.TabIndex = 1;
             this.kpDest.Text = "研究目标";
+            // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.lblDestWordInfo);
+            this.plButtons.Controls.Add(this.btnEditDest);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plButtons.Location = new System.Drawing.Point(0, 0);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Size = new System.Drawing.Size(834, 38);
+            this.plButtons.TabIndex = 3;
+            // 
+            // lblDestWordInfo
+            // 
+            this.lblDestWordInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDestWordInfo.Font = new System.Drawing.Font("仿宋", 12F);
+            this.lblDestWordInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblDestWordInfo.Name = "lblDestWordInfo";
+            this.lblDestWordInfo.Size = new System.Drawing.Size(667, 38);
+            this.lblDestWordInfo.TabIndex = 1;
+            this.lblDestWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnEditDest
             // 
@@ -154,6 +176,26 @@
             this.kpContent.TabIndex = 2;
             this.kpContent.Text = "研究内容";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblContentWordInfo);
+            this.panel1.Controls.Add(this.btnEditContent);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(834, 38);
+            this.panel1.TabIndex = 3;
+            // 
+            // lblContentWordInfo
+            // 
+            this.lblContentWordInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblContentWordInfo.Font = new System.Drawing.Font("仿宋", 12F);
+            this.lblContentWordInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblContentWordInfo.Name = "lblContentWordInfo";
+            this.lblContentWordInfo.Size = new System.Drawing.Size(650, 38);
+            this.lblContentWordInfo.TabIndex = 1;
+            this.lblContentWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnEditContent
             // 
             this.btnEditContent.Dock = System.Windows.Forms.DockStyle.Right;
@@ -173,6 +215,26 @@
             this.kpNeed.Size = new System.Drawing.Size(834, 428);
             this.kpNeed.TabIndex = 3;
             this.kpNeed.Text = "研究思路";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblNeedWordInfo);
+            this.panel2.Controls.Add(this.btnEditNeed);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(834, 38);
+            this.panel2.TabIndex = 3;
+            // 
+            // lblNeedWordInfo
+            // 
+            this.lblNeedWordInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNeedWordInfo.Font = new System.Drawing.Font("仿宋", 12F);
+            this.lblNeedWordInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblNeedWordInfo.Name = "lblNeedWordInfo";
+            this.lblNeedWordInfo.Size = new System.Drawing.Size(670, 38);
+            this.lblNeedWordInfo.TabIndex = 1;
+            this.lblNeedWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnEditNeed
             // 
@@ -221,8 +283,9 @@
             // 
             this.lblTitle.AutoHeight = false;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("仿宋", 14.25F);
+            this.lblTitle.Font = new System.Drawing.Font("仿宋", 15F);
             this.lblTitle.Location = new System.Drawing.Point(6, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(834, 28);
@@ -240,66 +303,6 @@
             this.plContent.Size = new System.Drawing.Size(842, 458);
             this.plContent.TabIndex = 7;
             // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.lblDestWordInfo);
-            this.plButtons.Controls.Add(this.btnEditDest);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plButtons.Location = new System.Drawing.Point(0, 0);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(834, 38);
-            this.plButtons.TabIndex = 3;
-            // 
-            // lblDestWordInfo
-            // 
-            this.lblDestWordInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDestWordInfo.Font = new System.Drawing.Font("仿宋", 12F);
-            this.lblDestWordInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblDestWordInfo.Name = "lblDestWordInfo";
-            this.lblDestWordInfo.Size = new System.Drawing.Size(667, 38);
-            this.lblDestWordInfo.TabIndex = 1;
-            this.lblDestWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblContentWordInfo);
-            this.panel1.Controls.Add(this.btnEditContent);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 38);
-            this.panel1.TabIndex = 3;
-            // 
-            // lblContentWordInfo
-            // 
-            this.lblContentWordInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblContentWordInfo.Font = new System.Drawing.Font("仿宋", 12F);
-            this.lblContentWordInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblContentWordInfo.Name = "lblContentWordInfo";
-            this.lblContentWordInfo.Size = new System.Drawing.Size(650, 38);
-            this.lblContentWordInfo.TabIndex = 1;
-            this.lblContentWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblNeedWordInfo);
-            this.panel2.Controls.Add(this.btnEditNeed);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(834, 38);
-            this.panel2.TabIndex = 3;
-            // 
-            // lblNeedWordInfo
-            // 
-            this.lblNeedWordInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNeedWordInfo.Font = new System.Drawing.Font("仿宋", 12F);
-            this.lblNeedWordInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblNeedWordInfo.Name = "lblNeedWordInfo";
-            this.lblNeedWordInfo.Size = new System.Drawing.Size(670, 38);
-            this.lblNeedWordInfo.TabIndex = 1;
-            this.lblNeedWordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // SubjectDetailEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -314,15 +317,15 @@
             this.kpInfo.PerformLayout();
             this.kryptonPanel1.ResumeLayout(false);
             this.kpDest.ResumeLayout(false);
+            this.plButtons.ResumeLayout(false);
             this.kpContent.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.kpNeed.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.plTitle.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
-            this.plButtons.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

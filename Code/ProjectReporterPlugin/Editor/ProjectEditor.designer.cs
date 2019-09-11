@@ -31,9 +31,9 @@
             this.tlpContent = new ProjectReporterPlugin.Controls.HSkinTableLayoutPanel();
             this.label26 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.txtDirectionCode = new System.Windows.Forms.NumericUpDown();
             this.txtDirection = new ProjectReporterPlugin.Controls.TextBoxAndHintLabel();
             this.label27 = new System.Windows.Forms.Label();
-            this.txtDirectionCode = new System.Windows.Forms.NumericUpDown();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.txtUnitName = new ProjectReporterPlugin.Controls.TextBoxAndHintLabel();
@@ -197,6 +197,19 @@
             this.panel15.Size = new System.Drawing.Size(1130, 55);
             this.panel15.TabIndex = 33;
             // 
+            // txtDirectionCode
+            // 
+            this.txtDirectionCode.Font = new System.Drawing.Font("仿宋", 15F);
+            this.txtDirectionCode.Location = new System.Drawing.Point(11, 12);
+            this.txtDirectionCode.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.txtDirectionCode.Name = "txtDirectionCode";
+            this.txtDirectionCode.Size = new System.Drawing.Size(75, 30);
+            this.txtDirectionCode.TabIndex = 202;
+            // 
             // txtDirection
             // 
             this.txtDirection.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -217,19 +230,6 @@
             this.label27.TabIndex = 200;
             this.label27.Text = "申报方向名称：";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtDirectionCode
-            // 
-            this.txtDirectionCode.Font = new System.Drawing.Font("仿宋", 15F);
-            this.txtDirectionCode.Location = new System.Drawing.Point(11, 12);
-            this.txtDirectionCode.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.txtDirectionCode.Name = "txtDirectionCode";
-            this.txtDirectionCode.Size = new System.Drawing.Size(75, 30);
-            this.txtDirectionCode.TabIndex = 202;
             // 
             // panel14
             // 
@@ -864,7 +864,7 @@
             this.plTitle.Location = new System.Drawing.Point(0, 0);
             this.plTitle.Margin = new System.Windows.Forms.Padding(0);
             this.plTitle.Name = "plTitle";
-            this.plTitle.Size = new System.Drawing.Size(1422, 70);
+            this.plTitle.Size = new System.Drawing.Size(1422, 51);
             this.plTitle.TabIndex = 0;
             // 
             // lblTitle
@@ -872,10 +872,11 @@
             this.lblTitle.AutoHeight = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("仿宋", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTitle.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1422, 54);
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblTitle.Size = new System.Drawing.Size(1422, 50);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "本单位代表申报团队郑重承诺:本建议书填报信息真实有效,相关研究内容没有在其它计划渠道重复申报.";
             // 
@@ -897,9 +898,9 @@
             this.plContent.BackColor = System.Drawing.Color.White;
             this.plContent.Controls.Add(this.tlpContent);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(0, 70);
+            this.plContent.Location = new System.Drawing.Point(0, 51);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1422, 565);
+            this.plContent.Size = new System.Drawing.Size(1422, 584);
             this.plContent.TabIndex = 7;
             // 
             // ProjectEditor

@@ -185,22 +185,23 @@
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
             this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.plTitle.Size = new System.Drawing.Size(868, 65);
+            this.plTitle.Size = new System.Drawing.Size(868, 70);
             this.plTitle.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoHeight = false;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("仿宋", 14.25F);
+            this.label1.Font = new System.Drawing.Font("仿宋", 15F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(862, 65);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label1.Size = new System.Drawing.Size(862, 70);
             this.label1.TabIndex = 0;
             this.label1.Text = "请根据项目研究需要，合理设置项目（课题）研究阶段和进度计划\r\n原则上全周期研究阶段设置应不少于4个。为便于经费管理工作统筹,建议每个阶段截止时间按年中或年底进行筹" +
     "划";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // plContent
             // 
@@ -208,9 +209,9 @@
             this.plContent.Controls.Add(this.dgvDetail);
             this.plContent.Controls.Add(this.panel1);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(13, 78);
+            this.plContent.Location = new System.Drawing.Point(13, 83);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(870, 406);
+            this.plContent.Size = new System.Drawing.Size(870, 401);
             this.plContent.TabIndex = 7;
             // 
             // dgvDetail
@@ -246,7 +247,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetail.RowTemplate.Height = 105;
-            this.dgvDetail.Size = new System.Drawing.Size(870, 380);
+            this.dgvDetail.Size = new System.Drawing.Size(870, 375);
             this.dgvDetail.TabIndex = 4;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentDoubleClick);

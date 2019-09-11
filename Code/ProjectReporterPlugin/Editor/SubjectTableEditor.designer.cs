@@ -74,7 +74,7 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 5;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
@@ -128,30 +128,31 @@
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
             this.plTitle.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.plTitle.Size = new System.Drawing.Size(761, 68);
+            this.plTitle.Size = new System.Drawing.Size(761, 70);
             this.plTitle.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoHeight = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("仿宋", 14.25F);
+            this.label1.Font = new System.Drawing.Font("仿宋", 15F);
             this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(755, 68);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label1.Size = new System.Drawing.Size(755, 70);
             this.label1.TabIndex = 0;
             this.label1.Text = "围绕如何全面的、有效的实现项目目标，进行课题分解，明确每个课题的密级，并简述研究内容；牵头申报单位承担的课题数不超过课题总数的三分之二";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // plContent
             // 
             this.plContent.BackColor = System.Drawing.Color.Transparent;
             this.plContent.Controls.Add(this.kvKetiTabs);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(13, 81);
+            this.plContent.Location = new System.Drawing.Point(13, 83);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(763, 377);
+            this.plContent.Size = new System.Drawing.Size(763, 375);
             this.plContent.TabIndex = 7;
             // 
             // kvKetiTabs
@@ -162,7 +163,7 @@
             this.kvKetiTabs.Location = new System.Drawing.Point(0, 0);
             this.kvKetiTabs.Name = "kvKetiTabs";
             this.kvKetiTabs.SelectedIndex = 0;
-            this.kvKetiTabs.Size = new System.Drawing.Size(763, 377);
+            this.kvKetiTabs.Size = new System.Drawing.Size(763, 375);
             this.kvKetiTabs.TabIndex = 4;
             // 
             // kpKetiItems
@@ -171,7 +172,7 @@
             this.kpKetiItems.Location = new System.Drawing.Point(4, 26);
             this.kpKetiItems.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpKetiItems.Name = "kpKetiItems";
-            this.kpKetiItems.Size = new System.Drawing.Size(755, 347);
+            this.kpKetiItems.Size = new System.Drawing.Size(755, 345);
             this.kpKetiItems.TabIndex = 0;
             this.kpKetiItems.Text = "课题列表";
             // 
@@ -202,7 +203,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.RowTemplate.Height = 35;
-            this.dgvDetail.Size = new System.Drawing.Size(755, 347);
+            this.dgvDetail.Size = new System.Drawing.Size(755, 345);
             this.dgvDetail.TabIndex = 3;
             this.dgvDetail.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDetail_CellBeginEdit);
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);

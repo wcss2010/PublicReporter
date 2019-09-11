@@ -31,9 +31,9 @@
             this.lblInfo = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
+            this.txtContent = new System.Windows.Forms.TextBox();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtContent = new System.Windows.Forms.TextBox();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -45,10 +45,11 @@
             this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
             this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15F);
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(1063, 46);
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1063, 50);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "label1";
             // 
@@ -70,16 +71,26 @@
             this.plContent.Controls.Add(this.txtContent);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 56);
+            this.plContent.Location = new System.Drawing.Point(10, 60);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1063, 505);
+            this.plContent.Size = new System.Drawing.Size(1063, 501);
             this.plContent.TabIndex = 1;
+            // 
+            // txtContent
+            // 
+            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Multiline = true;
+            this.txtContent.Name = "txtContent";
+            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtContent.Size = new System.Drawing.Size(1063, 471);
+            this.txtContent.TabIndex = 1;
             // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 475);
+            this.plButtons.Location = new System.Drawing.Point(0, 471);
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(1063, 30);
             this.plButtons.TabIndex = 0;
@@ -94,16 +105,6 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtContent
-            // 
-            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtContent.Location = new System.Drawing.Point(0, 0);
-            this.txtContent.Multiline = true;
-            this.txtContent.Name = "txtContent";
-            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtContent.Size = new System.Drawing.Size(1063, 475);
-            this.txtContent.TabIndex = 1;
             // 
             // TextContentEditor
             // 
