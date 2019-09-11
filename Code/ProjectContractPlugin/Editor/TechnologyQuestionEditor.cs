@@ -155,7 +155,7 @@ namespace ProjectContractPlugin.Editor
                 catch (Exception ex) { }
 
                 //显示编辑窗体
-                FrmAddOrUpdateWorkProgress form = new FrmAddOrUpdateWorkProgress(null, statusNum + 1);
+                FrmAddOrUpdateTechnologyQuestion form = new FrmAddOrUpdateTechnologyQuestion(null, statusNum + 1);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();
