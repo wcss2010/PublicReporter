@@ -18,6 +18,7 @@ namespace ProjectContractPlugin.Forms
             InitializeComponent();
 
             DataObj = obj;
+            Count = count;
             if (DataObj != null)
             {
                 txtYear.Value = DataObj.NianDu;
