@@ -20,10 +20,10 @@ namespace ProjectContractPlugin.Editor
     /// </summary>
     public partial class TogetherRuleEditor : BaseEditor
     {
-        private const string TRCode1Key = "TRCode1";
-        private const string TRCode2Key = "TRCode2";
-        private const string TRCode3Key = "TRCode3";
-        private const string TRCode4Key = "TRCode4";
+        public const string TRCode1Key = "TRCode1";
+        public const string TRCode2Key = "TRCode2";
+        public const string TRCode3Key = "TRCode3";
+        public const string TRCode4Key = "TRCode4";
 
         /// <summary>
         /// 编辑器名称
