@@ -104,6 +104,7 @@
     <Compile Include="DB\Entitys\TiJiaoYaoQiuBiao.cs" />
     <Compile Include="DB\Entitys\YuSuanBiao.cs" />
     <Compile Include="DB\Entitys\ZhiBiaoBiao.cs" />
+    <Compile Include="DB\Entitys\ZiDianBiao.cs" />
     <Compile Include="Editor\BaseEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
