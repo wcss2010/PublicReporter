@@ -106,10 +106,34 @@ namespace ProjectContractPlugin.Editor
             {
                 txtContent.LoadFile(RTFFile);
 
-                txtContent.Text = txtContent.Text.Replace("{%Num1%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
-                txtContent.Text = txtContent.Text.Replace("{%Num2%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
-                txtContent.Text = txtContent.Text.Replace("{%Num3%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
-                txtContent.Text = txtContent.Text.Replace("{%Num4%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
+                try
+                {
+                    ibEdit1.Value = decimal.Parse(ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
+                }
+                catch (Exception ex) { }
+
+                try
+                {
+                    ibEdit2.Value = decimal.Parse(ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
+                }
+                catch (Exception ex) { }
+
+                try
+                {
+                    ibEdit3.Value = decimal.Parse(ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
+                }
+                catch (Exception ex) { }
+
+                try
+                {
+                    ibEdit4.Value = decimal.Parse(ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
+                }
+                catch (Exception ex) { }
+
+                txtContent.Text = txtContent.Text.Replace("{%Num1%}", ibEdit1.Value.ToString());
+                txtContent.Text = txtContent.Text.Replace("{%Num2%}", ibEdit2.Value.ToString());
+                txtContent.Text = txtContent.Text.Replace("{%Num3%}", ibEdit3.Value.ToString());
+                txtContent.Text = txtContent.Text.Replace("{%Num4%}", ibEdit4.Value.ToString());
             }
         }
 
