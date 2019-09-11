@@ -149,7 +149,7 @@ namespace ProjectContractPlugin.Editor
             {
 
                 //显示编辑窗体
-                FrmAddOrUpdateWorkProgress form = new FrmAddOrUpdateWorkProgress(null, dgvDetail.SelectedRows[0].Index);
+                FrmAddOrUpdateWorkProgress form = new FrmAddOrUpdateWorkProgress(null, Int32.Parse(((JiShuBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai) + 1);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();

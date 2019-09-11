@@ -112,7 +112,7 @@ namespace ProjectContractPlugin.Editor
             if (dgvDetail.SelectedRows.Count == 1)
             {
                 //显示编辑窗体
-                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, dgvDetail.SelectedRows[0].Index);
+                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, Int32.Parse(((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai) + 1);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();

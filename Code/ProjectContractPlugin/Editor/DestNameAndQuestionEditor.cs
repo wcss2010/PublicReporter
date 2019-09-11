@@ -78,7 +78,7 @@ namespace ProjectContractPlugin.Editor
             {
 
                 //显示编辑窗体
-                FrmAddOrUpdateDestNameAndQuestion form = new FrmAddOrUpdateDestNameAndQuestion(null, dgvDetail.SelectedRows[0].Index);
+                FrmAddOrUpdateDestNameAndQuestion form = new FrmAddOrUpdateDestNameAndQuestion(null, Int32.Parse(((ZhiBiaoBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai) + 1);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
                     RefreshView();
