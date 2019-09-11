@@ -10,6 +10,8 @@ using PublicReporterLib;
 using System.Diagnostics;
 using Aspose.Words;
 using ProjectContractPlugin.Controls;
+using ProjectContractPlugin.DB;
+using ProjectContractPlugin.DB.Entitys;
 
 namespace ProjectContractPlugin.Editor
 {
@@ -18,6 +20,11 @@ namespace ProjectContractPlugin.Editor
     /// </summary>
     public partial class TogetherRuleEditor : BaseEditor
     {
+        private const string TRCode1Key = "TRCode1";
+        private const string TRCode2Key = "TRCode2";
+        private const string TRCode3Key = "TRCode3";
+        private const string TRCode4Key = "TRCode4";
+
         /// <summary>
         /// 编辑器名称
         /// </summary>
@@ -99,10 +106,10 @@ namespace ProjectContractPlugin.Editor
             {
                 txtContent.LoadFile(RTFFile);
 
-                txtContent.Text = txtContent.Text.Replace("{%Num1%}", "XX");
-                txtContent.Text = txtContent.Text.Replace("{%Num2%}", "XX");
-                txtContent.Text = txtContent.Text.Replace("{%Num3%}", "XX");
-                txtContent.Text = txtContent.Text.Replace("{%Num4%}", "XX");
+                txtContent.Text = txtContent.Text.Replace("{%Num1%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
+                txtContent.Text = txtContent.Text.Replace("{%Num2%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
+                txtContent.Text = txtContent.Text.Replace("{%Num3%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
+                txtContent.Text = txtContent.Text.Replace("{%Num4%}", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
             }
         }
 
@@ -112,5 +119,55 @@ namespace ProjectContractPlugin.Editor
         }
 
         public string RTFFile { get; set; }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+            upf.LabalText = "正在保存,请等待...";
+            upf.ShowProgressWithOnlyUI();
+            upf.PlayProgressWithOnlyUI(80);
+
+            try
+            {
+                ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode1Key + "'").delete();
+                ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode2Key + "'").delete();
+                ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode3Key + "'").delete();
+                ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode4Key + "'").delete();
+
+                ZiDianBiao zd = new ZiDianBiao();
+                zd.BianHao = Guid.NewGuid().ToString();
+                zd.MingCheng = TRCode1Key;
+                zd.ShuJu = ibEdit1.Value.ToString();
+                zd.copyTo(ConnectionManager.Context.table("ZiDianBiao")).insert();
+
+                zd = new ZiDianBiao();
+                zd.BianHao = Guid.NewGuid().ToString();
+                zd.MingCheng = TRCode2Key;
+                zd.ShuJu = ibEdit2.Value.ToString();
+                zd.copyTo(ConnectionManager.Context.table("ZiDianBiao")).insert();
+
+                zd = new ZiDianBiao();
+                zd.BianHao = Guid.NewGuid().ToString();
+                zd.MingCheng = TRCode3Key;
+                zd.ShuJu = ibEdit3.Value.ToString();
+                zd.copyTo(ConnectionManager.Context.table("ZiDianBiao")).insert();
+
+                zd = new ZiDianBiao();
+                zd.BianHao = Guid.NewGuid().ToString();
+                zd.MingCheng = TRCode4Key;
+                zd.ShuJu = ibEdit4.Value.ToString();
+                zd.copyTo(ConnectionManager.Context.table("ZiDianBiao")).insert();
+
+                updateTextControl();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存失败！Ex:" + ex.ToString());
+            }
+            finally
+            {
+                upf.CloseProgressWithOnlyUI();
+            }
+        }
     }
 }
