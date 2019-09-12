@@ -40,9 +40,19 @@ namespace ProjectContractPlugin.Editor
                 cells.Add(data.MeiNianTouRuShiJian);
                 cells.Add(data.RenWuFenGong);
                 cells.Add(data.ShenFenZhengHao);
-                KeTiBiao temp = ktList.Where(p => p.BianHao == data.KeTiBiaoHao).FirstOrDefault();
-                cells.Add(temp==null?string.Empty:temp.KeTiMingCheng);
-                cells.Add(data.ZhiWu);
+
+                if (data.ShiXiangMuFuZeRen == "rbIsOnlyProject")
+                {
+                    cells.Add("");
+                    cells.Add("负责人");
+                }
+                else
+                {
+                    KeTiBiao temp = ktList.Where(p => p.BianHao == data.KeTiBiaoHao).FirstOrDefault();
+                    cells.Add(temp == null ? string.Empty : temp.KeTiMingCheng);
+                    cells.Add(data.ZhiWu);
+                }
+
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
             }

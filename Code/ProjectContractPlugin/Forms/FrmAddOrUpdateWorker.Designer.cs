@@ -317,6 +317,7 @@
             // rbIsOnlySubject
             // 
             this.rbIsOnlySubject.AutoSize = true;
+            this.rbIsOnlySubject.Checked = true;
             this.rbIsOnlySubject.Dock = System.Windows.Forms.DockStyle.Left;
             this.rbIsOnlySubject.Location = new System.Drawing.Point(260, 0);
             this.rbIsOnlySubject.Name = "rbIsOnlySubject";
@@ -335,7 +336,6 @@
             this.rbIsProjectAndSubject.Name = "rbIsProjectAndSubject";
             this.rbIsProjectAndSubject.Size = new System.Drawing.Size(138, 33);
             this.rbIsProjectAndSubject.TabIndex = 1;
-            this.rbIsProjectAndSubject.TabStop = true;
             this.rbIsProjectAndSubject.Text = "项目兼课题角色";
             this.rbIsProjectAndSubject.UseVisualStyleBackColor = true;
             this.rbIsProjectAndSubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
@@ -348,7 +348,6 @@
             this.rbIsOnlyProject.Name = "rbIsOnlyProject";
             this.rbIsOnlyProject.Size = new System.Drawing.Size(122, 33);
             this.rbIsOnlyProject.TabIndex = 0;
-            this.rbIsOnlyProject.TabStop = true;
             this.rbIsOnlyProject.Text = "仅为项目角色";
             this.rbIsOnlyProject.UseVisualStyleBackColor = true;
             this.rbIsOnlyProject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);

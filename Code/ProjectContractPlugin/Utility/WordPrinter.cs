@@ -551,10 +551,23 @@ namespace ProjectContractPlugin.Utility
                             t.Rows[rowStart].Cells[8].AppendChild(wu.getCellContentObj(t, data.ShenFenZhengHao));
                             t.Rows[rowStart].Cells[8].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
-                            string roleName = subjectDict.ContainsKey(data.KeTiBiaoHao) ? subjectDict[data.KeTiBiaoHao] + data.ZhiWu : "未知";
+                            string roleName = "未知";
+
+                            switch (data.ShiXiangMuFuZeRen)
+                            {
+                                case "rbIsOnlyProject":
+                                    roleName = "项目负责人";
+                                    break;
+                                case "rbIsProjectAndSubject":
+                                    roleName = "项目负责人兼" + (subjectDict.ContainsKey(data.KeTiBiaoHao) ? subjectDict[data.KeTiBiaoHao] + data.ZhiWu : "未知");
+                                    break;
+                                case "rbIsOnlySubject":
+                                    roleName = subjectDict.ContainsKey(data.KeTiBiaoHao) ? subjectDict[data.KeTiBiaoHao] + data.ZhiWu : "未知";
+                                    break;
+                            }
 
                             t.Rows[rowStart].Cells[9].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[9].AppendChild(wu.getCellContentObj(t, (data.ShiXiangMuFuZeRen == "true"?"项目负责人兼":"") + roleName));
+                            t.Rows[rowStart].Cells[9].AppendChild(wu.getCellContentObj(t, roleName));
                             t.Rows[rowStart].Cells[9].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             rowStart++;
