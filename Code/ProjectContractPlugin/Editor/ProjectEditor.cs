@@ -28,7 +28,7 @@ namespace ProjectContractPlugin.Editor
             try
             {
                 OnSaveEvent();
-                ((ProjectContractPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectContractPlugin.PluginRoot>().refreshEditors();
             }
             catch (Exception ex)
             {

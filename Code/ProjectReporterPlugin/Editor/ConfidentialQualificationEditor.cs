@@ -52,7 +52,7 @@ namespace ProjectReporterPlugin.Editor
             base.RefreshView();
 
             dgvDetail.Rows.Clear();
-            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
             int index = 0;
             foreach (ExtFileList efl in list)
             {
@@ -91,11 +91,11 @@ namespace ProjectReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, realFileName);
+                        string destFile = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //旧地址
-                            string oldFile = Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, efl.RealFileName);
+                            string oldFile = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, efl.RealFileName);
                             try
                             {
                                 File.Delete(oldFile);
@@ -157,7 +157,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, realFileName);
+                        string destFile = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //复制新地址
@@ -165,7 +165,7 @@ namespace ProjectReporterPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                            efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -177,7 +177,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;
@@ -210,11 +210,11 @@ namespace ProjectReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, realFileName);
+                        string destFile = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //旧地址
-                            string oldFile = Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, efl.RealFileName);
+                            string oldFile = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, efl.RealFileName);
                             try
                             {
                                 File.Delete(oldFile);
@@ -276,7 +276,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         string sourceFile = dgvRow.Cells[2].Tag.ToString();
                         string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, realFileName);
+                        string destFile = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, realFileName);
                         if (File.Exists(sourceFile))
                         {
                             //复制新地址
@@ -284,7 +284,7 @@ namespace ProjectReporterPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                            efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -296,7 +296,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;
@@ -335,7 +335,7 @@ namespace ProjectReporterPlugin.Editor
 
                             try
                             {
-                                File.Delete(Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, task.RealFileName));
+                                File.Delete(Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, task.RealFileName));
                             }
                             catch (Exception ex) { }
 
@@ -383,7 +383,7 @@ namespace ProjectReporterPlugin.Editor
                         {
                             try
                             {
-                                Process.Start(Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, task.RealFileName));
+                                Process.Start(Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, task.RealFileName));
                             }
                             catch (Exception ex) { }
                         }

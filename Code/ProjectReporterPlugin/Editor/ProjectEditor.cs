@@ -43,18 +43,18 @@ namespace ProjectReporterPlugin.Editor
 
         public void LoadProject()
         {
-            if (((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj != null)
             {
-                txtProjectName.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name;
-                cbxSecret.SelectedItem = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.SecretLevel;
-                txtTotalTime.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalTime + "";
-                txtTotalMoney.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalMoney + "";
-                txtKeyWords.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Keywords;
-                txtDomain.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Domain;
-                txtDirection.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Direction;
-                txtDirectionCode.Value = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.DirectionCode != null ? ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.DirectionCode.Value : 0;
+                txtProjectName.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Name;
+                cbxSecret.SelectedItem = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.SecretLevel;
+                txtTotalTime.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalTime + "";
+                txtTotalMoney.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalMoney + "";
+                txtKeyWords.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Keywords;
+                txtDomain.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Domain;
+                txtDirection.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Direction;
+                txtDirectionCode.Value = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.DirectionCode != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.DirectionCode.Value : 0;
 
-                Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID + "'").select("*").getItem<Unit>(new Unit());
+                Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.UnitID + "'").select("*").getItem<Unit>(new Unit());
                 if (unitObj != null)
                 {
                     txtUnitName.Text = unitObj.UnitName;
@@ -65,7 +65,7 @@ namespace ProjectReporterPlugin.Editor
                     txtTelephone.Text = unitObj.Telephone;
                 }
 
-                string errorPath = System.IO.Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).baseDir, ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID);
+                string errorPath = System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().baseDir, PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID);
                 if (System.IO.Directory.Exists(errorPath))
                 {
                     System.IO.Directory.Delete(errorPath, true);
@@ -102,17 +102,17 @@ namespace ProjectReporterPlugin.Editor
             //leSearchList.Properties.DisplayMember = "UnitBankNo";
             //leSearchList.Properties.ValueMember = "ID";
 
-            //if (((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj != null)
+            //if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().ProjectObj != null)
             //{
-            //    leSearchList.EditValue = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).ProjectObj.UnitID;
+            //    leSearchList.EditValue = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().ProjectObj.UnitID;
             //}
         }
 
         private void UpdatePersonList()
         {   
-            if (((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj != null)
             {
-                ProjectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "')").select("*").getItem<Person>(new Person());
+                ProjectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "')").select("*").getItem<Person>(new Person());
 
             }
 
@@ -139,7 +139,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 SaveProject();
-                ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().refreshEditors();
             }
             catch (Exception ex)
             {
@@ -243,17 +243,17 @@ namespace ProjectReporterPlugin.Editor
             //}
             
             //创建单位信息
-            string unitExtId = (((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null && !string.IsNullOrEmpty(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID)) ? ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID : Guid.NewGuid().ToString();
+            string unitExtId = (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj != null && !string.IsNullOrEmpty(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.UnitID)) ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.UnitID : Guid.NewGuid().ToString();
             BuildUnitRecord(unitExtId, txtUnitName.Text, txtUnitName.Text, txtNormalName.Text, txtContactName.Text, txtTelephone.Text, "申报单位", txtAddress.Text);
 
             string projectIDs = string.Empty;
-            if (((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj == null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj == null)
             {
                 projectIDs = Guid.NewGuid().ToString();
             }
             else
             {
-                projectIDs = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                projectIDs = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
             }
 
             //新的人员ID
@@ -301,39 +301,39 @@ namespace ProjectReporterPlugin.Editor
             projectPerson.copyTo(ConnectionManager.Context.table("Task")).insert();
 
             //工程
-            if (((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj == null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj == null)
             {
-                ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj = new Project();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj = new Project();
             }
 
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ParentID = string.Empty;
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID = unitExtId;
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Type = "项目";
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.SecretLevel = cbxSecret.SelectedItem != null ? cbxSecret.SelectedItem.ToString() : "公开";
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Name = txtProjectName.Text;
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalTime = int.Parse(txtTotalTime.Text);
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalMoney = decimal.Parse(txtTotalMoney.Text);
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Keywords = txtKeyWords.Text;
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Domain = txtDomain.Text;
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.Direction = txtDirection.Text;
-            ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.DirectionCode = (int)txtDirectionCode.Value;
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ParentID = string.Empty;
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.UnitID = unitExtId;
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Type = "项目";
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.SecretLevel = cbxSecret.SelectedItem != null ? cbxSecret.SelectedItem.ToString() : "公开";
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Name = txtProjectName.Text;
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalTime = int.Parse(txtTotalTime.Text);
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalMoney = decimal.Parse(txtTotalMoney.Text);
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Keywords = txtKeyWords.Text;
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Domain = txtDomain.Text;
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.Direction = txtDirection.Text;
+            PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.DirectionCode = (int)txtDirectionCode.Value;
 
             //添加/修改工程
-            if (string.IsNullOrEmpty(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID))
+            if (string.IsNullOrEmpty(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID))
             {
-                ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID = projectIDs;
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID = projectIDs;
 
                 //创建候选单位
                 BuildWhiteList();
 
-                return ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.copyTo(ConnectionManager.Context.table("Project")).insert();
+                return PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.copyTo(ConnectionManager.Context.table("Project")).insert();
             }
             else
             {
                 //创建候选单位
                 BuildWhiteList();
 
-                return ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.copyTo(ConnectionManager.Context.table("Project")).where("ID='" + ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").update();
+                return PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.copyTo(ConnectionManager.Context.table("Project")).where("ID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "'").update();
             }
         }
 
@@ -397,8 +397,8 @@ namespace ProjectReporterPlugin.Editor
             //创建新的记录
             WhiteList wl = new WhiteList();
             wl.ID = Guid.NewGuid().ToString();
-            wl.ProjectID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
-            wl.UnitID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.UnitID;
+            wl.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
+            wl.UnitID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.UnitID;
             wl.copyTo(ConnectionManager.Context.table("WhiteList")).insert();
         }
 

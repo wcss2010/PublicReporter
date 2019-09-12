@@ -63,10 +63,10 @@ namespace ProjectReporterPlugin.Editor
         {
             base.RefreshView();
 
-            if (((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj != null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj != null)
             {
-                txtTotalTime.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalTime != null ? ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalTime.Value + "" : "0";
-                txtTotalMoney.Text = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalMoney != null ? ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.TotalMoney.Value + "" : "0";
+                txtTotalTime.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalTime != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalTime.Value + "" : "0";
+                txtTotalMoney.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalMoney != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalMoney.Value + "" : "0";
                 txtStepCount.Text = "0";
 
                 UpdateStepList();
@@ -75,8 +75,8 @@ namespace ProjectReporterPlugin.Editor
 
         public void UpdateStepList()
         {
-            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Step>(new Step());
-            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID + "'").select("*").getList<Project>(new Project());
+            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "'").select("*").getList<Step>(new Step());
+            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();
@@ -139,7 +139,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
                     }
                     else
                     {
@@ -254,7 +254,7 @@ namespace ProjectReporterPlugin.Editor
                 RefreshView();
 
                 //刷新课题阶段划分表
-                foreach (BaseEditor be in ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).editorMap.Values)
+                foreach (BaseEditor be in PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().editorMap.Values)
                 {
                     if (be is SubjectStepMoneyEditor)
                     {
@@ -284,7 +284,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).projectObj.ID;
+                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
                     }
                     else
                     {
@@ -433,7 +433,7 @@ namespace ProjectReporterPlugin.Editor
                             }
                         }
 
-                        ((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).refreshEditors();
+                        PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().refreshEditors();
                     }
                 }else
                 {

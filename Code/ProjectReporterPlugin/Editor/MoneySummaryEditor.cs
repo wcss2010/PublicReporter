@@ -58,9 +58,9 @@ namespace ProjectReporterPlugin.Editor
         {
             base.RefreshView();
 
-            if (Directory.Exists(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir))
+            if (Directory.Exists(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir))
             {
-                string[] files = Directory.GetFiles(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir);
+                string[] files = Directory.GetFiles(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir);
                 if (files != null)
                 {
                     foreach (string f in files)
@@ -90,7 +90,7 @@ namespace ProjectReporterPlugin.Editor
                         File.Delete(FilePath);
                     }
 
-                    File.Copy(ofdUpload.FileName, Path.Combine(((ProjectReporterPlugin.PluginRoot)PublicReporterLib.PluginLoader.CurrentPlugin).filesDir, FileKeyName + "_" + new FileInfo(ofdUpload.FileName).Name));
+                    File.Copy(ofdUpload.FileName, Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, FileKeyName + "_" + new FileInfo(ofdUpload.FileName).Name));
                     RefreshView();
                 }
             }
