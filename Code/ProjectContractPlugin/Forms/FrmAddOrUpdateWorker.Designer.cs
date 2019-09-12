@@ -50,15 +50,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.isProjectMaster = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbIsOnlySubject = new System.Windows.Forms.RadioButton();
+            this.rbIsProjectAndSubject = new System.Windows.Forms.RadioButton();
+            this.rbIsOnlyProject = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(21, 21);
+            this.label1.Location = new System.Drawing.Point(53, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 16);
@@ -133,7 +138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(21, 84);
+            this.label3.Location = new System.Drawing.Point(53, 82);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
@@ -220,7 +225,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(416, 275);
+            this.label9.Location = new System.Drawing.Point(425, 273);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 16);
@@ -257,7 +262,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(437, 340);
+            this.label4.Location = new System.Drawing.Point(439, 338);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 16);
@@ -281,30 +286,80 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(21, 337);
+            this.label10.Location = new System.Drawing.Point(53, 338);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 16);
             this.label10.TabIndex = 26;
             this.label10.Text = "课题：";
             // 
-            // isProjectMaster
+            // label11
             // 
-            this.isProjectMaster.AutoSize = true;
-            this.isProjectMaster.ForeColor = System.Drawing.Color.Black;
-            this.isProjectMaster.Location = new System.Drawing.Point(132, 393);
-            this.isProjectMaster.Name = "isProjectMaster";
-            this.isProjectMaster.Size = new System.Drawing.Size(155, 20);
-            this.isProjectMaster.TabIndex = 28;
-            this.isProjectMaster.Text = "是否为项目负责人";
-            this.isProjectMaster.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label11.Location = new System.Drawing.Point(53, 397);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 16);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "角色：";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbIsOnlySubject);
+            this.panel1.Controls.Add(this.rbIsProjectAndSubject);
+            this.panel1.Controls.Add(this.rbIsOnlyProject);
+            this.panel1.Location = new System.Drawing.Point(132, 389);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(450, 33);
+            this.panel1.TabIndex = 30;
+            // 
+            // rbIsOnlySubject
+            // 
+            this.rbIsOnlySubject.AutoSize = true;
+            this.rbIsOnlySubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbIsOnlySubject.Location = new System.Drawing.Point(260, 0);
+            this.rbIsOnlySubject.Name = "rbIsOnlySubject";
+            this.rbIsOnlySubject.Size = new System.Drawing.Size(122, 33);
+            this.rbIsOnlySubject.TabIndex = 2;
+            this.rbIsOnlySubject.TabStop = true;
+            this.rbIsOnlySubject.Text = "仅为课题角色";
+            this.rbIsOnlySubject.UseVisualStyleBackColor = true;
+            this.rbIsOnlySubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
+            // 
+            // rbIsProjectAndSubject
+            // 
+            this.rbIsProjectAndSubject.AutoSize = true;
+            this.rbIsProjectAndSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbIsProjectAndSubject.Location = new System.Drawing.Point(122, 0);
+            this.rbIsProjectAndSubject.Name = "rbIsProjectAndSubject";
+            this.rbIsProjectAndSubject.Size = new System.Drawing.Size(138, 33);
+            this.rbIsProjectAndSubject.TabIndex = 1;
+            this.rbIsProjectAndSubject.TabStop = true;
+            this.rbIsProjectAndSubject.Text = "项目兼课题角色";
+            this.rbIsProjectAndSubject.UseVisualStyleBackColor = true;
+            this.rbIsProjectAndSubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
+            // 
+            // rbIsOnlyProject
+            // 
+            this.rbIsOnlyProject.AutoSize = true;
+            this.rbIsOnlyProject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbIsOnlyProject.Location = new System.Drawing.Point(0, 0);
+            this.rbIsOnlyProject.Name = "rbIsOnlyProject";
+            this.rbIsOnlyProject.Size = new System.Drawing.Size(122, 33);
+            this.rbIsOnlyProject.TabIndex = 0;
+            this.rbIsOnlyProject.TabStop = true;
+            this.rbIsOnlyProject.Text = "仅为项目角色";
+            this.rbIsOnlyProject.UseVisualStyleBackColor = true;
+            this.rbIsOnlyProject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
             // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 509);
-            this.Controls.Add(this.isProjectMaster);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox2);
@@ -335,6 +390,8 @@
             this.Text = "新增/编辑人员情况";
             this.Load += new System.EventHandler(this.FrmAddOrUpdateWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,6 +421,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox isProjectMaster;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbIsOnlySubject;
+        private System.Windows.Forms.RadioButton rbIsProjectAndSubject;
+        private System.Windows.Forms.RadioButton rbIsOnlyProject;
     }
 }

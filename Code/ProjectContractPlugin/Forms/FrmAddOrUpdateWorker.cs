@@ -43,7 +43,19 @@ namespace ProjectContractPlugin.Forms
                 comboBox2.SelectedValue = DataObj.KeTiBiaoHao;
                 comboBox3.SelectedItem = DataObj.ZhiWu;
                 numericUpDown1.Value = DataObj.MeiNianTouRuShiJian;
-                isProjectMaster.Checked = DataObj.ShiXiangMuFuZeRen == "true";
+
+                if (DataObj.ShiXiangMuFuZeRen == rbIsOnlyProject.Name)
+                {
+                    rbIsOnlyProject.Checked = true;
+                }
+                else if (DataObj.ShiXiangMuFuZeRen == rbIsOnlySubject.Name)
+                {
+                    rbIsOnlySubject.Checked = true;
+                }
+                else if (DataObj.ShiXiangMuFuZeRen == rbIsProjectAndSubject.Name)
+                {
+                    rbIsProjectAndSubject.Checked = true;
+                }
             }
             else
             {
@@ -88,7 +100,6 @@ namespace ProjectContractPlugin.Forms
                 DataObj.KeTiBiaoHao = comboBox2.SelectedValue.ToString();
                 DataObj.ZhiWu = comboBox3.SelectedItem.ToString();
                 DataObj.MeiNianTouRuShiJian = Convert.ToInt32(numericUpDown1.Value);
-                DataObj.ShiXiangMuFuZeRen = isProjectMaster.Checked ? "true" : "false";
 
                 if (string.IsNullOrEmpty(DataObj.BianHao))
                 {
@@ -105,5 +116,23 @@ namespace ProjectContractPlugin.Forms
             }
         }
 
+        private void rbIsOnlySubjectMaster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                DataObj.ShiXiangMuFuZeRen = ((RadioButton)sender).Name;
+
+                if (((RadioButton)sender).Name == "rbIsOnlyProject")
+                {
+                    comboBox2.Enabled = false;
+                    comboBox3.Enabled = false;
+                }
+                else
+                {
+                    comboBox2.Enabled = true;
+                    comboBox3.Enabled = true;
+                }
+            }
+        }
     }
 }
