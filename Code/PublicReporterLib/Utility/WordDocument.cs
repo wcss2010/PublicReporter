@@ -408,6 +408,49 @@ namespace Aspose.Words
             // Insert a clone of the watermark into the header.
             header.AppendChild(watermarkPara.Clone(true));
         }
+
+        /// <summary>
+        /// 将一个带有\r\n的字符串生成一个Paragraph列表
+        /// </summary>
+        /// <param name="docs"></param>
+        /// <param name="texts"></param>
+        /// <returns></returns>
+        public List<Paragraph> getParagraphListFromString(DocumentBase docs, string texts)
+        {
+            List<Paragraph> results = new List<Paragraph>();
+
+            texts = texts.Replace("\r", string.Empty);
+            string[] lines = texts.Split(new string[] { "\n" }, StringSplitOptions.None);
+            if (lines != null && lines.Length >= 2)
+            {
+                foreach (string s in lines)
+                {
+                    results.Add(newParagraph(docs, s));
+                }
+            }
+            else
+            {
+                results.Add(newParagraph(docs, texts));
+            }
+
+            return results;
+        }
+
+        /// <summary>
+        /// 将Paragraph列表追加到NodeCollection中去
+        /// </summary>
+        /// <param name="nodeList"></param>
+        /// <param name="paragraphList"></param>
+        public void addRangeToNodeCollection(NodeCollection nodeList, List<Paragraph> paragraphList)
+        {
+            if (nodeList != null && paragraphList != null)
+            {
+                foreach (Paragraph p in paragraphList)
+                {
+                    nodeList.Add(p);
+                }
+            }
+        }
     }
 
     public class ReplaceAndInsertImage : IReplacingCallback
