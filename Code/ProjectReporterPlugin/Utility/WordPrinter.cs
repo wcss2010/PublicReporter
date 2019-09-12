@@ -377,7 +377,7 @@ namespace ProjectReporterPlugin.Utility
                                         table.Rows[rowIndex].Cells[2].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[0].AppendChild(wu.getCellContentObj(table, curStep.StepIndex + ""));
                                         table.Rows[rowIndex].Cells[1].AppendChild(wu.getCellContentObj(table, curStep.StepTime + ""));
-                                        table.Rows[rowIndex].Cells[2].AppendChild(wu.getCellContentObj(table, resultStr));
+                                        wu.Document.addRangeToNodeCollection(table.Rows[rowIndex].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, resultStr));
 
                                         rowIndex++;
                                     }
@@ -458,7 +458,8 @@ namespace ProjectReporterPlugin.Utility
                                     }
 
                                     table.Rows[rowIndex].Cells[dataColIndex].RemoveAllChildren();
-                                    table.Rows[rowIndex].Cells[dataColIndex].AppendChild(wu.getCellContentObj(table, resultStr));
+                                    wu.Document.addRangeToNodeCollection(table.Rows[rowIndex].Cells[dataColIndex].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, resultStr));
+
                                     dataColIndex++;
                                 }
 
