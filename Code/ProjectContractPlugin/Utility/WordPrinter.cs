@@ -379,7 +379,7 @@ namespace ProjectContractPlugin.Utility
                         foreach (JinDuBiao data in jdList)
                         {
                             t.Rows[rowStart].Cells[0].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(t, data.JieDian.ToString()));
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.getCellContentObj(t, rowStart.ToString()));
                             t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[1].RemoveAllChildren();
@@ -390,15 +390,15 @@ namespace ProjectContractPlugin.Utility
                             Paragraph p = wu.getCellContentObj(t, "阶段目标：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
-                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanMuBiao));
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanMuBiao != null ? data.JieDuanMuBiao.Replace("\n", string.Empty).Replace("\r", string.Empty) : ""));
                             p = wu.getCellContentObj(t, "完成内容：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
-                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.WanChengNeiRong));
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.WanChengNeiRong != null ? data.WanChengNeiRong.Replace("\n", string.Empty).Replace("\r", string.Empty) : ""));
                             p = wu.getCellContentObj(t, "阶段成果：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
-                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanChengGuo));
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.getCellContentObj(t, data.JieDuanChengGuo != null ? data.JieDuanChengGuo.Replace("\n", string.Empty).Replace("\r", string.Empty) : ""));
                             t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             rowStart++;
