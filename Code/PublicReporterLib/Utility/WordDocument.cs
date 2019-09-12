@@ -415,7 +415,7 @@ namespace Aspose.Words
         /// <param name="docs"></param>
         /// <param name="texts"></param>
         /// <returns></returns>
-        public List<Paragraph> getParagraphListFromString(DocumentBase docs, string texts)
+        public List<Paragraph> getParagraphListWithNewLine(DocumentBase docs, string texts)
         {
             List<Paragraph> results = new List<Paragraph>();
 
@@ -448,6 +448,23 @@ namespace Aspose.Words
                 foreach (Paragraph p in paragraphList)
                 {
                     nodeList.Add(p);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 将一个带有\r\n的字符串逐个写入文档
+        /// </summary>
+        /// <param name="texts"></param>
+        public void writeWithNewLine(string texts)
+        {
+            texts = texts.Replace("\r", string.Empty);
+            string[] lines = texts.Split(new string[] { "\n" }, StringSplitOptions.None);
+            if (lines != null && lines.Length >= 1)
+            {
+                foreach (string s in lines)
+                {
+                    WordDocBuilder.Writeln(s);
                 }
             }
         }
