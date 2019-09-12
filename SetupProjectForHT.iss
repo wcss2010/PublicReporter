@@ -34,6 +34,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "C:\Users\wcss\Desktop\Reporters\Plugins\*"; DestDir: "{app}\Plugins"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\wcss\Desktop\Reporters\Fonts\*"; DestDir: "{app}\Fonts"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\Users\wcss\Desktop\Reporters\Aspose.Words.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\wcss\Desktop\Reporters\config.xml"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\wcss\Desktop\Reporters\dotNetFx40_Full_x86_x64.exe"; DestDir: "{app}"; Flags: ignoreversion
