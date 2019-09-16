@@ -81,21 +81,6 @@ namespace ProjectReporterPlugin.Editor
             {
                 txtInfo.LoadFile(GetInfoFilePath());
             }
-
-            if (File.Exists(GetDestFilePath()))
-            {
-                updateDestDocumentLabel(GetDestFilePath());
-            }
-
-            if (File.Exists(GetContentFilePath()))
-            {
-                updateContentDocumentLabel(GetContentFilePath());
-            }
-
-            if (File.Exists(GetNeedFilePath()))
-            {
-                updateNeedDocumentLabel(GetNeedFilePath());
-            }
         }
 
         public override bool IsInputCompleted()
@@ -112,10 +97,6 @@ namespace ProjectReporterPlugin.Editor
                 try
                 {
                     System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                    p.WaitForExit();
-
-                    //更新显示标签
-                    updateDestDocumentLabel(tempFile);
                 }
                 catch (Exception ex)
                 {
@@ -137,30 +118,11 @@ namespace ProjectReporterPlugin.Editor
                 try
                 {
                     System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                    p.WaitForExit();
-
-                    //更新显示标签
-                    updateDestDocumentLabel(tempFile);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
                 }
-            }
-        }
-
-        /// <summary>
-        /// 更新研究目标标签
-        /// </summary>
-        /// <param name="tempFile"></param>
-        private void updateDestDocumentLabel(string tempFile)
-        {
-            if (File.Exists(tempFile))
-            {
-                WordDocument wd = new WordDocument(tempFile);
-                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
-                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
-                lblDestWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
             }
         }
 
@@ -174,10 +136,6 @@ namespace ProjectReporterPlugin.Editor
                 try
                 {
                     System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                    p.WaitForExit();
-
-                    //更新显示标签
-                    updateContentDocumentLabel(tempFile);
                 }
                 catch (Exception ex)
                 {
@@ -198,30 +156,11 @@ namespace ProjectReporterPlugin.Editor
                 try
                 {
                     System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                    p.WaitForExit();
-
-                    //更新显示标签
-                    updateContentDocumentLabel(tempFile);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
                 }
-            }
-        }
-
-        /// <summary>
-        /// 更新研究内容标签
-        /// </summary>
-        /// <param name="tempFile"></param>
-        private void updateContentDocumentLabel(string tempFile)
-        {
-            if (File.Exists(tempFile))
-            {
-                WordDocument wd = new WordDocument(tempFile);
-                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
-                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
-                lblContentWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";
             }
         }
 
@@ -234,10 +173,6 @@ namespace ProjectReporterPlugin.Editor
                 try
                 {
                     System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                    p.WaitForExit();
-
-                    //更新显示标签
-                    updateNeedDocumentLabel(tempFile);
                 }
                 catch (Exception ex)
                 {
@@ -259,10 +194,6 @@ namespace ProjectReporterPlugin.Editor
                 try
                 {
                     System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                    p.WaitForExit();
-
-                    //更新显示标签
-                    updateNeedDocumentLabel(tempFile);
                 }
                 catch (Exception ex)
                 {
@@ -271,18 +202,24 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        /// <summary>
-        /// 更新研究思路标签
-        /// </summary>
-        /// <param name="tempFile"></param>
-        private void updateNeedDocumentLabel(string tempFile)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            if (File.Exists(tempFile))
+            Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+            upf.LabalText = "正在保存,请等待...";
+            upf.ShowProgressWithOnlyUI();
+            upf.PlayProgressWithOnlyUI(80);
+
+            try
             {
-                WordDocument wd = new WordDocument(tempFile);
-                int pageCount = wd.WordDoc.BuiltInDocumentProperties.Pages;
-                int wordCount = wd.WordDoc.BuiltInDocumentProperties.Words;
-                lblNeedWordInfo.Text = "当前文档总页数为" + pageCount + "页，总字数为" + wordCount + "字。";                
+                OnSaveEvent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存失败！Ex:" + ex.ToString());
+            }
+            finally
+            {
+                upf.CloseProgressWithOnlyUI();
             }
         }
     }
