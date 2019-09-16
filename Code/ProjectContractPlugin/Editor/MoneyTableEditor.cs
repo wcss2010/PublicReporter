@@ -174,7 +174,7 @@ namespace ProjectContractPlugin.Editor
             decimal.TryParse(this.ibEditMoney5.Text, out d6);
             if (d3 > (d4 - d6) * 0.2m)
             {
-                text += "请注意，间接经费不超过直接经费减去设备购置费和外协费的20%，正确无误后方能保存。\r\n";
+                text += "请注意，间接经费不超过直接经费减去外协费的20%，正确无误后方能保存。\r\n";
             }
             if (text != string.Empty)
             {
