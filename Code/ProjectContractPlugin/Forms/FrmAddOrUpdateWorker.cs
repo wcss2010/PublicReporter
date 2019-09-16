@@ -60,6 +60,7 @@ namespace ProjectContractPlugin.Forms
             else
             {
                 DataObj = new RenYuanBiao();
+                DataObj.ShiXiangMuFuZeRen = "rbIsOnlySubject";
             }
         }
 

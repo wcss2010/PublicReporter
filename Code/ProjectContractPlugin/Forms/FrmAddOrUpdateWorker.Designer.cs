@@ -50,7 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rbIsOnlySubject = new System.Windows.Forms.RadioButton();
             this.rbIsProjectAndSubject = new System.Windows.Forms.RadioButton();
@@ -63,7 +62,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(53, 19);
+            this.label1.Location = new System.Drawing.Point(53, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 16);
@@ -106,7 +105,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label5.Location = new System.Drawing.Point(489, 21);
+            this.label5.Location = new System.Drawing.Point(489, 23);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 16);
@@ -138,7 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(53, 82);
+            this.label3.Location = new System.Drawing.Point(53, 84);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
@@ -252,7 +251,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "负责人",
             "成员"});
-            this.comboBox2.Location = new System.Drawing.Point(132, 335);
+            this.comboBox2.Location = new System.Drawing.Point(132, 388);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(253, 24);
@@ -262,7 +261,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(439, 338);
+            this.label4.Location = new System.Drawing.Point(439, 391);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 16);
@@ -276,7 +275,7 @@
             this.comboBox3.Items.AddRange(new object[] {
             "负责人",
             "成员"});
-            this.comboBox3.Location = new System.Drawing.Point(600, 335);
+            this.comboBox3.Location = new System.Drawing.Point(600, 388);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(179, 24);
@@ -286,32 +285,21 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(53, 338);
+            this.label10.Location = new System.Drawing.Point(53, 391);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 16);
             this.label10.TabIndex = 26;
             this.label10.Text = "课题：";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label11.Location = new System.Drawing.Point(53, 397);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 16);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "角色：";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.rbIsOnlySubject);
             this.panel1.Controls.Add(this.rbIsProjectAndSubject);
             this.panel1.Controls.Add(this.rbIsOnlyProject);
-            this.panel1.Location = new System.Drawing.Point(132, 389);
+            this.panel1.Location = new System.Drawing.Point(132, 327);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 33);
+            this.panel1.Size = new System.Drawing.Size(647, 33);
             this.panel1.TabIndex = 30;
             // 
             // rbIsOnlySubject
@@ -319,7 +307,7 @@
             this.rbIsOnlySubject.AutoSize = true;
             this.rbIsOnlySubject.Checked = true;
             this.rbIsOnlySubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbIsOnlySubject.Location = new System.Drawing.Point(260, 0);
+            this.rbIsOnlySubject.Location = new System.Drawing.Point(324, 0);
             this.rbIsOnlySubject.Name = "rbIsOnlySubject";
             this.rbIsOnlySubject.Size = new System.Drawing.Size(122, 33);
             this.rbIsOnlySubject.TabIndex = 2;
@@ -332,11 +320,11 @@
             // 
             this.rbIsProjectAndSubject.AutoSize = true;
             this.rbIsProjectAndSubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbIsProjectAndSubject.Location = new System.Drawing.Point(122, 0);
+            this.rbIsProjectAndSubject.Location = new System.Drawing.Point(138, 0);
             this.rbIsProjectAndSubject.Name = "rbIsProjectAndSubject";
-            this.rbIsProjectAndSubject.Size = new System.Drawing.Size(138, 33);
+            this.rbIsProjectAndSubject.Size = new System.Drawing.Size(186, 33);
             this.rbIsProjectAndSubject.TabIndex = 1;
-            this.rbIsProjectAndSubject.Text = "项目兼课题角色";
+            this.rbIsProjectAndSubject.Text = "项目负责人兼课题角色";
             this.rbIsProjectAndSubject.UseVisualStyleBackColor = true;
             this.rbIsProjectAndSubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
             // 
@@ -346,9 +334,9 @@
             this.rbIsOnlyProject.Dock = System.Windows.Forms.DockStyle.Left;
             this.rbIsOnlyProject.Location = new System.Drawing.Point(0, 0);
             this.rbIsOnlyProject.Name = "rbIsOnlyProject";
-            this.rbIsOnlyProject.Size = new System.Drawing.Size(122, 33);
+            this.rbIsOnlyProject.Size = new System.Drawing.Size(138, 33);
             this.rbIsOnlyProject.TabIndex = 0;
-            this.rbIsOnlyProject.Text = "仅为项目角色";
+            this.rbIsOnlyProject.Text = "仅为项目负责人";
             this.rbIsOnlyProject.UseVisualStyleBackColor = true;
             this.rbIsOnlyProject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
             // 
@@ -358,7 +346,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 509);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox2);
@@ -420,7 +407,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rbIsOnlySubject;
         private System.Windows.Forms.RadioButton rbIsProjectAndSubject;
