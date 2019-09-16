@@ -377,7 +377,27 @@ namespace ProjectReporterPlugin.Utility
                                         table.Rows[rowIndex].Cells[2].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[0].AppendChild(wu.getCellContentObj(table, curStep.StepIndex + ""));
                                         table.Rows[rowIndex].Cells[1].AppendChild(wu.getCellContentObj(table, curStep.StepTime + ""));
-                                        wu.Document.addRangeToNodeCollection(table.Rows[rowIndex].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, resultStr));
+
+                                        List<Paragraph> resultList = wu.Document.getParagraphListWithNewLine(table.Document, resultStr);
+                                        foreach (Paragraph p in resultList)
+                                        {
+                                            if (p.HasChildNodes)
+                                            {
+                                                if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("完成内容及阶段目标:"))
+                                                {
+                                                    ((Run)p.ChildNodes[0]).Font.Bold = true;
+                                                }
+                                                else if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("阶段成果、考核指标及考核方式:"))
+                                                {
+                                                    ((Run)p.ChildNodes[0]).Font.Bold = true;
+                                                }
+                                                else if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("阶段经费:"))
+                                                {
+                                                    ((Run)p.ChildNodes[0]).Font.Bold = true;
+                                                }
+                                            }
+                                        }
+                                        wu.Document.addRangeToNodeCollection(table.Rows[rowIndex].Cells[2].ChildNodes, resultList);
 
                                         rowIndex++;
                                     }
@@ -458,7 +478,27 @@ namespace ProjectReporterPlugin.Utility
                                     }
 
                                     table.Rows[rowIndex].Cells[dataColIndex].RemoveAllChildren();
-                                    wu.Document.addRangeToNodeCollection(table.Rows[rowIndex].Cells[dataColIndex].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, resultStr));
+
+                                    List<Paragraph> resultList = wu.Document.getParagraphListWithNewLine(table.Document, resultStr);
+                                    foreach (Paragraph p in resultList)
+                                    {
+                                        if (p.HasChildNodes)
+                                        {
+                                            if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("完成内容及阶段目标:"))
+                                            {
+                                                ((Run)p.ChildNodes[0]).Font.Bold = true;
+                                            }
+                                            else if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("阶段成果、考核指标及考核方式:"))
+                                            {
+                                                ((Run)p.ChildNodes[0]).Font.Bold = true;
+                                            }
+                                            else if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("阶段经费:"))
+                                            {
+                                                ((Run)p.ChildNodes[0]).Font.Bold = true;
+                                            }
+                                        }
+                                    }
+                                    wu.Document.addRangeToNodeCollection(table.Rows[rowIndex].Cells[dataColIndex].ChildNodes, resultList);
 
                                     dataColIndex++;
                                 }
