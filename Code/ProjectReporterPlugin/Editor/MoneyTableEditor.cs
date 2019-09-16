@@ -1496,18 +1496,20 @@ namespace ProjectReporterPlugin.Editor
             // plBottomInfoBox
             // 
             this.plBottomInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.plBottomInfoBox.Controls.Add(this.txtZiChouJingFei);
+            this.plBottomInfoBox.AutoSize = true;
             this.plBottomInfoBox.Controls.Add(this.kryptonLabel4);
+            this.plBottomInfoBox.Controls.Add(this.txtZiChouJingFei);
             this.plBottomInfoBox.Controls.Add(this.kryptonLabel3);
-            this.plBottomInfoBox.Location = new System.Drawing.Point(134, 3);
+            this.plBottomInfoBox.Location = new System.Drawing.Point(197, 3);
             this.plBottomInfoBox.Name = "plBottomInfoBox";
-            this.plBottomInfoBox.Size = new System.Drawing.Size(482, 34);
+            this.plBottomInfoBox.Size = new System.Drawing.Size(631, 30);
             this.plBottomInfoBox.TabIndex = 30;
             // 
             // txtZiChouJingFei
             // 
+            this.txtZiChouJingFei.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtZiChouJingFei.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtZiChouJingFei.Location = new System.Drawing.Point(323, 2);
+            this.txtZiChouJingFei.Location = new System.Drawing.Point(266, 0);
             this.txtZiChouJingFei.Margin = new System.Windows.Forms.Padding(2);
             this.txtZiChouJingFei.Name = "txtZiChouJingFei";
             this.txtZiChouJingFei.Size = new System.Drawing.Size(72, 26);
@@ -1516,23 +1518,29 @@ namespace ProjectReporterPlugin.Editor
             // 
             // kryptonLabel4
             // 
+            this.kryptonLabel4.AutoSize = true;
+            this.kryptonLabel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonLabel4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel4.Location = new System.Drawing.Point(416, 5);
+            this.kryptonLabel4.Location = new System.Drawing.Point(338, 0);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel4.Size = new System.Drawing.Size(65, 23);
+            this.kryptonLabel4.Padding = new System.Windows.Forms.Padding(5);
+            this.kryptonLabel4.Size = new System.Drawing.Size(50, 26);
             this.kryptonLabel4.TabIndex = 29;
             this.kryptonLabel4.Text = "万元";
+            this.kryptonLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // kryptonLabel3
             // 
+            this.kryptonLabel3.AutoSize = true;
+            this.kryptonLabel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonLabel3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel3.Location = new System.Drawing.Point(4, 5);
+            this.kryptonLabel3.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel3.Size = new System.Drawing.Size(299, 23);
+            this.kryptonLabel3.Padding = new System.Windows.Forms.Padding(5);
+            this.kryptonLabel3.Size = new System.Drawing.Size(266, 26);
             this.kryptonLabel3.TabIndex = 29;
             this.kryptonLabel3.Text = "本项目申请经费0万元，另自筹经费";
+            this.kryptonLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -1663,6 +1671,7 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonPanel18.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.plBottomInfoBox.ResumeLayout(false);
             this.plBottomInfoBox.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -359,7 +359,7 @@ namespace ProjectReporterPlugin
         /// </summary>
         private void switchToProjectContentEditor()
         {
-            Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1].Nodes[0].Nodes[0];
+            Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
             refreshEditors();
         }
 
