@@ -196,7 +196,26 @@ namespace ProjectReporterPlugin.Utility
 
                 for (int kk = 0; kk < ketiList.Count; kk++)
                 {
+                    Project proj = ketiList[kk];
+
                     int ketiIndex = (kk + 1);
+
+                    //负责人
+                    string fuzeUnit = string.Empty;
+                    string fuzePerson = string.Empty;
+                    fuzeUnit = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = (select ProjectID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "'))").select("UnitName").getValue<string>(string.Empty);
+                    fuzePerson = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "')").select("Name").getValue<string>(string.Empty);
+
+                    //wu.InsertValue("课题详细_" + ketiIndex + "_4", "  负责人：" + fuzePerson + "\n  负责单位：" + fuzeUnit, true);
+
+                    //金额
+                    string moneyStr = "0";
+                    Task ketiTask = ConnectionManager.Context.table("Task").where("ProjectID='" + proj.ID + "'").select("*").getItem<Task>(new Task());
+                    if (ketiTask != null)
+                    {
+                        moneyStr = "  " + ketiTask.TotalMoney + "万";
+                    }
+                    //wu.InsertValue("课题详细_" + ketiIndex + "_5", moneyStr, true);
 
                     wu.Document.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading2;
                     wu.Document.WordDocBuilder.Writeln("F2-" + ketiIndex);
@@ -218,8 +237,8 @@ namespace ProjectReporterPlugin.Utility
 
                     wu.Document.WordDocBuilder.Writeln("、负责单位及负责人");
                     wu.Document.WordDocBuilder.ParagraphFormat.ClearFormatting();
-                    wu.Document.WordDocBuilder.Writeln("负责人:未知");
-                    wu.Document.WordDocBuilder.Writeln("负责单位:未知");
+                    wu.Document.WordDocBuilder.Writeln("    负责人:" + fuzePerson);
+                    wu.Document.WordDocBuilder.Writeln("    负责单位:" + fuzeUnit);
                     //wu.Document.WordDocBuilder.StartBookmark("课题详细_" + ketiIndex + "_4");
                     //wu.Document.WordDocBuilder.EndBookmark("课题详细_" + ketiIndex + "_4");
 
@@ -227,7 +246,7 @@ namespace ProjectReporterPlugin.Utility
                     wu.Document.WordDocBuilder.ParagraphFormat.FirstLineIndent = paragraphFormat.FirstLineIndent;
                     wu.Document.WordDocBuilder.Writeln("、研究经费");
                     wu.Document.WordDocBuilder.ParagraphFormat.ClearFormatting();
-                    wu.Document.WordDocBuilder.Writeln("1000万");
+                    wu.Document.WordDocBuilder.Writeln("    " + moneyStr);
                     //wu.Document.WordDocBuilder.StartBookmark("课题详细_" + ketiIndex + "_5");
                     //wu.Document.WordDocBuilder.EndBookmark("课题详细_" + ketiIndex + "_5");
                 }
@@ -257,23 +276,6 @@ namespace ProjectReporterPlugin.Utility
                         wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究目标" + ".doc"), false);
                         wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究内容" + ".doc"), false);
                         wu.insertFile("课题详细_" + ketiIndex + "_3", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究思路" + ".doc"), false);
-
-                        //负责人
-                        string fuzeUnit = string.Empty;
-                        string fuzePerson = string.Empty;
-                        fuzeUnit = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = (select ProjectID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "'))").select("UnitName").getValue<string>(string.Empty);
-                        fuzePerson = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "')").select("Name").getValue<string>(string.Empty);
-
-                        //wu.InsertValue("课题详细_" + ketiIndex + "_4", "  负责人：" + fuzePerson + "\n  负责单位：" + fuzeUnit, true);
-
-                        //金额
-                        string moneyStr = "0";
-                        Task ketiTask = ConnectionManager.Context.table("Task").where("ProjectID='" + proj.ID + "'").select("*").getItem<Task>(new Task());
-                        if (ketiTask != null)
-                        {
-                            moneyStr = "  " + ketiTask.TotalMoney + "万";
-                        }
-                        //wu.InsertValue("课题详细_" + ketiIndex + "_5", moneyStr, true);
 
                         ketiIndex++;
 
