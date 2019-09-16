@@ -502,7 +502,7 @@ namespace Aspose.Words
         /// <param name="texts"></param>
         public void writeWithNewLine(string texts)
         {
-            writeWithNewLine(texts, false);
+            writeWithNewLine(texts, true);
         }
     }
 
