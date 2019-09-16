@@ -31,6 +31,8 @@
             this.knKetiDetailTabs = new System.Windows.Forms.TabControl();
             this.kpInfo = new System.Windows.Forms.TabPage();
             this.txtInfo = new ProjectReporterPlugin.Controls.TextBoxExt();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
             this.kryptonPanel1 = new System.Windows.Forms.Panel();
             this.autoHeightLabel1 = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.kpDest = new System.Windows.Forms.TabPage();
@@ -46,10 +48,9 @@
             this.plTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
             this.knKetiDetailTabs.SuspendLayout();
             this.kpInfo.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.kryptonPanel1.SuspendLayout();
             this.kpDest.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -60,7 +61,6 @@
             this.tableLayoutPanel15.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // knKetiDetailTabs
@@ -100,6 +100,26 @@
             this.txtInfo.Size = new System.Drawing.Size(834, 361);
             this.txtInfo.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnSave);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 395);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(834, 33);
+            this.panel3.TabIndex = 2;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Location = new System.Drawing.Point(768, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(66, 33);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "保存";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.AutoSize = true;
@@ -108,7 +128,6 @@
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.kryptonPanel1.Size = new System.Drawing.Size(834, 34);
             this.kryptonPanel1.TabIndex = 1;
             // 
@@ -119,10 +138,10 @@
             this.autoHeightLabel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.autoHeightLabel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.autoHeightLabel1.Font = new System.Drawing.Font("仿宋", 15F);
-            this.autoHeightLabel1.Location = new System.Drawing.Point(6, 0);
+            this.autoHeightLabel1.Location = new System.Drawing.Point(0, 0);
             this.autoHeightLabel1.Name = "autoHeightLabel1";
             this.autoHeightLabel1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.autoHeightLabel1.Size = new System.Drawing.Size(828, 34);
+            this.autoHeightLabel1.Size = new System.Drawing.Size(834, 34);
             this.autoHeightLabel1.TabIndex = 0;
             this.autoHeightLabel1.Text = "(200字以内,此部分无需缩进,请顶格填写)";
             this.autoHeightLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,26 +289,6 @@
             this.plContent.Size = new System.Drawing.Size(842, 458);
             this.plContent.TabIndex = 7;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnSave);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 395);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(834, 33);
-            this.panel3.TabIndex = 2;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Location = new System.Drawing.Point(768, 0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(66, 33);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // SubjectDetailEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -302,6 +301,7 @@
             this.knKetiDetailTabs.ResumeLayout(false);
             this.kpInfo.ResumeLayout(false);
             this.kpInfo.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.kryptonPanel1.ResumeLayout(false);
             this.kpDest.ResumeLayout(false);
             this.plButtons.ResumeLayout(false);
@@ -313,7 +313,6 @@
             this.tableLayoutPanel15.PerformLayout();
             this.plTitle.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
