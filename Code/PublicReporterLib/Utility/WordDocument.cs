@@ -425,6 +425,10 @@ namespace Aspose.Words
             {
                 foreach (string s in lines)
                 {
+                    if (string.IsNullOrEmpty(s))
+                    {
+                        continue;
+                    }
                     results.Add(newParagraph(docs, s));
                 }
             }
@@ -464,6 +468,10 @@ namespace Aspose.Words
             {
                 foreach (string s in lines)
                 {
+                    if (string.IsNullOrEmpty(s))
+                    {
+                        continue;
+                    }
                     WordDocBuilder.Writeln(s);
                 }
             }
