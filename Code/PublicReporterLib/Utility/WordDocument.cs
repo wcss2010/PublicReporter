@@ -460,21 +460,49 @@ namespace Aspose.Words
         /// 将一个带有\r\n的字符串逐个写入文档
         /// </summary>
         /// <param name="texts"></param>
-        public void writeWithNewLine(string texts)
+        /// <param name="isAcceptEnterWithEnd"></param>
+        public void writeWithNewLine(string texts, bool isAcceptEnterWithEnd)
         {
             texts = texts.Replace("\r", string.Empty);
             string[] lines = texts.Split(new string[] { "\n" }, StringSplitOptions.None);
             if (lines != null && lines.Length >= 1)
             {
+                int index = 0;
                 foreach (string s in lines)
                 {
+                    index++;
+
                     if (string.IsNullOrEmpty(s))
                     {
                         continue;
                     }
-                    WordDocBuilder.Writeln(s);
+
+                    if (index == lines.Length)
+                    {
+                        if (isAcceptEnterWithEnd)
+                        {
+                            WordDocBuilder.Writeln(s);
+                        }
+                        else
+                        {
+                            WordDocBuilder.Write(s);
+                        }
+                    }
+                    else
+                    {
+                        WordDocBuilder.Writeln(s);
+                    }
                 }
             }
+        }
+
+        /// <summary>
+        /// 将一个带有\r\n的字符串逐个写入文档
+        /// </summary>
+        /// <param name="texts"></param>
+        public void writeWithNewLine(string texts)
+        {
+            writeWithNewLine(texts, false);
         }
     }
 
