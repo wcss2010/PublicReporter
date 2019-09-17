@@ -985,8 +985,8 @@ namespace ProjectReporterPlugin.Utility
                                     {
                                         if (n is Paragraph)
                                         {
-                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Exactly;
-                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 14;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Multiple;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 12;
                                         }
                                     }
                                 }
