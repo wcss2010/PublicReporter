@@ -311,16 +311,34 @@ namespace Aspose.Words
         /// </summary>
         /// <param name="docs"></param>
         /// <param name="text"></param>
+        /// <param name="isUseDefaultFont"></param>
+        /// <returns></returns>
+        public Paragraph newParagraph(DocumentBase docs, string text, bool isUseDefaultFont)
+        {
+            //创建对象
+            Aspose.Words.Paragraph p = new Paragraph(docs);
+            p.AppendChild(new Run(docs, text != null ? text : string.Empty));
+            
+            //是否使用默认字体
+            if (isUseDefaultFont)
+            {
+                ((Run)p.ChildNodes[0]).Font.Name = documentBuilder.Font.Name;
+                ((Run)p.ChildNodes[0]).Font.Size = documentBuilder.Font.Size;
+                ((Run)p.ChildNodes[0]).Font.Bold = documentBuilder.Font.Bold;
+                ((Run)p.ChildNodes[0]).Font.Italic = documentBuilder.Font.Italic;
+            }
+            return p;
+        }
+
+        /// <summary>
+        /// 生成一个基于文本的Paragraph对象(如果想改变字号等信息，需要((Run)obj.ChildNodes[0]).Font.Size = 12)
+        /// </summary>
+        /// <param name="docs"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
         public Paragraph newParagraph(DocumentBase docs, string text)
         {
-            Aspose.Words.Paragraph p = new Paragraph(docs);
-            p.AppendChild(new Run(docs, text != null ? text : string.Empty));
-            ((Run)p.ChildNodes[0]).Font.Name = documentBuilder.Font.Name;
-            ((Run)p.ChildNodes[0]).Font.Size = documentBuilder.Font.Size;
-            ((Run)p.ChildNodes[0]).Font.Bold = documentBuilder.Font.Bold;
-            ((Run)p.ChildNodes[0]).Font.Italic = documentBuilder.Font.Italic;
-            return p;
+            return newParagraph(docs, text, true);
         }
 
         /// <summary>
