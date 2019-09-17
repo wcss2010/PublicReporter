@@ -785,6 +785,7 @@ namespace ProjectReporterPlugin.Utility
                                     #region 写入标签
                                     table.Rows[rowStart].Cells[0].RemoveAllChildren();
                                     table.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, "课题" + chsNumbers[(k + 1)]));
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[0].ChildNodes[0]).ChildNodes[0]).Font.Bold = true;
                                     //table.Rows[rowStart].Cells[1).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[1).Select();
