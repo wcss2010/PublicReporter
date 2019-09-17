@@ -569,6 +569,9 @@ namespace ProjectReporterPlugin.Utility
 
                 Report(progressDialog, 60, "写入课题负责人及研究骨干信息...", 1000);
 
+                wu.Document.WordDocBuilder.Font.Size = 12;
+                wu.Document.WordDocBuilder.Font.Name = "仿宋_GB2312";
+
                 #region 插入课题负责人及研究骨干情况表
                 try
                 {
@@ -660,6 +663,9 @@ namespace ProjectReporterPlugin.Utility
                 #endregion
 
                 Report(progressDialog, 70, "写入经费预算...", 1000);
+
+                wu.Document.WordDocBuilder.Font.Size = 12;
+                wu.Document.WordDocBuilder.Font.Name = "仿宋_GB2312";
 
                 #region 插入经费预算表
                 try
@@ -804,6 +810,9 @@ namespace ProjectReporterPlugin.Utility
                 #endregion
 
                 Report(progressDialog, 75, "写入联系方式...", 1000);
+
+                wu.Document.WordDocBuilder.Font.Size = 12;
+                wu.Document.WordDocBuilder.Font.Name = "仿宋_GB2312";
 
                 #region 插入联系方式
                 try
@@ -976,8 +985,8 @@ namespace ProjectReporterPlugin.Utility
                                     {
                                         if (n is Paragraph)
                                         {
-                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Multiple;
-                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 12;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Exactly;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 14;
                                         }
                                     }
                                 }
