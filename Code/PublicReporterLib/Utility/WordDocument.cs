@@ -315,7 +315,11 @@ namespace Aspose.Words
         public Paragraph newParagraph(DocumentBase docs, string text)
         {
             Aspose.Words.Paragraph p = new Paragraph(docs);
-            p.AppendChild(new Run(docs, text != null ? text : string.Empty));            
+            p.AppendChild(new Run(docs, text != null ? text : string.Empty));
+            ((Run)p.ChildNodes[0]).Font.Name = documentBuilder.Font.Name;
+            ((Run)p.ChildNodes[0]).Font.Size = documentBuilder.Font.Size;
+            ((Run)p.ChildNodes[0]).Font.Bold = documentBuilder.Font.Bold;
+            ((Run)p.ChildNodes[0]).Font.Italic = documentBuilder.Font.Italic;
             return p;
         }
 
