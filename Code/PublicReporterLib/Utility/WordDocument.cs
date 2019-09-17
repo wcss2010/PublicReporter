@@ -307,7 +307,7 @@ namespace Aspose.Words
         }
 
         /// <summary>
-        /// 创建文本Paragraph
+        /// 生成一个基于文本的Paragraph对象(如果想改变字号等信息，需要((Run)obj.ChildNodes[0]).Font.Size = 12)
         /// </summary>
         /// <param name="docs"></param>
         /// <param name="text"></param>
@@ -315,14 +315,7 @@ namespace Aspose.Words
         public Paragraph newParagraph(DocumentBase docs, string text)
         {
             Aspose.Words.Paragraph p = new Paragraph(docs);
-            if (string.IsNullOrEmpty(text))
-            {
-                //不进行操作
-            }
-            else
-            {
-                p.AppendChild(new Run(docs, text != null ? text : string.Empty));
-            }
+            p.AppendChild(new Run(docs, text != null ? text : string.Empty));            
             return p;
         }
 
@@ -503,19 +496,6 @@ namespace Aspose.Words
         public void writeWithNewLine(string texts)
         {
             writeWithNewLine(texts, true);
-        }
-
-        /// <summary>
-        /// 生成一个基于文本的Paragraph对象(如果想改变字号等信息，需要((Run)obj.ChildNodes[0]).Font.Size = 12)
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        public Paragraph getParagraphFromString(DocumentBase docBase, string textString)
-        {
-            Aspose.Words.Paragraph pp = new Paragraph(docBase);
-            pp.AppendChild(new Run(docBase, textString));
-            return pp;
         }
     }
 

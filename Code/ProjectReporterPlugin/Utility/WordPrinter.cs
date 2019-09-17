@@ -377,8 +377,8 @@ namespace ProjectReporterPlugin.Utility
                                         table.Rows[rowIndex].Cells[0].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[1].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[2].RemoveAllChildren();
-                                        table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.getParagraphFromString(table.Document, curStep.StepIndex + ""));
-                                        table.Rows[rowIndex].Cells[1].AppendChild(wu.Document.getParagraphFromString(table.Document, curStep.StepTime + ""));
+                                        table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, curStep.StepIndex + ""));
+                                        table.Rows[rowIndex].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, curStep.StepTime + ""));
 
                                         List<Paragraph> resultList = wu.Document.getParagraphListWithNewLine(table.Document, resultStr);
                                         foreach (Paragraph p in resultList)
@@ -440,7 +440,7 @@ namespace ProjectReporterPlugin.Utility
                             foreach (Step step in projectStepList)
                             {
                                 table.Rows[0].Cells[colIndex].RemoveAllChildren();
-                                table.Rows[0].Cells[colIndex].AppendChild(wu.Document.getParagraphFromString(table.Document, "阶段" + step.StepIndex + "(" + step.StepTime + "个月)"));
+                                table.Rows[0].Cells[colIndex].AppendChild(wu.Document.newParagraph(table.Document, "阶段" + step.StepIndex + "(" + step.StepTime + "个月)"));
                                 //table.Cell(1, colIndex).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
                                 colIndex++;
                             }
@@ -509,12 +509,12 @@ namespace ProjectReporterPlugin.Utility
                                 if (kvp.Key != "项目")
                                 {
                                     table.Rows[rowIndex].Cells[0].RemoveAllChildren();
-                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.getParagraphFromString(table.Document, kvp.Key + "(" + totalMoney + "万)"));
+                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, kvp.Key + "(" + totalMoney + "万)"));
                                 }
                                 else
                                 {
                                     table.Rows[rowIndex].Cells[0].RemoveAllChildren();
-                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.getParagraphFromString(table.Document, kvp.Key));
+                                    table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, kvp.Key));
                                 }
 
                                 rowIndex++;
@@ -571,15 +571,15 @@ namespace ProjectReporterPlugin.Utility
                                 table.Rows[rowIndex].Cells[8].RemoveAllChildren();
                                 table.Rows[rowIndex].Cells[9].RemoveAllChildren();
 
-                                table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.getParagraphFromString(table.Document, rowIndex.ToString()));
-                                table.Rows[rowIndex].Cells[1].AppendChild(wu.Document.getParagraphFromString(table.Document, person.Name));
-                                table.Rows[rowIndex].Cells[2].AppendChild(wu.Document.getParagraphFromString(table.Document, person.Sex));
-                                table.Rows[rowIndex].Cells[3].AppendChild(wu.Document.getParagraphFromString(table.Document, person.Job));
-                                table.Rows[rowIndex].Cells[4].AppendChild(wu.Document.getParagraphFromString(table.Document, person.Specialty));
-                                table.Rows[rowIndex].Cells[5].AppendChild(wu.Document.getParagraphFromString(table.Document, unit.UnitName));
-                                table.Rows[rowIndex].Cells[6].AppendChild(wu.Document.getParagraphFromString(table.Document, curTask.TotalTime.ToString()));
-                                table.Rows[rowIndex].Cells[7].AppendChild(wu.Document.getParagraphFromString(table.Document, curTask.Content));
-                                table.Rows[rowIndex].Cells[8].AppendChild(wu.Document.getParagraphFromString(table.Document, person.IDCard));
+                                table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, rowIndex.ToString()));
+                                table.Rows[rowIndex].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, person.Name));
+                                table.Rows[rowIndex].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, person.Sex));
+                                table.Rows[rowIndex].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, person.Job));
+                                table.Rows[rowIndex].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, person.Specialty));
+                                table.Rows[rowIndex].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, unit.UnitName));
+                                table.Rows[rowIndex].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, curTask.TotalTime.ToString()));
+                                table.Rows[rowIndex].Cells[7].AppendChild(wu.Document.newParagraph(table.Document, curTask.Content));
+                                table.Rows[rowIndex].Cells[8].AppendChild(wu.Document.newParagraph(table.Document, person.IDCard));
 
                                 string KetiInProject = string.Empty;
                                 foreach (KeyValuePair<string, Project> kvp in ketiMap)
@@ -590,7 +590,7 @@ namespace ProjectReporterPlugin.Utility
                                         break;
                                     }
                                 }
-                                table.Rows[rowIndex].Cells[9].AppendChild(wu.Document.getParagraphFromString(table.Document, KetiInProject));
+                                table.Rows[rowIndex].Cells[9].AppendChild(wu.Document.newParagraph(table.Document, KetiInProject));
 
                                 rowIndex++;
                             }
@@ -780,56 +780,56 @@ namespace ProjectReporterPlugin.Utility
 
                                     #region 写入标签
                                     table.Rows[rowStart].Cells[0].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[0].AppendChild(wu.Document.getParagraphFromString(table.Document, "课题" + chsNumbers[(k + 1)]));
+                                    table.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, "课题" + chsNumbers[(k + 1)]));
                                     //table.Rows[rowStart].Cells[1).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[1).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart].Cells[1].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[1].AppendChild(wu.Document.getParagraphFromString(table.Document, "负责人"));
+                                    table.Rows[rowStart].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "负责人"));
                                     //table.Rows[rowStart].Cells[2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[2).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart].Cells[3].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[3].AppendChild(wu.Document.getParagraphFromString(table.Document, "性别"));
+                                    table.Rows[rowStart].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "性别"));
                                     //table.Rows[rowStart].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[4).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart].Cells[5].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[5].AppendChild(wu.Document.getParagraphFromString(table.Document, "出生年月"));
+                                    table.Rows[rowStart].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "出生年月"));
                                     //table.Rows[rowStart].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[6).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 1].Cells[1].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[1].AppendChild(wu.Document.getParagraphFromString(table.Document, "职务职称"));
+                                    table.Rows[rowStart + 1].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "职务职称"));
                                     //table.Rows[rowStart + 1].Cells[2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[2).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 1].Cells[3].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[3].AppendChild(wu.Document.getParagraphFromString(table.Document, "技术方向"));
+                                    table.Rows[rowStart + 1].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "技术方向"));
                                     //table.Rows[rowStart + 1].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[4).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 1].Cells[5].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[5].AppendChild(wu.Document.getParagraphFromString(table.Document, "手机"));
+                                    table.Rows[rowStart + 1].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "手机"));
                                     //table.Rows[rowStart + 1].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[6).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 2].Cells[1].RemoveAllChildren();
-                                    table.Rows[rowStart + 2].Cells[1].AppendChild(wu.Document.getParagraphFromString(table.Document, "承担单位及通信地址"));
+                                    table.Rows[rowStart + 2].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "承担单位及通信地址"));
                                     //table.Cell(rowStart + 2, 2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Cell(rowStart + 2, 2).Select();
@@ -844,49 +844,49 @@ namespace ProjectReporterPlugin.Utility
                                     Person personObj = ConnectionManager.Context.table("Person").where("ID ='" + taskObj.PersonID + "'").select("*").getItem<Person>(new Person());
 
                                     table.Rows[rowStart].Cells[2].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[2].AppendChild(wu.Document.getParagraphFromString(table.Document, personObj.Name));
+                                    table.Rows[rowStart].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, personObj.Name));
                                     //table.Rows[rowStart].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[3).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart].Cells[4].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[4].AppendChild(wu.Document.getParagraphFromString(table.Document, personObj.Sex));
+                                    table.Rows[rowStart].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.Sex));
                                     //table.Rows[rowStart].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[5).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart].Cells[6].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[6].AppendChild(wu.Document.getParagraphFromString(table.Document, personObj.Birthday != null ? personObj.Birthday.Value.ToString("yyyy-MM-dd") : string.Empty));
+                                    table.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.Birthday != null ? personObj.Birthday.Value.ToString("yyyy-MM-dd") : string.Empty));
                                     //table.Rows[rowStart].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[7).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 1].Cells[2].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[2].AppendChild(wu.Document.getParagraphFromString(table.Document, personObj.Job));
+                                    table.Rows[rowStart + 1].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, personObj.Job));
                                     //table.Rows[rowStart + 1].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[3).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 1].Cells[4].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[4].AppendChild(wu.Document.getParagraphFromString(table.Document, personObj.Specialty));
+                                    table.Rows[rowStart + 1].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.Specialty));
                                     //table.Rows[rowStart + 1].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[5).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 1].Cells[6].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[6].AppendChild(wu.Document.getParagraphFromString(table.Document, personObj.MobilePhone));
+                                    table.Rows[rowStart + 1].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.MobilePhone));
                                     //table.Rows[rowStart + 1].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[7).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 2].Cells[2].RemoveAllChildren();
-                                    table.Rows[rowStart + 2].Cells[2].AppendChild(wu.Document.getParagraphFromString(table.Document, unitObj.UnitName + "," + unitObj.Address));
+                                    table.Rows[rowStart + 2].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, unitObj.UnitName + "," + unitObj.Address));
                                     //table.Cell(rowStart + 2, 3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Cell(rowStart + 2, 3).Select();

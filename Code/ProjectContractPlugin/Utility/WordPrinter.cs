@@ -134,150 +134,150 @@ namespace ProjectContractPlugin.Utility
                     {
                         //金额
                         t.Rows[2].Cells[1].RemoveAllChildren();
-                        t.Rows[2].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money1"]));
+                        t.Rows[2].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money1"]));
                         t.Rows[2].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[3].Cells[1].RemoveAllChildren();
-                        t.Rows[3].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money2"]));
+                        t.Rows[3].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money2"]));
                         t.Rows[3].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[4].Cells[1].RemoveAllChildren();
-                        t.Rows[4].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money3"]));
+                        t.Rows[4].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money3"]));
                         t.Rows[4].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[5].Cells[1].RemoveAllChildren();
-                        t.Rows[5].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money4"]));
+                        t.Rows[5].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money4"]));
                         t.Rows[5].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[6].Cells[1].RemoveAllChildren();
-                        t.Rows[6].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money5"]));
+                        t.Rows[6].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money5"]));
                         t.Rows[6].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[7].Cells[1].RemoveAllChildren();
-                        t.Rows[7].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money6"]));
+                        t.Rows[7].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money6"]));
                         t.Rows[7].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[8].Cells[1].RemoveAllChildren();
-                        t.Rows[8].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money7"]));
+                        t.Rows[8].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money7"]));
                         t.Rows[8].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[9].Cells[1].RemoveAllChildren();
-                        t.Rows[9].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money8"]));
+                        t.Rows[9].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money8"]));
                         t.Rows[9].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[10].Cells[1].RemoveAllChildren();
-                        t.Rows[10].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money9"]));
+                        t.Rows[10].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money9"]));
                         t.Rows[10].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[11].Cells[1].RemoveAllChildren();
-                        t.Rows[11].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money10"]));
+                        t.Rows[11].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money10"]));
                         t.Rows[11].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[12].Cells[1].RemoveAllChildren();
-                        t.Rows[12].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money11"]));
+                        t.Rows[12].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money11"]));
                         t.Rows[12].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[13].Cells[1].RemoveAllChildren();
-                        t.Rows[13].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money12"]));
+                        t.Rows[13].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money12"]));
                         t.Rows[13].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[14].Cells[1].RemoveAllChildren();
-                        t.Rows[14].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Money13"]));
+                        t.Rows[14].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Money13"]));
                         t.Rows[14].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         //备注
                         t.Rows[2].Cells[2].RemoveAllChildren();
-                        t.Rows[2].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info1"]));
+                        t.Rows[2].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info1"]));
                         t.Rows[2].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[3].Cells[2].RemoveAllChildren();
-                        t.Rows[3].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info2"]));
+                        t.Rows[3].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info2"]));
                         t.Rows[3].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[4].Cells[2].RemoveAllChildren();
-                        t.Rows[4].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info3"]));
+                        t.Rows[4].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info3"]));
                         t.Rows[4].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[5].Cells[2].RemoveAllChildren();
-                        t.Rows[5].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info4"]));
+                        t.Rows[5].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info4"]));
                         t.Rows[5].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[6].Cells[2].RemoveAllChildren();
-                        t.Rows[6].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info5"]));
+                        t.Rows[6].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info5"]));
                         t.Rows[6].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[7].Cells[2].RemoveAllChildren();
-                        t.Rows[7].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info6"]));
+                        t.Rows[7].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info6"]));
                         t.Rows[7].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[8].Cells[2].RemoveAllChildren();
-                        t.Rows[8].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info7"]));
+                        t.Rows[8].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info7"]));
                         t.Rows[8].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[9].Cells[2].RemoveAllChildren();
-                        t.Rows[9].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info8"]));
+                        t.Rows[9].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info8"]));
                         t.Rows[9].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[10].Cells[2].RemoveAllChildren();
-                        t.Rows[10].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info9"]));
+                        t.Rows[10].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info9"]));
                         t.Rows[10].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[11].Cells[2].RemoveAllChildren();
-                        t.Rows[11].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info10"]));
+                        t.Rows[11].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info10"]));
                         t.Rows[11].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[12].Cells[2].RemoveAllChildren();
-                        t.Rows[12].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info11"]));
+                        t.Rows[12].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info11"]));
                         t.Rows[12].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[13].Cells[2].RemoveAllChildren();
-                        t.Rows[13].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info12"]));
+                        t.Rows[13].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info12"]));
                         t.Rows[13].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[14].Cells[2].RemoveAllChildren();
-                        t.Rows[14].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Info13"]));
+                        t.Rows[14].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Info13"]));
                         t.Rows[14].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         //年份
                         t.Rows[t.Rows.Count - 2].Cells[0].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[0].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["YearName1"]));
+                        t.Rows[t.Rows.Count - 2].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName1"]));
                         t.Rows[t.Rows.Count - 2].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[1].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["YearName2"]));
+                        t.Rows[t.Rows.Count - 2].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName2"]));
                         t.Rows[t.Rows.Count - 2].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[2].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["YearName3"]));
+                        t.Rows[t.Rows.Count - 2].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName3"]));
                         t.Rows[t.Rows.Count - 2].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[3].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[3].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["YearName4"]));
+                        t.Rows[t.Rows.Count - 2].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName4"]));
                         t.Rows[t.Rows.Count - 2].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[4].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[4].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["YearName5"]));
+                        t.Rows[t.Rows.Count - 2].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName5"]));
                         t.Rows[t.Rows.Count - 2].Cells[4].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         //年度金额
                         t.Rows[t.Rows.Count - 1].Cells[0].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[0].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Year1"]));
+                        t.Rows[t.Rows.Count - 1].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year1"]));
                         t.Rows[t.Rows.Count - 1].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 1].Cells[1].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Year2"]));
+                        t.Rows[t.Rows.Count - 1].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year2"]));
                         t.Rows[t.Rows.Count - 1].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 1].Cells[2].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Year3"]));
+                        t.Rows[t.Rows.Count - 1].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year3"]));
                         t.Rows[t.Rows.Count - 1].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 1].Cells[3].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[3].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Year4"]));
+                        t.Rows[t.Rows.Count - 1].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year4"]));
                         t.Rows[t.Rows.Count - 1].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                         t.Rows[t.Rows.Count - 1].Cells[4].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[4].AppendChild(wu.Document.getParagraphFromString(t.Document, tempDict["Year5"]));
+                        t.Rows[t.Rows.Count - 1].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year5"]));
                         t.Rows[t.Rows.Count - 1].Cells[4].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
                         break;
                     }
@@ -303,11 +303,11 @@ namespace ProjectContractPlugin.Utility
                         foreach (TiJiaoYaoQiuBiao data in tjyqList)
                         {
                             t.Rows[rowStart].Cells[0].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.getParagraphFromString(t.Document, (rowStart).ToString()));
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, (rowStart).ToString()));
                             t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[1].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, data.MingCheng));
+                            t.Rows[rowStart].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, data.MingCheng));
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
@@ -339,7 +339,7 @@ namespace ProjectContractPlugin.Utility
                         foreach (BoFuBiao data in bfydList)
                         {
                             t.Rows[rowStart].Cells[0].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.getParagraphFromString(t.Document, (rowStart).ToString()));
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, (rowStart).ToString()));
                             t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[1].RemoveAllChildren();
@@ -347,11 +347,11 @@ namespace ProjectContractPlugin.Utility
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, data.YuJiShiJian.ToString("yyyy年MM月")));
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, data.YuJiShiJian.ToString("yyyy年MM月")));
                             t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[3].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[3].AppendChild(wu.Document.getParagraphFromString(t.Document, data.JingFeiJinQian.ToString()));
+                            t.Rows[rowStart].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, data.JingFeiJinQian.ToString()));
                             t.Rows[rowStart].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             rowStart++;
@@ -379,23 +379,23 @@ namespace ProjectContractPlugin.Utility
                         foreach (JinDuBiao data in jdList)
                         {
                             t.Rows[rowStart].Cells[0].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.getParagraphFromString(t.Document, rowStart.ToString()));
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, rowStart.ToString()));
                             t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[1].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, data.ShiJian.ToString("yyyy年MM月")));
+                            t.Rows[rowStart].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, data.ShiJian.ToString("yyyy年MM月")));
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            Paragraph p = wu.Document.getParagraphFromString(t.Document, "阶段目标：");
+                            Paragraph p = wu.Document.newParagraph(t.Document, "阶段目标：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.JieDuanMuBiao));
-                            p = wu.Document.getParagraphFromString(t.Document, "完成内容：");
+                            p = wu.Document.newParagraph(t.Document, "完成内容：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.WanChengNeiRong));
-                            p = wu.Document.getParagraphFromString(t.Document, "阶段成果：");
+                            p = wu.Document.newParagraph(t.Document, "阶段成果：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.JieDuanChengGuo));
@@ -508,39 +508,39 @@ namespace ProjectContractPlugin.Utility
                             totalMonth += data.MeiNianTouRuShiJian;
 
                             t.Rows[rowStart].Cells[0].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.getParagraphFromString(t.Document, (rowStart).ToString()));
+                            t.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, (rowStart).ToString()));
                             t.Rows[rowStart].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[1].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[1].AppendChild(wu.Document.getParagraphFromString(t.Document, data.XingMing));
+                            t.Rows[rowStart].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, data.XingMing));
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[2].AppendChild(wu.Document.getParagraphFromString(t.Document, data.XingBie));
+                            t.Rows[rowStart].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, data.XingBie));
                             t.Rows[rowStart].Cells[2].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[3].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[3].AppendChild(wu.Document.getParagraphFromString(t.Document, data.ZhiCheng));
+                            t.Rows[rowStart].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, data.ZhiCheng));
                             t.Rows[rowStart].Cells[3].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[4].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[4].AppendChild(wu.Document.getParagraphFromString(t.Document, data.ZhuanYe));
+                            t.Rows[rowStart].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, data.ZhuanYe));
                             t.Rows[rowStart].Cells[4].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[5].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[5].AppendChild(wu.Document.getParagraphFromString(t.Document, data.GongZuoDanWei));
+                            t.Rows[rowStart].Cells[5].AppendChild(wu.Document.newParagraph(t.Document, data.GongZuoDanWei));
                             t.Rows[rowStart].Cells[5].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[6].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[6].AppendChild(wu.Document.getParagraphFromString(t.Document, data.MeiNianTouRuShiJian + ""));
+                            t.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(t.Document, data.MeiNianTouRuShiJian + ""));
                             t.Rows[rowStart].Cells[6].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[7].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[7].AppendChild(wu.Document.getParagraphFromString(t.Document, data.RenWuFenGong));
+                            t.Rows[rowStart].Cells[7].AppendChild(wu.Document.newParagraph(t.Document, data.RenWuFenGong));
                             t.Rows[rowStart].Cells[7].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[8].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[8].AppendChild(wu.Document.getParagraphFromString(t.Document, data.ShenFenZhengHao));
+                            t.Rows[rowStart].Cells[8].AppendChild(wu.Document.newParagraph(t.Document, data.ShenFenZhengHao));
                             t.Rows[rowStart].Cells[8].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             string roleName = "未知";
@@ -559,14 +559,14 @@ namespace ProjectContractPlugin.Utility
                             }
 
                             t.Rows[rowStart].Cells[9].RemoveAllChildren();
-                            t.Rows[rowStart].Cells[9].AppendChild(wu.Document.getParagraphFromString(t.Document, roleName));
+                            t.Rows[rowStart].Cells[9].AppendChild(wu.Document.newParagraph(t.Document, roleName));
                             t.Rows[rowStart].Cells[9].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             rowStart++;
                         }
 
                         t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].AppendChild(wu.Document.getParagraphFromString(t.Document, (totalMonth / 12).ToString()));
+                        t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].AppendChild(wu.Document.newParagraph(t.Document, (totalMonth / 12).ToString()));
                     }
                 }
                 #endregion
