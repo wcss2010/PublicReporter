@@ -181,10 +181,10 @@
             // Column3
             // 
             this.Column3.HeaderText = "预计时间";
-            this.Column3.MinimumWidth = 130;
+            this.Column3.MinimumWidth = 250;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 130;
+            this.Column3.Width = 250;
             // 
             // Column4
             // 

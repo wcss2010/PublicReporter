@@ -43,14 +43,12 @@ namespace ProjectContractPlugin.Editor
 
                 if (data.ShiXiangMuFuZeRen == "rbIsOnlyProject")
                 {
-                    cells.Add("");
-                    cells.Add("负责人");
+                    cells.Add("项目负责人");
                 }
                 else
                 {
                     KeTiBiao temp = ktList.Where(p => p.BianHao == data.KeTiBiaoHao).FirstOrDefault();
-                    cells.Add(temp == null ? string.Empty : temp.KeTiMingCheng);
-                    cells.Add(data.ZhiWu);
+                    cells.Add((data.ShiXiangMuFuZeRen == "rbIsProjectAndSubject" ? "项目负责人兼" : "") + ((temp == null ? string.Empty : temp.KeTiMingCheng) + data.ZhiWu));
                 }
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());

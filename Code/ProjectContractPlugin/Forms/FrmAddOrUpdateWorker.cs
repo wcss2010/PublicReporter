@@ -80,8 +80,8 @@ namespace ProjectContractPlugin.Forms
                 || String.IsNullOrEmpty(textBox5.Text)
                 || String.IsNullOrEmpty(textBox6.Text)
                 || String.IsNullOrEmpty(textBox7.Text)
-                || comboBox1.SelectedItem == null
-                || comboBox3.SelectedItem == null
+                || (comboBox1.SelectedItem == null && rbIsOnlyProject.Checked == false)
+                || (comboBox3.SelectedItem == null && rbIsOnlyProject.Checked == false)
                 || String.IsNullOrEmpty(numericUpDown1.Value.ToString())
 
                 )
@@ -99,7 +99,7 @@ namespace ProjectContractPlugin.Forms
                 DataObj.RenWuFenGong = textBox7.Text;
                 DataObj.XingBie = comboBox1.SelectedItem.ToString();
                 DataObj.KeTiBiaoHao = comboBox2.SelectedValue.ToString();
-                DataObj.ZhiWu = comboBox3.SelectedItem.ToString();
+                DataObj.ZhiWu = comboBox3.SelectedItem != null ? comboBox3.SelectedItem.ToString() : "负责人";
                 DataObj.MeiNianTouRuShiJian = Convert.ToInt32(numericUpDown1.Value);
 
                 if (string.IsNullOrEmpty(DataObj.BianHao))
