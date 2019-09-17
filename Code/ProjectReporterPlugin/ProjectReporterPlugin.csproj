@@ -314,7 +314,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataTemplete\Current\Files\--经费概算附件_项目经费概算说明.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="DataTemplete\Current\Files\~%24基础与保障条件.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataTemplete\Current\Files\与有关计划关系.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DataTemplete\Current\Files\军事需求分析.doc">
@@ -336,6 +342,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DataTemplete\Current\Files\研究目标.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataTemplete\Current\Files\组织实施与风险控制.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DataTemplete\Current\Files\评估方案.doc">
@@ -386,6 +395,12 @@
     <None Include="DataTemplete\Current\static.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="DataTemplete\Current\~%24项目申报书.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataTemplete\Current\项目申报书.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Helper\chengnuoshu.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -423,9 +438,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\w5.png" />
-    <None Include="static.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="static.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Attachment_16.png" />
@@ -449,6 +462,9 @@
     <None Include="Resources\UP_16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataTemplete\Current\Files\637043536662688784___po函数调用.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DataTemplete\Current\Files\课题详细_XX下XX表面和界面中的XX理论_简介.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
