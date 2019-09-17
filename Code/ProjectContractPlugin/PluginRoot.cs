@@ -336,8 +336,8 @@ namespace ProjectContractPlugin
         private void initEditors()
         {
             #region 初始化文档编辑器
-            editorMap.Add("研究目标", new TextContentEditor("研究目标", "（应涵盖批复目标）针对xx问题，开展xx研究，通过xx试验，验证xxx，揭示xx规律等。 "));
-            editorMap.Add("项目分解情况", new DocumentPasteEditor("项目分解情况", "围绕项目目标要求，根据需要将项目分解为若干课题，并简要说明各课题在项目中的具体作用、相互之间的逻辑关系。限1000字以内。"));
+            editorMap.Add("研究目标", new TextContentEditor("研究目标", "填写批复目标，可适当解读"));
+            editorMap.Add("项目分解情况", new DocumentPasteEditor("项目分解情况", "根据项目目标要求，围绕项目拟解决的基础科学问题，将项目分解为若干课题，并简要说明基础性问题与课题之间的对应关系及各3课题相互之间的逻辑关系。"));
             editorMap.Add("双方认为需要说明的经费使用事项", new TextContentEditor("双方认为需要说明的经费使用事项", "（应明确承研单位，不包括外协单位） 如：××××××单位承担××××××××××研究任务，经费×××万元。"));
             editorMap.Add("经费管理要求", new TextReadOnlyEditor("经费管理要求", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyA.rtf"))));            
             editorMap.Add("附加条款", new TextReadOnlyEditor("附加条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyC.rtf"))));
