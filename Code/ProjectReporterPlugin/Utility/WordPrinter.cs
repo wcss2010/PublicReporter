@@ -45,6 +45,9 @@ namespace ProjectReporterPlugin.Utility
                 }
             }
 
+            //课题负责人信息列表
+            List<string> subjectMasterInfoList = new List<string>();
+
             //创建word文档
             string fileName = pt.projectObj.Name + "-项目建议书.docx";
             WordUtility wu = new WordUtility();
@@ -155,8 +158,7 @@ namespace ProjectReporterPlugin.Utility
                 //wu.insertFile("项目负责人C", Path.Combine(pt.filesDir, "项目负责人.doc"), true);
                 //wu.insertFile("研究团队", Path.Combine(pt.filesDir, "研究团队.doc"), true);
                 wu.insertTxtFile("项目负责人C", Path.Combine(pt.filesDir, "项目负责人.txt"));
-                wu.insertTxtFile("研究团队", Path.Combine(pt.filesDir, "研究团队.txt"));
-
+                
                 wu.insertFile("研究基础与保障条件", Path.Combine(pt.filesDir, "研究基础与保障条件.doc"), true);
                 wu.insertFile("组织实施与风险控制", Path.Combine(pt.filesDir, "组织实施与风险控制.doc"), true);
                 wu.insertFile("与有关计划关系", Path.Combine(pt.filesDir, "与有关计划关系.doc"), false);
@@ -203,8 +205,10 @@ namespace ProjectReporterPlugin.Utility
                     //负责人
                     string fuzeUnit = string.Empty;
                     string fuzePerson = string.Empty;
+                    string fuzeInfo = string.Empty;
                     fuzeUnit = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = (select ProjectID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "'))").select("UnitName").getValue<string>(string.Empty);
                     fuzePerson = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "')").select("Name").getValue<string>(string.Empty);
+                    fuzeInfo = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "')").select("AttachInfo").getValue<string>(string.Empty);
 
                     //wu.InsertValue("课题详细_" + ketiIndex + "_4", "  负责人：" + fuzePerson + "\n  负责单位：" + fuzeUnit, true);
 
@@ -216,6 +220,9 @@ namespace ProjectReporterPlugin.Utility
                         moneyStr = "  " + ketiTask.TotalMoney + "万";
                     }
                     //wu.InsertValue("课题详细_" + ketiIndex + "_5", moneyStr, true);
+
+                    //保存课题负责人简历
+                    subjectMasterInfoList.Add(fuzeInfo);
 
                     wu.Document.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading2;
                     wu.Document.WordDocBuilder.Writeln("F2-" + ketiIndex);
@@ -317,6 +324,16 @@ namespace ProjectReporterPlugin.Utility
                 {
                     System.Console.WriteLine(ex.ToString());
                 }
+                #endregion
+
+                #region 写入研究团队
+                StringBuilder workerGroupString = new StringBuilder();
+                foreach (string s in subjectMasterInfoList)
+                {
+                    workerGroupString.Append("     ").Append(s).Append("\n");
+                }
+                wu.insertValue("研究团队", workerGroupString.ToString());
+
                 #endregion
 
                 Report(progressDialog, 50, "写入阶段信息...", 1000);
