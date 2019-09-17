@@ -46,7 +46,7 @@ namespace ProjectReporterPlugin.Utility
             }
 
             //课题负责人信息列表
-            List<string> subjectMasterInfoList = new List<string>();
+            List<string[]> subjectMasterInfoList = new List<string[]>();
 
             //创建word文档
             string fileName = pt.projectObj.Name + "-项目建议书.docx";
@@ -222,7 +222,7 @@ namespace ProjectReporterPlugin.Utility
                     //wu.InsertValue("课题详细_" + ketiIndex + "_5", moneyStr, true);
 
                     //保存课题负责人简历
-                    subjectMasterInfoList.Add(fuzeInfo);
+                    subjectMasterInfoList.Add(new string[] { fuzePerson, fuzeInfo });
 
                     wu.Document.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading2;
                     wu.Document.WordDocBuilder.Writeln("F2-" + ketiIndex);
@@ -328,9 +328,14 @@ namespace ProjectReporterPlugin.Utility
 
                 #region 写入研究团队
                 StringBuilder workerGroupString = new StringBuilder();
-                foreach (string s in subjectMasterInfoList)
+                int indexxxx = 1;
+                foreach (string[] tt in subjectMasterInfoList)
                 {
-                    workerGroupString.Append("     ").Append(s).Append("\n");
+                    string pName = tt[0];
+                    string pInfo = tt[1];
+                    workerGroupString.Append("     ").Append("课题").Append(chsNumbers[indexxxx]).Append("负责人:").Append(pName).Append(",").Append(pInfo).Append("\n");
+
+                    indexxxx++;
                 }
                 wu.insertValue("研究团队", workerGroupString.ToString());
 
