@@ -418,7 +418,7 @@ namespace ProjectContractPlugin.Utility
                     wu.Document.WordDocBuilder.Font.Bold = true;
                     wu.Document.WordDocBuilder.Write("(" + index + ") " + data.NianDu + "年度：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.NeiRong);
+                    wu.Document.writeWithNewLine(data.NeiRong, index == jsList.Count ? false : true);
 
                     index++;
                 }
@@ -443,7 +443,7 @@ namespace ProjectContractPlugin.Utility
                     wu.Document.WordDocBuilder.Font.Bold = true;
                     wu.Document.WordDocBuilder.Write("(2) 考核方式：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KaoHeFangShi);
+                    wu.Document.writeWithNewLine(data.KaoHeFangShi, index == zbbList.Count ? false : true);
 
                     index++;
                 }
@@ -473,14 +473,14 @@ namespace ProjectContractPlugin.Utility
                     wu.Document.writeWithNewLine(data.KeTiYanJiuMuBiao);
 
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write("（2）研究内容：");
+                    wu.Document.WordDocBuilder.Writeln("（2）研究内容：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.KeTiYanJiuNeiRong);
 
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write("（3）参加单位分工：");
+                    wu.Document.WordDocBuilder.Writeln("（3）参加单位分工：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KeTiCanJiaDanWeiFenGong);
+                    wu.Document.writeWithNewLine(data.KeTiCanJiaDanWeiFenGong, index == ktList.Count ? false : true);
 
                     index++;
                 }
