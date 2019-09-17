@@ -34,6 +34,7 @@ namespace ProjectContractPlugin.Editor
                 cells.Add(data.BoFuTiaoJian);
                 cells.Add(data.YuJiShiJian.ToString("yyyy年MM月dd日"));
                 cells.Add(data.JingFeiJinQian);
+                cells.Add(data.BeiZhu);
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
             }

@@ -24,6 +24,7 @@ namespace ProjectContractPlugin.Forms
                 dateTimePicker1.Value = DataObj.YuJiShiJian;
                 txtContent.Text = DataObj.BoFuTiaoJian;
                 numericUpDown1.Value = DataObj.JingFeiJinQian;
+                txtMemo.Text = DataObj.BeiZhu;
             }
             else
             {
@@ -43,15 +44,16 @@ namespace ProjectContractPlugin.Forms
         {
             if (String.IsNullOrEmpty(dateTimePicker1.Text)
                 || String.IsNullOrEmpty(numericUpDown1.Text)
-                ||String.IsNullOrEmpty(txtContent.Text))
+                || String.IsNullOrEmpty(txtContent.Text)
+                || String.IsNullOrEmpty(txtMemo.Text))
             {
-                MessageBox.Show("对不起，请完善内容！");
-         
+                MessageBox.Show("对不起，请完善内容！");         
             }
 
             DataObj.YuJiShiJian = dateTimePicker1.Value;
             DataObj.BoFuTiaoJian = txtContent.Text;
             DataObj.JingFeiJinQian = numericUpDown1.Value;
+            DataObj.BeiZhu = txtMemo.Text;
 
             if (string.IsNullOrEmpty(DataObj.BianHao))
             {
