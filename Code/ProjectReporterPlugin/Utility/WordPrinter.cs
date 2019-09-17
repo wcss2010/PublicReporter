@@ -321,6 +321,8 @@ namespace ProjectReporterPlugin.Utility
 
                 Report(progressDialog, 50, "写入阶段信息...", 1000);
 
+                wu.Document.WordDocBuilder.Font.Size = 12;
+
                 #region 插入阶段划分和经费安排数据
                 try
                 {
