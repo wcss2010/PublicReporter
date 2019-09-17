@@ -522,6 +522,11 @@ namespace ProjectReporterPlugin.Editor
                         //刷新列表
                         be.RefreshView();
                     }
+                    else if (be is ProjectWorkerGroupEditor)
+                    {
+                        //刷新列表
+                        be.RefreshView();
+                    }
                 }
             }
             else
