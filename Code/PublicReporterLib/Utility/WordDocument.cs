@@ -410,7 +410,7 @@ namespace Aspose.Words
         }
 
         /// <summary>
-        /// 将一个带有\r\n的字符串生成一个Paragraph列表
+        /// 将一个带有\r\n的字符串生成一个Paragraph列表(如果想改变字号等信息，需要((Run)obj.ChildNodes[0]).Font.Size = 12)
         /// </summary>
         /// <param name="docs"></param>
         /// <param name="texts"></param>
@@ -503,6 +503,19 @@ namespace Aspose.Words
         public void writeWithNewLine(string texts)
         {
             writeWithNewLine(texts, true);
+        }
+
+        /// <summary>
+        /// 生成一个基于文本的Paragraph对象(如果想改变字号等信息，需要((Run)obj.ChildNodes[0]).Font.Size = 12)
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public Paragraph getParagraphFromString(DocumentBase docBase, string textString)
+        {
+            Aspose.Words.Paragraph pp = new Paragraph(docBase);
+            pp.AppendChild(new Run(docBase, textString));
+            return pp;
         }
     }
 

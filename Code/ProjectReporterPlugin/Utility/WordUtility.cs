@@ -202,19 +202,6 @@ namespace ProjectReporterPlugin.Utility
         }
 
         /// <summary>
-        /// 获得单元格的内容对象
-        /// </summary>
-        /// <param name="table"></param>
-        /// <param name="txt"></param>
-        /// <returns></returns>
-        public Paragraph getCellContentObj(Aspose.Words.Tables.Table table, string txt)
-        {
-            Aspose.Words.Paragraph p = new Paragraph(table.Document);
-            p.AppendChild(new Run(table.Document, txt));
-            return p;
-        }
-
-        /// <summary>
         /// 关闭Word进程
         /// </summary>
         public void killWinWordProcess()
