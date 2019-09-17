@@ -408,6 +408,23 @@ namespace ProjectReporterPlugin.Utility
                                     }
                                 }
                             }
+
+                            //调整行距
+                            foreach (Aspose.Words.Tables.Row r in table.Rows)
+                            {
+                                foreach (Aspose.Words.Tables.Cell c in r.Cells)
+                                {
+                                    foreach (Node n in c.ChildNodes)
+                                    {
+                                        if (n is Paragraph)
+                                        {
+                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Multiple;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 12;
+                                        }
+                                    }
+                                }
+                            }
+
                             break;
                         }
                     }
@@ -523,6 +540,23 @@ namespace ProjectReporterPlugin.Utility
 
                                 rowIndex++;
                             }
+
+                            //调整行距
+                            foreach (Aspose.Words.Tables.Row r in table.Rows)
+                            {
+                                foreach (Aspose.Words.Tables.Cell c in r.Cells)
+                                {
+                                    foreach (Node n in c.ChildNodes)
+                                    {
+                                        if (n is Paragraph)
+                                        {
+                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Multiple;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 12;
+                                        }
+                                    }
+                                }
+                            }
+
                             break;
                         }
                     }
@@ -597,6 +631,22 @@ namespace ProjectReporterPlugin.Utility
                                 table.Rows[rowIndex].Cells[9].AppendChild(wu.Document.newParagraph(table.Document, KetiInProject));
 
                                 rowIndex++;
+                            }
+
+                            //调整行距
+                            foreach (Aspose.Words.Tables.Row r in table.Rows)
+                            {
+                                foreach (Aspose.Words.Tables.Cell c in r.Cells)
+                                {
+                                    foreach (Node n in c.ChildNodes)
+                                    {
+                                        if (n is Paragraph)
+                                        {
+                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Exactly;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 14;
+                                        }
+                                    }
+                                }
                             }
 
                             break;
@@ -915,6 +965,22 @@ namespace ProjectReporterPlugin.Utility
                             {
                                 table.Rows[titleIndex].Remove();
                                 table.Rows[dataIndex].Remove();
+                            }
+
+                            //调整行距
+                            foreach (Aspose.Words.Tables.Row r in table.Rows)
+                            {
+                                foreach (Aspose.Words.Tables.Cell c in r.Cells)
+                                {
+                                    foreach (Node n in c.ChildNodes)
+                                    {
+                                        if (n is Paragraph)
+                                        {
+                                            ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Multiple;
+                                            ((Paragraph)n).ParagraphFormat.LineSpacing = 12;
+                                        }
+                                    }
+                                }
                             }
 
                             break;
