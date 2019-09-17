@@ -461,7 +461,7 @@ namespace ProjectReporterPlugin.Utility
                             {
                                 table.Rows[0].Cells[colIndex].RemoveAllChildren();
                                 table.Rows[0].Cells[colIndex].AppendChild(wu.Document.newParagraph(table.Document, "阶段" + step.StepIndex + "(" + step.StepTime + "个月)"));
-                                ((Run)((Paragraph)table.Rows[0].Cells[colIndex].ChildNodes[0]).ChildNodes[0]).Font.Bold = true;
+                                ((Run)((Paragraph)table.Rows[0].Cells[colIndex].ChildNodes[0]).ChildNodes[0]).Font.Name = "黑体";
                                 //table.Cell(1, colIndex).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
                                 colIndex++;
                             }
@@ -844,7 +844,7 @@ namespace ProjectReporterPlugin.Utility
                                     #region 写入标签
                                     table.Rows[rowStart].Cells[0].RemoveAllChildren();
                                     table.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, "课题" + chsNumbers[(k + 1)]));
-                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[0].ChildNodes[0]).ChildNodes[0]).Font.Bold = true;
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[0].ChildNodes[0]).ChildNodes[0]).Font.Name = "黑体";
                                     //table.Rows[rowStart].Cells[1).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[1).Select();
