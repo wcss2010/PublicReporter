@@ -134,6 +134,12 @@
     <Compile Include="DB\Entitys\UnitExt.cs" />
     <Compile Include="DB\Entitys\WhiteList.cs" />
     <Compile Include="DB\Services\UnitExtService.cs" />
+    <Compile Include="Editor\ProjectWorkerGroupEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectWorkerGroupEditor.Designer.cs">
+      <DependentUpon>ProjectWorkerGroupEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\SubjectStepMoneyEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectWorkerGroupEditor.resx">
+      <DependentUpon>ProjectWorkerGroupEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubjectStepMoneyEditor.resx">
       <DependentUpon>SubjectStepMoneyEditor.cs</DependentUpon>

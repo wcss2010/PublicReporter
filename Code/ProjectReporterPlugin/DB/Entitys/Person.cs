@@ -25,6 +25,7 @@ namespace ProjectReporterPlugin.DB.Entitys
             query.set("Telephone", Telephone);
             query.set("MobilePhone", MobilePhone);
             query.set("Address", Address);
+            query.set("AttachInfo", AttachInfo);
             query.set("UnitID", UnitID);
 
             return query;
@@ -122,6 +123,12 @@ namespace ProjectReporterPlugin.DB.Entitys
             set { _address = value; }
             get { return _address; }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AttachInfo { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -144,6 +151,7 @@ namespace ProjectReporterPlugin.DB.Entitys
             Telephone = source("Telephone").value<string>(string.Empty);
             MobilePhone = source("MobilePhone").value<string>(string.Empty);
             Address = source("Address").value<string>(string.Empty);
+            AttachInfo = source("AttachInfo").value<string>("");
             UnitID = source("UnitID").value<string>(string.Empty);
         }
 

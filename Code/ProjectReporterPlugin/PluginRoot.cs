@@ -387,8 +387,7 @@ namespace ProjectReporterPlugin
             editorMap.Add("研究成果及考核指标", new DocumentPasteEditor("研究成果及考核指标", "分类逐项列出研究成果及考核指标。研究成果形式包括研究报告、试验（测试）方案、试验（测试）结果分析报告、样品、样机、试验（验证）系统、数据库、软件、工程工艺、标准（规范）等。指标体系应系统完整。"));
             editorMap.Add("评估方案", new DocumentPasteEditor("评估方案", "围绕课题的研究成果及考核指标，提出具体的评估方案。可考虑通过国标、检测机构、企业标准测量、实验等多种方法，具体落实各项指标的评测。对可能影响指标评测结果的各种边界因素条件，均应明确说明，避免理解歧义。"));
             editorMap.Add("预期效益", new DocumentPasteEditor("预期效益", "简要描述该项目研究成果得到应用后，对解决国防科技现实瓶颈问题和支撑未来技术发展方面的预期支撑作用。"));
-            editorMap.Add("项目负责人", new TextContentEditor("项目负责人", "介绍项目负责人的职务职称、受教育情况、履历，代表性论文、专著、专利、奖励、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。"));
-            editorMap.Add("研究团队", new TextContentEditor("研究团队", "简要介绍本项目除项目负责人外的课题负责人的职务职称、受教育情况、履历，代表性论文、专著、专利、奖励、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限1000字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。"));
+            editorMap.Add("项目负责人", new TextContentEditor("项目负责人", "介绍项目负责人的职务职称、受教育情况、履历，代表性论文、专著、专利、奖励、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。"));            
             editorMap.Add("研究基础与保障条件", new DocumentPasteEditor("研究基础与保障条件", "已有研究基础和软硬件保障条件，包括国家研究中心、国家重点实验室、国家工程（技术）中心等，以及自筹经费情况，800字以内"));
             editorMap.Add("组织实施与风险控制", new DocumentPasteEditor("组织实施与风险控制", "对本项目可能存在的技术和管理风险进行分析，提出思路举措，500字以内"));
             editorMap.Add("与有关计划关系", new DocumentPasteEditor("与有关计划关系", "介绍与本项目研究内容相关的国家和军队各类科技计划安排情况，对本项目与有关计划安排的界面关系进行说明。"));
@@ -397,10 +396,11 @@ namespace ProjectReporterPlugin
             #region 初始化其它的编辑器
             editorMap.Add("申报书", new ProjectEditor());
             editorMap.Add("课题列表", new SubjectTableEditor());
-            editorMap.Add("各课题负责人及研究骨干情况表", new ProjectWorkerInfoEditor());
-            editorMap.Add("经费预算表", new MoneyTableEditor());
             editorMap.Add("项目阶段划分和经费安排", new ProjectStepMoneyEditor());
             editorMap.Add("课题阶段划分和经费安排", new SubjectStepMoneyEditor());
+            editorMap.Add("研究团队", new ProjectWorkerGroupEditor());
+            editorMap.Add("各课题负责人及研究骨干情况表", new ProjectWorkerInfoEditor());
+            editorMap.Add("经费预算表", new MoneyTableEditor());
             editorMap.Add("附件1-经费概算", new MoneySummaryEditor());
             editorMap.Add("附件2-保密资质", new ConfidentialQualificationEditor());
             #endregion
