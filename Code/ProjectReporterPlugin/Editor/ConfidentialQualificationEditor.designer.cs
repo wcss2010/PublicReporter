@@ -38,14 +38,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ofdUpload = new System.Windows.Forms.OpenFileDialog();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFileName = new System.Windows.Forms.DataGridViewLinkColumn();
             this.colInore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colUpload = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ofdUpload = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.plTitle.SuspendLayout();
@@ -181,6 +181,23 @@
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(13, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(990, 40);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "军队单位无需上传保密资质复印件";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ofdUpload
+            // 
+            this.ofdUpload.Filter = "PNG文件|*.png|JPG文件|*.jpg|JPEG文件|*.jpeg|BMP文件|*.bmp";
+            // 
             // selpersonid
             // 
             this.selpersonid.HeaderText = "序号";
@@ -205,10 +222,9 @@
             // 
             // colInore
             // 
-            this.colInore.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colInore.HeaderText = "是否为军队单位(勾选状态表示军队单位)";
+            this.colInore.HeaderText = "是否为军队单位";
+            this.colInore.MinimumWidth = 100;
             this.colInore.Name = "colInore";
-            this.colInore.Width = 134;
             // 
             // colUpload
             // 
@@ -225,23 +241,6 @@
             this.delete.Name = "delete";
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.Width = 45;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(13, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(990, 40);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "军队单位无需上传保密资质复印件";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ofdUpload
-            // 
-            this.ofdUpload.Filter = "PNG文件|*.png|JPG文件|*.jpg|JPEG文件|*.jpeg|BMP文件|*.bmp";
             // 
             // ConfidentialQualificationEditor
             // 
