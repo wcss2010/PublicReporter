@@ -305,8 +305,8 @@ namespace ProjectContractPlugin
             }
             else
             {
-                //复制数据库文件
-                File.Copy(Path.Combine(RootDir, "static.db"), dbFile, true);
+                //复制DataTemplete中的Current到Data中
+                FileOp.CopyDirectory(Path.Combine(RootDir, Path.Combine("DataTemplete", "Current")), Path.Combine(RootDir, Path.Combine("Data", "Current")), true);
 
                 //打开数据库连接
                 ConnectionManager.Open(dbFile);
