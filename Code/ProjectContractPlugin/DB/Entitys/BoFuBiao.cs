@@ -21,6 +21,7 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("YuJiShiJian", YuJiShiJian);
             query.set("JingFeiJinQian", JingFeiJinQian);
             query.set("ZhuangTai", ZhuangTai);
+            query.set("BeiZhu", BeiZhu);
 
             return query;
         }
@@ -30,6 +31,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public DateTime YuJiShiJian { get; set; }
         public decimal JingFeiJinQian { get; set; }
         public double ZhuangTai { get; set; }
+        public string BeiZhu { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
@@ -39,6 +41,7 @@ namespace ProjectContractPlugin.DB.Entitys
             JingFeiJinQian = source("JingFeiJinQian").value<decimal>(0);
             ZhuangTai = source("ZhuangTai").value<double>(0);
             ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
+            BeiZhu = source("BeiZhu").value<string>("");
         }
 
         public override Noear.Weed.IBinder clone()
