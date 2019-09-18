@@ -394,7 +394,8 @@ namespace ProjectReporterPlugin.Editor
 
                         upf.CloseProgressWithOnlyUI();
 
-                        RefreshView();
+                        PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
+
                         MessageBox.Show("操作完成！");
                     }
                 }
