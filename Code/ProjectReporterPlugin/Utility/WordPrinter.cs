@@ -333,7 +333,15 @@ namespace ProjectReporterPlugin.Utility
                 {
                     string pName = tt[0];
                     string pInfo = tt[1];
-                    workerGroupString.Append("     ").Append("课题").Append(chsNumbers[indexxxx]).Append("负责人:").Append(pName).Append(",").Append(pInfo).Append("\n");
+
+                    if (string.IsNullOrEmpty(pInfo))
+                    {
+                        //continue;
+                    }
+                    else
+                    {
+                        workerGroupString.Append("     ").Append("课题").Append(chsNumbers[indexxxx]).Append("负责人:").Append(pName).Append(",").Append(pInfo).Append("\n");
+                    }
 
                     indexxxx++;
                 }
@@ -875,6 +883,8 @@ namespace ProjectReporterPlugin.Utility
                                     table.Rows[rowStart].Cells[1].RemoveAllChildren();
                                     table.Rows[rowStart].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "负责人"));
                                     ((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
 
                                     //table.Rows[rowStart].Cells[2).Select();
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
@@ -882,6 +892,8 @@ namespace ProjectReporterPlugin.Utility
                                     table.Rows[rowStart].Cells[3].RemoveAllChildren();
                                     table.Rows[rowStart].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "性别"));
                                     ((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
                                     //table.Rows[rowStart].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[4).Select();
@@ -890,6 +902,8 @@ namespace ProjectReporterPlugin.Utility
                                     table.Rows[rowStart].Cells[5].RemoveAllChildren();
                                     table.Rows[rowStart].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "出生年月"));
                                     ((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
                                     //table.Rows[rowStart].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart].Cells[6).Select();
@@ -898,6 +912,8 @@ namespace ProjectReporterPlugin.Utility
                                     table.Rows[rowStart + 1].Cells[1].RemoveAllChildren();
                                     table.Rows[rowStart + 1].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "职务职称"));
                                     ((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
                                     //table.Rows[rowStart + 1].Cells[2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[2).Select();
@@ -906,6 +922,8 @@ namespace ProjectReporterPlugin.Utility
                                     table.Rows[rowStart + 1].Cells[3].RemoveAllChildren();
                                     table.Rows[rowStart + 1].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "技术方向"));
                                     ((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
                                     //table.Rows[rowStart + 1].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[4).Select();
@@ -914,6 +932,8 @@ namespace ProjectReporterPlugin.Utility
                                     table.Rows[rowStart + 1].Cells[5].RemoveAllChildren();
                                     table.Rows[rowStart + 1].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "手机"));
                                     ((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
                                     //table.Rows[rowStart + 1].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[6).Select();
@@ -923,6 +943,10 @@ namespace ProjectReporterPlugin.Utility
                                     wu.Document.addRangeToNodeCollection(table.Rows[rowStart + 2].Cells[1].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, "承担单位\n及通信地址"));
                                     ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                     ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[1]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                    ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                    ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
                                     //table.Cell(rowStart + 2, 2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Cell(rowStart + 2, 2).Select();
