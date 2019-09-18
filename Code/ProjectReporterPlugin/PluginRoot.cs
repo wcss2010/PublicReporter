@@ -393,9 +393,9 @@ namespace ProjectReporterPlugin
             editorMap.Add("与有关计划关系", new DocumentPasteEditor("与有关计划关系", "介绍与本项目研究内容相关的国家和军队各类科技计划安排情况，对本项目与有关计划安排的界面关系进行说明。"));
             #endregion
 
-            #region 初始化其它的编辑器
-            editorMap.Add("申报书", new ProjectEditor());
+            #region 初始化其它的编辑器            
             editorMap.Add("课题列表", new SubjectTableEditor());
+            editorMap.Add("申报书", new ProjectEditor());
             editorMap.Add("项目阶段划分和经费安排", new ProjectStepMoneyEditor());
             editorMap.Add("课题阶段划分和经费安排", new SubjectStepMoneyEditor());
             editorMap.Add("研究团队", new ProjectWorkerGroupEditor());

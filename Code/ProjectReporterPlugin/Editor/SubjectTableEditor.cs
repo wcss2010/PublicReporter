@@ -318,6 +318,12 @@ namespace ProjectReporterPlugin.Editor
         {
             base.OnSaveEvent();
 
+            if (hasErrorSubjectName())
+            {
+                MessageBox.Show("对不起，课题名称没有填写或其中不能包含(/ \\ : * ? \" < > |)");
+                return;
+            }
+
             if (GetZongZiKetiCount() == 1)
             {
                 int saveCount = 0;
@@ -527,6 +533,11 @@ namespace ProjectReporterPlugin.Editor
                         //刷新列表
                         be.RefreshView();
                     }
+                    else if (be is ProjectEditor)
+                    {
+                        //刷新列表
+                        be.RefreshView();
+                    }
                 }
             }
             else
@@ -536,7 +547,13 @@ namespace ProjectReporterPlugin.Editor
         }
 
         public void SaveOnly()
-        {   
+        {
+            if (hasErrorSubjectName())
+            {
+                MessageBox.Show("对不起，课题名称没有填写或其中不能包含(/ \\ : * ? \" < > |)");
+                return;
+            }
+
             if (GetZongZiKetiCount() == 1)
             {
                 int saveCount = 0;
@@ -855,6 +872,36 @@ namespace ProjectReporterPlugin.Editor
             balloonHelp.Icon = SystemIcons.Warning;
             balloonHelp.ShowBalloon(dgvDetail);
             balloonHelp.AnchorPoint = displayPoint;
+        }
+
+        /// <summary>
+        /// 检查课题名称中是否包含错误字符
+        /// </summary>
+        /// <returns></returns>
+        private bool hasErrorSubjectName()
+        {
+            string[] errorStrs = new string[] { "/", "\\", ":", "*", "?", "\"", "<", ">", "|" };
+            bool result = false;
+            foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
+            {
+                if (dgvRow.Cells[1].Value != null)
+                {
+                    foreach (string ss in errorStrs)
+                    {
+                        if (dgvRow.Cells[1].Value.ToString().Contains(ss))
+                        {
+                            result = true;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
         }
     }
 }
