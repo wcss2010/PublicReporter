@@ -104,6 +104,98 @@ namespace PublicReporterLib
         }
 
         /// <summary>
+        /// 生成顶部工具条按钮对象
+        /// </summary>
+        /// <param name="imggg"></param>
+        /// <param name="namegg"></param>
+        /// <param name="textgg"></param>
+        /// <param name="sizegg"></param>
+        /// <param name="fontgg"></param>
+        /// <returns></returns>
+        protected virtual ToolStripButton getTopButton(Image imggg, string namegg, string textgg, Size sizegg, Font fontgg)
+        {
+            ToolStripButton tempButton = new ToolStripButton();
+            tempButton.Font = fontgg;
+            tempButton.Image = imggg;
+            tempButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            tempButton.Name = namegg;
+            tempButton.Size = sizegg;
+            tempButton.Text = textgg;
+            tempButton.Tag = "Dynamic";
+            tempButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            return tempButton;
+        }
+
+        /// <summary>
+        /// 清除所有添加的内容
+        /// </summary>
+        protected virtual void clearAllControls()
+        {
+            //删除新添加的内容
+            Parent_LeftTreeViewImageList.Images.Clear();
+            Parent_LeftTreeView.Nodes.Clear();
+            Parent_RightContentPanel.Controls.Clear();
+            Parent_BottomDefaultHintLabel.Text = string.Empty;
+
+            //删除新添加的按钮
+            List<ToolStripItem> list = new List<ToolStripItem>();
+            foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
+            {
+                if (tsi.Tag == "DefaultDisplayControl")
+                {
+                    continue;
+                }
+                else
+                {
+                    list.Add(tsi);
+                }
+            }
+            foreach (ToolStripItem tssi in list)
+            {
+                Parent_TopToolStrip.Items.Remove(tssi);
+            }
+
+            //删除新添加的底部标签
+            list.Clear();
+            foreach (ToolStripItem tsi in Parent_BottomStatusStrip.Items)
+            {
+                if (tsi.Tag == "DefaultDisplayControl")
+                {
+                    continue;
+                }
+                else
+                {
+                    list.Add(tsi);
+                }
+            }
+            foreach (ToolStripItem tssi in list)
+            {
+                Parent_BottomStatusStrip.Items.Remove(tssi);
+            }
+        }
+
+        /// <summary>
+        /// 向顶部工具条增加元素
+        /// </summary>
+        /// <param name="tsb"></param>
+        protected virtual void addToTopToolStrip(ToolStripItem tsb)
+        {
+            int defaultIndex = 0;
+            foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
+            {
+                if (tsi is ToolStripSeparator && ((ToolStripSeparator)tsi).Tag == "DefaultDisplayControl")
+                {
+                    break;
+                }
+                else
+                {
+                    defaultIndex++;
+                }
+            }
+            Parent_TopToolStrip.Items.Insert(defaultIndex, tsb);
+        }
+
+        /// <summary>
         /// 主窗体的引用
         /// </summary>
         public Form Parent_Form { get; set; }

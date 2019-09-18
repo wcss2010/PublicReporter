@@ -33,7 +33,7 @@
             this.ssHintBar = new System.Windows.Forms.StatusStrip();
             this.tsslHint = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsButtonBar = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssrLine = new System.Windows.Forms.ToolStripSeparator();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.scContent = new System.Windows.Forms.SplitContainer();
             this.tvSubjects = new System.Windows.Forms.TreeView();
@@ -60,22 +60,24 @@
             this.tsslHint.Font = new System.Drawing.Font("仿宋", 15F);
             this.tsslHint.Name = "tsslHint";
             this.tsslHint.Size = new System.Drawing.Size(0, 17);
+            this.tsslHint.Tag = "DefaultDisplayControl";
             // 
             // tsButtonBar
             // 
             this.tsButtonBar.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.tsButtonBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
+            this.tssrLine,
             this.btnExit});
             this.tsButtonBar.Location = new System.Drawing.Point(0, 0);
             this.tsButtonBar.Name = "tsButtonBar";
             this.tsButtonBar.Size = new System.Drawing.Size(982, 59);
             this.tsButtonBar.TabIndex = 1;
             // 
-            // toolStripSeparator1
+            // tssrLine
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 59);
+            this.tssrLine.Name = "tssrLine";
+            this.tssrLine.Size = new System.Drawing.Size(6, 59);
+            this.tssrLine.Tag = "DefaultDisplayControl";
             // 
             // btnExit
             // 
@@ -84,6 +86,7 @@
             this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(53, 56);
+            this.btnExit.Tag = "DefaultDisplayControl";
             this.btnExit.Text = "退出";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -168,7 +171,7 @@
         private System.Windows.Forms.SplitContainer scContent;
         private System.Windows.Forms.TreeView tvSubjects;
         private System.Windows.Forms.ToolStripButton btnExit;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator tssrLine;
         private System.Windows.Forms.ImageList ilNodeImage;
         private System.Windows.Forms.Panel plTreeButtons;
     }
