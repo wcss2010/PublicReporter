@@ -432,7 +432,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\w5.png" />
-    <None Include="static.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Attachment_16.png" />
