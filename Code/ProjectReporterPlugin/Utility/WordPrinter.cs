@@ -129,7 +129,7 @@ namespace ProjectReporterPlugin.Utility
                 wu.insertValue("项目负责人性别", projectPersonObj.Sex);
                 wu.insertValue("项目负责人生日", (projectPersonObj.Birthday != null ? projectPersonObj.Birthday.Value.ToString("yyyy-MM-dd") : "未知"));
                 wu.insertValue("项目负责人职务", projectPersonObj.Job);
-                wu.insertValue("项目负责人座机", projectPersonObj.Specialty);
+                wu.insertValue("项目负责人座机", projectPersonObj.Telephone);
                 wu.insertValue("项目负责人手机", projectPersonObj.MobilePhone);
 
                 Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Unit>(new Unit());
@@ -920,7 +920,7 @@ namespace ProjectReporterPlugin.Utility
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                                     table.Rows[rowStart + 1].Cells[3].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "技术方向"));
+                                    table.Rows[rowStart + 1].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "座机"));
                                     ((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                     ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
                                     ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
@@ -989,7 +989,7 @@ namespace ProjectReporterPlugin.Utility
                                     //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                     table.Rows[rowStart + 1].Cells[4].RemoveAllChildren();
-                                    table.Rows[rowStart + 1].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.Specialty));
+                                    table.Rows[rowStart + 1].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.Telephone));
                                     //table.Rows[rowStart + 1].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                     //table.Rows[rowStart + 1].Cells[5).Select();
