@@ -77,25 +77,9 @@ namespace ProjectContractPlugin
                     if (Parent_RightContentPanel.IsHandleCreated)
                     {
                         Parent_RightContentPanel.Invoke(new MethodInvoker(delegate()
-                            {
-                                Parent_LeftTreeViewImageList.Images.Clear();
-                                Parent_LeftTreeView.Nodes.Clear();
-                                Parent_RightContentPanel.Controls.Clear();
-                                Parent_BottomDefaultHintLabel.Text = string.Empty;
-
-                                List<ToolStripItem> list = new List<ToolStripItem>();
-                                foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
-                                {
-                                    if (tsi.Tag == "Dynamic")
-                                    {
-                                        list.Add(tsi);
-                                    }
-                                }
-                                foreach (ToolStripItem tssi in list)
-                                {
-                                    Parent_TopToolStrip.Items.Remove(tssi);
-                                }
-                            }));
+                        {
+                            clearAllControls();
+                        }));
                     }
                     #endregion
                 }
@@ -111,23 +95,7 @@ namespace ProjectContractPlugin
                 {
                     Parent_RightContentPanel.Invoke(new MethodInvoker(delegate()
                     {
-                        Parent_LeftTreeViewImageList.Images.Clear();
-                        Parent_LeftTreeView.Nodes.Clear();
-                        Parent_RightContentPanel.Controls.Clear();
-                        Parent_BottomDefaultHintLabel.Text = string.Empty;
-
-                        List<ToolStripItem> list = new List<ToolStripItem>();
-                        foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
-                        {
-                            if (tsi.Tag == "Dynamic")
-                            {
-                                list.Add(tsi);
-                            }
-                        }
-                        foreach (ToolStripItem tssi in list)
-                        {
-                            Parent_TopToolStrip.Items.Remove(tssi);
-                        }
+                        clearAllControls();
                     }));
                 }
                 #endregion
@@ -258,7 +226,7 @@ namespace ProjectContractPlugin
             initDB();
 
             //初始化按钮
-            initButtons(Parent_TopToolStrip);
+            initButtons();
 
             //初始化编辑控件
             initEditors();
@@ -371,37 +339,37 @@ namespace ProjectContractPlugin
         /// 初始化按钮
         /// </summary>
         /// <param name="Parent_TopToolStrip"></param>
-        private void initButtons(ToolStrip Parent_TopToolStrip)
+        private void initButtons()
         {
             ToolStripButton tempButton = null;
 
-            tempButton = getTopButton(Resource.help, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.manager, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            Parent_TopToolStrip.Items.Insert(0, tempButton);
-
-            tempButton = getTopButton(Resource.export, "btnExport", "导出", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            Parent_TopToolStrip.Items.Insert(0, tempButton);
-
-            tempButton = getTopButton(Resource.word, "btnWordView", "预览", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            Parent_TopToolStrip.Items.Insert(0, tempButton);
-
-            tempButton = getTopButton(Resource.import, "btnLoad", "导入", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            Parent_TopToolStrip.Items.Insert(0, tempButton);
-
-            tempButton = getTopButton(Resource.w5, "btnNew", "新建", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            Parent_TopToolStrip.Items.Insert(0, tempButton);
+            addToTopToolStrip(tempButton);
 
             tempButton = getTopButton(Resource._new, "btnSaveAll", "保存所有", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            Parent_TopToolStrip.Items.Insert(0, tempButton);
+            addToTopToolStrip(tempButton);
 
-            tempButton = getTopButton(Resource.manager, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.w5, "btnNew", "新建", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
-            Parent_TopToolStrip.Items.Insert(0, tempButton);
+            addToTopToolStrip(tempButton);
+
+            tempButton = getTopButton(Resource.import, "btnLoad", "导入", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+
+            tempButton = getTopButton(Resource.word, "btnWordView", "预览", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+
+            tempButton = getTopButton(Resource.export, "btnExport", "导出", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+
+            tempButton = getTopButton(Resource.help, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
         }
 
         /// <summary>
@@ -789,16 +757,7 @@ namespace ProjectContractPlugin
         /// <returns></returns>
         protected ToolStripButton getTopButton(Image imgg, string nameg, string textg, Size sizeg)
         {
-            ToolStripButton tempButton = new ToolStripButton();
-            tempButton.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            tempButton.Image = imgg;
-            tempButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            tempButton.Name = nameg;
-            tempButton.Size = sizeg;
-            tempButton.Text = textg;
-            tempButton.Tag = "Dynamic";
-            tempButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            return tempButton;
+            return getTopButton(imgg, nameg, textg, sizeg, new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134))));
         }
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
