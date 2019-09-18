@@ -431,12 +431,6 @@
     <None Include="Helper\tianbaoshuoming.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Helper\xiangmuzhaiyaomoban.rtf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Helper\xitixiangxi.rtf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Resources\w5.png" />
     <None Include="static.db" />
   </ItemGroup>
@@ -481,9 +475,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DataTemplete\Current\Files\项目负责人.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Helper\readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\word.png" />
