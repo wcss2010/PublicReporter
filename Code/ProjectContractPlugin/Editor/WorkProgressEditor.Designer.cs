@@ -40,7 +40,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -97,7 +96,6 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4,
             this.Column5,
             this.Column6,
             this.Column7});
@@ -184,22 +182,16 @@
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "阶段目标";
+            this.Column3.HeaderText = "阶段目标与研究内容";
+            this.Column3.MinimumWidth = 303;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "完成内容";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.Column3.Width = 303;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.HeaderText = "阶段成果";
+            this.Column5.HeaderText = "阶段成果、考核指标及考核方式";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
@@ -250,7 +242,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;

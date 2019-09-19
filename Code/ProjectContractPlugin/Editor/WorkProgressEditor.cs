@@ -33,12 +33,10 @@ namespace ProjectContractPlugin.Editor
                 cells.Add(index.ToString());
                 cells.Add(data.ShiJian.ToString("yyyy年MM月dd日"));
                 cells.Add(data.JieDuanMuBiao);
-                cells.Add(data.WanChengNeiRong);
                 cells.Add(data.JieDuanChengGuo);
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
             }
-
         }
 
 

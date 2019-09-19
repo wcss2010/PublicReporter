@@ -23,7 +23,6 @@ namespace ProjectContractPlugin.Forms
             {
                 dateTimePicker1.Value = DataObj.ShiJian;
                 txtContent.Text = DataObj.JieDuanMuBiao;
-                textBox2.Text = DataObj.WanChengNeiRong;
                 textBox3.Text = DataObj.JieDuanChengGuo;
             }
             else
@@ -43,7 +42,6 @@ namespace ProjectContractPlugin.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(dateTimePicker1.Text)
-                || String.IsNullOrEmpty(textBox2.Text)
                 || String.IsNullOrEmpty(textBox3.Text)
                 ||String.IsNullOrEmpty(txtContent.Text))
             {
@@ -53,7 +51,6 @@ namespace ProjectContractPlugin.Forms
 
             DataObj.ShiJian = dateTimePicker1.Value;
             DataObj.JieDuanMuBiao = txtContent.Text;
-            DataObj.WanChengNeiRong = textBox2.Text;
             DataObj.JieDuanChengGuo = textBox3.Text;
 
             if (string.IsNullOrEmpty(DataObj.BianHao))

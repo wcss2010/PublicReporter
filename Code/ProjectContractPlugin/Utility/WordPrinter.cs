@@ -391,15 +391,11 @@ namespace ProjectContractPlugin.Utility
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            Paragraph p = wu.Document.newParagraph(t.Document, "阶段目标：");
+                            Paragraph p = wu.Document.newParagraph(t.Document, "阶段目标与研究内容：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.JieDuanMuBiao));
-                            p = wu.Document.newParagraph(t.Document, "完成内容：");
-                            ((Run)p.ChildNodes[0]).Font.Bold = true;
-                            t.Rows[rowStart].Cells[2].AppendChild(p);
-                            wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.WanChengNeiRong));
-                            p = wu.Document.newParagraph(t.Document, "阶段成果：");
+                            p = wu.Document.newParagraph(t.Document, "阶段成果、考核指标及考核方式：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.JieDuanChengGuo));
