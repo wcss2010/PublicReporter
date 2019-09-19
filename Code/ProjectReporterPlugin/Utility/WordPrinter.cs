@@ -682,6 +682,7 @@ namespace ProjectReporterPlugin.Utility
                                 table.Rows[rowIndex].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, person.Specialty));
                                 table.Rows[rowIndex].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, unit.UnitName));
                                 table.Rows[rowIndex].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, curTask.TotalTime.ToString()));
+                                ((Paragraph)table.Rows[rowIndex].Cells[6].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                 table.Rows[rowIndex].Cells[7].AppendChild(wu.Document.newParagraph(table.Document, curTask.Content));
                                 table.Rows[rowIndex].Cells[8].AppendChild(wu.Document.newParagraph(table.Document, person.IDCard));
 
