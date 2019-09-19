@@ -243,19 +243,26 @@ namespace ProjectReporterPlugin.Utility
                     wu.Document.WordDocBuilder.EndBookmark("课题详细_" + ketiIndex + "_3");
 
                     wu.Document.WordDocBuilder.Writeln("、负责单位及负责人");
-                    wu.Document.WordDocBuilder.ParagraphFormat.ClearFormatting();
-                    wu.Document.WordDocBuilder.Writeln("    负责人:" + fuzePerson);
-                    wu.Document.WordDocBuilder.Writeln("    负责单位:" + fuzeUnit);
-                    //wu.Document.WordDocBuilder.StartBookmark("课题详细_" + ketiIndex + "_4");
-                    //wu.Document.WordDocBuilder.EndBookmark("课题详细_" + ketiIndex + "_4");
+                    wu.Document.WordDocBuilder.StartBookmark("课题详细_" + ketiIndex + "_4");
+                    wu.Document.WordDocBuilder.EndBookmark("课题详细_" + ketiIndex + "_4");
 
-                    wu.Document.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading3;
-                    wu.Document.WordDocBuilder.ParagraphFormat.FirstLineIndent = paragraphFormat.FirstLineIndent;
                     wu.Document.WordDocBuilder.Writeln("、研究经费");
-                    wu.Document.WordDocBuilder.ParagraphFormat.ClearFormatting();
-                    wu.Document.WordDocBuilder.Writeln("    " + moneyStr);
-                    //wu.Document.WordDocBuilder.StartBookmark("课题详细_" + ketiIndex + "_5");
-                    //wu.Document.WordDocBuilder.EndBookmark("课题详细_" + ketiIndex + "_5");
+                    wu.Document.WordDocBuilder.StartBookmark("课题详细_" + ketiIndex + "_5");
+                    wu.Document.WordDocBuilder.EndBookmark("课题详细_" + ketiIndex + "_5");
+
+                    WordDocument content1 = new WordDocument();
+                    content1.WordDocBuilder.Font.Name = "仿宋_GB2312";
+                    content1.WordDocBuilder.Font.Size = 14.25;
+                    content1.WordDocBuilder.Writeln("    负责人:" + fuzePerson);
+                    content1.WordDocBuilder.Writeln("    负责单位:" + fuzeUnit);
+
+                    WordDocument content2 = new WordDocument();
+                    content2.WordDocBuilder.Font.Name = "仿宋_GB2312";
+                    content2.WordDocBuilder.Font.Size = 14.25;
+                    content2.WordDocBuilder.Writeln("  " + moneyStr);
+
+                    wu.Document.insertDocumentAfterBookMark(content1.WordDoc, "课题详细_" + ketiIndex + "_4", false);
+                    wu.Document.insertDocumentAfterBookMark(content2.WordDoc, "课题详细_" + ketiIndex + "_5", kk == ketiList.Count - 1 ? true : false);
                 }
 
                 wu.Document.WordDocBuilder.ListFormat.RemoveNumbers();
@@ -265,7 +272,6 @@ namespace ProjectReporterPlugin.Utility
                 List<KeyValuePair<string, Project>> ketiMap = new List<KeyValuePair<string, Project>>();
                 #region 插入课题详细RTF
 
-                string[] chsNumbers = new string[] { "", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
                 try
                 {
                     ketiMap.Add(new KeyValuePair<string, Project>("项目", pt.projectObj));
@@ -274,7 +280,7 @@ namespace ProjectReporterPlugin.Utility
                     int ketiIndex = 1;
                     foreach (Project proj in ketiList)
                     {
-                        string ketiCode = "课题" + chsNumbers[ketiIndex];
+                        string ketiCode = "课题" + ketiIndex;
 
                         wu.selectBookMark("课题详细_" + ketiIndex);
                         wu.replaceA("F2-" + ketiIndex, ketiCode + ":" + proj.Name);
@@ -311,7 +317,7 @@ namespace ProjectReporterPlugin.Utility
                         }
 
                         //ketiStringBuilder.Append("课题").Append(indexx).Append("(").Append(proj.Type2.Contains("非") ? string.Empty : proj.Type2).Append(proj.Type2.Contains("非") ? string.Empty : ",").Append(proj.SecretLevel).Append("):").Append(proj.Name).Append(",").Append(shortContent).Append("\n");
-                        ketiStringBuilder.Append("课题").Append(chsNumbers[indexx]).Append("(").Append(proj.SecretLevel).Append("):").Append(proj.Name).Append(",").Append(shortContent).Append("\n");
+                        ketiStringBuilder.Append("课题").Append(indexx).Append("(").Append(proj.SecretLevel).Append("):").Append(proj.Name).Append(",").Append(shortContent).Append("\n");
                     }
                     if (ketiStringBuilder.Length > 0)
                     {
@@ -340,7 +346,7 @@ namespace ProjectReporterPlugin.Utility
                     }
                     else
                     {
-                        workerGroupString.Append("     ").Append("课题").Append(chsNumbers[indexxxx]).Append("负责人:").Append(pName).Append(",").Append(pInfo).Append("\n");
+                        workerGroupString.Append("     ").Append("课题").Append(indexxxx).Append("负责人:").Append(pName).Append(",").Append(pInfo).Append("\n");
                     }
 
                     indexxxx++;
@@ -411,6 +417,7 @@ namespace ProjectReporterPlugin.Utility
                                         table.Rows[rowIndex].Cells[1].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[2].RemoveAllChildren();
                                         table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, curStep.StepIndex + ""));
+                                        ((Paragraph)table.Rows[rowIndex].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                         table.Rows[rowIndex].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, curStep.StepTime + ""));
 
                                         List<Paragraph> resultList = wu.Document.getParagraphListWithNewLine(table.Document, resultStr);
@@ -492,6 +499,7 @@ namespace ProjectReporterPlugin.Utility
                                 table.Rows[0].Cells[colIndex].RemoveAllChildren();
                                 table.Rows[0].Cells[colIndex].AppendChild(wu.Document.newParagraph(table.Document, "阶段" + step.StepIndex + "(" + step.StepTime + "个月)"));
                                 ((Run)((Paragraph)table.Rows[0].Cells[colIndex].ChildNodes[0]).ChildNodes[0]).Font.Name = "黑体";
+                                ((Paragraph)table.Rows[0].Cells[colIndex].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                 //table.Cell(1, colIndex).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
                                 colIndex++;
                             }
@@ -561,11 +569,14 @@ namespace ProjectReporterPlugin.Utility
                                 {
                                     table.Rows[rowIndex].Cells[0].RemoveAllChildren();
                                     table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, kvp.Key + "(" + totalMoney + "万)"));
+                                    ((Paragraph)table.Rows[rowIndex].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                    table.Rows[rowIndex].Cells[0].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
                                 }
                                 else
                                 {
                                     table.Rows[rowIndex].Cells[0].RemoveAllChildren();
                                     table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, kvp.Key));
+                                    ((Paragraph)table.Rows[rowIndex].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                 }
 
                                 rowIndex++;
@@ -646,6 +657,8 @@ namespace ProjectReporterPlugin.Utility
                                 {
                                     if (subjectMasterModifyTaskID != null && subjectMasterModifyTaskID.Length >= 2)
                                     {
+                                        //删除最后一行
+                                        table.Rows.RemoveAt(table.Rows.Count - 1);
                                         continue;
                                     }
                                 }
@@ -662,6 +675,7 @@ namespace ProjectReporterPlugin.Utility
                                 table.Rows[rowIndex].Cells[9].RemoveAllChildren();
 
                                 table.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, rowIndex.ToString()));
+                                ((Paragraph)table.Rows[rowIndex].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                 table.Rows[rowIndex].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, person.Name));
                                 table.Rows[rowIndex].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, person.Sex));
                                 table.Rows[rowIndex].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, person.Job));
@@ -892,7 +906,7 @@ namespace ProjectReporterPlugin.Utility
 
                                     #region 写入标签
                                     table.Rows[rowStart].Cells[0].RemoveAllChildren();
-                                    table.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, "课题" + chsNumbers[(k + 1)]));
+                                    table.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, "课题" + (k + 1)));
                                     ((Run)((Paragraph)table.Rows[rowStart].Cells[0].ChildNodes[0]).ChildNodes[0]).Font.Name = "黑体";
                                     //table.Rows[rowStart].Cells[1).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
