@@ -513,7 +513,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel6.TabIndex = 11;
             this.kryptonLabel6.Text = "（1）委托外单位开展检验、测试、仪验、加工费";
             this.kryptonLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel6.Click += new System.EventHandler(this.kryptonLabel6_Click);
             // 
             // ProjectRFA2_1Rm
             // 
@@ -679,7 +678,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel39.TabIndex = 4;
             this.kryptonLabel39.Text = "一、项目总经费";
             this.kryptonLabel39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel39.Click += new System.EventHandler(this.kryptonLabel39_Click);
             // 
             // kryptonLabel38
             // 
@@ -765,7 +763,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel42.TabIndex = 8;
             this.kryptonLabel42.Text = "1.设备费";
             this.kryptonLabel42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel42.Click += new System.EventHandler(this.kryptonLabel42_Click);
             // 
             // kryptonLabel43
             // 
@@ -779,7 +776,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel43.TabIndex = 9;
             this.kryptonLabel43.Text = "（1）设备购置费";
             this.kryptonLabel43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel43.Click += new System.EventHandler(this.kryptonLabel43_Click);
             // 
             // kryptonLabel44
             // 
@@ -793,7 +789,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel44.TabIndex = 10;
             this.kryptonLabel44.Text = "（2）设备试制费";
             this.kryptonLabel44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel44.Click += new System.EventHandler(this.kryptonLabel44_Click);
             // 
             // kryptonLabel41
             // 
@@ -806,7 +801,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel41.TabIndex = 12;
             this.kryptonLabel41.Text = "（一）直接费用";
             this.kryptonLabel41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel41.Click += new System.EventHandler(this.kryptonLabel41_Click);
             // 
             // kryptonLabel46
             // 
@@ -820,7 +814,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel46.TabIndex = 13;
             this.kryptonLabel46.Text = "2.材料费";
             this.kryptonLabel46.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel46.Click += new System.EventHandler(this.kryptonLabel46_Click);
             // 
             // kryptonLabel47
             // 
@@ -834,7 +827,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel47.TabIndex = 14;
             this.kryptonLabel47.Text = "（3）其他";
             this.kryptonLabel47.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel47.Click += new System.EventHandler(this.kryptonLabel47_Click);
             // 
             // kryptonLabel48
             // 
@@ -848,7 +840,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel48.TabIndex = 15;
             this.kryptonLabel48.Text = "3.外部协作费";
             this.kryptonLabel48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel48.Click += new System.EventHandler(this.kryptonLabel48_Click);
             // 
             // ProjectRFA1
             // 
@@ -1302,7 +1293,6 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel7.TabIndex = 11;
             this.kryptonLabel7.Text = "（2）其他";
             this.kryptonLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kryptonLabel7.Click += new System.EventHandler(this.kryptonLabel7_Click);
             // 
             // ProjectRFA1_3
             // 
@@ -2292,25 +2282,25 @@ namespace ProjectReporterPlugin.Editor
                 ProjectRFA_Leave(ProjectRFA1_1_3, new EventArgs());
                 ProjectRFA1_2.Text = dataTable.Rows[6].ItemArray[1] != null ? dataTable.Rows[6].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA1_2, new EventArgs());
-                ProjectRFA1_3.Text = dataTable.Rows[7].ItemArray[1] != null ? dataTable.Rows[7].ItemArray[1].ToString() : "0";
-                ProjectRFA_Leave(ProjectRFA1_3, new EventArgs());
-                //ProjectRFA1_3_1.Text = dataTable.Rows[8].ItemArray[1] != null ? dataTable.Rows[8].ItemArray[1].ToString() : "0";
-                //ProjectRFA_Leave(ProjectRFA1_3_1, new EventArgs());
-                //ProjectRFA1_3_2.Text = dataTable.Rows[9].ItemArray[1] != null ? dataTable.Rows[9].ItemArray[1].ToString() : "0";
-                //ProjectRFA_Leave(ProjectRFA1_3_2, new EventArgs());
-                ProjectRFA1_4.Text = dataTable.Rows[8].ItemArray[1] != null ? dataTable.Rows[8].ItemArray[1].ToString() : "0";
+                //ProjectRFA1_3.Text = dataTable.Rows[7].ItemArray[1] != null ? dataTable.Rows[7].ItemArray[1].ToString() : "0";
+                //ProjectRFA_Leave(ProjectRFA1_3, new EventArgs());
+                ProjectRFA1_3_1.Text = dataTable.Rows[8].ItemArray[1] != null ? dataTable.Rows[8].ItemArray[1].ToString() : "0";
+                ProjectRFA_Leave(ProjectRFA1_3_1, new EventArgs());
+                ProjectRFA1_3_2.Text = dataTable.Rows[9].ItemArray[1] != null ? dataTable.Rows[9].ItemArray[1].ToString() : "0";
+                ProjectRFA_Leave(ProjectRFA1_3_2, new EventArgs());
+                ProjectRFA1_4.Text = dataTable.Rows[10].ItemArray[1] != null ? dataTable.Rows[10].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA1_4, new EventArgs());
-                ProjectRFA1_5.Text = dataTable.Rows[9].ItemArray[1] != null ? dataTable.Rows[9].ItemArray[1].ToString() : "0";
+                ProjectRFA1_5.Text = dataTable.Rows[11].ItemArray[1] != null ? dataTable.Rows[11].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA1_5, new EventArgs());
-                ProjectRFA1_6.Text = dataTable.Rows[10].ItemArray[1] != null ? dataTable.Rows[10].ItemArray[1].ToString() : "0";
+                ProjectRFA1_6.Text = dataTable.Rows[12].ItemArray[1] != null ? dataTable.Rows[12].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA1_6, new EventArgs());
-                ProjectRFA1_7.Text = dataTable.Rows[11].ItemArray[1] != null ? dataTable.Rows[11].ItemArray[1].ToString() : "0";
+                ProjectRFA1_7.Text = dataTable.Rows[13].ItemArray[1] != null ? dataTable.Rows[13].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA1_7, new EventArgs());
-                ProjectRFA1_8.Text = dataTable.Rows[12].ItemArray[1] != null ? dataTable.Rows[12].ItemArray[1].ToString() : "0";
+                ProjectRFA1_8.Text = dataTable.Rows[14].ItemArray[1] != null ? dataTable.Rows[14].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA1_8, new EventArgs());
-                ProjectRFA1_9.Text = dataTable.Rows[13].ItemArray[1] != null ? dataTable.Rows[13].ItemArray[1].ToString() : "0";
+                ProjectRFA1_9.Text = dataTable.Rows[15].ItemArray[1] != null ? dataTable.Rows[15].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA1_9, new EventArgs());
-                ProjectRFA2_1.Text = dataTable.Rows[15].ItemArray[1] != null ? dataTable.Rows[15].ItemArray[1].ToString() : "0";
+                ProjectRFA2_1.Text = dataTable.Rows[17].ItemArray[1] != null ? dataTable.Rows[17].ItemArray[1].ToString() : "0";
                 ProjectRFA_Leave(ProjectRFA2_1, new EventArgs());
 
                 //备注
@@ -2322,72 +2312,22 @@ namespace ProjectReporterPlugin.Editor
                 ProjectRFA1_1_3Rm.Text = dataTable.Rows[5].ItemArray[2] != null ? dataTable.Rows[5].ItemArray[2].ToString() : "";
                 ProjectRFA1_2Rm.Text = dataTable.Rows[6].ItemArray[2] != null ? dataTable.Rows[6].ItemArray[2].ToString() : "";
                 ProjectRFA1_3Rm.Text = dataTable.Rows[7].ItemArray[2] != null ? dataTable.Rows[7].ItemArray[2].ToString() : "";
-                //ProjectRFA1_3_1Rm.Text = dataTable.Rows[8].ItemArray[2] != null ? dataTable.Rows[8].ItemArray[2].ToString() : "";
-                //ProjectRFA1_3_2Rm.Text = dataTable.Rows[9].ItemArray[2] != null ? dataTable.Rows[9].ItemArray[2].ToString() : "";
-                ProjectRFA1_4Rm.Text = dataTable.Rows[8].ItemArray[2] != null ? dataTable.Rows[8].ItemArray[2].ToString() : "";
-                ProjectRFA1_5Rm.Text = dataTable.Rows[9].ItemArray[2] != null ? dataTable.Rows[9].ItemArray[2].ToString() : "";
-                ProjectRFA1_6Rm.Text = dataTable.Rows[10].ItemArray[2] != null ? dataTable.Rows[10].ItemArray[2].ToString() : "";
-                ProjectRFA1_7Rm.Text = dataTable.Rows[11].ItemArray[2] != null ? dataTable.Rows[11].ItemArray[2].ToString() : "";
-                ProjectRFA1_8Rm.Text = dataTable.Rows[12].ItemArray[2] != null ? dataTable.Rows[12].ItemArray[2].ToString() : "";
-                ProjectRFA1_9Rm.Text = dataTable.Rows[13].ItemArray[2] != null ? dataTable.Rows[13].ItemArray[2].ToString() : "";
-                ProjectRFA2Rm.Text = dataTable.Rows[14].ItemArray[2] != null ? dataTable.Rows[14].ItemArray[2].ToString() : "";
-                ProjectRFA2_1Rm.Text = dataTable.Rows[15].ItemArray[2] != null ? dataTable.Rows[15].ItemArray[2].ToString() : "";
+                ProjectRFA1_3_1Rm.Text = dataTable.Rows[8].ItemArray[2] != null ? dataTable.Rows[8].ItemArray[2].ToString() : "";
+                ProjectRFA1_3_2Rm.Text = dataTable.Rows[9].ItemArray[2] != null ? dataTable.Rows[9].ItemArray[2].ToString() : "";
+                ProjectRFA1_4Rm.Text = dataTable.Rows[10].ItemArray[2] != null ? dataTable.Rows[10].ItemArray[2].ToString() : "";
+                ProjectRFA1_5Rm.Text = dataTable.Rows[11].ItemArray[2] != null ? dataTable.Rows[11].ItemArray[2].ToString() : "";
+                ProjectRFA1_6Rm.Text = dataTable.Rows[12].ItemArray[2] != null ? dataTable.Rows[12].ItemArray[2].ToString() : "";
+                ProjectRFA1_7Rm.Text = dataTable.Rows[13].ItemArray[2] != null ? dataTable.Rows[13].ItemArray[2].ToString() : "";
+                ProjectRFA1_8Rm.Text = dataTable.Rows[14].ItemArray[2] != null ? dataTable.Rows[14].ItemArray[2].ToString() : "";
+                ProjectRFA1_9Rm.Text = dataTable.Rows[15].ItemArray[2] != null ? dataTable.Rows[15].ItemArray[2].ToString() : "";
+                ProjectRFA2Rm.Text = dataTable.Rows[16].ItemArray[2] != null ? dataTable.Rows[16].ItemArray[2].ToString() : "";
+                ProjectRFA2_1Rm.Text = dataTable.Rows[17].ItemArray[2] != null ? dataTable.Rows[17].ItemArray[2].ToString() : "";
                 #endregion
             }
             catch (Exception ex)
             {
                 MessageBox.Show("导入错误！Ex:" + ex.ToString(), "错误");
             }
-        }
-
-        private void kryptonLabel39_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel41_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel42_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel43_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel44_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel47_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel46_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel48_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
