@@ -690,28 +690,22 @@ namespace ProjectReporterPlugin
         private bool isRightMoneyOrTime()
         {
             //项目总时间
-            int totalTime = ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalTime").getValue<int>(0);
+            decimal totalTime = convertToDecimal(ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalTime").getValue());
 
             //项目总金额
-            decimal totalMoney = ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalMoney").getValue<decimal>(0);
+            decimal totalMoney = convertToDecimal(ConnectionManager.Context.table("Project").where("Type = '项目'").select("TotalMoney").getValue());
 
             //经费表总额
-            string projectMoneyStr = ConnectionManager.Context.table("MoneyAndYear").where("Name = 'ProjectRFA'").select("Value").getValue<string>("0");
-            decimal projectMoney = 0;
-            try
-            {
-                projectMoney = decimal.Parse(projectMoneyStr);
-            }
-            catch (Exception ex) { }
+            decimal projectMoney = convertToDecimal(ConnectionManager.Context.table("MoneyAndYear").where("Name = 'ProjectRFA'").select("Value").getValue());
 
             //阶段总额
-            long totalStepMoney = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepMoney)").getValue<long>(0);
+            decimal totalStepMoney = convertToDecimal(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepMoney)").getValue());
 
             //阶段总时间
-            long totalStepTime = (long)Math.Round(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepTime)").getValue<long>(0) / 12d);
+            decimal totalStepTime = Math.Round(convertToDecimal(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepTime)").getValue()) / (decimal)12);
 
             //课题阶段经费总额
-            long totalKetiStepMoney = ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题'))").select("sum(Money)").getValue<long>(0);
+            decimal totalKetiStepMoney = convertToDecimal(ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题'))").select("sum(Money)").getValue());
 
             //阶段经费表
             Noear.Weed.DataList dlStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("StepIndex,StepMoney").getDataList();
@@ -730,8 +724,8 @@ namespace ProjectReporterPlugin
                     try
                     {
                         int stepIndex = di.getInt("StepIndex");
-                        long stepMoney = long.Parse(di.get("StepMoney").ToString());
-                        long subjectStepMoney = ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题') and StepIndex = " + stepIndex + ")").select("sum(Money)").getValue<long>(0);
+                        decimal stepMoney = convertToDecimal(di.get("StepMoney"));
+                        decimal subjectStepMoney = convertToDecimal(ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题') and StepIndex = " + stepIndex + ")").select("sum(Money)").getValue());
 
                         //判断阶段经费是不是相等
                         if (stepMoney == subjectStepMoney)
@@ -766,6 +760,30 @@ namespace ProjectReporterPlugin
 
             //判断条件是否符合
             return totalMoney == projectMoney && totalMoney == totalStepMoney && totalMoney == totalKetiStepMoney && totalTime == totalStepTime && totalRightStepCount == totalStepCount;
+        }
+
+        /// <summary>
+        /// 尝试强制将object转换为decimal
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        private decimal convertToDecimal(object val)
+        {
+            try
+            {
+                if (val != null)
+                {
+                    return decimal.Parse(val.ToString());
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
 
         /// <summary>
