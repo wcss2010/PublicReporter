@@ -346,7 +346,7 @@ namespace ProjectReporterPlugin.DB.Entitys
 
         public void Calc()
         {
-            //this.ProjectRFA1_3 = (this.ProjectRFA1_3_1 != null ? this.ProjectRFA1_3_1.Value : 0) + (this.ProjectRFA1_3_2 != null ? this.ProjectRFA1_3_2.Value : 0);
+            this.ProjectRFA1_3 = (this.ProjectRFA1_3_1 != null ? this.ProjectRFA1_3_1.Value : 0) + (this.ProjectRFA1_3_2 != null ? this.ProjectRFA1_3_2.Value : 0);
             decimal d = 0m;
             d += ((!this.ProjectRFA1_1_1.HasValue) ? 0m : this.ProjectRFA1_1_1.Value);
             d += ((!this.ProjectRFA1_1_2.HasValue) ? 0m : this.ProjectRFA1_1_2.Value);

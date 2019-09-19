@@ -100,9 +100,7 @@ namespace ProjectReporterPlugin.Editor
 
 		private TextBox ProjectRFA1_1_3;
 
-		private TextBox ProjectRFA1_2;
-
-        private TextBox ProjectRFA1_3;
+        private TextBox ProjectRFA1_2;
 
 		private TextBox ProjectRFA1_4;
 
@@ -204,6 +202,7 @@ namespace ProjectReporterPlugin.Editor
         private LinkLabel lklDownloadExcel;
         private Button btnExcelLoad;
         private OpenFileDialog ofdExcelDialog;
+        private Label ProjectRFA1_3;
         private bool issaved;
 
 		protected override void Dispose(bool disposing)
@@ -219,8 +218,12 @@ namespace ProjectReporterPlugin.Editor
 		{
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new ProjectReporterPlugin.Controls.HSkinTableLayoutPanel();
+            this.ProjectRFA1_3_2Rm = new System.Windows.Forms.TextBox();
+            this.ProjectRFA1_3_1Rm = new System.Windows.Forms.TextBox();
+            this.ProjectRFA1_3_1 = new System.Windows.Forms.TextBox();
             this.kryptonLabel6 = new System.Windows.Forms.Label();
             this.ProjectRFA2_1Rm = new System.Windows.Forms.TextBox();
+            this.ProjectRFA1_3_2 = new System.Windows.Forms.TextBox();
             this.ProjectRFA2Rm = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_9Rm = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_8Rm = new System.Windows.Forms.TextBox();
@@ -262,7 +265,6 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectRFA1_1_2 = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_1_3 = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_2 = new System.Windows.Forms.TextBox();
-            this.ProjectRFA1_3 = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_4 = new System.Windows.Forms.TextBox();
             this.ProjectRFA1Rm = new System.Windows.Forms.TextBox();
             this.ProjectRFA1_5 = new System.Windows.Forms.TextBox();
@@ -288,13 +290,10 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectRFA2zb = new System.Windows.Forms.Label();
             this.ProjectRFA2_1zb = new System.Windows.Forms.Label();
             this.kryptonLabel7 = new System.Windows.Forms.Label();
+            this.ProjectRFA1_3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new ProjectReporterPlugin.Controls.HSkinTableLayoutPanel();
             this.kryptonPanel18 = new System.Windows.Forms.Panel();
-            this.ProjectRFA1_3_1 = new System.Windows.Forms.TextBox();
-            this.ProjectRFA1_3_1Rm = new System.Windows.Forms.TextBox();
-            this.ProjectRFA1_3_2Rm = new System.Windows.Forms.TextBox();
             this.kryptonLabel92 = new System.Windows.Forms.Label();
-            this.ProjectRFA1_3_2 = new System.Windows.Forms.TextBox();
             this.kryptonLabel93 = new System.Windows.Forms.Label();
             this.kryptonLabel94 = new System.Windows.Forms.Label();
             this.kryptonLabel95 = new System.Windows.Forms.Label();
@@ -309,8 +308,8 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.plBottomInfoBox = new System.Windows.Forms.Panel();
-            this.txtZiChouJingFei = new System.Windows.Forms.TextBox();
             this.kryptonLabel4 = new System.Windows.Forms.Label();
+            this.txtZiChouJingFei = new System.Windows.Forms.TextBox();
             this.kryptonLabel3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
@@ -337,9 +336,9 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
@@ -357,7 +356,7 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 677);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1189, 677);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -365,12 +364,16 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel2.BorderColor = System.Drawing.Color.Black;
             this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_3_2Rm, 2, 10);
+            this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_3_1Rm, 2, 9);
+            this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_3_1, 1, 9);
             this.tableLayoutPanel2.Controls.Add(this.kryptonLabel6, 0, 9);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA2_1Rm, 2, 18);
+            this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_3_2, 1, 10);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA2Rm, 2, 17);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_9Rm, 2, 16);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_8Rm, 2, 15);
@@ -412,7 +415,6 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_1_2, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_1_3, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_2, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_3, 1, 8);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_4, 1, 11);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1Rm, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_5, 1, 12);
@@ -438,8 +440,9 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA2zb, 3, 17);
             this.tableLayoutPanel2.Controls.Add(this.ProjectRFA2_1zb, 3, 18);
             this.tableLayoutPanel2.Controls.Add(this.kryptonLabel7, 0, 10);
+            this.tableLayoutPanel2.Controls.Add(this.ProjectRFA1_3, 1, 8);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(184, 56);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(121, 56);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 19;
@@ -452,8 +455,6 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -462,159 +463,209 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(537, 510);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(945, 570);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // ProjectRFA1_3_2Rm
+            // 
+            this.ProjectRFA1_3_2Rm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectRFA1_3_2Rm.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ProjectRFA1_3_2Rm.Location = new System.Drawing.Point(534, 302);
+            this.ProjectRFA1_3_2Rm.Margin = new System.Windows.Forms.Padding(2);
+            this.ProjectRFA1_3_2Rm.Name = "ProjectRFA1_3_2Rm";
+            this.ProjectRFA1_3_2Rm.Size = new System.Drawing.Size(408, 26);
+            this.ProjectRFA1_3_2Rm.TabIndex = 87;
+            // 
+            // ProjectRFA1_3_1Rm
+            // 
+            this.ProjectRFA1_3_1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectRFA1_3_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ProjectRFA1_3_1Rm.Location = new System.Drawing.Point(534, 272);
+            this.ProjectRFA1_3_1Rm.Margin = new System.Windows.Forms.Padding(2);
+            this.ProjectRFA1_3_1Rm.Name = "ProjectRFA1_3_1Rm";
+            this.ProjectRFA1_3_1Rm.Size = new System.Drawing.Size(408, 26);
+            this.ProjectRFA1_3_1Rm.TabIndex = 87;
+            // 
+            // ProjectRFA1_3_1
+            // 
+            this.ProjectRFA1_3_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectRFA1_3_1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ProjectRFA1_3_1.Location = new System.Drawing.Point(414, 272);
+            this.ProjectRFA1_3_1.Margin = new System.Windows.Forms.Padding(2);
+            this.ProjectRFA1_3_1.Name = "ProjectRFA1_3_1";
+            this.ProjectRFA1_3_1.Size = new System.Drawing.Size(116, 26);
+            this.ProjectRFA1_3_1.TabIndex = 31;
+            this.ProjectRFA1_3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectRFA1_3_1.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
+            this.ProjectRFA1_3_1.Leave += new System.EventHandler(this.ProjectRFA_Leave);
             // 
             // kryptonLabel6
             // 
             this.kryptonLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.kryptonLabel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel6.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel6.Location = new System.Drawing.Point(3, 270);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel6.Size = new System.Drawing.Size(211, 1);
+            this.kryptonLabel6.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel6.TabIndex = 11;
-            this.kryptonLabel6.Text = "（1）检验、测试、化验、加工费";
+            this.kryptonLabel6.Text = "（1）委托外单位开展检验、测试、仪验、加工费";
+            this.kryptonLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel6.Click += new System.EventHandler(this.kryptonLabel6_Click);
             // 
             // ProjectRFA2_1Rm
             // 
             this.ProjectRFA2_1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA2_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA2_1Rm.Location = new System.Drawing.Point(339, 482);
+            this.ProjectRFA2_1Rm.Location = new System.Drawing.Point(534, 542);
             this.ProjectRFA2_1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA2_1Rm.Name = "ProjectRFA2_1Rm";
-            this.ProjectRFA2_1Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA2_1Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA2_1Rm.TabIndex = 86;
+            // 
+            // ProjectRFA1_3_2
+            // 
+            this.ProjectRFA1_3_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectRFA1_3_2.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ProjectRFA1_3_2.Location = new System.Drawing.Point(414, 302);
+            this.ProjectRFA1_3_2.Margin = new System.Windows.Forms.Padding(2);
+            this.ProjectRFA1_3_2.Name = "ProjectRFA1_3_2";
+            this.ProjectRFA1_3_2.Size = new System.Drawing.Size(116, 26);
+            this.ProjectRFA1_3_2.TabIndex = 32;
+            this.ProjectRFA1_3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectRFA1_3_2.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
+            this.ProjectRFA1_3_2.Leave += new System.EventHandler(this.ProjectRFA_Leave);
             // 
             // ProjectRFA2Rm
             // 
             this.ProjectRFA2Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA2Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA2Rm.Location = new System.Drawing.Point(339, 452);
+            this.ProjectRFA2Rm.Location = new System.Drawing.Point(534, 512);
             this.ProjectRFA2Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA2Rm.Name = "ProjectRFA2Rm";
-            this.ProjectRFA2Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA2Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA2Rm.TabIndex = 85;
             // 
             // ProjectRFA1_9Rm
             // 
             this.ProjectRFA1_9Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_9Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_9Rm.Location = new System.Drawing.Point(339, 422);
+            this.ProjectRFA1_9Rm.Location = new System.Drawing.Point(534, 482);
             this.ProjectRFA1_9Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_9Rm.Name = "ProjectRFA1_9Rm";
-            this.ProjectRFA1_9Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_9Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_9Rm.TabIndex = 84;
             // 
             // ProjectRFA1_8Rm
             // 
             this.ProjectRFA1_8Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_8Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_8Rm.Location = new System.Drawing.Point(339, 392);
+            this.ProjectRFA1_8Rm.Location = new System.Drawing.Point(534, 452);
             this.ProjectRFA1_8Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_8Rm.Name = "ProjectRFA1_8Rm";
-            this.ProjectRFA1_8Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_8Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_8Rm.TabIndex = 83;
             // 
             // ProjectRFA1_7Rm
             // 
             this.ProjectRFA1_7Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_7Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_7Rm.Location = new System.Drawing.Point(339, 362);
+            this.ProjectRFA1_7Rm.Location = new System.Drawing.Point(534, 422);
             this.ProjectRFA1_7Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_7Rm.Name = "ProjectRFA1_7Rm";
-            this.ProjectRFA1_7Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_7Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_7Rm.TabIndex = 82;
             // 
             // ProjectRFA1_6Rm
             // 
             this.ProjectRFA1_6Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_6Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_6Rm.Location = new System.Drawing.Point(339, 332);
+            this.ProjectRFA1_6Rm.Location = new System.Drawing.Point(534, 392);
             this.ProjectRFA1_6Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_6Rm.Name = "ProjectRFA1_6Rm";
-            this.ProjectRFA1_6Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_6Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_6Rm.TabIndex = 81;
             // 
             // ProjectRFA1_5Rm
             // 
             this.ProjectRFA1_5Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_5Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_5Rm.Location = new System.Drawing.Point(339, 302);
+            this.ProjectRFA1_5Rm.Location = new System.Drawing.Point(534, 362);
             this.ProjectRFA1_5Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_5Rm.Name = "ProjectRFA1_5Rm";
-            this.ProjectRFA1_5Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_5Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_5Rm.TabIndex = 80;
             // 
             // ProjectRFA1_4Rm
             // 
             this.ProjectRFA1_4Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_4Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_4Rm.Location = new System.Drawing.Point(339, 272);
+            this.ProjectRFA1_4Rm.Location = new System.Drawing.Point(534, 332);
             this.ProjectRFA1_4Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_4Rm.Name = "ProjectRFA1_4Rm";
-            this.ProjectRFA1_4Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_4Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_4Rm.TabIndex = 79;
             // 
             // ProjectRFA1_3Rm
             // 
             this.ProjectRFA1_3Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_3Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_3Rm.Location = new System.Drawing.Point(339, 242);
+            this.ProjectRFA1_3Rm.Location = new System.Drawing.Point(534, 242);
             this.ProjectRFA1_3Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_3Rm.Name = "ProjectRFA1_3Rm";
-            this.ProjectRFA1_3Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_3Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_3Rm.TabIndex = 78;
             // 
             // ProjectRFA1_2Rm
             // 
             this.ProjectRFA1_2Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_2Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_2Rm.Location = new System.Drawing.Point(339, 212);
+            this.ProjectRFA1_2Rm.Location = new System.Drawing.Point(534, 212);
             this.ProjectRFA1_2Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_2Rm.Name = "ProjectRFA1_2Rm";
-            this.ProjectRFA1_2Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_2Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_2Rm.TabIndex = 77;
             // 
             // ProjectRFA1_1_3Rm
             // 
             this.ProjectRFA1_1_3Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1_3Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_3Rm.Location = new System.Drawing.Point(339, 182);
+            this.ProjectRFA1_1_3Rm.Location = new System.Drawing.Point(534, 182);
             this.ProjectRFA1_1_3Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_3Rm.Name = "ProjectRFA1_1_3Rm";
-            this.ProjectRFA1_1_3Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_1_3Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_1_3Rm.TabIndex = 76;
             // 
             // ProjectRFA1_1_2Rm
             // 
             this.ProjectRFA1_1_2Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1_2Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_2Rm.Location = new System.Drawing.Point(339, 152);
+            this.ProjectRFA1_1_2Rm.Location = new System.Drawing.Point(534, 152);
             this.ProjectRFA1_1_2Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_2Rm.Name = "ProjectRFA1_1_2Rm";
-            this.ProjectRFA1_1_2Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_1_2Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_1_2Rm.TabIndex = 75;
             // 
             // ProjectRFA1_1_1Rm
             // 
             this.ProjectRFA1_1_1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_1Rm.Location = new System.Drawing.Point(339, 122);
+            this.ProjectRFA1_1_1Rm.Location = new System.Drawing.Point(534, 122);
             this.ProjectRFA1_1_1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_1Rm.Name = "ProjectRFA1_1_1Rm";
-            this.ProjectRFA1_1_1Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_1_1Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_1_1Rm.TabIndex = 74;
             // 
             // ProjectRFA1_1Rm
             // 
             this.ProjectRFA1_1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1Rm.Location = new System.Drawing.Point(339, 92);
+            this.ProjectRFA1_1Rm.Location = new System.Drawing.Point(534, 92);
             this.ProjectRFA1_1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1Rm.Name = "ProjectRFA1_1Rm";
-            this.ProjectRFA1_1Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1_1Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1_1Rm.TabIndex = 73;
             // 
             // kryptonLabel39
@@ -624,15 +675,17 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel39.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel39.Location = new System.Drawing.Point(3, 30);
             this.kryptonLabel39.Name = "kryptonLabel39";
-            this.kryptonLabel39.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel39.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel39.TabIndex = 4;
             this.kryptonLabel39.Text = "一、项目总经费";
+            this.kryptonLabel39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel39.Click += new System.EventHandler(this.kryptonLabel39_Click);
             // 
             // kryptonLabel38
             // 
             this.kryptonLabel38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel38.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
-            this.kryptonLabel38.Location = new System.Drawing.Point(540, 0);
+            this.kryptonLabel38.Location = new System.Drawing.Point(947, 0);
             this.kryptonLabel38.Name = "kryptonLabel38";
             this.kryptonLabel38.Size = new System.Drawing.Size(1, 30);
             this.kryptonLabel38.TabIndex = 3;
@@ -645,9 +698,9 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel37.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel37.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
-            this.kryptonLabel37.Location = new System.Drawing.Point(340, 0);
+            this.kryptonLabel37.Location = new System.Drawing.Point(535, 0);
             this.kryptonLabel37.Name = "kryptonLabel37";
-            this.kryptonLabel37.Size = new System.Drawing.Size(194, 30);
+            this.kryptonLabel37.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel37.TabIndex = 2;
             this.kryptonLabel37.Text = "备注";
             this.kryptonLabel37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -657,7 +710,7 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel36.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel36.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
-            this.kryptonLabel36.Location = new System.Drawing.Point(220, 0);
+            this.kryptonLabel36.Location = new System.Drawing.Point(415, 0);
             this.kryptonLabel36.Name = "kryptonLabel36";
             this.kryptonLabel36.Size = new System.Drawing.Size(114, 30);
             this.kryptonLabel36.TabIndex = 1;
@@ -671,7 +724,7 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel30.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel30.Location = new System.Drawing.Point(3, 0);
             this.kryptonLabel30.Name = "kryptonLabel30";
-            this.kryptonLabel30.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel30.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel30.TabIndex = 0;
             this.kryptonLabel30.Text = "科目名称";
             this.kryptonLabel30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -681,7 +734,7 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectRFA.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ProjectRFA.Location = new System.Drawing.Point(220, 30);
+            this.ProjectRFA.Location = new System.Drawing.Point(415, 30);
             this.ProjectRFA.Name = "ProjectRFA";
             this.ProjectRFA.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA.TabIndex = 5;
@@ -694,10 +747,10 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFARm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFARm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFARm.Location = new System.Drawing.Point(339, 32);
+            this.ProjectRFARm.Location = new System.Drawing.Point(534, 32);
             this.ProjectRFARm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFARm.Name = "ProjectRFARm";
-            this.ProjectRFARm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFARm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFARm.TabIndex = 71;
             // 
             // kryptonLabel42
@@ -708,9 +761,11 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel42.Location = new System.Drawing.Point(3, 90);
             this.kryptonLabel42.Name = "kryptonLabel42";
             this.kryptonLabel42.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel42.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel42.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel42.TabIndex = 8;
             this.kryptonLabel42.Text = "1.设备费";
+            this.kryptonLabel42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel42.Click += new System.EventHandler(this.kryptonLabel42_Click);
             // 
             // kryptonLabel43
             // 
@@ -720,9 +775,11 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel43.Location = new System.Drawing.Point(3, 120);
             this.kryptonLabel43.Name = "kryptonLabel43";
             this.kryptonLabel43.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel43.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel43.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel43.TabIndex = 9;
             this.kryptonLabel43.Text = "（1）设备购置费";
+            this.kryptonLabel43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel43.Click += new System.EventHandler(this.kryptonLabel43_Click);
             // 
             // kryptonLabel44
             // 
@@ -732,9 +789,11 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel44.Location = new System.Drawing.Point(3, 150);
             this.kryptonLabel44.Name = "kryptonLabel44";
             this.kryptonLabel44.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel44.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel44.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel44.TabIndex = 10;
             this.kryptonLabel44.Text = "（2）设备试制费";
+            this.kryptonLabel44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel44.Click += new System.EventHandler(this.kryptonLabel44_Click);
             // 
             // kryptonLabel41
             // 
@@ -743,9 +802,11 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel41.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel41.Location = new System.Drawing.Point(3, 60);
             this.kryptonLabel41.Name = "kryptonLabel41";
-            this.kryptonLabel41.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel41.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel41.TabIndex = 12;
             this.kryptonLabel41.Text = "（一）直接费用";
+            this.kryptonLabel41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel41.Click += new System.EventHandler(this.kryptonLabel41_Click);
             // 
             // kryptonLabel46
             // 
@@ -755,9 +816,11 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel46.Location = new System.Drawing.Point(3, 210);
             this.kryptonLabel46.Name = "kryptonLabel46";
             this.kryptonLabel46.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel46.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel46.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel46.TabIndex = 13;
             this.kryptonLabel46.Text = "2.材料费";
+            this.kryptonLabel46.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel46.Click += new System.EventHandler(this.kryptonLabel46_Click);
             // 
             // kryptonLabel47
             // 
@@ -767,9 +830,11 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel47.Location = new System.Drawing.Point(3, 180);
             this.kryptonLabel47.Name = "kryptonLabel47";
             this.kryptonLabel47.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel47.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel47.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel47.TabIndex = 14;
             this.kryptonLabel47.Text = "（3）其他";
+            this.kryptonLabel47.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel47.Click += new System.EventHandler(this.kryptonLabel47_Click);
             // 
             // kryptonLabel48
             // 
@@ -779,16 +844,18 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel48.Location = new System.Drawing.Point(3, 240);
             this.kryptonLabel48.Name = "kryptonLabel48";
             this.kryptonLabel48.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel48.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel48.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel48.TabIndex = 15;
             this.kryptonLabel48.Text = "3.外部协作费";
+            this.kryptonLabel48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel48.Click += new System.EventHandler(this.kryptonLabel48_Click);
             // 
             // ProjectRFA1
             // 
             this.ProjectRFA1.BackColor = System.Drawing.Color.Transparent;
             this.ProjectRFA1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ProjectRFA1.Location = new System.Drawing.Point(220, 60);
+            this.ProjectRFA1.Location = new System.Drawing.Point(415, 60);
             this.ProjectRFA1.Name = "ProjectRFA1";
             this.ProjectRFA1.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA1.TabIndex = 16;
@@ -800,102 +867,109 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel50.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel50.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel50.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel50.Location = new System.Drawing.Point(3, 270);
+            this.kryptonLabel50.Location = new System.Drawing.Point(3, 330);
             this.kryptonLabel50.Name = "kryptonLabel50";
             this.kryptonLabel50.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel50.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel50.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel50.TabIndex = 17;
             this.kryptonLabel50.Text = "4.燃料动力费";
+            this.kryptonLabel50.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel51
             // 
             this.kryptonLabel51.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel51.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel51.Location = new System.Drawing.Point(3, 300);
+            this.kryptonLabel51.Location = new System.Drawing.Point(3, 360);
             this.kryptonLabel51.Name = "kryptonLabel51";
             this.kryptonLabel51.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel51.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel51.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel51.TabIndex = 18;
             this.kryptonLabel51.Text = "5.会议、差旅、国际合作与交流费";
+            this.kryptonLabel51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel52
             // 
             this.kryptonLabel52.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel52.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel52.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel52.Location = new System.Drawing.Point(3, 330);
+            this.kryptonLabel52.Location = new System.Drawing.Point(3, 390);
             this.kryptonLabel52.Name = "kryptonLabel52";
             this.kryptonLabel52.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel52.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel52.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel52.TabIndex = 19;
             this.kryptonLabel52.Text = "6.出版、文献、信息传播、知识产权事务费";
+            this.kryptonLabel52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel53
             // 
             this.kryptonLabel53.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel53.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel53.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel53.Location = new System.Drawing.Point(3, 360);
+            this.kryptonLabel53.Location = new System.Drawing.Point(3, 420);
             this.kryptonLabel53.Name = "kryptonLabel53";
             this.kryptonLabel53.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel53.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel53.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel53.TabIndex = 20;
             this.kryptonLabel53.Text = "7.劳务费";
+            this.kryptonLabel53.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel54
             // 
             this.kryptonLabel54.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel54.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel54.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel54.Location = new System.Drawing.Point(3, 390);
+            this.kryptonLabel54.Location = new System.Drawing.Point(3, 450);
             this.kryptonLabel54.Name = "kryptonLabel54";
             this.kryptonLabel54.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel54.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel54.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel54.TabIndex = 21;
             this.kryptonLabel54.Text = "8.专家咨询费";
+            this.kryptonLabel54.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel55
             // 
             this.kryptonLabel55.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel55.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel55.Location = new System.Drawing.Point(3, 420);
+            this.kryptonLabel55.Location = new System.Drawing.Point(3, 480);
             this.kryptonLabel55.Name = "kryptonLabel55";
             this.kryptonLabel55.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel55.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel55.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel55.TabIndex = 22;
             this.kryptonLabel55.Text = "9.其他支出";
+            this.kryptonLabel55.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel56
             // 
             this.kryptonLabel56.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel56.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel56.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.kryptonLabel56.Location = new System.Drawing.Point(3, 450);
+            this.kryptonLabel56.Location = new System.Drawing.Point(3, 510);
             this.kryptonLabel56.Name = "kryptonLabel56";
-            this.kryptonLabel56.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel56.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel56.TabIndex = 23;
             this.kryptonLabel56.Text = "（二）间接费用";
+            this.kryptonLabel56.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel57
             // 
             this.kryptonLabel57.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel57.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel57.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel57.Location = new System.Drawing.Point(3, 480);
+            this.kryptonLabel57.Location = new System.Drawing.Point(3, 540);
             this.kryptonLabel57.Name = "kryptonLabel57";
             this.kryptonLabel57.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel57.Size = new System.Drawing.Size(211, 30);
+            this.kryptonLabel57.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel57.TabIndex = 24;
             this.kryptonLabel57.Text = "10.管理费、科研绩效支出";
+            this.kryptonLabel57.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ProjectRFA1_1
             // 
             this.ProjectRFA1_1.BackColor = System.Drawing.Color.Transparent;
-            this.ProjectRFA1_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1.Location = new System.Drawing.Point(220, 90);
+            this.ProjectRFA1_1.Location = new System.Drawing.Point(415, 90);
             this.ProjectRFA1_1.Name = "ProjectRFA1_1";
             this.ProjectRFA1_1.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA1_1.TabIndex = 26;
@@ -906,7 +980,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_1_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1_1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_1.Location = new System.Drawing.Point(219, 122);
+            this.ProjectRFA1_1_1.Location = new System.Drawing.Point(414, 122);
             this.ProjectRFA1_1_1.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_1.Name = "ProjectRFA1_1_1";
             this.ProjectRFA1_1_1.Size = new System.Drawing.Size(116, 26);
@@ -919,7 +993,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_1_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1_2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_2.Location = new System.Drawing.Point(219, 152);
+            this.ProjectRFA1_1_2.Location = new System.Drawing.Point(414, 152);
             this.ProjectRFA1_1_2.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_2.Name = "ProjectRFA1_1_2";
             this.ProjectRFA1_1_2.Size = new System.Drawing.Size(116, 26);
@@ -932,7 +1006,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_1_3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_1_3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_3.Location = new System.Drawing.Point(219, 182);
+            this.ProjectRFA1_1_3.Location = new System.Drawing.Point(414, 182);
             this.ProjectRFA1_1_3.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_1_3.Name = "ProjectRFA1_1_3";
             this.ProjectRFA1_1_3.Size = new System.Drawing.Size(116, 26);
@@ -945,7 +1019,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_2.Location = new System.Drawing.Point(219, 212);
+            this.ProjectRFA1_2.Location = new System.Drawing.Point(414, 212);
             this.ProjectRFA1_2.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_2.Name = "ProjectRFA1_2";
             this.ProjectRFA1_2.Size = new System.Drawing.Size(116, 26);
@@ -954,24 +1028,11 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectRFA1_2.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
             this.ProjectRFA1_2.Leave += new System.EventHandler(this.ProjectRFA_Leave);
             // 
-            // ProjectRFA1_3
-            // 
-            this.ProjectRFA1_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectRFA1_3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_3.Location = new System.Drawing.Point(219, 242);
-            this.ProjectRFA1_3.Margin = new System.Windows.Forms.Padding(2);
-            this.ProjectRFA1_3.Name = "ProjectRFA1_3";
-            this.ProjectRFA1_3.Size = new System.Drawing.Size(116, 26);
-            this.ProjectRFA1_3.TabIndex = 31;
-            this.ProjectRFA1_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ProjectRFA1_3.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
-            this.ProjectRFA1_3.Leave += new System.EventHandler(this.ProjectRFA_Leave);
-            // 
             // ProjectRFA1_4
             // 
             this.ProjectRFA1_4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_4.Location = new System.Drawing.Point(219, 272);
+            this.ProjectRFA1_4.Location = new System.Drawing.Point(414, 332);
             this.ProjectRFA1_4.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_4.Name = "ProjectRFA1_4";
             this.ProjectRFA1_4.Size = new System.Drawing.Size(116, 26);
@@ -984,17 +1045,17 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1Rm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1Rm.Location = new System.Drawing.Point(339, 62);
+            this.ProjectRFA1Rm.Location = new System.Drawing.Point(534, 62);
             this.ProjectRFA1Rm.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1Rm.Name = "ProjectRFA1Rm";
-            this.ProjectRFA1Rm.Size = new System.Drawing.Size(196, 26);
+            this.ProjectRFA1Rm.Size = new System.Drawing.Size(408, 26);
             this.ProjectRFA1Rm.TabIndex = 72;
             // 
             // ProjectRFA1_5
             // 
             this.ProjectRFA1_5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_5.Location = new System.Drawing.Point(219, 302);
+            this.ProjectRFA1_5.Location = new System.Drawing.Point(414, 362);
             this.ProjectRFA1_5.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_5.Name = "ProjectRFA1_5";
             this.ProjectRFA1_5.Size = new System.Drawing.Size(116, 26);
@@ -1007,7 +1068,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_6.Location = new System.Drawing.Point(219, 332);
+            this.ProjectRFA1_6.Location = new System.Drawing.Point(414, 392);
             this.ProjectRFA1_6.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_6.Name = "ProjectRFA1_6";
             this.ProjectRFA1_6.Size = new System.Drawing.Size(116, 26);
@@ -1020,7 +1081,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_7.Location = new System.Drawing.Point(219, 362);
+            this.ProjectRFA1_7.Location = new System.Drawing.Point(414, 422);
             this.ProjectRFA1_7.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_7.Name = "ProjectRFA1_7";
             this.ProjectRFA1_7.Size = new System.Drawing.Size(116, 26);
@@ -1033,7 +1094,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_8.Location = new System.Drawing.Point(219, 392);
+            this.ProjectRFA1_8.Location = new System.Drawing.Point(414, 452);
             this.ProjectRFA1_8.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_8.Name = "ProjectRFA1_8";
             this.ProjectRFA1_8.Size = new System.Drawing.Size(116, 26);
@@ -1046,7 +1107,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA1_9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA1_9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_9.Location = new System.Drawing.Point(219, 422);
+            this.ProjectRFA1_9.Location = new System.Drawing.Point(414, 482);
             this.ProjectRFA1_9.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA1_9.Name = "ProjectRFA1_9";
             this.ProjectRFA1_9.Size = new System.Drawing.Size(116, 26);
@@ -1059,7 +1120,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA2_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA2_1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA2_1.Location = new System.Drawing.Point(219, 482);
+            this.ProjectRFA2_1.Location = new System.Drawing.Point(414, 542);
             this.ProjectRFA2_1.Margin = new System.Windows.Forms.Padding(2);
             this.ProjectRFA2_1.Name = "ProjectRFA2_1";
             this.ProjectRFA2_1.Size = new System.Drawing.Size(116, 26);
@@ -1072,7 +1133,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectRFA2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectRFA2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ProjectRFA2.Location = new System.Drawing.Point(220, 450);
+            this.ProjectRFA2.Location = new System.Drawing.Point(415, 510);
             this.ProjectRFA2.Name = "ProjectRFA2";
             this.ProjectRFA2.Size = new System.Drawing.Size(114, 30);
             this.ProjectRFA2.TabIndex = 41;
@@ -1082,7 +1143,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_5zb
             // 
             this.ProjectRFA1_5zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_5zb.Location = new System.Drawing.Point(540, 300);
+            this.ProjectRFA1_5zb.Location = new System.Drawing.Point(947, 360);
             this.ProjectRFA1_5zb.Name = "ProjectRFA1_5zb";
             this.ProjectRFA1_5zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_5zb.TabIndex = 53;
@@ -1092,7 +1153,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1zb
             // 
             this.ProjectRFA1zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1zb.Location = new System.Drawing.Point(540, 60);
+            this.ProjectRFA1zb.Location = new System.Drawing.Point(947, 60);
             this.ProjectRFA1zb.Name = "ProjectRFA1zb";
             this.ProjectRFA1zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1zb.TabIndex = 58;
@@ -1102,7 +1163,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_1zb
             // 
             this.ProjectRFA1_1zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1zb.Location = new System.Drawing.Point(540, 90);
+            this.ProjectRFA1_1zb.Location = new System.Drawing.Point(947, 90);
             this.ProjectRFA1_1zb.Name = "ProjectRFA1_1zb";
             this.ProjectRFA1_1zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_1zb.TabIndex = 59;
@@ -1112,7 +1173,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_1_1zb
             // 
             this.ProjectRFA1_1_1zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_1zb.Location = new System.Drawing.Point(540, 120);
+            this.ProjectRFA1_1_1zb.Location = new System.Drawing.Point(947, 120);
             this.ProjectRFA1_1_1zb.Name = "ProjectRFA1_1_1zb";
             this.ProjectRFA1_1_1zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_1_1zb.TabIndex = 60;
@@ -1122,7 +1183,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_1_2zb
             // 
             this.ProjectRFA1_1_2zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_2zb.Location = new System.Drawing.Point(540, 150);
+            this.ProjectRFA1_1_2zb.Location = new System.Drawing.Point(947, 150);
             this.ProjectRFA1_1_2zb.Name = "ProjectRFA1_1_2zb";
             this.ProjectRFA1_1_2zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_1_2zb.TabIndex = 61;
@@ -1132,7 +1193,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_1_3zb
             // 
             this.ProjectRFA1_1_3zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_1_3zb.Location = new System.Drawing.Point(540, 180);
+            this.ProjectRFA1_1_3zb.Location = new System.Drawing.Point(947, 180);
             this.ProjectRFA1_1_3zb.Name = "ProjectRFA1_1_3zb";
             this.ProjectRFA1_1_3zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_1_3zb.TabIndex = 62;
@@ -1142,7 +1203,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_2zb
             // 
             this.ProjectRFA1_2zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_2zb.Location = new System.Drawing.Point(540, 210);
+            this.ProjectRFA1_2zb.Location = new System.Drawing.Point(947, 210);
             this.ProjectRFA1_2zb.Name = "ProjectRFA1_2zb";
             this.ProjectRFA1_2zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_2zb.TabIndex = 63;
@@ -1152,7 +1213,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_3zb
             // 
             this.ProjectRFA1_3zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_3zb.Location = new System.Drawing.Point(540, 240);
+            this.ProjectRFA1_3zb.Location = new System.Drawing.Point(947, 240);
             this.ProjectRFA1_3zb.Name = "ProjectRFA1_3zb";
             this.ProjectRFA1_3zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_3zb.TabIndex = 64;
@@ -1162,7 +1223,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_4zb
             // 
             this.ProjectRFA1_4zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_4zb.Location = new System.Drawing.Point(540, 270);
+            this.ProjectRFA1_4zb.Location = new System.Drawing.Point(947, 330);
             this.ProjectRFA1_4zb.Name = "ProjectRFA1_4zb";
             this.ProjectRFA1_4zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_4zb.TabIndex = 65;
@@ -1172,7 +1233,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_6zb
             // 
             this.ProjectRFA1_6zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_6zb.Location = new System.Drawing.Point(540, 330);
+            this.ProjectRFA1_6zb.Location = new System.Drawing.Point(947, 390);
             this.ProjectRFA1_6zb.Name = "ProjectRFA1_6zb";
             this.ProjectRFA1_6zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_6zb.TabIndex = 66;
@@ -1182,7 +1243,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_8zb
             // 
             this.ProjectRFA1_8zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_8zb.Location = new System.Drawing.Point(540, 390);
+            this.ProjectRFA1_8zb.Location = new System.Drawing.Point(947, 450);
             this.ProjectRFA1_8zb.Name = "ProjectRFA1_8zb";
             this.ProjectRFA1_8zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_8zb.TabIndex = 67;
@@ -1192,7 +1253,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_7zb
             // 
             this.ProjectRFA1_7zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_7zb.Location = new System.Drawing.Point(540, 360);
+            this.ProjectRFA1_7zb.Location = new System.Drawing.Point(947, 420);
             this.ProjectRFA1_7zb.Name = "ProjectRFA1_7zb";
             this.ProjectRFA1_7zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_7zb.TabIndex = 68;
@@ -1202,7 +1263,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA1_9zb
             // 
             this.ProjectRFA1_9zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_9zb.Location = new System.Drawing.Point(540, 420);
+            this.ProjectRFA1_9zb.Location = new System.Drawing.Point(947, 480);
             this.ProjectRFA1_9zb.Name = "ProjectRFA1_9zb";
             this.ProjectRFA1_9zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA1_9zb.TabIndex = 69;
@@ -1212,7 +1273,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA2zb
             // 
             this.ProjectRFA2zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA2zb.Location = new System.Drawing.Point(540, 450);
+            this.ProjectRFA2zb.Location = new System.Drawing.Point(947, 510);
             this.ProjectRFA2zb.Name = "ProjectRFA2zb";
             this.ProjectRFA2zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA2zb.TabIndex = 70;
@@ -1222,7 +1283,7 @@ namespace ProjectReporterPlugin.Editor
             // ProjectRFA2_1zb
             // 
             this.ProjectRFA2_1zb.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA2_1zb.Location = new System.Drawing.Point(540, 480);
+            this.ProjectRFA2_1zb.Location = new System.Drawing.Point(947, 540);
             this.ProjectRFA2_1zb.Name = "ProjectRFA2_1zb";
             this.ProjectRFA2_1zb.Size = new System.Drawing.Size(1, 23);
             this.ProjectRFA2_1zb.TabIndex = 71;
@@ -1232,14 +1293,28 @@ namespace ProjectReporterPlugin.Editor
             // kryptonLabel7
             // 
             this.kryptonLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.kryptonLabel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel7.Location = new System.Drawing.Point(3, 270);
+            this.kryptonLabel7.Location = new System.Drawing.Point(3, 300);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.kryptonLabel7.Size = new System.Drawing.Size(120, 1);
+            this.kryptonLabel7.Size = new System.Drawing.Size(406, 30);
             this.kryptonLabel7.TabIndex = 11;
             this.kryptonLabel7.Text = "（2）其他";
+            this.kryptonLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kryptonLabel7.Click += new System.EventHandler(this.kryptonLabel7_Click);
+            // 
+            // ProjectRFA1_3
+            // 
+            this.ProjectRFA1_3.BackColor = System.Drawing.Color.Transparent;
+            this.ProjectRFA1_3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectRFA1_3.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ProjectRFA1_3.Location = new System.Drawing.Point(415, 240);
+            this.ProjectRFA1_3.Name = "ProjectRFA1_3";
+            this.ProjectRFA1_3.Size = new System.Drawing.Size(114, 30);
+            this.ProjectRFA1_3.TabIndex = 26;
+            this.ProjectRFA1_3.Text = "0";
+            this.ProjectRFA1_3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel3
             // 
@@ -1262,7 +1337,7 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel3.Controls.Add(this.ProjectOutlay4, 3, 2);
             this.tableLayoutPanel3.Controls.Add(this.ProjectOutlay5, 4, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(184, 566);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(121, 626);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -1270,79 +1345,30 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(537, 90);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(945, 90);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // kryptonPanel18
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.kryptonPanel18, 5);
-            this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_1);
-            this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_1Rm);
-            this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_2Rm);
             this.kryptonPanel18.Controls.Add(this.kryptonLabel92);
-            this.kryptonPanel18.Controls.Add(this.ProjectRFA1_3_2);
             this.kryptonPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel18.Location = new System.Drawing.Point(1, 1);
             this.kryptonPanel18.Margin = new System.Windows.Forms.Padding(1);
             this.kryptonPanel18.Name = "kryptonPanel18";
-            this.kryptonPanel18.Size = new System.Drawing.Size(535, 27);
+            this.kryptonPanel18.Size = new System.Drawing.Size(943, 27);
             this.kryptonPanel18.TabIndex = 0;
-            // 
-            // ProjectRFA1_3_1
-            // 
-            this.ProjectRFA1_3_1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_3_1.Location = new System.Drawing.Point(180, -1);
-            this.ProjectRFA1_3_1.Margin = new System.Windows.Forms.Padding(2);
-            this.ProjectRFA1_3_1.Name = "ProjectRFA1_3_1";
-            this.ProjectRFA1_3_1.Size = new System.Drawing.Size(56, 26);
-            this.ProjectRFA1_3_1.TabIndex = 31;
-            this.ProjectRFA1_3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ProjectRFA1_3_1.Visible = false;
-            this.ProjectRFA1_3_1.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
-            this.ProjectRFA1_3_1.Leave += new System.EventHandler(this.ProjectRFA_Leave);
-            // 
-            // ProjectRFA1_3_1Rm
-            // 
-            this.ProjectRFA1_3_1Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_3_1Rm.Location = new System.Drawing.Point(486, 3);
-            this.ProjectRFA1_3_1Rm.Margin = new System.Windows.Forms.Padding(2);
-            this.ProjectRFA1_3_1Rm.Name = "ProjectRFA1_3_1Rm";
-            this.ProjectRFA1_3_1Rm.Size = new System.Drawing.Size(33, 26);
-            this.ProjectRFA1_3_1Rm.TabIndex = 87;
-            this.ProjectRFA1_3_1Rm.Visible = false;
-            // 
-            // ProjectRFA1_3_2Rm
-            // 
-            this.ProjectRFA1_3_2Rm.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_3_2Rm.Location = new System.Drawing.Point(410, 3);
-            this.ProjectRFA1_3_2Rm.Margin = new System.Windows.Forms.Padding(2);
-            this.ProjectRFA1_3_2Rm.Name = "ProjectRFA1_3_2Rm";
-            this.ProjectRFA1_3_2Rm.Size = new System.Drawing.Size(46, 26);
-            this.ProjectRFA1_3_2Rm.TabIndex = 87;
-            this.ProjectRFA1_3_2Rm.Visible = false;
             // 
             // kryptonLabel92
             // 
-            this.kryptonLabel92.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonLabel92.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel92.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel92.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel92.Name = "kryptonLabel92";
-            this.kryptonLabel92.Size = new System.Drawing.Size(193, 27);
+            this.kryptonLabel92.Size = new System.Drawing.Size(943, 27);
             this.kryptonLabel92.TabIndex = 0;
             this.kryptonLabel92.Text = "年度申请经费预算(万元)";
-            // 
-            // ProjectRFA1_3_2
-            // 
-            this.ProjectRFA1_3_2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectRFA1_3_2.Location = new System.Drawing.Point(323, 3);
-            this.ProjectRFA1_3_2.Margin = new System.Windows.Forms.Padding(2);
-            this.ProjectRFA1_3_2.Name = "ProjectRFA1_3_2";
-            this.ProjectRFA1_3_2.Size = new System.Drawing.Size(34, 26);
-            this.ProjectRFA1_3_2.TabIndex = 32;
-            this.ProjectRFA1_3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ProjectRFA1_3_2.Visible = false;
-            this.ProjectRFA1_3_2.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
-            this.ProjectRFA1_3_2.Leave += new System.EventHandler(this.ProjectRFA_Leave);
+            this.kryptonLabel92.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kryptonLabel93
             // 
@@ -1351,7 +1377,7 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel93.Font = new System.Drawing.Font("仿宋", 12F);
             this.kryptonLabel93.Location = new System.Drawing.Point(3, 29);
             this.kryptonLabel93.Name = "kryptonLabel93";
-            this.kryptonLabel93.Size = new System.Drawing.Size(101, 29);
+            this.kryptonLabel93.Size = new System.Drawing.Size(183, 29);
             this.kryptonLabel93.TabIndex = 1;
             this.kryptonLabel93.Text = "第一年";
             this.kryptonLabel93.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1361,9 +1387,9 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel94.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel94.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel94.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel94.Location = new System.Drawing.Point(110, 29);
+            this.kryptonLabel94.Location = new System.Drawing.Point(192, 29);
             this.kryptonLabel94.Name = "kryptonLabel94";
-            this.kryptonLabel94.Size = new System.Drawing.Size(101, 29);
+            this.kryptonLabel94.Size = new System.Drawing.Size(183, 29);
             this.kryptonLabel94.TabIndex = 2;
             this.kryptonLabel94.Text = "第二年";
             this.kryptonLabel94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1373,9 +1399,9 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel95.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel95.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel95.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel95.Location = new System.Drawing.Point(324, 29);
+            this.kryptonLabel95.Location = new System.Drawing.Point(570, 29);
             this.kryptonLabel95.Name = "kryptonLabel95";
-            this.kryptonLabel95.Size = new System.Drawing.Size(101, 29);
+            this.kryptonLabel95.Size = new System.Drawing.Size(183, 29);
             this.kryptonLabel95.TabIndex = 3;
             this.kryptonLabel95.Text = "第四年";
             this.kryptonLabel95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1385,9 +1411,9 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel96.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel96.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel96.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel96.Location = new System.Drawing.Point(217, 29);
+            this.kryptonLabel96.Location = new System.Drawing.Point(381, 29);
             this.kryptonLabel96.Name = "kryptonLabel96";
-            this.kryptonLabel96.Size = new System.Drawing.Size(101, 29);
+            this.kryptonLabel96.Size = new System.Drawing.Size(183, 29);
             this.kryptonLabel96.TabIndex = 4;
             this.kryptonLabel96.Text = "第三年";
             this.kryptonLabel96.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1397,9 +1423,9 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel97.BackColor = System.Drawing.Color.Transparent;
             this.kryptonLabel97.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel97.Font = new System.Drawing.Font("仿宋", 12F);
-            this.kryptonLabel97.Location = new System.Drawing.Point(431, 29);
+            this.kryptonLabel97.Location = new System.Drawing.Point(759, 29);
             this.kryptonLabel97.Name = "kryptonLabel97";
-            this.kryptonLabel97.Size = new System.Drawing.Size(103, 29);
+            this.kryptonLabel97.Size = new System.Drawing.Size(183, 29);
             this.kryptonLabel97.TabIndex = 5;
             this.kryptonLabel97.Text = "第五年";
             this.kryptonLabel97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1410,7 +1436,7 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectOutlay1.Font = new System.Drawing.Font("仿宋", 12F);
             this.ProjectOutlay1.Location = new System.Drawing.Point(3, 61);
             this.ProjectOutlay1.Name = "ProjectOutlay1";
-            this.ProjectOutlay1.Size = new System.Drawing.Size(101, 26);
+            this.ProjectOutlay1.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay1.TabIndex = 40;
             this.ProjectOutlay1.Text = "0";
             this.ProjectOutlay1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1420,9 +1446,9 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectOutlay2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectOutlay2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectOutlay2.Location = new System.Drawing.Point(110, 61);
+            this.ProjectOutlay2.Location = new System.Drawing.Point(192, 61);
             this.ProjectOutlay2.Name = "ProjectOutlay2";
-            this.ProjectOutlay2.Size = new System.Drawing.Size(101, 26);
+            this.ProjectOutlay2.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay2.TabIndex = 41;
             this.ProjectOutlay2.Text = "0";
             this.ProjectOutlay2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1432,9 +1458,9 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectOutlay3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectOutlay3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectOutlay3.Location = new System.Drawing.Point(217, 61);
+            this.ProjectOutlay3.Location = new System.Drawing.Point(381, 61);
             this.ProjectOutlay3.Name = "ProjectOutlay3";
-            this.ProjectOutlay3.Size = new System.Drawing.Size(101, 26);
+            this.ProjectOutlay3.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay3.TabIndex = 42;
             this.ProjectOutlay3.Text = "0";
             this.ProjectOutlay3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1444,9 +1470,9 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectOutlay4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectOutlay4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectOutlay4.Location = new System.Drawing.Point(324, 61);
+            this.ProjectOutlay4.Location = new System.Drawing.Point(570, 61);
             this.ProjectOutlay4.Name = "ProjectOutlay4";
-            this.ProjectOutlay4.Size = new System.Drawing.Size(101, 26);
+            this.ProjectOutlay4.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay4.TabIndex = 43;
             this.ProjectOutlay4.Text = "0";
             this.ProjectOutlay4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1456,9 +1482,9 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.ProjectOutlay5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectOutlay5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ProjectOutlay5.Location = new System.Drawing.Point(431, 61);
+            this.ProjectOutlay5.Location = new System.Drawing.Point(759, 61);
             this.ProjectOutlay5.Name = "ProjectOutlay5";
-            this.ProjectOutlay5.Size = new System.Drawing.Size(103, 26);
+            this.ProjectOutlay5.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay5.TabIndex = 44;
             this.ProjectOutlay5.Text = "0";
             this.ProjectOutlay5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1468,9 +1494,9 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.panel1.Controls.Add(this.kryptonLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(184, 21);
+            this.panel1.Location = new System.Drawing.Point(121, 21);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 29);
+            this.panel1.Size = new System.Drawing.Size(945, 29);
             this.panel1.TabIndex = 8;
             // 
             // kryptonLabel1
@@ -1479,7 +1505,7 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel1.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonLabel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(537, 29);
+            this.kryptonLabel1.Size = new System.Drawing.Size(945, 29);
             this.kryptonLabel1.TabIndex = 3;
             this.kryptonLabel1.Text = "经费预算表";
             this.kryptonLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1488,9 +1514,9 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.panel3.Controls.Add(this.plBottomInfoBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(184, 664);
+            this.panel3.Location = new System.Drawing.Point(121, 724);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(537, 41);
+            this.panel3.Size = new System.Drawing.Size(945, 41);
             this.panel3.TabIndex = 9;
             // 
             // plBottomInfoBox
@@ -1502,19 +1528,8 @@ namespace ProjectReporterPlugin.Editor
             this.plBottomInfoBox.Controls.Add(this.kryptonLabel3);
             this.plBottomInfoBox.Location = new System.Drawing.Point(197, 3);
             this.plBottomInfoBox.Name = "plBottomInfoBox";
-            this.plBottomInfoBox.Size = new System.Drawing.Size(631, 30);
+            this.plBottomInfoBox.Size = new System.Drawing.Size(1039, 30);
             this.plBottomInfoBox.TabIndex = 30;
-            // 
-            // txtZiChouJingFei
-            // 
-            this.txtZiChouJingFei.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtZiChouJingFei.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtZiChouJingFei.Location = new System.Drawing.Point(266, 0);
-            this.txtZiChouJingFei.Margin = new System.Windows.Forms.Padding(2);
-            this.txtZiChouJingFei.Name = "txtZiChouJingFei";
-            this.txtZiChouJingFei.Size = new System.Drawing.Size(72, 26);
-            this.txtZiChouJingFei.TabIndex = 45;
-            this.txtZiChouJingFei.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kryptonLabel4
             // 
@@ -1528,6 +1543,17 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel4.TabIndex = 29;
             this.kryptonLabel4.Text = "万元";
             this.kryptonLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtZiChouJingFei
+            // 
+            this.txtZiChouJingFei.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtZiChouJingFei.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtZiChouJingFei.Location = new System.Drawing.Point(266, 0);
+            this.txtZiChouJingFei.Margin = new System.Windows.Forms.Padding(2);
+            this.txtZiChouJingFei.Name = "txtZiChouJingFei";
+            this.txtZiChouJingFei.Size = new System.Drawing.Size(72, 26);
+            this.txtZiChouJingFei.TabIndex = 45;
+            this.txtZiChouJingFei.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kryptonLabel3
             // 
@@ -1548,9 +1574,9 @@ namespace ProjectReporterPlugin.Editor
             this.panel2.Controls.Add(this.kryptonLabel5);
             this.panel2.Controls.Add(this.kryptonLabel2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(184, 711);
+            this.panel2.Location = new System.Drawing.Point(121, 771);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(537, 58);
+            this.panel2.Size = new System.Drawing.Size(945, 58);
             this.panel2.TabIndex = 10;
             // 
             // lklDownloadFuJian
@@ -1583,7 +1609,7 @@ namespace ProjectReporterPlugin.Editor
             this.kryptonLabel2.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.kryptonLabel2.Size = new System.Drawing.Size(537, 23);
+            this.kryptonLabel2.Size = new System.Drawing.Size(945, 23);
             this.kryptonLabel2.TabIndex = 30;
             this.kryptonLabel2.Text = "注：经费预算按照《军队单位科研经费使用管理规定（试行）》（[2017]8号）有关要求编制。";
             // 
@@ -1603,13 +1629,13 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(906, 40);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1189, 40);
             this.tableLayoutPanel4.TabIndex = 7;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(759, 3);
+            this.btnSave.Location = new System.Drawing.Point(1042, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 28);
             this.btnSave.TabIndex = 0;
@@ -1619,7 +1645,7 @@ namespace ProjectReporterPlugin.Editor
             // btnExcelLoad
             // 
             this.btnExcelLoad.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExcelLoad.Location = new System.Drawing.Point(639, 3);
+            this.btnExcelLoad.Location = new System.Drawing.Point(922, 3);
             this.btnExcelLoad.Name = "btnExcelLoad";
             this.btnExcelLoad.Size = new System.Drawing.Size(114, 29);
             this.btnExcelLoad.TabIndex = 7;
@@ -1630,7 +1656,7 @@ namespace ProjectReporterPlugin.Editor
             // 
             this.lklDownloadExcel.Dock = System.Windows.Forms.DockStyle.Right;
             this.lklDownloadExcel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lklDownloadExcel.Location = new System.Drawing.Point(298, 0);
+            this.lklDownloadExcel.Location = new System.Drawing.Point(581, 0);
             this.lklDownloadExcel.Name = "lklDownloadExcel";
             this.lklDownloadExcel.Size = new System.Drawing.Size(185, 40);
             this.lklDownloadExcel.TabIndex = 6;
@@ -1644,7 +1670,7 @@ namespace ProjectReporterPlugin.Editor
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 717);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(906, 20);
+            this.panel4.Size = new System.Drawing.Size(1189, 20);
             this.panel4.TabIndex = 2;
             // 
             // ofdExcelDialog
@@ -1660,7 +1686,7 @@ namespace ProjectReporterPlugin.Editor
             this.Controls.Add(this.panel4);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MoneyTableEditor";
-            this.Size = new System.Drawing.Size(906, 737);
+            this.Size = new System.Drawing.Size(1189, 737);
             this.Leave += new System.EventHandler(this.frmbudget_Leave);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1668,7 +1694,6 @@ namespace ProjectReporterPlugin.Editor
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.kryptonPanel18.ResumeLayout(false);
-            this.kryptonPanel18.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1858,7 +1883,7 @@ namespace ProjectReporterPlugin.Editor
                 this.ProjectRFA.Text = this.pbinfo.ProjectRFA.ToString();
                 this.ProjectRFA1.Text = this.pbinfo.ProjectRFA1.ToString();
                 this.ProjectRFA1_1.Text = this.pbinfo.ProjectRFA1_1.ToString();
-                //this.ProjectRFA1_3.Text = this.pbinfo.ProjectRFA1_3.ToString();
+                this.ProjectRFA1_3.Text = this.pbinfo.ProjectRFA1_3.ToString();
                 this.ProjectRFA2.Text = this.pbinfo.ProjectRFA2.ToString();
                 this.ProjectRFA1zb.Text = this.pbinfo.ProjectRFA1zb.ToString() + "%";
                 this.ProjectRFA2zb.Text = this.pbinfo.ProjectRFA2zb.ToString() + "%";
@@ -1971,50 +1996,50 @@ namespace ProjectReporterPlugin.Editor
 
 		private bool CanSave()
 		{
-			decimal d = 0m;
-			decimal d2 = 0m;
-			decimal num = 0m;
-			decimal.TryParse(this.ProjectRFA.Text, out d);
-			decimal.TryParse(this.ProjectOutlay1.Text, out d2);
-			num += d2;
-			decimal.TryParse(this.ProjectOutlay2.Text, out d2);
-			num += d2;
-			decimal.TryParse(this.ProjectOutlay3.Text, out d2);
-			num += d2;
-			decimal.TryParse(this.ProjectOutlay4.Text, out d2);
-			num += d2;
-			decimal.TryParse(this.ProjectOutlay5.Text, out d2);
-			num += d2;
-			string text = "";
-			if (d != num)
-			{
-				text = "请注意，分年度经费预算之和与项目总经费不等，正确无误后方能保存。\r\n";
-			}
-            //else if (d > 500m)
+            //decimal d = 0m;
+            //decimal d2 = 0m;
+            //decimal num = 0m;
+            //decimal.TryParse(this.ProjectRFA.Text, out d);
+            //decimal.TryParse(this.ProjectOutlay1.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ProjectOutlay2.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ProjectOutlay3.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ProjectOutlay4.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ProjectOutlay5.Text, out d2);
+            //num += d2;
+            //string text = "";
+            //if (d != num)
             //{
-            //    text += "请注意，经费总额超过500万,需要重新制定，正确无误后方能保存。\r\n";
+            //    text = "请注意，分年度经费预算之和与项目总经费不等，正确无误后方能保存。\r\n";
             //}
-			decimal d3 = 0m;
-			decimal d4 = 0m;
-			decimal d5 = 0m;
-			decimal d6 = 0m;
-			decimal.TryParse(this.ProjectRFA2.Text, out d3);
-			decimal.TryParse(this.ProjectRFA1.Text, out d4);
-			decimal.TryParse(this.ProjectRFA1_1_1.Text, out d5);
-			decimal.TryParse(this.ProjectRFA1_3.Text, out d6);
-			if (d3 > (d4 - d5 - d6) * 0.2m)
-			{
-				text += "请注意，间接经费不超过直接经费减去设备购置费和外协费的20%，正确无误后方能保存。\r\n";
-			}
-            if (text != string.Empty)
-            {
-                MessageBox.Show(text, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                return false;
-            }
-            else
-            {
+            ////else if (d > 500m)
+            ////{
+            ////    text += "请注意，经费总额超过500万,需要重新制定，正确无误后方能保存。\r\n";
+            ////}
+            //decimal d3 = 0m;
+            //decimal d4 = 0m;
+            //decimal d5 = 0m;
+            //decimal d6 = 0m;
+            //decimal.TryParse(this.ProjectRFA2.Text, out d3);
+            //decimal.TryParse(this.ProjectRFA1.Text, out d4);
+            //decimal.TryParse(this.ProjectRFA1_1_1.Text, out d5);
+            //decimal.TryParse(this.ProjectRFA1_3.Text, out d6);
+            //if (d3 > (d4 - d5 - d6) * 0.2m)
+            //{
+            //    text += "请注意，间接经费不超过直接经费减去设备购置费和外协费的20%，正确无误后方能保存。\r\n";
+            //}
+            //if (text != string.Empty)
+            //{
+            //    MessageBox.Show(text, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            //    return false;
+            //}
+            //else
+            //{
                 return true;
-            }
+            //}
 		}
 
 		private void SaveProgress()
@@ -2313,6 +2338,56 @@ namespace ProjectReporterPlugin.Editor
             {
                 MessageBox.Show("导入错误！Ex:" + ex.ToString(), "错误");
             }
+        }
+
+        private void kryptonLabel39_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel41_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel42_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel43_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel44_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel47_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel46_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel48_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonLabel7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
