@@ -1429,7 +1429,7 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectOutlay1.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay1.TabIndex = 40;
             this.ProjectOutlay1.Text = "0";
-            this.ProjectOutlay1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectOutlay1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ProjectOutlay1.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
             // 
             // ProjectOutlay2
@@ -1441,7 +1441,7 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectOutlay2.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay2.TabIndex = 41;
             this.ProjectOutlay2.Text = "0";
-            this.ProjectOutlay2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectOutlay2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ProjectOutlay2.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
             // 
             // ProjectOutlay3
@@ -1453,7 +1453,7 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectOutlay3.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay3.TabIndex = 42;
             this.ProjectOutlay3.Text = "0";
-            this.ProjectOutlay3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectOutlay3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ProjectOutlay3.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
             // 
             // ProjectOutlay4
@@ -1465,7 +1465,7 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectOutlay4.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay4.TabIndex = 43;
             this.ProjectOutlay4.Text = "0";
-            this.ProjectOutlay4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectOutlay4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ProjectOutlay4.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
             // 
             // ProjectOutlay5
@@ -1477,7 +1477,7 @@ namespace ProjectReporterPlugin.Editor
             this.ProjectOutlay5.Size = new System.Drawing.Size(183, 26);
             this.ProjectOutlay5.TabIndex = 44;
             this.ProjectOutlay5.Text = "0";
-            this.ProjectOutlay5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProjectOutlay5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ProjectOutlay5.TextChanged += new System.EventHandler(this.ProjectRFA_TextChanged);
             // 
             // panel1

@@ -23,7 +23,7 @@ namespace ProjectReporterPlugin.Editor
             InitializeComponent();
             //toCenter();
             cbxSecret.SelectedIndex = 0;
-        }
+         }
 
         public void toCenter()
         {
@@ -439,6 +439,8 @@ namespace ProjectReporterPlugin.Editor
         {
             return true;
         }
+
+
     }
 
     public delegate void EditValueChangedDelegate(object sender, EventArgs e);

@@ -32,7 +32,7 @@
             this.txtWord2 = new System.Windows.Forms.TextBox();
             this.txtWord3 = new System.Windows.Forms.TextBox();
             this.txtWord4 = new System.Windows.Forms.TextBox();
-            this.txtWord5 = new ProjectReporterPlugin.Controls.TextBoxAndHintLabel();
+            this.txtWord5 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,6 +42,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,11 +90,10 @@
             // 
             this.txtWord5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtWord5.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtWord5.HintText = "关键字需至少填写三个,最多填写五个";
             this.txtWord5.Location = new System.Drawing.Point(0, 0);
             this.txtWord5.Multiline = true;
             this.txtWord5.Name = "txtWord5";
-            this.txtWord5.Size = new System.Drawing.Size(431, 31);
+            this.txtWord5.Size = new System.Drawing.Size(146, 31);
             this.txtWord5.TabIndex = 2;
             // 
             // panel1
@@ -190,11 +190,24 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.txtWord5);
+            this.panel5.Controls.Add(this.label12);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(629, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(431, 31);
             this.panel5.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label12.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label12.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label12.Location = new System.Drawing.Point(146, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(285, 31);
+            this.label12.TabIndex = 102;
+            this.label12.Text = "关键字需至少填写三个,最多填写五个";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProjectKeyEditor
             // 
@@ -228,7 +241,7 @@
         private System.Windows.Forms.TextBox txtWord2;
         private System.Windows.Forms.TextBox txtWord3;
         private System.Windows.Forms.TextBox txtWord4;
-        private ProjectReporterPlugin.Controls.TextBoxAndHintLabel txtWord5;
+        private System.Windows.Forms.TextBox txtWord5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -238,5 +251,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label12;
     }
 }

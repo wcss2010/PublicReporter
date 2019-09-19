@@ -31,12 +31,14 @@
             this.tlpContent = new ProjectReporterPlugin.Controls.HSkinTableLayoutPanel();
             this.label26 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
             this.txtDirectionCode = new System.Windows.Forms.NumericUpDown();
-            this.txtDirection = new ProjectReporterPlugin.Controls.TextBoxAndHintLabel();
+            this.txtDirection = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtUnitName = new ProjectReporterPlugin.Controls.TextBoxAndHintLabel();
+            this.txtUnitName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -82,8 +84,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbxSecret = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDomain = new ProjectReporterPlugin.Controls.TextBoxAndHintLabel();
+            this.txtDomain = new System.Windows.Forms.TextBox();
             this.gcID = new System.Windows.Forms.DataGridViewColumn();
             this.gcUnitName = new System.Windows.Forms.DataGridViewColumn();
             this.gcUnitType = new System.Windows.Forms.DataGridViewColumn();
@@ -187,6 +190,7 @@
             // 
             this.panel15.BackColor = System.Drawing.Color.White;
             this.tlpContent.SetColumnSpan(this.panel15, 4);
+            this.panel15.Controls.Add(this.label28);
             this.panel15.Controls.Add(this.txtDirectionCode);
             this.panel15.Controls.Add(this.txtDirection);
             this.panel15.Controls.Add(this.label27);
@@ -196,6 +200,17 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(1130, 55);
             this.panel15.TabIndex = 33;
+            // 
+            // label28
+            // 
+            this.label28.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label28.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label28.Location = new System.Drawing.Point(794, 6);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(333, 43);
+            this.label28.TabIndex = 101;
+            this.label28.Text = "对应领域中的研究方向名称(军事智能基础,基础学科可不填;不在指南中的项目也可不填)";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtDirectionCode
             // 
@@ -213,11 +228,10 @@
             // txtDirection
             // 
             this.txtDirection.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDirection.HintText = "对应领域中的研究方向名称(军事智能基础,基础学科可不填;不在指南中的项目也可不填)";
-            this.txtDirection.Location = new System.Drawing.Point(256, 13);
+            this.txtDirection.Location = new System.Drawing.Point(256, 12);
             this.txtDirection.Multiline = true;
             this.txtDirection.Name = "txtDirection";
-            this.txtDirection.Size = new System.Drawing.Size(814, 29);
+            this.txtDirection.Size = new System.Drawing.Size(515, 33);
             this.txtDirection.TabIndex = 2;
             // 
             // label27
@@ -235,6 +249,7 @@
             // 
             this.panel14.BackColor = System.Drawing.Color.White;
             this.tlpContent.SetColumnSpan(this.panel14, 4);
+            this.panel14.Controls.Add(this.label29);
             this.panel14.Controls.Add(this.label7);
             this.panel14.Controls.Add(this.txtUnitName);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -244,12 +259,23 @@
             this.panel14.Size = new System.Drawing.Size(1130, 55);
             this.panel14.TabIndex = 37;
             // 
+            // label29
+            // 
+            this.label29.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label29.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label29.Location = new System.Drawing.Point(859, 16);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(256, 28);
+            this.label29.TabIndex = 101;
+            this.label29.Text = "单位名称与单位公章一致";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(1015, 17);
+            this.label7.Location = new System.Drawing.Point(777, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 20);
             this.label7.TabIndex = 100;
@@ -259,11 +285,10 @@
             // txtUnitName
             // 
             this.txtUnitName.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtUnitName.HintText = "单位名称与单位公章一致";
             this.txtUnitName.Location = new System.Drawing.Point(10, 15);
             this.txtUnitName.Multiline = true;
             this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(1002, 29);
+            this.txtUnitName.Size = new System.Drawing.Size(750, 29);
             this.txtUnitName.TabIndex = 6;
             // 
             // label9
@@ -515,7 +540,7 @@
             this.txtNormalName.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtNormalName.Location = new System.Drawing.Point(10, 14);
             this.txtNormalName.Name = "txtNormalName";
-            this.txtNormalName.Size = new System.Drawing.Size(1001, 30);
+            this.txtNormalName.Size = new System.Drawing.Size(1070, 30);
             this.txtNormalName.TabIndex = 7;
             // 
             // label17
@@ -764,6 +789,7 @@
             // 
             this.panel13.BackColor = System.Drawing.Color.White;
             this.tlpContent.SetColumnSpan(this.panel13, 4);
+            this.panel13.Controls.Add(this.label12);
             this.panel13.Controls.Add(this.label6);
             this.panel13.Controls.Add(this.txtDomain);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -773,12 +799,23 @@
             this.panel13.Size = new System.Drawing.Size(1130, 55);
             this.panel13.TabIndex = 32;
             // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label12.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label12.Location = new System.Drawing.Point(804, 14);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(301, 28);
+            this.label12.TabIndex = 101;
+            this.label12.Text = "填写指南(1.0版)中的领域名称";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(1016, 14);
+            this.label6.Location = new System.Drawing.Point(777, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 20);
             this.label6.TabIndex = 100;
@@ -788,11 +825,10 @@
             // txtDomain
             // 
             this.txtDomain.Font = new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDomain.HintText = "填写指南(1.0版)中的领域名称";
             this.txtDomain.Location = new System.Drawing.Point(11, 13);
             this.txtDomain.Multiline = true;
             this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(1001, 29);
+            this.txtDomain.Size = new System.Drawing.Size(760, 29);
             this.txtDomain.TabIndex = 1;
             // 
             // gcID
@@ -993,7 +1029,7 @@
         private ProjectReporterPlugin.Controls.AutoHeightLabel lblTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel14;
-        private ProjectReporterPlugin.Controls.TextBoxAndHintLabel txtUnitName;
+        private System.Windows.Forms.TextBox txtUnitName;
         private System.Windows.Forms.TextBox txtMPersonName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
@@ -1013,12 +1049,15 @@
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel13;
-        private ProjectReporterPlugin.Controls.TextBoxAndHintLabel txtDirection;
+        private System.Windows.Forms.TextBox txtDirection;
         private System.Windows.Forms.Label label6;
-        private ProjectReporterPlugin.Controls.TextBoxAndHintLabel txtDomain;
+        private System.Windows.Forms.TextBox txtDomain;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.NumericUpDown txtDirectionCode;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
     }
 }
