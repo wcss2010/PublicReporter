@@ -58,6 +58,40 @@ namespace ProjectContractPlugin.Editor
             }
             catch (Exception ex) { }
 
+            decimal money3_1 = 0;
+            decimal money3_2 = 0;
+            decimal money3_3 = 0;
+            decimal money5_1 = 0;
+            decimal money5_2 = 0;
+            try
+            {
+                money3_1 = decimal.Parse(boxDict["ibEditMoney3_1"].Text);
+            }
+            catch (Exception ex) { }
+            try
+            {
+                money3_2 = decimal.Parse(boxDict["ibEditMoney3_2"].Text);
+            }
+            catch (Exception ex) { }
+            try
+            {
+                money3_3 = decimal.Parse(boxDict["ibEditMoney3_3"].Text);
+            }
+            catch (Exception ex) { }
+            try
+            {
+                money5_1 = decimal.Parse(boxDict["ibEditMoney5_1"].Text);
+            }
+            catch (Exception ex) { }
+            try
+            {
+                money5_2 = decimal.Parse(boxDict["ibEditMoney5_2"].Text);
+            }
+            catch (Exception ex) { }
+
+            boxDict["ibEditMoney3"].Text = (money3_1 + money3_2 + money3_3).ToString();
+            boxDict["ibEditMoney5"].Text = (money5_1 + money5_2).ToString();
+
             //总费用
             decimal total = 0;
 
@@ -143,48 +177,48 @@ namespace ProjectContractPlugin.Editor
         /// <returns></returns>
         private bool isComplete()
         {
-            decimal d = 0m;
-            decimal d2 = 0m;
-            decimal num = 0m;
-            decimal.TryParse(this.ibEditMoney1.Text, out d);
-            decimal.TryParse(this.ibEditYear1.Text, out d2);
-            num += d2;
-            decimal.TryParse(this.ibEditYear2.Text, out d2);
-            num += d2;
-            decimal.TryParse(this.ibEditYear3.Text, out d2);
-            num += d2;
-            decimal.TryParse(this.ibEditYear4.Text, out d2);
-            num += d2;
-            decimal.TryParse(this.ibEditYear5.Text, out d2);
-            num += d2;
-            string text = "";
-            if (d != num)
-            {
-                text = "请注意，分年度经费预算之和与项目总经费不等，正确无误后方能保存。\r\n";
-            }
-            //else if (d > 500m)
+            //decimal d = 0m;
+            //decimal d2 = 0m;
+            //decimal num = 0m;
+            //decimal.TryParse(this.ibEditMoney1.Text, out d);
+            //decimal.TryParse(this.ibEditYear1.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ibEditYear2.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ibEditYear3.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ibEditYear4.Text, out d2);
+            //num += d2;
+            //decimal.TryParse(this.ibEditYear5.Text, out d2);
+            //num += d2;
+            //string text = "";
+            //if (d != num)
             //{
-            //    text += "请注意，经费总额超过500万,需要重新制定，正确无误后方能保存。\r\n";
+            //    text = "请注意，分年度经费预算之和与项目总经费不等，正确无误后方能保存。\r\n";
             //}
-            decimal d3 = 0m;
-            decimal d4 = 0m;            
-            decimal d6 = 0m;
-            decimal.TryParse(this.ibEditMoney12.Text, out d3);
-            decimal.TryParse(this.ibEditMoney2.Text, out d4);            
-            decimal.TryParse(this.ibEditMoney5.Text, out d6);
-            if (d3 > (d4 - d6) * 0.2m)
-            {
-                text += "请注意，间接经费不超过直接经费减去外协费的20%，正确无误后方能保存。\r\n";
-            }
-            if (text != string.Empty)
-            {
-                MessageBox.Show(text, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                return false;
-            }
-            else
-            {
+            ////else if (d > 500m)
+            ////{
+            ////    text += "请注意，经费总额超过500万,需要重新制定，正确无误后方能保存。\r\n";
+            ////}
+            //decimal d3 = 0m;
+            //decimal d4 = 0m;            
+            //decimal d6 = 0m;
+            //decimal.TryParse(this.ibEditMoney12.Text, out d3);
+            //decimal.TryParse(this.ibEditMoney2.Text, out d4);            
+            //decimal.TryParse(this.ibEditMoney5.Text, out d6);
+            //if (d3 > (d4 - d6) * 0.2m)
+            //{
+            //    text += "请注意，间接经费不超过直接经费减去外协费的20%，正确无误后方能保存。\r\n";
+            //}
+            //if (text != string.Empty)
+            //{
+            //    MessageBox.Show(text, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            //    return false;
+            //}
+            //else
+            //{
                 return true;
-            }
+            //}
         }
     }
 }
