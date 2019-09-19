@@ -22,10 +22,25 @@ namespace ProjectContractPlugin.Editor
         public override void RefreshView()
         {
             base.RefreshView();
+
+            //查询课题列表
             ktList = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
-            dgvDetail.Rows.Clear();
+            ktList = ktList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+            
+            //生成课题X字典
+            int kindex = 0;
+            Dictionary<string, string> ktDict = new Dictionary<string, string>();
+            foreach (KeTiBiao ktb in ktList)
+            {
+                kindex++;
+                ktDict[ktb.BianHao] = "课题" + kindex;
+            }
+
+            //查询人员列表
             list = ProjectContractPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
             list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+
+            dgvDetail.Rows.Clear();
             int index = 0;
             foreach (RenYuanBiao data in list)
             {
@@ -47,8 +62,7 @@ namespace ProjectContractPlugin.Editor
                 }
                 else
                 {
-                    KeTiBiao temp = ktList.Where(p => p.BianHao == data.KeTiBiaoHao).FirstOrDefault();
-                    cells.Add((data.ShiXiangMuFuZeRen == "rbIsProjectAndSubject" ? "项目负责人兼" : "") + ((temp == null ? string.Empty : temp.KeTiMingCheng) + data.ZhiWu));
+                    cells.Add((data.ShiXiangMuFuZeRen == "rbIsProjectAndSubject" ? "项目负责人兼" : "") + ((ktDict.ContainsKey(data.KeTiBiaoHao) ? ktDict[data.KeTiBiaoHao] : string.Empty) + data.ZhiWu));
                 }
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
