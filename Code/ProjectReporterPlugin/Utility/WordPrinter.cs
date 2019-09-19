@@ -621,6 +621,16 @@ namespace ProjectReporterPlugin.Utility
                                 table.Rows.Add((Aspose.Words.Tables.Row)table.Rows[table.Rows.Count - 1].Clone(true));
                             }
 
+                            //检查是不是需要忽略项目负责人
+                            //提取项目负责人的身份证号
+                            string subjectMasterModifyTaskID = string.Empty;
+                            string projectMasterIDCard = ConnectionManager.Context.table("Task").where("Type = '项目' and Role = '负责人'").select("IDCard").getValue<string>(string.Empty);
+                            if (projectMasterIDCard != null && projectMasterIDCard.Length >= 2)
+                            {
+                                //检查是不是有课题的负责人和项目负责人一样的情况
+                                subjectMasterModifyTaskID = ConnectionManager.Context.table("Task").where("IDCard = '" + projectMasterIDCard + "' and Type = '课题' and Role = '负责人'").select("ID").getValue<string>(string.Empty);
+                            }
+
                             //填冲数据
                             int rowIndex = 1;
                             foreach (Task curTask in taskList)
@@ -630,6 +640,15 @@ namespace ProjectReporterPlugin.Utility
                                 Person person = ConnectionManager.Context.table("Person").where("ID='" + curTask.PersonID + "'").select("*").getItem<Person>(new Person());
                                 Unit unit = ConnectionManager.Context.table("Unit").where("ID='" + person.UnitID + "'").select("*").getItem<Unit>(new Unit());
                                 #endregion
+
+                                //判断是否需要忽略项目负责人
+                                if (curTask.Type == "项目" && curTask.Role == "负责人")
+                                {
+                                    if (subjectMasterModifyTaskID != null && subjectMasterModifyTaskID.Length >= 2)
+                                    {
+                                        continue;
+                                    }
+                                }
 
                                 table.Rows[rowIndex].Cells[0].RemoveAllChildren();
                                 table.Rows[rowIndex].Cells[1].RemoveAllChildren();
@@ -661,7 +680,7 @@ namespace ProjectReporterPlugin.Utility
                                         break;
                                     }
                                 }
-                                table.Rows[rowIndex].Cells[9].AppendChild(wu.Document.newParagraph(table.Document, KetiInProject));
+                                table.Rows[rowIndex].Cells[9].AppendChild(wu.Document.newParagraph(table.Document, (curTask.ID == subjectMasterModifyTaskID ? "项目负责人兼" : "") + KetiInProject));
 
                                 rowIndex++;
                             }

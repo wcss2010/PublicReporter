@@ -143,7 +143,7 @@
             this.autoHeightLabel1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.autoHeightLabel1.Size = new System.Drawing.Size(834, 34);
             this.autoHeightLabel1.TabIndex = 0;
-            this.autoHeightLabel1.Text = "(200字以内,此部分无需缩进,请顶格填写)";
+            this.autoHeightLabel1.Text = "(200字以内)";
             this.autoHeightLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // kpDest
