@@ -86,7 +86,8 @@ namespace ProjectContractPlugin.Forms
 
                 )
             {
-                MessageBox.Show("对不起，请完善内容！","提示");
+                MessageBox.Show("对不起，请完善内容！", "错误");
+                return;
             }
             else
             {
