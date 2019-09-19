@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKeTi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colJieDuanHuaHuaFen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +51,6 @@
             this.colTarget = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colJieDuanJingFei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -127,7 +127,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(455, 28);
             this.label2.TabIndex = 6;
-            this.label2.Text = "双击可编辑“完成内容及阶段目标”，“阶段成果、考核指标及考核方式进行”！";
+            this.label2.Text = "双击可编辑“阶段目标与研究内容”，“阶段成果、考核指标及考核方式进行”！";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lklDownloadFuJian
@@ -227,6 +227,10 @@
             this.dgvDetail.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_CellMouseDoubleClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
             // 
+            // ofdExcelDialog
+            // 
+            this.ofdExcelDialog.Filter = "*.xls|*.xls";
+            // 
             // selpersonid
             // 
             this.selpersonid.HeaderText = "序号";
@@ -255,7 +259,7 @@
             // colDest
             // 
             this.colDest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDest.HeaderText = "完成内容及阶段目标";
+            this.colDest.HeaderText = "阶段目标与研究内容";
             this.colDest.Name = "colDest";
             this.colDest.ReadOnly = true;
             // 
@@ -300,10 +304,6 @@
             this.delete.Visible = false;
             this.delete.Width = 60;
             // 
-            // ofdExcelDialog
-            // 
-            this.ofdExcelDialog.Filter = "*.xls|*.xls";
-            // 
             // SubjectStepMoneyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -335,6 +335,8 @@
         private System.Windows.Forms.Button btnExcelLoad;
         private System.Windows.Forms.LinkLabel lklDownloadFuJian;
         private System.Windows.Forms.OpenFileDialog ofdExcelDialog;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJieDuanHuaHuaFen;
@@ -344,7 +346,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTarget;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJieDuanJingFei;
         private System.Windows.Forms.DataGridViewImageColumn delete;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
     }
 }

@@ -394,7 +394,7 @@ namespace ProjectReporterPlugin.Utility
                                         ProjectAndStep curProjectAndStep = ConnectionManager.Context.table("ProjectAndStep").where("StepID = '" + curStep.ID + "'").select("*").getItem<ProjectAndStep>(new ProjectAndStep());
 
                                         //输出格式
-                                        string outputFormat = "完成内容及阶段目标:\n{0}\n阶段成果、考核指标及考核方式:\n{1}\n阶段经费:{2}万";
+                                        string outputFormat = "阶段目标与研究内容:\n{0}\n阶段成果、考核指标及考核方式:\n{1}\n阶段经费:{2}万";
 
                                         string resultStr = string.Empty;
                                         //阶段数据
@@ -418,7 +418,7 @@ namespace ProjectReporterPlugin.Utility
                                         {
                                             if (p.HasChildNodes)
                                             {
-                                                if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("完成内容及阶段目标:"))
+                                                if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("阶段目标与研究内容:"))
                                                 {
                                                     ((Run)p.ChildNodes[0]).Font.Bold = true;
                                                 }
@@ -514,7 +514,7 @@ namespace ProjectReporterPlugin.Utility
                                     ProjectAndStep curProjectAndStep = ConnectionManager.Context.table("ProjectAndStep").where("StepID = '" + curStep.ID + "'").select("*").getItem<ProjectAndStep>(new ProjectAndStep());
 
                                     //输出格式
-                                    string outputFormat = "完成内容及阶段目标:\n{0}\n阶段成果、考核指标及考核方式:\n{1}\n阶段经费:{2}万";
+                                    string outputFormat = "阶段目标与研究内容:\n{0}\n阶段成果、考核指标及考核方式:\n{1}\n阶段经费:{2}万";
 
                                     string resultStr = string.Empty;
                                     //阶段数据
@@ -537,7 +537,7 @@ namespace ProjectReporterPlugin.Utility
                                     {
                                         if (p.HasChildNodes)
                                         {
-                                            if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("完成内容及阶段目标:"))
+                                            if (((Run)p.ChildNodes[0]).GetText() != null && ((Run)p.ChildNodes[0]).GetText().Contains("阶段目标与研究内容:"))
                                             {
                                                 ((Run)p.ChildNodes[0]).Font.Bold = true;
                                             }

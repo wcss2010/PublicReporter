@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,15 +42,6 @@
             this.label1 = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKeTiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMiJi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTarget = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtStepCount = new System.Windows.Forms.Label();
@@ -60,6 +51,15 @@
             this.txtTotalTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
+            this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKeTiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMiJi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTarget = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -129,7 +129,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(361, 28);
             this.label6.TabIndex = 7;
-            this.label6.Text = "双击可编辑“完成内容及阶段目标”，“阶段成果、考核指标及考核方式进行”！";
+            this.label6.Text = "双击可编辑“阶段目标与研究内容”，“阶段成果、考核指标及考核方式进行”！";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lklDownloadFuJian
@@ -234,17 +234,17 @@
             this.dgvDetail.Location = new System.Drawing.Point(0, 26);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetail.RowTemplate.Height = 105;
             this.dgvDetail.Size = new System.Drawing.Size(870, 375);
             this.dgvDetail.TabIndex = 4;
@@ -252,81 +252,6 @@
             this.dgvDetail.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentDoubleClick);
             this.dgvDetail.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_CellMouseDoubleClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
-            // 
-            // selpersonid
-            // 
-            this.selpersonid.HeaderText = "序号";
-            this.selpersonid.MinimumWidth = 80;
-            this.selpersonid.Name = "selpersonid";
-            this.selpersonid.Visible = false;
-            this.selpersonid.Width = 80;
-            // 
-            // colKeTiMingCheng
-            // 
-            this.colKeTiMingCheng.FillWeight = 263.1579F;
-            this.colKeTiMingCheng.HeaderText = "阶段";
-            this.colKeTiMingCheng.MinimumWidth = 60;
-            this.colKeTiMingCheng.Name = "colKeTiMingCheng";
-            this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colKeTiMingCheng.Width = 60;
-            // 
-            // colMiJi
-            // 
-            this.colMiJi.FillWeight = 59.21053F;
-            this.colMiJi.HeaderText = "阶段时间(月)";
-            this.colMiJi.MinimumWidth = 110;
-            this.colMiJi.Name = "colMiJi";
-            this.colMiJi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMiJi.Width = 110;
-            // 
-            // colDest
-            // 
-            this.colDest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDest.FillWeight = 59.21053F;
-            this.colDest.HeaderText = "完成内容及阶段目标";
-            this.colDest.Name = "colDest";
-            this.colDest.ReadOnly = true;
-            // 
-            // colContent
-            // 
-            this.colContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colContent.FillWeight = 59.21053F;
-            this.colContent.HeaderText = "完成内容";
-            this.colContent.Name = "colContent";
-            this.colContent.Visible = false;
-            // 
-            // colResult
-            // 
-            this.colResult.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colResult.HeaderText = "阶段成果、考核指标及考核方式";
-            this.colResult.Name = "colResult";
-            this.colResult.ReadOnly = true;
-            // 
-            // colTarget
-            // 
-            this.colTarget.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTarget.HeaderText = "考核指标";
-            this.colTarget.Name = "colTarget";
-            this.colTarget.Visible = false;
-            // 
-            // colMoney
-            // 
-            this.colMoney.FillWeight = 59.21053F;
-            this.colMoney.HeaderText = "阶段经费(万)";
-            this.colMoney.MinimumWidth = 110;
-            this.colMoney.Name = "colMoney";
-            this.colMoney.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colMoney.Width = 110;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "删除";
-            this.delete.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
-            this.delete.MinimumWidth = 60;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 60;
             // 
             // panel1
             // 
@@ -413,6 +338,81 @@
             // 
             this.ofdExcelDialog.Filter = "*.xls|*.xls";
             // 
+            // selpersonid
+            // 
+            this.selpersonid.HeaderText = "序号";
+            this.selpersonid.MinimumWidth = 80;
+            this.selpersonid.Name = "selpersonid";
+            this.selpersonid.Visible = false;
+            this.selpersonid.Width = 80;
+            // 
+            // colKeTiMingCheng
+            // 
+            this.colKeTiMingCheng.FillWeight = 263.1579F;
+            this.colKeTiMingCheng.HeaderText = "阶段";
+            this.colKeTiMingCheng.MinimumWidth = 60;
+            this.colKeTiMingCheng.Name = "colKeTiMingCheng";
+            this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colKeTiMingCheng.Width = 60;
+            // 
+            // colMiJi
+            // 
+            this.colMiJi.FillWeight = 59.21053F;
+            this.colMiJi.HeaderText = "阶段时间(月)";
+            this.colMiJi.MinimumWidth = 110;
+            this.colMiJi.Name = "colMiJi";
+            this.colMiJi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMiJi.Width = 110;
+            // 
+            // colDest
+            // 
+            this.colDest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDest.FillWeight = 59.21053F;
+            this.colDest.HeaderText = "阶段目标与研究内容";
+            this.colDest.Name = "colDest";
+            this.colDest.ReadOnly = true;
+            // 
+            // colContent
+            // 
+            this.colContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colContent.FillWeight = 59.21053F;
+            this.colContent.HeaderText = "完成内容";
+            this.colContent.Name = "colContent";
+            this.colContent.Visible = false;
+            // 
+            // colResult
+            // 
+            this.colResult.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colResult.HeaderText = "阶段成果、考核指标及考核方式";
+            this.colResult.Name = "colResult";
+            this.colResult.ReadOnly = true;
+            // 
+            // colTarget
+            // 
+            this.colTarget.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTarget.HeaderText = "考核指标";
+            this.colTarget.Name = "colTarget";
+            this.colTarget.Visible = false;
+            // 
+            // colMoney
+            // 
+            this.colMoney.FillWeight = 59.21053F;
+            this.colMoney.HeaderText = "阶段经费(万)";
+            this.colMoney.MinimumWidth = 110;
+            this.colMoney.Name = "colMoney";
+            this.colMoney.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colMoney.Width = 110;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "删除";
+            this.delete.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
+            this.delete.MinimumWidth = 60;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.Width = 60;
+            // 
             // ProjectStepMoneyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -455,6 +455,8 @@
         private System.Windows.Forms.LinkLabel lklDownloadFuJian;
         private System.Windows.Forms.OpenFileDialog ofdExcelDialog;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTiMingCheng;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMiJi;
@@ -464,7 +466,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTarget;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMoney;
         private System.Windows.Forms.DataGridViewImageColumn delete;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label6;
     }
 }
