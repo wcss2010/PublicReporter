@@ -320,6 +320,7 @@
     <None Include="DataTemplete\Current\Files\~%24基础与保障条件.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="DataTemplete\Current\Files\~WRL2054.tmp" />
     <None Include="DataTemplete\Current\Files\与有关计划关系.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
