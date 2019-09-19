@@ -187,7 +187,7 @@
             this.ibEditYear5.Name = "ibEditYear5";
             this.ibEditYear5.Size = new System.Drawing.Size(188, 28);
             this.ibEditYear5.TabIndex = 7;
-            this.ibEditYear5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditYear5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ibEditYear4
             // 
@@ -198,7 +198,7 @@
             this.ibEditYear4.Name = "ibEditYear4";
             this.ibEditYear4.Size = new System.Drawing.Size(184, 28);
             this.ibEditYear4.TabIndex = 6;
-            this.ibEditYear4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditYear4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ibEditYear3
             // 
@@ -209,7 +209,7 @@
             this.ibEditYear3.Name = "ibEditYear3";
             this.ibEditYear3.Size = new System.Drawing.Size(184, 28);
             this.ibEditYear3.TabIndex = 5;
-            this.ibEditYear3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditYear3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ibEditYear2
             // 
@@ -220,7 +220,7 @@
             this.ibEditYear2.Name = "ibEditYear2";
             this.ibEditYear2.Size = new System.Drawing.Size(184, 28);
             this.ibEditYear2.TabIndex = 4;
-            this.ibEditYear2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditYear2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ibEditYear1
             // 
@@ -231,7 +231,7 @@
             this.ibEditYear1.Name = "ibEditYear1";
             this.ibEditYear1.Size = new System.Drawing.Size(184, 28);
             this.ibEditYear1.TabIndex = 3;
-            this.ibEditYear1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditYear1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 

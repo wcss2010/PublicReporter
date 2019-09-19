@@ -280,23 +280,23 @@ namespace ProjectContractPlugin.Utility
 
                         //年份
                         t.Rows[t.Rows.Count - 2].Cells[0].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName1"]));
+                        t.Rows[t.Rows.Count - 2].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName1"] + "年度"));
                         ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[1].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName2"]));
+                        t.Rows[t.Rows.Count - 2].Cells[1].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName2"] + "年度"));
                         ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[2].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName3"]));
+                        t.Rows[t.Rows.Count - 2].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName3"] + "年度"));
                         ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[2].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[3].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName4"]));
+                        t.Rows[t.Rows.Count - 2].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName4"] + "年度"));
                         ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                         t.Rows[t.Rows.Count - 2].Cells[4].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName5"]));
+                        t.Rows[t.Rows.Count - 2].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName5"] + "年度"));
                         ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[4].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                         //年度金额
@@ -573,7 +573,7 @@ namespace ProjectContractPlugin.Utility
 
                             t.Rows[rowStart].Cells[6].RemoveAllChildren();
                             t.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(t.Document, data.MeiNianTouRuShiJian + ""));
-                            t.Rows[rowStart].Cells[6].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+                            ((Paragraph)t.Rows[rowStart].Cells[6].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[rowStart].Cells[7].RemoveAllChildren();
                             t.Rows[rowStart].Cells[7].AppendChild(wu.Document.newParagraph(t.Document, data.RenWuFenGong));

@@ -44,7 +44,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Location = new System.Drawing.Point(21, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 16);
             this.label1.TabIndex = 0;
@@ -54,19 +55,21 @@
             // 
             this.txtContent.AcceptsReturn = true;
             this.txtContent.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtContent.Location = new System.Drawing.Point(99, 57);
+            this.txtContent.Location = new System.Drawing.Point(133, 66);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtContent.Size = new System.Drawing.Size(486, 128);
+            this.txtContent.Size = new System.Drawing.Size(647, 169);
             this.txtContent.TabIndex = 2;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(413, 516);
+            this.btnSave.Location = new System.Drawing.Point(550, 622);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 32);
+            this.btnSave.Size = new System.Drawing.Size(111, 43);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -76,7 +79,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(16, 103);
+            this.label2.Location = new System.Drawing.Point(22, 127);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 0;
@@ -85,9 +89,10 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(502, 516);
+            this.btnClose.Location = new System.Drawing.Point(668, 622);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(83, 32);
+            this.btnClose.Size = new System.Drawing.Size(111, 43);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "取消";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -95,27 +100,30 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(99, 14);
+            this.textBox1.Location = new System.Drawing.Point(132, 19);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(486, 21);
+            this.textBox1.Size = new System.Drawing.Size(647, 26);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
             this.textBox2.AcceptsReturn = true;
             this.textBox2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox2.Location = new System.Drawing.Point(99, 209);
+            this.textBox2.Location = new System.Drawing.Point(132, 261);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(486, 148);
+            this.textBox2.Size = new System.Drawing.Size(647, 196);
             this.textBox2.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(12, 279);
+            this.label3.Location = new System.Drawing.Point(16, 354);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 5;
@@ -125,28 +133,30 @@
             // 
             this.textBox3.AcceptsReturn = true;
             this.textBox3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox3.Location = new System.Drawing.Point(99, 372);
+            this.textBox3.Location = new System.Drawing.Point(132, 480);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox3.Size = new System.Drawing.Size(486, 128);
+            this.textBox3.Size = new System.Drawing.Size(647, 116);
             this.textBox3.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(12, 415);
+            this.label4.Location = new System.Drawing.Point(16, 508);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 44);
+            this.label4.Size = new System.Drawing.Size(112, 59);
             this.label4.TabIndex = 7;
             this.label4.Text = "参加单位分工：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmAddOrUpdateSubject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 556);
+            this.ClientSize = new System.Drawing.Size(836, 681);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
@@ -158,10 +168,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddOrUpdateSubject";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新增/编辑课题情况";
             this.ResumeLayout(false);
             this.PerformLayout();
