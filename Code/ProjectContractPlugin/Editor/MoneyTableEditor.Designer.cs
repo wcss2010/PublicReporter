@@ -404,6 +404,7 @@
             this.ibEditMoney5_2.Name = "ibEditMoney5_2";
             this.ibEditMoney5_2.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney5_2.TabIndex = 3;
+            this.ibEditMoney5_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditInfo3_1
@@ -1008,6 +1009,7 @@
             this.ibEditMoney3_1.Name = "ibEditMoney3_1";
             this.ibEditMoney3_1.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney3_1.TabIndex = 3;
+            this.ibEditMoney3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney3_2
@@ -1019,6 +1021,7 @@
             this.ibEditMoney3_2.Name = "ibEditMoney3_2";
             this.ibEditMoney3_2.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney3_2.TabIndex = 3;
+            this.ibEditMoney3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney3_3
@@ -1030,6 +1033,7 @@
             this.ibEditMoney3_3.Name = "ibEditMoney3_3";
             this.ibEditMoney3_3.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney3_3.TabIndex = 3;
+            this.ibEditMoney3_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney5_1
@@ -1041,6 +1045,7 @@
             this.ibEditMoney5_1.Name = "ibEditMoney5_1";
             this.ibEditMoney5_1.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney5_1.TabIndex = 3;
+            this.ibEditMoney5_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // plButtons
