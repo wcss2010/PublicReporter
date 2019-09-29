@@ -51,7 +51,7 @@ namespace ProjectContractPlugin.Forms
                 ||String.IsNullOrEmpty(txtWorkDest.Text)
                 || String.IsNullOrEmpty(txtWorkUnit.Text)
                 || String.IsNullOrEmpty(txtWorkOrg.Text)
-                || String.IsNullOrEmpty(txtWorkAddress.Text))
+                || String.IsNullOrEmpty(txtWorkAddress.getAddress()))
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
                 return;
