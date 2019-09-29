@@ -45,7 +45,7 @@ namespace PublicReporterLib.ControlAndForms
 
             string folder = @"" + provincebox.Value + ".js";
 
-            var sourceContent = PublicReporterLib.Properties.Resource.ResourceManager.GetString("_" + folder).Trim();
+            var sourceContent = getResourceString("_" + folder).Trim();
 
             string[] sArray = sourceContent.Split(';');
 
@@ -193,7 +193,7 @@ namespace PublicReporterLib.ControlAndForms
         {
             string folder = @"province.js";
 
-            var sourceContent = PublicReporterLib.Properties.Resource.ResourceManager.GetString("_" + folder).Trim();
+            var sourceContent = getResourceString("_" + folder).Trim();
 
             this.provinceList = JObject.Parse(sourceContent);
 
@@ -226,7 +226,7 @@ namespace PublicReporterLib.ControlAndForms
             
             string folder1 = @"province.js";
 
-            var sourceContent1 = PublicReporterLib.Properties.Resource.ResourceManager.GetString("_" + folder1).Trim();
+            var sourceContent1 = getResourceString("_" + folder1).Trim();
 
             this.provinceList = JObject.Parse(sourceContent1);
 
@@ -245,7 +245,7 @@ namespace PublicReporterLib.ControlAndForms
 
             string folder2 = @"" + provinceid + ".js";
 
-            var sourceContent2 = PublicReporterLib.Properties.Resource.ResourceManager.GetString("_" + folder2).Trim();
+            var sourceContent2 = getResourceString("_" + folder2).Trim();
 
             string[] sArray = sourceContent2.Split(';');
 
@@ -343,6 +343,11 @@ namespace PublicReporterLib.ControlAndForms
                     }
                 }
             }
+        }
+
+        public string getResourceString(string name)
+        {
+            return PublicReporterLib.Properties.Resource.ResourceManager.GetString(name.Replace(".js", string.Empty));
         }
     }
 

@@ -25,8 +25,8 @@ namespace ProjectContractPlugin.Editor
             TownControl.Visible = false;
             CountyControl.Visible = false;
             
-            ProvinceControl.Text = "北京市";
-            CityControl.Text = "北京市";
+            ProvinceControl.Text = "北京";
+            CityControl.Text = "北京";
             CountyControl.Text = "海淀区";
         }
 
@@ -37,8 +37,8 @@ namespace ProjectContractPlugin.Editor
         public string getAddress()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(ProvinceControl.SelectedItem != null ? ProvinceControl.SelectedItem.ToString() : "北京市").Append("%|||%");
-            sb.Append(CityControl.SelectedItem != null ? CityControl.SelectedItem.ToString() : "北京市").Append("%|||%");
+            sb.Append(ProvinceControl.SelectedItem != null ? ProvinceControl.SelectedItem.ToString() : "北京").Append("%|||%");
+            sb.Append(CityControl.SelectedItem != null ? CityControl.SelectedItem.ToString() : "北京").Append("%|||%");
             sb.Append(txtDetailAddress.Text.Trim());
             return sb.ToString();
         }

@@ -16,8 +16,6 @@ namespace ProjectContractPlugin.Editor
         public ProjectEditor()
         {
             InitializeComponent();
-
-            ibEdit41.loadProvince();
         }
         
         private void btnSave_Click(object sender, EventArgs e)
