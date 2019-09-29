@@ -60,7 +60,7 @@ namespace ProjectContractPlugin.Forms
             DataObj.KeTiMingCheng = txtSubjectName.Text;
             DataObj.KeTiFuZeDanWei = txtWorkUnit.Text;
             DataObj.KeTiSuoShuBuMen = txtWorkOrg.Text;
-            DataObj.KeTiSuoShuDiDian = txtWorkAddress.Text;
+            DataObj.KeTiSuoShuDiDian = txtWorkAddress.getAddress();
             DataObj.KeTiYanJiuMuBiao = txtWorkDest.Text;
             DataObj.KeTiYanJiuNeiRong = txtWorkContent.Text;
             DataObj.KeTiCanJiaDanWeiFenGong = txtUnitTask.Text;
