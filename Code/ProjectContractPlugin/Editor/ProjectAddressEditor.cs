@@ -21,9 +21,10 @@ namespace ProjectContractPlugin.Editor
             }
             catch (Exception ex) { }
 
-            AreaLabel.Visible = false;
-            TownControl.Visible = false;
-            CountyControl.Visible = false;
+            AreaLabel.AutoSize = false;
+            AreaLabel.Width = 0;
+            TownControl.Width = 0;
+            CountyControl.Width = 0;
             
             ProvinceControl.Text = "北京";
             CityControl.Text = "北京";
