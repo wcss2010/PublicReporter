@@ -40,6 +40,7 @@
             // Town
             // 
             this.Town.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Town.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Town.FormattingEnabled = true;
             this.Town.Location = new System.Drawing.Point(435, 0);
             this.Town.Name = "Town";
@@ -49,6 +50,7 @@
             // County
             // 
             this.County.Dock = System.Windows.Forms.DockStyle.Left;
+            this.County.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.County.FormattingEnabled = true;
             this.County.Location = new System.Drawing.Point(290, 0);
             this.County.Name = "County";
@@ -59,6 +61,7 @@
             // City
             // 
             this.City.Dock = System.Windows.Forms.DockStyle.Left;
+            this.City.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.City.FormattingEnabled = true;
             this.City.Location = new System.Drawing.Point(145, 0);
             this.City.Name = "City";
@@ -69,6 +72,7 @@
             // Province
             // 
             this.Province.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Province.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Province.FormattingEnabled = true;
             this.Province.Location = new System.Drawing.Point(0, 0);
             this.Province.Name = "Province";
@@ -78,33 +82,30 @@
             // 
             // lblProvince
             // 
-            this.lblProvince.AutoSize = true;
             this.lblProvince.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblProvince.Location = new System.Drawing.Point(121, 0);
             this.lblProvince.Name = "lblProvince";
-            this.lblProvince.Size = new System.Drawing.Size(24, 16);
+            this.lblProvince.Size = new System.Drawing.Size(24, 24);
             this.lblProvince.TabIndex = 8;
             this.lblProvince.Text = "省";
             this.lblProvince.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCity
             // 
-            this.lblCity.AutoSize = true;
             this.lblCity.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblCity.Location = new System.Drawing.Point(266, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(24, 16);
+            this.lblCity.Size = new System.Drawing.Size(24, 24);
             this.lblCity.TabIndex = 9;
             this.lblCity.Text = "市";
             this.lblCity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblArea
             // 
-            this.lblArea.AutoSize = true;
             this.lblArea.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblArea.Location = new System.Drawing.Point(411, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(24, 16);
+            this.lblArea.Size = new System.Drawing.Size(24, 24);
             this.lblArea.TabIndex = 10;
             this.lblArea.Text = "区";
             this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,7 +127,6 @@
             this.Name = "AddressControl";
             this.Size = new System.Drawing.Size(556, 24);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
