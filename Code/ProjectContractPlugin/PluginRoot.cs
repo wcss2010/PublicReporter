@@ -52,7 +52,7 @@ namespace ProjectContractPlugin
         /// </summary>
         public override string DefaultTitle
         {
-            get { return "重点基础研究项目合同书填报系统（1.3版）"; }
+            get { return "重点基础研究项目合同书填报系统（1.4版）"; }
         }
 
         /// <summary>
@@ -424,6 +424,7 @@ namespace ProjectContractPlugin
 
                     SaveFileDialog sfd = new SaveFileDialog();
                     sfd.Filter = "ZIP申报包|*.zip";
+                    sfd.FileName = getExportName();
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         if (MessageBox.Show("真的要导出吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -608,6 +609,11 @@ namespace ProjectContractPlugin
                     manager.ShowDialog();
                     break;
             }
+        }
+
+        private string getExportName()
+        {
+            return projectObj.HeTongBianHao + "-" + projectObj.HeTongFuZeDanWei + "-" + projectObj.HeTongFuZeRen + ".zip";
         }
 
         /// <summary>
