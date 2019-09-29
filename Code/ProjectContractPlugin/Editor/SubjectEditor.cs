@@ -35,7 +35,7 @@ namespace ProjectContractPlugin.Editor
                 cells.Add(data.KeTiMingCheng);
                 cells.Add(data.KeTiFuZeDanWei);
                 cells.Add(data.KeTiSuoShuBuMen);
-                cells.Add(data.KeTiSuoShuDiDian);
+                cells.Add(getAddress(data.KeTiSuoShuDiDian));
                 cells.Add(data.KeTiYanJiuMuBiao);
                 cells.Add(data.KeTiYanJiuNeiRong);
                 cells.Add(data.KeTiCanJiaDanWeiFenGong);
@@ -44,6 +44,28 @@ namespace ProjectContractPlugin.Editor
             }
 
         }
+
+        private object getAddress(string temp)
+        {
+            string result = temp;
+            if (temp != null && temp.Contains("%|||%"))
+            {
+                string[] tt = temp.Split(new string[] { "%|||%" }, StringSplitOptions.None);
+                if (tt != null && tt.Length >= 3)
+                {
+                    if (!tt[1].Contains(tt[0]))
+                    {
+                        result = tt[0] + tt[1] + tt[2];
+                    }
+                    else
+                    {
+                        result = tt[1] + tt[2];
+                    }
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// 新增按钮
         /// </summary>
@@ -58,9 +80,7 @@ namespace ProjectContractPlugin.Editor
                 RefreshView();
 
         }
-
-
-
+        
         private void btnDelAll_Click(object sender, EventArgs e)
         {
             if (dgvDetail.SelectedRows.Count >= 1)
