@@ -16,6 +16,8 @@ namespace ProjectContractPlugin.Editor
         public ProjectEditor()
         {
             InitializeComponent();
+
+            ibEdit41.loadProvince();
         }
         
         private void btnSave_Click(object sender, EventArgs e)
@@ -53,6 +55,11 @@ namespace ProjectContractPlugin.Editor
                 ibEdit4.Value = obj.HeTongMiQi;
                 ibEdit5.Text = obj.HeTongFuZeRen;
                 ibEdit6.Text = obj.HeTongFuZeRenShenFenZheng;
+                ibEdit39.Text = obj.HeTongFuZeDanWei;
+                ibEdit40.Text = obj.HeTongSuoShuBuMen;
+                ibEdit41.setAddress(obj.HeTongSuoShuDiDian);
+                ibEdit42.Text = obj.HeTongSuoShuLingYu;
+                ibEdit43.Text = obj.HeTongGuanJianZi;
                 ibEdit7.Value = obj.HeTongKaiShiShiJian;
                 ibEdit8.Value = obj.HeTongJieShuShiJian;
                 ibEdit9.Value = obj.HeTongJiaKuan;
@@ -121,6 +128,31 @@ namespace ProjectContractPlugin.Editor
             if (ibEdit6.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目负责人身份证!");
+                return;
+            }
+            if (ibEdit39.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入项目负责单位!");
+                return;
+            }
+            if (ibEdit40.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入项目负责单位所属部门!");
+                return;
+            }
+            if (ibEdit41.getAddress() == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入项目负责单位所属地点!");
+                return;
+            }
+            if (ibEdit42.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入所属领域!");
+                return;
+            }
+            if (ibEdit43.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入关键字!");
                 return;
             }
             //DateTime dd7;
@@ -300,6 +332,11 @@ namespace ProjectContractPlugin.Editor
             obj.HeTongMiQi = (int)ibEdit4.Value;
             obj.HeTongFuZeRen = ibEdit5.Text;
             obj.HeTongFuZeRenShenFenZheng = ibEdit6.Text;
+            obj.HeTongFuZeDanWei = ibEdit39.Text;
+            obj.HeTongSuoShuBuMen = ibEdit40.Text;
+            obj.HeTongSuoShuDiDian = ibEdit41.getAddress();
+            obj.HeTongSuoShuLingYu = ibEdit42.Text;
+            obj.HeTongGuanJianZi = ibEdit43.Text;
             obj.HeTongKaiShiShiJian = ibEdit7.Value;
             obj.HeTongJieShuShiJian = ibEdit8.Value;
             obj.HeTongJiaKuan = ibEdit9.Value;

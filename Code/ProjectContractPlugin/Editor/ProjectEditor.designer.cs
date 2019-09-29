@@ -111,7 +111,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.ibEdit39 = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.ibEdit41 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.ibEdit40 = new System.Windows.Forms.ComboBox();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -121,6 +120,7 @@
             this.ibEdit43 = new ProjectContractPlugin.Editor.ProjectKeyEditor();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.ibEdit41 = new ProjectContractPlugin.Editor.ProjectAddressEditor();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.hSkinTableLayoutPanel1.SuspendLayout();
@@ -1114,7 +1114,7 @@
             this.ibEdit39.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit39.Location = new System.Drawing.Point(0, 0);
             this.ibEdit39.Name = "ibEdit39";
-            this.ibEdit39.Size = new System.Drawing.Size(355, 26);
+            this.ibEdit39.Size = new System.Drawing.Size(774, 26);
             this.ibEdit39.TabIndex = 1;
             // 
             // panel8
@@ -1129,15 +1129,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1069, 27);
             this.panel8.TabIndex = 2;
-            // 
-            // ibEdit41
-            // 
-            this.ibEdit41.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit41.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit41.Location = new System.Drawing.Point(346, 0);
-            this.ibEdit41.Name = "ibEdit41";
-            this.ibEdit41.Size = new System.Drawing.Size(355, 26);
-            this.ibEdit41.TabIndex = 4;
             // 
             // label31
             // 
@@ -1159,10 +1150,33 @@
             this.ibEdit40.FormattingEnabled = true;
             this.ibEdit40.ItemHeight = 16;
             this.ibEdit40.Items.AddRange(new object[] {
-            "公开",
-            "秘密",
-            "机密",
-            "绝密"});
+            "陆军",
+            "海军",
+            "空军",
+            "火箭军",
+            "战略支援部队",
+            "联合勤务保障部队",
+            "军委机关直属单位",
+            "军事科学院",
+            "国防大学",
+            "国防科技大学",
+            "武警部队",
+            "教育部",
+            "工信部",
+            "中国科学院",
+            "中国兵器工业集团公司",
+            "中国兵器装备集团公司",
+            "中国船舶工业集团公司",
+            "中国船舶重工集团公司",
+            "中国电子科技集团公司",
+            "中国电子信息产业集团公司",
+            "中国航空发动机集团公司",
+            "中国航空工业集团公司",
+            "中国航天科工集团公司",
+            "中国航天科技集团公司",
+            "中国核工业集团公司",
+            "中国工程物理研究院",
+            "其它"});
             this.ibEdit40.Location = new System.Drawing.Point(0, 0);
             this.ibEdit40.Name = "ibEdit40";
             this.ibEdit40.Size = new System.Drawing.Size(261, 24);
@@ -1241,6 +1255,16 @@
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // ibEdit41
+            // 
+            this.ibEdit41.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit41.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit41.Location = new System.Drawing.Point(346, 0);
+            this.ibEdit41.Margin = new System.Windows.Forms.Padding(5);
+            this.ibEdit41.Name = "ibEdit41";
+            this.ibEdit41.Size = new System.Drawing.Size(519, 27);
+            this.ibEdit41.TabIndex = 4;
+            // 
             // ProjectEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1269,7 +1293,6 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -1365,7 +1388,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ComboBox ibEdit40;
         private System.Windows.Forms.TextBox ibEdit39;
-        private System.Windows.Forms.TextBox ibEdit41;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Panel panel9;
@@ -1373,5 +1395,6 @@
         private System.Windows.Forms.TextBox ibEdit42;
         private ProjectKeyEditor ibEdit43;
         private System.Windows.Forms.Label label34;
+        private ProjectAddressEditor ibEdit41;
     }
 }

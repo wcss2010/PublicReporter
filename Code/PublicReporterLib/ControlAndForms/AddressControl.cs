@@ -189,7 +189,7 @@ namespace PublicReporterLib.ControlAndForms
         /// <summary>
         /// 载入省
         /// </summary>
-        public void loadeProvince()
+        public void loadProvince()
         {
             string folder = @"province.js";
 
@@ -216,7 +216,7 @@ namespace PublicReporterLib.ControlAndForms
         /// 载入地区
         /// </summary>
         /// <param name="areaid"></param>
-        public void LoadAreaCode(string areaid)
+        public void loadAreaCode(string areaid)
         {
 
             string provinceid = areaid.Substring(0, 2) + "0000";
