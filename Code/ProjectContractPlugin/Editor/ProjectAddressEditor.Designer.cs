@@ -32,11 +32,13 @@
             // 
             // ProjectAddressEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ProjectAddressEditor";
-            this.Size = new System.Drawing.Size(385, 127);
+            this.Size = new System.Drawing.Size(556, 23);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -32,9 +32,9 @@
             this.County = new System.Windows.Forms.ComboBox();
             this.City = new System.Windows.Forms.ComboBox();
             this.Province = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblProvince = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblArea = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Town
@@ -76,49 +76,49 @@
             this.Province.TabIndex = 4;
             this.Province.SelectedIndexChanged += new System.EventHandler(this.Province_SelectedIndexChanged);
             // 
-            // label1
+            // lblProvince
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Location = new System.Drawing.Point(121, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 16);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "省";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblProvince.AutoSize = true;
+            this.lblProvince.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProvince.Location = new System.Drawing.Point(121, 0);
+            this.lblProvince.Name = "lblProvince";
+            this.lblProvince.Size = new System.Drawing.Size(24, 16);
+            this.lblProvince.TabIndex = 8;
+            this.lblProvince.Text = "省";
+            this.lblProvince.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblCity
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Location = new System.Drawing.Point(266, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "市";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCity.AutoSize = true;
+            this.lblCity.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCity.Location = new System.Drawing.Point(266, 0);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(24, 16);
+            this.lblCity.TabIndex = 9;
+            this.lblCity.Text = "市";
+            this.lblCity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblArea
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Location = new System.Drawing.Point(411, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 16);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "区";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblArea.AutoSize = true;
+            this.lblArea.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblArea.Location = new System.Drawing.Point(411, 0);
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size(24, 16);
+            this.lblArea.TabIndex = 10;
+            this.lblArea.Text = "区";
+            this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddressControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Town);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblArea);
             this.Controls.Add(this.County);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCity);
             this.Controls.Add(this.City);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblProvince);
             this.Controls.Add(this.Province);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("仿宋", 12F);
@@ -136,8 +136,8 @@
         private System.Windows.Forms.ComboBox County;
         private System.Windows.Forms.ComboBox City;
         private System.Windows.Forms.ComboBox Province;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblProvince;
+        private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.Label lblArea;
     }
 }

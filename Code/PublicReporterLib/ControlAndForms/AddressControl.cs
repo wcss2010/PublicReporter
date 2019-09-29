@@ -24,6 +24,12 @@ namespace PublicReporterLib.ControlAndForms
 
         public ComboBox TownControl { get { return Town; } }
 
+        public Label ProvinceLabel { get { return lblProvince; } }
+
+        public Label CityLabel { get { return lblCity; } }
+
+        public Label AreaLabel { get { return lblArea; } }
+
         public AddressControl()
         {
             InitializeComponent();             
