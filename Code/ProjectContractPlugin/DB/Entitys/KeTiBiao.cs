@@ -21,6 +21,9 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("KeTiYanJiuMuBiao", KeTiYanJiuMuBiao);
             query.set("KeTiYanJiuNeiRong", KeTiYanJiuNeiRong);
             query.set("KeTiCanJiaDanWeiFenGong", KeTiCanJiaDanWeiFenGong);
+            query.set("KeTiFuZeDanWei", KeTiFuZeDanWei);
+            query.set("KeTiSuoShuBuMen", KeTiSuoShuBuMen);
+            query.set("KeTiSuoShuDiDian", KeTiSuoShuDiDian);
             query.set("ZhuangTai", ZhuangTai);
 
             return query;
@@ -31,6 +34,9 @@ namespace ProjectContractPlugin.DB.Entitys
         public string KeTiYanJiuMuBiao { get; set; }
         public string KeTiYanJiuNeiRong { get; set; }
         public string KeTiCanJiaDanWeiFenGong { get; set; }
+        public string KeTiFuZeDanWei { get; set; }
+        public string KeTiSuoShuBuMen { get; set; }
+        public string KeTiSuoShuDiDian { get; set; }
         public double ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
@@ -40,6 +46,9 @@ namespace ProjectContractPlugin.DB.Entitys
             KeTiYanJiuMuBiao = source("KeTiYanJiuMuBiao").value<string>("");
             KeTiYanJiuNeiRong = source("KeTiYanJiuNeiRong").value<string>("");
             KeTiCanJiaDanWeiFenGong = source("KeTiCanJiaDanWeiFenGong").value<string>("");
+            KeTiFuZeDanWei = source("KeTiFuZeDanWei").value<string>("");
+            KeTiSuoShuBuMen = source("KeTiSuoShuBuMen").value<string>("");
+            KeTiSuoShuDiDian = source("KeTiSuoShuDiDian").value<string>("");
             ZhuangTai = source("ZhuangTai").value<double>(0);
 
             ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);

@@ -25,6 +25,11 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("HeTongKaiShiShiJian", HeTongKaiShiShiJian);
             query.set("HeTongJieShuShiJian", HeTongJieShuShiJian);
             query.set("HeTongJiaKuan", HeTongJiaKuan);
+            query.set("HeTongFuZeDanWei", HeTongFuZeDanWei);
+            query.set("HeTongSuoShuBuMen", HeTongSuoShuBuMen);
+            query.set("HeTongSuoShuDiDian", HeTongSuoShuDiDian);
+            query.set("HeTongGuanJianZi", HeTongGuanJianZi);
+            query.set("HeTongSuoShuLingYu", HeTongSuoShuLingYu);
             query.set("HeTongJingFeiGuanLiMoShi", HeTongJingFeiGuanLiMoShi);
             query.set("WeiTuoDanWeiMingCheng", WeiTuoDanWeiMingCheng);
             query.set("WeiTuoDanWeiXingZhi", WeiTuoDanWeiXingZhi);
@@ -69,6 +74,11 @@ namespace ProjectContractPlugin.DB.Entitys
         public DateTime HeTongKaiShiShiJian { get; set; }
         public DateTime HeTongJieShuShiJian { get; set; }
         public decimal HeTongJiaKuan { get; set; }
+        public string HeTongFuZeDanWei { get; set; }
+        public string HeTongSuoShuBuMen { get; set; }
+        public string HeTongSuoShuDiDian { get; set; }
+        public string HeTongGuanJianZi { get; set; }
+        public string HeTongSuoShuLingYu { get; set; }
         public string HeTongJingFeiGuanLiMoShi { get; set; }
         public string WeiTuoDanWeiMingCheng { get; set; }
         public string WeiTuoDanWeiXingZhi { get; set; }
@@ -112,6 +122,11 @@ namespace ProjectContractPlugin.DB.Entitys
             HeTongKaiShiShiJian = source("HeTongKaiShiShiJian").value<DateTime>(DateTime.Now);
             HeTongJieShuShiJian = source("HeTongJieShuShiJian").value<DateTime>(DateTime.Now);
             HeTongJiaKuan = source("HeTongJiaKuan").value<decimal>(0);
+            HeTongFuZeDanWei = source("HeTongFuZeDanWei").value<string>("");
+            HeTongSuoShuBuMen = source("HeTongSuoShuBuMen").value<string>("");
+            HeTongSuoShuDiDian = source("HeTongSuoShuDiDian").value<string>("");
+            HeTongGuanJianZi = source("HeTongGuanJianZi").value<string>("");
+            HeTongSuoShuLingYu = source("HeTongSuoShuLingYu").value<string>("");
             HeTongJingFeiGuanLiMoShi = source("HeTongJingFeiGuanLiMoShi").value<string>("");
             WeiTuoDanWeiMingCheng = source("WeiTuoDanWeiMingCheng").value<string>("");
             WeiTuoDanWeiXingZhi = source("WeiTuoDanWeiXingZhi").value<string>("");
