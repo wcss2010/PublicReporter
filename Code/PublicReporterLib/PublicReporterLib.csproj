@@ -54,6 +54,9 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Noear.Weed3, Version=3.0.7082.27069, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
@@ -72,6 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAndForms\AddressControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAndForms\AddressControl.Designer.cs">
+      <DependentUpon>AddressControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlAndForms\PluginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,17 +98,449 @@
     <Compile Include="PluginConfig.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="SerialDictionary.cs" />
     <Compile Include="Utility\WordDocument.cs" />
     <Compile Include="Utility\ZipUtil.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ControlAndForms\AddressControl.resx">
+      <DependentUpon>AddressControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlAndForms\PluginControl.resx">
       <DependentUpon>PluginControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlAndForms\PluginForm.resx">
       <DependentUpon>PluginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\110000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\120000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\130000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\140000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\150000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\210000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\220000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\230000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\310000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\320000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\330000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\340000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\350000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\370000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\410000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\420000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\430000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\440000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\450000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\460000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\500000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\510000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\520000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\530000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\540000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\610000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\620000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\630000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\640000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\650000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\710000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\810000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\820000.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\province.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1300001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1400001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1500001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2200001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2300001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3200001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3300001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3400001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3500001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3600001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3700001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4200001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4300001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4400001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4500001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4600001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5000001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5200001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5300001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5400001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6200001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6300001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6400001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6500001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8100001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8200001.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\province1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1300002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1400002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1500002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2200002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2300002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3200002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3300002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3400002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3500002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3600002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3700002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4200002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4300002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4400002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4500002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4600002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5000002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5200002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5300002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5400002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6200002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6300002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6400002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6500002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8100002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8200002.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\province2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1300003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1400003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1500003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2200003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2300003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3200003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3300003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3400003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3500003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3600003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3700003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4200003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4300003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4400003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4500003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4600003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5000003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5200003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5300003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5400003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6200003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6300003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6400003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6500003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8100003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8200003.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\province3.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
