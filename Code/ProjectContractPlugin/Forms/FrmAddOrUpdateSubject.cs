@@ -21,10 +21,13 @@ namespace ProjectContractPlugin.Forms
             Count = count;
             if (DataObj != null)
             {
-                textBox1.Text = DataObj.KeTiMingCheng;
-                txtContent.Text = DataObj.KeTiYanJiuMuBiao;
-                textBox2.Text = DataObj.KeTiYanJiuNeiRong;
-                textBox3.Text = DataObj.KeTiCanJiaDanWeiFenGong;
+                txtSubjectName.Text = DataObj.KeTiMingCheng;
+                txtWorkDest.Text = DataObj.KeTiYanJiuMuBiao;
+                txtWorkContent.Text = DataObj.KeTiYanJiuNeiRong;
+                txtUnitTask.Text = DataObj.KeTiCanJiaDanWeiFenGong;
+                txtWorkUnit.Text = DataObj.KeTiFuZeDanWei;
+                txtWorkOrg.Text = DataObj.KeTiSuoShuBuMen;
+                txtWorkAddress.setAddress(DataObj.KeTiSuoShuDiDian);
             }
             else
             {
@@ -42,19 +45,25 @@ namespace ProjectContractPlugin.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text)
-                || String.IsNullOrEmpty(textBox2.Text)
-                || String.IsNullOrEmpty(textBox3.Text)
-                ||String.IsNullOrEmpty(txtContent.Text))
+            if (String.IsNullOrEmpty(txtSubjectName.Text)
+                || String.IsNullOrEmpty(txtWorkContent.Text)
+                || String.IsNullOrEmpty(txtUnitTask.Text)
+                ||String.IsNullOrEmpty(txtWorkDest.Text)
+                || String.IsNullOrEmpty(txtWorkUnit.Text)
+                || String.IsNullOrEmpty(txtWorkOrg.Text)
+                || String.IsNullOrEmpty(txtWorkAddress.Text))
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
                 return;
             }
 
-            DataObj.KeTiMingCheng = textBox1.Text;
-            DataObj.KeTiYanJiuMuBiao = txtContent.Text;
-            DataObj.KeTiYanJiuNeiRong = textBox2.Text;
-            DataObj.KeTiCanJiaDanWeiFenGong = textBox3.Text;
+            DataObj.KeTiMingCheng = txtSubjectName.Text;
+            DataObj.KeTiFuZeDanWei = txtWorkUnit.Text;
+            DataObj.KeTiSuoShuBuMen = txtWorkOrg.Text;
+            DataObj.KeTiSuoShuDiDian = txtWorkAddress.Text;
+            DataObj.KeTiYanJiuMuBiao = txtWorkDest.Text;
+            DataObj.KeTiYanJiuNeiRong = txtWorkContent.Text;
+            DataObj.KeTiCanJiaDanWeiFenGong = txtUnitTask.Text;
 
             if (string.IsNullOrEmpty(DataObj.BianHao))
             {

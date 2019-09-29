@@ -33,6 +33,9 @@ namespace ProjectContractPlugin.Editor
                 List<object> cells = new List<object>();
                 cells.Add(index.ToString());
                 cells.Add(data.KeTiMingCheng);
+                cells.Add(data.KeTiFuZeDanWei);
+                cells.Add(data.KeTiSuoShuBuMen);
+                cells.Add(data.KeTiSuoShuDiDian);
                 cells.Add(data.KeTiYanJiuMuBiao);
                 cells.Add(data.KeTiYanJiuNeiRong);
                 cells.Add(data.KeTiCanJiaDanWeiFenGong);
