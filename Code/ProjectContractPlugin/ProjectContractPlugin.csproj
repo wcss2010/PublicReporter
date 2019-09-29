@@ -143,11 +143,23 @@
     <Compile Include="Editor\MoneyTableEditor.Designer.cs">
       <DependentUpon>MoneyTableEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\ProjectAddressEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectAddressEditor.Designer.cs">
+      <DependentUpon>ProjectAddressEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\ProjectEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Editor\ProjectEditor.designer.cs">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ProjectKeyEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectKeyEditor.designer.cs">
+      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\SubjectEditor.cs">
       <SubType>UserControl</SubType>
@@ -299,8 +311,14 @@
     <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
       <DependentUpon>MoneyTableEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectAddressEditor.resx">
+      <DependentUpon>ProjectAddressEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectEditor.resx">
       <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectKeyEditor.resx">
+      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubjectEditor.resx">
       <DependentUpon>SubjectEditor.cs</DependentUpon>
