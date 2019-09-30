@@ -742,7 +742,7 @@
             this.ibEdit6.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit6.Location = new System.Drawing.Point(261, 0);
             this.ibEdit6.Name = "ibEdit6";
-            this.ibEdit6.Size = new System.Drawing.Size(355, 26);
+            this.ibEdit6.Size = new System.Drawing.Size(199, 26);
             this.ibEdit6.TabIndex = 0;
             // 
             // label27
@@ -826,7 +826,7 @@
             this.ibEdit10.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit10.Location = new System.Drawing.Point(288, 0);
             this.ibEdit10.Name = "ibEdit10";
-            this.ibEdit10.Size = new System.Drawing.Size(383, 26);
+            this.ibEdit10.Size = new System.Drawing.Size(520, 26);
             this.ibEdit10.TabIndex = 0;
             // 
             // label28
@@ -1114,7 +1114,7 @@
             this.ibEdit39.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit39.Location = new System.Drawing.Point(0, 0);
             this.ibEdit39.Name = "ibEdit39";
-            this.ibEdit39.Size = new System.Drawing.Size(774, 26);
+            this.ibEdit39.Size = new System.Drawing.Size(808, 26);
             this.ibEdit39.TabIndex = 1;
             // 
             // panel8
@@ -1134,17 +1134,17 @@
             // 
             this.ibEdit41.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit41.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit41.Location = new System.Drawing.Point(346, 0);
+            this.ibEdit41.Location = new System.Drawing.Point(313, 0);
             this.ibEdit41.Margin = new System.Windows.Forms.Padding(5);
             this.ibEdit41.Name = "ibEdit41";
-            this.ibEdit41.Size = new System.Drawing.Size(519, 27);
+            this.ibEdit41.Size = new System.Drawing.Size(495, 27);
             this.ibEdit41.TabIndex = 4;
             // 
             // label31
             // 
             this.label31.Dock = System.Windows.Forms.DockStyle.Left;
             this.label31.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label31.Location = new System.Drawing.Point(261, 0);
+            this.label31.Location = new System.Drawing.Point(228, 0);
             this.label31.Margin = new System.Windows.Forms.Padding(3);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(85, 27);
@@ -1189,7 +1189,7 @@
             "其它"});
             this.ibEdit40.Location = new System.Drawing.Point(0, 0);
             this.ibEdit40.Name = "ibEdit40";
-            this.ibEdit40.Size = new System.Drawing.Size(261, 24);
+            this.ibEdit40.Size = new System.Drawing.Size(228, 24);
             this.ibEdit40.TabIndex = 3;
             // 
             // panel9
@@ -1241,7 +1241,7 @@
             this.ibEdit43.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit43.Location = new System.Drawing.Point(0, 0);
             this.ibEdit43.Name = "ibEdit43";
-            this.ibEdit43.Size = new System.Drawing.Size(823, 26);
+            this.ibEdit43.Size = new System.Drawing.Size(822, 26);
             this.ibEdit43.TabIndex = 0;
             // 
             // plButtons
