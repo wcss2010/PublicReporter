@@ -39,12 +39,12 @@
             // 
             // Town
             // 
-            this.Town.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Town.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Town.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Town.FormattingEnabled = true;
-            this.Town.Location = new System.Drawing.Point(435, 0);
+            this.Town.Location = new System.Drawing.Point(396, 0);
             this.Town.Name = "Town";
-            this.Town.Size = new System.Drawing.Size(121, 24);
+            this.Town.Size = new System.Drawing.Size(160, 24);
             this.Town.TabIndex = 7;
             // 
             // County
@@ -52,9 +52,9 @@
             this.County.Dock = System.Windows.Forms.DockStyle.Left;
             this.County.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.County.FormattingEnabled = true;
-            this.County.Location = new System.Drawing.Point(290, 0);
+            this.County.Location = new System.Drawing.Point(264, 0);
             this.County.Name = "County";
-            this.County.Size = new System.Drawing.Size(121, 24);
+            this.County.Size = new System.Drawing.Size(132, 24);
             this.County.TabIndex = 6;
             this.County.SelectedIndexChanged += new System.EventHandler(this.County_SelectedIndexChanged);
             // 
@@ -63,9 +63,9 @@
             this.City.Dock = System.Windows.Forms.DockStyle.Left;
             this.City.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.City.FormattingEnabled = true;
-            this.City.Location = new System.Drawing.Point(145, 0);
+            this.City.Location = new System.Drawing.Point(132, 0);
             this.City.Name = "City";
-            this.City.Size = new System.Drawing.Size(121, 24);
+            this.City.Size = new System.Drawing.Size(132, 24);
             this.City.TabIndex = 5;
             this.City.SelectedIndexChanged += new System.EventHandler(this.City_SelectedIndexChanged);
             // 
@@ -76,16 +76,16 @@
             this.Province.FormattingEnabled = true;
             this.Province.Location = new System.Drawing.Point(0, 0);
             this.Province.Name = "Province";
-            this.Province.Size = new System.Drawing.Size(121, 24);
+            this.Province.Size = new System.Drawing.Size(132, 24);
             this.Province.TabIndex = 4;
             this.Province.SelectedIndexChanged += new System.EventHandler(this.Province_SelectedIndexChanged);
             // 
             // lblProvince
             // 
             this.lblProvince.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblProvince.Location = new System.Drawing.Point(121, 0);
+            this.lblProvince.Location = new System.Drawing.Point(132, 0);
             this.lblProvince.Name = "lblProvince";
-            this.lblProvince.Size = new System.Drawing.Size(24, 24);
+            this.lblProvince.Size = new System.Drawing.Size(0, 24);
             this.lblProvince.TabIndex = 8;
             this.lblProvince.Text = "省";
             this.lblProvince.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -93,9 +93,9 @@
             // lblCity
             // 
             this.lblCity.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblCity.Location = new System.Drawing.Point(266, 0);
+            this.lblCity.Location = new System.Drawing.Point(264, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(24, 24);
+            this.lblCity.Size = new System.Drawing.Size(0, 24);
             this.lblCity.TabIndex = 9;
             this.lblCity.Text = "市";
             this.lblCity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -103,9 +103,9 @@
             // lblArea
             // 
             this.lblArea.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblArea.Location = new System.Drawing.Point(411, 0);
+            this.lblArea.Location = new System.Drawing.Point(396, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(24, 24);
+            this.lblArea.Size = new System.Drawing.Size(0, 24);
             this.lblArea.TabIndex = 10;
             this.lblArea.Text = "区";
             this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
