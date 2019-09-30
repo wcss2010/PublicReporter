@@ -192,6 +192,7 @@
             this.Column8.HeaderText = "负责单位";
             this.Column8.MinimumWidth = 110;
             this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
             this.Column8.Width = 110;
             // 
             // Column9
@@ -199,6 +200,7 @@
             this.Column9.HeaderText = "所属部门";
             this.Column9.MinimumWidth = 110;
             this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
             this.Column9.Width = 110;
             // 
             // Column10
@@ -206,6 +208,7 @@
             this.Column10.HeaderText = "所属地点";
             this.Column10.MinimumWidth = 110;
             this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
             this.Column10.Width = 110;
             // 
             // Column3
