@@ -182,8 +182,8 @@
             this.hSkinTableLayoutPanel1.BorderColor = System.Drawing.Color.Black;
             this.hSkinTableLayoutPanel1.ColumnCount = 3;
             this.hSkinTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.hSkinTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66666F));
-            this.hSkinTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66666F));
+            this.hSkinTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
+            this.hSkinTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.hSkinTableLayoutPanel1.Controls.Add(this.label33, 0, 7);
             this.hSkinTableLayoutPanel1.Controls.Add(this.label32, 0, 6);
             this.hSkinTableLayoutPanel1.Controls.Add(this.label30, 0, 5);
@@ -252,40 +252,40 @@
             this.hSkinTableLayoutPanel1.Location = new System.Drawing.Point(5, 6);
             this.hSkinTableLayoutPanel1.Name = "hSkinTableLayoutPanel1";
             this.hSkinTableLayoutPanel1.RowCount = 26;
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858026F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703704F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703704F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.151916F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.509907F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.858025F));
-            this.hSkinTableLayoutPanel1.Size = new System.Drawing.Size(1049, 757);
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703369F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703369F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.86221F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.86221F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.857676F));
+            this.hSkinTableLayoutPanel1.Size = new System.Drawing.Size(1049, 781);
             this.hSkinTableLayoutPanel1.TabIndex = 1;
             // 
             // label33
             // 
             this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label33.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label33.Location = new System.Drawing.Point(3, 205);
+            this.label33.Location = new System.Drawing.Point(3, 211);
             this.label33.Margin = new System.Windows.Forms.Padding(3);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(168, 22);
@@ -297,7 +297,7 @@
             // 
             this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label32.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label32.Location = new System.Drawing.Point(3, 177);
+            this.label32.Location = new System.Drawing.Point(3, 183);
             this.label32.Margin = new System.Windows.Forms.Padding(3);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(168, 22);
@@ -309,10 +309,10 @@
             // 
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label30.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label30.Location = new System.Drawing.Point(3, 148);
+            this.label30.Location = new System.Drawing.Point(3, 153);
             this.label30.Margin = new System.Windows.Forms.Padding(3);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(168, 23);
+            this.label30.Size = new System.Drawing.Size(168, 24);
             this.label30.TabIndex = 1;
             this.label30.Text = "所属部门";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -321,10 +321,10 @@
             // 
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label25.Location = new System.Drawing.Point(3, 119);
+            this.label25.Location = new System.Drawing.Point(3, 123);
             this.label25.Margin = new System.Windows.Forms.Padding(3);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(168, 23);
+            this.label25.Size = new System.Drawing.Size(168, 24);
             this.label25.TabIndex = 1;
             this.label25.Text = "项目负责单位";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -333,7 +333,7 @@
             // 
             this.ibEdit11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit11.Location = new System.Drawing.Point(177, 349);
+            this.ibEdit11.Location = new System.Drawing.Point(177, 359);
             this.ibEdit11.Name = "ibEdit11";
             this.ibEdit11.Size = new System.Drawing.Size(431, 26);
             this.ibEdit11.TabIndex = 0;
@@ -342,10 +342,10 @@
             // 
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.Font = new System.Drawing.Font("仿宋", 14F);
-            this.label29.Location = new System.Drawing.Point(614, 320);
+            this.label29.Location = new System.Drawing.Point(614, 329);
             this.label29.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(432, 26);
+            this.label29.Size = new System.Drawing.Size(432, 27);
             this.label29.TabIndex = 1;
             this.label29.Text = "承研方";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -357,7 +357,7 @@
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 23);
+            this.label1.Size = new System.Drawing.Size(168, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "合同编号";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -366,10 +366,10 @@
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(3, 32);
+            this.label2.Location = new System.Drawing.Point(3, 33);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 23);
+            this.label2.Size = new System.Drawing.Size(168, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "合同名称";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -378,10 +378,10 @@
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(3, 61);
+            this.label3.Location = new System.Drawing.Point(3, 63);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 23);
+            this.label3.Size = new System.Drawing.Size(168, 24);
             this.label3.TabIndex = 0;
             this.label3.Text = "密级";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -390,10 +390,10 @@
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(3, 90);
+            this.label4.Location = new System.Drawing.Point(3, 93);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(168, 23);
+            this.label4.Size = new System.Drawing.Size(168, 24);
             this.label4.TabIndex = 0;
             this.label4.Text = "项目负责人";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -402,10 +402,10 @@
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label5.Location = new System.Drawing.Point(3, 233);
+            this.label5.Location = new System.Drawing.Point(3, 239);
             this.label5.Margin = new System.Windows.Forms.Padding(3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 23);
+            this.label5.Size = new System.Drawing.Size(168, 24);
             this.label5.TabIndex = 0;
             this.label5.Text = "起止时间";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -414,10 +414,10 @@
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label6.Location = new System.Drawing.Point(3, 262);
+            this.label6.Location = new System.Drawing.Point(3, 269);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(168, 23);
+            this.label6.Size = new System.Drawing.Size(168, 24);
             this.label6.TabIndex = 0;
             this.label6.Text = "合同价款";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -427,10 +427,10 @@
             this.hSkinTableLayoutPanel1.SetColumnSpan(this.label7, 3);
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("仿宋", 16F);
-            this.label7.Location = new System.Drawing.Point(3, 290);
+            this.label7.Location = new System.Drawing.Point(3, 298);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(1043, 27);
+            this.label7.Size = new System.Drawing.Size(1043, 28);
             this.label7.TabIndex = 0;
             this.label7.Text = "基本信息";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -440,10 +440,10 @@
             this.hSkinTableLayoutPanel1.SetColumnSpan(this.label8, 2);
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("仿宋", 14F);
-            this.label8.Location = new System.Drawing.Point(3, 320);
+            this.label8.Location = new System.Drawing.Point(3, 329);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(605, 26);
+            this.label8.Size = new System.Drawing.Size(605, 27);
             this.label8.TabIndex = 0;
             this.label8.Text = "委托方";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -452,10 +452,10 @@
             // 
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(3, 349);
+            this.label9.Location = new System.Drawing.Point(3, 359);
             this.label9.Margin = new System.Windows.Forms.Padding(3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(168, 23);
+            this.label9.Size = new System.Drawing.Size(168, 24);
             this.label9.TabIndex = 0;
             this.label9.Text = "单位名称";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -464,10 +464,10 @@
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(3, 378);
+            this.label10.Location = new System.Drawing.Point(3, 389);
             this.label10.Margin = new System.Windows.Forms.Padding(3);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(168, 23);
+            this.label10.Size = new System.Drawing.Size(168, 24);
             this.label10.TabIndex = 0;
             this.label10.Text = "单位性质";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -476,10 +476,10 @@
             // 
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label11.Location = new System.Drawing.Point(3, 407);
+            this.label11.Location = new System.Drawing.Point(3, 419);
             this.label11.Margin = new System.Windows.Forms.Padding(3);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(168, 23);
+            this.label11.Size = new System.Drawing.Size(168, 24);
             this.label11.TabIndex = 0;
             this.label11.Text = "法定代表人";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -488,10 +488,10 @@
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label12.Location = new System.Drawing.Point(3, 436);
+            this.label12.Location = new System.Drawing.Point(3, 449);
             this.label12.Margin = new System.Windows.Forms.Padding(3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(168, 23);
+            this.label12.Size = new System.Drawing.Size(168, 24);
             this.label12.TabIndex = 0;
             this.label12.Text = "联系人";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -500,10 +500,10 @@
             // 
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label13.Location = new System.Drawing.Point(3, 465);
+            this.label13.Location = new System.Drawing.Point(3, 479);
             this.label13.Margin = new System.Windows.Forms.Padding(3);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(168, 23);
+            this.label13.Size = new System.Drawing.Size(168, 24);
             this.label13.TabIndex = 0;
             this.label13.Text = "联系电话";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -512,10 +512,10 @@
             // 
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label14.Location = new System.Drawing.Point(3, 494);
+            this.label14.Location = new System.Drawing.Point(3, 509);
             this.label14.Margin = new System.Windows.Forms.Padding(3);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(168, 23);
+            this.label14.Size = new System.Drawing.Size(168, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "通信地址";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -524,10 +524,10 @@
             // 
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label15.Location = new System.Drawing.Point(3, 523);
+            this.label15.Location = new System.Drawing.Point(3, 539);
             this.label15.Margin = new System.Windows.Forms.Padding(3);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(168, 33);
+            this.label15.Size = new System.Drawing.Size(168, 24);
             this.label15.TabIndex = 0;
             this.label15.Text = "邮政编码";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -536,10 +536,10 @@
             // 
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label16.Location = new System.Drawing.Point(3, 562);
+            this.label16.Location = new System.Drawing.Point(3, 569);
             this.label16.Margin = new System.Windows.Forms.Padding(3);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(168, 13);
+            this.label16.Size = new System.Drawing.Size(168, 24);
             this.label16.TabIndex = 0;
             this.label16.Text = "组织机构代码";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -548,10 +548,10 @@
             // 
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label17.Location = new System.Drawing.Point(3, 581);
+            this.label17.Location = new System.Drawing.Point(3, 599);
             this.label17.Margin = new System.Windows.Forms.Padding(3);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(168, 23);
+            this.label17.Size = new System.Drawing.Size(168, 24);
             this.label17.TabIndex = 0;
             this.label17.Text = "税号";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -560,10 +560,10 @@
             // 
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label18.Location = new System.Drawing.Point(3, 610);
+            this.label18.Location = new System.Drawing.Point(3, 629);
             this.label18.Margin = new System.Windows.Forms.Padding(3);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(168, 23);
+            this.label18.Size = new System.Drawing.Size(168, 24);
             this.label18.TabIndex = 0;
             this.label18.Text = "开户名称";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -572,10 +572,10 @@
             // 
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label19.Location = new System.Drawing.Point(3, 639);
+            this.label19.Location = new System.Drawing.Point(3, 659);
             this.label19.Margin = new System.Windows.Forms.Padding(3);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(168, 23);
+            this.label19.Size = new System.Drawing.Size(168, 24);
             this.label19.TabIndex = 0;
             this.label19.Text = "开户银行";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -584,10 +584,10 @@
             // 
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label20.Location = new System.Drawing.Point(3, 668);
+            this.label20.Location = new System.Drawing.Point(3, 689);
             this.label20.Margin = new System.Windows.Forms.Padding(3);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(168, 23);
+            this.label20.Size = new System.Drawing.Size(168, 24);
             this.label20.TabIndex = 0;
             this.label20.Text = "银行账号";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -596,10 +596,10 @@
             // 
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label21.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label21.Location = new System.Drawing.Point(3, 697);
+            this.label21.Location = new System.Drawing.Point(3, 719);
             this.label21.Margin = new System.Windows.Forms.Padding(3);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(168, 23);
+            this.label21.Size = new System.Drawing.Size(168, 24);
             this.label21.TabIndex = 0;
             this.label21.Text = "财务负责人";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -608,10 +608,10 @@
             // 
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label22.Location = new System.Drawing.Point(3, 726);
+            this.label22.Location = new System.Drawing.Point(3, 749);
             this.label22.Margin = new System.Windows.Forms.Padding(3);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(168, 28);
+            this.label22.Size = new System.Drawing.Size(168, 29);
             this.label22.TabIndex = 0;
             this.label22.Text = "联系电话";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -624,7 +624,7 @@
             this.panel1.Location = new System.Drawing.Point(177, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(869, 27);
+            this.panel1.Size = new System.Drawing.Size(869, 28);
             this.panel1.TabIndex = 1;
             // 
             // ibEdit1
@@ -641,10 +641,10 @@
             this.hSkinTableLayoutPanel1.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.ibEdit2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(177, 30);
+            this.panel2.Location = new System.Drawing.Point(177, 31);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(869, 27);
+            this.panel2.Size = new System.Drawing.Size(869, 28);
             this.panel2.TabIndex = 1;
             // 
             // ibEdit2
@@ -664,10 +664,10 @@
             this.panel3.Controls.Add(this.label26);
             this.panel3.Controls.Add(this.ibEdit3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(177, 59);
+            this.panel3.Location = new System.Drawing.Point(177, 61);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(869, 27);
+            this.panel3.Size = new System.Drawing.Size(869, 28);
             this.panel3.TabIndex = 1;
             // 
             // label24
@@ -676,7 +676,7 @@
             this.label24.Font = new System.Drawing.Font("仿宋", 12F);
             this.label24.Location = new System.Drawing.Point(195, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(39, 27);
+            this.label24.Size = new System.Drawing.Size(39, 28);
             this.label24.TabIndex = 4;
             this.label24.Text = "年";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -701,7 +701,7 @@
             this.label26.Font = new System.Drawing.Font("仿宋", 12F);
             this.label26.Location = new System.Drawing.Point(76, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(51, 27);
+            this.label26.Size = new System.Drawing.Size(51, 28);
             this.label26.TabIndex = 1;
             this.label26.Text = "密期";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -730,10 +730,10 @@
             this.panel4.Controls.Add(this.label27);
             this.panel4.Controls.Add(this.ibEdit5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(177, 88);
+            this.panel4.Location = new System.Drawing.Point(177, 91);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(869, 27);
+            this.panel4.Size = new System.Drawing.Size(869, 28);
             this.panel4.TabIndex = 1;
             // 
             // ibEdit6
@@ -751,7 +751,7 @@
             this.label27.Font = new System.Drawing.Font("仿宋", 12F);
             this.label27.Location = new System.Drawing.Point(121, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(140, 27);
+            this.label27.Size = new System.Drawing.Size(140, 28);
             this.label27.TabIndex = 1;
             this.label27.Text = "项目负责人身份证";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -772,10 +772,10 @@
             this.panel5.Controls.Add(this.label23);
             this.panel5.Controls.Add(this.ibEdit7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(177, 231);
+            this.panel5.Location = new System.Drawing.Point(177, 237);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(869, 27);
+            this.panel5.Size = new System.Drawing.Size(869, 28);
             this.panel5.TabIndex = 1;
             // 
             // ibEdit8
@@ -793,7 +793,7 @@
             this.label23.Font = new System.Drawing.Font("仿宋", 12F);
             this.label23.Location = new System.Drawing.Point(121, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(40, 27);
+            this.label23.Size = new System.Drawing.Size(40, 28);
             this.label23.TabIndex = 2;
             this.label23.Text = " 至 ";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -814,10 +814,10 @@
             this.panel6.Controls.Add(this.label28);
             this.panel6.Controls.Add(this.ibEdit9);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(177, 260);
+            this.panel6.Location = new System.Drawing.Point(177, 267);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(869, 27);
+            this.panel6.Size = new System.Drawing.Size(869, 28);
             this.panel6.TabIndex = 1;
             // 
             // ibEdit10
@@ -835,7 +835,7 @@
             this.label28.Font = new System.Drawing.Font("仿宋", 12F);
             this.label28.Location = new System.Drawing.Point(121, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(167, 27);
+            this.label28.Size = new System.Drawing.Size(167, 28);
             this.label28.TabIndex = 1;
             this.label28.Text = "万元   经费管理模式";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -858,7 +858,7 @@
             // 
             this.ibEdit25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit25.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit25.Location = new System.Drawing.Point(614, 349);
+            this.ibEdit25.Location = new System.Drawing.Point(614, 359);
             this.ibEdit25.Name = "ibEdit25";
             this.ibEdit25.Size = new System.Drawing.Size(432, 26);
             this.ibEdit25.TabIndex = 0;
@@ -867,7 +867,7 @@
             // 
             this.ibEdit12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit12.Location = new System.Drawing.Point(177, 378);
+            this.ibEdit12.Location = new System.Drawing.Point(177, 389);
             this.ibEdit12.Name = "ibEdit12";
             this.ibEdit12.Size = new System.Drawing.Size(431, 26);
             this.ibEdit12.TabIndex = 0;
@@ -876,7 +876,7 @@
             // 
             this.ibEdit26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit26.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit26.Location = new System.Drawing.Point(614, 378);
+            this.ibEdit26.Location = new System.Drawing.Point(614, 389);
             this.ibEdit26.Name = "ibEdit26";
             this.ibEdit26.Size = new System.Drawing.Size(432, 26);
             this.ibEdit26.TabIndex = 0;
@@ -885,7 +885,7 @@
             // 
             this.ibEdit13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit13.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit13.Location = new System.Drawing.Point(177, 407);
+            this.ibEdit13.Location = new System.Drawing.Point(177, 419);
             this.ibEdit13.Name = "ibEdit13";
             this.ibEdit13.Size = new System.Drawing.Size(431, 26);
             this.ibEdit13.TabIndex = 0;
@@ -894,7 +894,7 @@
             // 
             this.ibEdit27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit27.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit27.Location = new System.Drawing.Point(614, 407);
+            this.ibEdit27.Location = new System.Drawing.Point(614, 419);
             this.ibEdit27.Name = "ibEdit27";
             this.ibEdit27.Size = new System.Drawing.Size(432, 26);
             this.ibEdit27.TabIndex = 0;
@@ -903,7 +903,7 @@
             // 
             this.ibEdit14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit14.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit14.Location = new System.Drawing.Point(177, 436);
+            this.ibEdit14.Location = new System.Drawing.Point(177, 449);
             this.ibEdit14.Name = "ibEdit14";
             this.ibEdit14.Size = new System.Drawing.Size(431, 26);
             this.ibEdit14.TabIndex = 0;
@@ -912,7 +912,7 @@
             // 
             this.ibEdit28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit28.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit28.Location = new System.Drawing.Point(614, 436);
+            this.ibEdit28.Location = new System.Drawing.Point(614, 449);
             this.ibEdit28.Name = "ibEdit28";
             this.ibEdit28.Size = new System.Drawing.Size(432, 26);
             this.ibEdit28.TabIndex = 0;
@@ -921,7 +921,7 @@
             // 
             this.ibEdit15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit15.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit15.Location = new System.Drawing.Point(177, 465);
+            this.ibEdit15.Location = new System.Drawing.Point(177, 479);
             this.ibEdit15.Name = "ibEdit15";
             this.ibEdit15.Size = new System.Drawing.Size(431, 26);
             this.ibEdit15.TabIndex = 0;
@@ -930,7 +930,7 @@
             // 
             this.ibEdit29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit29.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit29.Location = new System.Drawing.Point(614, 465);
+            this.ibEdit29.Location = new System.Drawing.Point(614, 479);
             this.ibEdit29.Name = "ibEdit29";
             this.ibEdit29.Size = new System.Drawing.Size(432, 26);
             this.ibEdit29.TabIndex = 0;
@@ -939,7 +939,7 @@
             // 
             this.ibEdit16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit16.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit16.Location = new System.Drawing.Point(177, 494);
+            this.ibEdit16.Location = new System.Drawing.Point(177, 509);
             this.ibEdit16.Name = "ibEdit16";
             this.ibEdit16.Size = new System.Drawing.Size(431, 26);
             this.ibEdit16.TabIndex = 0;
@@ -948,7 +948,7 @@
             // 
             this.ibEdit30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit30.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit30.Location = new System.Drawing.Point(614, 494);
+            this.ibEdit30.Location = new System.Drawing.Point(614, 509);
             this.ibEdit30.Name = "ibEdit30";
             this.ibEdit30.Size = new System.Drawing.Size(432, 26);
             this.ibEdit30.TabIndex = 0;
@@ -957,7 +957,7 @@
             // 
             this.ibEdit17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit17.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit17.Location = new System.Drawing.Point(177, 523);
+            this.ibEdit17.Location = new System.Drawing.Point(177, 539);
             this.ibEdit17.Name = "ibEdit17";
             this.ibEdit17.Size = new System.Drawing.Size(431, 26);
             this.ibEdit17.TabIndex = 0;
@@ -966,7 +966,7 @@
             // 
             this.ibEdit31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit31.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit31.Location = new System.Drawing.Point(614, 523);
+            this.ibEdit31.Location = new System.Drawing.Point(614, 539);
             this.ibEdit31.Name = "ibEdit31";
             this.ibEdit31.Size = new System.Drawing.Size(432, 26);
             this.ibEdit31.TabIndex = 0;
@@ -975,7 +975,7 @@
             // 
             this.ibEdit18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit18.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit18.Location = new System.Drawing.Point(177, 562);
+            this.ibEdit18.Location = new System.Drawing.Point(177, 569);
             this.ibEdit18.Name = "ibEdit18";
             this.ibEdit18.Size = new System.Drawing.Size(431, 26);
             this.ibEdit18.TabIndex = 0;
@@ -984,7 +984,7 @@
             // 
             this.ibEdit32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit32.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit32.Location = new System.Drawing.Point(614, 562);
+            this.ibEdit32.Location = new System.Drawing.Point(614, 569);
             this.ibEdit32.Name = "ibEdit32";
             this.ibEdit32.Size = new System.Drawing.Size(432, 26);
             this.ibEdit32.TabIndex = 0;
@@ -993,7 +993,7 @@
             // 
             this.ibEdit19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit19.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit19.Location = new System.Drawing.Point(177, 581);
+            this.ibEdit19.Location = new System.Drawing.Point(177, 599);
             this.ibEdit19.Name = "ibEdit19";
             this.ibEdit19.Size = new System.Drawing.Size(431, 26);
             this.ibEdit19.TabIndex = 0;
@@ -1002,7 +1002,7 @@
             // 
             this.ibEdit33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit33.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit33.Location = new System.Drawing.Point(614, 581);
+            this.ibEdit33.Location = new System.Drawing.Point(614, 599);
             this.ibEdit33.Name = "ibEdit33";
             this.ibEdit33.Size = new System.Drawing.Size(432, 26);
             this.ibEdit33.TabIndex = 0;
@@ -1011,7 +1011,7 @@
             // 
             this.ibEdit20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit20.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit20.Location = new System.Drawing.Point(177, 610);
+            this.ibEdit20.Location = new System.Drawing.Point(177, 629);
             this.ibEdit20.Name = "ibEdit20";
             this.ibEdit20.Size = new System.Drawing.Size(431, 26);
             this.ibEdit20.TabIndex = 0;
@@ -1020,7 +1020,7 @@
             // 
             this.ibEdit34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit34.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit34.Location = new System.Drawing.Point(614, 610);
+            this.ibEdit34.Location = new System.Drawing.Point(614, 629);
             this.ibEdit34.Name = "ibEdit34";
             this.ibEdit34.Size = new System.Drawing.Size(432, 26);
             this.ibEdit34.TabIndex = 0;
@@ -1029,7 +1029,7 @@
             // 
             this.ibEdit21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit21.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit21.Location = new System.Drawing.Point(177, 639);
+            this.ibEdit21.Location = new System.Drawing.Point(177, 659);
             this.ibEdit21.Name = "ibEdit21";
             this.ibEdit21.Size = new System.Drawing.Size(431, 26);
             this.ibEdit21.TabIndex = 0;
@@ -1038,7 +1038,7 @@
             // 
             this.ibEdit35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit35.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit35.Location = new System.Drawing.Point(614, 639);
+            this.ibEdit35.Location = new System.Drawing.Point(614, 659);
             this.ibEdit35.Name = "ibEdit35";
             this.ibEdit35.Size = new System.Drawing.Size(432, 26);
             this.ibEdit35.TabIndex = 0;
@@ -1047,7 +1047,7 @@
             // 
             this.ibEdit22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit22.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit22.Location = new System.Drawing.Point(177, 668);
+            this.ibEdit22.Location = new System.Drawing.Point(177, 689);
             this.ibEdit22.Name = "ibEdit22";
             this.ibEdit22.Size = new System.Drawing.Size(431, 26);
             this.ibEdit22.TabIndex = 0;
@@ -1056,7 +1056,7 @@
             // 
             this.ibEdit36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit36.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit36.Location = new System.Drawing.Point(614, 668);
+            this.ibEdit36.Location = new System.Drawing.Point(614, 689);
             this.ibEdit36.Name = "ibEdit36";
             this.ibEdit36.Size = new System.Drawing.Size(432, 26);
             this.ibEdit36.TabIndex = 0;
@@ -1065,7 +1065,7 @@
             // 
             this.ibEdit23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit23.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit23.Location = new System.Drawing.Point(177, 697);
+            this.ibEdit23.Location = new System.Drawing.Point(177, 719);
             this.ibEdit23.Name = "ibEdit23";
             this.ibEdit23.Size = new System.Drawing.Size(431, 26);
             this.ibEdit23.TabIndex = 0;
@@ -1074,7 +1074,7 @@
             // 
             this.ibEdit37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit37.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit37.Location = new System.Drawing.Point(614, 697);
+            this.ibEdit37.Location = new System.Drawing.Point(614, 719);
             this.ibEdit37.Name = "ibEdit37";
             this.ibEdit37.Size = new System.Drawing.Size(432, 26);
             this.ibEdit37.TabIndex = 0;
@@ -1083,7 +1083,7 @@
             // 
             this.ibEdit24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit24.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit24.Location = new System.Drawing.Point(177, 726);
+            this.ibEdit24.Location = new System.Drawing.Point(177, 749);
             this.ibEdit24.Name = "ibEdit24";
             this.ibEdit24.Size = new System.Drawing.Size(431, 26);
             this.ibEdit24.TabIndex = 0;
@@ -1092,7 +1092,7 @@
             // 
             this.ibEdit38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit38.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit38.Location = new System.Drawing.Point(614, 726);
+            this.ibEdit38.Location = new System.Drawing.Point(614, 749);
             this.ibEdit38.Name = "ibEdit38";
             this.ibEdit38.Size = new System.Drawing.Size(432, 26);
             this.ibEdit38.TabIndex = 0;
@@ -1102,10 +1102,10 @@
             this.hSkinTableLayoutPanel1.SetColumnSpan(this.panel7, 2);
             this.panel7.Controls.Add(this.ibEdit39);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(177, 117);
+            this.panel7.Location = new System.Drawing.Point(177, 121);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(869, 27);
+            this.panel7.Size = new System.Drawing.Size(869, 28);
             this.panel7.TabIndex = 2;
             // 
             // ibEdit39
@@ -1124,10 +1124,10 @@
             this.panel8.Controls.Add(this.label31);
             this.panel8.Controls.Add(this.ibEdit40);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(177, 146);
+            this.panel8.Location = new System.Drawing.Point(177, 151);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(869, 27);
+            this.panel8.Size = new System.Drawing.Size(869, 28);
             this.panel8.TabIndex = 2;
             // 
             // ibEdit41
@@ -1137,7 +1137,7 @@
             this.ibEdit41.Location = new System.Drawing.Point(313, 0);
             this.ibEdit41.Margin = new System.Windows.Forms.Padding(5);
             this.ibEdit41.Name = "ibEdit41";
-            this.ibEdit41.Size = new System.Drawing.Size(495, 27);
+            this.ibEdit41.Size = new System.Drawing.Size(495, 28);
             this.ibEdit41.TabIndex = 4;
             // 
             // label31
@@ -1147,7 +1147,7 @@
             this.label31.Location = new System.Drawing.Point(228, 0);
             this.label31.Margin = new System.Windows.Forms.Padding(3);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(85, 27);
+            this.label31.Size = new System.Drawing.Size(85, 28);
             this.label31.TabIndex = 1;
             this.label31.Text = "所属地点";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1198,7 +1198,7 @@
             this.panel9.Controls.Add(this.label34);
             this.panel9.Controls.Add(this.ibEdit42);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(177, 175);
+            this.panel9.Location = new System.Drawing.Point(177, 181);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(869, 26);
@@ -1230,7 +1230,7 @@
             this.hSkinTableLayoutPanel1.SetColumnSpan(this.panel10, 2);
             this.panel10.Controls.Add(this.ibEdit43);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(177, 203);
+            this.panel10.Location = new System.Drawing.Point(177, 209);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(869, 26);
