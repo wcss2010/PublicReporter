@@ -17,6 +17,7 @@ namespace PublicReporter
             PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("PublicReporterLib.dll");
             PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("Noear.Weed3.dll");
             PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("Aspose.Words.dll");
+            PublicReporterLib.PluginLoader.IgnoreLoadDllFiles.Add("Newtonsoft.Json.dll");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
