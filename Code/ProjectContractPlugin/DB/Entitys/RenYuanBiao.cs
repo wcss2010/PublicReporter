@@ -25,6 +25,8 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("MeiNianTouRuShiJian", MeiNianTouRuShiJian);
             query.set("RenWuFenGong", RenWuFenGong);
             query.set("ShenFenZhengHao", ShenFenZhengHao);
+            query.set("DianHua", DianHua);
+            query.set("ShouJi", ShouJi);
             query.set("KeTiBiaoHao", KeTiBiaoHao);
             query.set("ZhiWu", ZhiWu);
             query.set("ShiXiangMuFuZeRen", ShiXiangMuFuZeRen);
@@ -42,6 +44,8 @@ namespace ProjectContractPlugin.DB.Entitys
         public int MeiNianTouRuShiJian { get; set; }
         public string RenWuFenGong { get; set; }
         public string ShenFenZhengHao { get; set; }
+        public string DianHua { get; set; }
+        public string ShouJi { get; set; }
         public string KeTiBiaoHao { get; set; }
         public string ZhiWu { get; set; }
         public string ShiXiangMuFuZeRen { get; set; }
@@ -58,6 +62,8 @@ namespace ProjectContractPlugin.DB.Entitys
             MeiNianTouRuShiJian = source("MeiNianTouRuShiJian").value<int>(0);
             RenWuFenGong = source("RenWuFenGong").value<string>("");
             ShenFenZhengHao = source("ShenFenZhengHao").value<string>("");
+            DianHua = source("DianHua").value<string>("");
+            ShouJi = source("ShouJi").value<string>("");
             KeTiBiaoHao = source("KeTiBiaoHao").value<string>("");
             ZhiWu = source("ZhiWu").value<string>("");
             ShiXiangMuFuZeRen = source("ShiXiangMuFuZeRen").value<string>("");

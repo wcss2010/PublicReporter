@@ -22,10 +22,14 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("HeTongMiQi", HeTongMiQi);
             query.set("HeTongFuZeRen", HeTongFuZeRen);
             query.set("HeTongFuZeRenShenFenZheng", HeTongFuZeRenShenFenZheng);
+            query.set("HeTongFuZeRenDianHua", HeTongFuZeRenDianHua);
             query.set("HeTongKaiShiShiJian", HeTongKaiShiShiJian);
             query.set("HeTongJieShuShiJian", HeTongJieShuShiJian);
             query.set("HeTongJiaKuan", HeTongJiaKuan);
             query.set("HeTongFuZeDanWei", HeTongFuZeDanWei);
+            query.set("HeTongFuZeDanWeiTongXunDiZhi", HeTongFuZeDanWeiTongXunDiZhi);
+            query.set("HeTongFuZeDanWeiLianXiRen", HeTongFuZeDanWeiLianXiRen);
+            query.set("HeTongFuZeDanWeiLianXiRenDianHua", HeTongFuZeDanWeiLianXiRenDianHua);
             query.set("HeTongSuoShuBuMen", HeTongSuoShuBuMen);
             query.set("HeTongSuoShuDiDian", HeTongSuoShuDiDian);
             query.set("HeTongGuanJianZi", HeTongGuanJianZi);
@@ -71,10 +75,14 @@ namespace ProjectContractPlugin.DB.Entitys
         public int HeTongMiQi { get; set; }
         public string HeTongFuZeRen { get; set; }
         public string HeTongFuZeRenShenFenZheng { get; set; }
+        public string HeTongFuZeRenDianHua { get; set; }
         public DateTime HeTongKaiShiShiJian { get; set; }
         public DateTime HeTongJieShuShiJian { get; set; }
         public decimal HeTongJiaKuan { get; set; }
         public string HeTongFuZeDanWei { get; set; }
+        public string HeTongFuZeDanWeiTongXunDiZhi { get; set; }
+        public string HeTongFuZeDanWeiLianXiRen { get; set; }
+        public string HeTongFuZeDanWeiLianXiRenDianHua { get; set; }
         public string HeTongSuoShuBuMen { get; set; }
         public string HeTongSuoShuDiDian { get; set; }
         public string HeTongGuanJianZi { get; set; }
@@ -119,10 +127,14 @@ namespace ProjectContractPlugin.DB.Entitys
             HeTongMiQi = source("HeTongMiQi").value<int>(0);
             HeTongFuZeRen = source("HeTongFuZeRen").value<string>("");
             HeTongFuZeRenShenFenZheng = source("HeTongFuZeRenShenFenZheng").value<string>("");
+            HeTongFuZeRenDianHua = source("HeTongFuZeRenDianHua").value<string>("");
             HeTongKaiShiShiJian = source("HeTongKaiShiShiJian").value<DateTime>(DateTime.Now);
             HeTongJieShuShiJian = source("HeTongJieShuShiJian").value<DateTime>(DateTime.Now);
             HeTongJiaKuan = source("HeTongJiaKuan").value<decimal>(0);
             HeTongFuZeDanWei = source("HeTongFuZeDanWei").value<string>("");
+            HeTongFuZeDanWeiTongXunDiZhi = source("HeTongFuZeDanWeiTongXunDiZhi").value<string>("");
+            HeTongFuZeDanWeiLianXiRen = source("HeTongFuZeDanWeiLianXiRen").value<string>("");
+            HeTongFuZeDanWeiLianXiRenDianHua = source("HeTongFuZeDanWeiLianXiRenDianHua").value<string>("");
             HeTongSuoShuBuMen = source("HeTongSuoShuBuMen").value<string>("");
             HeTongSuoShuDiDian = source("HeTongSuoShuDiDian").value<string>("");
             HeTongGuanJianZi = source("HeTongGuanJianZi").value<string>("");
