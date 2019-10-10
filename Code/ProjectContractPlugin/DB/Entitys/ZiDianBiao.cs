@@ -19,7 +19,7 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("MingCheng", MingCheng);
             query.set("ShuJu", ShuJu);
             query.set("ZhuangTai", ZhuangTai);
-            query.set("ModifyTime", ModifyTime);
+            query.set("ModifyTime", DateTime.Now);
 
             return query;
         }
