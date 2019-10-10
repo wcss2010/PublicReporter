@@ -411,6 +411,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\w5.png" />
+    <None Include="填报系统表格修改.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Attachment_16.png" />
