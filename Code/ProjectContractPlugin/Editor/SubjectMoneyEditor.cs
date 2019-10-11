@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class SubjectMoneyEditor : UserControl
+    public partial class SubjectMoneyEditor : BaseEditor
     {
         public SubjectMoneyEditor()
         {

@@ -346,6 +346,10 @@ namespace ProjectContractPlugin
             editorMap.Add("提交要求", new SubmitQuestionEditor());
             editorMap.Add("主要研究人员", new WorkerEditor());
             editorMap.Add("共同条款", new TogetherRuleEditor("共同条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyB.rtf"))));
+            editorMap.Add("课题经费年度分配表", new SubjectMoneyYearEditor());
+            editorMap.Add("课题经费预算表", new SubjectMoneyEditor());
+            editorMap.Add("单位经费年度分配表", new UnitMoneyYearEditor());
+            editorMap.Add("附件2", new ExtFile2Editor());
             #endregion
 
             #region 检查哪个Editor没有设置Name

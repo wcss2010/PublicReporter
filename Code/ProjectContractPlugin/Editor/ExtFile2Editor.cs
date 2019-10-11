@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class ExtFile2Editor : UserControl
+    public partial class ExtFile2Editor : BaseEditor
     {
         public ExtFile2Editor()
         {
