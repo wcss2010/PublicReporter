@@ -7,6 +7,7 @@ using ProjectContractPlugin.Forms;
 using ProjectContractPlugin.DB;
 using PublicReporterLib;
 using System.IO;
+using System.Text;
 
 namespace ProjectContractPlugin.Editor
 {
@@ -18,14 +19,13 @@ namespace ProjectContractPlugin.Editor
             InitializeComponent();
         }
 
-
         public override void RefreshView()
         {
             base.RefreshView();
 
             dgvDetail.Rows.Clear();
             list = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
-            list = list.OrderBy(t => t.ZhuangTai).ThenBy(p=>p.ModifyTime).ToList();
+            list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
             foreach (KeTiBiao data in list)
             {
@@ -38,11 +38,21 @@ namespace ProjectContractPlugin.Editor
                 cells.Add(getAddress(data.KeTiSuoShuDiDian));
                 cells.Add(data.KeTiYanJiuMuBiao);
                 cells.Add(data.KeTiYanJiuNeiRong);
-                cells.Add(data.KeTiCanJiaDanWeiFenGong);
+                cells.Add(getWorkTasks(data));
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
             }
+        }
 
+        private string getWorkTasks(KeTiBiao data)
+        {
+            StringBuilder sb = new StringBuilder();
+            List<RenWuBiao> items = ConnectionManager.Context.table("RenWuBiao").where("KeTiBianHao='" + data.BianHao + "'").select("*").getList<RenWuBiao>(new RenWuBiao());
+            foreach (RenWuBiao rwb in items)
+            {
+                sb.Append(rwb.DanWeiMing).Append(":").Append(rwb.RenWuFenGong).Append("\n");
+            }
+            return sb.ToString();
         }
 
         private object getAddress(string temp)
@@ -74,13 +84,13 @@ namespace ProjectContractPlugin.Editor
         private void btnNew_Click(object sender, EventArgs e)
         {
             //显示编辑窗体
-            FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject(null,list.Count);
-            if(form.ShowDialog()==DialogResult.OK)
+            FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject(null, list.Count);
+            if (form.ShowDialog() == DialogResult.OK)
                 //刷新列表
                 RefreshView();
 
         }
-        
+
         private void btnDelAll_Click(object sender, EventArgs e)
         {
             if (dgvDetail.SelectedRows.Count >= 1)
