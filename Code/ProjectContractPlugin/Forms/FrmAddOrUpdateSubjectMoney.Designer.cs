@@ -32,9 +32,10 @@
             // 
             // FrmAddOrUpdateSubjectMoney
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 665);
+            this.ClientSize = new System.Drawing.Size(865, 668);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "FrmAddOrUpdateSubjectMoney";
             this.Text = "FrmAddOrUpdateSubjectMoney";
             this.ResumeLayout(false);

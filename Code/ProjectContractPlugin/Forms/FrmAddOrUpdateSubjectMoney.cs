@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateSubjectMoney : Form
+    public partial class FrmAddOrUpdateSubjectMoney : PublicReporterLib.SuperForm
     {
         public FrmAddOrUpdateSubjectMoney()
         {

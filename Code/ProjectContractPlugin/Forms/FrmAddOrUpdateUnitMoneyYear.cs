@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateUnitMoneyYear : Form
+    public partial class FrmAddOrUpdateUnitMoneyYear : PublicReporterLib.SuperForm
     {
         public FrmAddOrUpdateUnitMoneyYear()
         {

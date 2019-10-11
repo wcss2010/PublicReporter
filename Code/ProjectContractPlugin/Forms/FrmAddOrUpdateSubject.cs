@@ -114,11 +114,14 @@ namespace ProjectContractPlugin.Forms
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
+            if (dgvDetail.Rows.Count >= 1)
             {
-                if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                 {
-                    dgvDetail.Rows.RemoveAt(e.RowIndex);
+                    if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        dgvDetail.Rows.RemoveAt(e.RowIndex);
+                    }
                 }
             }
         }

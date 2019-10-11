@@ -46,10 +46,10 @@
             this.txtWorkUnitAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -279,6 +279,17 @@
             this.dgvDetail.TabIndex = 12;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label4.Location = new System.Drawing.Point(54, 495);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "单位分工：";
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "单位名称";
@@ -294,24 +305,13 @@
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "删除";
+            this.Column3.HeaderText = "";
             this.Column3.MinimumWidth = 60;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Text = "删除";
             this.Column3.UseColumnTextForButtonValue = true;
             this.Column3.Width = 60;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(54, 495);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "单位分工：";
             // 
             // FrmAddOrUpdateSubject
             // 
@@ -367,9 +367,9 @@
         private System.Windows.Forms.TextBox txtWorkUnitAddress;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvDetail;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
-        private System.Windows.Forms.Label label4;
     }
 }
