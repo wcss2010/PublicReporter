@@ -191,6 +191,30 @@ namespace ProjectContractPlugin
             itemObj.Text = "附加条款";
             firstNode.Nodes.Add(itemObj);
 
+            itemObj = new TreeNode();
+            itemObj.Text = "附件1";
+            subItemObj = new TreeNode();
+            subItemObj.Text = "经费分配及预算表";
+
+            TreeNode subSubItemObj = new TreeNode();
+            subSubItemObj.Text = "课题经费年度分配表";
+            subItemObj.Nodes.Add(subSubItemObj);
+
+            subSubItemObj = new TreeNode();
+            subSubItemObj.Text = "课题经费预算表";
+            subItemObj.Nodes.Add(subSubItemObj);
+
+            subSubItemObj = new TreeNode();
+            subSubItemObj.Text = "单位经费年度分配表";
+            subItemObj.Nodes.Add(subSubItemObj);
+
+            itemObj.Nodes.Add(subItemObj);
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "附件2";
+            firstNode.Nodes.Add(itemObj);
+
             Parent_LeftTreeView.Nodes.Add(firstNode);
             firstNode.ExpandAll();
             #endregion
