@@ -255,6 +255,24 @@
     <Compile Include="Forms\FrmAddOrSubmitQuestion.Designer.cs">
       <DependentUpon>FrmAddOrSubmitQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoney.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateSubjectMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyYear.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateSubjectMoneyYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyYear.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateUnitMoneyYear.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAddOrUpdateWorker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +410,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrSubmitQuestion.resx">
       <DependentUpon>FrmAddOrSubmitQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectMoney.resx">
+      <DependentUpon>FrmAddOrUpdateSubjectMoney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectMoneyYear.resx">
+      <DependentUpon>FrmAddOrUpdateSubjectMoneyYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateUnitMoneyYear.resx">
+      <DependentUpon>FrmAddOrUpdateUnitMoneyYear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateWorker.resx">
       <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
