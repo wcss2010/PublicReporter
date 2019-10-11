@@ -33,7 +33,20 @@ namespace ProjectContractPlugin.Forms
                     cells.Add(obj.JingFei);
                     dgvDetail.Rows.Add(cells.ToArray());
                 }
-            }            
+            }
+            else
+            {
+                try
+                {
+                    int start = PluginRootObj.projectObj.HeTongKaiShiShiJian.Year;
+                    int end = PluginRootObj.projectObj.HeTongJieShuShiJian.Year;
+                    for (int kkk = start; kkk <= end; kkk++)
+                    {
+                        dgvDetail.Rows.Add(new object[] { kkk, 0 });
+                    }
+                }
+                catch (Exception ex) { }
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
