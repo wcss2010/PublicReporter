@@ -33,18 +33,6 @@ namespace ProjectContractPlugin.Editor
                         //刷新列表
                         RefreshView();
                 }
-                else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
-                {
-                    //删除
-                    if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        //删除数据
-                        ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
-
-                        //刷新
-                        RefreshView();
-                    }
-                }
             }
         }
 
@@ -60,33 +48,6 @@ namespace ProjectContractPlugin.Editor
 
                 //刷新列表
                 RefreshView();
-            }
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            //显示编辑窗体
-            FrmAddOrUpdateSubjectMoneyYear form = new FrmAddOrUpdateSubjectMoneyYear(string.Empty);
-            if (form.ShowDialog() == DialogResult.OK)
-                //刷新列表
-                RefreshView();
-        }
-
-        private void btnDelAll_Click(object sender, EventArgs e)
-        {
-            if (dgvDetail.SelectedRows.Count >= 1)
-            {
-                if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    //删除数据
-                    foreach (DataGridViewRow dgvRow in dgvDetail.SelectedRows)
-                    {
-                        ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ((KeTiBiao)dgvRow.Tag).BianHao + "'").delete();
-                    }
-
-                    //刷新
-                    RefreshView();
-                }
             }
         }
 

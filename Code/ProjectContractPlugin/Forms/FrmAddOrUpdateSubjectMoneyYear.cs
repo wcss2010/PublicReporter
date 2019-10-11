@@ -21,6 +21,8 @@ namespace ProjectContractPlugin.Forms
             cbxSubjectList.DisplayMember = "KeTiMingCheng";
             cbxSubjectList.ValueMember = "BianHao";
 
+            cbxSubjectList.SelectedValue = subjectId;
+
             List<KeTiJingFeiNianDuBiao> list = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao = '" + subjectId + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
             if (list != null && list.Count >= 1)
             {
@@ -31,15 +33,12 @@ namespace ProjectContractPlugin.Forms
                     cells.Add(obj.JingFei);
                     dgvDetail.Rows.Add(cells.ToArray());
                 }
-
-                cbxSubjectList.SelectedValue = subjectId;
             }            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cbxSubjectList.SelectedValue == null
-                || dgvDetail.Rows.Count == 0)
+            if (cbxSubjectList.SelectedValue == null)
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
                 return;
