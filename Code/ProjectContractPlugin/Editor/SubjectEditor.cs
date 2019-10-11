@@ -86,9 +86,13 @@ namespace ProjectContractPlugin.Editor
             //显示编辑窗体
             FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject(null, list.Count);
             if (form.ShowDialog() == DialogResult.OK)
+            {
                 //刷新列表
                 RefreshView();
 
+                //刷新其它页面
+                refreshOtherView();
+            }
         }
 
         private void btnDelAll_Click(object sender, EventArgs e)
@@ -103,8 +107,11 @@ namespace ProjectContractPlugin.Editor
                         ConnectionManager.Context.table("KeTiBiao").where("BianHao='" + ((KeTiBiao)dgvRow.Tag).BianHao + "'").delete();
                     }
 
-                    //刷新
+                    //刷新列表
                     RefreshView();
+
+                    //刷新其它页面
+                    refreshOtherView();
                 }
             }
         }
@@ -133,9 +140,13 @@ namespace ProjectContractPlugin.Editor
                 //显示编辑窗体
                 FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject(null, statusNum);
                 if (form.ShowDialog() == DialogResult.OK)
+                {
                     //刷新列表
                     RefreshView();
 
+                    //刷新其它页面
+                    refreshOtherView();
+                }
             }
             else
             {
@@ -156,8 +167,13 @@ namespace ProjectContractPlugin.Editor
                     //显示编辑窗体
                     FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag);
                     if (form.ShowDialog() == DialogResult.OK)
+                    {
                         //刷新列表
                         RefreshView();
+
+                        //刷新其它页面
+                        refreshOtherView();
+                    }
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
@@ -167,8 +183,11 @@ namespace ProjectContractPlugin.Editor
                         //删除数据
                         ConnectionManager.Context.table("KeTiBiao").where("BianHao='" + ((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
 
-                        //刷新
+                        //刷新列表
                         RefreshView();
+
+                        //刷新其它页面
+                        refreshOtherView();
                     }
                 }
             }
@@ -183,8 +202,25 @@ namespace ProjectContractPlugin.Editor
                 //显示编辑窗体
                 FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag);
                 if (form.ShowDialog() == DialogResult.OK)
+                {
                     //刷新列表
                     RefreshView();
+
+                    //刷新其它页面
+                    refreshOtherView();
+                }
+            }
+        }
+
+        public void refreshOtherView()
+        {
+            foreach (BaseEditor be in PluginRootObj.editorMap.Values)
+            {
+                if (be is SubjectMoneyYearEditor)
+                {
+                    ((SubjectMoneyYearEditor)be).RefreshView();
+                    break;
+                }
             }
         }
 
