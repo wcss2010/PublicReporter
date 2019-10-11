@@ -447,6 +447,9 @@
     <None Include="Helper\readonlyC.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Helper\readonlyD.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Helper\template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
