@@ -23,26 +23,27 @@ namespace ProjectContractPlugin.Forms
             List = list;
 
         }
-
-
+        
         private void FrmAddOrUpdateWorker_Load(object sender, EventArgs e)
         {
-            comboBox2.DisplayMember = "KeTiMingCheng";
-            comboBox2.ValueMember = "BianHao";
-            comboBox2.DataSource = List;
+            cbxSubjects.DisplayMember = "KeTiMingCheng";
+            cbxSubjects.ValueMember = "BianHao";
+            cbxSubjects.DataSource = List;
 
             if (DataObj != null)
             {
-                textBox1.Text = DataObj.XingMing;
-                textBox2.Text = DataObj.ZhiCheng;
-                textBox4.Text = DataObj.ZhuanYe;
-                textBox5.Text = DataObj.GongZuoDanWei;
-                textBox6.Text = DataObj.ShenFenZhengHao;
-                textBox7.Text = DataObj.RenWuFenGong;
-                comboBox1.SelectedItem = DataObj.XingBie;
-                comboBox2.SelectedValue = DataObj.KeTiBiaoHao;
-                comboBox3.SelectedItem = DataObj.ZhiWu;
-                numericUpDown1.Value = DataObj.MeiNianTouRuShiJian;
+                txtName.Text = DataObj.XingMing;
+                txtJob.Text = DataObj.ZhiCheng;
+                txtSep.Text = DataObj.ZhuanYe;
+                txtWorkUnit.Text = DataObj.GongZuoDanWei;
+                txtIDCard.Text = DataObj.ShenFenZhengHao;
+                txtTask.Text = DataObj.RenWuFenGong;
+                cbxSexs.SelectedItem = DataObj.XingBie;
+                cbxSubjects.SelectedValue = DataObj.KeTiBiaoHao;
+                cbxJobInProjects.SelectedItem = DataObj.ZhiWu;
+                txtTotalTime.Value = DataObj.MeiNianTouRuShiJian;
+                txtTelephone.Text = DataObj.DianHua;
+                txtMobilephone.Text = DataObj.ShouJi;
 
                 if (DataObj.ShiXiangMuFuZeRen == rbIsOnlyProject.Name)
                 {
@@ -74,15 +75,17 @@ namespace ProjectContractPlugin.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text)
-                || String.IsNullOrEmpty(textBox2.Text)
-                || String.IsNullOrEmpty(textBox4.Text)
-                || String.IsNullOrEmpty(textBox5.Text)
-                || String.IsNullOrEmpty(textBox6.Text)
-                || String.IsNullOrEmpty(textBox7.Text)
-                || (comboBox1.SelectedItem == null && rbIsOnlyProject.Checked == false)
-                || (comboBox3.SelectedItem == null && rbIsOnlyProject.Checked == false)
-                || String.IsNullOrEmpty(numericUpDown1.Value.ToString())
+            if (String.IsNullOrEmpty(txtName.Text)
+                || String.IsNullOrEmpty(txtJob.Text)
+                || String.IsNullOrEmpty(txtSep.Text)
+                || String.IsNullOrEmpty(txtWorkUnit.Text)
+                || String.IsNullOrEmpty(txtIDCard.Text)
+                || String.IsNullOrEmpty(txtTelephone.Text)
+                || String.IsNullOrEmpty(txtMobilephone.Text)
+                || String.IsNullOrEmpty(txtTask.Text)
+                || (cbxSexs.SelectedItem == null && rbIsOnlyProject.Checked == false)
+                || (cbxJobInProjects.SelectedItem == null && rbIsOnlyProject.Checked == false)
+                || String.IsNullOrEmpty(txtTotalTime.Value.ToString())
 
                 )
             {
@@ -92,16 +95,18 @@ namespace ProjectContractPlugin.Forms
             else
             {
 
-                DataObj.XingMing = textBox1.Text;
-                DataObj.ZhiCheng = textBox2.Text;
-                DataObj.ZhuanYe = textBox4.Text;
-                DataObj.GongZuoDanWei = textBox5.Text;
-                DataObj.ShenFenZhengHao = textBox6.Text;
-                DataObj.RenWuFenGong = textBox7.Text;
-                DataObj.XingBie = comboBox1.SelectedItem.ToString();
-                DataObj.KeTiBiaoHao = comboBox2.SelectedValue.ToString();
-                DataObj.ZhiWu = comboBox3.SelectedItem != null ? comboBox3.SelectedItem.ToString() : "负责人";
-                DataObj.MeiNianTouRuShiJian = Convert.ToInt32(numericUpDown1.Value);
+                DataObj.XingMing = txtName.Text;
+                DataObj.ZhiCheng = txtJob.Text;
+                DataObj.ZhuanYe = txtSep.Text;
+                DataObj.GongZuoDanWei = txtWorkUnit.Text;
+                DataObj.ShenFenZhengHao = txtIDCard.Text;
+                DataObj.DianHua = txtTelephone.Text;
+                DataObj.ShouJi = txtMobilephone.Text;
+                DataObj.RenWuFenGong = txtTask.Text;
+                DataObj.XingBie = cbxSexs.SelectedItem.ToString();
+                DataObj.KeTiBiaoHao = cbxSubjects.SelectedValue.ToString();
+                DataObj.ZhiWu = cbxJobInProjects.SelectedItem != null ? cbxJobInProjects.SelectedItem.ToString() : "负责人";
+                DataObj.MeiNianTouRuShiJian = Convert.ToInt32(txtTotalTime.Value);
 
                 if (string.IsNullOrEmpty(DataObj.BianHao))
                 {
@@ -126,13 +131,13 @@ namespace ProjectContractPlugin.Forms
 
                 if (((RadioButton)sender).Name == "rbIsOnlyProject")
                 {
-                    comboBox2.Enabled = false;
-                    comboBox3.Enabled = false;
+                    cbxSubjects.Enabled = false;
+                    cbxJobInProjects.Enabled = false;
                 }
                 else
                 {
-                    comboBox2.Enabled = true;
-                    comboBox3.Enabled = true;
+                    cbxSubjects.Enabled = true;
+                    cbxJobInProjects.Enabled = true;
                 }
             }
         }
