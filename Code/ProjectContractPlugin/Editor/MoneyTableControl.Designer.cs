@@ -187,7 +187,7 @@
             this.ibEditMoney5_2.Multiline = true;
             this.ibEditMoney5_2.Name = "ibEditMoney5_2";
             this.ibEditMoney5_2.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney5_2.TabIndex = 3;
+            this.ibEditMoney5_2.TabIndex = 19;
             this.ibEditMoney5_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -199,7 +199,7 @@
             this.ibEditInfo3_1.Multiline = true;
             this.ibEditInfo3_1.Name = "ibEditInfo3_1";
             this.ibEditInfo3_1.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo3_1.TabIndex = 3;
+            this.ibEditInfo3_1.TabIndex = 31;
             // 
             // label23
             // 
@@ -462,7 +462,7 @@
             this.ibEditMoney1.Name = "ibEditMoney1";
             this.ibEditMoney1.ReadOnly = true;
             this.ibEditMoney1.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney1.TabIndex = 2;
+            this.ibEditMoney1.TabIndex = 10;
             this.ibEditMoney1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -475,7 +475,7 @@
             this.ibEditMoney2.Name = "ibEditMoney2";
             this.ibEditMoney2.ReadOnly = true;
             this.ibEditMoney2.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney2.TabIndex = 2;
+            this.ibEditMoney2.TabIndex = 11;
             this.ibEditMoney2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -488,7 +488,7 @@
             this.ibEditMoney3.Name = "ibEditMoney3";
             this.ibEditMoney3.ReadOnly = true;
             this.ibEditMoney3.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney3.TabIndex = 2;
+            this.ibEditMoney3.TabIndex = 12;
             this.ibEditMoney3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -500,7 +500,7 @@
             this.ibEditMoney4.Multiline = true;
             this.ibEditMoney4.Name = "ibEditMoney4";
             this.ibEditMoney4.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney4.TabIndex = 2;
+            this.ibEditMoney4.TabIndex = 16;
             this.ibEditMoney4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney4.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -513,7 +513,7 @@
             this.ibEditMoney5.Name = "ibEditMoney5";
             this.ibEditMoney5.ReadOnly = true;
             this.ibEditMoney5.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney5.TabIndex = 2;
+            this.ibEditMoney5.TabIndex = 17;
             this.ibEditMoney5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -525,7 +525,7 @@
             this.ibEditMoney6.Multiline = true;
             this.ibEditMoney6.Name = "ibEditMoney6";
             this.ibEditMoney6.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney6.TabIndex = 2;
+            this.ibEditMoney6.TabIndex = 20;
             this.ibEditMoney6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney6.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -537,7 +537,7 @@
             this.ibEditMoney7.Multiline = true;
             this.ibEditMoney7.Name = "ibEditMoney7";
             this.ibEditMoney7.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney7.TabIndex = 2;
+            this.ibEditMoney7.TabIndex = 21;
             this.ibEditMoney7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney7.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -549,7 +549,7 @@
             this.ibEditMoney8.Multiline = true;
             this.ibEditMoney8.Name = "ibEditMoney8";
             this.ibEditMoney8.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney8.TabIndex = 2;
+            this.ibEditMoney8.TabIndex = 22;
             this.ibEditMoney8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney8.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -561,7 +561,7 @@
             this.ibEditMoney9.Multiline = true;
             this.ibEditMoney9.Name = "ibEditMoney9";
             this.ibEditMoney9.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney9.TabIndex = 2;
+            this.ibEditMoney9.TabIndex = 23;
             this.ibEditMoney9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney9.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -573,7 +573,7 @@
             this.ibEditMoney10.Multiline = true;
             this.ibEditMoney10.Name = "ibEditMoney10";
             this.ibEditMoney10.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney10.TabIndex = 2;
+            this.ibEditMoney10.TabIndex = 24;
             this.ibEditMoney10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney10.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -585,7 +585,7 @@
             this.ibEditMoney11.Multiline = true;
             this.ibEditMoney11.Name = "ibEditMoney11";
             this.ibEditMoney11.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney11.TabIndex = 2;
+            this.ibEditMoney11.TabIndex = 25;
             this.ibEditMoney11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney11.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -598,7 +598,7 @@
             this.ibEditMoney12.Name = "ibEditMoney12";
             this.ibEditMoney12.ReadOnly = true;
             this.ibEditMoney12.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney12.TabIndex = 2;
+            this.ibEditMoney12.TabIndex = 26;
             this.ibEditMoney12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney12.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -610,7 +610,7 @@
             this.ibEditMoney13.Multiline = true;
             this.ibEditMoney13.Name = "ibEditMoney13";
             this.ibEditMoney13.Size = new System.Drawing.Size(101, 30);
-            this.ibEditMoney13.TabIndex = 2;
+            this.ibEditMoney13.TabIndex = 27;
             this.ibEditMoney13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney13.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -622,7 +622,7 @@
             this.ibEditInfo1.Multiline = true;
             this.ibEditInfo1.Name = "ibEditInfo1";
             this.ibEditInfo1.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo1.TabIndex = 2;
+            this.ibEditInfo1.TabIndex = 28;
             // 
             // ibEditInfo2
             // 
@@ -632,7 +632,7 @@
             this.ibEditInfo2.Multiline = true;
             this.ibEditInfo2.Name = "ibEditInfo2";
             this.ibEditInfo2.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo2.TabIndex = 2;
+            this.ibEditInfo2.TabIndex = 29;
             // 
             // ibEditInfo3
             // 
@@ -642,7 +642,7 @@
             this.ibEditInfo3.Multiline = true;
             this.ibEditInfo3.Name = "ibEditInfo3";
             this.ibEditInfo3.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo3.TabIndex = 2;
+            this.ibEditInfo3.TabIndex = 30;
             // 
             // ibEditInfo4
             // 
@@ -652,7 +652,7 @@
             this.ibEditInfo4.Multiline = true;
             this.ibEditInfo4.Name = "ibEditInfo4";
             this.ibEditInfo4.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo4.TabIndex = 2;
+            this.ibEditInfo4.TabIndex = 34;
             // 
             // ibEditInfo5
             // 
@@ -662,7 +662,7 @@
             this.ibEditInfo5.Multiline = true;
             this.ibEditInfo5.Name = "ibEditInfo5";
             this.ibEditInfo5.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo5.TabIndex = 2;
+            this.ibEditInfo5.TabIndex = 35;
             // 
             // ibEditInfo6
             // 
@@ -672,7 +672,7 @@
             this.ibEditInfo6.Multiline = true;
             this.ibEditInfo6.Name = "ibEditInfo6";
             this.ibEditInfo6.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo6.TabIndex = 2;
+            this.ibEditInfo6.TabIndex = 38;
             // 
             // ibEditInfo7
             // 
@@ -682,7 +682,7 @@
             this.ibEditInfo7.Multiline = true;
             this.ibEditInfo7.Name = "ibEditInfo7";
             this.ibEditInfo7.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo7.TabIndex = 2;
+            this.ibEditInfo7.TabIndex = 39;
             // 
             // ibEditInfo8
             // 
@@ -692,7 +692,7 @@
             this.ibEditInfo8.Multiline = true;
             this.ibEditInfo8.Name = "ibEditInfo8";
             this.ibEditInfo8.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo8.TabIndex = 2;
+            this.ibEditInfo8.TabIndex = 40;
             // 
             // ibEditInfo9
             // 
@@ -702,7 +702,7 @@
             this.ibEditInfo9.Multiline = true;
             this.ibEditInfo9.Name = "ibEditInfo9";
             this.ibEditInfo9.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo9.TabIndex = 2;
+            this.ibEditInfo9.TabIndex = 41;
             // 
             // ibEditInfo10
             // 
@@ -712,7 +712,7 @@
             this.ibEditInfo10.Multiline = true;
             this.ibEditInfo10.Name = "ibEditInfo10";
             this.ibEditInfo10.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo10.TabIndex = 2;
+            this.ibEditInfo10.TabIndex = 42;
             // 
             // ibEditInfo11
             // 
@@ -722,7 +722,7 @@
             this.ibEditInfo11.Multiline = true;
             this.ibEditInfo11.Name = "ibEditInfo11";
             this.ibEditInfo11.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo11.TabIndex = 2;
+            this.ibEditInfo11.TabIndex = 43;
             // 
             // ibEditInfo12
             // 
@@ -732,7 +732,7 @@
             this.ibEditInfo12.Multiline = true;
             this.ibEditInfo12.Name = "ibEditInfo12";
             this.ibEditInfo12.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo12.TabIndex = 2;
+            this.ibEditInfo12.TabIndex = 44;
             // 
             // ibEditInfo13
             // 
@@ -742,7 +742,7 @@
             this.ibEditInfo13.Multiline = true;
             this.ibEditInfo13.Name = "ibEditInfo13";
             this.ibEditInfo13.Size = new System.Drawing.Size(423, 30);
-            this.ibEditInfo13.TabIndex = 2;
+            this.ibEditInfo13.TabIndex = 45;
             // 
             // ibEditInfo3_2
             // 
@@ -752,7 +752,7 @@
             this.ibEditInfo3_2.Multiline = true;
             this.ibEditInfo3_2.Name = "ibEditInfo3_2";
             this.ibEditInfo3_2.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo3_2.TabIndex = 3;
+            this.ibEditInfo3_2.TabIndex = 32;
             // 
             // ibEditInfo3_3
             // 
@@ -762,7 +762,7 @@
             this.ibEditInfo3_3.Multiline = true;
             this.ibEditInfo3_3.Name = "ibEditInfo3_3";
             this.ibEditInfo3_3.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo3_3.TabIndex = 3;
+            this.ibEditInfo3_3.TabIndex = 33;
             // 
             // ibEditInfo5_1
             // 
@@ -772,7 +772,7 @@
             this.ibEditInfo5_1.Multiline = true;
             this.ibEditInfo5_1.Name = "ibEditInfo5_1";
             this.ibEditInfo5_1.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo5_1.TabIndex = 3;
+            this.ibEditInfo5_1.TabIndex = 36;
             // 
             // ibEditInfo5_2
             // 
@@ -782,7 +782,7 @@
             this.ibEditInfo5_2.Multiline = true;
             this.ibEditInfo5_2.Name = "ibEditInfo5_2";
             this.ibEditInfo5_2.Size = new System.Drawing.Size(423, 25);
-            this.ibEditInfo5_2.TabIndex = 3;
+            this.ibEditInfo5_2.TabIndex = 37;
             // 
             // ibEditMoney3_1
             // 
@@ -792,7 +792,7 @@
             this.ibEditMoney3_1.Multiline = true;
             this.ibEditMoney3_1.Name = "ibEditMoney3_1";
             this.ibEditMoney3_1.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney3_1.TabIndex = 3;
+            this.ibEditMoney3_1.TabIndex = 13;
             this.ibEditMoney3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -804,7 +804,7 @@
             this.ibEditMoney3_2.Multiline = true;
             this.ibEditMoney3_2.Name = "ibEditMoney3_2";
             this.ibEditMoney3_2.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney3_2.TabIndex = 3;
+            this.ibEditMoney3_2.TabIndex = 14;
             this.ibEditMoney3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -816,7 +816,7 @@
             this.ibEditMoney3_3.Multiline = true;
             this.ibEditMoney3_3.Name = "ibEditMoney3_3";
             this.ibEditMoney3_3.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney3_3.TabIndex = 3;
+            this.ibEditMoney3_3.TabIndex = 15;
             this.ibEditMoney3_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
@@ -828,7 +828,7 @@
             this.ibEditMoney5_1.Multiline = true;
             this.ibEditMoney5_1.Name = "ibEditMoney5_1";
             this.ibEditMoney5_1.Size = new System.Drawing.Size(101, 25);
-            this.ibEditMoney5_1.TabIndex = 3;
+            this.ibEditMoney5_1.TabIndex = 18;
             this.ibEditMoney5_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
