@@ -219,7 +219,10 @@ namespace ProjectContractPlugin.Editor
                 if (be is SubjectMoneyYearEditor)
                 {
                     ((SubjectMoneyYearEditor)be).RefreshView();
-                    break;
+                }
+                else if (be is SubjectMoneyEditor)
+                {
+                    ((SubjectMoneyEditor)be).RefreshView();
                 }
             }
         }
