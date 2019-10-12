@@ -39,6 +39,8 @@ namespace ProjectContractPlugin.Editor
                 tp.Controls.Add(mtc);
 
                 tcMoneys.TabPages.Add(tp);
+
+                Application.DoEvents();
             }
         }
 
