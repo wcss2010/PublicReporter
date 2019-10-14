@@ -975,55 +975,27 @@ namespace ProjectContractPlugin.Utility
                                 KeTiBiao proj = ktList[k];
                                 RenYuanBiao personObj = ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao ='" + proj.BianHao + "' and ZhiWu='负责人'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
 
-                                table.Rows[rowStart].Cells[2].RemoveAllChildren();
-                                table.Rows[rowStart].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, personObj.XingMing));
-                                //table.Rows[rowStart].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                                wu.Document.fillCell(true, table.Rows[rowStart].Cells[2], wu.Document.newParagraph(table.Document, personObj.XingMing));
+                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[2], "宋体", 10);
 
-                                //table.Rows[rowStart].Cells[3).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                                wu.Document.fillCell(true, table.Rows[rowStart].Cells[4], wu.Document.newParagraph(table.Document, personObj.XingBie));
+                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[4], "宋体", 10);
 
-                                table.Rows[rowStart].Cells[4].RemoveAllChildren();
-                                table.Rows[rowStart].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.XingBie));
-                                //table.Rows[rowStart].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart].Cells[5).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
-
-                                table.Rows[rowStart].Cells[6].RemoveAllChildren();
-                                table.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.ShengRi != null ? personObj.ShengRi.ToString("yyyy年MM月dd日") : DateTime.Now.ToString("yyyy年MM月dd日")));
-                                //table.Rows[rowStart].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart].Cells[7).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
-
-                                table.Rows[rowStart + 1].Cells[2].RemoveAllChildren();
-                                table.Rows[rowStart + 1].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, personObj.ZhiCheng));
-                                //table.Rows[rowStart + 1].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart + 1].Cells[3).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
-
-                                table.Rows[rowStart + 1].Cells[4].RemoveAllChildren();
-                                table.Rows[rowStart + 1].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.DianHua));
-                                //table.Rows[rowStart + 1].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart + 1].Cells[5).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
-
-                                table.Rows[rowStart + 1].Cells[6].RemoveAllChildren();
-                                table.Rows[rowStart + 1].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.ShouJi));
-                                //table.Rows[rowStart + 1].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart + 1].Cells[7).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
-
-                                table.Rows[rowStart + 2].Cells[2].RemoveAllChildren();
-                                table.Rows[rowStart + 2].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi));
-                                //table.Cell(rowStart + 2, 3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Cell(rowStart + 2, 3).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
-
+                                wu.Document.fillCell(true, table.Rows[rowStart].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShengRi != null ? personObj.ShengRi.ToString("yyyy年MM月dd日") : DateTime.Now.ToString("yyyy年MM月dd日")));
+                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[6], "宋体", 10);
+                                
+                                wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[2], wu.Document.newParagraph(table.Document, personObj.ZhiCheng));
+                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[2], "宋体", 10);
+                                
+                                wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[4], wu.Document.newParagraph(table.Document, personObj.DianHua));
+                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[4], "宋体", 10);
+                                
+                                wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShouJi));
+                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[6], "宋体", 10);
+                                
+                                wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi));
+                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[2], "宋体", 10);
+                                
                                 #endregion
 
                                 //合并单元格
