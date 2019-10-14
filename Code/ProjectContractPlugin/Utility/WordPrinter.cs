@@ -637,7 +637,7 @@ namespace ProjectContractPlugin.Utility
 
                         //插入行
                         Aspose.Words.Tables.Row r = t.Rows[t.Rows.Count - 1];
-                        for (int kk = 0; kk < ktList.Count; kk++)
+                        for (int kk = 0; kk < ktList.Count - 1; kk++)
                         {
                             t.Rows.Add(r.Clone(true));
                         }
@@ -645,10 +645,7 @@ namespace ProjectContractPlugin.Utility
                         int rowIndex = 1;
                         foreach (KeTiBiao ktb in ktList)
                         {
-                            t.Rows[rowIndex].Cells[0].RemoveAllChildren();
-                            t.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, ktb.KeTiMingCheng));
-                            ((Paragraph)t.Rows[rowIndex].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-
+                            wu.Document.fillCell(t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document, ktb.KeTiMingCheng));
 
                             rowIndex++;
                         }

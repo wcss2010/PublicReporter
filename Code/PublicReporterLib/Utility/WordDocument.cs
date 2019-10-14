@@ -519,6 +519,111 @@ namespace Aspose.Words
         {
             writeWithNewLine(texts, true);
         }
+
+        /// <summary>
+        /// 向单元格添加内容
+        /// </summary>
+        /// <param name="cell"></param>
+        /// <param name="contentObj"></param>
+        public void fillCell(Cell cell, Node contentObj)
+        {
+            //移除所有
+            cell.RemoveAllChildren();
+            //添加内容
+            cell.AppendChild(contentObj);
+            //中心对齐
+            try
+            {
+                ((Paragraph)cell.ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+            }
+            catch (Exception ex) { }
+            //中心对齐
+            cell.CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+        }
+
+        /// <summary>
+        /// 设置字体在单元格中
+        /// </summary>
+        /// <param name="cell"></param>
+        /// <param name="fontName"></param>
+        /// <param name="fontSize"></param>
+        public void setFontInCell(Cell cell,string fontName,double fontSize)
+        {
+            foreach (Node nn in cell.ChildNodes)
+            {
+                if (nn is Paragraph)
+                {
+                    foreach (Node ss in ((Paragraph)nn).ChildNodes)
+                    {
+                        if (ss is Run)
+                        {
+                            ((Run)ss).Font.Name = fontName;
+                            ((Run)ss).Font.Size = fontSize;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 设置行间距在单元格中
+        /// </summary>
+        /// <param name="cell"></param>
+        /// <param name="lsr"></param>
+        /// <param name="ls"></param>
+        public void setLineSpacingInCell(Cell cell, LineSpacingRule lsr, double ls)
+        {
+            foreach (Node n in cell.ChildNodes)
+            {
+                if (n is Paragraph)
+                {
+                    ((Paragraph)n).ParagraphFormat.LineSpacingRule = lsr;
+                    ((Paragraph)n).ParagraphFormat.LineSpacing = ls;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 设置加粗在单元格中
+        /// </summary>
+        /// <param name="cell"></param>
+        public void setBoldInCell(Cell cell, bool isBold)
+        {
+            foreach (Node nn in cell.ChildNodes)
+            {
+                if (nn is Paragraph)
+                {
+                    foreach (Node ss in ((Paragraph)nn).ChildNodes)
+                    {
+                        if (ss is Run)
+                        {
+                            ((Run)ss).Font.Bold = isBold;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 设置斜体在单元格中
+        /// </summary>
+        /// <param name="cell"></param>
+        public void setBoldInCell(Cell cell, bool isItalic)
+        {
+            foreach (Node nn in cell.ChildNodes)
+            {
+                if (nn is Paragraph)
+                {
+                    foreach (Node ss in ((Paragraph)nn).ChildNodes)
+                    {
+                        if (ss is Run)
+                        {
+                            ((Run)ss).Font.Italic = isItalic;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public class ReplaceAndInsertImage : IReplacingCallback
