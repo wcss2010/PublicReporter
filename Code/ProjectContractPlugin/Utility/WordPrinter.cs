@@ -131,7 +131,7 @@ namespace ProjectContractPlugin.Utility
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("科目名称"))
+                    if (t.GetText().Contains("科目名称") && t.GetText().Contains("年度经费预算"))
                     {
                         //金额
                         t.Rows[2].Cells[1].RemoveAllChildren();
@@ -475,7 +475,7 @@ namespace ProjectContractPlugin.Utility
                     wu.Document.WordDocBuilder.Write(index + ".指标名称：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.ZhiBiaoMingCheng);
-                    
+
                     wu.Document.WordDocBuilder.Font.Bold = true;
                     wu.Document.WordDocBuilder.Write("(1) 指标要求：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
@@ -609,6 +609,97 @@ namespace ProjectContractPlugin.Utility
                         t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].RemoveAllChildren();
                         t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].AppendChild(wu.Document.newParagraph(t.Document, ((float)totalMonth / (float)12).ToString("0.00")));
                         ((Paragraph)t.Rows[t.Rows.Count - 1].Cells[t.Rows[t.Rows.Count - 1].Cells.Count - 1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                    }
+                }
+                #endregion
+
+                #region 插入项目分解说明数据
+
+                List<RenWuBiao> rwlist = ConnectionManager.Context.table("RenWuBiao").select("*").getList<RenWuBiao>(new RenWuBiao());
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("课题编号") && t.GetText().Contains("课题名称") && t.GetText().Contains("所有参研单位"))
+                    {
+                        Dictionary<string, List<RenWuBiao>> dict = new Dictionary<string, List<RenWuBiao>>();
+                        foreach (RenWuBiao rwb in rwlist)
+                        {
+                            if (dict.ContainsKey(rwb.KeTiBianHao))
+                            {
+                                dict[rwb.KeTiBianHao].Add(rwb);
+                            }
+                            else
+                            {
+                                dict[rwb.KeTiBianHao] = new List<RenWuBiao>();
+                                dict[rwb.KeTiBianHao].Add(rwb);
+                            }
+                        }
+
+                        //插入行
+                        Aspose.Words.Tables.Row r = t.Rows[t.Rows.Count - 1];
+                        for (int kk = 0; kk < ktList.Count; kk++)
+                        {
+                            t.Rows.Add(r.Clone(true));
+                        }
+
+                        int rowIndex = 1;
+                        foreach (KeTiBiao ktb in ktList)
+                        {
+                            t.Rows[rowIndex].Cells[0].RemoveAllChildren();
+                            t.Rows[rowIndex].Cells[0].AppendChild(wu.Document.newParagraph(t.Document, ktb.KeTiMingCheng));
+                            ((Paragraph)t.Rows[rowIndex].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+
+
+                            rowIndex++;
+                        }
+                    }
+                }
+                #endregion
+
+                #region 插入课题经费年度分配数据
+
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("课题"))
+                    {
+
+                    }
+                }
+                #endregion
+
+                #region 插入课题经费预算
+
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("课题XX") && t.GetText().Contains("课题") && t.GetText().Contains("科目名称"))
+                    {
+
+                    }
+                }
+                #endregion
+
+                #region 插入单位经费年度分配
+
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("单位"))
+                    {
+
+                    }
+                }
+                #endregion
+
+                #region 插入联系方式
+
+                foreach (Node node in ncc)
+                {
+                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                    if (t.GetText().Contains("各课题联系方式") && t.GetText().Contains("职务职称") && t.GetText().Contains("出生年月"))
+                    {
+
                     }
                 }
                 #endregion
