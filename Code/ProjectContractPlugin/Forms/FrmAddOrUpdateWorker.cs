@@ -33,6 +33,7 @@ namespace ProjectContractPlugin.Forms
             if (DataObj != null)
             {
                 txtName.Text = DataObj.XingMing;
+                txtBirthday.Value = DataObj.ShengRi;
                 txtJob.Text = DataObj.ZhiCheng;
                 txtSep.Text = DataObj.ZhuanYe;
                 txtWorkUnit.Text = DataObj.GongZuoDanWei;
@@ -94,8 +95,8 @@ namespace ProjectContractPlugin.Forms
             }
             else
             {
-
                 DataObj.XingMing = txtName.Text;
+                DataObj.ShengRi = txtBirthday.Value;
                 DataObj.ZhiCheng = txtJob.Text;
                 DataObj.ZhuanYe = txtSep.Text;
                 DataObj.GongZuoDanWei = txtWorkUnit.Text;

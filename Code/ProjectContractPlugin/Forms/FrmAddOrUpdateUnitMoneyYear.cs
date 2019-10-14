@@ -13,10 +13,12 @@ namespace ProjectContractPlugin.Forms
 {
     public partial class FrmAddOrUpdateUnitMoneyYear : PublicReporterLib.SuperForm
     {
+        private string lastUnit;
         public FrmAddOrUpdateUnitMoneyYear(string unitName)
         {
             InitializeComponent();
 
+            lastUnit = unitName;
             txtUnitName.Text = unitName;
 
             List<DanWeiJingFeiNianDuBiao> list = ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing = '" + unitName + "'").select("*").getList<DanWeiJingFeiNianDuBiao>(new DanWeiJingFeiNianDuBiao());
@@ -68,6 +70,7 @@ namespace ProjectContractPlugin.Forms
             }
 
             //删除当前课题的所有年度经费
+            ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing = '" + lastUnit + "'").delete();
             ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing = '" + txtUnitName.Text + "'").delete();
 
             //填写数据

@@ -98,7 +98,7 @@ namespace ProjectContractPlugin.Utility
                 RenYuanBiao masterPerson = ConnectionManager.Context.table("RenYuanBiao").where("ShiXiangMuFuZeRen='rbIsOnlyProject' or ShiXiangMuFuZeRen='rbIsProjectAndSubject'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
                 wu.insertValue("附件3_联系方式_姓名", masterPerson.XingMing);
                 wu.insertValue("附件3_联系方式_性别", masterPerson.XingBie);
-                wu.insertValue("附件3_联系方式_出生日期", "未知");
+                wu.insertValue("附件3_联系方式_出生日期", masterPerson.ShengRi != null ? masterPerson.ShengRi.ToString("yyyy年MM月dd日") : DateTime.Now.ToString("yyyy年MM月dd日"));
                 wu.insertValue("附件3_联系方式_职务职称", masterPerson.ZhiCheng);
                 wu.insertValue("附件3_联系方式_座机", masterPerson.DianHua);
                 wu.insertValue("附件3_联系方式_手机", masterPerson.ShouJi);
@@ -981,8 +981,7 @@ namespace ProjectContractPlugin.Utility
                                 //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                                 table.Rows[rowStart].Cells[6].RemoveAllChildren();
-                                //table.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.ModifyTime != null ? personObj.ModifyTime.ToString("yyyy-MM-dd") : string.Empty));
-                                table.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, "未知"));
+                                table.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.ShengRi != null ? personObj.ShengRi.ToString("yyyy年MM月dd日") : DateTime.Now.ToString("yyyy年MM月dd日")));
                                 //table.Rows[rowStart].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                 //table.Rows[rowStart].Cells[7).Select();

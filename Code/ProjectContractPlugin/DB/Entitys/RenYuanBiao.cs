@@ -18,6 +18,7 @@ namespace ProjectContractPlugin.DB.Entitys
             //设置值
             query.set("BianHao", BianHao);
             query.set("XingMing", XingMing);
+            query.set("ShengRi", ShengRi);
             query.set("XingBie", XingBie);
             query.set("ZhiCheng", ZhiCheng);
             query.set("ZhuanYe", ZhuanYe);
@@ -37,6 +38,7 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public string BianHao { get; set; }
         public string XingMing { get; set; }
+        public DateTime ShengRi { get; set; }
         public string XingBie { get; set; }
         public string ZhiCheng { get; set; }
         public string ZhuanYe { get; set; }
@@ -55,6 +57,7 @@ namespace ProjectContractPlugin.DB.Entitys
         {
             BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
             XingMing = source("XingMing").value<string>("");
+            ShengRi = source("ShengRi").value<DateTime>(DateTime.Now);
             XingBie = source("XingBie").value<string>("");
             ZhiCheng = source("ZhiCheng").value<string>("");
             ZhuanYe = source("ZhuanYe").value<string>("");

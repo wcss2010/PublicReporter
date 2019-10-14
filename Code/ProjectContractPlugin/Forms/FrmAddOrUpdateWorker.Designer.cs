@@ -58,6 +58,8 @@
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMobilephone = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBirthday = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -191,7 +193,7 @@
             this.txtIDCard.Location = new System.Drawing.Point(132, 257);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCard.Name = "txtIDCard";
-            this.txtIDCard.Size = new System.Drawing.Size(647, 26);
+            this.txtIDCard.Size = new System.Drawing.Size(253, 26);
             this.txtIDCard.TabIndex = 18;
             // 
             // label8
@@ -382,11 +384,32 @@
             this.txtMobilephone.Size = new System.Drawing.Size(179, 26);
             this.txtMobilephone.TabIndex = 14;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label13.Location = new System.Drawing.Point(538, 260);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "生日：";
+            // 
+            // txtBirthday
+            // 
+            this.txtBirthday.CustomFormat = "yyyy年MM月dd日";
+            this.txtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtBirthday.Location = new System.Drawing.Point(601, 257);
+            this.txtBirthday.Name = "txtBirthday";
+            this.txtBirthday.Size = new System.Drawing.Size(179, 26);
+            this.txtBirthday.TabIndex = 31;
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 568);
+            this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbxJobInProjects);
             this.Controls.Add(this.label10);
@@ -401,6 +424,7 @@
             this.Controls.Add(this.txtWorkUnit);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtMobilephone);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.label11);
@@ -461,5 +485,7 @@
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtMobilephone;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker txtBirthday;
     }
 }
