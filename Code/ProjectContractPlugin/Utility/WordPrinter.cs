@@ -110,12 +110,10 @@ namespace ProjectContractPlugin.Utility
 
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
-                #region 插入文档文件
-                wu.insertTxtFile("研究目标", Path.Combine(pt.filesDir, "研究目标.txt"));
-                wu.insertFile("主要研究内容_项目分解情况", Path.Combine(pt.filesDir, "项目分解情况.doc"), true);
+                #region 插入文本文件
+                wu.insertTxtFile("研究目标", Path.Combine(pt.filesDir, "研究目标.txt"));                
                 wu.insertTxtFile("技术要求及指标_总技术要求", Path.Combine(pt.filesDir, "技术要求.txt"));
                 wu.insertTxtFile("经费预算_双方认为需要说明的经费使用事项", Path.Combine(pt.filesDir, "双方认为需要说明的经费使用事项.txt"));
-                wu.insertFile("附件2", Path.Combine(pt.filesDir, "附件2.doc"), true);
                 #endregion
 
                 Report(progressDialog, 60, "写入表格数据...", 1000);
@@ -1047,6 +1045,11 @@ namespace ProjectContractPlugin.Utility
                 }
                 #endregion
 
+                #endregion
+
+                #region 插入Doc文件
+                wu.insertFile("主要研究内容_项目分解情况", Path.Combine(pt.filesDir, "项目分解情况.doc"), true);
+                wu.insertFile("附件2", Path.Combine(pt.filesDir, "附件2.doc"), false);
                 #endregion
 
                 Report(progressDialog, 80, "更新目录...", 1000);
