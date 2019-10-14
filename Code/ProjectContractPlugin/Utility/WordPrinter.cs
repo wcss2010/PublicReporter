@@ -657,6 +657,8 @@ namespace ProjectContractPlugin.Utility
                         bool startMoney = true;
                         foreach (KeTiBiao ktb in ktList)
                         {
+                            startMoney = true;
+
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document, "课题" + rowIndex));
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[1], wu.Document.newParagraph(t.Document, ktb.KeTiMingCheng));
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[2], wu.Document.newParagraph(t.Document, ktb.KeTiFuZeDanWei));
