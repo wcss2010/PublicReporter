@@ -192,27 +192,24 @@ namespace ProjectContractPlugin
             firstNode.Nodes.Add(itemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "附件1";
+            itemObj.Text = "附件";
+
             subItemObj = new TreeNode();
-            subItemObj.Text = "经费分配及预算表";
-
-            TreeNode subSubItemObj = new TreeNode();
-            subSubItemObj.Text = "课题经费年度分配表";
-            subItemObj.Nodes.Add(subSubItemObj);
-
-            subSubItemObj = new TreeNode();
-            subSubItemObj.Text = "课题经费预算表";
-            subItemObj.Nodes.Add(subSubItemObj);
-
-            subSubItemObj = new TreeNode();
-            subSubItemObj.Text = "单位经费年度分配表";
-            subItemObj.Nodes.Add(subSubItemObj);
-
+            subItemObj.Text = "课题经费年度分配表";
             itemObj.Nodes.Add(subItemObj);
-            firstNode.Nodes.Add(itemObj);
 
-            itemObj = new TreeNode();
-            itemObj.Text = "附件2";
+            subItemObj = new TreeNode();
+            subItemObj.Text = "课题经费预算表";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "单位经费年度分配表";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "项目经费预算编制说明";
+            itemObj.Nodes.Add(subItemObj);
+
             firstNode.Nodes.Add(itemObj);
 
             Parent_LeftTreeView.Nodes.Add(firstNode);
@@ -349,7 +346,7 @@ namespace ProjectContractPlugin
             editorMap.Add("课题经费年度分配表", new SubjectMoneyYearEditor());
             editorMap.Add("课题经费预算表", new SubjectMoneyEditor());
             editorMap.Add("单位经费年度分配表", new UnitMoneyYearEditor());
-            editorMap.Add("附件2", new ExtFile2Editor());
+            editorMap.Add("项目经费预算编制说明", new ExtFile2Editor());
             #endregion
 
             #region 检查哪个Editor没有设置Name
