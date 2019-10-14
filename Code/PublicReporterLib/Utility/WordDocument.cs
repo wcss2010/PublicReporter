@@ -525,18 +525,26 @@ namespace Aspose.Words
         /// </summary>
         /// <param name="cell"></param>
         /// <param name="contentObj"></param>
-        public void fillCell(Cell cell, Node contentObj)
+        public void fillCell(bool isClearAll, Cell cell, Node contentObj)
         {
             //移除所有
-            cell.RemoveAllChildren();
+            if (isClearAll)
+            {
+                cell.RemoveAllChildren();
+            }
+
             //添加内容
             cell.AppendChild(contentObj);
+
             //中心对齐
-            try
+            foreach (Node nn in cell.ChildNodes)
             {
-                ((Paragraph)cell.ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                if (nn is Paragraph)
+                {
+                    ((Paragraph)nn).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                }
             }
-            catch (Exception ex) { }
+
             //中心对齐
             cell.CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
         }
@@ -608,7 +616,7 @@ namespace Aspose.Words
         /// 设置斜体在单元格中
         /// </summary>
         /// <param name="cell"></param>
-        public void setBoldInCell(Cell cell, bool isItalic)
+        public void setItalicInCell(Cell cell, bool isItalic)
         {
             foreach (Node nn in cell.ChildNodes)
             {
