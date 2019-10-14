@@ -749,6 +749,7 @@ namespace ProjectContractPlugin.Utility
                         for (int tt = 1; tt < t.Rows[0].Cells.Count; tt++)
                         {
                             wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, "课题" + tt));
+                            wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
                         }
 
                         //添加数据
