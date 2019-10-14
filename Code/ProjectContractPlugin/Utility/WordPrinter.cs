@@ -102,10 +102,10 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("附件3_联系方式_职务职称", masterPerson.ZhiCheng);
                 wu.insertValue("附件3_联系方式_座机", masterPerson.DianHua);
                 wu.insertValue("附件3_联系方式_手机", masterPerson.ShouJi);
-                wu.insertValue("附件3_联系方式_单位名称", pt.projectObj.HeTongFuZeDanWei);
-                wu.insertValue("附件3_联系方式_联系人", pt.projectObj.HeTongFuZeDanWeiLianXiRen);
-                wu.insertValue("附件3_联系方式_联系电话", pt.projectObj.HeTongFuZeDanWeiLianXiRenDianHua);
-                wu.insertValue("附件3_联系方式_通信地址", pt.projectObj.HeTongFuZeDanWeiTongXunDiZhi);
+                wu.insertValue("附件3_联系方式_单位名称", pt.projectObj.ChengYanDanWeiMingCheng);
+                wu.insertValue("附件3_联系方式_联系人", pt.projectObj.ChengYanDanWeiLianXiRen);
+                wu.insertValue("附件3_联系方式_联系电话", pt.projectObj.ChengYanDanWeiLianXiRenDianHua);
+                wu.insertValue("附件3_联系方式_通信地址", pt.projectObj.ChengYanDanWeiTongXinDiZhi);
                 #endregion
 
                 Report(progressDialog, 40, "写入文档文件...", 1000);
@@ -532,7 +532,23 @@ namespace ProjectContractPlugin.Utility
                     wu.Document.WordDocBuilder.Font.Bold = true;
                     wu.Document.WordDocBuilder.Writeln("（3）参加单位分工：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KeTiCanJiaDanWeiFenGong, index == ktList.Count ? false : true);
+
+                    StringBuilder sbWorkTask = new StringBuilder();
+                    List<RenWuBiao> items = ConnectionManager.Context.table("RenWuBiao").where("KeTiBianHao='" + data.BianHao + "'").select("*").getList<RenWuBiao>(new RenWuBiao());
+                    if (items.Count >= 1)
+                    {
+                        sbWorkTask.Append("该课题由").Append(items[0].DanWeiMing).Append("单位负责，承担").Append(items[0].RenWuFenGong).Append("等任务；").AppendLine();
+                        items.Remove(items[0]);
+                    }
+                    foreach (RenWuBiao rwb in items)
+                    {
+                        sbWorkTask.Append(rwb.DanWeiMing).Append("单位参加，承担").Append(rwb.RenWuFenGong).Append("等任务；\n");
+                    }
+                    if (sbWorkTask.Length >= 1)
+                    {
+                        sbWorkTask.Remove(sbWorkTask.Length - 1, 1);
+                    }
+                    wu.Document.writeWithNewLine(sbWorkTask.ToString(), index == ktList.Count ? false : true);
 
                     index++;
                 }
@@ -664,10 +680,12 @@ namespace ProjectContractPlugin.Utility
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[2], wu.Document.newParagraph(t.Document, ktb.KeTiFuZeDanWei));
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[3], wu.Document.newParagraph(t.Document, ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao='" + ktb.BianHao + "' and ZhiWu='负责人'").select("XingMing").getValue<string>(string.Empty)));
 
+                            int displayIndex = 1;
                             foreach (RenWuBiao rwb in dict[ktb.BianHao])
                             {
-                                wu.Document.fillCell(startMoney, t.Rows[rowIndex].Cells[4], wu.Document.newParagraph(t.Document, rwb.DanWeiMing + ":" + rwb.RenWuFenGong));
+                                wu.Document.fillCell(startMoney, t.Rows[rowIndex].Cells[4], wu.Document.newParagraph(t.Document, displayIndex + ". " + rwb.DanWeiMing), false);
                                 startMoney = false;
+                                displayIndex++;
                             }
 
                             rowIndex++;
