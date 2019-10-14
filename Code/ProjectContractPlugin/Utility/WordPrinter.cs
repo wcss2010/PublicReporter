@@ -697,10 +697,14 @@ namespace ProjectContractPlugin.Utility
                                     t.Rows[vv].Cells.Add(t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].Clone(true));
                                 }
                             }
+
                             wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
+                            wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
+
                             for (int tt = 1; tt <= ktCount; tt++)
                             {
                                 wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, moneyList[tt - 1].NianDu + "年度"));
+                                wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
                             }
                         }
                         
@@ -822,11 +826,15 @@ namespace ProjectContractPlugin.Utility
                                     t.Rows[jj].Cells.Add(t.Rows[jj].Cells[t.Rows[jj].Cells.Count - 1].Clone(true));
                                 }
                             }
+
                             wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
+                            wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
+
                             int cellIndex = 1;
                             foreach (DanWeiJingFeiNianDuBiao biao in unitDict.Values[0])
                             {
                                 wu.Document.fillCell(true, t.Rows[0].Cells[cellIndex], wu.Document.newParagraph(t.Document, biao.NianDu + "年度"));
+                                wu.Document.setFontInCell(t.Rows[0].Cells[cellIndex], "黑体", 12);
                                 cellIndex++;
                             }
                         }
