@@ -94,6 +94,18 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
                 wu.insertValue("共同条款_合同数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
                 wu.insertValue("共同条款_合同数字4", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
+
+                RenYuanBiao masterPerson = ConnectionManager.Context.table("RenYuanBiao").where("ShiXiangMuFuZeRen='rbIsOnlyProject' or ShiXiangMuFuZeRen='rbIsProjectAndSubject'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
+                wu.insertValue("附件3_联系方式_姓名", masterPerson.XingMing);
+                wu.insertValue("附件3_联系方式_性别", masterPerson.XingBie);
+                wu.insertValue("附件3_联系方式_出生日期", "未知");
+                wu.insertValue("附件3_联系方式_职务职称", masterPerson.ZhiCheng);
+                wu.insertValue("附件3_联系方式_座机", masterPerson.DianHua);
+                wu.insertValue("附件3_联系方式_手机", masterPerson.ShouJi);
+                wu.insertValue("附件3_联系方式_单位名称", pt.projectObj.HeTongFuZeDanWei);
+                wu.insertValue("附件3_联系方式_联系人", pt.projectObj.HeTongFuZeDanWeiLianXiRen);
+                wu.insertValue("附件3_联系方式_联系电话", pt.projectObj.HeTongFuZeDanWeiLianXiRenDianHua);
+                wu.insertValue("附件3_联系方式_通信地址", pt.projectObj.HeTongFuZeDanWeiTongXunDiZhi);
                 #endregion
 
                 Report(progressDialog, 40, "写入文档文件...", 1000);
