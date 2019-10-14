@@ -58,10 +58,10 @@ namespace ProjectContractPlugin.Editor
                 ibEdit41.setAddress(obj.HeTongSuoShuDiDian);
                 ibEdit42.Text = obj.HeTongSuoShuLingYu;
                 ibEdit43.Text = obj.HeTongGuanJianZi;
-                ibEdit44.Text = obj.HeTongFuZeRenDianHua;
-                ibEdit45.Text = obj.HeTongFuZeDanWeiTongXunDiZhi;
-                ibEdit46.Text = obj.HeTongFuZeDanWeiLianXiRen;
-                ibEdit47.Text = obj.HeTongFuZeDanWeiLianXiRenDianHua;
+                //ibEdit44.Text = obj.HeTongFuZeRenDianHua;
+                //ibEdit45.Text = obj.HeTongFuZeDanWeiTongXunDiZhi;
+                //ibEdit46.Text = obj.HeTongFuZeDanWeiLianXiRen;
+                //ibEdit47.Text = obj.HeTongFuZeDanWeiLianXiRenDianHua;
                 ibEdit7.Value = obj.HeTongKaiShiShiJian;
                 ibEdit8.Value = obj.HeTongJieShuShiJian;
                 ibEdit9.Value = obj.HeTongJiaKuan;
@@ -157,26 +157,26 @@ namespace ProjectContractPlugin.Editor
                 MessageBox.Show("对不起，请输入关键字!");
                 return;
             }
-            if (ibEdit44.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目负责人电话!");
-                return;
-            }
-            if (ibEdit45.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目负责单位通信地址!");
-                return;
-            }
-            if (ibEdit46.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目负责单位联系人!");
-                return;
-            }
-            if (ibEdit47.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目负责单位联系电话!");
-                return;
-            }
+            //if (ibEdit44.Text == string.Empty)
+            //{
+            //    MessageBox.Show("对不起，请输入项目负责人电话!");
+            //    return;
+            //}
+            //if (ibEdit45.Text == string.Empty)
+            //{
+            //    MessageBox.Show("对不起，请输入项目负责单位通信地址!");
+            //    return;
+            //}
+            //if (ibEdit46.Text == string.Empty)
+            //{
+            //    MessageBox.Show("对不起，请输入项目负责单位联系人!");
+            //    return;
+            //}
+            //if (ibEdit47.Text == string.Empty)
+            //{
+            //    MessageBox.Show("对不起，请输入项目负责单位联系电话!");
+            //    return;
+            //}
             //DateTime dd7;
             //if (DateTime.TryParse(ibEdit7.Text, out dd7) == false)
             //{
@@ -354,15 +354,15 @@ namespace ProjectContractPlugin.Editor
             obj.HeTongMiQi = (int)ibEdit4.Value;
             obj.HeTongFuZeRen = ibEdit5.Text;
             obj.HeTongFuZeRenShenFenZheng = ibEdit6.Text;
-            obj.HeTongFuZeRenDianHua = ibEdit44.Text;
+            //obj.HeTongFuZeRenDianHua = ibEdit44.Text;
             obj.HeTongFuZeDanWei = ibEdit39.Text;
             obj.HeTongSuoShuBuMen = ibEdit40.Text;
             obj.HeTongSuoShuDiDian = ibEdit41.getAddress();
             obj.HeTongSuoShuLingYu = ibEdit42.Text;
             obj.HeTongGuanJianZi = ibEdit43.Text;
-            obj.HeTongFuZeDanWeiTongXunDiZhi = ibEdit45.Text;
-            obj.HeTongFuZeDanWeiLianXiRen = ibEdit46.Text;
-            obj.HeTongFuZeDanWeiLianXiRenDianHua = ibEdit47.Text;
+            //obj.HeTongFuZeDanWeiTongXunDiZhi = ibEdit45.Text;
+            //obj.HeTongFuZeDanWeiLianXiRen = ibEdit46.Text;
+            //obj.HeTongFuZeDanWeiLianXiRenDianHua = ibEdit47.Text;
             obj.HeTongKaiShiShiJian = ibEdit7.Value;
             obj.HeTongJieShuShiJian = ibEdit8.Value;
             obj.HeTongJiaKuan = ibEdit9.Value;

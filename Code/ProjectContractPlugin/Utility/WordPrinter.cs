@@ -683,6 +683,8 @@ namespace ProjectContractPlugin.Utility
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
                     if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("课题"))
                     {
+                        Dictionary<int, int> yearAndCell = new Dictionary<int, int>();
+
                         //添加行和列
                         List<KeTiJingFeiNianDuBiao> moneyList = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ktList[0].BianHao + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
                         if (moneyList != null)
@@ -705,6 +707,8 @@ namespace ProjectContractPlugin.Utility
 
                             for (int tt = 1; tt <= ktCount; tt++)
                             {
+                                yearAndCell[moneyList[tt - 1].NianDu] = tt;
+
                                 wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, moneyList[tt - 1].NianDu + "年度"));
                                 wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
                             }
@@ -722,7 +726,11 @@ namespace ProjectContractPlugin.Utility
                             foreach (KeTiJingFeiNianDuBiao money in moneyList)
                             {
                                 totalMoney += money.JingFei;
-                                wu.Document.fillCell(true, t.Rows[rowIndex].Cells[cellIndex], wu.Document.newParagraph(t.Document, money.JingFei + ""));
+
+                                if (yearAndCell.ContainsKey(money.NianDu))
+                                {
+                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[yearAndCell[money.NianDu]], wu.Document.newParagraph(t.Document, money.JingFei + ""));
+                                }
 
                                 cellIndex++;
                             }
@@ -797,6 +805,8 @@ namespace ProjectContractPlugin.Utility
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
                     if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("单位"))
                     {
+                        Dictionary<int, int> yearAndCell = new Dictionary<int, int>();
+
                         //读取单位经费数据并进行分类
                         CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>> unitDict = new CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>>();
                         List<DanWeiJingFeiNianDuBiao> list = ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").select("*").getList<DanWeiJingFeiNianDuBiao>(new DanWeiJingFeiNianDuBiao());
@@ -836,6 +846,8 @@ namespace ProjectContractPlugin.Utility
                             int cellIndex = 1;
                             foreach (DanWeiJingFeiNianDuBiao biao in unitDict.Values[0])
                             {
+                                yearAndCell[biao.NianDu] = cellIndex;
+
                                 wu.Document.fillCell(true, t.Rows[0].Cells[cellIndex], wu.Document.newParagraph(t.Document, biao.NianDu + "年度"));
                                 wu.Document.setFontInCell(t.Rows[0].Cells[cellIndex], "黑体", 12);
                                 cellIndex++;
@@ -852,7 +864,12 @@ namespace ProjectContractPlugin.Utility
                             foreach (DanWeiJingFeiNianDuBiao biao in kvp.Value)
                             {
                                 totalMoney += biao.JingFei;
-                                wu.Document.fillCell(true, t.Rows[rowIndex].Cells[cIndex], wu.Document.newParagraph(t.Document, biao.JingFei + ""));
+
+                                if (yearAndCell.ContainsKey(biao.NianDu))
+                                {
+                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[yearAndCell[biao.NianDu]], wu.Document.newParagraph(t.Document, biao.JingFei + ""));
+                                }
+
                                 cIndex++;
                             }
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[t.Rows[rowIndex].Cells.Count - 1], wu.Document.newParagraph(t.Document, totalMoney + ""));
