@@ -976,25 +976,25 @@ namespace ProjectContractPlugin.Utility
                                 RenYuanBiao personObj = ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao ='" + proj.BianHao + "' and ZhiWu='负责人'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
 
                                 wu.Document.fillCell(true, table.Rows[rowStart].Cells[2], wu.Document.newParagraph(table.Document, personObj.XingMing));
-                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[2], "宋体", 10);
+                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[2], "宋体", 10.5);
 
                                 wu.Document.fillCell(true, table.Rows[rowStart].Cells[4], wu.Document.newParagraph(table.Document, personObj.XingBie));
-                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[4], "宋体", 10);
+                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[4], "宋体", 10.5);
 
                                 wu.Document.fillCell(true, table.Rows[rowStart].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShengRi != null ? personObj.ShengRi.ToString("yyyy年MM月dd日") : DateTime.Now.ToString("yyyy年MM月dd日")));
-                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[6], "宋体", 10);
+                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[6], "宋体", 10.5);
                                 
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[2], wu.Document.newParagraph(table.Document, personObj.ZhiCheng));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[2], "宋体", 10);
+                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[2], "宋体", 10.5);
                                 
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[4], wu.Document.newParagraph(table.Document, personObj.DianHua));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[4], "宋体", 10);
+                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[4], "宋体", 10.5);
                                 
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShouJi));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[6], "宋体", 10);
+                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[6], "宋体", 10.5);
                                 
                                 wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[2], "宋体", 10);
+                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[2], "宋体", 10.5);
                                 
                                 #endregion
 
