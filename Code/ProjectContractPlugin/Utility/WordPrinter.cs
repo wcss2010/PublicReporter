@@ -958,12 +958,9 @@ namespace ProjectContractPlugin.Utility
 
                                 table.Rows[rowStart + 2].Cells[1].RemoveAllChildren();
                                 wu.Document.addRangeToNodeCollection(table.Rows[rowStart + 2].Cells[1].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, "承担单位\n及通信地址"));
+                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[1],"宋体",10.5);
                                 ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                 ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[1]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
-                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
                                 //table.Cell(rowStart + 2, 2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 
                                 //table.Cell(rowStart + 2, 2).Select();
