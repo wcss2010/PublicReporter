@@ -992,8 +992,8 @@ namespace ProjectContractPlugin.Utility
                                 
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShouJi));
                                 wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[6], "宋体", 10.5);
-                                
-                                wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi));
+
+                                wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi), false);
                                 wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[2], "宋体", 10.5);
                                 
                                 #endregion

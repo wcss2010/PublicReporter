@@ -523,9 +523,7 @@ namespace Aspose.Words
         /// <summary>
         /// 向单元格添加内容
         /// </summary>
-        /// <param name="cell"></param>
-        /// <param name="contentObj"></param>
-        public void fillCell(bool isClearAll, Cell cell, Node contentObj)
+        public void fillCell(bool isClearAll, Cell cell, Node contentObj, bool isCenter)
         {
             //移除所有
             if (isClearAll)
@@ -536,17 +534,32 @@ namespace Aspose.Words
             //添加内容
             cell.AppendChild(contentObj);
 
-            //中心对齐
-            foreach (Node nn in cell.ChildNodes)
+            //对齐
+            if (isCenter)
             {
-                if (nn is Paragraph)
+                //中心对齐
+                foreach (Node nn in cell.ChildNodes)
                 {
-                    ((Paragraph)nn).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                    if (nn is Paragraph)
+                    {
+                        ((Paragraph)nn).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                    }
                 }
-            }
 
-            //中心对齐
-            cell.CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+                //中心对齐
+                cell.CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
+            }
+        }
+
+        /// <summary>
+        /// 向单元格添加内容
+        /// </summary>
+        /// <param name="isClearAll"></param>
+        /// <param name="cell"></param>
+        /// <param name="contentObj"></param>
+        public void fillCell(bool isClearAll, Cell cell, Node contentObj)
+        {
+            fillCell(isClearAll, cell, contentObj, true);
         }
 
         /// <summary>
