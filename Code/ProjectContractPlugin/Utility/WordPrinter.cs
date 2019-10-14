@@ -845,10 +845,193 @@ namespace ProjectContractPlugin.Utility
 
                 foreach (Node node in ncc)
                 {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("各课题联系方式") && t.GetText().Contains("职务职称") && t.GetText().Contains("出生年月"))
+                    Aspose.Words.Tables.Table table = (Aspose.Words.Tables.Table)node;
+                    if (table.GetText().Contains("各课题联系方式") && table.GetText().Contains("职务职称") && table.GetText().Contains("出生年月"))
                     {
+                        int titleIndex = table.Rows.Count - 1;
+                        int dataIndex = table.Rows.Count - 1;
 
+                        //构造联系方式行
+                        int rowCountt = (ktList.Count * 3) - 1;
+                        for (int k = 0; k < rowCountt; k++)
+                        {
+                            //table.Select();
+                            table.Rows.Add((Aspose.Words.Tables.Row)table.Rows[table.Rows.Count - 1].Clone(true));
+                        }
+                        //合并单元格
+                        if (rowCountt >= 2)
+                        {
+                            for (int k = 0; k < ktList.Count; k++)
+                            {
+                                //计算开始位置
+                                int rowStart = dataIndex + (k * 3);
+                                int rowEnd = rowStart + 2;
+
+                                #region 写入标签
+                                table.Rows[rowStart].Cells[0].RemoveAllChildren();
+                                table.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, "课题" + (k + 1)));
+                                ((Run)((Paragraph)table.Rows[rowStart].Cells[0].ChildNodes[0]).ChildNodes[0]).Font.Name = "黑体";
+                                //table.Rows[rowStart].Cells[1).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart].Cells[1).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                table.Rows[rowStart].Cells[1].RemoveAllChildren();
+                                table.Rows[rowStart].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "负责人"));
+                                ((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Run)((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+
+                                //table.Rows[rowStart].Cells[2).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                table.Rows[rowStart].Cells[3].RemoveAllChildren();
+                                table.Rows[rowStart].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "性别"));
+                                ((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Run)((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                //table.Rows[rowStart].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart].Cells[4).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                table.Rows[rowStart].Cells[5].RemoveAllChildren();
+                                table.Rows[rowStart].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "出生年月"));
+                                ((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Run)((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                //table.Rows[rowStart].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart].Cells[6).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                table.Rows[rowStart + 1].Cells[1].RemoveAllChildren();
+                                table.Rows[rowStart + 1].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "职务职称"));
+                                ((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                //table.Rows[rowStart + 1].Cells[2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart + 1].Cells[2).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                table.Rows[rowStart + 1].Cells[3].RemoveAllChildren();
+                                table.Rows[rowStart + 1].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "座机"));
+                                ((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                //table.Rows[rowStart + 1].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart + 1].Cells[4).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                table.Rows[rowStart + 1].Cells[5].RemoveAllChildren();
+                                table.Rows[rowStart + 1].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "手机"));
+                                ((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                //table.Rows[rowStart + 1].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart + 1].Cells[6).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                table.Rows[rowStart + 2].Cells[1].RemoveAllChildren();
+                                wu.Document.addRangeToNodeCollection(table.Rows[rowStart + 2].Cells[1].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, "承担单位\n及通信地址"));
+                                ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[1]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
+                                ((Run)((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
+                                //table.Cell(rowStart + 2, 2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Cell(rowStart + 2, 2).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                #endregion
+
+                                #region 写入实际数据
+                                KeTiBiao proj = ktList[k];
+                                RenYuanBiao personObj = ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao ='" + proj.BianHao + "' and ZhiWu='负责人'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
+
+                                table.Rows[rowStart].Cells[2].RemoveAllChildren();
+                                table.Rows[rowStart].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, personObj.XingMing));
+                                //table.Rows[rowStart].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart].Cells[3).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                                table.Rows[rowStart].Cells[4].RemoveAllChildren();
+                                table.Rows[rowStart].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.XingBie));
+                                //table.Rows[rowStart].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart].Cells[5).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                                table.Rows[rowStart].Cells[6].RemoveAllChildren();
+                                //table.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.ModifyTime != null ? personObj.ModifyTime.ToString("yyyy-MM-dd") : string.Empty));
+                                table.Rows[rowStart].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, "未知"));
+                                //table.Rows[rowStart].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart].Cells[7).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                                table.Rows[rowStart + 1].Cells[2].RemoveAllChildren();
+                                table.Rows[rowStart + 1].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, personObj.ZhiCheng));
+                                //table.Rows[rowStart + 1].Cells[3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart + 1].Cells[3).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                                table.Rows[rowStart + 1].Cells[4].RemoveAllChildren();
+                                table.Rows[rowStart + 1].Cells[4].AppendChild(wu.Document.newParagraph(table.Document, personObj.DianHua));
+                                //table.Rows[rowStart + 1].Cells[5).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart + 1].Cells[5).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                                table.Rows[rowStart + 1].Cells[6].RemoveAllChildren();
+                                table.Rows[rowStart + 1].Cells[6].AppendChild(wu.Document.newParagraph(table.Document, personObj.ShouJi));
+                                //table.Rows[rowStart + 1].Cells[7).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Rows[rowStart + 1].Cells[7).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                                table.Rows[rowStart + 2].Cells[2].RemoveAllChildren();
+                                table.Rows[rowStart + 2].Cells[2].AppendChild(wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi));
+                                //table.Cell(rowStart + 2, 3).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                                //table.Cell(rowStart + 2, 3).Select();
+                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                                #endregion
+
+                                //合并单元格
+                                wu.Document.mergeCells(table.Rows[rowEnd].Cells[2], table.Rows[rowEnd].Cells[6], table);
+                                wu.Document.mergeCells(table.Rows[rowStart].Cells[0], table.Rows[rowEnd].Cells[0], table);
+                            }
+                        }
+                        else
+                        {
+                            table.Rows[titleIndex].Remove();
+                            table.Rows[dataIndex].Remove();
+                        }
+
+                        //调整行距
+                        foreach (Aspose.Words.Tables.Row r in table.Rows)
+                        {
+                            foreach (Aspose.Words.Tables.Cell c in r.Cells)
+                            {
+                                foreach (Node n in c.ChildNodes)
+                                {
+                                    if (n is Paragraph)
+                                    {
+                                        ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Multiple;
+                                        ((Paragraph)n).ParagraphFormat.LineSpacing = 12;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 #endregion
