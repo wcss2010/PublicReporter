@@ -108,12 +108,15 @@
             // Column1
             // 
             this.Column1.HeaderText = "年度";
+            this.Column1.MinimumWidth = 90;
             this.Column1.Name = "Column1";
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column1.Width = 90;
             // 
             // Column2
             // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.HeaderText = "金额";
             this.Column2.Name = "Column2";
             // 
@@ -123,6 +126,7 @@
             this.Column3.Name = "Column3";
             this.Column3.Text = "删除";
             this.Column3.UseColumnTextForButtonValue = true;
+            this.Column3.Width = 80;
             // 
             // FrmAddOrUpdateUnitMoneyYear
             // 
