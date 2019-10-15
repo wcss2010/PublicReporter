@@ -462,6 +462,7 @@
     <None Include="DataTemplete\Current\Files\项目分解情况.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="DataTemplete\Current\Files\项目经费预算编制说明.doc" />
     <None Include="DataTemplete\Current\static.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
