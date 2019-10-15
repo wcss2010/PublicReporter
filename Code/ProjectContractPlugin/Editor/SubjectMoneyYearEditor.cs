@@ -64,7 +64,7 @@ namespace ProjectContractPlugin.Editor
                 StringBuilder sb = new StringBuilder();
                 foreach (KeTiJingFeiNianDuBiao money in moneyList)
                 {
-                    sb.Append(money.NianDu).Append("年度：").Append(money.JingFei).AppendLine();
+                    sb.Append(money.NianDu).Append("年度：").Append(money.JingFei).AppendLine("万元");
                 }
 
                 List<object> cells = new List<object>();

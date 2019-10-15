@@ -79,7 +79,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        private void dgvDetail_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvDetail.Rows.Count >= 1 && e.RowIndex >= 0)
             {
@@ -122,7 +122,7 @@ namespace ProjectContractPlugin.Editor
                 StringBuilder sb = new StringBuilder();
                 foreach (DanWeiJingFeiNianDuBiao money in kvp.Value)
                 {
-                    sb.Append(money.NianDu).Append("年度：").Append(money.JingFei).AppendLine();
+                    sb.Append(money.NianDu).Append("年度：").Append(money.JingFei).AppendLine("万元");
                 }
 
                 List<object> cells = new List<object>();

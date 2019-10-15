@@ -117,7 +117,7 @@
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "金额";
+            this.Column2.HeaderText = "金额(万元)";
             this.Column2.Name = "Column2";
             // 
             // Column3
