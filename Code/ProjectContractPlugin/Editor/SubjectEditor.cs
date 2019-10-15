@@ -105,6 +105,8 @@ namespace ProjectContractPlugin.Editor
                     foreach (DataGridViewRow dgvRow in dgvDetail.SelectedRows)
                     {
                         ConnectionManager.Context.table("KeTiBiao").where("BianHao='" + ((KeTiBiao)dgvRow.Tag).BianHao + "'").delete();
+                        ConnectionManager.Context.table("KeTiYuSuanBiao").where("KeTiBianHao='" + ((KeTiBiao)dgvRow.Tag).BianHao + "'").delete();
+                        ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ((KeTiBiao)dgvRow.Tag).BianHao + "'").delete();
                     }
 
                     //刷新列表
@@ -180,8 +182,10 @@ namespace ProjectContractPlugin.Editor
                     //删除
                     if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        //删除数据
+                        //删除数据                        
                         ConnectionManager.Context.table("KeTiBiao").where("BianHao='" + ((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
+                        ConnectionManager.Context.table("KeTiYuSuanBiao").where("KeTiBianHao='" + ((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
+                        ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
 
                         //刷新列表
                         RefreshView();
