@@ -173,23 +173,11 @@
     <Compile Include="Editor\ProjectKeyEditor.designer.cs">
       <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\SubjectEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectEditor.Designer.cs">
-      <DependentUpon>SubjectEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\SubmitQuestionEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Editor\SubmitQuestionEditor.Designer.cs">
       <DependentUpon>SubmitQuestionEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\TechnologyQuestionEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\TechnologyQuestionEditor.Designer.cs">
-      <DependentUpon>TechnologyQuestionEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\TextContentEditor.cs">
       <SubType>UserControl</SubType>
@@ -238,36 +226,6 @@
     </Compile>
     <Compile Include="Forms\FrmAddOrUpdateMoneySendRule.Designer.cs">
       <DependentUpon>FrmAddOrUpdateMoneySendRule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubject.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubject.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateSubject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectMoney.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectMoney.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateSubjectMoney.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyYear.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyYear.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateSubjectMoneyYear.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateTechnologyQuestion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateTechnologyQuestion.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateTechnologyQuestion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyYear.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyYear.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateUnitMoneyYear.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAddOrUpdateWorker.cs">
       <SubType>Form</SubType>
@@ -402,14 +360,8 @@
     <EmbeddedResource Include="Editor\ProjectKeyEditor.resx">
       <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectEditor.resx">
-      <DependentUpon>SubjectEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubmitQuestionEditor.resx">
       <DependentUpon>SubmitQuestionEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\TechnologyQuestionEditor.resx">
-      <DependentUpon>TechnologyQuestionEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextContentEditor.resx">
       <DependentUpon>TextContentEditor.cs</DependentUpon>
@@ -434,21 +386,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateMoneySendRule.resx">
       <DependentUpon>FrmAddOrUpdateMoneySendRule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubject.resx">
-      <DependentUpon>FrmAddOrUpdateSubject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectMoney.resx">
-      <DependentUpon>FrmAddOrUpdateSubjectMoney.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectMoneyYear.resx">
-      <DependentUpon>FrmAddOrUpdateSubjectMoneyYear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateTechnologyQuestion.resx">
-      <DependentUpon>FrmAddOrUpdateTechnologyQuestion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateUnitMoneyYear.resx">
-      <DependentUpon>FrmAddOrUpdateUnitMoneyYear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateWorker.resx">
       <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>

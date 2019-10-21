@@ -93,7 +93,6 @@ namespace ProjectProtocolPlugin.Utility
                 wu.insertValue("共同条款_合同数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
                 wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
                 wu.insertValue("共同条款_合同数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字4", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
 
                 RenYuanBiao masterPerson = ConnectionManager.Context.table("RenYuanBiao").where("ShiXiangMuFuZeRen='rbIsOnlyProject' or ShiXiangMuFuZeRen='rbIsProjectAndSubject'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
                 wu.insertValue("附件3_联系方式_姓名", masterPerson.XingMing);
@@ -1063,8 +1062,8 @@ namespace ProjectProtocolPlugin.Utility
                 #endregion
 
                 #region 插入Doc文件
-                wu.insertFile("主要研究内容_项目分解情况", Path.Combine(pt.filesDir, "项目分解情况.doc"), true);
-                wu.insertFile("附件2", Path.Combine(pt.filesDir, "项目经费预算编制说明.doc"), false);
+                //wu.insertFile("主要研究内容_项目分解情况", Path.Combine(pt.filesDir, "项目分解情况.doc"), true);
+                //wu.insertFile("附件2", Path.Combine(pt.filesDir, "项目经费预算编制说明.doc"), false);
                 #endregion
 
                 Report(progressDialog, 80, "更新目录...", 1000);

@@ -23,7 +23,6 @@ namespace ProjectProtocolPlugin.Editor
         public const string TRCode1Key = "TRCode1";
         public const string TRCode2Key = "TRCode2";
         public const string TRCode3Key = "TRCode3";
-        public const string TRCode4Key = "TRCode4";
 
         /// <summary>
         /// 编辑器名称
@@ -124,16 +123,9 @@ namespace ProjectProtocolPlugin.Editor
                 }
                 catch (Exception ex) { }
 
-                try
-                {
-                    ibEdit4.Value = decimal.Parse(ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
-                }
-                catch (Exception ex) { }
-
                 txtContent.Text = txtContent.Text.Replace("{%Num1%}", ibEdit1.Value.ToString());
                 txtContent.Text = txtContent.Text.Replace("{%Num2%}", ibEdit2.Value.ToString());
                 txtContent.Text = txtContent.Text.Replace("{%Num3%}", ibEdit3.Value.ToString());
-                txtContent.Text = txtContent.Text.Replace("{%Num4%}", ibEdit4.Value.ToString());
             }
         }
 
@@ -156,7 +148,6 @@ namespace ProjectProtocolPlugin.Editor
                 ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode1Key + "'").delete();
                 ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode2Key + "'").delete();
                 ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode3Key + "'").delete();
-                ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TRCode4Key + "'").delete();
 
                 ZiDianBiao zd = new ZiDianBiao();
                 zd.BianHao = Guid.NewGuid().ToString();
@@ -174,12 +165,6 @@ namespace ProjectProtocolPlugin.Editor
                 zd.BianHao = Guid.NewGuid().ToString();
                 zd.MingCheng = TRCode3Key;
                 zd.ShuJu = ibEdit3.Value.ToString();
-                zd.copyTo(ConnectionManager.Context.table("ZiDianBiao")).insert();
-
-                zd = new ZiDianBiao();
-                zd.BianHao = Guid.NewGuid().ToString();
-                zd.MingCheng = TRCode4Key;
-                zd.ShuJu = ibEdit4.Value.ToString();
                 zd.copyTo(ConnectionManager.Context.table("ZiDianBiao")).insert();
 
                 updateTextControl();

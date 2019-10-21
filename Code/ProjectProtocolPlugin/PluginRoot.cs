@@ -131,24 +131,16 @@ namespace ProjectProtocolPlugin
             itemObj.Text = "主要研究内容";
             firstNode.Nodes.Add(itemObj);
 
-            TreeNode subItemObj = new TreeNode();
-            subItemObj.Text = "项目分解情况";
-            itemObj.Nodes.Add(subItemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "课题情况";
-            itemObj.Nodes.Add(subItemObj);
-
             itemObj = new TreeNode();
             itemObj.Text = "技术要求及指标";
             firstNode.Nodes.Add(itemObj);
 
-            subItemObj = new TreeNode();
+            TreeNode subItemObj = new TreeNode();
             subItemObj.Text = "技术要求";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "主要指标名称、要求及考核方式";
+            subItemObj.Text = "主要指标名称及要求";
             itemObj.Nodes.Add(subItemObj);
 
             itemObj = new TreeNode();
@@ -305,17 +297,16 @@ namespace ProjectProtocolPlugin
         {
             #region 初始化文档编辑器
             editorMap.Add("研究目标", new TextContentEditor("研究目标", "填写批复目标"));
-            editorMap.Add("项目分解情况", new DocumentPasteEditor("项目分解情况", "根据项目目标要求，围绕项目拟解决的基础科学问题，将项目分解为若干课题，并简要说明基础性问题与课题之间的对应关系及各课题相互之间的逻辑关系。"));
+            editorMap.Add("主要研究内容", new DocumentPasteEditor("主要研究内容", "围绕项目研究目标，说明项目主要研究内容。"));
+            editorMap.Add("技术要求", new DocumentPasteEditor("技术要求", "技术要求"));
             editorMap.Add("双方认为需要说明的经费使用事项", new TextContentEditor("双方认为需要说明的经费使用事项", "（应明确承研单位，不包括外协单位） 如：××××××单位承担××××××××××研究任务，经费×××万元。"));
             editorMap.Add("经费管理要求", new TextReadOnlyEditor("经费管理要求", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyA.rtf"))));            
             editorMap.Add("附加条款", new TextReadOnlyEditor("附加条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyC.rtf"))));
             #endregion
 
             #region 初始化其它的编辑器
-            editorMap.Add("基本信息", new ProjectEditor());
-            editorMap.Add("课题情况", new SubjectEditor());
-            editorMap.Add("技术要求", new TechnologyQuestionEditor());
-            editorMap.Add("主要指标名称、要求及考核方式", new DestNameAndQuestionEditor());
+            editorMap.Add("基本信息", new ProjectEditor());            
+            editorMap.Add("主要指标名称及要求", new DestNameAndQuestionEditor());
             editorMap.Add("研究进度安排", new WorkProgressEditor());
             editorMap.Add("经费预算表", new MoneyTableEditor());
             editorMap.Add("经费拨付约定", new MoneySendRuleEditor());

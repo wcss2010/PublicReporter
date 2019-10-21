@@ -181,11 +181,11 @@
             // 
             // Column3
             // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.HeaderText = "指标要求";
             this.Column3.MinimumWidth = 250;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 250;
             // 
             // Column4
             // 
@@ -193,6 +193,7 @@
             this.Column4.HeaderText = "考核方式";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
             // 
             // Column5
             // 
