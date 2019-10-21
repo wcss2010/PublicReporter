@@ -354,12 +354,6 @@
     <None Include="DataTemplete\Current\static.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="DataTemplete\Current\~%24合同书.doc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="DataTemplete\Current\合同书.doc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Helper\help.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
