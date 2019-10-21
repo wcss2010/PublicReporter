@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectReporterPlugin", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectContractPlugin", "ProjectContractPlugin\ProjectContractPlugin.csproj", "{C49657CA-E53A-4393-BC2B-3F44ABAE0CDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectProtocolPlugin", "ProjectProtocolPlugin\ProjectProtocolPlugin.csproj", "{EBD2560C-7795-4133-8EBC-0283EEBCD383}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,18 @@ Global
 		{C49657CA-E53A-4393-BC2B-3F44ABAE0CDA}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C49657CA-E53A-4393-BC2B-3F44ABAE0CDA}.Release|x86.ActiveCfg = Release|x86
 		{C49657CA-E53A-4393-BC2B-3F44ABAE0CDA}.Release|x86.Build.0 = Release|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Debug|x86.ActiveCfg = Debug|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Debug|x86.Build.0 = Debug|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Release|Mixed Platforms.Build.0 = Release|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Release|x86.ActiveCfg = Release|x86
+		{EBD2560C-7795-4133-8EBC-0283EEBCD383}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
