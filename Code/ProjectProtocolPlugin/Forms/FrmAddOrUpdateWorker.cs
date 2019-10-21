@@ -55,6 +55,7 @@ namespace ProjectProtocolPlugin.Forms
             {
                 DataObj = new RenYuanBiao();
                 DataObj.ShiXiangMuFuZeRen = "rbIsOnlyProject";
+                txtMemo.Text = "成员";
             }
         }
 

@@ -52,7 +52,7 @@ namespace ProjectProtocolPlugin
         /// </summary>
         public override string DefaultTitle
         {
-            get { return "国防科技项目基金协议书填报系统（1.4版）"; }
+            get { return "国防科技项目基金协议书填报系统（1.0版）"; }
         }
 
         /// <summary>
@@ -299,7 +299,7 @@ namespace ProjectProtocolPlugin
             editorMap.Add("研究目标", new TextContentEditor("研究目标", "填写批复目标"));
             editorMap.Add("主要研究内容", new DocumentPasteEditor("主要研究内容", "围绕项目研究目标，说明项目主要研究内容。"));
             editorMap.Add("技术要求", new DocumentPasteEditor("技术要求", "技术要求"));
-            editorMap.Add("双方认为需要说明的经费使用事项", new TextContentEditor("双方认为需要说明的经费使用事项", "（应明确承研单位，不包括外协单位） 如：××××××单位承担××××××××××研究任务，经费×××万元。"));
+            editorMap.Add("双方认为需要说明的经费使用事项", new TextContentEditor("双方认为需要说明的经费使用事项", "如：××××××单位承担××××××××××研究任务，经费×××万元。"));
             editorMap.Add("经费管理要求", new TextReadOnlyEditor("经费管理要求", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyA.rtf"))));            
             editorMap.Add("附加条款", new TextReadOnlyEditor("附加条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyC.rtf"))));
             #endregion
