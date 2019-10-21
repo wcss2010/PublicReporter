@@ -442,7 +442,7 @@ namespace ProjectProtocolPlugin.Utility
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            Paragraph p = wu.Document.newParagraph(t.Document, "阶段目标与研究内容：");
+                            Paragraph p = wu.Document.newParagraph(t.Document, "完成内容：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.JieDuanMuBiao));
@@ -456,29 +456,12 @@ namespace ProjectProtocolPlugin.Utility
                         }
                     }
                 }
-                #endregion
-
-                #region 插入技术要求数据
-                wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_年度技术要求");
-                //查询数据
-                List<JiShuBiao> jsList = ConnectionManager.Context.table("JiShuBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<JiShuBiao>(new JiShuBiao());
-
-                int index = 1;
-                foreach (JiShuBiao data in jsList)
-                {
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write((index == 1 ? "" : " ") + "(" + index + ") " + data.NianDu + "年度：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.NeiRong, index == jsList.Count ? false : true);
-
-                    index++;
-                }
-                #endregion
+                #endregion                               
 
                 #region 插入考核方式数据
-                wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_主要指标名称及要求与考核方式");
+                wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_主要指标名称及要求");
                 List<ZhiBiaoBiao> zbbList = ConnectionManager.Context.table("ZhiBiaoBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<ZhiBiaoBiao>(new ZhiBiaoBiao());
-                index = 1;
+                int index = 1;
                 foreach (ZhiBiaoBiao data in zbbList)
                 {
                     wu.Document.WordDocBuilder.Font.Bold = true;
@@ -489,69 +472,14 @@ namespace ProjectProtocolPlugin.Utility
                     wu.Document.WordDocBuilder.Font.Bold = true;
                     wu.Document.WordDocBuilder.Write("(1) 指标要求：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.ZhiBiaoYaoQiu);
-
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write("(2) 考核方式：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KaoHeFangShi, index == zbbList.Count ? false : true);
+                    wu.Document.writeWithNewLine(data.ZhiBiaoYaoQiu, index == zbbList.Count ? false : true);
 
                     index++;
                 }
                 #endregion
 
                 //课题关系表
-                Dictionary<string, string> subjectDict = new Dictionary<string, string>();
-
-                #region 插入课题情况数据
-                wu.Document.WordDocBuilder.MoveToBookmark("主要研究内容_各课题情况_摘要");
-                List<KeTiBiao> ktList = ConnectionManager.Context.table("KeTiBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<KeTiBiao>(new KeTiBiao());
-
-                index = 1;
-                foreach (KeTiBiao data in ktList)
-                {
-                    string subjectRealName = "课题" + index;
-                    subjectDict[data.BianHao] = subjectRealName;
-
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write(subjectRealName + "：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KeTiMingCheng);
-
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write("（1）研究目标：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KeTiYanJiuMuBiao);
-
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Writeln("（2）研究内容：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KeTiYanJiuNeiRong);
-
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Writeln("（3）参加单位分工：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
-
-                    StringBuilder sbWorkTask = new StringBuilder();
-                    List<RenWuBiao> items = ConnectionManager.Context.table("RenWuBiao").where("KeTiBianHao='" + data.BianHao + "'").select("*").getList<RenWuBiao>(new RenWuBiao());
-                    if (items.Count >= 1)
-                    {
-                        sbWorkTask.Append("该课题由").Append(items[0].DanWeiMing).Append("单位负责，承担").Append(items[0].RenWuFenGong).Append("等任务；").AppendLine();
-                        items.Remove(items[0]);
-                    }
-                    foreach (RenWuBiao rwb in items)
-                    {
-                        sbWorkTask.Append(rwb.DanWeiMing).Append("单位参加，承担").Append(rwb.RenWuFenGong).Append("等任务；\n");
-                    }
-                    if (sbWorkTask.Length >= 1)
-                    {
-                        sbWorkTask.Remove(sbWorkTask.Length - 1, 1);
-                    }
-                    wu.Document.writeWithNewLine(sbWorkTask.ToString(), index == ktList.Count ? false : true);
-
-                    index++;
-                }
-                #endregion
+                Dictionary<string, string> subjectDict = new Dictionary<string, string>();                              
 
                 #region 插入人员数据
                 //查询数据
@@ -560,7 +488,7 @@ namespace ProjectProtocolPlugin.Utility
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("任务分工") && t.GetText().Contains("身份证号码") && t.GetText().Contains("项目中职务"))
+                    if (t.GetText().Contains("任务分工") && t.GetText().Contains("身份证号码"))
                     {
                         //创建行
                         for (int k = 0; k < rylist.Count - 1; k++)
@@ -639,431 +567,11 @@ namespace ProjectProtocolPlugin.Utility
                 }
                 #endregion
 
-                #region 插入项目分解说明数据
-
-                List<RenWuBiao> rwlist = ConnectionManager.Context.table("RenWuBiao").select("*").getList<RenWuBiao>(new RenWuBiao());
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("课题编号") && t.GetText().Contains("课题名称") && t.GetText().Contains("所有参研单位"))
-                    {
-                        Dictionary<string, List<RenWuBiao>> dict = new Dictionary<string, List<RenWuBiao>>();
-                        foreach (RenWuBiao rwb in rwlist)
-                        {
-                            if (dict.ContainsKey(rwb.KeTiBianHao))
-                            {
-                                dict[rwb.KeTiBianHao].Add(rwb);
-                            }
-                            else
-                            {
-                                dict[rwb.KeTiBianHao] = new List<RenWuBiao>();
-                                dict[rwb.KeTiBianHao].Add(rwb);
-                            }
-                        }
-
-                        //插入行
-                        Aspose.Words.Tables.Row r = t.Rows[t.Rows.Count - 1];
-                        for (int kk = 0; kk < ktList.Count - 1; kk++)
-                        {
-                            t.Rows.Add(r.Clone(true));
-                        }
-
-                        int rowIndex = 1;
-                        bool startMoney = true;
-                        foreach (KeTiBiao ktb in ktList)
-                        {
-                            startMoney = true;
-
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document, "课题" + rowIndex));
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[1], wu.Document.newParagraph(t.Document, ktb.KeTiMingCheng));
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[2], wu.Document.newParagraph(t.Document, ktb.KeTiFuZeDanWei));
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[3], wu.Document.newParagraph(t.Document, ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao='" + ktb.BianHao + "' and ZhiWu='负责人'").select("XingMing").getValue<string>(string.Empty)));
-
-                            int displayIndex = 1;
-                            foreach (RenWuBiao rwb in dict[ktb.BianHao])
-                            {
-                                wu.Document.fillCell(startMoney, t.Rows[rowIndex].Cells[4], wu.Document.newParagraph(t.Document, displayIndex + ". " + rwb.DanWeiMing), false);
-                                startMoney = false;
-                                displayIndex++;
-                            }
-
-                            rowIndex++;
-                        }
-                    }
-                }
-                #endregion
-
-                #region 插入课题经费年度分配数据
-
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("课题"))
-                    {
-                        Dictionary<int, int> yearAndCell = new Dictionary<int, int>();
-
-                        //添加行和列
-                        List<KeTiJingFeiNianDuBiao> moneyList = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ktList[0].BianHao + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
-                        if (moneyList != null)
-                        {
-                            int ktCount = moneyList.Count;
-                            for (int k = 0; k < ktList.Count - 1; k++)
-                            {
-                                t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));                                
-                            }
-                            for (int vv = 0; vv < t.Rows.Count; vv++)
-                            {
-                                for (int jj = 0; jj < ktCount; jj++)
-                                {
-                                    t.Rows[vv].Cells.Add(t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].Clone(true));
-                                }
-                            }
-
-                            wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
-                            wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
-
-                            for (int tt = 1; tt <= ktCount; tt++)
-                            {
-                                yearAndCell[moneyList[tt - 1].NianDu] = tt;
-
-                                wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, moneyList[tt - 1].NianDu + "年度"));
-                                wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
-                            }
-                        }
-                        
-                        //添加数据
-                        int rowIndex = 1;
-                        foreach (KeTiBiao subject in ktList)
-                        {
-                            moneyList = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document,"课题" + rowIndex));
-
-                            int cellIndex = 1;
-                            decimal totalMoney = 0;
-                            foreach (KeTiJingFeiNianDuBiao money in moneyList)
-                            {
-                                totalMoney += money.JingFei;
-
-                                if (yearAndCell.ContainsKey(money.NianDu))
-                                {
-                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[yearAndCell[money.NianDu]], wu.Document.newParagraph(t.Document, money.JingFei + ""));
-                                }
-
-                                cellIndex++;
-                            }
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[t.Rows[rowIndex].Cells.Count - 1], wu.Document.newParagraph(t.Document, totalMoney + ""));
-                            rowIndex++;
-                        }
-                    }
-                }
-                #endregion
-
-                #region 插入课题经费预算
-
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("课题XX") && t.GetText().Contains("课题") && t.GetText().Contains("科目名称"))
-                    {
-                        //添加列
-                        for (int kk = 0; kk < t.Rows.Count; kk++)
-                        {
-                            for (int vv = 0; vv < ktList.Count - 1; vv++)
-                            {
-                                t.Rows[kk].Cells.Add(t.Rows[kk].Cells[t.Rows[kk].Cells.Count - 1].Clone(true));
-                            }
-                        }
-                        for (int tt = 1; tt < t.Rows[0].Cells.Count; tt++)
-                        {
-                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, "课题" + tt));
-                            wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
-                        }
-
-                        //添加数据
-                        int ccIndex = 1;
-                        foreach (KeTiBiao subject in ktList)
-                        {
-                            List<KeTiYuSuanBiao> ktysList = ConnectionManager.Context.table("KeTiYuSuanBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiYuSuanBiao>(new KeTiYuSuanBiao());
-                            Dictionary<string, string> moneyss = new Dictionary<string, string>();
-                            foreach (KeTiYuSuanBiao ysb in ktysList)
-                            {
-                                moneyss[ysb.MingCheng] = ysb.ShuJu;
-                            }
-
-                            wu.Document.fillCell(true, t.Rows[1].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money1"]));
-                            wu.Document.fillCell(true, t.Rows[2].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money2"]));
-                            wu.Document.fillCell(true, t.Rows[3].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3"]));
-                            wu.Document.fillCell(true, t.Rows[4].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_1"]));
-                            wu.Document.fillCell(true, t.Rows[5].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_2"]));
-                            wu.Document.fillCell(true, t.Rows[6].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_3"]));
-                            wu.Document.fillCell(true, t.Rows[7].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money4"]));
-                            wu.Document.fillCell(true, t.Rows[8].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5"]));
-                            wu.Document.fillCell(true, t.Rows[9].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5_1"]));
-                            wu.Document.fillCell(true, t.Rows[10].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5_2"]));
-                            wu.Document.fillCell(true, t.Rows[11].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money6"]));
-                            wu.Document.fillCell(true, t.Rows[12].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money7"]));
-                            wu.Document.fillCell(true, t.Rows[13].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money8"]));
-                            wu.Document.fillCell(true, t.Rows[14].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money9"]));
-                            wu.Document.fillCell(true, t.Rows[15].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money10"]));
-                            wu.Document.fillCell(true, t.Rows[16].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money11"]));
-                            wu.Document.fillCell(true, t.Rows[17].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money12"]));
-                            wu.Document.fillCell(true, t.Rows[18].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money13"]));
-
-                            ccIndex++;
-                        }
-                    }
-                }
-                #endregion
-
-                #region 插入单位经费年度分配
-
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("单位"))
-                    {
-                        Dictionary<int, int> yearAndCell = new Dictionary<int, int>();
-
-                        //读取单位经费数据并进行分类
-                        CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>> unitDict = new CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>>();
-                        List<DanWeiJingFeiNianDuBiao> list = ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").select("*").getList<DanWeiJingFeiNianDuBiao>(new DanWeiJingFeiNianDuBiao());
-                        foreach (DanWeiJingFeiNianDuBiao table in list)
-                        {
-                            if (unitDict.ContainsKey(table.DanWeiMing))
-                            {
-                                unitDict[table.DanWeiMing].Add(table);
-                            }
-                            else
-                            {
-                                unitDict[table.DanWeiMing] = new List<DanWeiJingFeiNianDuBiao>();
-                                unitDict[table.DanWeiMing].Add(table);
-                            }
-                        }
-
-                        //添加行和列
-                        if (unitDict.Count >= 1)
-                        {
-                            //添加行
-                            for (int kk = 0; kk < unitDict.Count - 1; kk++)
-                            {
-                                t.Rows.Add(t.Rows[t.Rows.Count - 1].Clone(true));
-                            }
-                            //添加列
-                            for (int jj = 0; jj < t.Rows.Count; jj++)
-                            {
-                                for (int vv = 0; vv < unitDict.Values[0].Count; vv++)
-                                {
-                                    t.Rows[jj].Cells.Add(t.Rows[jj].Cells[t.Rows[jj].Cells.Count - 1].Clone(true));
-                                }
-                            }
-
-                            wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
-                            wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
-
-                            int cellIndex = 1;
-                            foreach (DanWeiJingFeiNianDuBiao biao in unitDict.Values[0])
-                            {
-                                yearAndCell[biao.NianDu] = cellIndex;
-
-                                wu.Document.fillCell(true, t.Rows[0].Cells[cellIndex], wu.Document.newParagraph(t.Document, biao.NianDu + "年度"));
-                                wu.Document.setFontInCell(t.Rows[0].Cells[cellIndex], "黑体", 12);
-                                cellIndex++;
-                            }
-                        }
-
-                        //添加数据
-                        int rowIndex = 1;
-                        foreach (KeyValuePair<string, List<DanWeiJingFeiNianDuBiao>> kvp in unitDict)
-                        {
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document, kvp.Key));
-                            int cIndex = 1;
-                            decimal totalMoney = 0;
-                            foreach (DanWeiJingFeiNianDuBiao biao in kvp.Value)
-                            {
-                                totalMoney += biao.JingFei;
-
-                                if (yearAndCell.ContainsKey(biao.NianDu))
-                                {
-                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[yearAndCell[biao.NianDu]], wu.Document.newParagraph(t.Document, biao.JingFei + ""));
-                                }
-
-                                cIndex++;
-                            }
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[t.Rows[rowIndex].Cells.Count - 1], wu.Document.newParagraph(t.Document, totalMoney + ""));
-                            rowIndex++;
-                        }
-                    }
-                }
-                #endregion
-
-                #region 插入联系方式
-
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table table = (Aspose.Words.Tables.Table)node;
-                    if (table.GetText().Contains("各课题联系方式") && table.GetText().Contains("职务职称") && table.GetText().Contains("出生年月"))
-                    {
-                        int titleIndex = table.Rows.Count - 1;
-                        int dataIndex = table.Rows.Count - 1;
-
-                        //构造联系方式行
-                        int rowCountt = (ktList.Count * 3) - 1;
-                        for (int k = 0; k < rowCountt; k++)
-                        {
-                            //table.Select();
-                            table.Rows.Add((Aspose.Words.Tables.Row)table.Rows[table.Rows.Count - 1].Clone(true));
-                        }
-                        //合并单元格
-                        if (rowCountt >= 2)
-                        {
-                            for (int k = 0; k < ktList.Count; k++)
-                            {
-                                //计算开始位置
-                                int rowStart = dataIndex + (k * 3);
-                                int rowEnd = rowStart + 2;
-
-                                #region 写入标签
-                                table.Rows[rowStart].Cells[0].RemoveAllChildren();
-                                table.Rows[rowStart].Cells[0].AppendChild(wu.Document.newParagraph(table.Document, "课题" + (k + 1)));
-                                ((Run)((Paragraph)table.Rows[rowStart].Cells[0].ChildNodes[0]).ChildNodes[0]).Font.Name = "黑体";
-                                //table.Rows[rowStart].Cells[1).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart].Cells[1).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                table.Rows[rowStart].Cells[1].RemoveAllChildren();
-                                table.Rows[rowStart].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "负责人"));
-                                ((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Run)((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
-
-                                //table.Rows[rowStart].Cells[2).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                table.Rows[rowStart].Cells[3].RemoveAllChildren();
-                                table.Rows[rowStart].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "性别"));
-                                ((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Run)((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
-                                //table.Rows[rowStart].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart].Cells[4).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                table.Rows[rowStart].Cells[5].RemoveAllChildren();
-                                table.Rows[rowStart].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "出生年月"));
-                                ((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Run)((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
-                                //table.Rows[rowStart].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart].Cells[6).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                table.Rows[rowStart + 1].Cells[1].RemoveAllChildren();
-                                table.Rows[rowStart + 1].Cells[1].AppendChild(wu.Document.newParagraph(table.Document, "职务职称"));
-                                ((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[1].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
-                                //table.Rows[rowStart + 1].Cells[2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart + 1].Cells[2).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                table.Rows[rowStart + 1].Cells[3].RemoveAllChildren();
-                                table.Rows[rowStart + 1].Cells[3].AppendChild(wu.Document.newParagraph(table.Document, "座机"));
-                                ((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[3].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
-                                //table.Rows[rowStart + 1].Cells[4).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart + 1].Cells[4).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                table.Rows[rowStart + 1].Cells[5].RemoveAllChildren();
-                                table.Rows[rowStart + 1].Cells[5].AppendChild(wu.Document.newParagraph(table.Document, "手机"));
-                                ((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Name = "宋体";
-                                ((Run)((Paragraph)table.Rows[rowStart + 1].Cells[5].ChildNodes[0]).ChildNodes[0]).Font.Size = 10.5;
-                                //table.Rows[rowStart + 1].Cells[6).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Rows[rowStart + 1].Cells[6).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                table.Rows[rowStart + 2].Cells[1].RemoveAllChildren();
-                                wu.Document.addRangeToNodeCollection(table.Rows[rowStart + 2].Cells[1].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, "承担单位\n及通信地址"));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[1],"宋体",10.5);
-                                ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[1]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
-                                //table.Cell(rowStart + 2, 2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                                //table.Cell(rowStart + 2, 2).Select();
-                                //wu.Applicaton.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-                                #endregion
-
-                                #region 写入实际数据
-                                KeTiBiao proj = ktList[k];
-                                RenYuanBiao personObj = ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao ='" + proj.BianHao + "' and ZhiWu='负责人'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
-
-                                wu.Document.fillCell(true, table.Rows[rowStart].Cells[2], wu.Document.newParagraph(table.Document, personObj.XingMing));
-                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[2], "宋体", 10.5);
-
-                                wu.Document.fillCell(true, table.Rows[rowStart].Cells[4], wu.Document.newParagraph(table.Document, personObj.XingBie));
-                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[4], "宋体", 10.5);
-
-                                wu.Document.fillCell(true, table.Rows[rowStart].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShengRi != null ? personObj.ShengRi.ToString("yyyy年MM月dd日") : DateTime.Now.ToString("yyyy年MM月dd日")));
-                                wu.Document.setFontInCell(table.Rows[rowStart].Cells[6], "宋体", 10.5);
-                                
-                                wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[2], wu.Document.newParagraph(table.Document, personObj.ZhiCheng));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[2], "宋体", 10.5);
-                                
-                                wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[4], wu.Document.newParagraph(table.Document, personObj.DianHua));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[4], "宋体", 10.5);
-                                
-                                wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShouJi));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[6], "宋体", 10.5);
-
-                                wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi), false);
-                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[2], "宋体", 10.5);
-                                
-                                #endregion
-
-                                //合并单元格
-                                wu.Document.mergeCells(table.Rows[rowEnd].Cells[2], table.Rows[rowEnd].Cells[6], table);
-                                wu.Document.mergeCells(table.Rows[rowStart].Cells[0], table.Rows[rowEnd].Cells[0], table);
-                            }
-                        }
-                        else
-                        {
-                            table.Rows[titleIndex].Remove();
-                            table.Rows[dataIndex].Remove();
-                        }
-
-                        //调整行距
-                        foreach (Aspose.Words.Tables.Row r in table.Rows)
-                        {
-                            foreach (Aspose.Words.Tables.Cell c in r.Cells)
-                            {
-                                foreach (Node n in c.ChildNodes)
-                                {
-                                    if (n is Paragraph)
-                                    {
-                                        ((Paragraph)n).ParagraphFormat.LineSpacingRule = LineSpacingRule.Multiple;
-                                        ((Paragraph)n).ParagraphFormat.LineSpacing = 12;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                #endregion
-
                 #endregion
 
                 #region 插入Doc文件
-                //wu.insertFile("主要研究内容_项目分解情况", Path.Combine(pt.filesDir, "项目分解情况.doc"), true);
-                //wu.insertFile("附件2", Path.Combine(pt.filesDir, "项目经费预算编制说明.doc"), false);
+                wu.insertFile("主要研究内容", Path.Combine(pt.filesDir, "主要研究内容.doc"), true);
+                wu.insertFile("技术要求及指标_技术要求", Path.Combine(pt.filesDir, "技术要求.doc"), true);
                 #endregion
 
                 Report(progressDialog, 80, "更新目录...", 1000);
