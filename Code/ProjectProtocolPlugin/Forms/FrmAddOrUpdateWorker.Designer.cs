@@ -47,6 +47,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtTotalTime = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtMemo = new System.Windows.Forms.TextBox();
             this.rbIsSubject = new System.Windows.Forms.RadioButton();
             this.rbIsOnlyProject = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.txtMobilephone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBirthday = new System.Windows.Forms.DateTimePicker();
-            this.txtMemo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(548, 513);
+            this.btnSave.Location = new System.Drawing.Point(550, 438);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 43);
@@ -86,7 +86,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(666, 513);
+            this.btnClose.Location = new System.Drawing.Point(668, 438);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 43);
@@ -256,6 +256,16 @@
             this.panel1.Size = new System.Drawing.Size(647, 33);
             this.panel1.TabIndex = 30;
             // 
+            // txtMemo
+            // 
+            this.txtMemo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMemo.Enabled = false;
+            this.txtMemo.Location = new System.Drawing.Point(164, 0);
+            this.txtMemo.Multiline = true;
+            this.txtMemo.Name = "txtMemo";
+            this.txtMemo.Size = new System.Drawing.Size(483, 33);
+            this.txtMemo.TabIndex = 2;
+            // 
             // rbIsSubject
             // 
             this.rbIsSubject.AutoSize = true;
@@ -340,20 +350,11 @@
             this.txtBirthday.Size = new System.Drawing.Size(179, 26);
             this.txtBirthday.TabIndex = 31;
             // 
-            // txtMemo
-            // 
-            this.txtMemo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMemo.Enabled = false;
-            this.txtMemo.Location = new System.Drawing.Point(164, 0);
-            this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(483, 26);
-            this.txtMemo.TabIndex = 2;
-            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 568);
+            this.ClientSize = new System.Drawing.Size(836, 502);
             this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtTotalTime);

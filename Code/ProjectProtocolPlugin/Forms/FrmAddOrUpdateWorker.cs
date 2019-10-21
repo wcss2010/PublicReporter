@@ -45,6 +45,11 @@ namespace ProjectProtocolPlugin.Forms
                 {
                     rbIsOnlyProject.Checked = true;
                 }
+                else
+                {
+                    rbIsSubject.Checked = true;
+                    txtMemo.Enabled = true;
+                }
             }
             else
             {
@@ -118,11 +123,11 @@ namespace ProjectProtocolPlugin.Forms
 
                 if (((RadioButton)sender).Name == "rbIsOnlyProject")
                 {
-                    txtMemo.Enabled = true;
+                    txtMemo.Enabled = false;
                 }
                 else
                 {
-                    txtMemo.Enabled = false;
+                    txtMemo.Enabled = true;
                 }
             }
         }
