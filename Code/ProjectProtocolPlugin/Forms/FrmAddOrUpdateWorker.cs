@@ -26,10 +26,6 @@ namespace ProjectProtocolPlugin.Forms
         
         private void FrmAddOrUpdateWorker_Load(object sender, EventArgs e)
         {
-            cbxSubjects.DisplayMember = "KeTiMingCheng";
-            cbxSubjects.ValueMember = "BianHao";
-            cbxSubjects.DataSource = List;
-
             if (DataObj != null)
             {
                 txtName.Text = DataObj.XingMing;
@@ -40,8 +36,7 @@ namespace ProjectProtocolPlugin.Forms
                 txtIDCard.Text = DataObj.ShenFenZhengHao;
                 txtTask.Text = DataObj.RenWuFenGong;
                 cbxSexs.SelectedItem = DataObj.XingBie;
-                cbxSubjects.SelectedValue = DataObj.KeTiBiaoHao;
-                cbxJobInProjects.SelectedItem = DataObj.ZhiWu;
+                txtMemo.Text = DataObj.ZhiWu;
                 txtTotalTime.Value = DataObj.MeiNianTouRuShiJian;
                 txtTelephone.Text = DataObj.DianHua;
                 txtMobilephone.Text = DataObj.ShouJi;
@@ -50,19 +45,11 @@ namespace ProjectProtocolPlugin.Forms
                 {
                     rbIsOnlyProject.Checked = true;
                 }
-                else if (DataObj.ShiXiangMuFuZeRen == rbIsOnlySubject.Name)
-                {
-                    rbIsOnlySubject.Checked = true;
-                }
-                else if (DataObj.ShiXiangMuFuZeRen == rbIsProjectAndSubject.Name)
-                {
-                    rbIsProjectAndSubject.Checked = true;
-                }
             }
             else
             {
                 DataObj = new RenYuanBiao();
-                DataObj.ShiXiangMuFuZeRen = "rbIsOnlySubject";
+                DataObj.ShiXiangMuFuZeRen = "rbIsOnlyProject";
             }
         }
 
@@ -85,7 +72,7 @@ namespace ProjectProtocolPlugin.Forms
                 || String.IsNullOrEmpty(txtMobilephone.Text)
                 || String.IsNullOrEmpty(txtTask.Text)
                 || (cbxSexs.SelectedItem == null && rbIsOnlyProject.Checked == false)
-                || (cbxJobInProjects.SelectedItem == null && rbIsOnlyProject.Checked == false)
+                || (String.IsNullOrEmpty(txtMemo.Text) && rbIsOnlyProject.Checked == false)
                 || String.IsNullOrEmpty(txtTotalTime.Value.ToString())
 
                 )
@@ -105,8 +92,7 @@ namespace ProjectProtocolPlugin.Forms
                 DataObj.ShouJi = txtMobilephone.Text;
                 DataObj.RenWuFenGong = txtTask.Text;
                 DataObj.XingBie = cbxSexs.SelectedItem.ToString();
-                DataObj.KeTiBiaoHao = cbxSubjects.SelectedValue.ToString();
-                DataObj.ZhiWu = cbxJobInProjects.SelectedItem != null ? cbxJobInProjects.SelectedItem.ToString() : "负责人";
+                DataObj.ZhiWu = txtMemo.Text;
                 DataObj.MeiNianTouRuShiJian = Convert.ToInt32(txtTotalTime.Value);
 
                 if (string.IsNullOrEmpty(DataObj.BianHao))
@@ -132,13 +118,11 @@ namespace ProjectProtocolPlugin.Forms
 
                 if (((RadioButton)sender).Name == "rbIsOnlyProject")
                 {
-                    cbxSubjects.Enabled = false;
-                    cbxJobInProjects.Enabled = false;
+                    txtMemo.Enabled = true;
                 }
                 else
                 {
-                    cbxSubjects.Enabled = true;
-                    cbxJobInProjects.Enabled = true;
+                    txtMemo.Enabled = false;
                 }
             }
         }

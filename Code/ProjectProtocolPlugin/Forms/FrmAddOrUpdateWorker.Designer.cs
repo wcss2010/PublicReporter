@@ -46,13 +46,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTotalTime = new System.Windows.Forms.NumericUpDown();
-            this.cbxSubjects = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbxJobInProjects = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbIsOnlySubject = new System.Windows.Forms.RadioButton();
-            this.rbIsProjectAndSubject = new System.Windows.Forms.RadioButton();
+            this.rbIsSubject = new System.Windows.Forms.RadioButton();
             this.rbIsOnlyProject = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTelephone = new System.Windows.Forms.TextBox();
@@ -60,6 +55,7 @@
             this.txtMobilephone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBirthday = new System.Windows.Forms.DateTimePicker();
+            this.txtMemo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -250,99 +246,39 @@
             this.txtTotalTime.Size = new System.Drawing.Size(179, 26);
             this.txtTotalTime.TabIndex = 23;
             // 
-            // cbxSubjects
-            // 
-            this.cbxSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSubjects.FormattingEnabled = true;
-            this.cbxSubjects.Items.AddRange(new object[] {
-            "负责人",
-            "成员"});
-            this.cbxSubjects.Location = new System.Drawing.Point(132, 437);
-            this.cbxSubjects.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxSubjects.Name = "cbxSubjects";
-            this.cbxSubjects.Size = new System.Drawing.Size(253, 24);
-            this.cbxSubjects.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(490, 440);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 16);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "课题中职务：";
-            // 
-            // cbxJobInProjects
-            // 
-            this.cbxJobInProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxJobInProjects.FormattingEnabled = true;
-            this.cbxJobInProjects.Items.AddRange(new object[] {
-            "负责人",
-            "成员"});
-            this.cbxJobInProjects.Location = new System.Drawing.Point(601, 437);
-            this.cbxJobInProjects.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxJobInProjects.Name = "cbxJobInProjects";
-            this.cbxJobInProjects.Size = new System.Drawing.Size(179, 24);
-            this.cbxJobInProjects.TabIndex = 27;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(71, 440);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 16);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "课题：";
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.rbIsOnlySubject);
-            this.panel1.Controls.Add(this.rbIsProjectAndSubject);
+            this.panel1.Controls.Add(this.txtMemo);
+            this.panel1.Controls.Add(this.rbIsSubject);
             this.panel1.Controls.Add(this.rbIsOnlyProject);
             this.panel1.Location = new System.Drawing.Point(132, 376);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(647, 33);
             this.panel1.TabIndex = 30;
             // 
-            // rbIsOnlySubject
+            // rbIsSubject
             // 
-            this.rbIsOnlySubject.AutoSize = true;
-            this.rbIsOnlySubject.Checked = true;
-            this.rbIsOnlySubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbIsOnlySubject.Location = new System.Drawing.Point(324, 0);
-            this.rbIsOnlySubject.Name = "rbIsOnlySubject";
-            this.rbIsOnlySubject.Size = new System.Drawing.Size(122, 33);
-            this.rbIsOnlySubject.TabIndex = 2;
-            this.rbIsOnlySubject.TabStop = true;
-            this.rbIsOnlySubject.Text = "仅为课题角色";
-            this.rbIsOnlySubject.UseVisualStyleBackColor = true;
-            this.rbIsOnlySubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
-            // 
-            // rbIsProjectAndSubject
-            // 
-            this.rbIsProjectAndSubject.AutoSize = true;
-            this.rbIsProjectAndSubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbIsProjectAndSubject.Location = new System.Drawing.Point(138, 0);
-            this.rbIsProjectAndSubject.Name = "rbIsProjectAndSubject";
-            this.rbIsProjectAndSubject.Size = new System.Drawing.Size(186, 33);
-            this.rbIsProjectAndSubject.TabIndex = 1;
-            this.rbIsProjectAndSubject.Text = "项目负责人兼课题角色";
-            this.rbIsProjectAndSubject.UseVisualStyleBackColor = true;
-            this.rbIsProjectAndSubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
+            this.rbIsSubject.AutoSize = true;
+            this.rbIsSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbIsSubject.Location = new System.Drawing.Point(106, 0);
+            this.rbIsSubject.Name = "rbIsSubject";
+            this.rbIsSubject.Size = new System.Drawing.Size(58, 33);
+            this.rbIsSubject.TabIndex = 1;
+            this.rbIsSubject.Text = "其它";
+            this.rbIsSubject.UseVisualStyleBackColor = true;
+            this.rbIsSubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
             // 
             // rbIsOnlyProject
             // 
             this.rbIsOnlyProject.AutoSize = true;
+            this.rbIsOnlyProject.Checked = true;
             this.rbIsOnlyProject.Dock = System.Windows.Forms.DockStyle.Left;
             this.rbIsOnlyProject.Location = new System.Drawing.Point(0, 0);
             this.rbIsOnlyProject.Name = "rbIsOnlyProject";
-            this.rbIsOnlyProject.Size = new System.Drawing.Size(138, 33);
+            this.rbIsOnlyProject.Size = new System.Drawing.Size(106, 33);
             this.rbIsOnlyProject.TabIndex = 0;
-            this.rbIsOnlyProject.Text = "仅为项目负责人";
+            this.rbIsOnlyProject.TabStop = true;
+            this.rbIsOnlyProject.Text = "项目负责人";
             this.rbIsOnlyProject.UseVisualStyleBackColor = true;
             this.rbIsOnlyProject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
             // 
@@ -404,6 +340,15 @@
             this.txtBirthday.Size = new System.Drawing.Size(179, 26);
             this.txtBirthday.TabIndex = 31;
             // 
+            // txtMemo
+            // 
+            this.txtMemo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMemo.Enabled = false;
+            this.txtMemo.Location = new System.Drawing.Point(164, 0);
+            this.txtMemo.Name = "txtMemo";
+            this.txtMemo.Size = new System.Drawing.Size(483, 26);
+            this.txtMemo.TabIndex = 2;
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -411,10 +356,6 @@
             this.ClientSize = new System.Drawing.Size(836, 568);
             this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.cbxJobInProjects);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.cbxSubjects);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTotalTime);
             this.Controls.Add(this.txtTask);
             this.Controls.Add(this.label2);
@@ -473,13 +414,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown txtTotalTime;
-        private System.Windows.Forms.ComboBox cbxSubjects;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbxJobInProjects;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton rbIsOnlySubject;
-        private System.Windows.Forms.RadioButton rbIsProjectAndSubject;
+        private System.Windows.Forms.RadioButton rbIsSubject;
         private System.Windows.Forms.RadioButton rbIsOnlyProject;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtTelephone;
@@ -487,5 +423,6 @@
         private System.Windows.Forms.TextBox txtMobilephone;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker txtBirthday;
+        private System.Windows.Forms.TextBox txtMemo;
     }
 }

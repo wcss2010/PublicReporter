@@ -248,7 +248,7 @@
             // 
             // Column11
             // 
-            this.Column11.HeaderText = "项目中职务";
+            this.Column11.HeaderText = "备注";
             this.Column11.MinimumWidth = 170;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;

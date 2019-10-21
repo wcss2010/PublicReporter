@@ -545,11 +545,9 @@ namespace ProjectProtocolPlugin.Utility
                                 case "rbIsOnlyProject":
                                     roleName = "项目负责人";
                                     break;
-                                case "rbIsProjectAndSubject":
-                                    roleName = "项目负责人兼" + (subjectDict.ContainsKey(data.KeTiBiaoHao) ? subjectDict[data.KeTiBiaoHao] + data.ZhiWu : "未知");
-                                    break;
-                                case "rbIsOnlySubject":
-                                    roleName = subjectDict.ContainsKey(data.KeTiBiaoHao) ? subjectDict[data.KeTiBiaoHao] + data.ZhiWu : "未知";
+
+                                default:
+                                    roleName = data.ZhiWu;
                                     break;
                             }
 

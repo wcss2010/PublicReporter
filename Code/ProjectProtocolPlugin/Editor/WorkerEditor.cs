@@ -23,19 +23,6 @@ namespace ProjectProtocolPlugin.Editor
         {
             base.RefreshView();
 
-            //查询课题列表
-            ktList = ProjectProtocolPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
-            ktList = ktList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
-            
-            //生成课题X字典
-            int kindex = 0;
-            Dictionary<string, string> ktDict = new Dictionary<string, string>();
-            foreach (KeTiBiao ktb in ktList)
-            {
-                kindex++;
-                ktDict[ktb.BianHao] = "课题" + kindex;
-            }
-
             //查询人员列表
             list = ProjectProtocolPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
             list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
@@ -62,7 +49,7 @@ namespace ProjectProtocolPlugin.Editor
                 }
                 else
                 {
-                    cells.Add((data.ShiXiangMuFuZeRen == "rbIsProjectAndSubject" ? "项目负责人兼" : "") + ((ktDict.ContainsKey(data.KeTiBiaoHao) ? ktDict[data.KeTiBiaoHao] : string.Empty) + data.ZhiWu));
+                    cells.Add(data.ZhiWu);
                 }
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
