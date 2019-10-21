@@ -265,6 +265,7 @@
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.Size = new System.Drawing.Size(483, 33);
             this.txtMemo.TabIndex = 2;
+            this.txtMemo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // rbIsSubject
             // 
