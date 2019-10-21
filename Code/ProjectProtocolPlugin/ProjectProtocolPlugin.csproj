@@ -136,12 +136,6 @@
     <Compile Include="Editor\DocumentPasteEditor.Designer.cs">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\ExtFile2Editor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\ExtFile2Editor.Designer.cs">
-      <DependentUpon>ExtFile2Editor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\MoneySendRuleEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,18 +178,6 @@
     <Compile Include="Editor\SubjectEditor.Designer.cs">
       <DependentUpon>SubjectEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\SubjectMoneyEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectMoneyEditor.Designer.cs">
-      <DependentUpon>SubjectMoneyEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\SubjectMoneyYearEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectMoneyYearEditor.Designer.cs">
-      <DependentUpon>SubjectMoneyYearEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\SubmitQuestionEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,12 +207,6 @@
     </Compile>
     <Compile Include="Editor\TogetherRuleEditor.Designer.cs">
       <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\UnitMoneyYearEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\UnitMoneyYearEditor.Designer.cs">
-      <DependentUpon>UnitMoneyYearEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\WorkerEditor.cs">
       <SubType>UserControl</SubType>
@@ -410,9 +386,6 @@
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\ExtFile2Editor.resx">
-      <DependentUpon>ExtFile2Editor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Editor\MoneySendRuleEditor.resx">
       <DependentUpon>MoneySendRuleEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,12 +407,6 @@
     <EmbeddedResource Include="Editor\SubjectEditor.resx">
       <DependentUpon>SubjectEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectMoneyEditor.resx">
-      <DependentUpon>SubjectMoneyEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectMoneyYearEditor.resx">
-      <DependentUpon>SubjectMoneyYearEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubmitQuestionEditor.resx">
       <DependentUpon>SubmitQuestionEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,9 +421,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TogetherRuleEditor.resx">
       <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\UnitMoneyYearEditor.resx">
-      <DependentUpon>UnitMoneyYearEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\WorkerEditor.resx">
       <DependentUpon>WorkerEditor.cs</DependentUpon>

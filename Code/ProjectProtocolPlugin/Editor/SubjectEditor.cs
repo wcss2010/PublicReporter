@@ -218,17 +218,17 @@ namespace ProjectProtocolPlugin.Editor
 
         public void refreshOtherView()
         {
-            foreach (BaseEditor be in PluginRootObj.editorMap.Values)
-            {
-                if (be is SubjectMoneyYearEditor)
-                {
-                    ((SubjectMoneyYearEditor)be).RefreshView();
-                }
-                else if (be is SubjectMoneyEditor)
-                {
-                    ((SubjectMoneyEditor)be).RefreshView();
-                }
-            }
+            //foreach (BaseEditor be in PluginRootObj.editorMap.Values)
+            //{
+            //    if (be is SubjectMoneyYearEditor)
+            //    {
+            //        ((SubjectMoneyYearEditor)be).RefreshView();
+            //    }
+            //    else if (be is SubjectMoneyEditor)
+            //    {
+            //        ((SubjectMoneyEditor)be).RefreshView();
+            //    }
+            //}
         }
 
         public override bool IsInputCompleted()
