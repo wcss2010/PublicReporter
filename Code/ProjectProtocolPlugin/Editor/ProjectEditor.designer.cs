@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectProtocolPlugin.Editor
 {
 	partial class ProjectEditor
 	{
@@ -28,10 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.hSkinTableLayoutPanel1 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
+            this.hSkinTableLayoutPanel1 = new ProjectProtocolPlugin.Controls.HSkinTableLayoutPanel();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -111,14 +111,14 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.ibEdit39 = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.ibEdit41 = new ProjectContractPlugin.Editor.ProjectAddressEditor();
+            this.ibEdit41 = new ProjectProtocolPlugin.Editor.ProjectAddressEditor();
             this.label31 = new System.Windows.Forms.Label();
             this.ibEdit40 = new System.Windows.Forms.ComboBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.ibEdit42 = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.ibEdit43 = new ProjectContractPlugin.Editor.ProjectKeyEditor();
+            this.ibEdit43 = new ProjectProtocolPlugin.Editor.ProjectKeyEditor();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
@@ -151,7 +151,7 @@
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(1063, 51);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "合同书是开展合同过程管理和监督评估的重要依据，请科学严谨、实事求是填写合同书，表述要清晰准确。";
+            this.lblInfo.Text = "协议书是开展协议过程管理和监督评估的重要依据，请科学严谨、实事求是填写协议书，表述要清晰准确。";
             // 
             // plMain
             // 
@@ -360,7 +360,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "合同编号";
+            this.label1.Text = "协议编号";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -372,7 +372,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 25);
             this.label2.TabIndex = 0;
-            this.label2.Text = "合同名称";
+            this.label2.Text = "协议名称";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -420,7 +420,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(168, 25);
             this.label6.TabIndex = 0;
-            this.label6.Text = "合同价款";
+            this.label6.Text = "协议价款";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7

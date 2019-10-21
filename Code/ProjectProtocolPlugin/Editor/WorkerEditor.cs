@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Forms;
-using ProjectContractPlugin.DB;
+using ProjectProtocolPlugin.DB.Entitys;
+using ProjectProtocolPlugin.Forms;
+using ProjectProtocolPlugin.DB;
 using PublicReporterLib;
 using System.IO;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectProtocolPlugin.Editor
 {
     public partial class WorkerEditor : BaseEditor
     {
@@ -24,7 +24,7 @@ namespace ProjectContractPlugin.Editor
             base.RefreshView();
 
             //查询课题列表
-            ktList = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
+            ktList = ProjectProtocolPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
             ktList = ktList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             
             //生成课题X字典
@@ -37,7 +37,7 @@ namespace ProjectContractPlugin.Editor
             }
 
             //查询人员列表
-            list = ProjectContractPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+            list = ProjectProtocolPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
             list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
 
             dgvDetail.Rows.Clear();

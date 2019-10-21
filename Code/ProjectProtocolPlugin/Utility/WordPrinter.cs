@@ -7,13 +7,13 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Editor;
+using ProjectProtocolPlugin.DB;
+using ProjectProtocolPlugin.DB.Entitys;
+using ProjectProtocolPlugin.Editor;
 using System.Data;
 using PublicReporterLib;
 
-namespace ProjectContractPlugin.Utility
+namespace ProjectProtocolPlugin.Utility
 {
     public class WordPrinter
     {
@@ -38,7 +38,7 @@ namespace ProjectContractPlugin.Utility
             Report(progressDialog, 10, "准备Word...", 1000);
 
             //创建word文档
-            string fileName = pt.projectObj.BianHao + "-合同书.docx";
+            string fileName = pt.projectObj.BianHao + "-协议书.docx";
             WordUtility wu = new WordUtility();
             wu.createNewDocument(Path.Combine(Path.Combine(pt.RootDir, "Helper"), "template.doc"));
 
@@ -49,17 +49,17 @@ namespace ProjectContractPlugin.Utility
                 Report(progressDialog, 30, "写入基本信息...", 1000);
 
                 #region 固定文本替换
-                wu.insertValue("首页_合同编号", pt.projectObj.HeTongBianHao);
+                wu.insertValue("首页_协议编号", pt.projectObj.HeTongBianHao);
                 wu.insertValue("首页_密级", pt.projectObj.HeTongMiJi);
                 wu.insertValue("首页_密级期限", pt.projectObj.HeTongMiQi.ToString());
-                wu.insertValue("首页_合同名称", pt.projectObj.HeTongMingCheng);
+                wu.insertValue("首页_协议名称", pt.projectObj.HeTongMingCheng);
                 wu.insertValue("首页_承研单位", pt.projectObj.ChengYanDanWeiMingCheng);
                 wu.insertValue("首页_项目负责人", pt.projectObj.HeTongFuZeRen);
                 wu.insertValue("首页_起止时间", pt.projectObj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + pt.projectObj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
-                wu.insertValue("基本信息_合同编号", pt.projectObj.HeTongBianHao);
-                wu.insertValue("基本信息_合同名称", pt.projectObj.HeTongMingCheng);
+                wu.insertValue("基本信息_协议编号", pt.projectObj.HeTongBianHao);
+                wu.insertValue("基本信息_协议名称", pt.projectObj.HeTongMingCheng);
                 wu.insertValue("基本信息_起止时间", pt.projectObj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + pt.projectObj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
-                wu.insertValue("基本信息_合同价款", pt.projectObj.HeTongJiaKuan.ToString());
+                wu.insertValue("基本信息_协议价款", pt.projectObj.HeTongJiaKuan.ToString());
                 wu.insertValue("基本信息_经费管理模式", pt.projectObj.HeTongJingFeiGuanLiMoShi);
                 wu.insertValue("基本信息_委托_单位名称", pt.projectObj.WeiTuoDanWeiMingCheng);
                 wu.insertValue("基本信息_承研_单位名称", pt.projectObj.ChengYanDanWeiMingCheng);
@@ -90,10 +90,10 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("基本信息_委托_财务联系电话", pt.projectObj.WeiTuoDanWeiCaiWuFuZeRenDianHua);
                 wu.insertValue("基本信息_承研_财务联系电话", pt.projectObj.ChengYanDanWeiCaiWuFuZeRenDianHua);
 
-                wu.insertValue("共同条款_合同数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字4", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字4", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
 
                 RenYuanBiao masterPerson = ConnectionManager.Context.table("RenYuanBiao").where("ShiXiangMuFuZeRen='rbIsOnlyProject' or ShiXiangMuFuZeRen='rbIsProjectAndSubject'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
                 wu.insertValue("附件3_联系方式_姓名", masterPerson.XingMing);
@@ -1127,7 +1127,7 @@ namespace ProjectContractPlugin.Utility
                 wu.killWinWordProcess();
 
                 //保存word
-                string docFile = Path.Combine(pt.dataDir, "合同书.doc");
+                string docFile = Path.Combine(pt.dataDir, "协议书.doc");
                 wu.saveDocument(docFile);
                 Process.Start(docFile);
                 #endregion

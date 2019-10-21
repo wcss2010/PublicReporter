@@ -2,14 +2,14 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Forms;
-using ProjectContractPlugin.DB;
+using ProjectProtocolPlugin.DB.Entitys;
+using ProjectProtocolPlugin.Forms;
+using ProjectProtocolPlugin.DB;
 using PublicReporterLib;
 using System.IO;
 using System.Text;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectProtocolPlugin.Editor
 {
     public partial class SubjectEditor : BaseEditor
     {
@@ -24,7 +24,7 @@ namespace ProjectContractPlugin.Editor
             base.RefreshView();
 
             dgvDetail.Rows.Clear();
-            list = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
+            list = ProjectProtocolPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
             list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
             foreach (KeTiBiao data in list)

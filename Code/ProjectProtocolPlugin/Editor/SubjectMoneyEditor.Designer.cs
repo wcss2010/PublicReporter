@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectProtocolPlugin.Editor
 {
     partial class SubjectMoneyEditor
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.tcMoneys = new System.Windows.Forms.TabControl();
             this.plButtons = new System.Windows.Forms.Panel();

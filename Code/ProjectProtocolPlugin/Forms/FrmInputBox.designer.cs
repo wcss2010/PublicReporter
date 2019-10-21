@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Forms
+﻿namespace ProjectProtocolPlugin.Forms
 {
     partial class FrmInputBox
     {

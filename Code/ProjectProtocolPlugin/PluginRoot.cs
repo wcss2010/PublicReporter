@@ -6,14 +6,14 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using ProjectContractPlugin.Controls;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Editor;
-using ProjectContractPlugin.Forms;
-using ProjectContractPlugin.Utility;
+using ProjectProtocolPlugin.Controls;
+using ProjectProtocolPlugin.DB;
+using ProjectProtocolPlugin.DB.Entitys;
+using ProjectProtocolPlugin.Editor;
+using ProjectProtocolPlugin.Forms;
+using ProjectProtocolPlugin.Utility;
 
-namespace ProjectContractPlugin
+namespace ProjectProtocolPlugin
 {
     public class PluginRoot : IReportPluginRoot
     {
@@ -52,7 +52,7 @@ namespace ProjectContractPlugin
         /// </summary>
         public override string DefaultTitle
         {
-            get { return "重点基础研究项目合同书填报系统（1.4版）"; }
+            get { return "重点基础研究项目协议书填报系统（1.4版）"; }
         }
 
         /// <summary>
@@ -433,7 +433,7 @@ namespace ProjectContractPlugin
                         return;
                     }
 
-                    if (File.Exists(Path.Combine(dataDir, "合同书.doc")) == false)
+                    if (File.Exists(Path.Combine(dataDir, "协议书.doc")) == false)
                     {
                         MessageBox.Show("对不起，请先点击预览按钮生成项目申报书！");
                         return;

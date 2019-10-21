@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectProtocolPlugin.Forms
 {
     /// <summary>
     /// 显示一个假的进度条(只能在UI线程下用)

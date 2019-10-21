@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectProtocolPlugin.Editor
 {
     partial class MoneyTableControl
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.hSkinTableLayoutPanel1 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
+            this.hSkinTableLayoutPanel1 = new ProjectProtocolPlugin.Controls.HSkinTableLayoutPanel();
             this.ibEditMoney5_2 = new System.Windows.Forms.TextBox();
             this.ibEditInfo3_1 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();

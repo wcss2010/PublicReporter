@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjectContractPlugin.Utility
+namespace ProjectProtocolPlugin.Utility
 {
     /// <summary>
     /// 格式检查工具

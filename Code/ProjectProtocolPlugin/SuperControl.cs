@@ -5,12 +5,12 @@ using System.Text;
 
 namespace PublicReporterLib
 {
-    public class SuperControl : PluginControl<ProjectContractPlugin.PluginRoot>
+    public class SuperControl : PluginControl<ProjectProtocolPlugin.PluginRoot>
     {
 
     }
 
-    public class SuperForm : PluginForm<ProjectContractPlugin.PluginRoot>
+    public class SuperForm : PluginForm<ProjectProtocolPlugin.PluginRoot>
     {
 
     }

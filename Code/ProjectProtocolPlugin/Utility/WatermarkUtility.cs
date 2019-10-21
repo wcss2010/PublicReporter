@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Utility
+namespace ProjectProtocolPlugin.Utility
 {
 	public class WatermarkUtility
 	{

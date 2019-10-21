@@ -8,7 +8,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectProtocolPlugin.Forms
 {
     public partial class FrmHelpBox : PublicReporterLib.SuperForm
     {

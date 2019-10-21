@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectProtocolPlugin.Editor
 {
     partial class TextContentEditor
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.txtContent = new System.Windows.Forms.TextBox();
@@ -125,7 +125,7 @@
 
         #endregion
 
-        private ProjectContractPlugin.Controls.AutoHeightLabel lblInfo;
+        private ProjectProtocolPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.Panel plButtons;

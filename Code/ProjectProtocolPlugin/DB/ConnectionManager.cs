@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Noear.Weed;
 
-namespace ProjectContractPlugin.DB
+namespace ProjectProtocolPlugin.DB
 {
     public class ConnectionManager
     {

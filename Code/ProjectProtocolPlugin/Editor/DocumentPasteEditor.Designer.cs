@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectProtocolPlugin.Editor
 {
     partial class DocumentPasteEditor
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectProtocolPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnEditDocument = new System.Windows.Forms.Button();
@@ -112,7 +112,7 @@
 
         #endregion
 
-        private ProjectContractPlugin.Controls.AutoHeightLabel lblInfo;
+        private ProjectProtocolPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.Button btnEditDocument;
         private System.Windows.Forms.Panel plMain;

@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace ProjectContractPlugin.Utility
+namespace ProjectProtocolPlugin.Utility
 {
 	public class FileOp
 	{

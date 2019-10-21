@@ -1,4 +1,4 @@
-﻿using ProjectContractPlugin.DB.Entitys;
+﻿using ProjectProtocolPlugin.DB.Entitys;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectProtocolPlugin.Forms
 {
     public partial class FrmProjectManager : PublicReporterLib.SuperForm
     {

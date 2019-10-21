@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectProtocolPlugin.Editor
 {
     partial class ExtFile2Editor
     {
@@ -31,7 +31,7 @@
             this.plContent = new System.Windows.Forms.Panel();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnEditDocument = new System.Windows.Forms.Button();
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();

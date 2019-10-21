@@ -1,5 +1,5 @@
-﻿using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
+﻿using ProjectProtocolPlugin.DB;
+using ProjectProtocolPlugin.DB.Entitys;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectProtocolPlugin.Forms
 {
     public partial class FrmAddOrSubmitQuestion : PublicReporterLib.SuperForm
     {

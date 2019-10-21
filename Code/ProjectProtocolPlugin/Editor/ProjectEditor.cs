@@ -6,10 +6,10 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using PublicReporterLib;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.DB;
+using ProjectProtocolPlugin.DB.Entitys;
+using ProjectProtocolPlugin.DB;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectProtocolPlugin.Editor
 {
     public partial class ProjectEditor : BaseEditor
     {
@@ -28,7 +28,7 @@ namespace ProjectContractPlugin.Editor
             try
             {
                 OnSaveEvent();
-                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectContractPlugin.PluginRoot>().refreshEditors();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectProtocolPlugin.PluginRoot>().refreshEditors();
             }
             catch (Exception ex)
             {
@@ -103,12 +103,12 @@ namespace ProjectContractPlugin.Editor
 
             if (ibEdit1.Text == string.Empty)
             {
-                MessageBox.Show("对不起，请输入合同编号!");
+                MessageBox.Show("对不起，请输入协议编号!");
                 return;
             }
             if (ibEdit2.Text == string.Empty)
             {
-                MessageBox.Show("对不起，请输入合同名称!");
+                MessageBox.Show("对不起，请输入协议名称!");
                 return;
             }
             if (ibEdit3.Text == string.Empty)
@@ -180,19 +180,19 @@ namespace ProjectContractPlugin.Editor
             //DateTime dd7;
             //if (DateTime.TryParse(ibEdit7.Text, out dd7) == false)
             //{
-            //    MessageBox.Show("对不起，请输入合同开始时间!");
+            //    MessageBox.Show("对不起，请输入协议开始时间!");
             //    return;
             //}
             //DateTime dd8;
             //if (DateTime.TryParse(ibEdit8.Text, out dd8) == false)
             //{
-            //    MessageBox.Show("对不起，请输入合同结束时间!");
+            //    MessageBox.Show("对不起，请输入协议结束时间!");
             //    return;
             //}
             Single dd9;
             if (Single.TryParse(ibEdit9.Text, out dd9) == false)
             {
-                MessageBox.Show("对不起，请输入合同价款!");
+                MessageBox.Show("对不起，请输入协议价款!");
                 return;
             }
             if (ibEdit10.Text == string.Empty)

@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Forms;
-using ProjectContractPlugin.DB;
+using ProjectProtocolPlugin.DB.Entitys;
+using ProjectProtocolPlugin.Forms;
+using ProjectProtocolPlugin.DB;
 using PublicReporterLib;
 using System.IO;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectProtocolPlugin.Editor
 {
     public partial class MoneySendRuleEditor : BaseEditor
     {
@@ -23,7 +23,7 @@ namespace ProjectContractPlugin.Editor
             base.RefreshView();
 
             dgvDetail.Rows.Clear();
-            list = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+            list = ProjectProtocolPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
             list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
             foreach (BoFuBiao data in list)

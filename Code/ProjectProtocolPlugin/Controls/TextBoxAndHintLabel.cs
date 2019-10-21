@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Controls
+namespace ProjectProtocolPlugin.Controls
 {
     /// <summary>
     /// 带右上角标签的文本框

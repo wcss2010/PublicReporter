@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectProtocolPlugin.Editor
 {
     partial class TogetherRuleEditor
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.txtContent = new System.Windows.Forms.RichTextBox();
@@ -138,7 +138,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "本合同一式";
+            this.label1.Text = "本协议一式";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ibEdit1
@@ -262,7 +262,7 @@
 
         #endregion
 
-        private ProjectContractPlugin.Controls.AutoHeightLabel lblInfo;
+        private ProjectProtocolPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.RichTextBox txtContent;

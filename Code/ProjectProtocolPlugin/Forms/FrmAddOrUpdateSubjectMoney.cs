@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectProtocolPlugin.Forms
 {
     public partial class FrmAddOrUpdateSubjectMoney : PublicReporterLib.SuperForm
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Noear.Weed;
 
-namespace ProjectContractPlugin.DB.Entitys
+namespace ProjectProtocolPlugin.DB.Entitys
 {
     /// <summary>
     /// 数据实体抽象类

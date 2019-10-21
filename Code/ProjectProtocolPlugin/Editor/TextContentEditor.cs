@@ -9,9 +9,9 @@ using System.IO;
 using PublicReporterLib;
 using System.Diagnostics;
 using Aspose.Words;
-using ProjectContractPlugin.Controls;
+using ProjectProtocolPlugin.Controls;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectProtocolPlugin.Editor
 {
     /// <summary>
     /// 文档编辑控件
