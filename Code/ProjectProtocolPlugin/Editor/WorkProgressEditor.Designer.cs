@@ -182,7 +182,7 @@
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "阶段目标与研究内容";
+            this.Column3.HeaderText = "完成内容";
             this.Column3.MinimumWidth = 303;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;

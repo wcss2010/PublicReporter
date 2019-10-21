@@ -54,7 +54,7 @@
             this.txtContent.AcceptsReturn = true;
             this.txtContent.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtContent.Location = new System.Drawing.Point(265, 76);
-            this.txtContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(4);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -65,7 +65,7 @@
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnSave.Location = new System.Drawing.Point(681, 515);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 43);
             this.btnSave.TabIndex = 3;
@@ -77,18 +77,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(97, 137);
+            this.label2.Location = new System.Drawing.Point(177, 135);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 16);
+            this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 0;
-            this.label2.Text = "阶段目标与研究内容:";
+            this.label2.Text = "完成内容:";
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnClose.Location = new System.Drawing.Point(799, 515);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 43);
             this.btnClose.TabIndex = 3;
@@ -101,7 +101,7 @@
             this.textBox3.AcceptsReturn = true;
             this.textBox3.Font = new System.Drawing.Font("仿宋", 12F);
             this.textBox3.Location = new System.Drawing.Point(265, 249);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -122,7 +122,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(265, 24);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(285, 26);
             this.dateTimePicker1.TabIndex = 10;
@@ -141,7 +141,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddOrUpdateWorkProgress";
