@@ -52,7 +52,7 @@ namespace ProjectProtocolPlugin
         /// </summary>
         public override string DefaultTitle
         {
-            get { return "重点基础研究项目协议书填报系统（1.4版）"; }
+            get { return "国防科技项目基金协议书填报系统（1.4版）"; }
         }
 
         /// <summary>
