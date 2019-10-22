@@ -280,6 +280,8 @@
     <None Include="DataTemplete\Current\Files\~WRL0001.tmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="DataTemplete\Current\Files\主要研究内容.doc" />
+    <None Include="DataTemplete\Current\Files\技术要求.doc" />
     <None Include="DataTemplete\Current\Files\项目分解情况.doc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
