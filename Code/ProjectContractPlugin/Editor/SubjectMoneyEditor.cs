@@ -42,7 +42,10 @@ namespace ProjectContractPlugin.Editor
                 {
                     TabPage tp = new TabPage();
                     MoneyTableControl mtc = new MoneyTableControl();
-                    mtc.Dock = DockStyle.Fill;
+                    mtc.Dock = DockStyle.None;
+                    mtc.Left = 0;
+                    mtc.Top = 0;
+                    tp.AutoScroll = true;
                     tp.Controls.Add(mtc);
                     tcMoneys.TabPages.Add(tp);
                 }
