@@ -38,6 +38,7 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMemo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +105,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(152, 21);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(285, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(127, 26);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // label4
@@ -160,11 +161,23 @@
             this.txtMemo.Size = new System.Drawing.Size(647, 159);
             this.txtMemo.TabIndex = 2;
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label5.Location = new System.Drawing.Point(354, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(411, 33);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "节点X评估时间上半年选择4月30日，下半年选择10月30日";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmAddOrUpdateMoneySendRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 600);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnClose);
@@ -199,5 +212,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMemo;
+        private System.Windows.Forms.Label label5;
     }
 }
