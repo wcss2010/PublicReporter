@@ -41,7 +41,7 @@ namespace ProjectContractPlugin.Forms
                 foreach (KeTiJingFeiNianDuBiao obj in list)
                 {
                     List<object> cells = new List<object>();
-                    if (PluginRootObj.projectObj.HeTongJieShuShiJian.Year >= obj.NianDu || obj.NianDu <= PluginRootObj.projectObj.HeTongKaiShiShiJian.Year)
+                    if (PluginRootObj.projectObj.HeTongJieShuShiJian.Year >= obj.NianDu && obj.NianDu >= PluginRootObj.projectObj.HeTongKaiShiShiJian.Year)
                     {
                         cells.Add(obj.NianDu.ToString());
                     }
