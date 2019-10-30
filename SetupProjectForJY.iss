@@ -2,7 +2,7 @@
 ; 有关创建 Inno Setup 脚本文件的详细资料请查阅帮助文档！
 
 #define MyAppName "重点基础研究项目建议书填报系统"
-#define MyAppVersion "1.3"
+#define MyAppVersion "1.4"
 #define MyAppPublisher ""
 #define MyAppURL "http://www.baidu.com.com/"
 #define MyAppExeName "PublicReporter.exe"
