@@ -196,6 +196,8 @@ namespace ProjectReporterPlugin.Utility
                 double oldFirstLineIndent = wu.Document.WordDocBuilder.ParagraphFormat.FirstLineIndent;
                 wu.Document.WordDocBuilder.ParagraphFormat.FirstLineIndent = paragraphFormat.FirstLineIndent;
 
+                List<KeyValuePair<string, WordDocument>> afterDicts = new List<KeyValuePair<string, WordDocument>>();
+
                 for (int kk = 0; kk < ketiList.Count; kk++)
                 {
                     Project proj = ketiList[kk];
@@ -261,8 +263,23 @@ namespace ProjectReporterPlugin.Utility
                     content2.WordDocBuilder.Font.Size = 14.25;
                     content2.WordDocBuilder.Writeln("  " + moneyStr);
 
-                    wu.Document.insertDocumentAfterBookMark(content1.WordDoc, "课题详细_" + ketiIndex + "_4", false);
-                    wu.Document.insertDocumentAfterBookMark(content2.WordDoc, "课题详细_" + ketiIndex + "_5", kk == ketiList.Count - 1 ? true : false);
+                    afterDicts.Add(new KeyValuePair<string, WordDocument>("课题详细_" + ketiIndex + "_3", content1));
+                    afterDicts.Add(new KeyValuePair<string, WordDocument>("课题详细_" + ketiIndex + "_4", content2));                    
+                }
+
+                int iiii = 0;
+                foreach (KeyValuePair<string, WordDocument> kvp in afterDicts)
+                {
+                    iiii++;
+
+                    if (iiii == afterDicts.Count)
+                    {
+                        wu.Document.insertDocumentAfterBookMark(kvp.Value.WordDoc, kvp.Key.Substring(0, kvp.Key.Length - 1) + "5", true);
+                    }
+                    else
+                    {
+                        wu.Document.insertDocumentAfterBookMark(kvp.Value.WordDoc, kvp.Key, false);
+                    }
                 }
 
                 wu.Document.WordDocBuilder.ListFormat.RemoveNumbers();
@@ -286,9 +303,9 @@ namespace ProjectReporterPlugin.Utility
                         wu.replaceA("F2-" + ketiIndex, ketiCode + ":" + proj.Name);
 
                         //研究目标，研究内容，技术要求等文档
-                        wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究目标" + ".doc"), false);
-                        wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究内容" + ".doc"), false);
-                        wu.insertFile("课题详细_" + ketiIndex + "_3", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究思路" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究目标" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究内容" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究思路" + ".doc"), false);
 
                         ketiIndex++;
 
