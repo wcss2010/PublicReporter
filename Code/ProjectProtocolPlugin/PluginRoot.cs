@@ -626,7 +626,7 @@ namespace ProjectProtocolPlugin
                     List<BaseEditor> tempLists = new List<BaseEditor>();
                     tempLists.AddRange(editorMap.Values);
                     tempLists.Reverse();
-                    
+
                     if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
                     {
                         ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
@@ -640,7 +640,8 @@ namespace ProjectProtocolPlugin
                                 //保存
                                 try
                                 {
-                                    be.OnSaveEvent();
+                                    bool isSuccess = true;
+                                    be.OnSaveEvent(ref isSuccess);
                                 }
                                 catch (Exception ex)
                                 {
@@ -655,7 +656,7 @@ namespace ProjectProtocolPlugin
                             }
                         }));
                     }
-                    
+
                     //刷新
                     if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
                     {
@@ -695,7 +696,11 @@ namespace ProjectProtocolPlugin
                         //保存
                         try
                         {
-                            be.OnSaveEvent();
+                            be.OnSaveEvent(ref isSucesss);
+                            if (isSucesss == false)
+                            {
+                                throw new Exception("内容未填写完");
+                            }
                         }
                         catch (Exception ex)
                         {
