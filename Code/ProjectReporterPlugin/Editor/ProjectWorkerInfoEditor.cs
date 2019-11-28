@@ -158,9 +158,9 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
         }
 
         public List<Person> PersonList { get; set; }

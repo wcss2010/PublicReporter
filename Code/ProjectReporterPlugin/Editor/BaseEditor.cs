@@ -24,7 +24,7 @@ namespace ProjectReporterPlugin.Editor
 
         public event SaveEventDelegate SaveEvent;
 
-        public virtual void OnSaveEvent()
+        public virtual void OnSaveEvent(ref bool result)
         {
             if (SaveEvent != null)
             {

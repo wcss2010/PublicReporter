@@ -428,11 +428,11 @@ namespace ProjectReporterPlugin.Editor
             LoadProject();
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
-            SaveProject();
+            result = SaveProject() < 0;
         }
 
         public override bool IsInputCompleted()

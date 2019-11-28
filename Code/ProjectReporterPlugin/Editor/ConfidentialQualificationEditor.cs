@@ -28,7 +28,8 @@ namespace ProjectReporterPlugin.Editor
 
             try
             {
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -68,16 +69,17 @@ namespace ProjectReporterPlugin.Editor
                 dgvDetail.Rows[rowIndex].Cells[2].Tag = "uploaded";
             }
         }
-
-        public override void OnSaveEvent()
+        
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
             {
                 if (dgvRow.Cells[1].Value == null || string.IsNullOrEmpty(dgvRow.Cells[1].Value.ToString()))
                 {
                     MessageBox.Show("对不起,请输入单位名称!");
+                    result = false;
                     break; ;
                 }
 

@@ -31,7 +31,8 @@ namespace ProjectReporterPlugin.Editor
 
             try
             {
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -123,9 +124,9 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             try
             {
@@ -152,29 +153,34 @@ namespace ProjectReporterPlugin.Editor
 
                     if (dgvRow.Cells[1].Value == null)
                     {
+                        result = false;
                         break;
                     }
 
                     if (dgvRow.Cells[2].Value == null)
                     {
                         MessageBox.Show("对不起,请输入阶段时长(月)");
+                        result = false;
                         break;
                     }
 
                     if (dgvRow.Cells[3].Value == null || string.IsNullOrEmpty(dgvRow.Cells[3].Value.ToString()))
                     {
                         MessageBox.Show("对不起,请输入完成内容及阶段目标");
+                        result = false;
                         return;
                     }
                     dgvRow.Cells[4].Value = "暂时不用";
                     if (dgvRow.Cells[4].Value == null || string.IsNullOrEmpty(dgvRow.Cells[4].Value.ToString()))
                     {
                         MessageBox.Show("对不起,请输入完成内容");
+                        result = false;
                         return;
                     }
                     if (dgvRow.Cells[5].Value == null || string.IsNullOrEmpty(dgvRow.Cells[5].Value.ToString()))
                     {
                         MessageBox.Show("对不起,请输入阶段成果、考核指标及考核方式");
+                        result = false;
                         return;
                     }
 
@@ -182,11 +188,13 @@ namespace ProjectReporterPlugin.Editor
                     if (dgvRow.Cells[6].Value == null || string.IsNullOrEmpty(dgvRow.Cells[6].Value.ToString()))
                     {
                         MessageBox.Show("对不起,请输入考核指标");
+                        result = false;
                         return;
                     }
                     if (dgvRow.Cells[7].Value == null || string.IsNullOrEmpty(dgvRow.Cells[7].Value.ToString()))
                     {
                         MessageBox.Show("对不起,请输入阶段经费(万)");
+                        result = false;
                         return;
                     }
 

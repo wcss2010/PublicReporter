@@ -819,7 +819,8 @@ namespace ProjectReporterPlugin
                                 //保存
                                 try
                                 {
-                                    be.OnSaveEvent();
+                                    bool isSuccess = true;
+                                    be.OnSaveEvent(ref isSuccess);
                                 }
                                 catch (Exception ex)
                                 {
@@ -874,7 +875,11 @@ namespace ProjectReporterPlugin
                         //保存
                         try
                         {
-                            be.OnSaveEvent();
+                            be.OnSaveEvent(ref isSucesss);
+                            if (isSucesss == false)
+                            {
+                                throw new Exception("内容未填写完");
+                            }
                         }
                         catch (Exception ex)
                         {

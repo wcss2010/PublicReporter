@@ -43,9 +43,9 @@ namespace ProjectReporterPlugin.Editor
             //txtNeed.Clear();
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             txtInfo.SaveFile(GetInfoFilePath());
             //txtDest.SaveDoc(GetDestFilePath());
@@ -211,7 +211,8 @@ namespace ProjectReporterPlugin.Editor
 
             try
             {
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
             }
             catch (Exception ex)
             {

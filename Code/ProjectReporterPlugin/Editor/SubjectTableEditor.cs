@@ -290,7 +290,8 @@ namespace ProjectReporterPlugin.Editor
 
             try
             {
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -314,13 +315,14 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             if (hasErrorSubjectName())
             {
                 MessageBox.Show("对不起，课题名称没有填写或其中不能包含(/ \\ : * ? \" < > |)");
+                result = false;
                 return;
             }
 
@@ -346,33 +348,39 @@ namespace ProjectReporterPlugin.Editor
                     if (dgvRow.Cells[2].Value == null)
                     {
                         MessageBox.Show("对不起,请输入密级!");
+                        result = false;
                         return;
                     }
 
                     if (dgvRow.Cells[1].Value == null)
                     {
                         MessageBox.Show("对不起,请输入课题名称!");
+                        result = false;
                         return;
                     }
 
                     if (dgvRow.Cells[3].Value == null)
                     {
                         MessageBox.Show("对不起,请输入负责人姓名");
+                        result = false;
                         return;
                     }
                     if (dgvRow.Cells[4].Value == null)
                     {
                         MessageBox.Show("对不起,请输入负责人身份证");
+                        result = false;
                         return;
                     }
                     if (dgvRow.Cells[5].Value == null)
                     {
                         MessageBox.Show("对不起,请输入承担单位名称!");
+                        result = false;
                         return;
                     }
                     if (dgvRow.Cells[6].Tag == null)
                     {
                         //MessageBox.Show("对不起,请选择承担单位开户帐号!");
+                        //result = false;
                         //return;
                         dgvRow.Cells[6].Tag = Guid.NewGuid().ToString();
                     }
@@ -381,6 +389,7 @@ namespace ProjectReporterPlugin.Editor
                     if (dgvRow.Cells[7].Value != null && decimal.TryParse(dgvRow.Cells[7].Value.ToString(), out totalMoney) == false)
                     {
                         MessageBox.Show("对不起,请输入正确的研究经费!");
+                        result = false;
                         return;
                     }
 
@@ -388,6 +397,7 @@ namespace ProjectReporterPlugin.Editor
                     if (saveCount >= 11)
                     {
                         MessageBox.Show("对不起，最多只能添加10个课题！");
+                        result = false;
                         break;
                     }
 
@@ -502,7 +512,7 @@ namespace ProjectReporterPlugin.Editor
                         {
                             try
                             {
-                                ((BaseEditor)kp.Controls[0]).OnSaveEvent();
+                                ((BaseEditor)kp.Controls[0]).OnSaveEvent(ref result);
                             }
                             catch (Exception ex)
                             {
@@ -542,7 +552,7 @@ namespace ProjectReporterPlugin.Editor
             }
             else
             {
-                MessageBox.Show("对不起,必须并且只能有一个总体课题!");
+                //MessageBox.Show("对不起,必须并且只能有一个总体课题!");
             }
         }
 
