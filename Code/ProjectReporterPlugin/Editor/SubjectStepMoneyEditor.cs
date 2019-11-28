@@ -228,7 +228,7 @@ namespace ProjectReporterPlugin.Editor
 
                     if (dgvRow.Cells[3].Value == null || string.IsNullOrEmpty(dgvRow.Cells[3].Value.ToString()))
                     {
-                        MessageBox.Show("对不起,请输入完成内容及阶段目标");
+                        MessageBox.Show("对不起,请输入阶段目标与研究内容");
                         result = false;
                         return;
                     }
