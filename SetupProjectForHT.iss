@@ -1,7 +1,7 @@
 ﻿; 脚本由 Inno Setup 脚本向导 生成！
 ; 有关创建 Inno Setup 脚本文件的详细资料请查阅帮助文档！
 
-#define MyAppName "重点基础研究项目合同书填报系统"
+#define MyAppName "重点基础研究项目合同书信息填报系统"
 #define MyAppVersion "1.4"
 #define MyAppPublisher ""
 #define MyAppURL "http://www.baidu.com.com/"

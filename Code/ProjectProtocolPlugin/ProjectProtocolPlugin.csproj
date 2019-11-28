@@ -306,9 +306,6 @@
     <None Include="Helper\template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Helper\~%24mplate.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="填报系统表格修改.xlsx" />
   </ItemGroup>
   <ItemGroup>
