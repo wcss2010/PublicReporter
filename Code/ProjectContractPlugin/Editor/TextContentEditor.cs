@@ -90,9 +90,9 @@ namespace ProjectContractPlugin.Editor
             InfoLabelText = info;
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             File.WriteAllText(getTxtFilePath(), txtContent.Text);
         }
@@ -136,7 +136,8 @@ namespace ProjectContractPlugin.Editor
 
             try
             {
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
             }
             catch (Exception ex)
             {

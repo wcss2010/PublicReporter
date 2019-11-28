@@ -76,9 +76,9 @@ namespace ProjectContractPlugin.Editor
             return true;
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             //保存数据
             foreach (TabPage tp in tcMoneys.TabPages)
@@ -114,7 +114,8 @@ namespace ProjectContractPlugin.Editor
 
             try
             {
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
             }
             catch (Exception ex)
             {

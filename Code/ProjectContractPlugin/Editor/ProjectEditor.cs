@@ -27,7 +27,8 @@ namespace ProjectContractPlugin.Editor
 
             try
             {
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
                 PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectContractPlugin.PluginRoot>().refreshEditors();
             }
             catch (Exception ex)
@@ -97,64 +98,75 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             if (ibEdit1.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入合同编号!");
+                result = false;
                 return;
             }
             if (ibEdit2.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入合同名称!");
+                result = false;
                 return;
             }
             if (ibEdit3.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入密级!");
+                result = false;
                 return;
             }
             Int32 dd4;
             if (Int32.TryParse(ibEdit4.Text, out dd4) == false)
             {
                 MessageBox.Show("对不起，请输入密期!");
+                result = false;
                 return;
             }
             if (ibEdit5.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目负责人!");
+                result = false;
                 return;
             }
             if (ibEdit6.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目负责人身份证!");
+                result = false;
                 return;
             }
             if (ibEdit39.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目负责单位!");
+                result = false;
                 return;
             }
             if (ibEdit40.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目负责单位所属部门!");
+                result = false;
                 return;
             }
             if (ibEdit41.getAddress() == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目负责单位所属地点!");
+                result = false;
                 return;
             }
             if (ibEdit42.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入所属领域!");
+                result = false;
                 return;
             }
             if (ibEdit43.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入关键字!");
+                result = false;
                 return;
             }
             //if (ibEdit44.Text == string.Empty)
@@ -193,151 +205,181 @@ namespace ProjectContractPlugin.Editor
             if (Single.TryParse(ibEdit9.Text, out dd9) == false)
             {
                 MessageBox.Show("对不起，请输入合同价款!");
+                result = false;
                 return;
             }
             if (ibEdit10.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入经费管理模式!");
+                result = false;
                 return;
             }
             if (ibEdit11.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位名称!");
+                result = false;
                 return;
             }
             if (ibEdit12.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位性质!");
+                result = false;
                 return;
             }
             if (ibEdit13.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位法定代表人!");
+                result = false;
                 return;
             }
             if (ibEdit14.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位联系人!");
+                result = false;
                 return;
             }
             if (ibEdit15.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位联系人电话!");
+                result = false;
                 return;
             }
             if (ibEdit16.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位通信地址!");
+                result = false;
                 return;
             }
             if (ibEdit17.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位邮政编码!");
+                result = false;
                 return;
             }
             if (ibEdit18.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位组织机构代码!");
+                result = false;
                 return;
             }
             if (ibEdit19.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位税号!");
+                result = false;
                 return;
             }
             if (ibEdit20.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位开户名称!");
+                result = false;
                 return;
             }
             if (ibEdit21.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位开户银行!");
+                result = false;
                 return;
             }
             if (ibEdit22.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位银行帐号!");
+                result = false;
                 return;
             }
             if (ibEdit23.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位财务负责人!");
+                result = false;
                 return;
             }
             if (ibEdit24.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位财务负责人电话!");
+                result = false;
                 return;
             }
             if (ibEdit25.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位名称!");
+                result = false;
                 return;
             }
             if (ibEdit26.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位性质!");
+                result = false;
                 return;
             }
             if (ibEdit27.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位法定代表人!");
+                result = false;
                 return;
             }
             if (ibEdit28.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位联系人!");
+                result = false;
                 return;
             }
             if (ibEdit29.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位联系人电话!");
+                result = false;
                 return;
             }
             if (ibEdit30.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位通信地址!");
+                result = false;
                 return;
             }
             if (ibEdit31.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位邮政编码!");
+                result = false;
                 return;
             }
             if (ibEdit32.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位组织机构代码!");
+                result = false;
                 return;
             }
             if (ibEdit33.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位税号!");
+                result = false;
                 return;
             }
             if (ibEdit34.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位开户名称!");
+                result = false;
                 return;
             }
             if (ibEdit35.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位开户银行!");
+                result = false;
                 return;
             }
             if (ibEdit36.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位银行帐号!");
+                result = false;
                 return;
             }
             if (ibEdit37.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位财务负责人!");
+                result = false;
                 return;
             }
             if (ibEdit38.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位财务负责人电话!");
+                result = false;
                 return;
             }
 

@@ -432,7 +432,7 @@ namespace ProjectReporterPlugin.Editor
         {
             base.OnSaveEvent(ref result);
 
-            result = SaveProject() < 0;
+            result = SaveProject() >= 0;
         }
 
         public override bool IsInputCompleted()

@@ -125,9 +125,9 @@ namespace ProjectProtocolPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent()
+        public override void OnSaveEvent(ref bool result)
         {
-            base.OnSaveEvent();
+            base.OnSaveEvent(ref result);
 
             ConnectionManager.Context.table("YuSuanBiao").delete();
             foreach (KeyValuePair<string, TextBox> kvp in boxDict)
@@ -154,7 +154,8 @@ namespace ProjectProtocolPlugin.Editor
                     return;
                 }
 
-                OnSaveEvent();
+                bool result = true;
+                OnSaveEvent(ref result);
             }
             catch (Exception ex)
             {
