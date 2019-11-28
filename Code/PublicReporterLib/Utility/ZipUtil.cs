@@ -23,13 +23,16 @@ namespace PublicReporterLib.Utility
     /// </summary>
     public class ZipUtil
     {
+        private string masterDocFile;
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ZipUtil()
+        public ZipUtil(string docFile)
         {
-
+            masterDocFile = docFile;
         }
+
+        public ZipUtil() : this(string.Empty) { }
 
         /// <summary>
         /// 压缩单个文件
@@ -157,7 +160,7 @@ namespace PublicReporterLib.Utility
         /// <param name="strDirectory">文件夹名称</param>
         /// <param name="s">The ZipOutputStream Object.</param>
         /// <param name="parentPath"></param>
-        private static void ZipSetp(string strDirectory, ZipOutputStream s, string parentPath)
+        private void ZipSetp(string strDirectory, ZipOutputStream s, string parentPath)
         {
             if (strDirectory[strDirectory.Length - 1] != Path.DirectorySeparatorChar)
             {
@@ -180,6 +183,11 @@ namespace PublicReporterLib.Utility
 
                 else // 否则直接压缩文件
                 {
+                    if (file == masterDocFile)
+                    {
+                        continue;
+                    }
+
                     //打开压缩文件
                     using (FileStream fs = File.OpenRead(file))
                     {

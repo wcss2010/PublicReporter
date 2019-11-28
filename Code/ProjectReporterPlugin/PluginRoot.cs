@@ -456,11 +456,11 @@ namespace ProjectReporterPlugin
                         return;
                     }
 
-                    if (File.Exists(Path.Combine(dataDir, "项目申报书.doc")) == false)
-                    {
-                        MessageBox.Show("对不起，请先点击预览按钮生成项目申报书！");
-                        return;
-                    }
+                    //if (File.Exists(Path.Combine(dataDir, "项目申报书.doc")) == false)
+                    //{
+                    //    MessageBox.Show("对不起，请先点击预览按钮生成项目申报书！");
+                    //    return;
+                    //}
 
                     string errorPage = string.Empty;
                     if (!isInputCompleted(ref errorPage))
@@ -525,7 +525,7 @@ namespace ProjectReporterPlugin
                                 catch (Exception ex) { }
 
                                 //压缩
-                                PublicReporterLib.Utility.ZipUtil zu = new PublicReporterLib.Utility.ZipUtil();
+                                PublicReporterLib.Utility.ZipUtil zu = new PublicReporterLib.Utility.ZipUtil(Path.Combine(dataDir, "项目申报书.doc"));
                                 zu.ZipFileDirectory(currentPath, sfd.FileName);
 
                                 ((CircleProgressBarDialog)thisObject).ReportProgress(90, 100);

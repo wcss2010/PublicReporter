@@ -132,7 +132,12 @@ namespace ProjectContractPlugin.Forms
 
                 if (((RadioButton)sender).Name == "rbIsOnlyProject")
                 {
+                    if (cbxSubjects.Items.Count >= 1)
+                    {
+                        cbxSubjects.SelectedItem = cbxSubjects.Items[0];
+                    }
                     cbxSubjects.Enabled = false;
+                    cbxJobInProjects.SelectedItem = "成员";
                     cbxJobInProjects.Enabled = false;
                 }
                 else
