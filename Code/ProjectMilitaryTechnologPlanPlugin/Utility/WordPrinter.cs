@@ -90,9 +90,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                 wu.insertValue("基本信息_委托_财务联系电话", pt.projectObj.WeiTuoDanWeiCaiWuFuZeRenDianHua);
                 wu.insertValue("基本信息_承研_财务联系电话", pt.projectObj.ChengYanDanWeiCaiWuFuZeRenDianHua);
 
-                wu.insertValue("共同条款_合同数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
+                //wu.insertValue("共同条款_合同数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
+                //wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
+                //wu.insertValue("共同条款_合同数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
 
                 RenYuanBiao masterPerson = ConnectionManager.Context.table("RenYuanBiao").where("ShiXiangMuFuZeRen='rbIsOnlyProject' or ShiXiangMuFuZeRen='rbIsProjectAndSubject'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
                 wu.insertValue("附件3_联系方式_姓名", masterPerson.XingMing);
