@@ -115,6 +115,9 @@ namespace ProjectMilitaryTechnologPlanPlugin
         /// <param name="defaultHintLabelObj">默认的提示标签</param>
         public override void start()
         {
+            //载入配置
+            UIControlConfig.loadConfig(Path.Combine(RootDir, "config.cfg"));
+
             //添加点击事件
             Parent_LeftTreeView.AfterSelect += treeViewObj_AfterSelect;
 
@@ -224,6 +227,11 @@ namespace ProjectMilitaryTechnologPlanPlugin
             initEditors();
 
             //加载工程对象
+            initProjects();
+        }
+
+        private void initProjects()
+        {
             try
             {
                 //加载项目信息
