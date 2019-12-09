@@ -35,8 +35,17 @@ namespace ProjectMilitaryTechnologPlanPlugin
             else
             {
                 ConfigObj = new UIControlConfig();
+                setDefaultConfig();
                 saveConfig(file);
             }
+        }
+
+        /// <summary>
+        /// 初始化配置
+        /// </summary>
+        private static void setDefaultConfig()
+        {
+            
         }
 
         /// <summary>
