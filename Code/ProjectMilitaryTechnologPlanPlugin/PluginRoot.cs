@@ -116,7 +116,8 @@ namespace ProjectMilitaryTechnologPlanPlugin
         public override void start()
         {
             //载入配置
-            UIControlConfig.loadConfig(Path.Combine(RootDir, "config.cfg"));
+            UIControlConfig.configFile = Path.Combine(RootDir, "config.cfg");
+            UIControlConfig.loadConfig();
 
             //添加点击事件
             Parent_LeftTreeView.AfterSelect += treeViewObj_AfterSelect;

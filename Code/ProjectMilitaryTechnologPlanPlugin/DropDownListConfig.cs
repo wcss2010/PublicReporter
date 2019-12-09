@@ -9,6 +9,11 @@ namespace ProjectMilitaryTechnologPlanPlugin
     public class UIControlConfig
     {
         /// <summary>
+        /// 配置文件
+        /// </summary>
+        public static string configFile = "";
+
+        /// <summary>
         /// 配置数据
         /// </summary>
         public static UIControlConfig ConfigObj { get; set; }
@@ -26,17 +31,17 @@ namespace ProjectMilitaryTechnologPlanPlugin
         /// <summary>
         /// 载入
         /// </summary>
-        public static void loadConfig(string file)
+        public static void loadConfig()
         {
-            if (File.Exists(file))
+            if (File.Exists(configFile))
             {
-                ConfigObj = Newtonsoft.Json.JsonConvert.DeserializeObject<UIControlConfig>(File.ReadAllText(file));
+                ConfigObj = Newtonsoft.Json.JsonConvert.DeserializeObject<UIControlConfig>(File.ReadAllText(configFile));
             }
             else
             {
                 ConfigObj = new UIControlConfig();
                 setDefaultConfig();
-                saveConfig(file);
+                saveConfig();
             }
         }
 
@@ -51,11 +56,11 @@ namespace ProjectMilitaryTechnologPlanPlugin
         /// <summary>
         /// 保存
         /// </summary>
-        public static void saveConfig(string file)
+        public static void saveConfig()
         {
             Newtonsoft.Json.JsonSerializerSettings jss = new Newtonsoft.Json.JsonSerializerSettings();
             jss.Formatting = Newtonsoft.Json.Formatting.Indented;
-            File.WriteAllText(file, Newtonsoft.Json.JsonConvert.SerializeObject(ConfigObj, typeof(UIControlConfig), jss));
+            File.WriteAllText(configFile, Newtonsoft.Json.JsonConvert.SerializeObject(ConfigObj, typeof(UIControlConfig), jss));
         }
     }
 }
