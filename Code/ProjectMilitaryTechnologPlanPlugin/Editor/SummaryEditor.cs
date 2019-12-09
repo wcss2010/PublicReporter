@@ -11,9 +11,9 @@ using ProjectMilitaryTechnologPlanPlugin.DB;
 
 namespace ProjectMilitaryTechnologPlanPlugin.Editor
 {
-    public partial class ProjectEditor : BaseEditor
+    public partial class SummaryEditor : BaseEditor
     {
-        public ProjectEditor()
+        public SummaryEditor()
         {
             InitializeComponent();
         }

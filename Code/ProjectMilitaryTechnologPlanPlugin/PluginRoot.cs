@@ -125,68 +125,40 @@ namespace ProjectMilitaryTechnologPlanPlugin
             #region 构建树结构
             TreeNode firstNode = new TreeNode();
             firstNode.Name = "root";
-            firstNode.Text = "基本信息";
+            firstNode.Text = "概述";
 
             TreeNode itemObj = new TreeNode();
-            itemObj.Text = "研究目标";
+            itemObj.Text = "基本信息";
             firstNode.Nodes.Add(itemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "主要研究内容";
-            firstNode.Nodes.Add(itemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "技术要求及指标";
+            itemObj.Text = "项目设计论证";
             firstNode.Nodes.Add(itemObj);
 
             TreeNode subItemObj = new TreeNode();
-            subItemObj.Text = "技术要求";
+            subItemObj.Text = "研究状况及选题价值";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "主要指标名称及要求";
-            itemObj.Nodes.Add(subItemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "研究进度安排";
-            firstNode.Nodes.Add(itemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "经费预算";
-            firstNode.Nodes.Add(itemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "经费预算表";
+            subItemObj.Text = "总体框架和预期目标";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "双方认为需要说明的经费使用事项";
+            subItemObj.Text = "研究思路和研究方法";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "经费拨付约定";
+            subItemObj.Text = "重点难点和创新之处";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "经费管理要求";
+            subItemObj.Text = "研究进度和任务分工";
             itemObj.Nodes.Add(subItemObj);
 
             itemObj = new TreeNode();
-            itemObj.Text = "提交要求";
+            itemObj.Text = "研究经费";
             firstNode.Nodes.Add(itemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "主要研究人员";
-            firstNode.Nodes.Add(itemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "共同条款";
-            firstNode.Nodes.Add(itemObj);
-
-            itemObj = new TreeNode();
-            itemObj.Text = "附加条款";
-            firstNode.Nodes.Add(itemObj);
-            
+                        
             Parent_LeftTreeView.Nodes.Add(firstNode);
             firstNode.ExpandAll();
             #endregion
@@ -305,23 +277,16 @@ namespace ProjectMilitaryTechnologPlanPlugin
         private void initEditors()
         {
             #region 初始化文档编辑器
-            editorMap.Add("研究目标", new TextContentEditor("研究目标", "填写批复目标"));
-            editorMap.Add("主要研究内容", new DocumentPasteEditor("主要研究内容", "围绕项目研究目标，说明项目主要研究内容。"));
-            editorMap.Add("技术要求", new DocumentPasteEditor("技术要求", "技术要求"));
-            editorMap.Add("双方认为需要说明的经费使用事项", new TextContentEditor("双方认为需要说明的经费使用事项", "如：××××××单位承担××××××××××研究任务，经费×××万元。"));
-            editorMap.Add("经费管理要求", new TextReadOnlyEditor("经费管理要求", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyA.rtf"))));            
-            editorMap.Add("附加条款", new TextReadOnlyEditor("附加条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyC.rtf"))));
+            editorMap.Add("研究状况及选题价值", new DocumentPasteEditor("研究状况及选题价值", "1.国内外相关研究的学术史梳理或综述，特别是真实研究现状。2.对已有相关代表性成果及观点做出科学、客观、切实的分析评价，说明进一步探讨、发展或突破的空间，详细说明本选题相对于已有研究的独到价值和意义。"));
+            editorMap.Add("总体框架和预期目标", new DocumentPasteEditor("总体框架和预期目标", "1.本项目研究的主要问题和内容，总体研究框架，框架各部分之间的内在逻辑关系。2.本项目研究在理论创新、实践应用、服务决策等方面的预期目标。"));
+            editorMap.Add("研究思路和研究方法", new DocumentPasteEditor("研究思路和研究方法", "1.本项目的总体思路、研究视角和研究路径，具体阐明研究思路的科学性和可行性。2.针对本项目研究问题拟采用的具体研究方法、研究手段和技术路线，说明其适用性和可操作性。"));
+            editorMap.Add("重点难点和创新之处", new DocumentPasteEditor("重点难点和创新之处", "1.本项目拟解决的关键性问题和重点难点问题，分别阐述提炼这些问题的理由和依据。2.本项目研究在问题选择、学术观点、研究方法、分析工具、文献资料等方面的突破、创新或推进之处。"));
+            editorMap.Add("研究进度和任务分工", new DocumentPasteEditor("研究进度和任务分工", "1.本项目研究的实地调研（或实验）方案、资料文献搜集整理方案、总体进度安排和年度进展计划。2.牵头单位和参与单位具体任务分工和每年投入时间（月）。3.主要阶段性成果（各单位成果）和最终成果的名称、形式、字数等，成果出版或报送的方式和计划。"));
             #endregion
 
             #region 初始化其它的编辑器
-            editorMap.Add("基本信息", new ProjectEditor());            
-            //editorMap.Add("主要指标名称及要求", new DestNameAndQuestionEditor());
-            //editorMap.Add("研究进度安排", new WorkProgressEditor());
-            editorMap.Add("经费预算表", new MoneyTableEditor());
-            //editorMap.Add("经费拨付约定", new MoneySendRuleEditor());
-            //editorMap.Add("提交要求", new SubmitQuestionEditor());
-            //editorMap.Add("主要研究人员", new WorkerEditor());
-            //editorMap.Add("共同条款", new TogetherRuleEditor("共同条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyB.rtf"))));
+            editorMap.Add("概述", new SummaryEditor());
+            editorMap.Add("研究经费", new MoneyTableEditor());
             #endregion
 
             #region 检查哪个Editor没有设置Name

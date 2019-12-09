@@ -155,11 +155,11 @@
     <Compile Include="Editor\ProjectAddressEditor.Designer.cs">
       <DependentUpon>ProjectAddressEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\ProjectEditor.cs">
+    <Compile Include="Editor\SummaryEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Editor\ProjectEditor.designer.cs">
-      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    <Compile Include="Editor\SummaryEditor.designer.cs">
+      <DependentUpon>SummaryEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\TextContentEditor.cs">
       <SubType>UserControl</SubType>
@@ -287,8 +287,8 @@
     <EmbeddedResource Include="Editor\ProjectAddressEditor.resx">
       <DependentUpon>ProjectAddressEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\ProjectEditor.resx">
-      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Editor\SummaryEditor.resx">
+      <DependentUpon>SummaryEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextContentEditor.resx">
       <DependentUpon>TextContentEditor.cs</DependentUpon>
