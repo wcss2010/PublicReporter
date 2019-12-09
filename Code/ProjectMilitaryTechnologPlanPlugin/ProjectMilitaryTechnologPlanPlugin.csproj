@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35DC34EF-00C8-4FF1-BEA5-DA86A0CF8A45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectMilitaryTechnologPlanPlugin</RootNamespace>
+    <AssemblyName>ProjectMilitaryTechnologPlanPlugin</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Release_App\Plugins\ProjectMilitaryTechnologPlanPlugin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release_App\Plugins\ProjectMilitaryTechnologPlanPlugin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\Release_App\Plugins\ProjectMilitaryTechnologPlanPlugin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\..\Release_App\Plugins\ProjectMilitaryTechnologPlanPlugin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\..\Lib\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="Balloon.NET">
+      <HintPath>..\..\Lib\Balloon.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Noear.Weed3">
+      <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperCodeFactoryLib">
+      <HintPath>..\..\Lib\SuperCodeFactoryLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperCodeFactoryUILib">
+      <HintPath>..\..\Lib\SuperCodeFactoryUILib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\Lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\AutoHeightLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataGridViewWithMerge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HSkinTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextBoxAndHintLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextBoxExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DB\ConnectionManager.cs" />
+    <Compile Include="DB\Entitys\BoFuBiao.cs" />
+    <Compile Include="DB\Entitys\DanWeiJingFeiNianDuBiao.cs" />
+    <Compile Include="DB\Entitys\IEntity.cs" />
+    <Compile Include="DB\Entitys\JiBenXinXiBiao.cs" />
+    <Compile Include="DB\Entitys\JinDuBiao.cs" />
+    <Compile Include="DB\Entitys\JiShuBiao.cs" />
+    <Compile Include="DB\Entitys\KeTiBiao.cs" />
+    <Compile Include="DB\Entitys\KeTiJingFeiNianDuBiao.cs" />
+    <Compile Include="DB\Entitys\KeTiYuSuanBiao.cs" />
+    <Compile Include="DB\Entitys\RenWuBiao.cs" />
+    <Compile Include="DB\Entitys\RenYuanBiao.cs" />
+    <Compile Include="DB\Entitys\TiJiaoYaoQiuBiao.cs" />
+    <Compile Include="DB\Entitys\YuSuanBiao.cs" />
+    <Compile Include="DB\Entitys\ZhiBiaoBiao.cs" />
+    <Compile Include="DB\Entitys\ZiDianBiao.cs" />
+    <Compile Include="Editor\BaseEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\BaseEditor.Designer.cs">
+      <DependentUpon>BaseEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\DestNameAndQuestionEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\DestNameAndQuestionEditor.Designer.cs">
+      <DependentUpon>DestNameAndQuestionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\DocumentPasteEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\DocumentPasteEditor.Designer.cs">
+      <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\MoneySendRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MoneySendRuleEditor.Designer.cs">
+      <DependentUpon>MoneySendRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\MoneyTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MoneyTableControl.Designer.cs">
+      <DependentUpon>MoneyTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\MoneyTableEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MoneyTableEditor.Designer.cs">
+      <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ProjectAddressEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectAddressEditor.Designer.cs">
+      <DependentUpon>ProjectAddressEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ProjectEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectEditor.designer.cs">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ProjectKeyEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectKeyEditor.designer.cs">
+      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SubmitQuestionEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubmitQuestionEditor.Designer.cs">
+      <DependentUpon>SubmitQuestionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\TextContentEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\TextContentEditor.Designer.cs">
+      <DependentUpon>TextContentEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\TextReadOnlyEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\TextReadOnlyEditor.Designer.cs">
+      <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\TogetherRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\TogetherRuleEditor.Designer.cs">
+      <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\WorkerEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\WorkerEditor.Designer.cs">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\WorkProgressEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\WorkProgressEditor.Designer.cs">
+      <DependentUpon>WorkProgressEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrSubmitQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrSubmitQuestion.Designer.cs">
+      <DependentUpon>FrmAddOrSubmitQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateMoneySendRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateMoneySendRule.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateMoneySendRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorker.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorkProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorkProgress.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateWorkProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmHelpBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmHelpBox.Designer.cs">
+      <DependentUpon>FrmHelpBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmInputBox.designer.cs">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmProjectManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmProjectManager.designer.cs">
+      <DependentUpon>FrmProjectManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmWorkProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmWorkProcess.designer.cs">
+      <DependentUpon>FrmWorkProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginRoot.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs" />
+    <Compile Include="SuperControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utility\ExcelHelper.cs" />
+    <Compile Include="Utility\FileOp.cs" />
+    <Compile Include="Utility\FormatCheckTool.cs" />
+    <Compile Include="Utility\WatermarkUtility.cs" />
+    <Compile Include="Utility\WordPrinter.cs" />
+    <Compile Include="Utility\WordUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PublicReporterLib\PublicReporterLib.csproj">
+      <Project>{9e5cdd7b-9ce2-42a8-907e-c1f9d3e8312c}</Project>
+      <Name>PublicReporterLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataTemplete\Current\Files\~WRL0001.tmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DataTemplete\Current\Files\主要研究内容.doc" />
+    <None Include="DataTemplete\Current\Files\技术要求.doc" />
+    <None Include="DataTemplete\Current\Files\项目分解情况.doc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DataTemplete\Current\Files\项目经费预算编制说明.doc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DataTemplete\Current\static.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\help.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\readonlyA.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\readonlyB.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\readonlyC.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="填报系统表格修改.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataTemplete\Current\Files\双方认为需要说明的经费使用事项.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataTemplete\Current\Files\技术要求.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataTemplete\Current\Files\研究目标.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Attachment_16.png" />
+    <Content Include="Resources\DELETE_16.png" />
+    <Content Include="Resources\DELETE_28.png" />
+    <Content Include="Resources\DOWN_16.png" />
+    <Content Include="Resources\exclamation_16.png" />
+    <Content Include="Resources\export.png" />
+    <Content Include="Resources\help.png" />
+    <Content Include="Resources\import.png" />
+    <Content Include="Resources\manager.png" />
+    <Content Include="Resources\new.png" />
+    <Content Include="Resources\Question_16.png" />
+    <Content Include="Resources\UP_16.png" />
+    <Content Include="Resources\w5.png" />
+    <Content Include="Resources\word.png" />
+    <Content Include="word模板中的书签.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editor\DestNameAndQuestionEditor.resx">
+      <DependentUpon>DestNameAndQuestionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
+      <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\MoneySendRuleEditor.resx">
+      <DependentUpon>MoneySendRuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\MoneyTableControl.resx">
+      <DependentUpon>MoneyTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
+      <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectAddressEditor.resx">
+      <DependentUpon>ProjectAddressEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectEditor.resx">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectKeyEditor.resx">
+      <DependentUpon>ProjectKeyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubmitQuestionEditor.resx">
+      <DependentUpon>SubmitQuestionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextContentEditor.resx">
+      <DependentUpon>TextContentEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextReadOnlyEditor.resx">
+      <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TogetherRuleEditor.resx">
+      <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\WorkerEditor.resx">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\WorkProgressEditor.resx">
+      <DependentUpon>WorkProgressEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrSubmitQuestion.resx">
+      <DependentUpon>FrmAddOrSubmitQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateDestNameAndQuestion.resx">
+      <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateMoneySendRule.resx">
+      <DependentUpon>FrmAddOrUpdateMoneySendRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateWorker.resx">
+      <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateWorkProgress.resx">
+      <DependentUpon>FrmAddOrUpdateWorkProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmHelpBox.resx">
+      <DependentUpon>FrmHelpBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmInputBox.resx">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmProjectManager.resx">
+      <DependentUpon>FrmProjectManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmWorkProcess.resx">
+      <DependentUpon>FrmWorkProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
