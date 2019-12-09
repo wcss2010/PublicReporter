@@ -286,6 +286,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
 
             #region 初始化其它的编辑器
             editorMap.Add("概述", new SummaryEditor());
+            editorMap.Add("基本信息", new InfoEditor());
             editorMap.Add("研究经费", new MoneyTableEditor());
             #endregion
 

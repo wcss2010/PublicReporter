@@ -137,6 +137,12 @@
     <Compile Include="Editor\DocumentPasteEditor.Designer.cs">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\InfoEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\InfoEditor.Designer.cs">
+      <DependentUpon>InfoEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\MoneyTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -277,6 +283,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\InfoEditor.resx">
+      <DependentUpon>InfoEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\MoneyTableControl.resx">
       <DependentUpon>MoneyTableControl.cs</DependentUpon>

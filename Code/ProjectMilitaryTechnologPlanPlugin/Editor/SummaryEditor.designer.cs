@@ -532,14 +532,14 @@
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ProjectEditor
+            // SummaryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ProjectEditor";
+            this.Name = "SummaryEditor";
             this.Size = new System.Drawing.Size(1083, 669);
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
