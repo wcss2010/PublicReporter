@@ -52,7 +52,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
         /// </summary>
         public override string DefaultTitle
         {
-            get { return "国防科技项目基金信息填报系统（1.0版）"; }
+            get { return "全军军事理论科研计划项目论证报告系统（1.0版）"; }
         }
 
         /// <summary>
