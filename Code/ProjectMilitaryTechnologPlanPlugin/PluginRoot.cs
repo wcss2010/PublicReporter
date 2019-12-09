@@ -315,13 +315,13 @@ namespace ProjectMilitaryTechnologPlanPlugin
 
             #region 初始化其它的编辑器
             editorMap.Add("基本信息", new ProjectEditor());            
-            editorMap.Add("主要指标名称及要求", new DestNameAndQuestionEditor());
-            editorMap.Add("研究进度安排", new WorkProgressEditor());
+            //editorMap.Add("主要指标名称及要求", new DestNameAndQuestionEditor());
+            //editorMap.Add("研究进度安排", new WorkProgressEditor());
             editorMap.Add("经费预算表", new MoneyTableEditor());
-            editorMap.Add("经费拨付约定", new MoneySendRuleEditor());
-            editorMap.Add("提交要求", new SubmitQuestionEditor());
-            editorMap.Add("主要研究人员", new WorkerEditor());
-            editorMap.Add("共同条款", new TogetherRuleEditor("共同条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyB.rtf"))));
+            //editorMap.Add("经费拨付约定", new MoneySendRuleEditor());
+            //editorMap.Add("提交要求", new SubmitQuestionEditor());
+            //editorMap.Add("主要研究人员", new WorkerEditor());
+            //editorMap.Add("共同条款", new TogetherRuleEditor("共同条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyB.rtf"))));
             #endregion
 
             #region 检查哪个Editor没有设置Name
