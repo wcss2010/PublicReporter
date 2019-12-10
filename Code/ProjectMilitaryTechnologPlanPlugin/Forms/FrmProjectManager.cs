@@ -26,16 +26,16 @@ namespace ProjectMilitaryTechnologPlanPlugin.Forms
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(s);
                 JiBenXinXiBiao proj = getProjectObject(s);
-                if (proj != null && proj.HeTongMingCheng != null && proj.HeTongMingCheng.Length >= 1)
+                if (proj != null && proj.XiangMuMingCheng != null && proj.XiangMuMingCheng.Length >= 1)
                 {
                     if (di.Name == "Current")
                     {
-                        Text = "项目管理(当前:" + proj.HeTongMingCheng + ")";
+                        Text = "项目管理(当前:" + proj.XiangMuMingCheng + ")";
                     }
                     else
                     {
                         TreeNode tn = new TreeNode();
-                        tn.Text = di.Name + "(" + proj.HeTongMingCheng + ")";
+                        tn.Text = di.Name + "(" + proj.XiangMuMingCheng + ")";
                         tn.Name = di.Name;
                         tn.Tag = proj;
                         tvProject.Nodes.Add(tn);

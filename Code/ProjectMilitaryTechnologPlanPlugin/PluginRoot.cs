@@ -579,7 +579,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
 
         private string getExportName()
         {
-            return projectObj.HeTongBianHao + "-" + projectObj.HeTongFuZeDanWei + "-" + projectObj.HeTongFuZeRen + ".zip";
+            return projectObj.XiangMuMingCheng + "-" + projectObj.ZeRenDanWei + "-" + projectObj.QianTouRen + ".zip";
         }
 
         /// <summary>
