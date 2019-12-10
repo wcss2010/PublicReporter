@@ -41,6 +41,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.ibEdit3 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ibEdit4 = new System.Windows.Forms.DataGridView();
@@ -225,7 +226,8 @@
             // 
             this.ibEdit3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ibEdit3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
+            this.Column1,
+            this.Column5});
             this.ibEdit3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit3.Location = new System.Drawing.Point(92, 0);
             this.ibEdit3.MultiSelect = false;
@@ -235,12 +237,22 @@
             this.ibEdit3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ibEdit3.Size = new System.Drawing.Size(879, 182);
             this.ibEdit3.TabIndex = 2;
+            this.ibEdit3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ibEdit3_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.HeaderText = "内容";
             this.Column1.Name = "Column1";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "";
+            this.Column5.MinimumWidth = 60;
+            this.Column5.Name = "Column5";
+            this.Column5.Text = "删除";
+            this.Column5.UseColumnTextForButtonValue = true;
+            this.Column5.Width = 60;
             // 
             // label3
             // 
@@ -279,6 +291,7 @@
             this.ibEdit4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ibEdit4.Size = new System.Drawing.Size(879, 173);
             this.ibEdit4.TabIndex = 3;
+            this.ibEdit4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ibEdit4_CellContentClick);
             // 
             // Column2
             // 
@@ -312,12 +325,12 @@
             // 
             // Column4
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Column4.HeaderText = "";
+            this.Column4.MinimumWidth = 60;
             this.Column4.Name = "Column4";
             this.Column4.Text = "删除";
             this.Column4.UseColumnTextForButtonValue = true;
-            this.Column4.Width = 21;
+            this.Column4.Width = 60;
             // 
             // label4
             // 
@@ -668,9 +681,10 @@
         private System.Windows.Forms.Button ibEdit10;
         private System.Windows.Forms.TextBox ibEdit10_1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewButtonColumn Column5;
     }
 }

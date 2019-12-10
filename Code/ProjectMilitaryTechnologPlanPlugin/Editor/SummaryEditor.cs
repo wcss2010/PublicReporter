@@ -152,13 +152,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     {
                         foreach (string s in tttt)
                         {
+                            if (string.IsNullOrEmpty(s)) { continue; }
+
                             ibEdit3.Rows.Add(new object[] { s });
                         }
                     }
-                }
-                else
-                {
-                    ibEdit3.Rows.Add(new object[] { PluginRootObj.projectObj.YanJiuNeiRong });
                 }
 
                 ibEdit4.Rows.Clear();
@@ -167,15 +165,17 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     string[] tttt = PluginRootObj.projectObj.YuQiChengGuo.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
                     if (tttt != null)
                     {
-                        foreach (string s in tttt)
+                        foreach (string ss in tttt)
                         {
-                            ibEdit4.Rows.Add(new object[] { s });
+                            string[] vvvv = ss.Split(new string[] { UIControlConfig.cellFlag }, StringSplitOptions.None);
+                            if (vvvv != null && vvvv.Length >= 2)
+                            {
+                                if (string.IsNullOrEmpty(vvvv[0])) { continue; }
+
+                                ibEdit4.Rows.Add(vvvv);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    ibEdit4.Rows.Add(new object[] { PluginRootObj.projectObj.YuQiChengGuo });
                 }
                 
                 foreach (ComboBoxObject<int> obj in ibEdit5.Items)
@@ -234,9 +234,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 MessageBox.Show("对不起，请输入研究内容(" + psoo.TableMin + "," + psoo.TableMax + ")!");
                 return;
             }
-            if (ibEdit4.Rows.Count >= 0)
+            if (ibEdit4.Rows.Count == 0 || ibEdit4.Rows.Count > 5)
             {
-                MessageBox.Show("对不起，请输入预期成果!");
+                MessageBox.Show("对不起，请输入预期成果(不超过4条)!");
                 return;
             }
             if (ibEdit5.SelectedItem == null)
@@ -278,10 +278,20 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             StringBuilder sb44 = new StringBuilder();
             foreach (DataGridViewRow dgvRow in ibEdit3.Rows)
             {
+                if (dgvRow.Cells[0].Value == null)
+                {
+                    continue;
+                }
+
                 sb33.Append(dgvRow.Cells[0].Value != null ? dgvRow.Cells[0].Value.ToString() : string.Empty).Append(UIControlConfig.rowFlag);
             }
             foreach (DataGridViewRow dgvRow in ibEdit4.Rows)
             {
+                if (dgvRow.Cells[0].Value == null)
+                {
+                    continue;
+                }
+
                 sb44.Append(dgvRow.Cells[0].Value != null ? dgvRow.Cells[0].Value.ToString() : string.Empty).Append(UIControlConfig.cellFlag).Append(dgvRow.Cells[1].Value != null ? dgvRow.Cells[1].Value.ToString() : string.Empty).Append(UIControlConfig.rowFlag);
             }
             PluginRootObj.projectObj.YanJiuNeiRong = sb33.ToString();
@@ -336,6 +346,34 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             {
                 ibEdit10.Text = comboboxForm.SelectedNode.Text;
                 ibEdit10.Tag = comboboxForm.SelectedNode;
+            }
+        }
+
+        private void ibEdit3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (((DataGridView)sender).Rows.Count > e.RowIndex)
+            {
+                if (e.ColumnIndex == ((DataGridView)sender).Columns.Count - 1)
+                {
+                    if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
+                    }
+                }
+            }
+        }
+
+        private void ibEdit4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (((DataGridView)sender).Rows.Count > e.RowIndex)
+            {
+                if (e.ColumnIndex == ((DataGridView)sender).Columns.Count - 1)
+                {
+                    if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
+                    }
+                }
             }
         }
     }
