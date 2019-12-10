@@ -34,7 +34,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     System.Console.WriteLine(ex.ToString());
                 }
             }
-            else if (UIControlConfig.ConfigObj.Params.ContainsKey("研究周期"))
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("研究周期"))
             {
                 try
                 {
@@ -50,15 +50,36 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     System.Console.WriteLine(ex.ToString());
                 }
             }
-            else if (UIControlConfig.ConfigObj.Params.ContainsKey("项目类别"))
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("项目类别"))
             {
                 try
                 {
                     ibEdit7.Items.Clear();
                     string[] teams = (string[])UIControlConfig.ConfigObj.Params["项目类别"];
-                    foreach (string s in teams)
+                    foreach (string ss in teams)
                     {
-                        ibEdit7.Items.Add(s);
+                        string[] ttt = ss.Split(new string[] { UIControlConfig.ParamSplitFlag }, StringSplitOptions.None);
+                        if (ttt != null && ttt.Length >= 3)
+                        {
+                            ProjectSortObject pso = new ProjectSortObject();
+                            pso.Text = ttt[0];
+
+                            string[] vvv = ttt[1].Replace("[", string.Empty).Replace("]", string.Empty).Split(new string[] { "," }, StringSplitOptions.None);
+                            if (vvv != null && vvv.Length >= 2)
+                            {
+                                pso.InfoMin = int.Parse(vvv[0]);
+                                pso.InfoMax = int.Parse(vvv[1]);
+                            }
+
+                            vvv = ttt[2].Replace("[", string.Empty).Replace("]", string.Empty).Split(new string[] { "," }, StringSplitOptions.None);
+                            if (vvv != null && vvv.Length >= 2)
+                            {
+                                pso.TableMin = int.Parse(vvv[0]);
+                                pso.TableMax = int.Parse(vvv[1]);
+                            }
+
+                            ibEdit7.Items.Add(pso);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -66,7 +87,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     System.Console.WriteLine(ex.ToString());
                 }
             }
-            else if (UIControlConfig.ConfigObj.Params.ContainsKey("责任单位"))
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("责任单位"))
             {
                 try
                 {
@@ -523,6 +544,21 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         private void ibEdit10_Click(object sender, EventArgs e)
         {
             List<TreeNode> treenodeList = new List<TreeNode>();
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("备注"))
+            {
+                try
+                {
+                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["备注"];
+                    foreach (string s in teams)
+                    {
+                        treenodeList.Add(new TreeNode(s));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
 
             FrmComboBoxBox comboboxForm = new FrmComboBoxBox();
             comboboxForm.initComboboxList(treenodeList.ToArray());
@@ -530,6 +566,36 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             {
                
             }
+        }
+    }
+
+    /// <summary>
+    /// 项目类别
+    /// </summary>
+    public class ProjectSortObject
+    {
+        public ProjectSortObject()
+        {
+            Text = string.Empty;
+            InfoMin = 80;
+            InfoMax = 150;
+            TableMin = 5;
+            TableMax = 10;
+        }
+
+        public string Text { get; set; }
+
+        public int InfoMin { get; set; }
+
+        public int InfoMax { get; set; }
+
+        public int TableMin { get; set; }
+
+        public int TableMax { get; set; }
+
+        public override string ToString()
+        {
+            return Text;
         }
     }
 }
