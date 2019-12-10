@@ -27,16 +27,16 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
         public string BianHao { get; set; }
         public string MingCheng { get; set; }
         public string ShuJu { get; set; }
-        public string ZhuangTai { get; set; }
-        public datetime ModifyTime { get; set; }
+        public decimal ZhuangTai { get; set; }
+        public DateTime ModifyTime { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
             BianHao = source("BianHao").value<string>("");
             MingCheng = source("MingCheng").value<string>("");
             ShuJu = source("ShuJu").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<string>("");
-            ModifyTime = source("ModifyTime").value<datetime>("");
+            ZhuangTai = source("ZhuangTai").value<decimal>(0);
+            ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
         }
 
         public override Noear.Weed.IBinder clone()

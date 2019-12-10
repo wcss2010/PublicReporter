@@ -40,9 +40,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
         public string ShouJI { get; set; }
         public string ZhiWu { get; set; }
         public string ShiXiangMuFuZeRen { get; set; }
-        public string ZhuangTai { get; set; }
+        public decimal ZhuangTai { get; set; }
         public string BeiZhu { get; set; }
-        public datetime ModifyTime { get; set; }
+        public DateTime ModifyTime { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
@@ -55,9 +55,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             ShouJI = source("ShouJI").value<string>("");
             ZhiWu = source("ZhiWu").value<string>("");
             ShiXiangMuFuZeRen = source("ShiXiangMuFuZeRen").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<string>("");
+            ZhuangTai = source("ZhuangTai").value<decimal>(0);
             BeiZhu = source("BeiZhu").value<string>("");
-            ModifyTime = source("ModifyTime").value<datetime>("");
+            ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
         }
 
         public override Noear.Weed.IBinder clone()
