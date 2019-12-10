@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using PublicReporterLib;
 using ProjectMilitaryTechnologPlanPlugin.DB.Entitys;
 using ProjectMilitaryTechnologPlanPlugin.DB;
+using ProjectMilitaryTechnologPlanPlugin.Forms;
 
 namespace ProjectMilitaryTechnologPlanPlugin.Editor
 {
@@ -16,6 +17,71 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         public SummaryEditor()
         {
             InitializeComponent();
+
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("预期成果项目"))
+            {
+                try
+                {
+                    ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Clear();
+                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["预期成果项目"];
+                    foreach (string s in teams)
+                    {
+                        ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            else if (UIControlConfig.ConfigObj.Params.ContainsKey("研究周期"))
+            {
+                try
+                {
+                    ibEdit5.Items.Clear();
+                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["研究周期"];
+                    foreach (string s in teams)
+                    {
+                        ibEdit5.Items.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            else if (UIControlConfig.ConfigObj.Params.ContainsKey("项目类别"))
+            {
+                try
+                {
+                    ibEdit7.Items.Clear();
+                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["项目类别"];
+                    foreach (string s in teams)
+                    {
+                        ibEdit7.Items.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            else if (UIControlConfig.ConfigObj.Params.ContainsKey("责任单位"))
+            {
+                try
+                {
+                    ibEdit8.Items.Clear();
+                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["责任单位"];
+                    foreach (string s in teams)
+                    {
+                        ibEdit8.Items.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
         }
         
         private void btnSave_Click(object sender, EventArgs e)
@@ -452,6 +518,18 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         public override bool IsInputCompleted()
         {
             return true;
+        }
+
+        private void ibEdit10_Click(object sender, EventArgs e)
+        {
+            List<TreeNode> treenodeList = new List<TreeNode>();
+
+            FrmComboBoxBox comboboxForm = new FrmComboBoxBox();
+            comboboxForm.initComboboxList(treenodeList.ToArray());
+            if (comboboxForm.ShowDialog() == DialogResult.OK)
+            {
+               
+            }
         }
     }
 }

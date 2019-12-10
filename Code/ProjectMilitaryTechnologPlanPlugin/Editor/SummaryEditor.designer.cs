@@ -558,6 +558,7 @@
             this.ibEdit10.TabIndex = 4;
             this.ibEdit10.Text = "选择";
             this.ibEdit10.UseVisualStyleBackColor = true;
+            this.ibEdit10.Click += new System.EventHandler(this.ibEdit10_Click);
             // 
             // label10
             // 
