@@ -163,6 +163,12 @@
     <Compile Include="Editor\TextReadOnlyEditor.Designer.cs">
       <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmComboBoxBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmComboBoxBox.Designer.cs">
+      <DependentUpon>FrmComboBoxBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmHelpBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextReadOnlyEditor.resx">
       <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmComboBoxBox.resx">
+      <DependentUpon>FrmComboBoxBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmHelpBox.resx">
       <DependentUpon>FrmHelpBox.cs</DependentUpon>
