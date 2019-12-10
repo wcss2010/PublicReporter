@@ -40,9 +40,16 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 {
                     ibEdit5.Items.Clear();
                     Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["研究周期"];
-                    foreach (string s in teams)
+                    foreach (string ssss in teams)
                     {
-                        ibEdit5.Items.Add(s);
+                        string[] ttt = ssss.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
+                        if (ttt != null && ttt.Length >= 2)
+                        {
+                            ComboBoxObject<int> comboboxObject = new ComboBoxObject<int>();
+                            comboboxObject.Text = ttt[0];
+                            comboboxObject.Tag = int.Parse(ttt[1]);
+                            ibEdit5.Items.Add(comboboxObject);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -58,7 +65,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["项目类别"];
                     foreach (string sss in teams)
                     {
-                        string[] ttt = sss.Split(new string[] { UIControlConfig.ParamSplitFlag }, StringSplitOptions.None);
+                        string[] ttt = sss.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
                         if (ttt != null && ttt.Length >= 3)
                         {
                             ProjectSortObject pso = new ProjectSortObject();
@@ -132,57 +139,60 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         {
             base.RefreshView();
 
-            //if (PluginRootObj.projectObj != null)
-            //{
-            //    JiBenXinXiBiao obj = PluginRootObj.projectObj;
-            //    ibEdit1.Text = obj.HeTongBianHao;
-            //    ibEdit2.Text = obj.HeTongMingCheng;
-            //    ibEdit3.Text = obj.HeTongMiJi;
-            //    ibEdit4.Value = obj.HeTongMiQi;
-            //    ibEdit5.Text = obj.HeTongFuZeRen;
-            //    ibEdit6.Text = obj.HeTongFuZeRenShenFenZheng;
-            //    ibEdit39.Text = obj.HeTongFuZeDanWei;
-            //    ibEdit40.Text = obj.HeTongSuoShuBuMen;
-            //    ibEdit41.setAddress(obj.HeTongSuoShuDiDian);
-            //    ibEdit42.Text = obj.HeTongSuoShuLingYu;
-            //    ibEdit43.Text = obj.HeTongGuanJianZi;
-            //    //ibEdit44.Text = obj.HeTongFuZeRenDianHua;
-            //    //ibEdit45.Text = obj.HeTongFuZeDanWeiTongXunDiZhi;
-            //    //ibEdit46.Text = obj.HeTongFuZeDanWeiLianXiRen;
-            //    //ibEdit47.Text = obj.HeTongFuZeDanWeiLianXiRenDianHua;
-            //    ibEdit7.Value = obj.HeTongKaiShiShiJian;
-            //    ibEdit8.Value = obj.HeTongJieShuShiJian;
-            //    ibEdit9.Value = obj.HeTongJiaKuan;
-            //    ibEdit10.Text = obj.HeTongJingFeiGuanLiMoShi;
-            //    ibEdit11.Text = obj.WeiTuoDanWeiMingCheng;
-            //    ibEdit12.Text = obj.WeiTuoDanWeiXingZhi;
-            //    ibEdit13.Text = obj.WeiTuoDanWeiFaDingDaiBiaoRen;
-            //    ibEdit14.Text = obj.WeiTuoDanWeiLianXiRen;
-            //    ibEdit15.Text = obj.WeiTuoDanWeiLianXiRenDianHua;
-            //    ibEdit16.Text = obj.WeiTuoDanWeiTongXinDiZhi;
-            //    ibEdit17.Text = obj.WeiTuoDanWeiYouZhengBianMa;
-            //    ibEdit18.Text = obj.WeiTuoDanWeiZuZhiJiGouDaiMa;
-            //    ibEdit19.Text = obj.WeiTuoDanWeiShuiHao;
-            //    ibEdit20.Text = obj.WeiTuoDanWeiKaiHuMingCheng;
-            //    ibEdit21.Text = obj.WeiTuoDanWeiKaiHuYingHang;
-            //    ibEdit22.Text = obj.WeiTuoDanWeiYinHangZhangHao;
-            //    ibEdit23.Text = obj.WeiTuoDanWeiCaiWuFuZeRen;
-            //    ibEdit24.Text = obj.WeiTuoDanWeiCaiWuFuZeRenDianHua;
-            //    ibEdit25.Text = obj.ChengYanDanWeiMingCheng;
-            //    ibEdit26.Text = obj.ChengYanDanWeiXingZhi;
-            //    ibEdit27.Text = obj.ChengYanDanWeiFaDingDaiBiaoRen;
-            //    ibEdit28.Text = obj.ChengYanDanWeiLianXiRen;
-            //    ibEdit29.Text = obj.ChengYanDanWeiLianXiRenDianHua;
-            //    ibEdit30.Text = obj.ChengYanDanWeiTongXinDiZhi;
-            //    ibEdit31.Text = obj.ChengYanDanWeiYouZhengBianMa;
-            //    ibEdit32.Text = obj.ChengYanDanWeiZuZhiJiGouDaiMa;
-            //    ibEdit33.Text = obj.ChengYanDanWeiShuiHao;
-            //    ibEdit34.Text = obj.ChengYanDanWeiKaiHuMingCheng;
-            //    ibEdit35.Text = obj.ChengYanDanWeiKaiHuYingHang;
-            //    ibEdit36.Text = obj.ChengYanDanWeiYinHangZhangHao;
-            //    ibEdit37.Text = obj.ChengYanDanWeiCaiWuFuZeRen;
-            //    ibEdit38.Text = obj.ChengYanDanWeiCaiWuFuZeRenDianHua;
-            //}
+            if (PluginRootObj.projectObj != null)
+            {   
+                ibEdit1.Text = PluginRootObj.projectObj.XiangMuMingCheng;
+                ibEdit2.Text = PluginRootObj.projectObj.YanJiuMuBiao;
+
+                ibEdit3.Rows.Clear();
+                if (PluginRootObj.projectObj.YanJiuNeiRong != null && PluginRootObj.projectObj.YanJiuNeiRong.Contains(UIControlConfig.rowFlag))
+                {   
+                    string[] tttt = PluginRootObj.projectObj.YanJiuNeiRong.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
+                    if (tttt != null)
+                    {
+                        foreach (string s in tttt)
+                        {
+                            ibEdit3.Rows.Add(new object[] { s });
+                        }
+                    }
+                }
+                else
+                {
+                    ibEdit3.Rows.Add(new object[] { PluginRootObj.projectObj.YanJiuNeiRong });
+                }
+
+                ibEdit4.Rows.Clear();
+                if (PluginRootObj.projectObj.YuQiChengGuo != null && PluginRootObj.projectObj.YuQiChengGuo.Contains(UIControlConfig.rowFlag))
+                {
+                    string[] tttt = PluginRootObj.projectObj.YuQiChengGuo.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
+                    if (tttt != null)
+                    {
+                        foreach (string s in tttt)
+                        {
+                            ibEdit4.Rows.Add(new object[] { s });
+                        }
+                    }
+                }
+                else
+                {
+                    ibEdit4.Rows.Add(new object[] { PluginRootObj.projectObj.YuQiChengGuo });
+                }
+                
+                foreach (ComboBoxObject<int> obj in ibEdit5.Items)
+                {
+                    if (obj.Tag == PluginRootObj.projectObj.YanJiuZhouQi)
+                    {
+                        ibEdit5.SelectedItem = obj;
+                        break;
+                    }
+                }
+
+                ibEdit6.Text = PluginRootObj.projectObj.JingFeiYuSuan + string.Empty;
+                ibEdit7.Text = PluginRootObj.projectObj.XiangMuLeiBie;
+                ibEdit8.Text = PluginRootObj.projectObj.ZeRenDanWei;
+                ibEdit9.Text = PluginRootObj.projectObj.XiaJiDanWei;
+                ibEdit10.Text = PluginRootObj.projectObj.BeiZhu;
+            }
         }
 
         public override void OnSaveEvent(ref bool result)
@@ -565,6 +575,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             if (comboboxForm.ShowDialog() == DialogResult.OK)
             {
                 ibEdit10.Text = comboboxForm.SelectedNode.Text;
+                ibEdit10.Tag = comboboxForm.SelectedNode;
             }
         }
     }
@@ -592,6 +603,22 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         public int TableMin { get; set; }
 
         public int TableMax { get; set; }
+
+        public override string ToString()
+        {
+            return Text;
+        }
+    }
+
+    /// <summary>
+    /// ComboBoxObject
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ComboBoxObject<T>
+    {
+        public string Text { get; set; }
+
+        public T Tag { get; set; }
 
         public override string ToString()
         {
