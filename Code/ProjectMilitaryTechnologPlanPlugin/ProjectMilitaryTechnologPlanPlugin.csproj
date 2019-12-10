@@ -133,12 +133,6 @@
     <Compile Include="Editor\InfoEditor.Designer.cs">
       <DependentUpon>InfoEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\MoneyTableControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\MoneyTableControl.Designer.cs">
-      <DependentUpon>MoneyTableControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\MoneyTableEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,9 +270,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\InfoEditor.resx">
       <DependentUpon>InfoEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\MoneyTableControl.resx">
-      <DependentUpon>MoneyTableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
       <DependentUpon>MoneyTableEditor.cs</DependentUpon>
