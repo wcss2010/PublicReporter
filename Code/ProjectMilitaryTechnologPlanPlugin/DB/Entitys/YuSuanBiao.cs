@@ -14,12 +14,12 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
 
         public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
-            query.set("ModifyTime", DateTime.Now);
             //设置值
             query.set("BianHao", BianHao);
             query.set("MingCheng", MingCheng);
             query.set("ShuJu", ShuJu);
             query.set("ZhuangTai", ZhuangTai);
+            query.set("ModifyTime", ModifyTime);
 
             return query;
         }
@@ -27,15 +27,16 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
         public string BianHao { get; set; }
         public string MingCheng { get; set; }
         public string ShuJu { get; set; }
-        public double ZhuangTai { get; set; }
+        public string ZhuangTai { get; set; }
+        public datetime ModifyTime { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
-            BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
+            BianHao = source("BianHao").value<string>("");
             MingCheng = source("MingCheng").value<string>("");
             ShuJu = source("ShuJu").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<double>(0);
-            ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
+            ZhuangTai = source("ZhuangTai").value<string>("");
+            ModifyTime = source("ModifyTime").value<datetime>("");
         }
 
         public override Noear.Weed.IBinder clone()

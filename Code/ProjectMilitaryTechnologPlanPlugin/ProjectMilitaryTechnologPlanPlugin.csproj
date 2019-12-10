@@ -109,21 +109,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DB\ConnectionManager.cs" />
-    <Compile Include="DB\Entitys\BoFuBiao.cs" />
-    <Compile Include="DB\Entitys\DanWeiJingFeiNianDuBiao.cs" />
     <Compile Include="DB\Entitys\IEntity.cs" />
     <Compile Include="DB\Entitys\JiBenXinXiBiao.cs" />
-    <Compile Include="DB\Entitys\JinDuBiao.cs" />
-    <Compile Include="DB\Entitys\JiShuBiao.cs" />
-    <Compile Include="DB\Entitys\KeTiBiao.cs" />
-    <Compile Include="DB\Entitys\KeTiJingFeiNianDuBiao.cs" />
-    <Compile Include="DB\Entitys\KeTiYuSuanBiao.cs" />
-    <Compile Include="DB\Entitys\RenWuBiao.cs" />
     <Compile Include="DB\Entitys\RenYuanBiao.cs" />
-    <Compile Include="DB\Entitys\TiJiaoYaoQiuBiao.cs" />
+    <Compile Include="DB\Entitys\Version.cs" />
     <Compile Include="DB\Entitys\YuSuanBiao.cs" />
-    <Compile Include="DB\Entitys\ZhiBiaoBiao.cs" />
-    <Compile Include="DB\Entitys\ZiDianBiao.cs" />
     <Compile Include="DropDownListConfig.cs" />
     <Compile Include="Editor\BaseEditor.cs">
       <SubType>UserControl</SubType>

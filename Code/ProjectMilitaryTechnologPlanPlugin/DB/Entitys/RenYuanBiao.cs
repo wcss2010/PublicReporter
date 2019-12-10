@@ -14,64 +14,50 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
 
         public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
-            query.set("ModifyTime", DateTime.Now);
             //设置值
             query.set("BianHao", BianHao);
             query.set("XingMing", XingMing);
-            query.set("ShengRi", ShengRi);
             query.set("XingBie", XingBie);
-            query.set("ZhiCheng", ZhiCheng);
-            query.set("ZhuanYe", ZhuanYe);
-            query.set("GongZuoDanWei", GongZuoDanWei);
-            query.set("MeiNianTouRuShiJian", MeiNianTouRuShiJian);
-            query.set("RenWuFenGong", RenWuFenGong);
+            query.set("MinZu", MinZu);
             query.set("ShenFenZhengHao", ShenFenZhengHao);
             query.set("DianHua", DianHua);
-            query.set("ShouJi", ShouJi);
-            query.set("KeTiBiaoHao", KeTiBiaoHao);
+            query.set("ShouJI", ShouJI);
             query.set("ZhiWu", ZhiWu);
             query.set("ShiXiangMuFuZeRen", ShiXiangMuFuZeRen);
             query.set("ZhuangTai", ZhuangTai);
-  
+            query.set("BeiZhu", BeiZhu);
+            query.set("ModifyTime", ModifyTime);
+
             return query;
         }
 
         public string BianHao { get; set; }
         public string XingMing { get; set; }
-        public DateTime ShengRi { get; set; }
         public string XingBie { get; set; }
-        public string ZhiCheng { get; set; }
-        public string ZhuanYe { get; set; }
-        public string GongZuoDanWei { get; set; }
-        public int MeiNianTouRuShiJian { get; set; }
-        public string RenWuFenGong { get; set; }
+        public string MinZu { get; set; }
         public string ShenFenZhengHao { get; set; }
         public string DianHua { get; set; }
-        public string ShouJi { get; set; }
-        public string KeTiBiaoHao { get; set; }
+        public string ShouJI { get; set; }
         public string ZhiWu { get; set; }
         public string ShiXiangMuFuZeRen { get; set; }
-        public double ZhuangTai { get; set; }
+        public string ZhuangTai { get; set; }
+        public string BeiZhu { get; set; }
+        public datetime ModifyTime { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
-            BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
+            BianHao = source("BianHao").value<string>("");
             XingMing = source("XingMing").value<string>("");
-            ShengRi = source("ShengRi").value<DateTime>(DateTime.Now);
             XingBie = source("XingBie").value<string>("");
-            ZhiCheng = source("ZhiCheng").value<string>("");
-            ZhuanYe = source("ZhuanYe").value<string>("");
-            GongZuoDanWei = source("GongZuoDanWei").value<string>("");
-            MeiNianTouRuShiJian = source("MeiNianTouRuShiJian").value<int>(0);
-            RenWuFenGong = source("RenWuFenGong").value<string>("");
+            MinZu = source("MinZu").value<string>("");
             ShenFenZhengHao = source("ShenFenZhengHao").value<string>("");
             DianHua = source("DianHua").value<string>("");
-            ShouJi = source("ShouJi").value<string>("");
-            KeTiBiaoHao = source("KeTiBiaoHao").value<string>("");
+            ShouJI = source("ShouJI").value<string>("");
             ZhiWu = source("ZhiWu").value<string>("");
             ShiXiangMuFuZeRen = source("ShiXiangMuFuZeRen").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<double>(0);
-            ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
+            ZhuangTai = source("ZhuangTai").value<string>("");
+            BeiZhu = source("BeiZhu").value<string>("");
+            ModifyTime = source("ModifyTime").value<datetime>("");
         }
 
         public override Noear.Weed.IBinder clone()
