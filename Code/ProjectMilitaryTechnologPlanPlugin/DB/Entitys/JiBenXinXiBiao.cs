@@ -38,7 +38,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             query.set("ShenQingJingFei", ShenQingJingFei);
             query.set("JiHuaWanChengShiJian", JiHuaWanChengShiJian);
             query.set("ZhuangTai", ZhuangTai);
-            query.set("ModifyTime", ModifyTime);
+            query.set("ModifyTime", DateTime.Now);
 
             return query;
         }

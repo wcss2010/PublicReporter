@@ -26,7 +26,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             query.set("ShiXiangMuFuZeRen", ShiXiangMuFuZeRen);
             query.set("ZhuangTai", ZhuangTai);
             query.set("BeiZhu", BeiZhu);
-            query.set("ModifyTime", ModifyTime);
+            query.set("ModifyTime", DateTime.Now);
 
             return query;
         }
