@@ -564,7 +564,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             comboboxForm.initComboboxList(treenodeList.ToArray());
             if (comboboxForm.ShowDialog() == DialogResult.OK)
             {
-               
+                ibEdit10.Text = comboboxForm.SelectedNode.Text;
             }
         }
     }
