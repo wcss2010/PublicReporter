@@ -23,7 +23,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 try
                 {
                     ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Clear();
-                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["预期成果项目"];
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["预期成果项目"];
                     foreach (string s in teams)
                     {
                         ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Add(s);
@@ -39,7 +39,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 try
                 {
                     ibEdit5.Items.Clear();
-                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["研究周期"];
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["研究周期"];
                     foreach (string s in teams)
                     {
                         ibEdit5.Items.Add(s);
@@ -55,10 +55,10 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 try
                 {
                     ibEdit7.Items.Clear();
-                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["项目类别"];
-                    foreach (string ss in teams)
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["项目类别"];
+                    foreach (string sss in teams)
                     {
-                        string[] ttt = ss.Split(new string[] { UIControlConfig.ParamSplitFlag }, StringSplitOptions.None);
+                        string[] ttt = sss.Split(new string[] { UIControlConfig.ParamSplitFlag }, StringSplitOptions.None);
                         if (ttt != null && ttt.Length >= 3)
                         {
                             ProjectSortObject pso = new ProjectSortObject();
@@ -92,7 +92,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 try
                 {
                     ibEdit8.Items.Clear();
-                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["责任单位"];
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["责任单位"];
                     foreach (string s in teams)
                     {
                         ibEdit8.Items.Add(s);
@@ -548,7 +548,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             {
                 try
                 {
-                    string[] teams = (string[])UIControlConfig.ConfigObj.Params["备注"];
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["备注"];
                     foreach (string s in teams)
                     {
                         treenodeList.Add(new TreeNode(s));
