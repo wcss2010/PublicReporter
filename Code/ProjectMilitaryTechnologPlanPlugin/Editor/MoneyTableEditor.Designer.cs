@@ -256,7 +256,7 @@
             this.hSkinTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.57813F));
             this.hSkinTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.59883F));
             this.hSkinTableLayoutPanel1.Controls.Add(this.txtTotal, 2, 12);
-            this.hSkinTableLayoutPanel1.Controls.Add(this.label7, 1, 12);
+            this.hSkinTableLayoutPanel1.Controls.Add(this.label7, 0, 12);
             this.hSkinTableLayoutPanel1.Controls.Add(this.label22, 0, 1);
             this.hSkinTableLayoutPanel1.Controls.Add(this.ibEditInfo4, 3, 4);
             this.hSkinTableLayoutPanel1.Controls.Add(this.label27, 1, 9);
@@ -329,15 +329,16 @@
             // 
             // label7
             // 
+            this.hSkinTableLayoutPanel1.SetColumnSpan(this.label7, 2);
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label7.Location = new System.Drawing.Point(44, 459);
+            this.label7.Location = new System.Drawing.Point(3, 459);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(319, 33);
+            this.label7.Size = new System.Drawing.Size(360, 33);
             this.label7.TabIndex = 52;
             this.label7.Text = "合计";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
