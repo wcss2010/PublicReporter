@@ -18,6 +18,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         public SummaryEditor()
         {
             InitializeComponent();
+
+            //加载选项
+            loadComboboxItems();
         }
         
         private void btnSave_Click(object sender, EventArgs e)
@@ -46,9 +49,6 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         public override void RefreshView()
         {
             base.RefreshView();
-
-            //加载选项
-            loadComboboxItems();
 
             //加载数据
             if (PluginRootObj.projectObj != null)

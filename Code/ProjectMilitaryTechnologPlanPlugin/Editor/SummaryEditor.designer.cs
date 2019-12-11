@@ -360,8 +360,7 @@
             this.ibEdit5.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit5.FormattingEnabled = true;
             this.ibEdit5.Items.AddRange(new object[] {
-            "男",
-            "女"});
+            "未知"});
             this.ibEdit5.Location = new System.Drawing.Point(92, 0);
             this.ibEdit5.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit5.Name = "ibEdit5";
@@ -440,8 +439,7 @@
             this.ibEdit7.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit7.FormattingEnabled = true;
             this.ibEdit7.Items.AddRange(new object[] {
-            "男",
-            "女"});
+            "未知"});
             this.ibEdit7.Location = new System.Drawing.Point(92, 0);
             this.ibEdit7.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit7.Name = "ibEdit7";
@@ -476,8 +474,7 @@
             this.ibEdit8.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit8.FormattingEnabled = true;
             this.ibEdit8.Items.AddRange(new object[] {
-            "男",
-            "女"});
+            "未知"});
             this.ibEdit8.Location = new System.Drawing.Point(92, 0);
             this.ibEdit8.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit8.Name = "ibEdit8";
