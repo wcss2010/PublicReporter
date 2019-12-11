@@ -122,6 +122,16 @@ namespace ProjectMilitaryTechnologPlanPlugin
             //添加点击事件
             Parent_LeftTreeView.AfterSelect += treeViewObj_AfterSelect;
 
+            //设置分割器位置
+            foreach (Control c in Parent_Form.Controls)
+            {
+                if (c.Name == "scContent") 
+                {
+                    ((SplitContainer)c).SplitterDistance = 200;
+                    break;
+                }
+            }
+
             #region 构建树结构
             TreeNode firstNode = new TreeNode();
             firstNode.Name = "root";
