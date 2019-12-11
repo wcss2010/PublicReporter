@@ -104,7 +104,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 ibEdit8.Text = PluginRootObj.projectObj.ZeRenDanWei;
                 ibEdit9.Text = PluginRootObj.projectObj.XiaJiDanWei;
 
-                if (PluginRootObj.projectObj.BeiZhu != null && PluginRootObj.projectObj.BeiZhu.Contains(UIControlConfig.rowFlag))
+                if (PluginRootObj.projectObj.BeiZhu != null)
                 {
                     string[] wwww = PluginRootObj.projectObj.BeiZhu.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
                     if (wwww != null && wwww.Length >= 2)
@@ -118,7 +118,22 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                                 break;
                             }
                         }
-                        ibEdit10_1.Text = wwww[1];
+                        if (!string.IsNullOrEmpty(wwww[1]))
+                        {
+                            ibEdit10.Text += "::" + wwww[1];
+                        }
+                    }
+                    else
+                    {
+                        ibEdit10.Text = PluginRootObj.projectObj.BeiZhu;
+                        foreach (TreeNode tn in treenodeList)
+                        {
+                            if (tn.Text == ibEdit10.Text)
+                            {
+                                ibEdit10.Tag = tn;
+                                break;
+                            }
+                        }
                     }
                 }
             }
@@ -264,12 +279,12 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 MessageBox.Show("对不起，请输入研究目标!");
                 return;
             }
-            if (ibEdit2.Text.Length >= psoo.InfoMin && psoo.InfoMax <= ibEdit2.Text.Length)
+            if (!(ibEdit2.Text.Length >= psoo.InfoMin && ibEdit2.Text.Length <= psoo.InfoMax))
             {
                 MessageBox.Show("对不起，请输入研究目标(" + psoo.InfoMin + "," + psoo.InfoMax + ")!");
                 return;
             }
-            if (ibEdit3.Rows.Count >= psoo.TableMin && psoo.TableMax <= ibEdit3.Rows.Count)
+            if (!(ibEdit3.Rows.Count - 1 >= psoo.TableMin && ibEdit3.Rows.Count - 1 <= psoo.TableMax))
             {
                 MessageBox.Show("对不起，请输入研究内容(" + psoo.TableMin + "," + psoo.TableMax + ")!");
                 return;
@@ -343,7 +358,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             PluginRootObj.projectObj.XiangMuLeiBie = ibEdit7.Text;
             PluginRootObj.projectObj.ZeRenDanWei = ibEdit8.Text;
             PluginRootObj.projectObj.XiaJiDanWei = ibEdit9.Text;
-            PluginRootObj.projectObj.BeiZhu = ibEdit10.Text + UIControlConfig.rowFlag + ibEdit10_1.Text;
+            PluginRootObj.projectObj.BeiZhu = ibEdit10.Text.Replace("::", UIControlConfig.rowFlag);
 
             if (string.IsNullOrEmpty(PluginRootObj.projectObj.BianHao))
             {
@@ -363,18 +378,24 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 
         private void ibEdit10_Click(object sender, EventArgs e)
         {
-            ibEdit10_1.Enabled = false;
             FrmComboBoxBox comboboxForm = new FrmComboBoxBox();
             comboboxForm.initComboboxList(treenodeList.ToArray());
+            if (ibEdit10.Tag != null)
+            {
+                comboboxForm.SelectedNode = (TreeNode)ibEdit10.Tag;
+            }
+            if (ibEdit10.Text.Contains("::"))
+            {
+                string[] tttt = ibEdit10.Text.Split(new string[] { "::" }, StringSplitOptions.None);
+                if (tttt != null && tttt.Length >= 2)
+                {
+                    comboboxForm.ElseText = tttt[1];
+                }
+            }
             if (comboboxForm.ShowDialog() == DialogResult.OK)
             {
-                ibEdit10.Text = comboboxForm.SelectedNode.Text;
+                ibEdit10.Text = comboboxForm.SelectedNode.Text + (!string.IsNullOrEmpty(comboboxForm.ElseText) ? "::" + comboboxForm.ElseText : string.Empty);
                 ibEdit10.Tag = comboboxForm.SelectedNode;
-
-                if (ibEdit10.Text == "其它")
-                {
-                    ibEdit10_1.Enabled = true;                
-                }
             }
         }
 
@@ -403,6 +424,44 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                         ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
                     }
                 }
+            }
+        }
+
+        private void ibEdit3_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            
+        }
+
+        private void ibEdit4_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            
+        }
+
+        private void ibEdit3_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            DataGridView dgvView = ((DataGridView)sender);
+            for (int i = 0; i < e.RowCount; i++)
+            {
+                if (e.RowIndex == dgvView.Rows.Count - 1)
+                {
+                    continue;
+                }
+
+                dgvView.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+            }
+        }
+
+        private void ibEdit4_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            DataGridView dgvView = ((DataGridView)sender);
+            for (int i = 0; i < e.RowCount; i++)
+            {
+                if (e.RowIndex == dgvView.Rows.Count - 1)
+                {
+                    continue;
+                }
+
+                dgvView.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
             }
         }
     }

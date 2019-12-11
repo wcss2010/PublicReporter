@@ -13,7 +13,39 @@ namespace ProjectMilitaryTechnologPlanPlugin.Forms
         /// <summary>
         /// 已选中项
         /// </summary>
-        public TreeNode SelectedNode { get { return tvNodes.SelectedNode; } }
+        public TreeNode SelectedNode
+        {
+            get
+            {
+                return tvNodes.SelectedNode;
+            }
+            set
+            {
+                foreach (TreeNode tn in tvNodes.Nodes)
+                {
+                    if (tn.Text == value.Text)
+                    {
+                        tvNodes.SelectedNode = tn;
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 其它内容
+        /// </summary>
+        public string ElseText
+        {
+            get
+            {
+                return txtElseText.Text;
+            }
+            set
+            {
+                txtElseText.Text = value;
+            }
+        }
 
         public FrmComboBoxBox()
         {
@@ -28,7 +60,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Forms
         {
             if (nodes != null)
             {
-                tvNodes.Nodes.AddRange(nodes);
+                tvNodes.Nodes.Clear();
+                foreach (TreeNode tn in nodes)
+                {
+                    tvNodes.Nodes.Add((TreeNode)tn.Clone());
+                }
             }
         }
 
@@ -47,6 +83,19 @@ namespace ProjectMilitaryTechnologPlanPlugin.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = System.Windows.Forms.DialogResult.Cancel;
+        }
+
+        private void tvNodes_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.Text == "其它" || e.Node.Text == "其他")
+            {
+                txtElseText.Enabled = true;
+            }
+            else
+            {
+                txtElseText.Text = string.Empty;
+                txtElseText.Enabled = false;
+            }
         }
     }
 }

@@ -42,18 +42,20 @@
             this.plButtons.Controls.Add(this.btnOK);
             this.plButtons.Controls.Add(this.btnCancel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 342);
+            this.plButtons.Location = new System.Drawing.Point(0, 464);
+            this.plButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(623, 36);
+            this.plButtons.Size = new System.Drawing.Size(831, 40);
             this.plButtons.TabIndex = 7;
             // 
             // btnOK
             // 
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnOK.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnOK.Location = new System.Drawing.Point(443, 0);
+            this.btnOK.Location = new System.Drawing.Point(697, 0);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(90, 36);
+            this.btnOK.Size = new System.Drawing.Size(67, 40);
             this.btnOK.TabIndex = 17;
             this.btnOK.TabStop = false;
             this.btnOK.Text = "保存";
@@ -63,9 +65,10 @@
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.Location = new System.Drawing.Point(533, 0);
+            this.btnCancel.Location = new System.Drawing.Point(764, 0);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 36);
+            this.btnCancel.Size = new System.Drawing.Size(67, 40);
             this.btnCancel.TabIndex = 18;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "取消";
@@ -77,8 +80,9 @@
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(0, 0);
+            this.plContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(623, 378);
+            this.plContent.Size = new System.Drawing.Size(831, 504);
             this.plContent.TabIndex = 11;
             // 
             // txtContent
@@ -86,24 +90,22 @@
             this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtContent.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(623, 342);
+            this.txtContent.Size = new System.Drawing.Size(831, 464);
             this.txtContent.TabIndex = 8;
             // 
             // FrmInputBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 378);
+            this.ClientSize = new System.Drawing.Size(831, 504);
             this.Controls.Add(this.plContent);
-            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmInputBox";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "详细内容";
             this.plButtons.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
