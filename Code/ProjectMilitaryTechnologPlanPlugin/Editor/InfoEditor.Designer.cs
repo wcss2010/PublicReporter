@@ -64,8 +64,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -205,6 +205,7 @@
             this.ibEdit15.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit15.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ibEdit15.Location = new System.Drawing.Point(702, 0);
+            this.ibEdit15.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             this.ibEdit15.Name = "ibEdit15";
             this.ibEdit15.Size = new System.Drawing.Size(179, 26);
             this.ibEdit15.TabIndex = 32;
@@ -449,6 +450,7 @@
             this.ibEdit21.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit21.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ibEdit21.Location = new System.Drawing.Point(419, 0);
+            this.ibEdit21.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             this.ibEdit21.Name = "ibEdit21";
             this.ibEdit21.Size = new System.Drawing.Size(179, 26);
             this.ibEdit21.TabIndex = 33;
@@ -507,8 +509,13 @@
             // Column2
             // 
             this.Column2.HeaderText = "性别";
+            this.Column2.Items.AddRange(new object[] {
+            "男",
+            "女"});
             this.Column2.MinimumWidth = 60;
             this.Column2.Name = "Column2";
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column2.Width = 60;
             // 
             // Column3
@@ -516,6 +523,9 @@
             this.Column3.HeaderText = "出生年月";
             this.Column3.MinimumWidth = 100;
             this.Column3.Name = "Column3";
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column3.Text = "";
             // 
             // Column4
             // 
@@ -614,8 +624,8 @@
         private System.Windows.Forms.DataGridView dgvWorkers;
         private System.Windows.Forms.DateTimePicker ibEdit21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewButtonColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;

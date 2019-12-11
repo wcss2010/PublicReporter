@@ -5,6 +5,9 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using ProjectMilitaryTechnologPlanPlugin.DB.Entitys;
+using ProjectMilitaryTechnologPlanPlugin.DB;
+using ProjectMilitaryTechnologPlanPlugin.Forms;
 
 namespace ProjectMilitaryTechnologPlanPlugin.Editor
 {
@@ -42,6 +45,79 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         {
             base.OnSaveEvent(ref result);
 
+            if (ibEdit11.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入牵头人!");
+                return;
+            }
+            if (ibEdit13.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入牵头人性别!");
+                return;
+            }
+            if (ibEdit14.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入民族!");
+                return;
+            }
+            DateTime dd15;
+            if (DateTime.TryParse(ibEdit15.Text, out dd15) == false)
+            {
+                MessageBox.Show("对不起，请输入出生日期!");
+                return;
+            }
+            if (ibEdit18.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入部职别!");
+                return;
+            }
+            if (ibEdit19.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入联合研究单位!");
+                return;
+            }
+            Single dd20;
+            if (Single.TryParse(ibEdit20.Text, out dd20) == false)
+            {
+                MessageBox.Show("对不起，请输入审请经费!");
+                return;
+            }
+            DateTime dd21;
+            if (DateTime.TryParse(ibEdit21.Text, out dd21) == false)
+            {
+                MessageBox.Show("对不起，请输入计划完成时间!");
+                return;
+            }
+
+            PluginRootObj.projectObj.QianTouRen = ibEdit11.Text;
+            PluginRootObj.projectObj.QianTouRenXingBie = ibEdit13.Text;
+            PluginRootObj.projectObj.QianTouRenMinZu = ibEdit14.Text;
+            PluginRootObj.projectObj.QianTouRenShengRi = ibEdit15.Value;
+            PluginRootObj.projectObj.BuZhiBie = ibEdit18.Text;
+            PluginRootObj.projectObj.LianHeYanJiuDanWei = ibEdit19.Text;
+            PluginRootObj.projectObj.ShenQingJingFei = decimal.Parse(ibEdit20.Text);
+            PluginRootObj.projectObj.JiHuaWanChengShiJian = ibEdit21.Value;
+            PluginRootObj.projectObj.copyTo(ConnectionManager.Context.table("JiBenXinXiBiao")).where("BianHao='" + PluginRootObj.projectObj.BianHao + "'").update();
+
+            //保存核心人员信息
+            ConnectionManager.Context.table("RenYuanBiao").delete();
+            foreach (DataGridViewRow dgvRow in dgvWorkers.Rows)
+            {
+                if (dgvRow.Cells[0].Value == null || dgvRow.Cells[1].Value == null || dgvRow.Cells[2].Value == null || dgvRow.Cells[3].Value == null || dgvRow.Cells[4].Value == null || dgvRow.Cells[5].Value == null)
+                {
+                    continue;
+                }
+
+                RenYuanBiao worker = new RenYuanBiao();
+                worker.BianHao = Guid.NewGuid().ToString();
+                worker.XingMing = dgvRow.Cells[0].Value.ToString();
+                worker.XingBie = dgvRow.Cells[1].Value.ToString();
+                worker.ShengRi = DateTime.Parse(dgvRow.Cells[2].Value.ToString());
+                worker.ZhuanYeZhiWu = dgvRow.Cells[3].Value.ToString();
+                worker.YanJiuZhuanChang = dgvRow.Cells[4].Value.ToString();
+                worker.GongZuoDanWei = dgvRow.Cells[5].Value.ToString();
+                worker.copyTo(ConnectionManager.Context.table("RenYuanBiao")).insert();
+            }
         }
 
         public override void RefreshView()
@@ -55,11 +131,22 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 ibEdit11.Text = PluginRootObj.projectObj.QianTouRen;
                 ibEdit13.Text = PluginRootObj.projectObj.QianTouRenXingBie;
                 ibEdit14.Text = PluginRootObj.projectObj.QianTouRenMinZu;
-                ibEdit15.Value = PluginRootObj.projectObj.QianTouRenShengRi;
+                try
+                {
+                    ibEdit15.Value = PluginRootObj.projectObj.QianTouRenShengRi;
+                }
+                catch (Exception ex) { }
                 ibEdit18.Text = PluginRootObj.projectObj.BuZhiBie;
                 ibEdit19.Text = PluginRootObj.projectObj.LianHeYanJiuDanWei;
                 ibEdit20.Text = PluginRootObj.projectObj.ShenQingJingFei + "";
-                ibEdit21.Value = PluginRootObj.projectObj.JiHuaWanChengShiJian;
+                try
+                {
+                    ibEdit21.Value = PluginRootObj.projectObj.JiHuaWanChengShiJian;
+                }
+                catch (Exception ex)
+                {
+                    ibEdit21.Value = DateTime.Now;
+                }
 
                 StringBuilder sb = new StringBuilder();
                 if (PluginRootObj.projectObj.YuQiChengGuo != null && PluginRootObj.projectObj.YuQiChengGuo.Contains(UIControlConfig.rowFlag))
@@ -74,23 +161,72 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                             {
                                 if (string.IsNullOrEmpty(vvvv[0])) { continue; }
 
-                                sb.Append(vvvv[0]).Append(":").Append(vvvv[1]).AppendLine();
+                                sb.Append(vvvv[0]).Append(":").Append(vvvv[1]).Append(",");
                             }
                         }
                     }
                 }
                 txtWantResult.Text = sb.ToString();
+
+                dgvWorkers.Rows.Clear();
+                List<RenYuanBiao> workerList = ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+                foreach (RenYuanBiao worker in workerList)
+                {
+                    List<object> cells = new List<object>();
+                    cells.Add(worker.XingMing);
+                    cells.Add(worker.XingBie);
+                    cells.Add(worker.ShengRi);
+                    cells.Add(worker.ZhuanYeZhiWu);
+                    cells.Add(worker.YanJiuZhuanChang);
+                    cells.Add(worker.GongZuoDanWei);
+
+                    int rowIndex = dgvWorkers.Rows.Add(cells.ToArray());
+                    dgvWorkers.Rows[rowIndex].Tag = worker;
+                }
             }
         }
 
         private void dgvWorkers_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
+            DataGridView dgvView = ((DataGridView)sender);
+            for (int i = 0; i < e.RowCount; i++)
+            {
+                if (e.RowIndex == dgvView.Rows.Count - 1)
+                {
+                    continue;
+                }
 
+                dgvView.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+                dgvView.Rows[e.RowIndex].Cells[2].Value = "请选择！";
+            }
         }
 
         private void dgvWorkers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (((DataGridView)sender).Rows.Count > e.RowIndex)
+            {
+                if (e.ColumnIndex == ((DataGridView)sender).Columns.Count - 1)
+                {
+                    if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
+                    }
+                }
+                else if (e.ColumnIndex == 2)
+                {
+                    FrmDateTimePickerBox form = new FrmDateTimePickerBox();
+                    try
+                    {
+                        form.Value = DateTime.Parse(dgvWorkers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                    }
+                    catch (Exception ex) { }
 
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        dgvWorkers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = form.Value.ToShortDateString();
+                    }
+                }
+            }
         }
     }
 }

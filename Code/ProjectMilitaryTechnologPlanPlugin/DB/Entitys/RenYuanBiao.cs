@@ -19,7 +19,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             query.set("XingMing", XingMing);
             query.set("XingBie", XingBie);
             query.set("MinZu", MinZu);
+            query.set("ShengRi", ShengRi);
             query.set("ShenFenZhengHao", ShenFenZhengHao);
+            query.set("ZhuanYeZhiWu", ZhuanYeZhiWu);
+            query.set("YanJiuZhuanChang", YanJiuZhuanChang);
+            query.set("GongZuoDanWei", GongZuoDanWei);
             query.set("DianHua", DianHua);
             query.set("ShouJI", ShouJI);
             query.set("ZhiWu", ZhiWu);
@@ -35,7 +39,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
         public string XingMing { get; set; }
         public string XingBie { get; set; }
         public string MinZu { get; set; }
+        public DateTime ShengRi { get; set; }
         public string ShenFenZhengHao { get; set; }
+        public string ZhuanYeZhiWu { get; set; }
+        public string YanJiuZhuanChang { get; set; }
+        public string GongZuoDanWei { get; set; }
         public string DianHua { get; set; }
         public string ShouJI { get; set; }
         public string ZhiWu { get; set; }
@@ -50,7 +58,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             XingMing = source("XingMing").value<string>("");
             XingBie = source("XingBie").value<string>("");
             MinZu = source("MinZu").value<string>("");
+            ShengRi = source("ShengRi").value<DateTime>(DateTime.Now);
             ShenFenZhengHao = source("ShenFenZhengHao").value<string>("");
+            ZhuanYeZhiWu = source("ZhuanYeZhiWu").value<string>("");
+            YanJiuZhuanChang = source("YanJiuZhuanChang").value<string>("");
+            GongZuoDanWei = source("GongZuoDanWei").value<string>("");
             DianHua = source("DianHua").value<string>("");
             ShouJI = source("ShouJI").value<string>("");
             ZhiWu = source("ZhiWu").value<string>("");
@@ -65,4 +77,5 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             return new RenYuanBiao();
         }
     }
+
 }
