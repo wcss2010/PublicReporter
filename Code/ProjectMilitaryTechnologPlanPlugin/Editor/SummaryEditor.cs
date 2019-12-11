@@ -14,102 +14,10 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 {
     public partial class SummaryEditor : BaseEditor
     {
+        private List<TreeNode> treenodeList;
         public SummaryEditor()
         {
             InitializeComponent();
-
-            if (UIControlConfig.ConfigObj.Params.ContainsKey("预期成果项目"))
-            {
-                try
-                {
-                    ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Clear();
-                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["预期成果项目"];
-                    foreach (string s in teams)
-                    {
-                        ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Add(s);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.ToString());
-                }
-            }
-            if (UIControlConfig.ConfigObj.Params.ContainsKey("研究周期"))
-            {
-                try
-                {
-                    ibEdit5.Items.Clear();
-                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["研究周期"];
-                    foreach (string ssss in teams)
-                    {
-                        string[] ttt = ssss.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
-                        if (ttt != null && ttt.Length >= 2)
-                        {
-                            ComboBoxObject<int> comboboxObject = new ComboBoxObject<int>();
-                            comboboxObject.Text = ttt[0];
-                            comboboxObject.Tag = int.Parse(ttt[1]);
-                            ibEdit5.Items.Add(comboboxObject);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.ToString());
-                }
-            }
-            if (UIControlConfig.ConfigObj.Params.ContainsKey("项目类别"))
-            {
-                try
-                {
-                    ibEdit7.Items.Clear();
-                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["项目类别"];
-                    foreach (string sss in teams)
-                    {
-                        string[] ttt = sss.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
-                        if (ttt != null && ttt.Length >= 3)
-                        {
-                            ProjectSortObject pso = new ProjectSortObject();
-                            pso.Text = ttt[0];
-
-                            string[] vvv = ttt[1].Replace("[", string.Empty).Replace("]", string.Empty).Split(new string[] { "," }, StringSplitOptions.None);
-                            if (vvv != null && vvv.Length >= 2)
-                            {
-                                pso.InfoMin = int.Parse(vvv[0]);
-                                pso.InfoMax = int.Parse(vvv[1]);
-                            }
-
-                            vvv = ttt[2].Replace("[", string.Empty).Replace("]", string.Empty).Split(new string[] { "," }, StringSplitOptions.None);
-                            if (vvv != null && vvv.Length >= 2)
-                            {
-                                pso.TableMin = int.Parse(vvv[0]);
-                                pso.TableMax = int.Parse(vvv[1]);
-                            }
-
-                            ibEdit7.Items.Add(pso);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.ToString());
-                }
-            }
-            if (UIControlConfig.ConfigObj.Params.ContainsKey("责任单位"))
-            {
-                try
-                {
-                    ibEdit8.Items.Clear();
-                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["责任单位"];
-                    foreach (string s in teams)
-                    {
-                        ibEdit8.Items.Add(s);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.ToString());
-                }
-            }
         }
         
         private void btnSave_Click(object sender, EventArgs e)
@@ -139,6 +47,10 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         {
             base.RefreshView();
 
+            //加载选项
+            loadComboboxItems();
+
+            //加载数据
             if (PluginRootObj.projectObj != null)
             {   
                 ibEdit1.Text = PluginRootObj.projectObj.XiangMuMingCheng;
@@ -198,8 +110,136 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     if (wwww != null && wwww.Length >= 2)
                     {
                         ibEdit10.Text = wwww[0];
+                        foreach (TreeNode tn in treenodeList)
+                        {
+                            if (tn.Text == ibEdit10.Text)
+                            {
+                                ibEdit10.Tag = tn;
+                                break;
+                            }
+                        }
                         ibEdit10_1.Text = wwww[1];
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 动态加载各种选项
+        /// </summary>
+        private void loadComboboxItems()
+        {
+            //加载预期成果选项
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("预期成果项目"))
+            {
+                try
+                {
+                    ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Clear();
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["预期成果项目"];
+                    foreach (string s in teams)
+                    {
+                        ((DataGridViewComboBoxColumn)ibEdit4.Columns[0]).Items.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            //加载研究周期选项
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("研究周期"))
+            {
+                try
+                {
+                    ibEdit5.Items.Clear();
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["研究周期"];
+                    foreach (string ssss in teams)
+                    {
+                        string[] ttt = ssss.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
+                        if (ttt != null && ttt.Length >= 2)
+                        {
+                            ComboBoxObject<int> comboboxObject = new ComboBoxObject<int>();
+                            comboboxObject.Text = ttt[0];
+                            comboboxObject.Tag = int.Parse(ttt[1]);
+                            ibEdit5.Items.Add(comboboxObject);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            //加载项目类别选项
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("项目类别"))
+            {
+                try
+                {
+                    ibEdit7.Items.Clear();
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["项目类别"];
+                    foreach (string sss in teams)
+                    {
+                        string[] ttt = sss.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
+                        if (ttt != null && ttt.Length >= 3)
+                        {
+                            ProjectSortObject pso = new ProjectSortObject();
+                            pso.Text = ttt[0];
+
+                            string[] vvv = ttt[1].Replace("[", string.Empty).Replace("]", string.Empty).Split(new string[] { "," }, StringSplitOptions.None);
+                            if (vvv != null && vvv.Length >= 2)
+                            {
+                                pso.InfoMin = int.Parse(vvv[0]);
+                                pso.InfoMax = int.Parse(vvv[1]);
+                            }
+
+                            vvv = ttt[2].Replace("[", string.Empty).Replace("]", string.Empty).Split(new string[] { "," }, StringSplitOptions.None);
+                            if (vvv != null && vvv.Length >= 2)
+                            {
+                                pso.TableMin = int.Parse(vvv[0]);
+                                pso.TableMax = int.Parse(vvv[1]);
+                            }
+
+                            ibEdit7.Items.Add(pso);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            //加载责任单位选项
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("责任单位"))
+            {
+                try
+                {
+                    ibEdit8.Items.Clear();
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["责任单位"];
+                    foreach (string s in teams)
+                    {
+                        ibEdit8.Items.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            //加载备注选项
+            treenodeList = new List<TreeNode>();
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("备注"))
+            {
+                try
+                {
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["备注"];
+                    foreach (string s in teams)
+                    {
+                        treenodeList.Add(new TreeNode(s));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
                 }
             }
         }
@@ -323,29 +363,18 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 
         private void ibEdit10_Click(object sender, EventArgs e)
         {
-            List<TreeNode> treenodeList = new List<TreeNode>();
-            if (UIControlConfig.ConfigObj.Params.ContainsKey("备注"))
-            {
-                try
-                {
-                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["备注"];
-                    foreach (string s in teams)
-                    {
-                        treenodeList.Add(new TreeNode(s));
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.ToString());
-                }
-            }
-
+            ibEdit10_1.Enabled = false;
             FrmComboBoxBox comboboxForm = new FrmComboBoxBox();
             comboboxForm.initComboboxList(treenodeList.ToArray());
             if (comboboxForm.ShowDialog() == DialogResult.OK)
             {
                 ibEdit10.Text = comboboxForm.SelectedNode.Text;
                 ibEdit10.Tag = comboboxForm.SelectedNode;
+
+                if (ibEdit10.Text == "其它")
+                {
+                    ibEdit10_1.Enabled = true;                
+                }
             }
         }
 
