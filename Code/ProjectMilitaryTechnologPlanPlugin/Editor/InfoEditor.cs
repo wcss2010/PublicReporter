@@ -175,7 +175,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     List<object> cells = new List<object>();
                     cells.Add(worker.XingMing);
                     cells.Add(worker.XingBie);
-                    cells.Add(worker.ShengRi);
+                    cells.Add(worker.ShengRi != null ? worker.ShengRi.ToShortDateString() : DateTime.Now.ToShortDateString());
                     cells.Add(worker.ZhuanYeZhiWu);
                     cells.Add(worker.YanJiuZhuanChang);
                     cells.Add(worker.GongZuoDanWei);
@@ -197,7 +197,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 }
 
                 dgvView.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
-                dgvView.Rows[e.RowIndex].Cells[2].Value = "请选择！";
+            }
+
+            if (dgvView.Rows[e.RowCount - 1].Cells[2].Value == null)
+            {
+                dgvView.Rows[e.RowCount - 1].Cells[2].Value = "请选择！";
             }
         }
 
