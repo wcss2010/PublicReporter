@@ -48,55 +48,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 
         private void Calc()
         {
-            //设置间接费用
-            boxDict["ibEditMoney12"].Text = boxDict["ibEditMoney13"].Text;
-
-            decimal secondMoney = 0;
-            try
-            {
-                secondMoney = decimal.Parse(boxDict["ibEditMoney12"].Text);
-            }
-            catch (Exception ex) { }
-
-            decimal money3_1 = 0;
-            decimal money3_2 = 0;
-            decimal money3_3 = 0;
-            decimal money5_1 = 0;
-            decimal money5_2 = 0;
-            try
-            {
-                money3_1 = decimal.Parse(boxDict["ibEditMoney3_1"].Text);
-            }
-            catch (Exception ex) { }
-            try
-            {
-                money3_2 = decimal.Parse(boxDict["ibEditMoney3_2"].Text);
-            }
-            catch (Exception ex) { }
-            try
-            {
-                money3_3 = decimal.Parse(boxDict["ibEditMoney3_3"].Text);
-            }
-            catch (Exception ex) { }
-            try
-            {
-                money5_1 = decimal.Parse(boxDict["ibEditMoney5_1"].Text);
-            }
-            catch (Exception ex) { }
-            try
-            {
-                money5_2 = decimal.Parse(boxDict["ibEditMoney5_2"].Text);
-            }
-            catch (Exception ex) { }
-
-            boxDict["ibEditMoney3"].Text = (money3_1 + money3_2 + money3_3).ToString();
-            boxDict["ibEditMoney5"].Text = (money5_1 + money5_2).ToString();
-
             //总费用
             decimal total = 0;
 
             //计算总费用
-            for (int k = 3; k <= 11; k++)
+            for (int k = 1; k <= 11; k++)
             {
                 string cnt = boxDict["ibEditMoney" + k].Text;
                 try
@@ -106,8 +62,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 catch (Exception ex) { }
             }
 
-            boxDict["ibEditMoney2"].Text = total.ToString();
-            boxDict["ibEditMoney1"].Text = (total + secondMoney).ToString();
+            txtTotal.Text = total + "";
         }
 
         public override void RefreshView()
