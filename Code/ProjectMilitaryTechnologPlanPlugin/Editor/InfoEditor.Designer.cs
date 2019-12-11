@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ibEdit1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblInfo = new ProjectMilitaryTechnologPlanPlugin.Controls.AutoHeightLabel();
@@ -37,32 +37,39 @@
             this.plContent = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtBirthday = new System.Windows.Forms.DateTimePicker();
+            this.ibEdit15 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.ibEdit14 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbxSexs = new System.Windows.Forms.ComboBox();
+            this.ibEdit13 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ibEdit11 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ibEdit18 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtContent = new System.Windows.Forms.TextBox();
+            this.ibEdit19 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvWorkers = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtWantResult = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.ibEdit21 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.ibEdit20 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
@@ -71,7 +78,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -79,22 +86,23 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.ibEdit1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(971, 29);
             this.panel1.TabIndex = 0;
             // 
-            // textBox1
+            // ibEdit1
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox1.Location = new System.Drawing.Point(122, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(849, 26);
-            this.textBox1.TabIndex = 5;
+            this.ibEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEdit1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit1.Location = new System.Drawing.Point(122, 0);
+            this.ibEdit1.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit1.Name = "ibEdit1";
+            this.ibEdit1.ReadOnly = true;
+            this.ibEdit1.Size = new System.Drawing.Size(849, 26);
+            this.ibEdit1.TabIndex = 5;
             // 
             // label1
             // 
@@ -117,6 +125,7 @@
             this.btnSave.Size = new System.Drawing.Size(90, 29);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblInfo
             // 
@@ -176,35 +185,35 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtBirthday);
+            this.panel2.Controls.Add(this.ibEdit15);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBox10);
+            this.panel2.Controls.Add(this.ibEdit14);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.cbxSexs);
+            this.panel2.Controls.Add(this.ibEdit13);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.ibEdit11);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(3, 38);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(971, 29);
             this.panel2.TabIndex = 1;
             // 
-            // txtBirthday
+            // ibEdit15
             // 
-            this.txtBirthday.CustomFormat = "yyyy年MM月dd日";
-            this.txtBirthday.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtBirthday.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtBirthday.Location = new System.Drawing.Point(660, 0);
-            this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.Size = new System.Drawing.Size(179, 26);
-            this.txtBirthday.TabIndex = 32;
+            this.ibEdit15.CustomFormat = "yyyy年MM月dd日";
+            this.ibEdit15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit15.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit15.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ibEdit15.Location = new System.Drawing.Point(702, 0);
+            this.ibEdit15.Name = "ibEdit15";
+            this.ibEdit15.Size = new System.Drawing.Size(179, 26);
+            this.ibEdit15.TabIndex = 32;
             // 
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label6.Location = new System.Drawing.Point(568, 0);
+            this.label6.Location = new System.Drawing.Point(610, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 29);
@@ -212,15 +221,15 @@
             this.label6.Text = "出生年月：";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox10
+            // ibEdit14
             // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox10.Location = new System.Drawing.Point(446, 0);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(122, 26);
-            this.textBox10.TabIndex = 13;
+            this.ibEdit14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit14.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit14.Location = new System.Drawing.Point(446, 0);
+            this.ibEdit14.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit14.Name = "ibEdit14";
+            this.ibEdit14.Size = new System.Drawing.Size(164, 26);
+            this.ibEdit14.TabIndex = 13;
             // 
             // label10
             // 
@@ -234,20 +243,20 @@
             this.label10.Text = "民族：";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cbxSexs
+            // ibEdit13
             // 
-            this.cbxSexs.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbxSexs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSexs.Font = new System.Drawing.Font("仿宋", 12F);
-            this.cbxSexs.FormattingEnabled = true;
-            this.cbxSexs.Items.AddRange(new object[] {
+            this.ibEdit13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ibEdit13.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit13.FormattingEnabled = true;
+            this.ibEdit13.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cbxSexs.Location = new System.Drawing.Point(313, 0);
-            this.cbxSexs.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxSexs.Name = "cbxSexs";
-            this.cbxSexs.Size = new System.Drawing.Size(66, 24);
-            this.cbxSexs.TabIndex = 12;
+            this.ibEdit13.Location = new System.Drawing.Point(313, 0);
+            this.ibEdit13.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit13.Name = "ibEdit13";
+            this.ibEdit13.Size = new System.Drawing.Size(66, 24);
+            this.ibEdit13.TabIndex = 12;
             // 
             // label9
             // 
@@ -261,15 +270,15 @@
             this.label9.Text = "性别：";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // ibEdit11
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox2.Location = new System.Drawing.Point(122, 0);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 26);
-            this.textBox2.TabIndex = 5;
+            this.ibEdit11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit11.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit11.Location = new System.Drawing.Point(122, 0);
+            this.ibEdit11.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit11.Name = "ibEdit11";
+            this.ibEdit11.Size = new System.Drawing.Size(122, 26);
+            this.ibEdit11.TabIndex = 5;
             // 
             // label2
             // 
@@ -285,22 +294,23 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.ibEdit18);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(3, 73);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(971, 29);
+            this.panel3.Size = new System.Drawing.Size(971, 59);
             this.panel3.TabIndex = 2;
             // 
-            // textBox3
+            // ibEdit18
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox3.Location = new System.Drawing.Point(122, 0);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(849, 26);
-            this.textBox3.TabIndex = 5;
+            this.ibEdit18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEdit18.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit18.Location = new System.Drawing.Point(122, 0);
+            this.ibEdit18.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit18.Multiline = true;
+            this.ibEdit18.Name = "ibEdit18";
+            this.ibEdit18.Size = new System.Drawing.Size(849, 59);
+            this.ibEdit18.TabIndex = 5;
             // 
             // label3
             // 
@@ -309,30 +319,30 @@
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 29);
+            this.label3.Size = new System.Drawing.Size(122, 59);
             this.label3.TabIndex = 1;
             this.label3.Text = "部 职 别：";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.txtContent);
+            this.panel4.Controls.Add(this.ibEdit19);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(3, 108);
+            this.panel4.Location = new System.Drawing.Point(3, 138);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(971, 286);
+            this.panel4.Size = new System.Drawing.Size(971, 115);
             this.panel4.TabIndex = 3;
             // 
-            // txtContent
+            // ibEdit19
             // 
-            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtContent.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtContent.Location = new System.Drawing.Point(122, 0);
-            this.txtContent.Margin = new System.Windows.Forms.Padding(4);
-            this.txtContent.Multiline = true;
-            this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(849, 286);
-            this.txtContent.TabIndex = 9;
+            this.ibEdit19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEdit19.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ibEdit19.Location = new System.Drawing.Point(122, 0);
+            this.ibEdit19.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit19.Multiline = true;
+            this.ibEdit19.Name = "ibEdit19";
+            this.ibEdit19.Size = new System.Drawing.Size(849, 115);
+            this.ibEdit19.TabIndex = 9;
             // 
             // label4
             // 
@@ -341,29 +351,40 @@
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 286);
+            this.label4.Size = new System.Drawing.Size(122, 115);
             this.label4.TabIndex = 1;
             this.label4.Text = "联合研究单位：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dataGridView1);
+            this.panel5.Controls.Add(this.dgvWorkers);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(3, 400);
+            this.panel5.Location = new System.Drawing.Point(3, 259);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(971, 295);
             this.panel5.TabIndex = 4;
             // 
-            // dataGridView1
+            // dgvWorkers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(122, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(849, 295);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            this.dgvWorkers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWorkers.Location = new System.Drawing.Point(122, 0);
+            this.dgvWorkers.MultiSelect = false;
+            this.dgvWorkers.Name = "dgvWorkers";
+            this.dgvWorkers.RowTemplate.Height = 23;
+            this.dgvWorkers.Size = new System.Drawing.Size(849, 295);
+            this.dgvWorkers.TabIndex = 2;
+            this.dgvWorkers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWorkers_CellContentClick);
+            this.dgvWorkers.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvWorkers_RowsAdded);
             // 
             // label5
             // 
@@ -379,22 +400,24 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.textBox7);
+            this.panel7.Controls.Add(this.txtWantResult);
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(3, 701);
+            this.panel7.Location = new System.Drawing.Point(3, 560);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(971, 29);
+            this.panel7.Size = new System.Drawing.Size(971, 65);
             this.panel7.TabIndex = 6;
             // 
-            // textBox7
+            // txtWantResult
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox7.Location = new System.Drawing.Point(122, 0);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(849, 26);
-            this.textBox7.TabIndex = 5;
+            this.txtWantResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWantResult.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWantResult.Location = new System.Drawing.Point(122, 0);
+            this.txtWantResult.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWantResult.Multiline = true;
+            this.txtWantResult.Name = "txtWantResult";
+            this.txtWantResult.ReadOnly = true;
+            this.txtWantResult.Size = new System.Drawing.Size(849, 65);
+            this.txtWantResult.TabIndex = 5;
             // 
             // label7
             // 
@@ -403,37 +426,38 @@
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 29);
+            this.label7.Size = new System.Drawing.Size(122, 65);
             this.label7.TabIndex = 1;
             this.label7.Text = "预期成果：";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBox12);
+            this.panel8.Controls.Add(this.ibEdit21);
             this.panel8.Controls.Add(this.label12);
-            this.panel8.Controls.Add(this.textBox8);
+            this.panel8.Controls.Add(this.ibEdit20);
             this.panel8.Controls.Add(this.label8);
-            this.panel8.Location = new System.Drawing.Point(3, 736);
+            this.panel8.Location = new System.Drawing.Point(3, 631);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(971, 29);
             this.panel8.TabIndex = 7;
             // 
-            // textBox12
+            // ibEdit21
             // 
-            this.textBox12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox12.Location = new System.Drawing.Point(511, 0);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(214, 26);
-            this.textBox12.TabIndex = 7;
+            this.ibEdit21.CustomFormat = "yyyy年MM月dd日";
+            this.ibEdit21.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit21.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit21.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ibEdit21.Location = new System.Drawing.Point(419, 0);
+            this.ibEdit21.Name = "ibEdit21";
+            this.ibEdit21.Size = new System.Drawing.Size(179, 26);
+            this.ibEdit21.TabIndex = 33;
             // 
             // label12
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label12.Location = new System.Drawing.Point(336, 0);
+            this.label12.Location = new System.Drawing.Point(244, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(175, 29);
@@ -441,15 +465,15 @@
             this.label12.Text = "万元  计划完成时间：";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox8
+            // ibEdit20
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox8.Location = new System.Drawing.Point(122, 0);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(214, 26);
-            this.textBox8.TabIndex = 5;
+            this.ibEdit20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit20.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit20.Location = new System.Drawing.Point(122, 0);
+            this.ibEdit20.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit20.Name = "ibEdit20";
+            this.ibEdit20.Size = new System.Drawing.Size(122, 26);
+            this.ibEdit20.TabIndex = 5;
             // 
             // label8
             // 
@@ -473,6 +497,55 @@
             this.plButtons.Size = new System.Drawing.Size(1029, 35);
             this.plButtons.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "姓名";
+            this.Column1.MinimumWidth = 60;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "性别";
+            this.Column2.MinimumWidth = 60;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 60;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "出生年月";
+            this.Column3.MinimumWidth = 100;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "专业职务";
+            this.Column4.MinimumWidth = 120;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 120;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "研究专长";
+            this.Column5.MinimumWidth = 120;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 120;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "工作单位";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "";
+            this.Column7.MinimumWidth = 60;
+            this.Column7.Name = "Column7";
+            this.Column7.Text = "删除";
+            this.Column7.UseColumnTextForButtonValue = true;
+            this.Column7.Width = 60;
+            // 
             // InfoEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -493,7 +566,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -506,7 +579,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ibEdit1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
         private Controls.AutoHeightLabel lblInfo;
@@ -515,30 +588,37 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ibEdit11;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ibEdit18;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtWantResult;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox ibEdit20;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbxSexs;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.ComboBox ibEdit13;
+        private System.Windows.Forms.TextBox ibEdit14;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker txtBirthday;
-        private System.Windows.Forms.TextBox txtContent;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DateTimePicker ibEdit15;
+        private System.Windows.Forms.TextBox ibEdit19;
+        private System.Windows.Forms.DataGridView dgvWorkers;
+        private System.Windows.Forms.DateTimePicker ibEdit21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewButtonColumn Column7;
     }
 }
