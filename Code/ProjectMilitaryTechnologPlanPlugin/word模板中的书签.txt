@@ -42,6 +42,9 @@
 研究经费_Info10
 研究经费_Info11
 研究经费_Total
+研究经费_Year1Name
+研究经费_Year2Name
+研究经费_Year3Name
 研究经费_Year1
 研究经费_Year2
 研究经费_Year3
