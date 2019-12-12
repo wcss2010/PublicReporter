@@ -123,12 +123,15 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                 //计算总费用
                 for (int k = 1; k <= 11; k++)
                 {
-                    string cnt = tempDict["Money" + k];
-                    try
+                    if (tempDict.ContainsKey("Money" + k))
                     {
-                        total += decimal.Parse(cnt);
+                        string cnt = tempDict["Money" + k];
+                        try
+                        {
+                            total += decimal.Parse(cnt);
+                        }
+                        catch (Exception ex) { }
                     }
-                    catch (Exception ex) { }
                 }
                 tempDict["Total"] = total + "";
 
