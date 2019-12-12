@@ -407,7 +407,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 {
                     if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
+                        try
+                        {
+                            ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
+                        }
+                        catch (Exception ex) { }
                     }
                 }
             }
@@ -421,7 +425,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 {
                     if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
+                        try
+                        {
+                            ((DataGridView)sender).Rows.RemoveAt(e.RowIndex);
+                        }
+                        catch (Exception ex) { }
                     }
                 }
             }
