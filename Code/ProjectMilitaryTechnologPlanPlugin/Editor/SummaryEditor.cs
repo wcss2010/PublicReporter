@@ -268,63 +268,75 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             if (ibEdit1.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目名称!");
+                result = false;
                 return;
             }
             if (ibEdit7.SelectedItem == null)
             {
                 MessageBox.Show("对不起，请选择项目类别!");
+                result = false;
                 return;
             }
             ProjectSortObject psoo = (ProjectSortObject)ibEdit7.SelectedItem;
             if (ibEdit2.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入研究目标!");
+                result = false;
                 return;
             }
             if (!(ibEdit2.Text.Length >= psoo.InfoMin && ibEdit2.Text.Length <= psoo.InfoMax))
             {
                 MessageBox.Show("对不起，请输入研究目标(" + psoo.InfoMin + "," + psoo.InfoMax + ")!");
+                result = false;
                 return;
             }
             if (!(ibEdit3.Rows.Count - 1 >= psoo.TableMin && ibEdit3.Rows.Count - 1 <= psoo.TableMax))
             {
                 MessageBox.Show("对不起，请输入研究内容(" + psoo.TableMin + "," + psoo.TableMax + ")!");
+                result = false;
                 return;
             }
             if (ibEdit4.Rows.Count == 0 || ibEdit4.Rows.Count > 5)
             {
                 MessageBox.Show("对不起，请输入预期成果(不超过4条)!");
+                result = false;
                 return;
             }
             if (ibEdit5.SelectedItem == null)
             {
                 MessageBox.Show("对不起，请输入研究周期!");
+                result = false;
                 return;
             }
             Single dd6;
             if (Single.TryParse(ibEdit6.Text, out dd6) == false)
             {
                 MessageBox.Show("对不起，请输入经费预算!");
+                result = false;
                 return;
             }
             if ((decimal)dd6 > psoo.Money)
             {
                 MessageBox.Show("对不起，经费预算的金额太大(" + psoo.Money + "万之内)!");
+                result = false;
                 return;
             }
             if (ibEdit8.SelectedItem == null)
             {
                 MessageBox.Show("对不起，请输入责任单位!");
+                result = false;
                 return;
             }
             if (ibEdit9.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入下级单位!");
+                result = false;
                 return;
             }
             if (ibEdit10.Tag == null)
             {
                 MessageBox.Show("对不起，请输入备注!");
+                result = false;
                 return;
             }
 
@@ -376,11 +388,6 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             {
                 PluginRootObj.projectObj.copyTo(ConnectionManager.Context.table("JiBenXinXiBiao")).where("BianHao='" + PluginRootObj.projectObj.BianHao + "'").update();
             }
-        }
-
-        public override bool IsInputCompleted()
-        {
-            return true;
         }
 
         private void ibEdit10_Click(object sender, EventArgs e)
@@ -491,6 +498,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     c.Width = flowLayoutPanel1.Width - 40;
                 }
             }
+        }
+
+        public override bool IsInputCompleted()
+        {
+            return true;
         }
     }
 

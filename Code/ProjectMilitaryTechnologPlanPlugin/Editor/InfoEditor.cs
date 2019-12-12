@@ -48,44 +48,52 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             if (ibEdit11.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入牵头人!");
+                result = false;
                 return;
             }
             if (ibEdit13.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入牵头人性别!");
+                result = false;
                 return;
             }
             if (ibEdit14.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入民族!");
+                result = false;
                 return;
             }
             DateTime dd15;
             if (DateTime.TryParse(ibEdit15.Text, out dd15) == false)
             {
                 MessageBox.Show("对不起，请输入出生日期!");
+                result = false;
                 return;
             }
             if (ibEdit18.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入部职别!");
+                result = false;
                 return;
             }
             if (ibEdit19.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入联合研究单位!");
+                result = false;
                 return;
             }
             Single dd20;
             if (Single.TryParse(ibEdit20.Text, out dd20) == false)
             {
                 MessageBox.Show("对不起，请输入审请经费!");
+                result = false;
                 return;
             }
             DateTime dd21;
             if (DateTime.TryParse(ibEdit21.Text, out dd21) == false)
             {
                 MessageBox.Show("对不起，请输入计划完成时间!");
+                result = false;
                 return;
             }
 
@@ -248,6 +256,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     c.Width = flowLayoutPanel1.Width - 40;
                 }
             }
+        }
+
+        public override bool IsInputCompleted()
+        {
+            return true;
         }
     }
 }
