@@ -38,7 +38,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
             Report(progressDialog, 10, "准备Word...", 1000);
 
             //创建word文档
-            string fileName = pt.projectObj.BianHao + "-协议书.docx";
+            string fileName = pt.projectObj.BianHao + "-论证报告.docx";
             WordUtility wu = new WordUtility();
             wu.createNewDocument(Path.Combine(Path.Combine(pt.RootDir, "Helper"), "template.doc"));
 
@@ -88,11 +88,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
                 #region 插入文档文件
-                wu.insertFile("项目设计论证_研究状况及选题价值", Path.Combine(pt.filesDir, "研究状况及选题价值.doc"), false);
-                wu.insertFile("项目设计论证_总体框架和预期目标", Path.Combine(pt.filesDir, "总体框架和预期目标.doc"), false);
-                wu.insertFile("项目设计论证_研究思路和研究方法", Path.Combine(pt.filesDir, "研究思路和研究方法.doc"), false);
-                wu.insertFile("项目设计论证_重点难点和创新之处", Path.Combine(pt.filesDir, "重点难点和创新之处.doc"), false);
-                wu.insertFile("项目设计论证_研究进度和任务分工", Path.Combine(pt.filesDir, "研究进度和任务分工.doc"), false);
+                wu.insertFile("项目设计论证_研究状况及选题价值", Path.Combine(pt.filesDir, "研究状况及选题价值.doc"), true);
+                wu.insertFile("项目设计论证_总体框架和预期目标", Path.Combine(pt.filesDir, "总体框架和预期目标.doc"), true);
+                wu.insertFile("项目设计论证_研究思路和研究方法", Path.Combine(pt.filesDir, "研究思路和研究方法.doc"), true);
+                wu.insertFile("项目设计论证_重点难点和创新之处", Path.Combine(pt.filesDir, "重点难点和创新之处.doc"), true);
+                wu.insertFile("项目设计论证_研究进度和任务分工", Path.Combine(pt.filesDir, "研究进度和任务分工.doc"), true);
                 #endregion
 
                 Report(progressDialog, 60, "写入表格数据...", 1000);
@@ -145,22 +145,27 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                     if (t.GetText().Contains("专业职务") && t.GetText().Contains("研究专长") && t.GetText().Contains("工作单位"))
                     {
                         //创建行
-                        for (int k = 0; k < workerList.Count - 1; k++)
+                        for (int k = 0; k < workerList.Count; k++)
                         {
-                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                            t.Rows.Insert(4, (Aspose.Words.Tables.Row)t.Rows[4].Clone(true));
                         }
 
-                        int rowStart = 1;
+                        //写数据
+                        int rowStart = 5;
                         foreach (RenYuanBiao worker in workerList)
                         {
-                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[0], wu.Document.newParagraph(wu.Document.WordDoc, worker.XingMing));
-                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[1], wu.Document.newParagraph(wu.Document.WordDoc, worker.XingBie));
-                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[2], wu.Document.newParagraph(wu.Document.WordDoc, worker.ShengRi.ToString("yyyy年MM月dd日")));
-                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[3], wu.Document.newParagraph(wu.Document.WordDoc, worker.ZhuanYeZhiWu));
-                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[4], wu.Document.newParagraph(wu.Document.WordDoc, worker.YanJiuZhuanChang));
-                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[5], wu.Document.newParagraph(wu.Document.WordDoc, worker.GongZuoDanWei));
+                            t.Rows[rowStart].Cells[0].RemoveAllChildren();
+                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[1], wu.Document.newParagraph(wu.Document.WordDoc, worker.XingMing));
+                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[2], wu.Document.newParagraph(wu.Document.WordDoc, worker.XingBie));
+                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[3], wu.Document.newParagraph(wu.Document.WordDoc, worker.ShengRi.ToString("yyyy年MM月dd日")));
+                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[4], wu.Document.newParagraph(wu.Document.WordDoc, worker.ZhuanYeZhiWu));
+                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[5], wu.Document.newParagraph(wu.Document.WordDoc, worker.YanJiuZhuanChang));
+                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[6], wu.Document.newParagraph(wu.Document.WordDoc, worker.GongZuoDanWei));
                             rowStart++;
                         }
+
+                        //合并第一列
+                        wu.Document.mergeCells(t.Rows[4].Cells[0], t.Rows[4 + workerList.Count].Cells[0], t);
                         break;
                     }
                 }
@@ -175,7 +180,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                 wu.killWinWordProcess();
 
                 //保存word
-                string docFile = Path.Combine(pt.dataDir, "协议书.doc");
+                string docFile = Path.Combine(pt.dataDir, "论证报告.doc");
                 wu.saveDocument(docFile);
                 Process.Start(docFile);
                 #endregion
