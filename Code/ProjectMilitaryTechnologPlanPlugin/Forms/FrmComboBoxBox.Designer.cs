@@ -41,17 +41,17 @@
             this.plButtons.Controls.Add(this.btnOK);
             this.plButtons.Controls.Add(this.btnCancel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 485);
+            this.plButtons.Location = new System.Drawing.Point(0, 184);
             this.plButtons.Margin = new System.Windows.Forms.Padding(4);
             this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(390, 34);
+            this.plButtons.Size = new System.Drawing.Size(275, 34);
             this.plButtons.TabIndex = 8;
             // 
             // btnOK
             // 
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnOK.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnOK.Location = new System.Drawing.Point(254, 0);
+            this.btnOK.Location = new System.Drawing.Point(139, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(68, 34);
@@ -64,7 +64,7 @@
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.Location = new System.Drawing.Point(322, 0);
+            this.btnCancel.Location = new System.Drawing.Point(207, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(68, 34);
@@ -80,7 +80,7 @@
             this.tvNodes.HideSelection = false;
             this.tvNodes.Location = new System.Drawing.Point(0, 0);
             this.tvNodes.Name = "tvNodes";
-            this.tvNodes.Size = new System.Drawing.Size(390, 396);
+            this.tvNodes.Size = new System.Drawing.Size(275, 125);
             this.tvNodes.TabIndex = 9;
             this.tvNodes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvNodes_AfterSelect);
             // 
@@ -89,18 +89,18 @@
             this.txtElseText.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtElseText.Enabled = false;
             this.txtElseText.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtElseText.Location = new System.Drawing.Point(0, 396);
+            this.txtElseText.Location = new System.Drawing.Point(0, 125);
             this.txtElseText.Margin = new System.Windows.Forms.Padding(4);
             this.txtElseText.Multiline = true;
             this.txtElseText.Name = "txtElseText";
-            this.txtElseText.Size = new System.Drawing.Size(390, 89);
+            this.txtElseText.Size = new System.Drawing.Size(275, 59);
             this.txtElseText.TabIndex = 10;
             // 
             // FrmComboBoxBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 519);
+            this.ClientSize = new System.Drawing.Size(275, 218);
             this.Controls.Add(this.tvNodes);
             this.Controls.Add(this.txtElseText);
             this.Controls.Add(this.plButtons);

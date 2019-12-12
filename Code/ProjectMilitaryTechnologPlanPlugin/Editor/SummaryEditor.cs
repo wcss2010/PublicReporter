@@ -464,6 +464,19 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 dgvView.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
             }
         }
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+
+            if (flowLayoutPanel1 != null)
+            {
+                foreach (Control c in flowLayoutPanel1.Controls)
+                {
+                    c.Width = flowLayoutPanel1.Width - 40;
+                }
+            }
+        }
     }
 
     /// <summary>

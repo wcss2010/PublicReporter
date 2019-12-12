@@ -40,17 +40,17 @@
             this.plButtons.Controls.Add(this.btnOK);
             this.plButtons.Controls.Add(this.btnCancel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 72);
+            this.plButtons.Location = new System.Drawing.Point(0, 55);
             this.plButtons.Margin = new System.Windows.Forms.Padding(4);
             this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(243, 40);
+            this.plButtons.Size = new System.Drawing.Size(240, 40);
             this.plButtons.TabIndex = 8;
             // 
             // btnOK
             // 
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnOK.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnOK.Location = new System.Drawing.Point(109, 0);
+            this.btnOK.Location = new System.Drawing.Point(106, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(67, 40);
@@ -63,7 +63,7 @@
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.Location = new System.Drawing.Point(176, 0);
+            this.btnCancel.Location = new System.Drawing.Point(173, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(67, 40);
@@ -77,7 +77,7 @@
             this.ibEdit15.CustomFormat = "yyyy年MM月dd日";
             this.ibEdit15.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit15.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ibEdit15.Location = new System.Drawing.Point(33, 22);
+            this.ibEdit15.Location = new System.Drawing.Point(33, 14);
             this.ibEdit15.Name = "ibEdit15";
             this.ibEdit15.Size = new System.Drawing.Size(179, 26);
             this.ibEdit15.TabIndex = 33;
@@ -86,14 +86,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(243, 112);
+            this.ClientSize = new System.Drawing.Size(240, 95);
             this.Controls.Add(this.ibEdit15);
             this.Controls.Add(this.plButtons);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmDateTimePickerBox";
-            this.Text = "FrmDateTimePickerBox";
+            this.Text = "请输入日期！";
             this.plButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -232,5 +232,18 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 }
             }
         }
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+
+            if (flowLayoutPanel1 != null)
+            {
+                foreach (Control c in flowLayoutPanel1.Controls)
+                {
+                    c.Width = flowLayoutPanel1.Width - 40;
+                }
+            }
+        }
     }
 }
