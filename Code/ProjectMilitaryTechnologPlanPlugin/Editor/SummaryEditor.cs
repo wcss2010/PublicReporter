@@ -195,7 +195,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     foreach (string sss in teams)
                     {
                         string[] ttt = sss.Split(new string[] { UIControlConfig.rowFlag }, StringSplitOptions.None);
-                        if (ttt != null && ttt.Length >= 3)
+                        if (ttt != null && ttt.Length >= 4)
                         {
                             ProjectSortObject pso = new ProjectSortObject();
                             pso.Text = ttt[0];
@@ -213,6 +213,8 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                                 pso.TableMin = int.Parse(vvv[0]);
                                 pso.TableMax = int.Parse(vvv[1]);
                             }
+
+                            pso.Money = decimal.Parse(ttt[3]);
 
                             ibEdit7.Items.Add(pso);
                         }
@@ -303,6 +305,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             if (Single.TryParse(ibEdit6.Text, out dd6) == false)
             {
                 MessageBox.Show("对不起，请输入经费预算!");
+                return;
+            }
+            if ((decimal)dd6 > psoo.Money)
+            {
+                MessageBox.Show("对不起，经费预算的金额太大(" + psoo.Money + "万之内)!");
                 return;
             }
             if (ibEdit8.SelectedItem == null)
@@ -499,6 +506,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             InfoMax = 150;
             TableMin = 5;
             TableMax = 10;
+            Money = 100;
         }
 
         public string Text { get; set; }
@@ -510,6 +518,8 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         public int TableMin { get; set; }
 
         public int TableMax { get; set; }
+
+        public decimal Money { get; set; }
 
         public override string ToString()
         {
