@@ -63,8 +63,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 result = false;
                 return;
             }
-            DateTime dd15;
-            if (DateTime.TryParse(ibEdit15.Text, out dd15) == false)
+            if (ibEdit15.Value == null)
             {
                 MessageBox.Show("对不起，请输入出生日期!");
                 result = false;
@@ -89,8 +88,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 result = false;
                 return;
             }
-            DateTime dd21;
-            if (DateTime.TryParse(ibEdit21.Text, out dd21) == false)
+            if (ibEdit21.Value == null)
             {
                 MessageBox.Show("对不起，请输入计划完成时间!");
                 result = false;
