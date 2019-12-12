@@ -161,7 +161,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                             {
                                 if (string.IsNullOrEmpty(vvvv[0])) { continue; }
 
-                                sb.Append(vvvv[0]).Append(":").Append(vvvv[1]).Append(",");
+                                sb.Append(vvvv[0].Insert(vvvv[0].IndexOf("("), vvvv[1]).Replace("(", string.Empty).Replace(")", string.Empty)).AppendLine();
                             }
                         }
                     }
