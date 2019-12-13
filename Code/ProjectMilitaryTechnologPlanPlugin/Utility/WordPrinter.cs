@@ -88,11 +88,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
                 #region 插入文档文件
-                wu.insertFile("项目设计论证_研究状况及选题价值", Path.Combine(pt.filesDir, "研究状况及选题价值.doc"), true);
-                wu.insertFile("项目设计论证_总体框架和预期目标", Path.Combine(pt.filesDir, "总体框架和预期目标.doc"), true);
-                wu.insertFile("项目设计论证_研究思路和研究方法", Path.Combine(pt.filesDir, "研究思路和研究方法.doc"), true);
-                wu.insertFile("项目设计论证_重点难点和创新之处", Path.Combine(pt.filesDir, "重点难点和创新之处.doc"), true);
-                wu.insertFile("项目设计论证_研究进度和任务分工", Path.Combine(pt.filesDir, "研究进度和任务分工.doc"), true);
+                wu.insertFile("项目设计论证_研究状况及选题价值", Path.Combine(pt.filesDir, "Docs_A.doc"), true);
+                wu.insertFile("项目设计论证_总体框架和预期目标", Path.Combine(pt.filesDir, "Docs_B.doc"), true);
+                wu.insertFile("项目设计论证_研究思路和研究方法", Path.Combine(pt.filesDir, "Docs_C.doc"), true);
+                wu.insertFile("项目设计论证_重点难点和创新之处", Path.Combine(pt.filesDir, "Docs_D.doc"), true);
+                wu.insertFile("项目设计论证_研究进度和任务分工", Path.Combine(pt.filesDir, "Docs_E.doc"), true);
                 #endregion
 
                 Report(progressDialog, 60, "写入表格数据...", 1000);
