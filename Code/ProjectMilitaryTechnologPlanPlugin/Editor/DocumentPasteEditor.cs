@@ -114,14 +114,29 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     }
                     else
                     {
-                        try
+                        string templeteFile = Path.Combine(Path.Combine(PluginRootObj.RootDir, "Helper"), "emptyPaste.doc");
+                        if (File.Exists(templeteFile) && File.Exists(file) == false)
                         {
-                            WordDocument wd = new WordDocument();
-                            wd.WordDoc.Save(file);
+                            try
+                            {
+                                File.Copy(templeteFile, file, true);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                            try
+                            {
+                                WordDocument wd = new WordDocument();
+                                wd.WordDoc.Save(file);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                            }
                         }
 
                         try
