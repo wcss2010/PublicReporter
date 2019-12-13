@@ -157,7 +157,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             //计算总费用
             for (int k = 1; k <= 9; k++)
             {
-                if (k == 3)
+                if (k == 1)
                 {
                     continue;
                 }
@@ -181,7 +181,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 
             if (totalNotDirect > totalDirect * 0.2m)
             {
-                text += "请注意，间接经费不超过直接经费减去外协费的20%，正确无误后方能保存。\r\n";
+                text += "请注意，间接经费不超过直接经费减去设备费的20%，正确无误后方能保存。\r\n";
             }
             if (text != string.Empty)
             {
