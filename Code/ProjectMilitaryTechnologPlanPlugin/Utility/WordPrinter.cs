@@ -160,7 +160,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                             t.Rows[rowStart].Cells[0].RemoveAllChildren();
                             wu.Document.fillCell(true, t.Rows[rowStart].Cells[1], wu.Document.newParagraph(wu.Document.WordDoc, worker.XingMing));
                             wu.Document.fillCell(true, t.Rows[rowStart].Cells[2], wu.Document.newParagraph(wu.Document.WordDoc, worker.XingBie));
-                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[3], wu.Document.newParagraph(wu.Document.WordDoc, worker.ShengRi.ToString("yyyy年MM月dd日")));
+                            wu.Document.fillCell(true, t.Rows[rowStart].Cells[3], wu.Document.newParagraph(wu.Document.WordDoc, worker.ShengRi.ToString("yyyy.MM.dd")));
                             wu.Document.fillCell(true, t.Rows[rowStart].Cells[4], wu.Document.newParagraph(wu.Document.WordDoc, worker.ZhuanYeZhiWu));
                             wu.Document.fillCell(true, t.Rows[rowStart].Cells[5], wu.Document.newParagraph(wu.Document.WordDoc, worker.YanJiuZhuanChang));
                             wu.Document.fillCell(true, t.Rows[rowStart].Cells[6], wu.Document.newParagraph(wu.Document.WordDoc, worker.GongZuoDanWei));
