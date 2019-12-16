@@ -53,6 +53,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvWorkers = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtWantResult = new System.Windows.Forms.TextBox();
@@ -63,13 +70,6 @@
             this.ibEdit20 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
@@ -299,7 +299,7 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(3, 73);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(971, 59);
+            this.panel3.Size = new System.Drawing.Size(971, 64);
             this.panel3.TabIndex = 2;
             // 
             // ibEdit18
@@ -310,7 +310,7 @@
             this.ibEdit18.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit18.Multiline = true;
             this.ibEdit18.Name = "ibEdit18";
-            this.ibEdit18.Size = new System.Drawing.Size(849, 59);
+            this.ibEdit18.Size = new System.Drawing.Size(849, 64);
             this.ibEdit18.TabIndex = 5;
             // 
             // label3
@@ -320,7 +320,7 @@
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 59);
+            this.label3.Size = new System.Drawing.Size(122, 64);
             this.label3.TabIndex = 1;
             this.label3.Text = "部 职 别：";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -329,9 +329,9 @@
             // 
             this.panel4.Controls.Add(this.ibEdit19);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(3, 138);
+            this.panel4.Location = new System.Drawing.Point(3, 143);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(971, 115);
+            this.panel4.Size = new System.Drawing.Size(971, 119);
             this.panel4.TabIndex = 3;
             // 
             // ibEdit19
@@ -342,7 +342,7 @@
             this.ibEdit19.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit19.Multiline = true;
             this.ibEdit19.Name = "ibEdit19";
-            this.ibEdit19.Size = new System.Drawing.Size(849, 115);
+            this.ibEdit19.Size = new System.Drawing.Size(849, 119);
             this.ibEdit19.TabIndex = 9;
             // 
             // label4
@@ -352,7 +352,7 @@
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 115);
+            this.label4.Size = new System.Drawing.Size(122, 119);
             this.label4.TabIndex = 1;
             this.label4.Text = "联合研究单位：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -361,9 +361,9 @@
             // 
             this.panel5.Controls.Add(this.dgvWorkers);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(3, 259);
+            this.panel5.Location = new System.Drawing.Point(3, 268);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(971, 295);
+            this.panel5.Size = new System.Drawing.Size(971, 317);
             this.panel5.TabIndex = 4;
             // 
             // dgvWorkers
@@ -382,10 +382,67 @@
             this.dgvWorkers.MultiSelect = false;
             this.dgvWorkers.Name = "dgvWorkers";
             this.dgvWorkers.RowTemplate.Height = 23;
-            this.dgvWorkers.Size = new System.Drawing.Size(849, 295);
+            this.dgvWorkers.Size = new System.Drawing.Size(849, 317);
             this.dgvWorkers.TabIndex = 2;
             this.dgvWorkers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWorkers_CellContentClick);
             this.dgvWorkers.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvWorkers_RowsAdded);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "姓名";
+            this.Column1.MinimumWidth = 60;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "性别";
+            this.Column2.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.Column2.MinimumWidth = 60;
+            this.Column2.Name = "Column2";
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column2.Width = 60;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "出生年月";
+            this.Column3.MinimumWidth = 100;
+            this.Column3.Name = "Column3";
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column3.Text = "";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "专业职务";
+            this.Column4.MinimumWidth = 120;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 120;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "研究专长";
+            this.Column5.MinimumWidth = 120;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 120;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "工作单位";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "";
+            this.Column7.MinimumWidth = 60;
+            this.Column7.Name = "Column7";
+            this.Column7.Text = "删除";
+            this.Column7.UseColumnTextForButtonValue = true;
+            this.Column7.Width = 60;
             // 
             // label5
             // 
@@ -394,7 +451,7 @@
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 295);
+            this.label5.Size = new System.Drawing.Size(122, 317);
             this.label5.TabIndex = 1;
             this.label5.Text = "核心研究成员：";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -403,7 +460,7 @@
             // 
             this.panel7.Controls.Add(this.txtWantResult);
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(3, 560);
+            this.panel7.Location = new System.Drawing.Point(3, 591);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(971, 65);
             this.panel7.TabIndex = 6;
@@ -438,7 +495,7 @@
             this.panel8.Controls.Add(this.label12);
             this.panel8.Controls.Add(this.ibEdit20);
             this.panel8.Controls.Add(this.label8);
-            this.panel8.Location = new System.Drawing.Point(3, 631);
+            this.panel8.Location = new System.Drawing.Point(3, 662);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(971, 29);
             this.panel8.TabIndex = 7;
@@ -498,63 +555,6 @@
             this.plButtons.Padding = new System.Windows.Forms.Padding(3);
             this.plButtons.Size = new System.Drawing.Size(1029, 35);
             this.plButtons.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "姓名";
-            this.Column1.MinimumWidth = 60;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "性别";
-            this.Column2.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.Column2.MinimumWidth = 60;
-            this.Column2.Name = "Column2";
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column2.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "出生年月";
-            this.Column3.MinimumWidth = 100;
-            this.Column3.Name = "Column3";
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column3.Text = "";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "专业职务";
-            this.Column4.MinimumWidth = 120;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 120;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "研究专长";
-            this.Column5.MinimumWidth = 120;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 120;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.HeaderText = "工作单位";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "";
-            this.Column7.MinimumWidth = 60;
-            this.Column7.Name = "Column7";
-            this.Column7.Text = "删除";
-            this.Column7.UseColumnTextForButtonValue = true;
-            this.Column7.Width = 60;
             // 
             // InfoEditor
             // 
