@@ -58,7 +58,7 @@ namespace ProjectContractPlugin.Forms
             {
                 System.Data.SQLite.SQLiteFactory factory = new System.Data.SQLite.SQLiteFactory();
                 Noear.Weed.DbContext context = new Noear.Weed.DbContext("main", "Data Source=" + dbFile, factory);
-                context.IsSupportInsertAfterSelectIdentity = false;
+                context.IsSupportSelectIdentityAfterInsert = false;
                 context.IsSupportGCAfterDispose = true;
                 try
                 {

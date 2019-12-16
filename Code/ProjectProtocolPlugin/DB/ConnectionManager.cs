@@ -22,7 +22,7 @@ namespace ProjectProtocolPlugin.DB
         {
             factory = new System.Data.SQLite.SQLiteFactory();
             Context = new DbContext("main", "Data Source=" + dbFile, factory);
-            Context.IsSupportInsertAfterSelectIdentity = false;
+            Context.IsSupportSelectIdentityAfterInsert = false;
             Context.IsSupportGCAfterDispose = true;
         }
 
