@@ -723,6 +723,7 @@
             this.panel2.Location = new System.Drawing.Point(452, 554);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.panel2.Size = new System.Drawing.Size(607, 48);
             this.panel2.TabIndex = 53;
             // 
@@ -732,8 +733,7 @@
             this.txtTotal.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtTotal.EnabledMiddleInParentBox = true;
             this.txtTotal.Font = new System.Drawing.Font("仿宋", 18F);
-            this.txtTotal.Location = new System.Drawing.Point(0, 0);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
+            this.txtTotal.Location = new System.Drawing.Point(0, 12);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(607, 28);
