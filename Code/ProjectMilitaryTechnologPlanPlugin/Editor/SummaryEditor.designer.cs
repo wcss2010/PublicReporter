@@ -449,10 +449,10 @@
             // 
             this.ibEdit10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit10.Location = new System.Drawing.Point(784, 0);
+            this.ibEdit10.Location = new System.Drawing.Point(842, 0);
             this.ibEdit10.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit10.Name = "ibEdit10";
-            this.ibEdit10.Size = new System.Drawing.Size(187, 30);
+            this.ibEdit10.Size = new System.Drawing.Size(129, 30);
             this.ibEdit10.TabIndex = 4;
             this.ibEdit10.Text = "选择";
             this.ibEdit10.UseVisualStyleBackColor = true;
@@ -462,7 +462,7 @@
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(718, 0);
+            this.label10.Location = new System.Drawing.Point(776, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 30);
@@ -477,7 +477,7 @@
             this.ibEdit9.Location = new System.Drawing.Point(499, 0);
             this.ibEdit9.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit9.Name = "ibEdit9";
-            this.ibEdit9.Size = new System.Drawing.Size(219, 26);
+            this.ibEdit9.Size = new System.Drawing.Size(277, 26);
             this.ibEdit9.TabIndex = 6;
             // 
             // label9
