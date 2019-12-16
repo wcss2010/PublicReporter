@@ -348,23 +348,23 @@
             // 
             // ibEdit7
             // 
-            this.ibEdit7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ibEdit7.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit7.FormattingEnabled = true;
             this.ibEdit7.Items.AddRange(new object[] {
             "未知"});
-            this.ibEdit7.Location = new System.Drawing.Point(637, 0);
+            this.ibEdit7.Location = new System.Drawing.Point(544, 0);
             this.ibEdit7.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit7.Name = "ibEdit7";
-            this.ibEdit7.Size = new System.Drawing.Size(216, 24);
+            this.ibEdit7.Size = new System.Drawing.Size(427, 24);
             this.ibEdit7.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Left;
             this.label7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label7.Location = new System.Drawing.Point(542, 0);
+            this.label7.Location = new System.Drawing.Point(449, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 28);
@@ -376,7 +376,7 @@
             // 
             this.label11.Dock = System.Windows.Forms.DockStyle.Left;
             this.label11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label11.Location = new System.Drawing.Point(500, 0);
+            this.label11.Location = new System.Drawing.Point(407, 0);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 28);
@@ -388,7 +388,7 @@
             // 
             this.ibEdit6.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit6.Location = new System.Drawing.Point(400, 0);
+            this.ibEdit6.Location = new System.Drawing.Point(307, 0);
             this.ibEdit6.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit6.Name = "ibEdit6";
             this.ibEdit6.Size = new System.Drawing.Size(100, 26);
@@ -398,7 +398,7 @@
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label6.Location = new System.Drawing.Point(308, 0);
+            this.label6.Location = new System.Drawing.Point(215, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 28);
@@ -417,7 +417,7 @@
             this.ibEdit5.Location = new System.Drawing.Point(92, 0);
             this.ibEdit5.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit5.Name = "ibEdit5";
-            this.ibEdit5.Size = new System.Drawing.Size(216, 24);
+            this.ibEdit5.Size = new System.Drawing.Size(123, 24);
             this.ibEdit5.TabIndex = 11;
             // 
             // label5
@@ -447,12 +447,12 @@
             // 
             // ibEdit10
             // 
-            this.ibEdit10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEdit10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit10.Location = new System.Drawing.Point(685, 0);
+            this.ibEdit10.Location = new System.Drawing.Point(784, 0);
             this.ibEdit10.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit10.Name = "ibEdit10";
-            this.ibEdit10.Size = new System.Drawing.Size(168, 30);
+            this.ibEdit10.Size = new System.Drawing.Size(187, 30);
             this.ibEdit10.TabIndex = 4;
             this.ibEdit10.Text = "选择";
             this.ibEdit10.UseVisualStyleBackColor = true;
@@ -462,7 +462,7 @@
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(619, 0);
+            this.label10.Location = new System.Drawing.Point(718, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 30);
@@ -474,7 +474,7 @@
             // 
             this.ibEdit9.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit9.Location = new System.Drawing.Point(400, 0);
+            this.ibEdit9.Location = new System.Drawing.Point(499, 0);
             this.ibEdit9.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit9.Name = "ibEdit9";
             this.ibEdit9.Size = new System.Drawing.Size(219, 26);
@@ -484,7 +484,7 @@
             // 
             this.label9.Dock = System.Windows.Forms.DockStyle.Left;
             this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(308, 0);
+            this.label9.Location = new System.Drawing.Point(407, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 30);
@@ -503,7 +503,7 @@
             this.ibEdit8.Location = new System.Drawing.Point(92, 0);
             this.ibEdit8.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit8.Name = "ibEdit8";
-            this.ibEdit8.Size = new System.Drawing.Size(216, 24);
+            this.ibEdit8.Size = new System.Drawing.Size(315, 24);
             this.ibEdit8.TabIndex = 13;
             // 
             // label8
