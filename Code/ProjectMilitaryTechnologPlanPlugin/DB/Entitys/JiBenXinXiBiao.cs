@@ -2,7 +2,7 @@ using System;
 using System.Data;
 using System.Text;
 
-namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys 
+namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
 {
     /// <summary>
     /// 类JiBenXinXiBiao。
@@ -23,6 +23,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             query.set("YanJiuZhouQi", YanJiuZhouQi);
             query.set("JingFeiYuSuan", JingFeiYuSuan);
             query.set("XiangMuLeiBie", XiangMuLeiBie);
+            query.set("ZhuanYeLeiBie", ZhuanYeLeiBie);
             query.set("ZeRenDanWei", ZeRenDanWei);
             query.set("XiaJiDanWei", XiaJiDanWei);
             query.set("BeiZhu", BeiZhu);
@@ -38,7 +39,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             query.set("ShenQingJingFei", ShenQingJingFei);
             query.set("JiHuaWanChengShiJian", JiHuaWanChengShiJian);
             query.set("ZhuangTai", ZhuangTai);
-            query.set("ModifyTime", DateTime.Now);
+            query.set("ModifyTime", ModifyTime);
 
             return query;
         }
@@ -51,6 +52,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
         public decimal YanJiuZhouQi { get; set; }
         public decimal JingFeiYuSuan { get; set; }
         public string XiangMuLeiBie { get; set; }
+        public string ZhuanYeLeiBie { get; set; }
         public string ZeRenDanWei { get; set; }
         public string XiaJiDanWei { get; set; }
         public string BeiZhu { get; set; }
@@ -78,6 +80,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.DB.Entitys
             YanJiuZhouQi = source("YanJiuZhouQi").value<decimal>(0);
             JingFeiYuSuan = source("JingFeiYuSuan").value<decimal>(0);
             XiangMuLeiBie = source("XiangMuLeiBie").value<string>("");
+            ZhuanYeLeiBie = source("ZhuanYeLeiBie").value<string>("");
             ZeRenDanWei = source("ZeRenDanWei").value<string>("");
             XiaJiDanWei = source("XiaJiDanWei").value<string>("");
             BeiZhu = source("BeiZhu").value<string>("");

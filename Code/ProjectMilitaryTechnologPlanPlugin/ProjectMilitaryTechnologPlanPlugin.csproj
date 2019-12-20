@@ -222,14 +222,6 @@
     <None Include="DataTemplete\Current\Files\~WRL0001.tmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="DataTemplete\Current\Files\主要研究内容.doc" />
-    <None Include="DataTemplete\Current\Files\技术要求.doc" />
-    <None Include="DataTemplete\Current\Files\项目分解情况.doc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="DataTemplete\Current\Files\项目经费预算编制说明.doc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="DataTemplete\Current\static.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -245,15 +237,6 @@
     <None Include="填报系统表格修改.xlsx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataTemplete\Current\Files\双方认为需要说明的经费使用事项.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataTemplete\Current\Files\技术要求.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataTemplete\Current\Files\研究目标.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\Attachment_16.png" />
     <Content Include="Resources\DELETE_16.png" />
     <Content Include="Resources\DELETE_28.png" />
