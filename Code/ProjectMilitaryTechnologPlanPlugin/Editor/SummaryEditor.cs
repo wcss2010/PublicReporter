@@ -14,6 +14,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 {
     public partial class SummaryEditor : BaseEditor
     {
+        List<string> dutyUnitToProfessonLinks = new List<string>();
         private List<TreeNode> treenodeList;
         public SummaryEditor()
         {
@@ -101,6 +102,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 
                 ibEdit6.Text = PluginRootObj.projectObj.JingFeiYuSuan + string.Empty;
                 ibEdit7.Text = PluginRootObj.projectObj.XiangMuLeiBie;
+                ibEdit19.Text = PluginRootObj.projectObj.ZhuanYeLeiBie;
                 ibEdit8.Text = PluginRootObj.projectObj.ZeRenDanWei;
                 ibEdit9.Text = PluginRootObj.projectObj.XiaJiDanWei;
 
@@ -144,6 +146,23 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         /// </summary>
         private void loadComboboxItems()
         {
+            //加载责任单位与专业类型映射选项
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("责任单位与专业类别映射"))
+            {
+                try
+                {
+                    dutyUnitToProfessonLinks = new List<string>();
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["责任单位与专业类别映射"];
+                    foreach (string s in teams)
+                    {
+                        dutyUnitToProfessonLinks.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
             //加载预期成果选项
             if (UIControlConfig.ConfigObj.Params.ContainsKey("预期成果项目"))
             {
@@ -235,6 +254,23 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                     foreach (string s in teams)
                     {
                         ibEdit8.Items.Add(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
+            }
+            //加载专业类别选项
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("专业类别"))
+            {
+                try
+                {
+                    ibEdit19.Items.Clear();
+                    Newtonsoft.Json.Linq.JArray teams = (Newtonsoft.Json.Linq.JArray)UIControlConfig.ConfigObj.Params["专业类别"];
+                    foreach (string s in teams)
+                    {
+                        ibEdit19.Items.Add(s);
                     }
                 }
                 catch (Exception ex)
@@ -339,6 +375,12 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 result = false;
                 return;
             }
+            if (dutyUnitToProfessonLinks.Contains(ibEdit8.SelectedItem.ToString()) && ibEdit19.SelectedItem == null)
+            {
+                MessageBox.Show("对不起，请输入专业类别!");
+                result = false;
+                return;
+            }
 
             if (PluginRootObj.projectObj == null)
             {
@@ -346,6 +388,12 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             }
 
             PluginRootObj.projectObj.XiangMuMingCheng = ibEdit1.Text;
+
+            if (dutyUnitToProfessonLinks.Contains(ibEdit8.SelectedItem.ToString()))
+            {
+                PluginRootObj.projectObj.ZhuanYeLeiBie = ibEdit19.SelectedItem.ToString();
+            }
+
             PluginRootObj.projectObj.YanJiuMuBiao = ibEdit2.Text;
 
             StringBuilder sb33 = new StringBuilder();

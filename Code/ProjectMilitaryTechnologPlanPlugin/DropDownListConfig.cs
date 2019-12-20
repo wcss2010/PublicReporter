@@ -60,7 +60,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
         /// </summary>
         private static void setDefaultConfig()
         {
-            ConfigObj.Params.Add("责任单位与专业类型映射", new string[] { "陆军", "海军", "空军", "火箭军", "战略支援部队", "联勤保障部队", "军事科学院", "国防大学", "国防科技大学", "武装警察部队" });
+            ConfigObj.Params.Add("责任单位与专业类别映射", new string[] { "陆军", "海军", "空军", "火箭军", "战略支援部队", "联勤保障部队", "军事科学院", "国防大学", "国防科技大学", "武装警察部队" });
 
             ConfigObj.Params.Add("专业类别", new string[] { "无", "军事思想", "军事战略", "战略管理", "作战理论", "部队建设" });
             ConfigObj.Params.Add("预期成果项目", new string[] { "著作(本)", "综合报告(份)", "分报告(份)", "学术论文(篇)", "作战想定(份)", "工具手册(本)", "译著(本)", "标准规范(套)", "需求清单(套)", "思维导图集(套)", "专利(项)", "软件系统(套)", "分析算法(套)", "数据库(套)", "资料整编(份)" });
