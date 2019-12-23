@@ -363,6 +363,12 @@ namespace ProjectMilitaryTechnologPlanPlugin
             switch (button.Text)
             {
                 case "上传PDF":
+                    if (projectObj == null)
+                    {
+                        MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
+                        return;
+                    }
+
                     FrmUploadPDF form = new FrmUploadPDF();
                     form.ShowDialog();
                     break;
@@ -383,6 +389,18 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     if (projectObj == null)
                     {
                         MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(FrmUploadPDF.getPDFFile()))
+                    {
+                        MessageBox.Show("对不起，请上传PDF!");
+                        return;
+                    }
+
+                    if (isRenamePDF(FrmUploadPDF.getPDFFile()) == false)
+                    {
+                        MessageBox.Show("对不起，请先关闭PDF阅读软件然后再试!");
                         return;
                     }
 
@@ -594,6 +612,29 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     manager.ShowDialog();
                     break;
             }
+        }
+
+        private bool isRenamePDF(string pdfFile)
+        {
+            try
+            {
+                //重命名
+                File.Move(FrmUploadPDF.getPDFFile(), Path.Combine(getDataCurrentDir(), projectObj.XiangMuMingCheng + ".pdf"));
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 获得数据目录
+        /// </summary>
+        /// <returns></returns>
+        public string getDataCurrentDir()
+        {
+            return Path.Combine(RootDir, Path.Combine("Data", "Current"));
         }
 
         private string getExportName()
