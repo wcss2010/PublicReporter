@@ -50,6 +50,13 @@
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ibEdit9 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ibEdit8 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.ibEdit10 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.ibEdit7 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,17 +64,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.ibEdit5 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.ibEdit10 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ibEdit9 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.ibEdit8 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ibEdit19 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -345,6 +343,95 @@
             this.panel5.Size = new System.Drawing.Size(971, 28);
             this.panel5.TabIndex = 4;
             // 
+            // ibEdit9
+            // 
+            this.ibEdit9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEdit9.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit9.Location = new System.Drawing.Point(484, 0);
+            this.ibEdit9.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit9.Name = "ibEdit9";
+            this.ibEdit9.Size = new System.Drawing.Size(487, 26);
+            this.ibEdit9.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label9.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label9.Location = new System.Drawing.Point(392, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(92, 28);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "下级单位：";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ibEdit8
+            // 
+            this.ibEdit8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ibEdit8.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit8.FormattingEnabled = true;
+            this.ibEdit8.Items.AddRange(new object[] {
+            "未知"});
+            this.ibEdit8.Location = new System.Drawing.Point(92, 0);
+            this.ibEdit8.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit8.Name = "ibEdit8";
+            this.ibEdit8.Size = new System.Drawing.Size(300, 24);
+            this.ibEdit8.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 28);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "责任单位：";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.ibEdit10);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.ibEdit7);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.ibEdit6);
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.ibEdit5);
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Location = new System.Drawing.Point(3, 653);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(971, 30);
+            this.panel6.TabIndex = 5;
+            // 
+            // ibEdit10
+            // 
+            this.ibEdit10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ibEdit10.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit10.Location = new System.Drawing.Point(751, 0);
+            this.ibEdit10.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit10.Name = "ibEdit10";
+            this.ibEdit10.Size = new System.Drawing.Size(220, 30);
+            this.ibEdit10.TabIndex = 4;
+            this.ibEdit10.Text = "选择";
+            this.ibEdit10.UseVisualStyleBackColor = true;
+            this.ibEdit10.Click += new System.EventHandler(this.ibEdit10_Click);
+            // 
+            // label10
+            // 
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label10.Location = new System.Drawing.Point(685, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 30);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "备注：";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // ibEdit7
             // 
             this.ibEdit7.Dock = System.Windows.Forms.DockStyle.Left;
@@ -356,7 +443,7 @@
             this.ibEdit7.Location = new System.Drawing.Point(512, 0);
             this.ibEdit7.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit7.Name = "ibEdit7";
-            this.ibEdit7.Size = new System.Drawing.Size(132, 24);
+            this.ibEdit7.Size = new System.Drawing.Size(173, 24);
             this.ibEdit7.TabIndex = 12;
             // 
             // label7
@@ -431,97 +518,6 @@
             this.label5.Text = "研究周期：";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.ibEdit10);
-            this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.ibEdit19);
-            this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.ibEdit7);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.ibEdit6);
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.ibEdit5);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(3, 653);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(971, 30);
-            this.panel6.TabIndex = 5;
-            // 
-            // ibEdit10
-            // 
-            this.ibEdit10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ibEdit10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit10.Location = new System.Drawing.Point(912, 0);
-            this.ibEdit10.Margin = new System.Windows.Forms.Padding(4);
-            this.ibEdit10.Name = "ibEdit10";
-            this.ibEdit10.Size = new System.Drawing.Size(59, 30);
-            this.ibEdit10.TabIndex = 4;
-            this.ibEdit10.Text = "选择";
-            this.ibEdit10.UseVisualStyleBackColor = true;
-            this.ibEdit10.Click += new System.EventHandler(this.ibEdit10_Click);
-            // 
-            // label10
-            // 
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(846, 0);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 30);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "备注：";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ibEdit9
-            // 
-            this.ibEdit9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ibEdit9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit9.Location = new System.Drawing.Point(484, 0);
-            this.ibEdit9.Margin = new System.Windows.Forms.Padding(4);
-            this.ibEdit9.Name = "ibEdit9";
-            this.ibEdit9.Size = new System.Drawing.Size(487, 26);
-            this.ibEdit9.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(392, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 28);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "下级单位：";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ibEdit8
-            // 
-            this.ibEdit8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ibEdit8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit8.FormattingEnabled = true;
-            this.ibEdit8.Items.AddRange(new object[] {
-            "未知"});
-            this.ibEdit8.Location = new System.Drawing.Point(92, 0);
-            this.ibEdit8.Margin = new System.Windows.Forms.Padding(4);
-            this.ibEdit8.Name = "ibEdit8";
-            this.ibEdit8.Size = new System.Drawing.Size(300, 24);
-            this.ibEdit8.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 28);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "责任单位：";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnSave);
@@ -542,32 +538,6 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // ibEdit19
-            // 
-            this.ibEdit19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit19.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ibEdit19.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit19.FormattingEnabled = true;
-            this.ibEdit19.Items.AddRange(new object[] {
-            "未知"});
-            this.ibEdit19.Location = new System.Drawing.Point(745, 0);
-            this.ibEdit19.Margin = new System.Windows.Forms.Padding(4);
-            this.ibEdit19.Name = "ibEdit19";
-            this.ibEdit19.Size = new System.Drawing.Size(101, 24);
-            this.ibEdit19.TabIndex = 14;
-            // 
-            // label12
-            // 
-            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label12.Location = new System.Drawing.Point(644, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 30);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "专业类别：";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // SummaryEditor
             // 
@@ -638,7 +608,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
-        private System.Windows.Forms.ComboBox ibEdit19;
-        private System.Windows.Forms.Label label12;
     }
 }
