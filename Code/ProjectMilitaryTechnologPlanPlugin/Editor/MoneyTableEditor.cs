@@ -149,6 +149,10 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             {
                 text = "请注意，分年度经费预算之和与合计经费不等，正确无误后方能保存。\r\n";
             }
+            if (total != PluginRootObj.projectObj.JingFeiYuSuan)
+            {
+                text = "请注意，分年度经费预算之和与概述的经费概算不等，正确无误后方能保存。\r\n";
+            }
 
             //总费用
             decimal totalDirect = 0;
