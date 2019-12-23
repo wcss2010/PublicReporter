@@ -248,6 +248,7 @@
     <Content Include="Resources\manager.png" />
     <Content Include="Resources\new.png" />
     <Content Include="Resources\Question_16.png" />
+    <None Include="Resources\upload.png" />
     <Content Include="Resources\UP_16.png" />
     <Content Include="Resources\w5.png" />
     <Content Include="Resources\word.png" />
