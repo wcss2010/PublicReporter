@@ -88,12 +88,12 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 result = false;
                 return;
             }
-            if (ibEdit21.Value == null)
-            {
-                MessageBox.Show("对不起，请输入计划完成时间!");
-                result = false;
-                return;
-            }
+            //if (ibEdit21.Value == null)
+            //{
+            //    MessageBox.Show("对不起，请输入计划完成时间!");
+            //    result = false;
+            //    return;
+            //}
 
             PluginRootObj.projectObj.QianTouRen = ibEdit11.Text;
             PluginRootObj.projectObj.QianTouRenXingBie = ibEdit13.Text;
@@ -102,7 +102,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             PluginRootObj.projectObj.BuZhiBie = ibEdit18.Text;
             PluginRootObj.projectObj.LianHeYanJiuDanWei = ibEdit19.Text;
             PluginRootObj.projectObj.ShenQingJingFei = decimal.Parse(ibEdit20.Text);
-            PluginRootObj.projectObj.JiHuaWanChengShiJian = ibEdit21.Value;
+            //PluginRootObj.projectObj.JiHuaWanChengShiJian = ibEdit21.Value;
             PluginRootObj.projectObj.copyTo(ConnectionManager.Context.table("JiBenXinXiBiao")).where("BianHao='" + PluginRootObj.projectObj.BianHao + "'").update();
 
             //保存核心人员信息
@@ -147,11 +147,11 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 ibEdit20.Text = PluginRootObj.projectObj.JingFeiYuSuan + "";
                 try
                 {
-                    ibEdit21.Value = PluginRootObj.projectObj.JiHuaWanChengShiJian;
+                    ibEdit21_1.Text = PluginRootObj.projectObj.YanJiuZhouQi + "";
                 }
                 catch (Exception ex)
                 {
-                    ibEdit21.Value = DateTime.Now;
+                    ibEdit21_1.Text = "6";
                 }
 
                 StringBuilder sb = new StringBuilder();

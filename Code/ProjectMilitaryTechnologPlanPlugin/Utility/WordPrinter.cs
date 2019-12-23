@@ -82,7 +82,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                 }
                 wu.insertValue("基本信息_预期成果", wantResult.ToString());
                 wu.insertValue("基本信息_审请经费", pt.projectObj.ShenQingJingFei + "");
-                wu.insertValue("基本信息_计划完成时间", pt.projectObj.JiHuaWanChengShiJian.ToString("yyyy年MM月dd日"));
+                wu.insertValue("基本信息_计划完成时间", pt.projectObj.YanJiuZhouQi + "个月");
                 #endregion
                 
                 Report(progressDialog, 40, "写入文档文件...", 1000);

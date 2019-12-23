@@ -65,11 +65,12 @@
             this.txtWantResult = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.ibEdit21 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.ibEdit20 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.ibEdit21_1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
@@ -491,7 +492,8 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.ibEdit21);
+            this.panel8.Controls.Add(this.label11);
+            this.panel8.Controls.Add(this.ibEdit21_1);
             this.panel8.Controls.Add(this.label12);
             this.panel8.Controls.Add(this.ibEdit20);
             this.panel8.Controls.Add(this.label8);
@@ -500,18 +502,6 @@
             this.panel8.Size = new System.Drawing.Size(971, 29);
             this.panel8.TabIndex = 7;
             // 
-            // ibEdit21
-            // 
-            this.ibEdit21.CustomFormat = "yyyy年MM月dd日";
-            this.ibEdit21.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit21.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit21.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ibEdit21.Location = new System.Drawing.Point(419, 0);
-            this.ibEdit21.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
-            this.ibEdit21.Name = "ibEdit21";
-            this.ibEdit21.Size = new System.Drawing.Size(179, 26);
-            this.ibEdit21.TabIndex = 33;
-            // 
             // label12
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
@@ -519,9 +509,9 @@
             this.label12.Location = new System.Drawing.Point(244, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(175, 29);
+            this.label12.Size = new System.Drawing.Size(135, 29);
             this.label12.TabIndex = 6;
-            this.label12.Text = "万元  计划完成时间：";
+            this.label12.Text = "万元  研究周期:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ibEdit20
@@ -556,6 +546,29 @@
             this.plButtons.Padding = new System.Windows.Forms.Padding(3);
             this.plButtons.Size = new System.Drawing.Size(1029, 35);
             this.plButtons.TabIndex = 0;
+            // 
+            // ibEdit21_1
+            // 
+            this.ibEdit21_1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit21_1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit21_1.Location = new System.Drawing.Point(379, 0);
+            this.ibEdit21_1.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit21_1.Name = "ibEdit21_1";
+            this.ibEdit21_1.ReadOnly = true;
+            this.ibEdit21_1.Size = new System.Drawing.Size(45, 26);
+            this.ibEdit21_1.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label11.Location = new System.Drawing.Point(424, 0);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 29);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "个月";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // InfoEditor
             // 
@@ -623,7 +636,6 @@
         private System.Windows.Forms.DateTimePicker ibEdit15;
         private System.Windows.Forms.TextBox ibEdit19;
         private System.Windows.Forms.DataGridView dgvWorkers;
-        private System.Windows.Forms.DateTimePicker ibEdit21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
@@ -631,5 +643,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
+        private System.Windows.Forms.TextBox ibEdit21_1;
+        private System.Windows.Forms.Label label11;
     }
 }
