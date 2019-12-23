@@ -343,6 +343,10 @@ namespace ProjectMilitaryTechnologPlanPlugin
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
 
+            tempButton = getTopButton(Resource.upload_pdf, "btnUploadPDF", "上传PDF", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+
             tempButton = getTopButton(Resource.help, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
@@ -358,6 +362,10 @@ namespace ProjectMilitaryTechnologPlanPlugin
             ToolStripButton button = ((ToolStripButton)sender);
             switch (button.Text)
             {
+                case "上传PDF":
+                    FrmUploadPDF form = new FrmUploadPDF();
+                    form.ShowDialog();
+                    break;
                 case "保存所有":
                     if (projectObj == null)
                     {

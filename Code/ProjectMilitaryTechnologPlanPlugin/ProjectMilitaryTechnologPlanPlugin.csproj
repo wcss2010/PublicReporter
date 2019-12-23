@@ -193,6 +193,12 @@
     <Compile Include="Forms\FrmProjectManager.designer.cs">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmUploadPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUploadPDF.Designer.cs">
+      <DependentUpon>FrmUploadPDF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmWorkProcess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUploadPDF.resx">
+      <DependentUpon>FrmUploadPDF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmWorkProcess.resx">
       <DependentUpon>FrmWorkProcess.cs</DependentUpon>

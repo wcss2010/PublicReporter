@@ -199,5 +199,17 @@ namespace ProjectMilitaryTechnologPlanPlugin {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_pdf
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("upload_pdf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
