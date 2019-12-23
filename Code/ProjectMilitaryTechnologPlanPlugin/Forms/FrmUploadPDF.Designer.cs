@@ -56,7 +56,7 @@
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnOK.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOK.Location = new System.Drawing.Point(498, 0);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(5);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(62, 35);
             this.btnOK.TabIndex = 17;
@@ -69,7 +69,7 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCancel.Location = new System.Drawing.Point(560, 0);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(62, 35);
             this.btnCancel.TabIndex = 18;
@@ -133,11 +133,11 @@
             this.ClientSize = new System.Drawing.Size(622, 94);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.plButtons);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmUploadPDF";
-            this.Text = "上传PDF";
+            this.Text = "上传盖章PDF";
             this.plButtons.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

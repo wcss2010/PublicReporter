@@ -339,14 +339,14 @@ namespace ProjectMilitaryTechnologPlanPlugin
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
 
+            tempButton = getTopButton(Resource.upload_pdf, "btnUploadPDF", "上传盖章PDF", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+
             tempButton = getTopButton(Resource.export, "btnExport", "导出", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
-
-            tempButton = getTopButton(Resource.upload_pdf, "btnUploadPDF", "上传PDF", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            addToTopToolStrip(tempButton);
-
+            
             tempButton = getTopButton(Resource.help, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
@@ -362,7 +362,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
             ToolStripButton button = ((ToolStripButton)sender);
             switch (button.Text)
             {
-                case "上传PDF":
+                case "上传盖章PDF":
                     if (projectObj == null)
                     {
                         MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
