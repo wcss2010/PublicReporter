@@ -144,7 +144,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 catch (Exception ex) { }
                 ibEdit18.Text = PluginRootObj.projectObj.BuZhiBie;
                 ibEdit19.Text = PluginRootObj.projectObj.LianHeYanJiuDanWei;
-                ibEdit20.Text = PluginRootObj.projectObj.ShenQingJingFei + "";
+                ibEdit20.Text = PluginRootObj.projectObj.JingFeiYuSuan + "";
                 try
                 {
                     ibEdit21.Value = PluginRootObj.projectObj.JiHuaWanChengShiJian;

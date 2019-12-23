@@ -531,6 +531,7 @@
             this.ibEdit20.Location = new System.Drawing.Point(122, 0);
             this.ibEdit20.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit20.Name = "ibEdit20";
+            this.ibEdit20.ReadOnly = true;
             this.ibEdit20.Size = new System.Drawing.Size(122, 26);
             this.ibEdit20.TabIndex = 5;
             // 
@@ -543,7 +544,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 29);
             this.label8.TabIndex = 1;
-            this.label8.Text = "审请经费：";
+            this.label8.Text = "申请经费：";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // plButtons
