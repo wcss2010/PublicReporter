@@ -338,6 +338,12 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 result = false;
                 return;
             }
+            if (ibEdit4.Rows.Count == 2 && ibEdit4.Rows[0].Cells[0].Value != null && ibEdit4.Rows[0].Cells[0].Value.ToString().Contains("资料整编"))
+            {
+                MessageBox.Show("对不起，预期成果中不能单独出现'资料整编'!");
+                result = false;
+                return;
+            }
             if (ibEdit5.SelectedItem == null)
             {
                 MessageBox.Show("对不起，请输入研究周期!");
