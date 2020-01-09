@@ -112,10 +112,10 @@ namespace ProjectMilitaryTechnologPlanPlugin.Utility
                 }
 
                 //生成年份名称
-                int yearStart = pt.projectObj.JiHuaWanChengShiJian.Year - 2;
+                string[] yearNames = new string[] { "第一年", "第二年", "第三年" };
                 for (int kk = 0; kk < 3; kk++)
                 {
-                    tempDict["Year" + (kk + 1) + "Name"] = (yearStart + kk).ToString();
+                    tempDict["Year" + (kk + 1) + "Name"] = yearNames[kk];
                 }
 
                 //总费用
