@@ -496,27 +496,27 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         return;
                     }
 
-                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_A.doc"))))
+                    if (!File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_A.doc"))))
                     {
                         MessageBox.Show("对不起，“研究状况及选题价值”不能为空！");
                         return;
                     }
-                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_B.doc"))))
+                    if (!File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_B.doc"))))
                     {
                         MessageBox.Show("对不起，“总体框架和预期目标”不能为空！");
                         return;
                     }
-                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_C.doc"))))
+                    if (!File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_C.doc"))))
                     {
                         MessageBox.Show("对不起，“研究思路和研究方法”不能为空！");
                         return;
                     }
-                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_D.doc"))))
+                    if (!File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_D.doc"))))
                     {
                         MessageBox.Show("对不起，“重点难点和创新之处”不能为空！");
                         return;
                     }
-                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_E.doc"))))
+                    if (!File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_E.doc"))))
                     {
                         MessageBox.Show("对不起，“研究进度和任务分工”不能为空！");
                         return;
