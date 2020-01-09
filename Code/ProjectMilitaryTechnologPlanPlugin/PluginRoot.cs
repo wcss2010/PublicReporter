@@ -334,22 +334,28 @@ namespace ProjectMilitaryTechnologPlanPlugin
         {
             ToolStripButton tempButton = null;
 
+            //隐藏默认的分隔符
+            hideSysSeparator();
+
             tempButton = getTopButton(Resource.manager, "btnManager", "项目管理", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
 
+            tempButton = getTopButton(Resource.w5, "btnNew", "新建项目", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+
+            tempButton = getTopButton(Resource.import, "btnLoad", "导入数据包", new System.Drawing.Size(53, 56));
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+
+            //split
+            addToTopToolStrip(getTopSeparator());
+
             tempButton = getTopButton(Resource._new, "btnSaveAll", "保存所有", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
-
-            tempButton = getTopButton(Resource.w5, "btnNew", "新建", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            addToTopToolStrip(tempButton);
-
-            tempButton = getTopButton(Resource.import, "btnLoad", "导入", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            addToTopToolStrip(tempButton);
-
+            
             tempButton = getTopButton(Resource.word, "btnWordView", "生成报告", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
@@ -358,15 +364,18 @@ namespace ProjectMilitaryTechnologPlanPlugin
             //tempButton.Click += tempButton_Click;
             //addToTopToolStrip(tempButton);
 
-            tempButton = getTopButton(Resource.export, "btnExport", "导出", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.export, "btnExport", "导出数据包", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
-            
+
+            //split
+            addToTopToolStrip(getTopSeparator());
+
             tempButton = getTopButton(Resource.help, "btnHelp", "帮助", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
         }
-
+        
         /// <summary>
         /// 按钮事件处理
         /// </summary>
@@ -404,7 +413,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     FrmHelpBox helpForm = new FrmHelpBox();
                     helpForm.ShowDialog();
                     break;
-                case "导出":
+                case "导出数据包":
                     if (projectObj == null)
                     {
                         MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
@@ -548,7 +557,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         WordPrinter.wordOutput(((CircleProgressBarDialog)thisObject));
                     }));
                     break;
-                case "导入":
+                case "导入数据包":
                     OpenFileDialog ofd = new OpenFileDialog();
                     ofd.Filter = "ZIP申报包|*.zip";
                     if (ofd.ShowDialog() == DialogResult.OK)
@@ -640,7 +649,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         }
                     }
                     break;
-                case "新建":
+                case "新建项目":
                     if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //关闭连接
@@ -850,6 +859,33 @@ namespace ProjectMilitaryTechnologPlanPlugin
         protected ToolStripButton getTopButton(Image imgg, string nameg, string textg, Size sizeg)
         {
             return getTopButton(imgg, nameg, textg, sizeg, new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134))));
+        }
+
+        /// <summary>
+        /// 生成分隔符对象
+        /// </summary>
+        /// <returns></returns>
+        protected ToolStripSeparator getTopSeparator()
+        {
+            ToolStripSeparator obj = new ToolStripSeparator();
+            obj.Size = new System.Drawing.Size(6, 59);
+            return obj;
+        }
+
+        /// <summary>
+        /// 隐藏系统分割符
+        /// </summary>
+        protected void hideSysSeparator()
+        {
+            foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
+            {
+                if (tsi is ToolStripSeparator && ((ToolStripSeparator)tsi).Tag == "DefaultDisplayControl")
+                {
+                    ToolStripSeparator tssr = ((ToolStripSeparator)tsi);
+                    tssr.Visible = false;
+                    break;
+                }
+            }
         }
 
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
