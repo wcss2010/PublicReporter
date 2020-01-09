@@ -442,7 +442,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     DateTime dtDoc = File.GetLastWriteTime(docFile);
                     if (dtLastUpdateDate > dtDoc)
                     {
-                        MessageBox.Show("对不起，当前的论证报告不是最新的，请点击\"生成报告\"按钮重新生成论证报告书！");
+                        MessageBox.Show("对不起，当前的论证报告书不是最新的，请点击\"生成报告\"按钮重新生成论证报告书！");
                         return;
                     }
 
