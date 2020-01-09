@@ -394,6 +394,10 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         return;
                     }
 
+                    //更新保存日期
+                    updateSaveDate();
+
+                    //保存所有
                     saveAllWithNoResult();
                     break;
                 case "帮助":

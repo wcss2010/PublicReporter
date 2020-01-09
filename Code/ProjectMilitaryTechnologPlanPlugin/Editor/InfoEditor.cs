@@ -30,6 +30,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 bool result = true;
                 OnSaveEvent(ref result);
                 PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectMilitaryTechnologPlanPlugin.PluginRoot>().refreshEditors();
+
+                //更新保存日期
+                PluginRootObj.updateSaveDate();
             }
             catch (Exception ex)
             {

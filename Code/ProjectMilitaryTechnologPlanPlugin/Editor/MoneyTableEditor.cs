@@ -111,6 +111,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
 
                 bool result = true;
                 OnSaveEvent(ref result);
+
+                //更新保存日期
+                PluginRootObj.updateSaveDate();
             }
             catch (Exception ex)
             {
