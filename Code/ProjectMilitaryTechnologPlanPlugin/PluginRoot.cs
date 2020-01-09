@@ -419,6 +419,9 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     //    return;
                     //}
 
+                    //最后更新日期
+                    DateTime dtLastUpdateDate = getLastUpdateDate();
+
                     if (isSaveAllSucess() == false)
                     {
                         MessageBox.Show("对不起，保存失败，请检查！");
@@ -431,8 +434,9 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         MessageBox.Show("对不起，请先点击\"生成报告\"按钮生成论证报告书！");
                         return;
                     }
+
                     DateTime dtDoc = File.GetLastWriteTime(docFile);
-                    if (getLastUpdateDate() > dtDoc)
+                    if (dtLastUpdateDate > dtDoc)
                     {
                         MessageBox.Show("对不起，当前的论证报告不是最新的，请点击\"生成报告\"按钮重新生成论证报告书！");
                         return;
