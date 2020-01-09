@@ -350,13 +350,13 @@ namespace ProjectMilitaryTechnologPlanPlugin
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
 
-            tempButton = getTopButton(Resource.word, "btnWordView", "预览", new System.Drawing.Size(53, 56));
+            tempButton = getTopButton(Resource.word, "btnWordView", "生成报告", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
 
-            tempButton = getTopButton(Resource.upload_pdf, "btnUploadPDF", "上传盖章PDF", new System.Drawing.Size(53, 56));
-            tempButton.Click += tempButton_Click;
-            addToTopToolStrip(tempButton);
+            //tempButton = getTopButton(Resource.upload_pdf, "btnUploadPDF", "上传盖章PDF", new System.Drawing.Size(53, 56));
+            //tempButton.Click += tempButton_Click;
+            //addToTopToolStrip(tempButton);
 
             tempButton = getTopButton(Resource.export, "btnExport", "导出", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
@@ -378,14 +378,14 @@ namespace ProjectMilitaryTechnologPlanPlugin
             switch (button.Text)
             {
                 case "上传盖章PDF":
-                    if (projectObj == null)
-                    {
-                        MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
-                        return;
-                    }
+                    //if (projectObj == null)
+                    //{
+                    //    MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
+                    //    return;
+                    //}
 
-                    FrmUploadPDF form = new FrmUploadPDF();
-                    form.ShowDialog();
+                    //FrmUploadPDF form = new FrmUploadPDF();
+                    //form.ShowDialog();
                     break;
                 case "保存所有":
                     if (projectObj == null)
@@ -407,11 +407,11 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         return;
                     }
 
-                    if (string.IsNullOrEmpty(FrmUploadPDF.getPDFFile()))
-                    {
-                        MessageBox.Show("对不起，请上传PDF!");
-                        return;
-                    }
+                    //if (string.IsNullOrEmpty(FrmUploadPDF.getPDFFile()))
+                    //{
+                    //    MessageBox.Show("对不起，请上传PDF!");
+                    //    return;
+                    //}
 
                     if (isRenamePDF(FrmUploadPDF.getPDFFile()) == false)
                     {
@@ -496,6 +496,32 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         return;
                     }
 
+                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_A.doc"))))
+                    {
+                        MessageBox.Show("对不起，“研究状况及选题价值”不能为空！");
+                        return;
+                    }
+                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_B.doc"))))
+                    {
+                        MessageBox.Show("对不起，“总体框架和预期目标”不能为空！");
+                        return;
+                    }
+                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_C.doc"))))
+                    {
+                        MessageBox.Show("对不起，“研究思路和研究方法”不能为空！");
+                        return;
+                    }
+                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_D.doc"))))
+                    {
+                        MessageBox.Show("对不起，“重点难点和创新之处”不能为空！");
+                        return;
+                    }
+                    if (File.Exists(Path.Combine(dataDir, Path.Combine("Files", "Docs_E.doc"))))
+                    {
+                        MessageBox.Show("对不起，“研究进度和任务分工”不能为空！");
+                        return;
+                    }
+
                     CircleProgressBarDialog dialogc = new CircleProgressBarDialog();
                     dialogc.TransparencyKey = dialogc.BackColor;
                     dialogc.ProgressBar.ForeColor = Color.Red;
@@ -505,8 +531,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     {
                         //word预览
                         WordPrinter.wordOutput(((CircleProgressBarDialog)thisObject));
-                    }
-            ));
+                    }));
                     break;
                 case "导入":
                     OpenFileDialog ofd = new OpenFileDialog();
