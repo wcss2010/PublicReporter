@@ -88,6 +88,18 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 result = false;
                 return;
             }
+            if (ibEdit22.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入牵头人身份证号!");
+                result = false;
+                return;
+            }
+            if (ibEdit23.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入牵头人联系电话!");
+                result = false;
+                return;
+            }
             //if (ibEdit21.Value == null)
             //{
             //    MessageBox.Show("对不起，请输入计划完成时间!");
@@ -102,6 +114,8 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             PluginRootObj.projectObj.BuZhiBie = ibEdit18.Text;
             PluginRootObj.projectObj.LianHeYanJiuDanWei = ibEdit19.Text;
             PluginRootObj.projectObj.ShenQingJingFei = decimal.Parse(ibEdit20.Text);
+            PluginRootObj.projectObj.QianTouRenShenFenZheng = ibEdit22.Text;
+            PluginRootObj.projectObj.QianTouRenDianHua = ibEdit23.Text;
             //PluginRootObj.projectObj.JiHuaWanChengShiJian = ibEdit21.Value;
             PluginRootObj.projectObj.copyTo(ConnectionManager.Context.table("JiBenXinXiBiao")).where("BianHao='" + PluginRootObj.projectObj.BianHao + "'").update();
 
@@ -153,6 +167,9 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
                 {
                     ibEdit21_1.Text = "6";
                 }
+
+                ibEdit22.Text = PluginRootObj.projectObj.QianTouRenShenFenZheng;
+                ibEdit23.Text = PluginRootObj.projectObj.QianTouRenDianHua;
 
                 StringBuilder sb = new StringBuilder();
                 if (PluginRootObj.projectObj.YuQiChengGuo != null && PluginRootObj.projectObj.YuQiChengGuo.Contains(UIControlConfig.rowFlag))

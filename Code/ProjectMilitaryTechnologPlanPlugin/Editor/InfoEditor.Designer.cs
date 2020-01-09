@@ -37,6 +37,10 @@
             this.plContent = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ibEdit23 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.ibEdit22 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.ibEdit15 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.ibEdit14 = new System.Windows.Forms.TextBox();
@@ -65,12 +69,12 @@
             this.txtWantResult = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ibEdit21_1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ibEdit20 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
-            this.ibEdit21_1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
@@ -91,7 +95,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(971, 29);
+            this.panel1.Size = new System.Drawing.Size(1106, 29);
             this.panel1.TabIndex = 0;
             // 
             // ibEdit1
@@ -102,7 +106,7 @@
             this.ibEdit1.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit1.Name = "ibEdit1";
             this.ibEdit1.ReadOnly = true;
-            this.ibEdit1.Size = new System.Drawing.Size(849, 26);
+            this.ibEdit1.Size = new System.Drawing.Size(984, 26);
             this.ibEdit1.TabIndex = 5;
             // 
             // label1
@@ -121,7 +125,7 @@
             // 
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(936, 3);
+            this.btnSave.Location = new System.Drawing.Point(1044, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 29);
             this.btnSave.TabIndex = 1;
@@ -138,7 +142,7 @@
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1029, 51);
+            this.lblInfo.Size = new System.Drawing.Size(1137, 51);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
             // 
@@ -152,7 +156,7 @@
             this.plMain.Margin = new System.Windows.Forms.Padding(0);
             this.plMain.Name = "plMain";
             this.plMain.Padding = new System.Windows.Forms.Padding(10);
-            this.plMain.Size = new System.Drawing.Size(1049, 708);
+            this.plMain.Size = new System.Drawing.Size(1157, 708);
             this.plMain.TabIndex = 2;
             // 
             // plContent
@@ -163,7 +167,7 @@
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 61);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1029, 602);
+            this.plContent.Size = new System.Drawing.Size(1137, 602);
             this.plContent.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -180,12 +184,16 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1029, 602);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1137, 602);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.ibEdit23);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.ibEdit22);
+            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.ibEdit15);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.ibEdit14);
@@ -196,8 +204,52 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(3, 38);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(971, 29);
+            this.panel2.Size = new System.Drawing.Size(1106, 29);
             this.panel2.TabIndex = 1;
+            // 
+            // ibEdit23
+            // 
+            this.ibEdit23.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit23.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit23.Location = new System.Drawing.Point(976, 0);
+            this.ibEdit23.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit23.Name = "ibEdit23";
+            this.ibEdit23.Size = new System.Drawing.Size(127, 26);
+            this.ibEdit23.TabIndex = 36;
+            // 
+            // label14
+            // 
+            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label14.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label14.Location = new System.Drawing.Point(886, 0);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 29);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "联系电话：";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ibEdit22
+            // 
+            this.ibEdit22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit22.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit22.Location = new System.Drawing.Point(730, 0);
+            this.ibEdit22.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit22.Name = "ibEdit22";
+            this.ibEdit22.Size = new System.Drawing.Size(156, 26);
+            this.ibEdit22.TabIndex = 34;
+            // 
+            // label13
+            // 
+            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label13.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label13.Location = new System.Drawing.Point(656, 0);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(74, 29);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "身份证：";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ibEdit15
             // 
@@ -205,17 +257,17 @@
             this.ibEdit15.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit15.Font = new System.Drawing.Font("仿宋", 12F);
             this.ibEdit15.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ibEdit15.Location = new System.Drawing.Point(702, 0);
+            this.ibEdit15.Location = new System.Drawing.Point(517, 0);
             this.ibEdit15.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             this.ibEdit15.Name = "ibEdit15";
-            this.ibEdit15.Size = new System.Drawing.Size(179, 26);
+            this.ibEdit15.Size = new System.Drawing.Size(139, 26);
             this.ibEdit15.TabIndex = 32;
             // 
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label6.Location = new System.Drawing.Point(610, 0);
+            this.label6.Location = new System.Drawing.Point(425, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 29);
@@ -227,17 +279,17 @@
             // 
             this.ibEdit14.Dock = System.Windows.Forms.DockStyle.Left;
             this.ibEdit14.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit14.Location = new System.Drawing.Point(446, 0);
+            this.ibEdit14.Location = new System.Drawing.Point(367, 0);
             this.ibEdit14.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit14.Name = "ibEdit14";
-            this.ibEdit14.Size = new System.Drawing.Size(164, 26);
+            this.ibEdit14.Size = new System.Drawing.Size(58, 26);
             this.ibEdit14.TabIndex = 13;
             // 
             // label10
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(379, 0);
+            this.label10.Location = new System.Drawing.Point(300, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 29);
@@ -254,17 +306,17 @@
             this.ibEdit13.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.ibEdit13.Location = new System.Drawing.Point(313, 0);
+            this.ibEdit13.Location = new System.Drawing.Point(253, 0);
             this.ibEdit13.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit13.Name = "ibEdit13";
-            this.ibEdit13.Size = new System.Drawing.Size(66, 24);
+            this.ibEdit13.Size = new System.Drawing.Size(47, 24);
             this.ibEdit13.TabIndex = 12;
             // 
             // label9
             // 
             this.label9.Dock = System.Windows.Forms.DockStyle.Left;
             this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(244, 0);
+            this.label9.Location = new System.Drawing.Point(184, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 29);
@@ -279,7 +331,7 @@
             this.ibEdit11.Location = new System.Drawing.Point(122, 0);
             this.ibEdit11.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit11.Name = "ibEdit11";
-            this.ibEdit11.Size = new System.Drawing.Size(122, 26);
+            this.ibEdit11.Size = new System.Drawing.Size(62, 26);
             this.ibEdit11.TabIndex = 5;
             // 
             // label2
@@ -300,7 +352,7 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(3, 73);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(971, 64);
+            this.panel3.Size = new System.Drawing.Size(1106, 64);
             this.panel3.TabIndex = 2;
             // 
             // ibEdit18
@@ -311,7 +363,7 @@
             this.ibEdit18.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit18.Multiline = true;
             this.ibEdit18.Name = "ibEdit18";
-            this.ibEdit18.Size = new System.Drawing.Size(849, 64);
+            this.ibEdit18.Size = new System.Drawing.Size(984, 64);
             this.ibEdit18.TabIndex = 5;
             // 
             // label3
@@ -332,7 +384,7 @@
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(3, 143);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(971, 119);
+            this.panel4.Size = new System.Drawing.Size(1106, 119);
             this.panel4.TabIndex = 3;
             // 
             // ibEdit19
@@ -343,7 +395,7 @@
             this.ibEdit19.Margin = new System.Windows.Forms.Padding(4);
             this.ibEdit19.Multiline = true;
             this.ibEdit19.Name = "ibEdit19";
-            this.ibEdit19.Size = new System.Drawing.Size(849, 119);
+            this.ibEdit19.Size = new System.Drawing.Size(984, 119);
             this.ibEdit19.TabIndex = 9;
             // 
             // label4
@@ -364,7 +416,7 @@
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(3, 268);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(971, 317);
+            this.panel5.Size = new System.Drawing.Size(1106, 317);
             this.panel5.TabIndex = 4;
             // 
             // dgvWorkers
@@ -383,7 +435,7 @@
             this.dgvWorkers.MultiSelect = false;
             this.dgvWorkers.Name = "dgvWorkers";
             this.dgvWorkers.RowTemplate.Height = 23;
-            this.dgvWorkers.Size = new System.Drawing.Size(849, 317);
+            this.dgvWorkers.Size = new System.Drawing.Size(984, 317);
             this.dgvWorkers.TabIndex = 2;
             this.dgvWorkers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWorkers_CellContentClick);
             this.dgvWorkers.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvWorkers_RowsAdded);
@@ -463,7 +515,7 @@
             this.panel7.Controls.Add(this.label7);
             this.panel7.Location = new System.Drawing.Point(3, 591);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(971, 65);
+            this.panel7.Size = new System.Drawing.Size(1106, 65);
             this.panel7.TabIndex = 6;
             // 
             // txtWantResult
@@ -475,7 +527,7 @@
             this.txtWantResult.Multiline = true;
             this.txtWantResult.Name = "txtWantResult";
             this.txtWantResult.ReadOnly = true;
-            this.txtWantResult.Size = new System.Drawing.Size(849, 65);
+            this.txtWantResult.Size = new System.Drawing.Size(984, 65);
             this.txtWantResult.TabIndex = 5;
             // 
             // label7
@@ -499,8 +551,31 @@
             this.panel8.Controls.Add(this.label8);
             this.panel8.Location = new System.Drawing.Point(3, 662);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(971, 29);
+            this.panel8.Size = new System.Drawing.Size(1106, 29);
             this.panel8.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label11.Location = new System.Drawing.Point(424, 0);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 29);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "个月";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ibEdit21_1
+            // 
+            this.ibEdit21_1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit21_1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit21_1.Location = new System.Drawing.Point(379, 0);
+            this.ibEdit21_1.Margin = new System.Windows.Forms.Padding(4);
+            this.ibEdit21_1.Name = "ibEdit21_1";
+            this.ibEdit21_1.ReadOnly = true;
+            this.ibEdit21_1.Size = new System.Drawing.Size(45, 26);
+            this.ibEdit21_1.TabIndex = 34;
             // 
             // label12
             // 
@@ -544,31 +619,8 @@
             this.plButtons.Location = new System.Drawing.Point(10, 663);
             this.plButtons.Name = "plButtons";
             this.plButtons.Padding = new System.Windows.Forms.Padding(3);
-            this.plButtons.Size = new System.Drawing.Size(1029, 35);
+            this.plButtons.Size = new System.Drawing.Size(1137, 35);
             this.plButtons.TabIndex = 0;
-            // 
-            // ibEdit21_1
-            // 
-            this.ibEdit21_1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit21_1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit21_1.Location = new System.Drawing.Point(379, 0);
-            this.ibEdit21_1.Margin = new System.Windows.Forms.Padding(4);
-            this.ibEdit21_1.Name = "ibEdit21_1";
-            this.ibEdit21_1.ReadOnly = true;
-            this.ibEdit21_1.Size = new System.Drawing.Size(45, 26);
-            this.ibEdit21_1.TabIndex = 34;
-            // 
-            // label11
-            // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label11.Location = new System.Drawing.Point(424, 0);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 29);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "个月";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // InfoEditor
             // 
@@ -577,7 +629,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Name = "InfoEditor";
-            this.Size = new System.Drawing.Size(1049, 708);
+            this.Size = new System.Drawing.Size(1157, 708);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.plMain.ResumeLayout(false);
@@ -645,5 +697,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
         private System.Windows.Forms.TextBox ibEdit21_1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox ibEdit22;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox ibEdit23;
+        private System.Windows.Forms.Label label14;
     }
 }
