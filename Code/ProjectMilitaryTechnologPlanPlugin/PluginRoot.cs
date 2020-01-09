@@ -900,27 +900,32 @@ namespace ProjectMilitaryTechnologPlanPlugin
         {
             DateTime dtResults = DateTime.MinValue;
 
-            //DB
-            string dbFile = Path.Combine(dataDir, "static.db");
-
-            //Files
-            string filesDir = Path.Combine(dataDir, "Files");
-
-            //查询DB写入时间
-            dtResults = File.GetLastWriteTime(dbFile);
-
-            //检查附件是不是更新了
-            string[] filesList = Directory.GetFiles(filesDir);
-            foreach (string s in filesList)
+            if (UIControlConfig.ConfigObj.Params.ContainsKey("保存日期"))
             {
-                DateTime dt = File.GetLastWriteTime(s);
-                if (dt > dtResults)
+                try
                 {
-                    dtResults = dt;
+                    dtResults = (DateTime)UIControlConfig.ConfigObj.Params["保存日期"];
                 }
+                catch (Exception ex)
+                {
+                    dtResults = DateTime.MinValue;
+                }
+            }
+            else
+            {
+                dtResults = DateTime.MinValue;
             }
 
             return dtResults;
+        }
+
+        /// <summary>
+        /// 更新保存日期
+        /// </summary>
+        public void updateSaveDate()
+        {
+            UIControlConfig.ConfigObj.Params["保存日期"] = DateTime.Now;
+            UIControlConfig.saveConfig();
         }
     }
 }
