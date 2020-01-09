@@ -489,7 +489,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         }
                     }
                     break;
-                case "预览":
+                case "生成报告":
                     if (projectObj == null)
                     {
                         MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
