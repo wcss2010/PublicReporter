@@ -413,11 +413,11 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     //    return;
                     //}
 
-                    if (isRenamePDF(FrmUploadPDF.getPDFFile()) == false)
-                    {
-                        MessageBox.Show("对不起，请先关闭PDF阅读软件然后再试!");
-                        return;
-                    }
+                    //if (isRenamePDF(FrmUploadPDF.getPDFFile()) == false)
+                    //{
+                    //    MessageBox.Show("对不起，请先关闭PDF阅读软件然后再试!");
+                    //    return;
+                    //}
 
                     if (isSaveAllSucess() == false)
                     {
@@ -425,9 +425,16 @@ namespace ProjectMilitaryTechnologPlanPlugin
                         return;
                     }
 
-                    if (File.Exists(Path.Combine(dataDir, "论证报告.doc")) == false)
+                    string docFile = Path.Combine(dataDir, "论证报告.doc");
+                    if (File.Exists(docFile) == false)
                     {
-                        MessageBox.Show("对不起，请先点击预览按钮生成论证报告书！");
+                        MessageBox.Show("对不起，请先点击\"生成报告\"按钮生成论证报告书！");
+                        return;
+                    }
+                    DateTime dtDoc = File.GetLastWriteTime(docFile);
+                    if (getLastUpdateDate() > dtDoc)
+                    {
+                        MessageBox.Show("对不起，当前的论证报告不是最新的，请点击\"生成报告\"按钮重新生成论证报告书！");
                         return;
                     }
 
@@ -879,6 +886,37 @@ namespace ProjectMilitaryTechnologPlanPlugin
                     be.RefreshView();
                 }
             }
+        }
+
+        /// <summary>
+        /// 获得最后更新日期
+        /// </summary>
+        /// <returns></returns>
+        public DateTime getLastUpdateDate()
+        {
+            DateTime dtResults = DateTime.MinValue;
+
+            //DB
+            string dbFile = Path.Combine(dataDir, "static.db");
+
+            //Files
+            string filesDir = Path.Combine(dataDir, "Files");
+
+            //查询DB写入时间
+            dtResults = File.GetLastWriteTime(dbFile);
+
+            //检查附件是不是更新了
+            string[] filesList = Directory.GetFiles(filesDir);
+            foreach (string s in filesList)
+            {
+                DateTime dt = File.GetLastWriteTime(s);
+                if (dt > dtResults)
+                {
+                    dtResults = dt;
+                }
+            }
+
+            return dtResults;
         }
     }
 }
