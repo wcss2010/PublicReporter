@@ -967,5 +967,23 @@ namespace ProjectMilitaryTechnologPlanPlugin
             UIControlConfig.ConfigObj.Params["保存日期"] = DateTime.Now;
             UIControlConfig.saveConfig();
         }
+
+        /// <summary>
+        /// 是否同意导出
+        /// </summary>
+        /// <returns></returns>
+        public bool isAcceptExport()
+        {
+            bool result = false;
+            foreach (BaseEditor be in editorMap.Values)
+            {
+                if (be is MoneyTableEditor)
+                {
+                    result = ((MoneyTableEditor)be).isComplete();
+                    break;
+                }
+            }
+            return result;
+        }
     }
 }

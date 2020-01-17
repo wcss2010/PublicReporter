@@ -134,7 +134,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
         /// 是否允许完成输入
         /// </summary>
         /// <returns></returns>
-        private bool isComplete()
+        public bool isComplete()
         {
             decimal total = 0m;
             decimal d2 = 0m;
