@@ -431,6 +431,7 @@ namespace ProjectMilitaryTechnologPlanPlugin.Editor
             PluginRootObj.projectObj.YanJiuZhouQi = ((ComboBoxObject<int>)ibEdit5.SelectedItem).Tag;
 
             PluginRootObj.projectObj.JingFeiYuSuan = decimal.Parse(ibEdit6.Text);
+            PluginRootObj.projectObj.ShenQingJingFei = PluginRootObj.projectObj.JingFeiYuSuan;
             PluginRootObj.projectObj.XiangMuLeiBie = ibEdit7.Text;
             PluginRootObj.projectObj.ZeRenDanWei = ibEdit8.Text;
             PluginRootObj.projectObj.XiaJiDanWei = ibEdit9.Text;
