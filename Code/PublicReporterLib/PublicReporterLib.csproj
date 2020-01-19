@@ -61,6 +61,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="SuperCodeFactoryLib">
       <HintPath>..\..\Lib\SuperCodeFactoryLib.dll</HintPath>
     </Reference>
@@ -95,6 +107,7 @@
     </Compile>
     <Compile Include="CustomDictionary.cs" />
     <Compile Include="IReportPluginRoot.cs" />
+    <Compile Include="JsonConfig.cs" />
     <Compile Include="PluginConfig.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
