@@ -120,6 +120,7 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="SerialDictionary.cs" />
+    <Compile Include="Utility\ExcelBuilder.cs" />
     <Compile Include="Utility\WordDocument.cs" />
     <Compile Include="Utility\ZipUtil.cs" />
   </ItemGroup>
