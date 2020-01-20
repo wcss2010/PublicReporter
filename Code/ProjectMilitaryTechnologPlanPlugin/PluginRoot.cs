@@ -355,7 +355,7 @@ namespace ProjectMilitaryTechnologPlanPlugin
             tempButton = getTopButton(Resource._new, "btnSaveAll", "保存所有", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);
-            
+
             tempButton = getTopButton(Resource.word, "btnWordView", "生成报告", new System.Drawing.Size(53, 56));
             tempButton.Click += tempButton_Click;
             addToTopToolStrip(tempButton);

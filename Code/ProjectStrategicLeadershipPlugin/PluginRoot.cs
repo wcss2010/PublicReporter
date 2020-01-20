@@ -49,6 +49,9 @@ namespace ProjectStrategicLeadershipPlugin
             catch (Exception ex) { }
         }
 
+        /// <summary>
+        /// 打开数据库
+        /// </summary>
         public override void openDB()
         {
             //数据库文件
@@ -70,16 +73,50 @@ namespace ProjectStrategicLeadershipPlugin
             }
         }
 
+        /// <summary>
+        /// 关闭数据库
+        /// </summary>
         public override void closeDB()
         {
             ConnectionManager.Close();
         }
 
+        /// <summary>
+        /// 初始化树节点
+        /// </summary>
         public override void initTrees()
         {
+            TreeNode rootNode = new TreeNode("基本信息");
+            rootNode.Nodes.Add(new TreeNode("项目摘要"));
+            rootNode.Nodes.Add(new TreeNode("概述"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("需求分析"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究现状"));
+            rootNode.Nodes.Add(new TreeNode("研究目标"));
+            rootNode.Nodes.Add(new TreeNode("研究内容"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究内容列表"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("各项研究内容之间的关系"));
+            rootNode.Nodes.Add(new TreeNode("研究成果"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究成果及考核指标"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("成果服务方式"));
+            rootNode.Nodes.Add(new TreeNode("研究周期与进度安排 "));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("项目阶段列表"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究内容阶段列表"));
+            rootNode.Nodes.Add(new TreeNode("研究基础与保障条件"));
+            rootNode.Nodes.Add(new TreeNode("项目负责人和研究团队"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("项目负责人"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究团队"));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("主要成员情况表"));
+            rootNode.Nodes.Add(new TreeNode("经费预算表"));
+            rootNode.Nodes.Add(new TreeNode("附件1-项目经费预算说明"));
+            rootNode.Nodes.Add(new TreeNode("附件2-保密资质复印件"));
 
+            Parent_LeftTreeView.Nodes.Add(rootNode);
+            rootNode.ExpandAll();
         }
 
+        /// <summary>
+        /// 初始化编辑器
+        /// </summary>
         public override void initEditorMaps()
         {
             
@@ -108,25 +145,68 @@ namespace ProjectStrategicLeadershipPlugin
         protected void addTopButton(Image imgg, string nameg, string textg, Size sizeg)
         {
             ToolStripButton tempButton = getTopButton(imgg, nameg, textg, sizeg);
-            tempButton.Click += tempButton_Click;
+            tempButton.Click += topButton_Click;
             addToTopToolStrip(tempButton);
         }
 
-        void tempButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void topButton_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// 初始化顶部工具按钮
+        /// </summary>
         public override void initTopToolBar()
         {
-            addTopButton(new Bitmap(20, 20), Guid.NewGuid().ToString(), "测试", new System.Drawing.Size(53, 56));
+            //隐藏默认的分隔符
+            hideSysSeparator();
+
+            //添加项目管理按钮
+            addTopButton(Resource.manager, Guid.NewGuid().ToString(), button1_Name, new System.Drawing.Size(53, 56));
+            
+            //添加新建项目
+            addTopButton(Resource.w5, Guid.NewGuid().ToString(), button2_Name, new System.Drawing.Size(53, 56));
+            
+            //添加导入项目按钮
+            addTopButton(Resource.import, Guid.NewGuid().ToString(), button3_Name, new System.Drawing.Size(53, 56));
+
+            //添加分割符
+            addToTopToolStrip(getTopSeparator());
+
+            //添加保存所有按钮
+            addTopButton(Resource._new, Guid.NewGuid().ToString(), button4_Name, new System.Drawing.Size(53, 56));
+            
+            //添加生成报告按钮
+            addTopButton(Resource.word, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
+            
+            //添加导出项目按钮
+            addTopButton(Resource.export, Guid.NewGuid().ToString(), button6_Name, new System.Drawing.Size(53, 56));
+
+            //添加分割符
+            addToTopToolStrip(getTopSeparator());
+
+            //添加帮助按钮
+            addTopButton(Resource.help, Guid.NewGuid().ToString(), button7_Name, new System.Drawing.Size(53, 56));
         }
 
+        /// <summary>
+        /// 初始化数据
+        /// </summary>
         public override void initData()
         {
 
         }
 
+        /// <summary>
+        /// 响应树切换
+        /// </summary>
+        /// <param name="treeNode"></param>
         protected override void switchCurrentEditor(System.Windows.Forms.TreeNode treeNode)
         {
             
