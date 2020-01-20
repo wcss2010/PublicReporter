@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectStrategicLeadershipPlugin.DB;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -41,7 +42,23 @@ namespace ProjectStrategicLeadershipPlugin
 
         public override void openDB()
         {
+            //数据库文件
+            string dbFile = Path.Combine(dataDir, "static.db");
 
+            //判断是否可以打开数据库
+            if (File.Exists(dbFile))
+            {
+                //打开数据库连接
+                ConnectionManager.Open(dbFile);
+            }
+            else
+            {
+                //复制DataTemplete中的Current到Data中
+                FileOp.CopyDirectory(Path.Combine(RootDir, Path.Combine("DataTemplete", "Current")), Path.Combine(RootDir, Path.Combine("Data", "Current")), true);
+
+                //打开数据库连接
+                ConnectionManager.Open(dbFile);
+            }
         }
 
         public override void closeDB()
@@ -88,34 +105,7 @@ namespace ProjectStrategicLeadershipPlugin
 
         void tempButton_Click(object sender, EventArgs e)
         {
-            System.Data.DataTable dt = PublicReporterLib.Utility.ExcelBuilder.excelToDataTable(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "数据库结构-ss.xls"), "Sheet1", true);
-            string lastTable = string.Empty;
-            StringBuilder sb = new StringBuilder();
-            foreach (System.Data.DataRow dr in dt.Rows)
-            {
-                if (dr[0] != null)
-                {
-                    if (lastTable == dr[0].ToString())
-                    {
-                        //增加
-                        sb.Append(" [").Append(dr[3].ToString()).Append("] [").Append(dr[4].ToString()).Append("],");
-                    }
-                    else
-                    {
-                        //输出
-                        if (sb.Length >= 1)
-                        {
-                            sb = sb.Remove(sb.Length - 1, 1);
-                        }
-                        sb.Append(");");
-                        System.Console.WriteLine();
-                        System.Console.WriteLine(sb.ToString());
-                        sb = new StringBuilder();
-                        sb.Append("CREATE TABLE [").Append(dr[1].ToString()).Append("](");
-                        lastTable = dr[0].ToString();
-                    }
-                }
-            }
+
         }
 
         public override void initTopToolBar()
