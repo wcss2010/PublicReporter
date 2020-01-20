@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AbstractEditorPlugin</RootNamespace>
     <AssemblyName>AbstractEditorPlugin</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,16 +49,35 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\..\Lib\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="Noear.Weed3">
+      <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperCodeFactoryLib">
+      <HintPath>..\..\Lib\SuperCodeFactoryLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperCodeFactoryUILib">
+      <HintPath>..\..\Lib\SuperCodeFactoryUILib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\Lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PublicReporterLib\PublicReporterLib.csproj">
+      <Project>{9e5cdd7b-9ce2-42a8-907e-c1f9d3e8312c}</Project>
+      <Name>PublicReporterLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
