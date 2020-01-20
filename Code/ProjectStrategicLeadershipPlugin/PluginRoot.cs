@@ -88,12 +88,11 @@ namespace ProjectStrategicLeadershipPlugin
 
         void tempButton_Click(object sender, EventArgs e)
         {
-            
         }
 
         public override void initTopToolBar()
         {
-           
+            addTopButton(new Bitmap(20, 20), Guid.NewGuid().ToString(), "测试", new System.Drawing.Size(53, 56));
         }
 
         public override void initData()
