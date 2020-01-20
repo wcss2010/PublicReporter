@@ -110,6 +110,30 @@
     <Compile Include="Editor\TextReadOnlyEditor.Designer.cs">
       <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmComboBoxBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmComboBoxBox.Designer.cs">
+      <DependentUpon>FrmComboBoxBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDateTimePickerBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDateTimePickerBox.Designer.cs">
+      <DependentUpon>FrmDateTimePickerBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmHelpBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmHelpBox.Designer.cs">
+      <DependentUpon>FrmHelpBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmInputBox.designer.cs">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmWorkProcess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +163,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextReadOnlyEditor.resx">
       <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmComboBoxBox.resx">
+      <DependentUpon>FrmComboBoxBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDateTimePickerBox.resx">
+      <DependentUpon>FrmDateTimePickerBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmHelpBox.resx">
+      <DependentUpon>FrmHelpBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmInputBox.resx">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmWorkProcess.resx">
       <DependentUpon>FrmWorkProcess.cs</DependentUpon>

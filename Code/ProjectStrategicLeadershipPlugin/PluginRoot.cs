@@ -1,4 +1,5 @@
-﻿using ProjectStrategicLeadershipPlugin.DB;
+﻿using AbstractEditorPlugin.Utility;
+using ProjectStrategicLeadershipPlugin.DB;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,6 +11,14 @@ namespace ProjectStrategicLeadershipPlugin
 {
     public class PluginRoot : AbstractEditorPlugin.AbstractPluginRoot
     {
+        public const string button1_Name = "项目管理";
+        public const string button2_Name = "新建项目";
+        public const string button3_Name = "导入数据包";
+        public const string button4_Name = "保存所有";
+        public const string button5_Name = "生成报告";
+        public const string button6_Name = "导出数据包";
+        public const string button7_Name = "帮助";
+
         public override string DefaultTitle
         {
             get { return "国防科技战略先导计划项目建议书填报系统(V1.0)"; }
@@ -63,7 +72,7 @@ namespace ProjectStrategicLeadershipPlugin
 
         public override void closeDB()
         {
-
+            ConnectionManager.Close();
         }
 
         public override void initTrees()
