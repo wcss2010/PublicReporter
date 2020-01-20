@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -23,14 +24,14 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             return query;
         }
 
-        public int32 Index { get; set; }
+        public int Index { get; set; }
         public string ProjectID { get; set; }
         public string Name { get; set; }
         public string Value { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
-            Index = source("Index").value<int32>("");
+            Index = source("Index").value<int>(0);
             ProjectID = source("ProjectID").value<string>("");
             Name = source("Name").value<string>("");
             Value = source("Value").value<string>("");

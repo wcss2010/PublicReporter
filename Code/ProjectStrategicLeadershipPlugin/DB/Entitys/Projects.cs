@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -42,9 +43,9 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string UnitType2 { get; set; }
         public string UnitContact { get; set; }
         public string UnitContactPhone { get; set; }
-        public int32 TotalTime { get; set; }
-        public single TotalMoney { get; set; }
-        public datetime RequestTime { get; set; }
+        public int TotalTime { get; set; }
+        public decimal TotalMoney { get; set; }
+        public DateTime RequestTime { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
@@ -58,9 +59,9 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             UnitType2 = source("UnitType2").value<string>("");
             UnitContact = source("UnitContact").value<string>("");
             UnitContactPhone = source("UnitContactPhone").value<string>("");
-            TotalTime = source("TotalTime").value<int32>("");
-            TotalMoney = source("TotalMoney").value<single>("");
-            RequestTime = source("RequestTime").value<datetime>("");
+            TotalTime = source("TotalTime").value<int>(0);
+            TotalMoney = source("TotalMoney").value<decimal>(0);
+            RequestTime = source("RequestTime").value<DateTime>(DateTime.Now);
         }
 
         public override Noear.Weed.IBinder clone()

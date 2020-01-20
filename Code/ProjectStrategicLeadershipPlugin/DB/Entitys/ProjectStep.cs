@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -28,24 +29,24 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         }
 
         public string ProjectID { get; set; }
-        public int32 StepTime { get; set; }
+        public int StepTime { get; set; }
         public string StepTag1 { get; set; }
         public string StepTag2 { get; set; }
         public string StepTag3 { get; set; }
         public string StepTag4 { get; set; }
-        public single StepMoney { get; set; }
-        public int32 StepIndex { get; set; }
+        public decimal StepMoney { get; set; }
+        public int StepIndex { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
             ProjectID = source("ProjectID").value<string>("");
-            StepTime = source("StepTime").value<int32>("");
+            StepTime = source("StepTime").value<int>(0);
             StepTag1 = source("StepTag1").value<string>("");
             StepTag2 = source("StepTag2").value<string>("");
             StepTag3 = source("StepTag3").value<string>("");
             StepTag4 = source("StepTag4").value<string>("");
-            StepMoney = source("StepMoney").value<single>("");
-            StepIndex = source("StepIndex").value<int32>("");
+            StepMoney = source("StepMoney").value<decimal>(0);
+            StepIndex = source("StepIndex").value<int>(0);
         }
 
         public override Noear.Weed.IBinder clone()

@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -31,7 +32,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string ExtType { get; set; }
         public string SourceFileName { get; set; }
         public string RealFileName { get; set; }
-        public int32 IsIgnore { get; set; }
+        public int IsIgnore { get; set; }
         public string Tag { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
@@ -41,7 +42,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             ExtType = source("ExtType").value<string>("");
             SourceFileName = source("SourceFileName").value<string>("");
             RealFileName = source("RealFileName").value<string>("");
-            IsIgnore = source("IsIgnore").value<int32>("");
+            IsIgnore = source("IsIgnore").value<int>(0);
             Tag = source("Tag").value<string>("");
         }
 

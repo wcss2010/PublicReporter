@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -45,7 +46,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string Job { get; set; }
         public string Specialty { get; set; }
         public string Sex { get; set; }
-        public datetime Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public string Telephone { get; set; }
         public string MobilePhone { get; set; }
         public string Address { get; set; }
@@ -55,7 +56,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string UnitContact { get; set; }
         public string UnitContactPhone { get; set; }
         public string TaskContent { get; set; }
-        public int32 TimeForSubject { get; set; }
+        public int TimeForSubject { get; set; }
         public string RoleType { get; set; }
         public string SubjectID { get; set; }
         public string RoleName { get; set; }
@@ -68,7 +69,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             Job = source("Job").value<string>("");
             Specialty = source("Specialty").value<string>("");
             Sex = source("Sex").value<string>("");
-            Birthday = source("Birthday").value<datetime>("");
+            Birthday = source("Birthday").value<DateTime>(DateTime.Now);
             Telephone = source("Telephone").value<string>("");
             MobilePhone = source("MobilePhone").value<string>("");
             Address = source("Address").value<string>("");
@@ -78,7 +79,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             UnitContact = source("UnitContact").value<string>("");
             UnitContactPhone = source("UnitContactPhone").value<string>("");
             TaskContent = source("TaskContent").value<string>("");
-            TimeForSubject = source("TimeForSubject").value<int32>("");
+            TimeForSubject = source("TimeForSubject").value<int>(0);
             RoleType = source("RoleType").value<string>("");
             SubjectID = source("SubjectID").value<string>("");
             RoleName = source("RoleName").value<string>("");

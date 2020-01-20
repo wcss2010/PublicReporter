@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -29,8 +30,8 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
 
         public string SubjectName { get; set; }
         public string SecretLevel { get; set; }
-        public int32 TotalTime { get; set; }
-        public single TotalMoney { get; set; }
+        public int TotalTime { get; set; }
+        public decimal TotalMoney { get; set; }
         public string UnitName { get; set; }
         public string UnitAddress { get; set; }
         public string UnitContact { get; set; }
@@ -40,8 +41,8 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         {
             SubjectName = source("SubjectName").value<string>("");
             SecretLevel = source("SecretLevel").value<string>("");
-            TotalTime = source("TotalTime").value<int32>("");
-            TotalMoney = source("TotalMoney").value<single>("");
+            TotalTime = source("TotalTime").value<int>(0);
+            TotalMoney = source("TotalMoney").value<decimal>(0);
             UnitName = source("UnitName").value<string>("");
             UnitAddress = source("UnitAddress").value<string>("");
             UnitContact = source("UnitContact").value<string>("");
