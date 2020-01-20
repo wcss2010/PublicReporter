@@ -16,7 +16,7 @@ namespace AbstractEditorPlugin
         /// <summary>
         /// 工程对象
         /// </summary>
-        public object ProjectObj { get; set; }
+        public object projectObj = null;
 
         /// <summary>
         /// 编辑器字典
@@ -40,18 +40,33 @@ namespace AbstractEditorPlugin
         /// <summary>
         /// 配置文件路径
         /// </summary>
-        public string ConfigFile { get; private set; }
+        public string configFile = string.Empty;
+
+        /// <summary>
+        /// 基础目录
+        /// </summary>
+        public string baseDir = string.Empty;
+
+        /// <summary>
+        /// 数据目录
+        /// </summary>
+        public string dataDir = string.Empty;
+
+        /// <summary>
+        /// 文件目录
+        /// </summary>
+        public string filesDir = string.Empty;
 
         /// <summary>
         /// 初始的分割器宽度
         /// </summary>
-        public int DefaultSplitterDistances = 200;
+        public int defaultSplitterDistance = 200;
 
         public override void start()
         {
             //载入配置
-            ConfigFile = System.IO.Path.Combine(RootDir, "config.cfg");
-            JsonConfig.loadConfig(ConfigFile);
+            configFile = System.IO.Path.Combine(RootDir, "config.cfg");
+            JsonConfig.loadConfig(configFile);
 
             //添加点击事件
             Parent_LeftTreeView.AfterSelect += Parent_LeftTreeView_AfterSelect;
@@ -61,7 +76,7 @@ namespace AbstractEditorPlugin
             {
                 if (c.Name == "scContent")
                 {
-                    ((SplitContainer)c).SplitterDistance = DefaultSplitterDistances;
+                    ((SplitContainer)c).SplitterDistance = defaultSplitterDistance;
                     break;
                 }
             }
@@ -134,7 +149,7 @@ namespace AbstractEditorPlugin
         /// </summary>
         public virtual void refreshEditors()
         {
-            if (ProjectObj != null)
+            if (projectObj != null)
             {
                 foreach (BaseEditor be in editorMap.Values)
                 {
@@ -176,7 +191,7 @@ namespace AbstractEditorPlugin
         public virtual void updateSaveDate()
         {
             JsonConfig.Config.ObjectDict["保存日期"] = DateTime.Now;
-            JsonConfig.saveConfig(ConfigFile);
+            JsonConfig.saveConfig(configFile);
         }
 
         /// <summary>
@@ -184,7 +199,7 @@ namespace AbstractEditorPlugin
         /// </summary>
         public virtual void saveAllWithNoResult()
         {
-            if (ProjectObj != null)
+            if (projectObj != null)
             {
                 CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
                 dialoga.TransparencyKey = dialoga.BackColor;
@@ -246,7 +261,7 @@ namespace AbstractEditorPlugin
         /// </summary>
         public virtual bool isSaveAllSucess()
         {
-            if (ProjectObj != null)
+            if (projectObj != null)
             {
                 bool isSucesss = true;
 
