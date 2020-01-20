@@ -88,6 +88,31 @@ namespace ProjectStrategicLeadershipPlugin
 
         void tempButton_Click(object sender, EventArgs e)
         {
+            System.Data.DataTable dt = PublicReporterLib.Utility.ExcelBuilder.excelToDataTable(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "数据库结构-ss.xlsx"), "Sheet1", true);
+            string lastTable = string.Empty;
+            StringBuilder sb = new StringBuilder();
+            foreach (System.Data.DataRow dr in dt.Rows)
+            {
+                if (dr[0] != null)
+                {
+                    if (lastTable == dr[0].ToString())
+                    {
+                        //增加
+                        sb.Append(" [").Append(dr[3].ToString()).Append("] [").Append(dr[4].ToString()).Append("],");
+                    }
+                    else
+                    {
+                        //输出
+                        sb = sb.Remove(sb.Length - 1, 1);
+                        sb.Append(");");
+                        System.Console.WriteLine();
+                        System.Console.WriteLine(sb.ToString());
+                        sb = new StringBuilder();
+                        sb.Append("CREATE TABLE [").Append(dr[0].ToString()).Append("](");
+                        lastTable = dr[0].ToString();
+                    }
+                }
+            }
         }
 
         public override void initTopToolBar()

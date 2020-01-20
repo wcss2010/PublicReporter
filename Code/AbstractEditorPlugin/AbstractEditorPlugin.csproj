@@ -124,7 +124,9 @@
       <Name>PublicReporterLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="makeCreateSqlText.txt" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
       <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
