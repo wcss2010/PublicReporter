@@ -111,7 +111,7 @@ namespace ProjectStrategicLeadershipPlugin
                         System.Console.WriteLine();
                         System.Console.WriteLine(sb.ToString());
                         sb = new StringBuilder();
-                        sb.Append("CREATE TABLE [").Append(dr[0].ToString()).Append("](");
+                        sb.Append("CREATE TABLE [").Append(dr[1].ToString()).Append("](");
                         lastTable = dr[0].ToString();
                     }
                 }
