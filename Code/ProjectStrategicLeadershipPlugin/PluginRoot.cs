@@ -88,7 +88,7 @@ namespace ProjectStrategicLeadershipPlugin
 
         void tempButton_Click(object sender, EventArgs e)
         {
-            System.Data.DataTable dt = PublicReporterLib.Utility.ExcelBuilder.excelToDataTable(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "数据库结构-ss.xlsx"), "Sheet1", true);
+            System.Data.DataTable dt = PublicReporterLib.Utility.ExcelBuilder.excelToDataTable(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "数据库结构-ss.xls"), "Sheet1", true);
             string lastTable = string.Empty;
             StringBuilder sb = new StringBuilder();
             foreach (System.Data.DataRow dr in dt.Rows)
@@ -103,7 +103,10 @@ namespace ProjectStrategicLeadershipPlugin
                     else
                     {
                         //输出
-                        sb = sb.Remove(sb.Length - 1, 1);
+                        if (sb.Length >= 1)
+                        {
+                            sb = sb.Remove(sb.Length - 1, 1);
+                        }
                         sb.Append(");");
                         System.Console.WriteLine();
                         System.Console.WriteLine(sb.ToString());
