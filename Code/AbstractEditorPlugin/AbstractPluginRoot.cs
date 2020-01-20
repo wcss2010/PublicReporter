@@ -1,6 +1,8 @@
 ﻿using PublicReporterLib;
+using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -9,12 +11,12 @@ namespace AbstractEditorPlugin
     /// <summary>
     /// 根据已经有ProjectMilitaryTechnologPlanPlugin插件抽象出来的一个模板
     /// </summary>
-    public abstract class AbstractPluginRoot<ProjectObject> : IReportPluginRoot
+    public abstract class AbstractPluginRoot : IReportPluginRoot
     {
         /// <summary>
         /// 工程对象
         /// </summary>
-        public ProjectObject ProjectObj { get; set; }
+        public object ProjectObj { get; set; }
 
         /// <summary>
         /// 编辑器字典
@@ -182,7 +184,7 @@ namespace AbstractEditorPlugin
         /// </summary>
         public virtual void saveAllWithNoResult()
         {
-            if (projectObj != null)
+            if (ProjectObj != null)
             {
                 CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
                 dialoga.TransparencyKey = dialoga.BackColor;
@@ -244,7 +246,7 @@ namespace AbstractEditorPlugin
         /// </summary>
         public virtual bool isSaveAllSucess()
         {
-            if (projectObj != null)
+            if (ProjectObj != null)
             {
                 bool isSucesss = true;
 
