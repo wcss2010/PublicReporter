@@ -1,0 +1,71 @@
+using System;
+using System.Data;
+using System.Text;
+
+namespace ProjectStrategicLeadershipPlugin.DB.Entitys 
+{
+    /// <summary>
+    /// 类Projects。
+    /// </summary>
+    [Serializable]
+    public partial class Projects : IEntity
+    {
+        public Projects() { }
+
+        public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
+        {
+            //设置值
+            query.set("ProjectName", ProjectName);
+            query.set("ProjectTopic", ProjectTopic);
+            query.set("ProjectDirection", ProjectDirection);
+            query.set("ProjectSecretLevel", ProjectSecretLevel);
+            query.set("UnitName", UnitName);
+            query.set("UnitRealName", UnitRealName);
+            query.set("UnitAddress", UnitAddress);
+            query.set("UnitType2", UnitType2);
+            query.set("UnitContact", UnitContact);
+            query.set("UnitContactPhone", UnitContactPhone);
+            query.set("TotalTime", TotalTime);
+            query.set("TotalMoney", TotalMoney);
+            query.set("RequestTime", RequestTime);
+
+            return query;
+        }
+
+        public string ProjectName { get; set; }
+        public string ProjectTopic { get; set; }
+        public string ProjectDirection { get; set; }
+        public string ProjectSecretLevel { get; set; }
+        public string UnitName { get; set; }
+        public string UnitRealName { get; set; }
+        public string UnitAddress { get; set; }
+        public string UnitType2 { get; set; }
+        public string UnitContact { get; set; }
+        public string UnitContactPhone { get; set; }
+        public int32 TotalTime { get; set; }
+        public single TotalMoney { get; set; }
+        public datetime RequestTime { get; set; }
+
+        public override void bind(Noear.Weed.GetHandlerEx source)
+        {
+            ProjectName = source("ProjectName").value<string>("");
+            ProjectTopic = source("ProjectTopic").value<string>("");
+            ProjectDirection = source("ProjectDirection").value<string>("");
+            ProjectSecretLevel = source("ProjectSecretLevel").value<string>("");
+            UnitName = source("UnitName").value<string>("");
+            UnitRealName = source("UnitRealName").value<string>("");
+            UnitAddress = source("UnitAddress").value<string>("");
+            UnitType2 = source("UnitType2").value<string>("");
+            UnitContact = source("UnitContact").value<string>("");
+            UnitContactPhone = source("UnitContactPhone").value<string>("");
+            TotalTime = source("TotalTime").value<int32>("");
+            TotalMoney = source("TotalMoney").value<single>("");
+            RequestTime = source("RequestTime").value<datetime>("");
+        }
+
+        public override Noear.Weed.IBinder clone()
+        {
+            return new Projects();
+        }
+    }
+}
