@@ -71,14 +71,23 @@ namespace PublicReporterLib
                                 Type[] tList= asmm.GetTypes();
 
                                 //查找启动类
-                                foreach (Type t in tList)
+                                foreach (Type sourceType in tList)
                                 {
-                                    //判断是否为启动类
-                                    if (t.BaseType != null && t.BaseType.FullName.Equals(typeof(IReportPluginRoot).FullName))
+                                    Type lastType = sourceType;
+                                    while (!(lastType.BaseType != null && lastType.BaseType.FullName.Equals(typeof(object).FullName)))
                                     {
-                                        //调用默认构造器实例化                                        
-                                        CurrentPlugin = (IReportPluginRoot)asmm.CreateInstance(t.FullName);
+                                        //判断是否为启动类
+                                        if (lastType.BaseType != null && lastType.BaseType.FullName.Equals(typeof(IReportPluginRoot).FullName))
+                                        {
+                                            //调用默认构造器实例化                                        
+                                            CurrentPlugin = (IReportPluginRoot)asmm.CreateInstance(sourceType.FullName);
+                                            break;
+                                        }
+
+                                        //设置下一个类型
+                                        lastType = lastType.BaseType;
                                     }
+                                    
                                 }
                             }
                         }
