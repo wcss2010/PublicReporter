@@ -861,33 +861,6 @@ namespace ProjectMilitaryTechnologPlanPlugin
             return getTopButton(imgg, nameg, textg, sizeg, new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134))));
         }
 
-        /// <summary>
-        /// 生成分隔符对象
-        /// </summary>
-        /// <returns></returns>
-        protected ToolStripSeparator getTopSeparator()
-        {
-            ToolStripSeparator obj = new ToolStripSeparator();
-            obj.Size = new System.Drawing.Size(6, 59);
-            return obj;
-        }
-
-        /// <summary>
-        /// 隐藏系统分割符
-        /// </summary>
-        protected void hideSysSeparator()
-        {
-            foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
-            {
-                if (tsi is ToolStripSeparator && ((ToolStripSeparator)tsi).Tag == "DefaultDisplayControl")
-                {
-                    ToolStripSeparator tssr = ((ToolStripSeparator)tsi);
-                    tssr.Visible = false;
-                    break;
-                }
-            }
-        }
-
         void treeViewObj_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (projectObj == null || string.IsNullOrEmpty(projectObj.BianHao))
