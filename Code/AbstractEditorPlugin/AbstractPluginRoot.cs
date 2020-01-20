@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace AbstractEditorPlugin
 {
     /// <summary>
-    /// 根据已经有ProjectMilitaryTechnologPlanPlugin插件抽象出来的一个模板
+    /// 根据已经有AbstractEditorPlugin插件抽象出来的一个模板
     /// </summary>
     public abstract class AbstractPluginRoot : IReportPluginRoot
     {
