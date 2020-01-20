@@ -127,6 +127,33 @@ namespace PublicReporterLib
         }
 
         /// <summary>
+        /// 生成分隔符对象
+        /// </summary>
+        /// <returns></returns>
+        protected virtual ToolStripSeparator getTopSeparator()
+        {
+            ToolStripSeparator obj = new ToolStripSeparator();
+            obj.Size = new System.Drawing.Size(6, 59);
+            return obj;
+        }
+
+        /// <summary>
+        /// 隐藏系统分割符
+        /// </summary>
+        protected virtual void hideSysSeparator()
+        {
+            foreach (ToolStripItem tsi in Parent_TopToolStrip.Items)
+            {
+                if (tsi is ToolStripSeparator && ((ToolStripSeparator)tsi).Tag == "DefaultDisplayControl")
+                {
+                    ToolStripSeparator tssr = ((ToolStripSeparator)tsi);
+                    tssr.Visible = false;
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
         /// 清除所有添加的内容
         /// </summary>
         protected virtual void clearAllControls()
