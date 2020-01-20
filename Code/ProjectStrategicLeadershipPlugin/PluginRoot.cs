@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ProjectStrategicLeadershipPlugin
 {
@@ -57,9 +59,41 @@ namespace ProjectStrategicLeadershipPlugin
             
         }
 
-        public override void initTopToolBar()
+        /// <summary>
+        /// 生成一个工具条按钮
+        /// </summary>
+        /// <param name="imgg"></param>
+        /// <param name="nameg"></param>
+        /// <param name="textg"></param>
+        /// <param name="sizeg"></param>
+        /// <returns></returns>
+        protected ToolStripButton getTopButton(Image imgg, string nameg, string textg, Size sizeg)
+        {
+            return getTopButton(imgg, nameg, textg, sizeg, new System.Drawing.Font("仿宋", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134))));
+        }
+
+        /// <summary>
+        /// 添加顶部工具条按钮
+        /// </summary>
+        /// <param name="imgg"></param>
+        /// <param name="nameg"></param>
+        /// <param name="textg"></param>
+        /// <param name="sizeg"></param>
+        protected void addTopButton(Image imgg, string nameg, string textg, Size sizeg)
+        {
+            ToolStripButton tempButton = getTopButton(imgg, nameg, textg, sizeg);
+            tempButton.Click += tempButton_Click;
+            addToTopToolStrip(tempButton);
+        }
+
+        void tempButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        public override void initTopToolBar()
+        {
+           
         }
 
         public override void initData()
