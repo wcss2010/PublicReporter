@@ -40,6 +40,11 @@ namespace AbstractEditorPlugin
         /// </summary>
         public string ConfigFile { get; private set; }
 
+        /// <summary>
+        /// 初始的分割器宽度
+        /// </summary>
+        public int DefaultSplitterDistances = 200;
+
         public override void start()
         {
             //载入配置
@@ -54,19 +59,19 @@ namespace AbstractEditorPlugin
             {
                 if (c.Name == "scContent")
                 {
-                    ((SplitContainer)c).SplitterDistance = 200;
+                    ((SplitContainer)c).SplitterDistance = DefaultSplitterDistances;
                     break;
                 }
             }
-
-            //初始化树结构
-            initTrees();
 
             //初始化目录
             initDirs();
 
             //打开数据库
             openDB();
+
+            //初始化树结构
+            initTrees();
 
             //初始化顶部工具条
             initTopToolBar();
@@ -172,10 +177,158 @@ namespace AbstractEditorPlugin
             JsonConfig.saveConfig(ConfigFile);
         }
 
-        void Parent_LeftTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        /// <summary>
+        /// 保存所有编辑器
+        /// </summary>
+        public virtual void saveAllWithNoResult()
         {
-            
+            if (projectObj != null)
+            {
+                CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
+                dialoga.TransparencyKey = dialoga.BackColor;
+                dialoga.ProgressBar.ForeColor = Color.Red;
+                dialoga.MessageLabel.ForeColor = Color.Blue;
+                dialoga.FormBorderStyle = FormBorderStyle.None;
+                dialoga.MessageLabel.Text = "正在保存,请等待...";
+                dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                {
+                    //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
+                    List<BaseEditor> tempLists = new List<BaseEditor>();
+                    tempLists.AddRange(editorMap.Values);
+                    tempLists.Reverse();
+
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                    {
+                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                        {
+                            //循环所有控件，一个一个保存
+                            int currentIndex = 0;
+                            foreach (BaseEditor be in tempLists)
+                            {
+                                currentIndex++;
+
+                                //保存
+                                try
+                                {
+                                    bool isSuccess = true;
+                                    be.OnSaveEvent(ref isSuccess);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("对不起，页签(" + be.EditorName + ")保存失败！Ex:" + ex.ToString());
+                                }
+
+                                //进度条移动
+                                ((CircleProgressBarDialog)thisObject).ReportProgress((int)(((double)currentIndex / (double)tempLists.Count) * 100), 100);
+
+                                //立即执行消息
+                                Application.DoEvents();
+                            }
+                        }));
+                    }
+
+                    //刷新
+                    if (((CircleProgressBarDialog)thisObject).IsHandleCreated)
+                    {
+                        ((CircleProgressBarDialog)thisObject).Invoke(new MethodInvoker(delegate()
+                        {
+                            refreshEditors();
+                        }));
+                    }
+                }));
+            }
         }
+
+        /// <summary>
+        /// 保存所有(返回是否成功)
+        /// </summary>
+        public virtual bool isSaveAllSucess()
+        {
+            if (projectObj != null)
+            {
+                bool isSucesss = true;
+
+                Forms.FrmWorkProcess upf = new Forms.FrmWorkProcess();
+                upf.LabalText = "正在保存,请等待...";
+                upf.ShowProgressWithOnlyUI();
+                upf.PlayProgressWithOnlyUI(80);
+
+                try
+                {
+                    //创建一个倒叙列表用于解决因为保存顺序问题导致的某些列表项保存失败的BUG
+                    List<BaseEditor> tempLists = new List<BaseEditor>();
+                    tempLists.AddRange(editorMap.Values);
+                    tempLists.Reverse();
+
+                    //循环所有控件，一个一个保存
+                    foreach (BaseEditor be in tempLists)
+                    {
+                        //保存
+                        try
+                        {
+                            be.OnSaveEvent(ref isSucesss);
+                            if (isSucesss == false)
+                            {
+                                throw new Exception("内容未填写完");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("对不起，页签(" + be.EditorName + ")保存失败！Ex:" + ex.ToString());
+                            isSucesss = false;
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("保存失败！Ex:" + ex.ToString());
+                }
+                finally
+                {
+                    upf.CloseProgressWithOnlyUI();
+                }
+
+                return isSucesss;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 判断是否输入完成
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool isInputCompleted(ref string errorPageName)
+        {
+            foreach (BaseEditor be in editorMap.Values)
+            {
+                if (be.IsInputCompleted())
+                {
+                    continue;
+                }
+                else
+                {
+                    errorPageName = be.EditorName;
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        protected virtual void Parent_LeftTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            switchCurrentEditor(e.Node);
+        }
+
+        /// <summary>
+        /// 切换当前编辑器
+        /// </summary>
+        /// <param name="treeNode"></param>
+        protected abstract void switchCurrentEditor(TreeNode treeNode);
 
         /// <summary>
         /// 失败
