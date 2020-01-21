@@ -32,8 +32,8 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.plButtons = new System.Windows.Forms.Panel();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
+            this.plButtons = new System.Windows.Forms.Panel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -84,16 +84,6 @@
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(10, 682);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
-            this.plButtons.Size = new System.Drawing.Size(1162, 35);
-            this.plButtons.TabIndex = 0;
-            // 
             // lblInfo
             // 
             this.lblInfo.AutoHeight = true;
@@ -108,10 +98,21 @@
             this.lblInfo.TabIndex = 1;
             this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
             // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(10, 682);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
+            this.plButtons.Size = new System.Drawing.Size(1162, 35);
+            this.plButtons.TabIndex = 0;
+            // 
             // SummaryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
             this.Name = "SummaryEditor";
             this.Size = new System.Drawing.Size(1182, 727);
