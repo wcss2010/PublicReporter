@@ -28,27 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
-            this.plContent = new System.Windows.Forms.Panel();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
+            this.plContent = new System.Windows.Forms.Panel();
             this.plMain.SuspendLayout();
-            this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
+            this.plContent.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 51);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1066, 735);
-            this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.WrapContents = false;
             // 
             // btnSave
             // 
@@ -72,17 +60,15 @@
             this.plMain.Size = new System.Drawing.Size(1086, 841);
             this.plMain.TabIndex = 4;
             // 
-            // plContent
+            // plButtons
             // 
-            this.plContent.AutoScroll = true;
-            this.plContent.BackColor = System.Drawing.SystemColors.Control;
-            this.plContent.Controls.Add(this.flowLayoutPanel1);
-            this.plContent.Controls.Add(this.lblInfo);
-            this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 10);
-            this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1066, 786);
-            this.plContent.TabIndex = 1;
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(10, 796);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
+            this.plButtons.Size = new System.Drawing.Size(1066, 35);
+            this.plButtons.TabIndex = 0;
             // 
             // lblInfo
             // 
@@ -98,15 +84,16 @@
             this.lblInfo.TabIndex = 1;
             this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
             // 
-            // plButtons
+            // plContent
             // 
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(10, 796);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
-            this.plButtons.Size = new System.Drawing.Size(1066, 35);
-            this.plButtons.TabIndex = 0;
+            this.plContent.AutoScroll = true;
+            this.plContent.BackColor = System.Drawing.SystemColors.Control;
+            this.plContent.Controls.Add(this.lblInfo);
+            this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plContent.Location = new System.Drawing.Point(10, 10);
+            this.plContent.Name = "plContent";
+            this.plContent.Size = new System.Drawing.Size(1066, 786);
+            this.plContent.TabIndex = 1;
             // 
             // MoneyTableEditor
             // 
@@ -117,20 +104,19 @@
             this.Name = "MoneyTableEditor";
             this.Size = new System.Drawing.Size(1086, 841);
             this.plMain.ResumeLayout(false);
-            this.plContent.ResumeLayout(false);
             this.plButtons.ResumeLayout(false);
+            this.plContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel plMain;
+        private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.Panel plContent;
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblInfo;
-        private System.Windows.Forms.Panel plButtons;
 
 
     }

@@ -28,27 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSave = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.colKeTi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJieDuanHuaHuaFen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 51);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1073, 593);
-            this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.WrapContents = false;
             // 
             // btnSave
             // 
@@ -76,7 +71,7 @@
             // 
             this.plContent.AutoScroll = true;
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
-            this.plContent.Controls.Add(this.flowLayoutPanel1);
+            this.plContent.Controls.Add(this.dgvDetail);
             this.plContent.Controls.Add(this.lblInfo);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 10);
@@ -108,6 +103,60 @@
             this.plButtons.Size = new System.Drawing.Size(1073, 35);
             this.plButtons.TabIndex = 0;
             // 
+            // dgvDetail
+            // 
+            this.dgvDetail.AllowUserToAddRows = false;
+            this.dgvDetail.AllowUserToResizeRows = false;
+            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.dgvDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dgvDetail.ColumnHeadersHeight = 35;
+            this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colKeTi,
+            this.colJieDuanHuaHuaFen,
+            this.colResult});
+            this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetail.Location = new System.Drawing.Point(0, 51);
+            this.dgvDetail.MultiSelect = false;
+            this.dgvDetail.Name = "dgvDetail";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetail.RowTemplate.Height = 35;
+            this.dgvDetail.Size = new System.Drawing.Size(1073, 593);
+            this.dgvDetail.TabIndex = 6;
+            // 
+            // colKeTi
+            // 
+            this.colKeTi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colKeTi.HeaderText = "课题";
+            this.colKeTi.MinimumWidth = 69;
+            this.colKeTi.Name = "colKeTi";
+            this.colKeTi.ReadOnly = true;
+            this.colKeTi.Width = 69;
+            // 
+            // colJieDuanHuaHuaFen
+            // 
+            this.colJieDuanHuaHuaFen.HeaderText = "负责人";
+            this.colJieDuanHuaHuaFen.MinimumWidth = 80;
+            this.colJieDuanHuaHuaFen.Name = "colJieDuanHuaHuaFen";
+            this.colJieDuanHuaHuaFen.ReadOnly = true;
+            this.colJieDuanHuaHuaFen.Width = 80;
+            // 
+            // colResult
+            // 
+            this.colResult.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colResult.HeaderText = "简要介绍";
+            this.colResult.Name = "colResult";
+            this.colResult.ReadOnly = true;
+            // 
             // WorkerGroupEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -119,17 +168,21 @@
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
             this.plButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plContent;
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel plButtons;
+        private System.Windows.Forms.DataGridView dgvDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKeTi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colJieDuanHuaHuaFen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colResult;
     }
 }
