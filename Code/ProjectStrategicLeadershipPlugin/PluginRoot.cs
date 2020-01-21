@@ -19,36 +19,6 @@ namespace ProjectStrategicLeadershipPlugin
         public const string button6_Name = "导出数据包";
         public const string button7_Name = "帮助";
 
-        public PluginRoot()
-        {
-            PublicReporterLib.JsonConfig.JsonConfigInitTool = new ttt();
-        }
-
-        public class ttt : PublicReporterLib.IJsonConfigInitTool
-        {
-            public void initConfig(PublicReporterLib.JsonConfigObject config)
-            {
-                config.ObjectDict["AA"] = new string[] { "AAA", "BBB", "CCC" };
-                config.ObjectDict["BB"] = new ddd[] { new ddd("aa", "bb"), new ddd("cc", "dd") };
-                config.ObjectDict["CC"] = DateTime.Now;
-                config.ObjectDict["DD"] = new ddd("ee", "ff");
-            }
-        }
-
-        public class ddd
-        {
-            public ddd() { }
-
-            public ddd(string n, string t)
-            {
-                this.Name = n;
-                this.Text = t;
-            }
-
-            public string Name { get; set; }
-            public string Text { get; set; }
-        }
-
         public override string DefaultTitle
         {
             get { return "国防科技战略先导计划项目建议书填报系统(V1.0)"; }
@@ -149,19 +119,7 @@ namespace ProjectStrategicLeadershipPlugin
         /// </summary>
         public override void initEditorMaps()
         {
-            try
-            {
-                DateTime ter = (DateTime)PublicReporterLib.JsonConfig.Config.ObjectDict["CC"];
-                Newtonsoft.Json.Linq.JArray jarrays = (Newtonsoft.Json.Linq.JArray)PublicReporterLib.JsonConfig.Config.ObjectDict["AA"];
-                string ssss = PublicReporterLib.JsonConfig.Config.ObjectDict["BB"].ToString();
 
-                List<ddd> jarrayss = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ddd>>(ssss);
-
-                ddd ttf = Newtonsoft.Json.JsonConvert.DeserializeObject<ddd>(PublicReporterLib.JsonConfig.Config.ObjectDict["DD"].ToString());
-
-                ddd gfd = (ddd)PublicReporterLib.JsonConfig.Config.ObjectDict["DD"];
-            }
-            catch (Exception ex) { }
         }
 
         /// <summary>
