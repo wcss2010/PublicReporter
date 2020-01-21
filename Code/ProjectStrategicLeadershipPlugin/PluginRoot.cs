@@ -452,7 +452,8 @@ namespace ProjectStrategicLeadershipPlugin
         /// <returns></returns>
         protected string getNewExportZipName()
         {
-            return string.Empty;
+            Projects projObj = (Projects)projectObj;
+            return projObj.ProjectName + "-" + projObj.UnitName + "-" + projObj.UnitContact + ".zip";
         }
 
         /// <summary>
