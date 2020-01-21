@@ -130,6 +130,9 @@
     <None Include="Helper\help.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Helper\moneyPaste.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Helper\template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
