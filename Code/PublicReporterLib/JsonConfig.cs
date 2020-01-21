@@ -113,6 +113,24 @@ namespace PublicReporterLib
         }
 
         /// <summary>
+        /// 从ObjectDict获得数据并进行序列化
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keys"></param>
+        /// <returns></returns>
+        public T getObjectFromObjectDict<T>(string keys)
+        {
+            T result = default(T);
+            
+            if (ObjectDict.ContainsKey(keys))
+            {
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(ObjectDict[keys].ToString());
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// 载入配置
         /// </summary>
         public static JsonConfigObject loadConfig(string configFile)
