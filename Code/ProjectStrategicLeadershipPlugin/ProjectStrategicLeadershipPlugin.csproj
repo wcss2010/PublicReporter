@@ -99,6 +99,12 @@
     <Compile Include="DB\Entitys\ProjectStep.cs" />
     <Compile Include="DB\Entitys\Steps.cs" />
     <Compile Include="DB\Entitys\Subjects.cs" />
+    <Compile Include="Editor\MoneyTableEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MoneyTableEditor.Designer.cs">
+      <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmProjectManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     <None Include="数据库结构.xlsx" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
+      <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
     </EmbeddedResource>
