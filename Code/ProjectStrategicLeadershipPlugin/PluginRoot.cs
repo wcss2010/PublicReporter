@@ -19,6 +19,30 @@ namespace ProjectStrategicLeadershipPlugin
         public const string button6_Name = "导出数据包";
         public const string button7_Name = "帮助";
 
+        public const string TNode_0_Name = "基本信息";
+        public const string TNode_1_Name = "项目摘要";        
+        public const string TNode_2_Name = "概述";
+        public const string TNode_2_0_Name = "需求分析";
+        public const string TNode_2_1_Name = "研究现状";
+        public const string TNode_3_Name = "研究目标";        
+        public const string TNode_4_Name = "研究内容";
+        public const string TNode_4_0_Name = "研究内容列表";
+        public const string TNode_4_1_Name = "各项研究内容之间的关系";
+        public const string TNode_5_Name = "研究成果";
+        public const string TNode_5_0_Name = "研究成果及考核指标";
+        public const string TNode_5_1_Name = "成果服务方式";
+        public const string TNode_6_Name = "研究周期与进度安排 ";
+        public const string TNode_6_0_Name = "项目阶段列表";
+        public const string TNode_6_1_Name = "研究内容阶段列表";
+        public const string TNode_7_Name = "研究基础与保障条件";        
+        public const string TNode_8_Name = "项目负责人和研究团队";
+        public const string TNode_8_0_Name = "项目负责人";
+        public const string TNode_8_1_Name = "研究团队";
+        public const string TNode_8_2_Name = "主要成员情况表";
+        public const string TNode_9_Name = "经费预算表";
+        public const string TNode_10_Name = "附件1-项目经费预算说明";
+        public const string TNode_11_Name = "附件2-保密资质复印件";
+
         public override string DefaultTitle
         {
             get { return "国防科技战略先导计划项目建议书填报系统(V1.0)"; }
@@ -86,29 +110,29 @@ namespace ProjectStrategicLeadershipPlugin
         /// </summary>
         public override void initTrees()
         {
-            TreeNode rootNode = new TreeNode("基本信息");
-            rootNode.Nodes.Add(new TreeNode("项目摘要"));
-            rootNode.Nodes.Add(new TreeNode("概述"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("需求分析"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究现状"));
-            rootNode.Nodes.Add(new TreeNode("研究目标"));
-            rootNode.Nodes.Add(new TreeNode("研究内容"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究内容列表"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("各项研究内容之间的关系"));
-            rootNode.Nodes.Add(new TreeNode("研究成果"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究成果及考核指标"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("成果服务方式"));
-            rootNode.Nodes.Add(new TreeNode("研究周期与进度安排 "));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("项目阶段列表"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究内容阶段列表"));
-            rootNode.Nodes.Add(new TreeNode("研究基础与保障条件"));
-            rootNode.Nodes.Add(new TreeNode("项目负责人和研究团队"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("项目负责人"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("研究团队"));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode("主要成员情况表"));
-            rootNode.Nodes.Add(new TreeNode("经费预算表"));
-            rootNode.Nodes.Add(new TreeNode("附件1-项目经费预算说明"));
-            rootNode.Nodes.Add(new TreeNode("附件2-保密资质复印件"));
+            TreeNode rootNode = new TreeNode(TNode_0_Name);
+            rootNode.Nodes.Add(new TreeNode(TNode_1_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_2_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_2_0_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_2_1_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_3_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_4_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_4_0_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_4_1_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_5_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_5_0_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_5_1_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_6_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_6_0_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_6_1_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_7_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_8_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_8_0_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_8_1_Name));
+            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(TNode_8_2_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_9_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_10_Name));
+            rootNode.Nodes.Add(new TreeNode(TNode_11_Name));
 
             Parent_LeftTreeView.Nodes.Add(rootNode);
             rootNode.ExpandAll();
