@@ -1,6 +1,6 @@
 ﻿namespace ProjectStrategicLeadershipPlugin.Editor
 {
-    partial class MoneyTableEditor
+    partial class SubjectEditor
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -30,18 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // MoneyTableEditor
+            // SubjectEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "MoneyTableEditor";
-            this.Size = new System.Drawing.Size(1086, 841);
+            this.Name = "SubjectEditor";
+            this.Size = new System.Drawing.Size(705, 413);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-
     }
 }

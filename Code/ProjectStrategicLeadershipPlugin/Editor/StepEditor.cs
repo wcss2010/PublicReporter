@@ -17,9 +17,9 @@ using AbstractEditorPlugin.Utility;
 
 namespace ProjectStrategicLeadershipPlugin.Editor
 {
-    public partial class MoneyTableEditor : BaseEditor
+    public partial class StepEditor : BaseEditor
     {
-        public MoneyTableEditor()
+        public StepEditor()
         {
             InitializeComponent();
         }

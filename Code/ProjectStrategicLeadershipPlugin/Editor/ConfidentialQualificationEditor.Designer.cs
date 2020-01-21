@@ -1,6 +1,6 @@
 ﻿namespace ProjectStrategicLeadershipPlugin.Editor
 {
-    partial class MoneyTableEditor
+    partial class ConfidentialQualificationEditor
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -30,18 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // MoneyTableEditor
+            // ConfidentialQualificationEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "MoneyTableEditor";
-            this.Size = new System.Drawing.Size(1086, 841);
+            this.Name = "ConfidentialQualificationEditor";
+            this.Size = new System.Drawing.Size(431, 351);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-
     }
 }
