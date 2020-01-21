@@ -101,7 +101,7 @@
             this.kpKetiItems.Name = "kpKetiItems";
             this.kpKetiItems.Size = new System.Drawing.Size(1067, 590);
             this.kpKetiItems.TabIndex = 0;
-            this.kpKetiItems.Text = "课题列表";
+            this.kpKetiItems.Text = "研究内容列表";
             // 
             // dgvDetail
             // 
@@ -143,7 +143,7 @@
             // colKeTiMingCheng
             // 
             this.colKeTiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKeTiMingCheng.HeaderText = "课题名称";
+            this.colKeTiMingCheng.HeaderText = "研究内容名称";
             this.colKeTiMingCheng.Name = "colKeTiMingCheng";
             this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
@@ -195,7 +195,7 @@
             // 
             // colZongTiKeTi
             // 
-            this.colZongTiKeTi.HeaderText = "总体课题";
+            this.colZongTiKeTi.HeaderText = "总体研究内容";
             this.colZongTiKeTi.Name = "colZongTiKeTi";
             this.colZongTiKeTi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colZongTiKeTi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
