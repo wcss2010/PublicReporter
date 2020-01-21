@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
-            this.plButtons = new System.Windows.Forms.Panel();
             this.kvKetiTabs = new System.Windows.Forms.TabControl();
             this.kpKetiItems = new System.Windows.Forms.TabPage();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
@@ -48,20 +46,21 @@
             this.colMakePage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
+            this.plButtons = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
-            this.plButtons.SuspendLayout();
             this.kvKetiTabs.SuspendLayout();
             this.kpKetiItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
+            this.plButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // plMain
             // 
             this.plMain.Controls.Add(this.plContent);
-            this.plMain.Controls.Add(this.plButtons);
             this.plMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plMain.Location = new System.Drawing.Point(0, 0);
             this.plMain.Margin = new System.Windows.Forms.Padding(0);
@@ -79,33 +78,8 @@
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 10);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1075, 636);
+            this.plContent.Size = new System.Drawing.Size(1075, 671);
             this.plContent.TabIndex = 1;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoHeight = true;
-            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
-            this.lblInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1075, 51);
-            this.lblInfo.TabIndex = 1;
-            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
-            // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnAdd);
-            this.plButtons.Controls.Add(this.btnEdit);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(10, 646);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
-            this.plButtons.Size = new System.Drawing.Size(1075, 35);
-            this.plButtons.TabIndex = 0;
             // 
             // kvKetiTabs
             // 
@@ -115,16 +89,17 @@
             this.kvKetiTabs.Location = new System.Drawing.Point(0, 51);
             this.kvKetiTabs.Name = "kvKetiTabs";
             this.kvKetiTabs.SelectedIndex = 0;
-            this.kvKetiTabs.Size = new System.Drawing.Size(1075, 585);
+            this.kvKetiTabs.Size = new System.Drawing.Size(1075, 620);
             this.kvKetiTabs.TabIndex = 5;
             // 
             // kpKetiItems
             // 
             this.kpKetiItems.Controls.Add(this.dgvDetail);
+            this.kpKetiItems.Controls.Add(this.plButtons);
             this.kpKetiItems.Location = new System.Drawing.Point(4, 26);
             this.kpKetiItems.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpKetiItems.Name = "kpKetiItems";
-            this.kpKetiItems.Size = new System.Drawing.Size(1067, 555);
+            this.kpKetiItems.Size = new System.Drawing.Size(1067, 590);
             this.kpKetiItems.TabIndex = 0;
             this.kpKetiItems.Text = "课题列表";
             // 
@@ -151,9 +126,9 @@
             this.dgvDetail.Location = new System.Drawing.Point(0, 0);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.RowTemplate.Height = 35;
             this.dgvDetail.Size = new System.Drawing.Size(1067, 555);
             this.dgvDetail.TabIndex = 3;
@@ -251,11 +226,36 @@
             this.colDetail.Visible = false;
             this.colDetail.Width = 60;
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoHeight = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
+            this.lblInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1075, 51);
+            this.lblInfo.TabIndex = 1;
+            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
+            // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnAdd);
+            this.plButtons.Controls.Add(this.btnEdit);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(0, 555);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
+            this.plButtons.Size = new System.Drawing.Size(1067, 35);
+            this.plButtons.TabIndex = 0;
+            // 
             // btnAdd
             // 
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(892, 3);
+            this.btnAdd.Location = new System.Drawing.Point(884, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 29);
             this.btnAdd.TabIndex = 6;
@@ -265,7 +265,7 @@
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEdit.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEdit.Location = new System.Drawing.Point(982, 3);
+            this.btnEdit.Location = new System.Drawing.Point(974, 3);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(90, 29);
             this.btnEdit.TabIndex = 5;
@@ -281,10 +281,10 @@
             this.Size = new System.Drawing.Size(1095, 691);
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
-            this.plButtons.ResumeLayout(false);
             this.kvKetiTabs.ResumeLayout(false);
             this.kpKetiItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
+            this.plButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
