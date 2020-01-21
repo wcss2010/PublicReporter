@@ -118,7 +118,7 @@ namespace PublicReporterLib
         /// <typeparam name="T"></typeparam>
         /// <param name="keys"></param>
         /// <returns></returns>
-        public T getObjectFromObjectDict<T>(string keys)
+        public T deserializeObjectFromObjectDict<T>(string keys)
         {
             T result = default(T);
             
