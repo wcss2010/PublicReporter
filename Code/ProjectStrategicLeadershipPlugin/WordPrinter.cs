@@ -76,7 +76,7 @@ namespace ProjectStrategicLeadershipPlugin
         /// <param name="progress"></param>
         /// <param name="txt"></param>
         /// <param name="sleepTime"></param>
-        private static void Report(CircleProgressBarDialog progressDialog, int progress, string txt, int sleepTime)
+        public static void Report(CircleProgressBarDialog progressDialog, int progress, string txt, int sleepTime)
         {
             progressDialog.ReportProgress(progress, 100);
             progressDialog.ReportInfo(txt);

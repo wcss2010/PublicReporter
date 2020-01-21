@@ -2,6 +2,7 @@
 using AbstractEditorPlugin.Forms;
 using AbstractEditorPlugin.Utility;
 using ProjectStrategicLeadershipPlugin.DB;
+using ProjectStrategicLeadershipPlugin.DB.Entitys;
 using ProjectStrategicLeadershipPlugin.Forms;
 using SuperCodeFactoryUILib.Forms;
 using System;
@@ -260,15 +261,14 @@ namespace ProjectStrategicLeadershipPlugin
                             dialogb.FormBorderStyle = FormBorderStyle.None;
                             dialogb.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                                 {
-                                    ((CircleProgressBarDialog)thisObject).ReportProgress(10, 100);
-                                    ((CircleProgressBarDialog)thisObject).ReportInfo("准备导入...");
-                                    try { System.Threading.Thread.Sleep(1000); }
-                                    catch (Exception ex) { }
+                                    CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
 
-                                    string uuid = projectObj != null ? projectObj.BianHao : string.Empty;
+                                    WordPrinter.Report(senderForm, 10, "准备导入...", 600);
+                                    
+                                    string uuid = projectObj != null ? ((Projects)projectObj).ID : string.Empty;
 
                                     //关闭连接
-                                    DB.ConnectionManager.Close();
+                                    closeDB();
 
                                     //当前项目目录
                                     string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
@@ -276,10 +276,7 @@ namespace ProjectStrategicLeadershipPlugin
                                     //backup
                                     string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), uuid);
 
-                                    ((CircleProgressBarDialog)thisObject).ReportProgress(20, 100);
-                                    ((CircleProgressBarDialog)thisObject).ReportInfo("清空当前目录...");
-                                    try { System.Threading.Thread.Sleep(1000); }
-                                    catch (Exception ex) { }
+                                    WordPrinter.Report(senderForm, 20, "清空当前目录...", 600);
 
                                     //检查是否需要备份
                                     if (uuid != null && uuid.Length >= 2)
@@ -301,10 +298,7 @@ namespace ProjectStrategicLeadershipPlugin
                                         }
                                     }
 
-                                    ((CircleProgressBarDialog)thisObject).ReportProgress(30, 100);
-                                    ((CircleProgressBarDialog)thisObject).ReportInfo("创建导入目录...");
-                                    try { System.Threading.Thread.Sleep(1000); }
-                                    catch (Exception ex) { }
+                                    WordPrinter.Report(senderForm, 30, "创建导入目录...", 600);
 
                                     //创建当前目录
                                     try
@@ -313,27 +307,24 @@ namespace ProjectStrategicLeadershipPlugin
                                     }
                                     catch (Exception ex) { }
 
-                                    ((CircleProgressBarDialog)thisObject).ReportProgress(40, 100);
-                                    ((CircleProgressBarDialog)thisObject).ReportInfo("正在导入...");
-                                    try { System.Threading.Thread.Sleep(1000); }
-                                    catch (Exception ex) { }
+                                    WordPrinter.Report(senderForm, 40, "正在导入...", 600);
 
                                     //解压
-                                    PublicReporterLib.Utility.ZipUtil zu = new PublicReporterLib.Utility.ZipUtil();
-                                    zu.UnZipFile(ofd.FileName, currentPath, string.Empty, true);
+                                    new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, currentPath, string.Empty, true);
+                                    
+                                    WordPrinter.Report(senderForm, 90, "导入完成，正在刷新...", 600);
 
-                                    ((CircleProgressBarDialog)thisObject).ReportProgress(90, 100);
-                                    ((CircleProgressBarDialog)thisObject).ReportInfo("导入完成，准备重启...");
-                                    try { System.Threading.Thread.Sleep(1000); }
-                                    catch (Exception ex) { }
+                                    //初始化目录结构
+                                    initDirs();
 
-                                    //重启软件
-                                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().enabledShowExitHint = false;
-                                    DB.ConnectionManager.Close();
-                                    System.Diagnostics.Process.Start(Application.ExecutablePath);
-                                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj = null;
-                                    Application.Exit();
-
+                                    //打开数据库
+                                    openDB();
+                                    
+                                    //初始化数据
+                                    initData();
+                                    
+                                    //刷新数据
+                                    refreshEditors();
                                 }));
                         }
                     }
@@ -379,7 +370,73 @@ namespace ProjectStrategicLeadershipPlugin
                         return;
                     }
 
+                    //最后更新日期
+                    DateTime dtLastUpdateDate = getLastUpdateDate();
 
+                    if (isSaveAllSucess() == false)
+                    {
+                        MessageBox.Show("对不起，保存失败，请检查！");
+                        return;
+                    }
+
+                    string docFile = Path.Combine(dataDir, WordPrinter.outputDocFileName);
+                    if (File.Exists(docFile) == false)
+                    {
+                        MessageBox.Show("对不起，请先点击\"生成报告\"按钮生成\"" + WordPrinter.outputDocFileName + "\"！");
+                        return;
+                    }
+
+                    DateTime dtDoc = File.GetLastWriteTime(docFile);
+                    if (dtLastUpdateDate > dtDoc)
+                    {
+                        MessageBox.Show("对不起，当前的\"" + WordPrinter.outputDocFileName + "\"不是最新的，请点击\"生成报告\"按钮重新生成\"" + WordPrinter.outputDocFileName + "\"！");
+                        return;
+                    }
+
+                    string errorPage = string.Empty;
+                    if (!isInputCompleted(ref errorPage))
+                    {
+                        MessageBox.Show("对不起，内容未填写完不能上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("请将页签[" + errorPage + "]填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.Filter = "ZIP申报包|*.zip";
+                    sfd.FileName = getNewExportZipName();
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        if (MessageBox.Show("真的要导出吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
+                            dialoga.TransparencyKey = dialoga.BackColor;
+                            dialoga.ProgressBar.ForeColor = Color.Red;
+                            dialoga.MessageLabel.ForeColor = Color.Blue;
+                            dialoga.FormBorderStyle = FormBorderStyle.None;
+                            dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                            {
+                                CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
+
+                                WordPrinter.Report(senderForm, 10, "准备导出...", 600);
+
+                                //关闭连接
+                                closeDB();
+
+                                //当前项目目录
+                                string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
+
+                                WordPrinter.Report(senderForm, 20, "正在导出...", 600);
+
+                                //压缩
+                                new PublicReporterLib.Utility.ZipUtil().ZipFileDirectory(currentPath, sfd.FileName);
+
+                                WordPrinter.Report(senderForm, 90, "导出完成...", 600);
+
+                                //打开数据库
+                                openDB();
+                            }));
+                        }
+                    }
                     break;
                 case button7_Name:
                     //帮助
@@ -387,6 +444,15 @@ namespace ProjectStrategicLeadershipPlugin
                     helpBox.ShowDialog();
                     break;
             }
+        }
+
+        /// <summary>
+        /// 获得新的导出包名字
+        /// </summary>
+        /// <returns></returns>
+        protected string getNewExportZipName()
+        {
+            return string.Empty;
         }
 
         /// <summary>
