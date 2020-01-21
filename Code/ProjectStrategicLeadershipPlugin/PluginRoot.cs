@@ -1,4 +1,5 @@
-﻿using AbstractEditorPlugin.Editor;
+﻿using AbstractEditorPlugin;
+using AbstractEditorPlugin.Editor;
 using AbstractEditorPlugin.Forms;
 using AbstractEditorPlugin.Utility;
 using ProjectStrategicLeadershipPlugin.DB;
@@ -148,8 +149,9 @@ namespace ProjectStrategicLeadershipPlugin
         /// </summary>
         public override void initEditorMaps()
         {
+            #region 初始化编辑器Map
             //基本信息(需要一个自定义输入界面)
-            editorMap[tnode_0_Name] = null;
+            editorMap[tnode_0_Name] = new Editor.SummaryEditor();
             //项目摘要(TextContentEditor)
             editorMap[tnode_1_Name] = new TextContentEditor("项目摘要", "简要介绍研究问题提出的国防科技发展背景或需求来源，简述项目研究目标与研究内容，拟采取的研究思路与研究方法、拟使用的主要数据资源，以及主要预期成果（名称、形式、数量、指标等）、成果服务方式等。本项目由XXX单位牵头，XXX等单位参研，研究周期X年，申请经费XX万元。项目负责人为XXX（院士/研究员/教授）。（800字以内）");
             //一、概述(不需要显示内容)
@@ -163,7 +165,7 @@ namespace ProjectStrategicLeadershipPlugin
             //三、研究内容(不需要显示内容)
             //editorMap[tnode_4_Name] = null;
             //（一）、研究内容列表(自定义列表)
-            editorMap[tnode_4_0_Name] = null;
+            editorMap[tnode_4_0_Name] = new Editor.SubjectEditor();
             //（二）、各项研究内容之间的关系(DocumentPasteEditor)
             editorMap[tnode_4_1_Name] = new DocumentPasteEditor("各项研究内容之间的关系", "（简要叙述项目目标与各项研究内容、各项研究内容之间的关系，500字以内，可用图表示 ） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
             //四、研究成果(不需要显示内容)
@@ -175,9 +177,9 @@ namespace ProjectStrategicLeadershipPlugin
             //五、研究周期与进度安排(不需要显示内容)
             //editorMap[tnode_6_Name] = null;
             //（一）、项目阶段划分(自定义列表)
-            editorMap[tnode_6_0_Name] = null;
+            editorMap[tnode_6_0_Name] = new Editor.ProjectStepEditor();
             //（二）、研究内容阶段划分(自定义列表)
-            editorMap[tnode_6_1_Name] = null;
+            editorMap[tnode_6_1_Name] = new Editor.StepEditor();
             //六、研究基础与保障条件(DocumentPasteEditor)
             editorMap[tnode_7_Name] = new DocumentPasteEditor("研究基础与保障条件", "（介绍与本项目相关的，已开展过的工作、已有的研究基础和软硬件保障条件等，限800字以内。特别是属常态化、持续性研究项目，应重点说明与已立项战略先导计划项目之间的关系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
             //七、项目负责人和研究团队(不需要显示内容)
@@ -185,15 +187,26 @@ namespace ProjectStrategicLeadershipPlugin
             //（一）、项目负责人(DocumentPasteEditor)
             editorMap[tnode_8_0_Name] = new DocumentPasteEditor("项目负责人", "（介绍项目负责人的职务职称、教育工作履历，主要学术成就、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
             //（二）、研究团队(自定义列表)
-            editorMap[tnode_8_1_Name] = null;
+            editorMap[tnode_8_1_Name] = new Editor.WorkerGroupEditor();
             //（三）、主要成员情况表(自定义列表)
-            editorMap[tnode_8_2_Name] = null;
+            editorMap[tnode_8_2_Name] = new Editor.WorkerEditor();
             //八、经费预算表(自定义列表)
-            editorMap[tnode_9_Name] = null;
+            editorMap[tnode_9_Name] = new Editor.MoneyTableEditor();
             //附件1-项目经费预算说明(DocumentPasteEditor-带特定模板)
             editorMap[tnode_10_Name] = new DocumentPasteEditor("项目经费预算说明", "（介绍本项目预算依据、内容构成、具体安排，应能够支撑对项目经费预算合理性进行审核评估） ", Path.Combine(RootDir, Path.Combine("Helper", "moneyPaste.doc")));
             //附件2-保密资质复印件(自定义列表)
-            editorMap[tnode_11_Name] = null;
+            editorMap[tnode_11_Name] = new Editor.ConfidentialQualificationEditor();
+            #endregion
+
+            #region 检查哪个Editor没有设置Name
+            foreach (KeyValuePair<string, BaseEditor> kvp in editorMap)
+            {
+                if (string.IsNullOrEmpty(kvp.Value.EditorName))
+                {
+                    kvp.Value.EditorName = kvp.Key;
+                }
+            }
+            #endregion
         }
 
         /// <summary>

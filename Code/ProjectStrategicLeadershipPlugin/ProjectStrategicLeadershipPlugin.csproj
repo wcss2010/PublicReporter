@@ -99,11 +99,53 @@
     <Compile Include="DB\Entitys\ProjectStep.cs" />
     <Compile Include="DB\Entitys\Steps.cs" />
     <Compile Include="DB\Entitys\Subjects.cs" />
+    <Compile Include="Editor\ConfidentialQualificationEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ConfidentialQualificationEditor.Designer.cs">
+      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\MoneyTableEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Editor\MoneyTableEditor.Designer.cs">
       <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ProjectStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ProjectStepEditor.Designer.cs">
+      <DependentUpon>ProjectStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\StepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\StepEditor.Designer.cs">
+      <DependentUpon>StepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SubjectEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubjectEditor.Designer.cs">
+      <DependentUpon>SubjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SummaryEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SummaryEditor.Designer.cs">
+      <DependentUpon>SummaryEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\WorkerEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\WorkerEditor.Designer.cs">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\WorkerGroupEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\WorkerGroupEditor.Designer.cs">
+      <DependentUpon>WorkerGroupEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmProjectManager.cs">
       <SubType>Form</SubType>
@@ -152,8 +194,29 @@
     <None Include="数据库结构.xlsx" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Editor\ConfidentialQualificationEditor.resx">
+      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
       <DependentUpon>MoneyTableEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectStepEditor.resx">
+      <DependentUpon>ProjectStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\StepEditor.resx">
+      <DependentUpon>StepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubjectEditor.resx">
+      <DependentUpon>SubjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SummaryEditor.resx">
+      <DependentUpon>SummaryEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\WorkerEditor.resx">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\WorkerGroupEditor.resx">
+      <DependentUpon>WorkerGroupEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
