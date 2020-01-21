@@ -19,6 +19,11 @@ namespace AbstractEditorPlugin.Editor
     public partial class DocumentPasteEditor : BaseEditor
     {
         /// <summary>
+        /// 空模板文件
+        /// </summary>
+        public string EmptyTempleteFile { get; set; }
+
+        /// <summary>
         /// 编辑器名称
         /// </summary>
         public override string EditorName
@@ -83,10 +88,11 @@ namespace AbstractEditorPlugin.Editor
             InitializeComponent();
         }
 
-        public DocumentPasteEditor(string name,string info) : this()
+        public DocumentPasteEditor(string name,string info,string templeteFile) : this()
         {
             EditorName = name;
             InfoLabelText = info;
+            EmptyTempleteFile = templeteFile;
         }
 
         private void btnEditDocument_Click(object sender, EventArgs e)
@@ -113,13 +119,12 @@ namespace AbstractEditorPlugin.Editor
                         }
                     }
                     else
-                    {
-                        string templeteFile = Path.Combine(Path.Combine(PluginRootObj.RootDir, "Helper"), "emptyPaste.doc");
-                        if (File.Exists(templeteFile) && File.Exists(file) == false)
+                    {   
+                        if (File.Exists(EmptyTempleteFile) && File.Exists(file) == false)
                         {
                             try
                             {
-                                File.Copy(templeteFile, file, true);
+                                File.Copy(EmptyTempleteFile, file, true);
                             }
                             catch (Exception ex)
                             {
