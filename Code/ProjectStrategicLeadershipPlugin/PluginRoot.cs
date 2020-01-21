@@ -1,4 +1,5 @@
 ﻿using AbstractEditorPlugin.Editor;
+using AbstractEditorPlugin.Forms;
 using AbstractEditorPlugin.Utility;
 using ProjectStrategicLeadershipPlugin.DB;
 using System;
@@ -226,7 +227,39 @@ namespace ProjectStrategicLeadershipPlugin
         /// <param name="e"></param>
         void topButton_Click(object sender, EventArgs e)
         {
+            ToolStripButton button = ((ToolStripButton)sender);
+            switch (button.Text)
+            {
+                case button1_Name:
+                    //项目管理
 
+                    break;
+                case button2_Name:
+                    //新建项目
+
+                    break;
+                case button3_Name:
+                    //导入数据包
+
+                    break;
+                case button4_Name:
+                    //保存所有
+
+                    break;
+                case button5_Name:
+                    //生成报告
+
+                    break;
+                case button6_Name:
+                    //导出数据包
+
+                    break;
+                case button7_Name:
+                    //帮助
+                    FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(RootDir,Path.Combine("Helper","help.rtf")));
+                    helpBox.ShowDialog();
+                    break;
+            }
         }
 
         /// <summary>

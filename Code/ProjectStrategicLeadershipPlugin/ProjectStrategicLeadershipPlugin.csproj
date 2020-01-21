@@ -99,6 +99,12 @@
     <Compile Include="DB\Entitys\ProjectStep.cs" />
     <Compile Include="DB\Entitys\Steps.cs" />
     <Compile Include="DB\Entitys\Subjects.cs" />
+    <Compile Include="Forms\FrmProjectManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmProjectManager.designer.cs">
+      <DependentUpon>FrmProjectManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="PluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -139,6 +145,9 @@
     <None Include="数据库结构.xlsx" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\FrmProjectManager.resx">
+      <DependentUpon>FrmProjectManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>

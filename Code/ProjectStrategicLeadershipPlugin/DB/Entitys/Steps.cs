@@ -1,4 +1,3 @@
-using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -9,13 +8,14 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
     /// 类Steps。
     /// </summary>
     [Serializable]
-    public partial class Steps : IEntity
+    public partial class Steps : Noear.Weed.IEntity
     {
         public Steps() { }
 
         public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
             //设置值
+            query.set("ID", ID);
             query.set("ProjectID", ProjectID);
             query.set("SubjectID", SubjectID);
             query.set("StepTime", StepTime);
@@ -29,6 +29,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             return query;
         }
 
+        public string ID { get; set; }
         public string ProjectID { get; set; }
         public string SubjectID { get; set; }
         public int StepTime { get; set; }
@@ -41,6 +42,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
+            ID = source("ID").value<string>("");
             ProjectID = source("ProjectID").value<string>("");
             SubjectID = source("SubjectID").value<string>("");
             StepTime = source("StepTime").value<int>(0);
