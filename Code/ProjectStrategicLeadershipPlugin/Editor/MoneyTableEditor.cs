@@ -146,7 +146,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 ysb.ID = Guid.NewGuid().ToString();
                 ysb.Name = kvp.Key.Replace("ibEdit", string.Empty);
                 ysb.Value = kvp.Value.Text.Trim();
-                ysb.Index = 0;
                 ysb.copyTo(ConnectionManager.Context.table("Moneys")).insert();
             }
         }

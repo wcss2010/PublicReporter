@@ -16,7 +16,6 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         {
             //设置值
             query.set("ID", ID);
-            query.set("Index", Index);
             query.set("ProjectID", ProjectID);
             query.set("Name", Name);
             query.set("Value", Value);
@@ -25,7 +24,6 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         }
 
         public string ID { get; set; }
-        public int Index { get; set; }
         public string ProjectID { get; set; }
         public string Name { get; set; }
         public string Value { get; set; }
@@ -33,7 +31,6 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
             ID = source("ID").value<string>("");
-            Index = source("Index").value<int>(0);
             ProjectID = source("ProjectID").value<string>("");
             Name = source("Name").value<string>("");
             Value = source("Value").value<string>("");
