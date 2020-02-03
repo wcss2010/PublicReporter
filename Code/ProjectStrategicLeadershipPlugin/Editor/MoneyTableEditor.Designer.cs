@@ -30,13 +30,9 @@
         {
             this.btnSave = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.hSkinTableLayoutPanel2 = new AbstractEditorPlugin.Controls.HSkinTableLayoutPanel();
-            this.ibEditYear5 = new System.Windows.Forms.TextBox();
-            this.ibEditYear4 = new System.Windows.Forms.TextBox();
             this.ibEditYear3 = new System.Windows.Forms.TextBox();
             this.ibEditYear2 = new System.Windows.Forms.TextBox();
             this.ibEditYear1 = new System.Windows.Forms.TextBox();
@@ -44,8 +40,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.hSkinTableLayoutPanel1 = new AbstractEditorPlugin.Controls.HSkinTableLayoutPanel();
             this.ibEditMoney5_2 = new System.Windows.Forms.TextBox();
             this.ibEditInfo3_1 = new System.Windows.Forms.TextBox();
@@ -104,12 +98,14 @@
             this.ibEditMoney3_2 = new System.Windows.Forms.TextBox();
             this.ibEditMoney3_3 = new System.Windows.Forms.TextBox();
             this.ibEditMoney5_1 = new System.Windows.Forms.TextBox();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
+            this.plButtons = new System.Windows.Forms.Panel();
             this.plMain.SuspendLayout();
-            this.plButtons.SuspendLayout();
             this.plContent.SuspendLayout();
             this.panel1.SuspendLayout();
             this.hSkinTableLayoutPanel2.SuspendLayout();
             this.hSkinTableLayoutPanel1.SuspendLayout();
+            this.plButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSave
@@ -121,6 +117,7 @@
             this.btnSave.Size = new System.Drawing.Size(90, 29);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // plMain
             // 
@@ -133,30 +130,6 @@
             this.plMain.Padding = new System.Windows.Forms.Padding(10);
             this.plMain.Size = new System.Drawing.Size(1086, 841);
             this.plMain.TabIndex = 4;
-            // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(10, 796);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
-            this.plButtons.Size = new System.Drawing.Size(1066, 35);
-            this.plButtons.TabIndex = 0;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoHeight = true;
-            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
-            this.lblInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1066, 51);
-            this.lblInfo.TabIndex = 1;
-            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
             // 
             // plContent
             // 
@@ -185,14 +158,12 @@
             // hSkinTableLayoutPanel2
             // 
             this.hSkinTableLayoutPanel2.BorderColor = System.Drawing.Color.Black;
-            this.hSkinTableLayoutPanel2.ColumnCount = 5;
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear5, 4, 2);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear4, 3, 2);
+            this.hSkinTableLayoutPanel2.ColumnCount = 3;
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.hSkinTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear3, 2, 2);
             this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear2, 1, 2);
             this.hSkinTableLayoutPanel2.Controls.Add(this.ibEditYear1, 0, 2);
@@ -200,8 +171,6 @@
             this.hSkinTableLayoutPanel2.Controls.Add(this.label16, 0, 1);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label17, 1, 1);
             this.hSkinTableLayoutPanel2.Controls.Add(this.label20, 2, 1);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label21, 3, 1);
-            this.hSkinTableLayoutPanel2.Controls.Add(this.label22, 4, 1);
             this.hSkinTableLayoutPanel2.Location = new System.Drawing.Point(6, 600);
             this.hSkinTableLayoutPanel2.Name = "hSkinTableLayoutPanel2";
             this.hSkinTableLayoutPanel2.RowCount = 3;
@@ -211,36 +180,14 @@
             this.hSkinTableLayoutPanel2.Size = new System.Drawing.Size(954, 100);
             this.hSkinTableLayoutPanel2.TabIndex = 2;
             // 
-            // ibEditYear5
-            // 
-            this.ibEditYear5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ibEditYear5.Font = new System.Drawing.Font("仿宋", 14F);
-            this.ibEditYear5.Location = new System.Drawing.Point(763, 69);
-            this.ibEditYear5.Multiline = true;
-            this.ibEditYear5.Name = "ibEditYear5";
-            this.ibEditYear5.Size = new System.Drawing.Size(188, 28);
-            this.ibEditYear5.TabIndex = 32;
-            this.ibEditYear5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ibEditYear4
-            // 
-            this.ibEditYear4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ibEditYear4.Font = new System.Drawing.Font("仿宋", 14F);
-            this.ibEditYear4.Location = new System.Drawing.Point(573, 69);
-            this.ibEditYear4.Multiline = true;
-            this.ibEditYear4.Name = "ibEditYear4";
-            this.ibEditYear4.Size = new System.Drawing.Size(184, 28);
-            this.ibEditYear4.TabIndex = 31;
-            this.ibEditYear4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // ibEditYear3
             // 
             this.ibEditYear3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditYear3.Font = new System.Drawing.Font("仿宋", 14F);
-            this.ibEditYear3.Location = new System.Drawing.Point(383, 69);
+            this.ibEditYear3.Location = new System.Drawing.Point(639, 69);
             this.ibEditYear3.Multiline = true;
             this.ibEditYear3.Name = "ibEditYear3";
-            this.ibEditYear3.Size = new System.Drawing.Size(184, 28);
+            this.ibEditYear3.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear3.TabIndex = 30;
             this.ibEditYear3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -248,10 +195,10 @@
             // 
             this.ibEditYear2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditYear2.Font = new System.Drawing.Font("仿宋", 14F);
-            this.ibEditYear2.Location = new System.Drawing.Point(193, 69);
+            this.ibEditYear2.Location = new System.Drawing.Point(321, 69);
             this.ibEditYear2.Multiline = true;
             this.ibEditYear2.Name = "ibEditYear2";
-            this.ibEditYear2.Size = new System.Drawing.Size(184, 28);
+            this.ibEditYear2.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear2.TabIndex = 29;
             this.ibEditYear2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -262,13 +209,13 @@
             this.ibEditYear1.Location = new System.Drawing.Point(3, 69);
             this.ibEditYear1.Multiline = true;
             this.ibEditYear1.Name = "ibEditYear1";
-            this.ibEditYear1.Size = new System.Drawing.Size(184, 28);
+            this.ibEditYear1.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear1.TabIndex = 28;
             this.ibEditYear1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 
-            this.hSkinTableLayoutPanel2.SetColumnSpan(this.label15, 5);
+            this.hSkinTableLayoutPanel2.SetColumnSpan(this.label15, 3);
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("仿宋", 12F);
             this.label15.Location = new System.Drawing.Point(3, 3);
@@ -286,7 +233,7 @@
             this.label16.Location = new System.Drawing.Point(3, 36);
             this.label16.Margin = new System.Windows.Forms.Padding(3);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(184, 27);
+            this.label16.Size = new System.Drawing.Size(312, 27);
             this.label16.TabIndex = 1;
             this.label16.Text = "第一年";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -295,10 +242,10 @@
             // 
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label17.Location = new System.Drawing.Point(193, 36);
+            this.label17.Location = new System.Drawing.Point(321, 36);
             this.label17.Margin = new System.Windows.Forms.Padding(3);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(184, 27);
+            this.label17.Size = new System.Drawing.Size(312, 27);
             this.label17.TabIndex = 1;
             this.label17.Text = "第二年";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -307,37 +254,13 @@
             // 
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label20.Location = new System.Drawing.Point(383, 36);
+            this.label20.Location = new System.Drawing.Point(639, 36);
             this.label20.Margin = new System.Windows.Forms.Padding(3);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(184, 27);
+            this.label20.Size = new System.Drawing.Size(312, 27);
             this.label20.TabIndex = 1;
             this.label20.Text = "第三年";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label21.Location = new System.Drawing.Point(573, 36);
-            this.label21.Margin = new System.Windows.Forms.Padding(3);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(184, 27);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "第四年";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label22.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label22.Location = new System.Drawing.Point(763, 36);
-            this.label22.Margin = new System.Windows.Forms.Padding(3);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(188, 27);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "第五年";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hSkinTableLayoutPanel1
             // 
@@ -438,6 +361,7 @@
             this.ibEditMoney5_2.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney5_2.TabIndex = 19;
             this.ibEditMoney5_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney5_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditInfo3_1
             // 
@@ -458,7 +382,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(413, 25);
             this.label23.TabIndex = 2;
-            this.label23.Text = "(2)其它";
+            this.label23.Text = "(2)其他";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label27
@@ -470,7 +394,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(413, 25);
             this.label27.TabIndex = 2;
-            this.label27.Text = "(1)委托外单位开展检验、测试、仪验、加工费";
+            this.label27.Text = "(1)检验、测试、化验、加工费";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label26
@@ -482,7 +406,7 @@
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(413, 25);
             this.label26.TabIndex = 2;
-            this.label26.Text = "(3)其它";
+            this.label26.Text = "(3)其他";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label25
@@ -602,7 +526,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(413, 25);
             this.label8.TabIndex = 1;
-            this.label8.Text = "5.会议、差旅、国际合作与交流费";
+            this.label8.Text = "5.会议/差旅/国际合作与交流费";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
@@ -614,7 +538,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(413, 25);
             this.label9.TabIndex = 1;
-            this.label9.Text = "6.出版、文献、信息传播、知识产权事务费";
+            this.label9.Text = "6.出版/文献/信息传播/知识产权事务费";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
@@ -674,7 +598,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(413, 27);
             this.label14.TabIndex = 1;
-            this.label14.Text = "10.管理费/科研绩效津贴";
+            this.label14.Text = "10.管理费/科研绩效支出";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label18
@@ -712,6 +636,7 @@
             this.ibEditMoney1.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney1.TabIndex = 10;
             this.ibEditMoney1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney2
             // 
@@ -724,6 +649,7 @@
             this.ibEditMoney2.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney2.TabIndex = 11;
             this.ibEditMoney2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney3
             // 
@@ -736,6 +662,7 @@
             this.ibEditMoney3.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney3.TabIndex = 12;
             this.ibEditMoney3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney4
             // 
@@ -747,6 +674,7 @@
             this.ibEditMoney4.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney4.TabIndex = 16;
             this.ibEditMoney4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney4.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney5
             // 
@@ -759,6 +687,7 @@
             this.ibEditMoney5.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney5.TabIndex = 17;
             this.ibEditMoney5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney5.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney6
             // 
@@ -770,6 +699,7 @@
             this.ibEditMoney6.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney6.TabIndex = 20;
             this.ibEditMoney6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney6.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney7
             // 
@@ -781,6 +711,7 @@
             this.ibEditMoney7.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney7.TabIndex = 21;
             this.ibEditMoney7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney7.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney8
             // 
@@ -792,6 +723,7 @@
             this.ibEditMoney8.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney8.TabIndex = 22;
             this.ibEditMoney8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney8.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney9
             // 
@@ -803,6 +735,7 @@
             this.ibEditMoney9.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney9.TabIndex = 23;
             this.ibEditMoney9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney9.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney10
             // 
@@ -814,6 +747,7 @@
             this.ibEditMoney10.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney10.TabIndex = 24;
             this.ibEditMoney10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney10.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney11
             // 
@@ -825,6 +759,7 @@
             this.ibEditMoney11.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney11.TabIndex = 25;
             this.ibEditMoney11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney11.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney12
             // 
@@ -837,6 +772,7 @@
             this.ibEditMoney12.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney12.TabIndex = 26;
             this.ibEditMoney12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney12.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney13
             // 
@@ -848,6 +784,7 @@
             this.ibEditMoney13.Size = new System.Drawing.Size(100, 27);
             this.ibEditMoney13.TabIndex = 27;
             this.ibEditMoney13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney13.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditInfo1
             // 
@@ -1029,6 +966,7 @@
             this.ibEditMoney3_1.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney3_1.TabIndex = 13;
             this.ibEditMoney3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney3_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney3_2
             // 
@@ -1040,6 +978,7 @@
             this.ibEditMoney3_2.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney3_2.TabIndex = 14;
             this.ibEditMoney3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney3_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney3_3
             // 
@@ -1051,6 +990,7 @@
             this.ibEditMoney3_3.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney3_3.TabIndex = 15;
             this.ibEditMoney3_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney3_3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             // 
             // ibEditMoney5_1
             // 
@@ -1062,6 +1002,31 @@
             this.ibEditMoney5_1.Size = new System.Drawing.Size(100, 25);
             this.ibEditMoney5_1.TabIndex = 18;
             this.ibEditMoney5_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ibEditMoney5_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoHeight = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
+            this.lblInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1066, 51);
+            this.lblInfo.TabIndex = 1;
+            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
+            // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(10, 796);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
+            this.plButtons.Size = new System.Drawing.Size(1066, 35);
+            this.plButtons.TabIndex = 0;
             // 
             // MoneyTableEditor
             // 
@@ -1072,13 +1037,13 @@
             this.Name = "MoneyTableEditor";
             this.Size = new System.Drawing.Size(1086, 841);
             this.plMain.ResumeLayout(false);
-            this.plButtons.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.hSkinTableLayoutPanel2.ResumeLayout(false);
             this.hSkinTableLayoutPanel2.PerformLayout();
             this.hSkinTableLayoutPanel1.ResumeLayout(false);
             this.hSkinTableLayoutPanel1.PerformLayout();
+            this.plButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1092,8 +1057,6 @@
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel panel1;
         private AbstractEditorPlugin.Controls.HSkinTableLayoutPanel hSkinTableLayoutPanel2;
-        private System.Windows.Forms.TextBox ibEditYear5;
-        private System.Windows.Forms.TextBox ibEditYear4;
         private System.Windows.Forms.TextBox ibEditYear3;
         private System.Windows.Forms.TextBox ibEditYear2;
         private System.Windows.Forms.TextBox ibEditYear1;
@@ -1101,8 +1064,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private AbstractEditorPlugin.Controls.HSkinTableLayoutPanel hSkinTableLayoutPanel1;
         private System.Windows.Forms.TextBox ibEditMoney5_2;
         private System.Windows.Forms.TextBox ibEditInfo3_1;
