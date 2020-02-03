@@ -540,7 +540,46 @@ namespace ProjectStrategicLeadershipPlugin
         /// </summary>
         public override void initData()
         {
+            try
+            {
+                //加载项目信息
+                projectObj = ConnectionManager.Context.table("Projects").select("*").getItem<Projects>(new Projects());
 
+                if (string.IsNullOrEmpty(getProjectObject<Projects>().ID))
+                {
+                    //项目数据清空
+                    projectObj = null;
+
+                    //切换到工程信息编辑器
+                    switchToProjectEditor();
+                }
+                else
+                {
+                    //切换到内容页
+                    switchToProjectContentEditor();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("对不起，数据库加载失败！Ex:" + ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 切换到内容页
+        /// </summary>
+        private void switchToProjectContentEditor()
+        {
+            Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
+            refreshEditors();
+        }
+
+        /// <summary>
+        /// 切换到项目编辑页
+        /// </summary>
+        private void switchToProjectEditor()
+        {
+            Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
         }
 
         /// <summary>
