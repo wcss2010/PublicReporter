@@ -210,5 +210,27 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             return true;
         }
+
+        public override void ClearView()
+        {
+            base.ClearView();
+
+            txtProjectName.Text = string.Empty;
+            txtProjectTopic.Text = string.Empty;
+            txtProjectDirection.Text = string.Empty;
+            cbxSecretLevel.SelectedItem = "公开";
+            txtDutyUnitName.Text = string.Empty;
+            txtDutyUnitNormalName.Text = string.Empty;
+            txtDutyUnitAddress.Text = string.Empty;
+            txtDutyUnitContact.Text = string.Empty;
+            txtDutyUnitContactTelephone.Text = string.Empty;
+            txtTotalMoneys.Value = 0;
+            txtTotalTimes.Value = 0;
+            txtRegisterDate.Value = DateTime.Now;
+            if (cbxDutyUnit2.Items.Count >= 1)
+            {
+                cbxDutyUnit2.SelectedItem = cbxDutyUnit2.Items[cbxDutyUnit2.Items.Count - 1];
+            }
+        }
     }
 }

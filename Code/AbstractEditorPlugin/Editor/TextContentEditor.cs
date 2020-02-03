@@ -151,5 +151,12 @@ namespace AbstractEditorPlugin.Editor
                 upf.CloseProgressWithOnlyUI();
             }
         }
+
+        public override void ClearView()
+        {
+            base.ClearView();
+
+            txtContent.Clear();
+        }
     }
 }

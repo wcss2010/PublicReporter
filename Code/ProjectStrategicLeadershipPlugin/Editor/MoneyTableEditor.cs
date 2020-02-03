@@ -234,5 +234,15 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             return true;
             //}
         }
+
+        public override void ClearView()
+        {
+            base.ClearView();
+
+            foreach (KeyValuePair<string, TextBox> kvp in boxDict)
+            {
+                kvp.Value.Text = string.Empty;
+            }
+        }
     }
 }

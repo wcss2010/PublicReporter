@@ -26,11 +26,11 @@ namespace ProjectStrategicLeadershipPlugin
         public const string button7_Name = "帮助";
 
         public const string tnode_0_Name = "基本信息";
-        public const string tnode_1_Name = "项目摘要";        
+        public const string tnode_1_Name = "项目摘要";
         public const string tnode_2_Name = "概述";
         public const string tnode_2_0_Name = "需求分析";
         public const string tnode_2_1_Name = "研究现状";
-        public const string tnode_3_Name = "研究目标";        
+        public const string tnode_3_Name = "研究目标";
         public const string tnode_4_Name = "研究内容";
         public const string tnode_4_0_Name = "研究内容列表";
         public const string tnode_4_1_Name = "各项研究内容之间的关系";
@@ -40,7 +40,7 @@ namespace ProjectStrategicLeadershipPlugin
         public const string tnode_6_Name = "研究周期与进度安排 ";
         public const string tnode_6_0_Name = "项目阶段列表";
         public const string tnode_6_1_Name = "研究内容阶段列表";
-        public const string tnode_7_Name = "研究基础与保障条件";        
+        public const string tnode_7_Name = "研究基础与保障条件";
         public const string tnode_8_Name = "项目负责人和研究团队";
         public const string tnode_8_0_Name = "项目负责人";
         public const string tnode_8_1_Name = "研究团队";
@@ -277,7 +277,7 @@ namespace ProjectStrategicLeadershipPlugin
                                     CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
 
                                     WordPrinter.Report(senderForm, 10, "准备导入...", 600);
-                                    
+
                                     string uuid = projectObj != null ? ((Projects)projectObj).ID : string.Empty;
 
                                     //关闭连接
@@ -324,7 +324,7 @@ namespace ProjectStrategicLeadershipPlugin
 
                                     //解压
                                     new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, currentPath, string.Empty, true);
-                                    
+
                                     WordPrinter.Report(senderForm, 90, "导入完成，正在刷新...", 600);
 
                                     //初始化目录结构
@@ -332,10 +332,10 @@ namespace ProjectStrategicLeadershipPlugin
 
                                     //打开数据库
                                     openDB();
-                                    
+
                                     //初始化数据
                                     initData();
-                                    
+
                                     //刷新数据
                                     refreshEditors();
                                 }));
@@ -453,7 +453,7 @@ namespace ProjectStrategicLeadershipPlugin
                     break;
                 case button7_Name:
                     //帮助
-                    FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(RootDir,Path.Combine("Helper","help.rtf")));
+                    FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(RootDir, Path.Combine("Helper", "help.rtf")));
                     helpBox.ShowDialog();
                     break;
             }
@@ -509,10 +509,10 @@ namespace ProjectStrategicLeadershipPlugin
 
             //添加项目管理按钮
             addTopButton(Resource.manager, Guid.NewGuid().ToString(), button1_Name, new System.Drawing.Size(53, 56));
-            
+
             //添加新建项目
             addTopButton(Resource.w5, Guid.NewGuid().ToString(), button2_Name, new System.Drawing.Size(53, 56));
-            
+
             //添加导入项目按钮
             addTopButton(Resource.import, Guid.NewGuid().ToString(), button3_Name, new System.Drawing.Size(53, 56));
 
@@ -521,10 +521,10 @@ namespace ProjectStrategicLeadershipPlugin
 
             //添加保存所有按钮
             addTopButton(Resource._new, Guid.NewGuid().ToString(), button4_Name, new System.Drawing.Size(53, 56));
-            
+
             //添加生成报告按钮
             addTopButton(Resource.word, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
-            
+
             //添加导出项目按钮
             addTopButton(Resource.export, Guid.NewGuid().ToString(), button6_Name, new System.Drawing.Size(53, 56));
 
@@ -549,6 +549,12 @@ namespace ProjectStrategicLeadershipPlugin
                 {
                     //项目数据清空
                     projectObj = null;
+
+                    //清空视图。。
+                    for (int kkk = 0; kkk < editorMap.Count; kkk++)
+                    {
+                        editorMap[kkk].Value.ClearView();
+                    }
 
                     //切换到工程信息编辑器
                     switchToProjectEditor();
