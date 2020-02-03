@@ -588,9 +588,17 @@ namespace ProjectStrategicLeadershipPlugin
         /// <param name="treeNode"></param>
         protected override void switchCurrentEditor(System.Windows.Forms.TreeNode treeNode)
         {
-            if (treeNode != null && editorMap.ContainsKey(treeNode.Text) && editorMap[treeNode.Text] != null)
+            if (projectObj == null || string.IsNullOrEmpty(getProjectObject<Projects>().ID))
             {
-                showEditor(treeNode.Text.Trim());
+                //因为项目信息为空，所以锁定在项目信息页
+                Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
+                showEditor(Parent_LeftTreeView.SelectedNode.Text);
+                Parent_BottomDefaultHintLabel.Text = "请填写完整项目信息......";
+            }
+            else
+            {
+                showEditor(treeNode.Text);
+                Parent_BottomDefaultHintLabel.Text = "";
             }
         }
     }
