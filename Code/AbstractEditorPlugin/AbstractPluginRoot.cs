@@ -395,5 +395,15 @@ namespace AbstractEditorPlugin
         /// 关闭数据库
         /// </summary>
         public abstract void closeDB();
+
+        /// <summary>
+        /// 获得项目对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public virtual T getProjectObject<T>()
+        {
+            return (T)projectObj;   
+        }
     }
 }
