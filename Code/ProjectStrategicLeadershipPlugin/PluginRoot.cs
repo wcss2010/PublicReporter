@@ -49,6 +49,12 @@ namespace ProjectStrategicLeadershipPlugin
         public const string tnode_10_Name = "附件1-项目经费预算说明";
         public const string tnode_11_Name = "附件2-保密资质复印件";
 
+        public PluginRoot()
+            : base()
+        {
+            defaultSplitterDistance = 235;
+        }
+
         public override string DefaultTitle
         {
             get { return "国防科技战略先导计划项目建议书填报系统(V1.0)"; }

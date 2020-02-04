@@ -222,7 +222,7 @@
             "公开",
             "秘密",
             "机密"});
-            this.cbxSecretLevel.Location = new System.Drawing.Point(948, 0);
+            this.cbxSecretLevel.Location = new System.Drawing.Point(827, 0);
             this.cbxSecretLevel.Name = "cbxSecretLevel";
             this.cbxSecretLevel.Size = new System.Drawing.Size(99, 24);
             this.cbxSecretLevel.TabIndex = 7;
@@ -231,7 +231,7 @@
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label12.Location = new System.Drawing.Point(843, 0);
+            this.label12.Location = new System.Drawing.Point(722, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 29);
@@ -246,7 +246,7 @@
             this.txtProjectDirection.Location = new System.Drawing.Point(92, 0);
             this.txtProjectDirection.Margin = new System.Windows.Forms.Padding(4);
             this.txtProjectDirection.Name = "txtProjectDirection";
-            this.txtProjectDirection.Size = new System.Drawing.Size(751, 26);
+            this.txtProjectDirection.Size = new System.Drawing.Size(630, 26);
             this.txtProjectDirection.TabIndex = 6;
             // 
             // label3
