@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
     /// 类Projects。
     /// </summary>
     [Serializable]
-    public partial class Projects : Noear.Weed.IEntity
+    public partial class Projects : IEntity
     {
         public Projects() { }
 
@@ -25,6 +26,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             query.set("UnitAddress", UnitAddress);
             query.set("UnitType2", UnitType2);
             query.set("UnitContact", UnitContact);
+            query.set("UnitContactJob", UnitContactJob);
             query.set("UnitContactPhone", UnitContactPhone);
             query.set("TotalTime", TotalTime);
             query.set("TotalMoney", TotalMoney);
@@ -43,6 +45,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string UnitAddress { get; set; }
         public string UnitType2 { get; set; }
         public string UnitContact { get; set; }
+        public string UnitContactJob { get; set; }
         public string UnitContactPhone { get; set; }
         public int TotalTime { get; set; }
         public decimal TotalMoney { get; set; }
@@ -60,6 +63,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             UnitAddress = source("UnitAddress").value<string>("");
             UnitType2 = source("UnitType2").value<string>("");
             UnitContact = source("UnitContact").value<string>("");
+            UnitContactJob = source("UnitContactJob").value<string>("");
             UnitContactPhone = source("UnitContactPhone").value<string>("");
             TotalTime = source("TotalTime").value<int>(0);
             TotalMoney = source("TotalMoney").value<decimal>(0);

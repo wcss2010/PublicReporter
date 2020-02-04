@@ -1,3 +1,4 @@
+using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
     /// 类Persons。
     /// </summary>
     [Serializable]
-    public partial class Persons : Noear.Weed.IEntity
+    public partial class Persons : IEntity
     {
         public Persons() { }
 
@@ -29,7 +30,9 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             query.set("AttachInfo", AttachInfo);
             query.set("UnitName", UnitName);
             query.set("UnitAddress", UnitAddress);
+            query.set("UnitType2", UnitType2);
             query.set("UnitContact", UnitContact);
+            query.set("UnitContactJob", UnitContactJob);
             query.set("UnitContactPhone", UnitContactPhone);
             query.set("TaskContent", TaskContent);
             query.set("TimeForSubject", TimeForSubject);
@@ -54,7 +57,9 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string AttachInfo { get; set; }
         public string UnitName { get; set; }
         public string UnitAddress { get; set; }
+        public string UnitType2 { get; set; }
         public string UnitContact { get; set; }
+        public string UnitContactJob { get; set; }
         public string UnitContactPhone { get; set; }
         public string TaskContent { get; set; }
         public int TimeForSubject { get; set; }
@@ -78,7 +83,9 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             AttachInfo = source("AttachInfo").value<string>("");
             UnitName = source("UnitName").value<string>("");
             UnitAddress = source("UnitAddress").value<string>("");
+            UnitType2 = source("UnitType2").value<string>("");
             UnitContact = source("UnitContact").value<string>("");
+            UnitContactJob = source("UnitContactJob").value<string>("");
             UnitContactPhone = source("UnitContactPhone").value<string>("");
             TaskContent = source("TaskContent").value<string>("");
             TimeForSubject = source("TimeForSubject").value<int>(0);
