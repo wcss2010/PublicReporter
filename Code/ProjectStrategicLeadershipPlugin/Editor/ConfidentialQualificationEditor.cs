@@ -403,7 +403,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::ProjectStrategicLeadershipPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.DELETE_28;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
