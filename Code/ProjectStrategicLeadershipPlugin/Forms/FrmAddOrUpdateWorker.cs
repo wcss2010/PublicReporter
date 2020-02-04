@@ -12,6 +12,19 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 {
     public partial class FrmAddOrUpdateWorker : AbstractEditorPlugin.BaseForm
     {
+        /// <summary>
+        /// 仅为项目负责人
+        /// </summary>
+        public const string isOnlyProject = "rbIsOnlyProject";
+        /// <summary>
+        /// 项目负责人兼课题负责人或成员
+        /// </summary>
+        public const string isProjectAndSubject = "rbIsProjectAndSubject";
+        /// <summary>
+        /// 仅为课题负责人或成员
+        /// </summary>
+        public const string isOnlySubject = "rbIsOnlySubject";
+
         List<Subjects> List = new List<Subjects>();
         public FrmAddOrUpdateWorker(Persons obj, List<Subjects> list)
         {
