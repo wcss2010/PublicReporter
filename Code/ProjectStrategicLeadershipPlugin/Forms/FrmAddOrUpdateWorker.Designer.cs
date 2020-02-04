@@ -267,10 +267,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(490, 440);
+            this.label4.Location = new System.Drawing.Point(460, 440);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 16);
+            this.label4.Size = new System.Drawing.Size(136, 16);
             this.label4.TabIndex = 24;
             this.label4.Text = "研究内容中职务：";
             // 
@@ -291,10 +291,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(71, 440);
+            this.label10.Location = new System.Drawing.Point(39, 440);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 16);
+            this.label10.Size = new System.Drawing.Size(88, 16);
             this.label10.TabIndex = 26;
             this.label10.Text = "研究内容：";
             // 
@@ -313,9 +313,9 @@
             this.rbIsOnlySubject.AutoSize = true;
             this.rbIsOnlySubject.Checked = true;
             this.rbIsOnlySubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbIsOnlySubject.Location = new System.Drawing.Point(324, 0);
+            this.rbIsOnlySubject.Location = new System.Drawing.Point(356, 0);
             this.rbIsOnlySubject.Name = "rbIsOnlySubject";
-            this.rbIsOnlySubject.Size = new System.Drawing.Size(122, 33);
+            this.rbIsOnlySubject.Size = new System.Drawing.Size(154, 33);
             this.rbIsOnlySubject.TabIndex = 2;
             this.rbIsOnlySubject.TabStop = true;
             this.rbIsOnlySubject.Text = "仅为研究内容角色";
@@ -328,7 +328,7 @@
             this.rbIsProjectAndSubject.Dock = System.Windows.Forms.DockStyle.Left;
             this.rbIsProjectAndSubject.Location = new System.Drawing.Point(138, 0);
             this.rbIsProjectAndSubject.Name = "rbIsProjectAndSubject";
-            this.rbIsProjectAndSubject.Size = new System.Drawing.Size(186, 33);
+            this.rbIsProjectAndSubject.Size = new System.Drawing.Size(218, 33);
             this.rbIsProjectAndSubject.TabIndex = 1;
             this.rbIsProjectAndSubject.Text = "项目负责人兼研究内容角色";
             this.rbIsProjectAndSubject.UseVisualStyleBackColor = true;
