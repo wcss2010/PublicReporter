@@ -34,17 +34,17 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.ofdUpload = new System.Windows.Forms.OpenFileDialog();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFileName = new System.Windows.Forms.DataGridViewLinkColumn();
             this.colInore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colUpload = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.ofdUpload = new System.Windows.Forms.OpenFileDialog();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -121,49 +121,6 @@
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
             // 
-            // selpersonid
-            // 
-            this.selpersonid.HeaderText = "序号";
-            this.selpersonid.Name = "selpersonid";
-            this.selpersonid.ReadOnly = true;
-            this.selpersonid.Width = 80;
-            // 
-            // colUnitName
-            // 
-            this.colUnitName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colUnitName.HeaderText = "单位名称";
-            this.colUnitName.Name = "colUnitName";
-            // 
-            // colFileName
-            // 
-            this.colFileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFileName.HeaderText = "保密资质复印件";
-            this.colFileName.Name = "colFileName";
-            this.colFileName.ReadOnly = true;
-            this.colFileName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colFileName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // colInore
-            // 
-            this.colInore.HeaderText = "是否为军队单位";
-            this.colInore.MinimumWidth = 100;
-            this.colInore.Name = "colInore";
-            // 
-            // colUpload
-            // 
-            this.colUpload.HeaderText = "";
-            this.colUpload.Name = "colUpload";
-            this.colUpload.ReadOnly = true;
-            this.colUpload.Text = "上传";
-            this.colUpload.UseColumnTextForButtonValue = true;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "删除";
-            this.delete.Name = "delete";
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 45;
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Control;
@@ -218,6 +175,50 @@
             // 
             this.ofdUpload.Filter = "PNG文件|*.png|JPG文件|*.jpg|JPEG文件|*.jpeg|BMP文件|*.bmp";
             // 
+            // selpersonid
+            // 
+            this.selpersonid.HeaderText = "序号";
+            this.selpersonid.Name = "selpersonid";
+            this.selpersonid.ReadOnly = true;
+            this.selpersonid.Width = 80;
+            // 
+            // colUnitName
+            // 
+            this.colUnitName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colUnitName.HeaderText = "单位名称";
+            this.colUnitName.Name = "colUnitName";
+            // 
+            // colFileName
+            // 
+            this.colFileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFileName.HeaderText = "保密资质复印件";
+            this.colFileName.Name = "colFileName";
+            this.colFileName.ReadOnly = true;
+            this.colFileName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colFileName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // colInore
+            // 
+            this.colInore.HeaderText = "是否为军队单位";
+            this.colInore.MinimumWidth = 100;
+            this.colInore.Name = "colInore";
+            // 
+            // colUpload
+            // 
+            this.colUpload.HeaderText = "";
+            this.colUpload.Name = "colUpload";
+            this.colUpload.ReadOnly = true;
+            this.colUpload.Text = "上传";
+            this.colUpload.UseColumnTextForButtonValue = true;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "";
+            this.delete.MinimumWidth = 30;
+            this.delete.Name = "delete";
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.Width = 30;
+            // 
             // ConfidentialQualificationEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -244,12 +245,12 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvDetail;
+        private System.Windows.Forms.OpenFileDialog ofdUpload;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitName;
         private System.Windows.Forms.DataGridViewLinkColumn colFileName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colInore;
         private System.Windows.Forms.DataGridViewButtonColumn colUpload;
         private System.Windows.Forms.DataGridViewImageColumn delete;
-        private System.Windows.Forms.OpenFileDialog ofdUpload;
     }
 }

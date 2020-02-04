@@ -39,13 +39,10 @@
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKeTiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMiJi = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colMiJi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFuZeRen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPersonIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colChengDanDanWeiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChengDanDanWeiKaiHuXhangHao = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colNeiRong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colZongTiKeTi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colMakePage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewImageColumn();
@@ -115,9 +112,6 @@
             this.colFuZeRen,
             this.colPersonIDCard,
             this.colChengDanDanWeiMingCheng,
-            this.colChengDanDanWeiKaiHuXhangHao,
-            this.colNeiRong,
-            this.colZongTiKeTi,
             this.colMakePage,
             this.delete,
             this.colDetail});
@@ -125,12 +119,15 @@
             this.dgvDetail.Location = new System.Drawing.Point(0, 0);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
+            this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.RowTemplate.Height = 35;
             this.dgvDetail.Size = new System.Drawing.Size(1067, 555);
             this.dgvDetail.TabIndex = 3;
+            this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
+            this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
             // 
             // plButtons
             // 
@@ -151,6 +148,7 @@
             this.btnAdd.Size = new System.Drawing.Size(90, 29);
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "增加";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblInfo
             // 
@@ -178,62 +176,39 @@
             this.colKeTiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colKeTiMingCheng.HeaderText = "研究内容名称";
             this.colKeTiMingCheng.Name = "colKeTiMingCheng";
+            this.colKeTiMingCheng.ReadOnly = true;
             this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // colMiJi
             // 
-            this.colMiJi.DropDownWidth = 121;
-            this.colMiJi.HeaderText = "密级";
+            this.colMiJi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMiJi.HeaderText = "责任单位名称";
             this.colMiJi.Name = "colMiJi";
+            this.colMiJi.ReadOnly = true;
             this.colMiJi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMiJi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMiJi.Width = 60;
             // 
             // colFuZeRen
             // 
-            this.colFuZeRen.HeaderText = "负责人";
+            this.colFuZeRen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFuZeRen.HeaderText = "责任单位联系人";
             this.colFuZeRen.Name = "colFuZeRen";
+            this.colFuZeRen.ReadOnly = true;
             this.colFuZeRen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colFuZeRen.Width = 80;
             // 
             // colPersonIDCard
             // 
             this.colPersonIDCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPersonIDCard.HeaderText = "身份证号";
+            this.colPersonIDCard.HeaderText = "责任单位联系人电话";
             this.colPersonIDCard.Name = "colPersonIDCard";
+            this.colPersonIDCard.ReadOnly = true;
             this.colPersonIDCard.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // colChengDanDanWeiMingCheng
             // 
             this.colChengDanDanWeiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colChengDanDanWeiMingCheng.HeaderText = "承担单位名称";
+            this.colChengDanDanWeiMingCheng.HeaderText = "责任单位通信地址";
             this.colChengDanDanWeiMingCheng.Name = "colChengDanDanWeiMingCheng";
-            // 
-            // colChengDanDanWeiKaiHuXhangHao
-            // 
-            this.colChengDanDanWeiKaiHuXhangHao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colChengDanDanWeiKaiHuXhangHao.HeaderText = "承担单位开户帐号";
-            this.colChengDanDanWeiKaiHuXhangHao.Name = "colChengDanDanWeiKaiHuXhangHao";
-            this.colChengDanDanWeiKaiHuXhangHao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colChengDanDanWeiKaiHuXhangHao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colChengDanDanWeiKaiHuXhangHao.Visible = false;
-            // 
-            // colNeiRong
-            // 
-            this.colNeiRong.HeaderText = "研究经费(万)";
-            this.colNeiRong.Name = "colNeiRong";
-            this.colNeiRong.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colNeiRong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNeiRong.Width = 110;
-            // 
-            // colZongTiKeTi
-            // 
-            this.colZongTiKeTi.HeaderText = "总体研究内容";
-            this.colZongTiKeTi.Name = "colZongTiKeTi";
-            this.colZongTiKeTi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colZongTiKeTi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colZongTiKeTi.Visible = false;
-            this.colZongTiKeTi.Width = 76;
+            this.colChengDanDanWeiMingCheng.ReadOnly = true;
             // 
             // colMakePage
             // 
@@ -292,13 +267,10 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTiMingCheng;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colMiJi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMiJi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFuZeRen;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPersonIDCard;
         private System.Windows.Forms.DataGridViewTextBoxColumn colChengDanDanWeiMingCheng;
-        private System.Windows.Forms.DataGridViewButtonColumn colChengDanDanWeiKaiHuXhangHao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNeiRong;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colZongTiKeTi;
         private System.Windows.Forms.DataGridViewButtonColumn colMakePage;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn colDetail;
