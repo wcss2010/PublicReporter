@@ -34,7 +34,7 @@ namespace ProjectStrategicLeadershipPlugin
                 return;
             }
 
-            Report(progressDialog, 10, "准备Word...", 1000);
+            AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 10, "准备Word...", 1000);
 
             Projects projObj = ((Projects)pt.projectObj);
 
@@ -44,15 +44,15 @@ namespace ProjectStrategicLeadershipPlugin
             
             try
             {
-                Report(progressDialog, 20, "准备数据...", 1000);
+                AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 20, "准备数据...", 1000);
                 
-                Report(progressDialog, 30, "写入基本信息...", 1000);
+                AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 30, "写入基本信息...", 1000);
 
-                Report(progressDialog, 40, "写入文档文件...", 1000);
+                AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 40, "写入文档文件...", 1000);
                                 
-                Report(progressDialog, 60, "写入表格数据...", 1000);
+                AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 60, "写入表格数据...", 1000);
                 
-                Report(progressDialog, 90, "生成文档...", 1000);
+                AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 90, "生成文档...", 1000);
 
                 #region 显示文档或生成文档
                 //保存word
@@ -66,25 +66,7 @@ namespace ProjectStrategicLeadershipPlugin
                 MessageBox.Show(ex.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-            Report(progressDialog, 95, "", 1000);
-        }
-
-        /// <summary>
-        /// 显示进度
-        /// </summary>
-        /// <param name="progressDialog"></param>
-        /// <param name="progress"></param>
-        /// <param name="txt"></param>
-        /// <param name="sleepTime"></param>
-        public static void Report(CircleProgressBarDialog progressDialog, int progress, string txt, int sleepTime)
-        {
-            progressDialog.ReportProgress(progress, 100);
-            progressDialog.ReportInfo(txt);
-            try
-            {
-                Thread.Sleep(sleepTime);
-            }
-            catch (Exception ex) { }
+            AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 95, "", 1000);
         }
     }
 }

@@ -276,7 +276,7 @@ namespace ProjectStrategicLeadershipPlugin
                                 {
                                     CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
 
-                                    WordPrinter.Report(senderForm, 10, "准备导入...", 600);
+                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 10, "准备导入...", 600);
 
                                     string uuid = projectObj != null ? ((Projects)projectObj).ID : string.Empty;
 
@@ -289,7 +289,7 @@ namespace ProjectStrategicLeadershipPlugin
                                     //backup
                                     string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), uuid);
 
-                                    WordPrinter.Report(senderForm, 20, "清空当前目录...", 600);
+                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 20, "清空当前目录...", 600);
 
                                     //检查是否需要备份
                                     if (uuid != null && uuid.Length >= 2)
@@ -311,7 +311,7 @@ namespace ProjectStrategicLeadershipPlugin
                                         }
                                     }
 
-                                    WordPrinter.Report(senderForm, 30, "创建导入目录...", 600);
+                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 30, "创建导入目录...", 600);
 
                                     //创建当前目录
                                     try
@@ -320,12 +320,12 @@ namespace ProjectStrategicLeadershipPlugin
                                     }
                                     catch (Exception ex) { }
 
-                                    WordPrinter.Report(senderForm, 40, "正在导入...", 600);
+                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 40, "正在导入...", 600);
 
                                     //解压
                                     new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, currentPath, string.Empty, true);
 
-                                    WordPrinter.Report(senderForm, 90, "导入完成，正在刷新...", 600);
+                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导入完成，正在刷新...", 600);
 
                                     //初始化目录结构
                                     initDirs();
@@ -430,7 +430,7 @@ namespace ProjectStrategicLeadershipPlugin
                             {
                                 CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
 
-                                WordPrinter.Report(senderForm, 10, "准备导出...", 600);
+                                AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 10, "准备导出...", 600);
 
                                 //关闭连接
                                 closeDB();
@@ -438,12 +438,12 @@ namespace ProjectStrategicLeadershipPlugin
                                 //当前项目目录
                                 string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
 
-                                WordPrinter.Report(senderForm, 20, "正在导出...", 600);
+                                AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 20, "正在导出...", 600);
 
                                 //压缩
                                 new PublicReporterLib.Utility.ZipUtil().ZipFileDirectory(currentPath, sfd.FileName);
 
-                                WordPrinter.Report(senderForm, 90, "导出完成...", 600);
+                                AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导出完成...", 600);
 
                                 //打开数据库
                                 openDB();
