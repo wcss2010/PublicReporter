@@ -97,8 +97,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 || (cbxSexs.SelectedItem == null && rbIsOnlyProject.Checked == false)
                 || (cbxJobInProjects.SelectedItem == null && rbIsOnlyProject.Checked == false)
                 || String.IsNullOrEmpty(txtTotalTime.Value.ToString())
-
-                )
+                || cbxSubjects.SelectedValue == null)
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
                 return;
