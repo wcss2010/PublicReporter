@@ -36,7 +36,7 @@ namespace AbstractEditorPlugin
         /// 是否显示关闭提示
         /// </summary>
         public bool enabledShowExitHint = true;
-        
+
         /// <summary>
         /// 配置文件路径
         /// </summary>
@@ -403,15 +403,83 @@ namespace AbstractEditorPlugin
         /// <returns></returns>
         public virtual T getProjectObject<T>()
         {
-            return (T)projectObj;   
+            return (T)projectObj;
         }
 
         /// <summary>
         /// 应用当前工程
         /// </summary>
-        public virtual void applyProject()
+        public virtual void reloadProject()
         {
-           
+            CircleProgressBarDialog dialogb = new CircleProgressBarDialog();
+            dialogb.TransparencyKey = dialogb.BackColor;
+            dialogb.ProgressBar.ForeColor = Color.Red;
+            dialogb.MessageLabel.ForeColor = Color.Blue;
+            dialogb.FormBorderStyle = FormBorderStyle.None;
+            dialogb.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                {
+                    CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
+
+                    senderForm.ReportProgress(20, 100);
+                    senderForm.ReportInfo("正在准备...");
+                    if (senderForm.IsHandleCreated)
+                    {
+                        senderForm.Invoke(new MethodInvoker(delegate()
+                            {
+                                //清空视图中的内容
+                                for (int kkk = 0; kkk < editorMap.Count; kkk++)
+                                {
+                                    editorMap[kkk].Value.clearView();
+                                }
+                                //关闭连接
+                                closeDB();
+                            }));
+                    }
+
+                    senderForm.ReportProgress(40, 100);
+                    senderForm.ReportInfo("正在检查目录及数据库结构...");
+                    if (senderForm.IsHandleCreated)
+                    {
+                        senderForm.Invoke(new MethodInvoker(delegate()
+                        {
+                            //初始化目录结构
+                            initDirs();
+                        }));
+                    }
+
+                    senderForm.ReportProgress(60, 100);
+                    senderForm.ReportInfo("正在恢复数据库...");
+                    if (senderForm.IsHandleCreated)
+                    {
+                        senderForm.Invoke(new MethodInvoker(delegate()
+                        {
+                            //恢复并打开数据库
+                            openDB();
+                        }));
+                    }
+
+                    senderForm.ReportProgress(80, 100);
+                    senderForm.ReportInfo("正在载入数据...");
+                    if (senderForm.IsHandleCreated)
+                    {
+                        senderForm.Invoke(new MethodInvoker(delegate()
+                        {
+                            //初始化数据
+                            initData();
+                        }));
+                    }
+
+                    senderForm.ReportProgress(100, 100);
+                    senderForm.ReportInfo("正在刷新编辑器...");
+                    if (senderForm.IsHandleCreated)
+                    {
+                        senderForm.Invoke(new MethodInvoker(delegate()
+                        {
+                            //刷新编辑器页
+                            refreshEditors();
+                        }));
+                    }
+                }));
         }
     }
 }
