@@ -21,6 +21,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             query.set("ProjectTopic", ProjectTopic);
             query.set("ProjectDirection", ProjectDirection);
             query.set("ProjectSecretLevel", ProjectSecretLevel);
+            query.set("ProjectMasterName", ProjectMasterName);
             query.set("UnitName", UnitName);
             query.set("UnitRealName", UnitRealName);
             query.set("UnitAddress", UnitAddress);
@@ -40,6 +41,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string ProjectTopic { get; set; }
         public string ProjectDirection { get; set; }
         public string ProjectSecretLevel { get; set; }
+        public string ProjectMasterName { get; set; }
         public string UnitName { get; set; }
         public string UnitRealName { get; set; }
         public string UnitAddress { get; set; }
@@ -58,6 +60,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             ProjectTopic = source("ProjectTopic").value<string>("");
             ProjectDirection = source("ProjectDirection").value<string>("");
             ProjectSecretLevel = source("ProjectSecretLevel").value<string>("");
+            ProjectMasterName = source("ProjectMasterName").value<string>("");
             UnitName = source("UnitName").value<string>("");
             UnitRealName = source("UnitRealName").value<string>("");
             UnitAddress = source("UnitAddress").value<string>("");
