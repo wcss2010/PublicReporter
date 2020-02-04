@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AbstractEditorPlugin
@@ -420,8 +421,7 @@ namespace AbstractEditorPlugin
                 {
                     CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
 
-                    senderForm.ReportProgress(20, 100);
-                    senderForm.ReportInfo("正在准备...");
+                    report(senderForm, 20, "正在准备...", 500);
                     if (senderForm.IsHandleCreated)
                     {
                         senderForm.Invoke(new MethodInvoker(delegate()
@@ -436,8 +436,7 @@ namespace AbstractEditorPlugin
                             }));
                     }
 
-                    senderForm.ReportProgress(40, 100);
-                    senderForm.ReportInfo("正在检查目录及数据库结构...");
+                    report(senderForm, 40, "正在检查目录及数据库结构...", 500);
                     if (senderForm.IsHandleCreated)
                     {
                         senderForm.Invoke(new MethodInvoker(delegate()
@@ -447,8 +446,7 @@ namespace AbstractEditorPlugin
                         }));
                     }
 
-                    senderForm.ReportProgress(60, 100);
-                    senderForm.ReportInfo("正在恢复数据库...");
+                    report(senderForm, 60, "正在恢复数据库...", 500);
                     if (senderForm.IsHandleCreated)
                     {
                         senderForm.Invoke(new MethodInvoker(delegate()
@@ -458,8 +456,7 @@ namespace AbstractEditorPlugin
                         }));
                     }
 
-                    senderForm.ReportProgress(80, 100);
-                    senderForm.ReportInfo("正在载入数据...");
+                    report(senderForm, 80, "正在载入数据...", 500);
                     if (senderForm.IsHandleCreated)
                     {
                         senderForm.Invoke(new MethodInvoker(delegate()
@@ -469,8 +466,7 @@ namespace AbstractEditorPlugin
                         }));
                     }
 
-                    senderForm.ReportProgress(100, 100);
-                    senderForm.ReportInfo("正在刷新编辑器...");
+                    report(senderForm, 100, "正在刷新编辑器...", 500);
                     if (senderForm.IsHandleCreated)
                     {
                         senderForm.Invoke(new MethodInvoker(delegate()
@@ -480,6 +476,24 @@ namespace AbstractEditorPlugin
                         }));
                     }
                 }));
+        }
+
+        /// <summary>
+        /// 显示进度
+        /// </summary>
+        /// <param name="progressDialog"></param>
+        /// <param name="progress"></param>
+        /// <param name="txt"></param>
+        /// <param name="sleepTime"></param>
+        public static void report(CircleProgressBarDialog progressDialog, int progress, string txt, int sleepTime)
+        {
+            progressDialog.ReportProgress(progress, 100);
+            progressDialog.ReportInfo(txt);
+            try
+            {
+                Thread.Sleep(sleepTime);
+            }
+            catch (Exception ex) { }
         }
     }
 }
