@@ -23,5 +23,40 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             InitializeComponent();
         }
+
+        public override void clearView()
+        {
+            base.clearView();
+        }
+
+        public override void refreshView()
+        {
+            base.refreshView();
+        }
+
+        public override void onSaveEvent(ref bool result)
+        {
+            base.onSaveEvent(ref result);
+        }
+
+        public override bool isInputCompleted()
+        {
+            return base.isInputCompleted();
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
