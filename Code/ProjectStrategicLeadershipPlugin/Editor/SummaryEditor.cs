@@ -132,6 +132,18 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 result = false;
                 return;
             }
+            if (txtProjectMasterName.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入项目负责人!");
+                result = false;
+                return;
+            }
+            if (txtDutyUnitContactJob.Text == string.Empty)
+            {
+                MessageBox.Show("对不起，请输入责任单位联系人职务!");
+                result = false;
+                return;
+            }
 
             //检查是否需要创建项目对象
             if (PluginRootObj.projectObj == null)
@@ -146,9 +158,11 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             proj.ProjectTopic = txtProjectTopic.Text;
             proj.ProjectDirection = txtProjectDirection.Text;
             proj.ProjectSecretLevel = cbxSecretLevel.Text;
+            proj.ProjectMasterName = txtProjectMasterName.Text;
             proj.UnitName = txtDutyUnitName.Text;
             proj.UnitRealName = txtDutyUnitNormalName.Text;
             proj.UnitContact = txtDutyUnitContact.Text;
+            proj.UnitContactJob = txtDutyUnitContactJob.Text;
             proj.UnitContactPhone = txtDutyUnitContactTelephone.Text;
             proj.UnitAddress = txtDutyUnitAddress.Text;
             proj.UnitType2 = cbxDutyUnit2.Text;
@@ -181,10 +195,12 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 txtProjectTopic.Text = proj.ProjectTopic;
                 txtProjectDirection.Text = proj.ProjectDirection;
                 cbxSecretLevel.SelectedItem = proj.ProjectSecretLevel;
+                txtProjectMasterName.Text = proj.ProjectMasterName;
                 txtDutyUnitName.Text = proj.UnitName;
                 txtDutyUnitNormalName.Text = proj.UnitRealName;
                 txtDutyUnitAddress.Text = proj.UnitAddress;
                 txtDutyUnitContact.Text = proj.UnitContact;
+                txtDutyUnitContactJob.Text = proj.UnitContactJob;
                 txtDutyUnitContactTelephone.Text = proj.UnitContactPhone;
                 txtTotalMoneys.Value = proj.TotalMoney;
                 txtTotalTimes.Value = proj.TotalTime;
