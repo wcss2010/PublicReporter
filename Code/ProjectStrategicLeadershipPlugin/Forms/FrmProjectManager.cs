@@ -120,14 +120,8 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     //将这个目录切换为当前目录
                     System.IO.Directory.Move(System.IO.Path.Combine(System.IO.Path.Combine(PluginRootObj.RootDir, "Data"), tvProject.SelectedNode.Name), currentPath);
 
-                    //打开数据库
-                    PluginRootObj.openDB();
-
-                    //初始化数据
-                    PluginRootObj.initData();
-
-                    //刷新编辑器
-                    PluginRootObj.refreshEditors();
+                    //重新载入工程
+                    PluginRootObj.reloadProject();
                 }
             }
         }

@@ -327,17 +327,8 @@ namespace ProjectStrategicLeadershipPlugin
 
                                     AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导入完成，正在刷新...", 600);
 
-                                    //初始化目录结构
-                                    initDirs();
-
-                                    //打开数据库
-                                    openDB();
-
-                                    //初始化数据
-                                    initData();
-
-                                    //刷新数据
-                                    refreshEditors();
+                                    //重新载入工程
+                                    reloadProject();
                                 }));
                         }
                     }
@@ -486,17 +477,8 @@ namespace ProjectStrategicLeadershipPlugin
                 System.IO.Directory.Delete(currentPath, true);
             }
 
-            //初始化目录结构
-            initDirs();
-
-            //恢复并打开数据库
-            openDB();
-
-            //初始化数据
-            initData();
-
-            //刷新编辑器页
-            refreshEditors();
+            //重新载入工程
+            reloadProject();
         }
 
         /// <summary>
