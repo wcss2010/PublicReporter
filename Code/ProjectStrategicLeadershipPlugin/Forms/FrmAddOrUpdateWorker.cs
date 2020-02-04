@@ -17,11 +17,11 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         /// </summary>
         public const string isOnlyProject = "rbIsOnlyProject";
         /// <summary>
-        /// 项目负责人兼课题负责人或成员
+        /// 项目负责人兼研究内容负责人或成员
         /// </summary>
         public const string isProjectAndSubject = "rbIsProjectAndSubject";
         /// <summary>
-        /// 仅为课题负责人或成员
+        /// 仅为研究内容负责人或成员
         /// </summary>
         public const string isOnlySubject = "rbIsOnlySubject";
 

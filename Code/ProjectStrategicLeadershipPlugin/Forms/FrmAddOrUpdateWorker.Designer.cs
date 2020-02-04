@@ -272,7 +272,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 16);
             this.label4.TabIndex = 24;
-            this.label4.Text = "课题中职务：";
+            this.label4.Text = "研究内容中职务：";
             // 
             // cbxJobInProjects
             // 
@@ -296,7 +296,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 16);
             this.label10.TabIndex = 26;
-            this.label10.Text = "课题：";
+            this.label10.Text = "研究内容：";
             // 
             // panel1
             // 
@@ -318,7 +318,7 @@
             this.rbIsOnlySubject.Size = new System.Drawing.Size(122, 33);
             this.rbIsOnlySubject.TabIndex = 2;
             this.rbIsOnlySubject.TabStop = true;
-            this.rbIsOnlySubject.Text = "仅为课题角色";
+            this.rbIsOnlySubject.Text = "仅为研究内容角色";
             this.rbIsOnlySubject.UseVisualStyleBackColor = true;
             this.rbIsOnlySubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
             // 
@@ -330,7 +330,7 @@
             this.rbIsProjectAndSubject.Name = "rbIsProjectAndSubject";
             this.rbIsProjectAndSubject.Size = new System.Drawing.Size(186, 33);
             this.rbIsProjectAndSubject.TabIndex = 1;
-            this.rbIsProjectAndSubject.Text = "项目负责人兼课题角色";
+            this.rbIsProjectAndSubject.Text = "项目负责人兼研究内容角色";
             this.rbIsProjectAndSubject.UseVisualStyleBackColor = true;
             this.rbIsProjectAndSubject.CheckedChanged += new System.EventHandler(this.rbIsOnlySubjectMaster_CheckedChanged);
             // 

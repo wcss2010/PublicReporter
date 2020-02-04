@@ -37,16 +37,16 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             base.refreshView();
 
-            //查询课题列表
+            //查询研究内容列表
             subjectList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
 
-            //生成课题X字典
+            //生成研究内容X字典
             int kindex = 0;
             Dictionary<string, string> ktDict = new Dictionary<string, string>();
             foreach (Subjects ktb in subjectList)
             {
                 kindex++;
-                ktDict[ktb.ID] = "课题" + kindex;
+                ktDict[ktb.ID] = "研究内容" + kindex;
             }
 
             //查询人员列表
