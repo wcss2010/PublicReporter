@@ -135,7 +135,11 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-             
+            FrmAddOrUpdateSubject form = new FrmAddOrUpdateSubject(null);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                refreshView();
+            }
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
