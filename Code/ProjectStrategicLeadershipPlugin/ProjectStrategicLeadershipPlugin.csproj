@@ -123,6 +123,12 @@
     <Compile Include="Editor\StepEditor.Designer.cs">
       <DependentUpon>StepEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\SubjectDetailEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubjectDetailEditor.designer.cs">
+      <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\SubjectEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\StepEditor.resx">
       <DependentUpon>StepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubjectDetailEditor.resx">
+      <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubjectEditor.resx">
       <DependentUpon>SubjectEditor.cs</DependentUpon>
