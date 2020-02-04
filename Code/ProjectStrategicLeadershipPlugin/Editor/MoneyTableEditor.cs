@@ -120,9 +120,9 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             boxDict["ibEditMoney1"].Text = (total + secondMoney).ToString();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             List<Moneys> list = ConnectionManager.Context.table("Moneys").select("*").getList<Moneys>(new Moneys());
             foreach (Moneys ysb in list)
@@ -135,9 +135,9 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             ConnectionManager.Context.table("Moneys").delete();
             foreach (KeyValuePair<string, TextBox> kvp in boxDict)
@@ -165,7 +165,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 }
 
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
 
                 //更新保存日期
                 PluginRootObj.updateSaveDate();
@@ -180,7 +180,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return isComplete();
         }
@@ -235,9 +235,9 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             //}
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             foreach (KeyValuePair<string, TextBox> kvp in boxDict)
             {

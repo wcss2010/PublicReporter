@@ -158,12 +158,12 @@ namespace AbstractEditorPlugin.Editor
             }
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return File.Exists(Path.Combine(PluginRootObj.filesDir, EditorName + ".doc"));
         }

@@ -19,30 +19,30 @@ namespace AbstractEditorPlugin
         /// </summary>
         public virtual string EditorName { get; set; }
 
-        public event SaveEventDelegate SaveEvent;
+        public event SaveEventDelegate saveEvent;
 
-        public virtual void OnSaveEvent(ref bool result)
+        public virtual void onSaveEvent(ref bool result)
         {
-            if (SaveEvent != null)
+            if (saveEvent != null)
             {
-                SaveEvent(this, new EventArgs());
+                saveEvent(this, new EventArgs());
             }
         }
 
         /// <summary>
         /// 清理视图
         /// </summary>
-        public virtual void ClearView() { }
+        public virtual void clearView() { }
 
         /// <summary>
         /// 刷新视图
         /// </summary>
-        public virtual void RefreshView() { }
+        public virtual void refreshView() { }
 
         /// <summary>
         /// 是否输入完成
         /// </summary>
         /// <returns></returns>
-        public virtual bool IsInputCompleted() { return false; }
+        public virtual bool isInputCompleted() { return false; }
     }
 }

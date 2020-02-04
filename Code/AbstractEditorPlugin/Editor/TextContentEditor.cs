@@ -90,16 +90,16 @@ namespace AbstractEditorPlugin.Editor
             InfoLabelText = info;
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             File.WriteAllText(getTxtFilePath(), txtContent.Text);
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             if (PluginLoader.CurrentPlugin != null)
             {
@@ -122,7 +122,7 @@ namespace AbstractEditorPlugin.Editor
             return Path.Combine(PluginRootObj.filesDir, EditorName + ".txt");
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return File.Exists(getTxtFilePath());
         }
@@ -137,7 +137,7 @@ namespace AbstractEditorPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
 
                 //更新保存日期
                 PluginRootObj.updateSaveDate();
@@ -152,9 +152,9 @@ namespace AbstractEditorPlugin.Editor
             }
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             txtContent.Clear();
         }

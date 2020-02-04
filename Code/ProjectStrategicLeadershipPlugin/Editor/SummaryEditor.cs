@@ -34,7 +34,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
                 PluginRootObj.refreshEditors();
 
                 //更新保存日期
@@ -50,9 +50,9 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             if (txtProjectName.Text == string.Empty)
             {
@@ -168,9 +168,9 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             //加载数据
             if (PluginRootObj.projectObj != null)
@@ -206,14 +206,14 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return true;
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             txtProjectName.Text = string.Empty;
             txtProjectTopic.Text = string.Empty;

@@ -553,7 +553,7 @@ namespace ProjectStrategicLeadershipPlugin
                     //清空视图。。
                     for (int kkk = 0; kkk < editorMap.Count; kkk++)
                     {
-                        editorMap[kkk].Value.ClearView();
+                        editorMap[kkk].Value.clearView();
                     }
 
                     //切换到工程信息编辑器

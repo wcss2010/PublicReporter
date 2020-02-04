@@ -153,7 +153,7 @@ namespace AbstractEditorPlugin
             {
                 foreach (BaseEditor be in editorMap.Values)
                 {
-                    be.RefreshView();
+                    be.refreshView();
                 }
             }
         }
@@ -228,7 +228,7 @@ namespace AbstractEditorPlugin
                                 try
                                 {
                                     bool isSuccess = true;
-                                    be.OnSaveEvent(ref isSuccess);
+                                    be.onSaveEvent(ref isSuccess);
                                 }
                                 catch (Exception ex)
                                 {
@@ -283,7 +283,7 @@ namespace AbstractEditorPlugin
                         //保存
                         try
                         {
-                            be.OnSaveEvent(ref isSucesss);
+                            be.onSaveEvent(ref isSucesss);
                             if (isSucesss == false)
                             {
                                 throw new Exception("内容未填写完");
@@ -322,7 +322,7 @@ namespace AbstractEditorPlugin
         {
             foreach (BaseEditor be in editorMap.Values)
             {
-                if (be.IsInputCompleted())
+                if (be.isInputCompleted())
                 {
                     continue;
                 }
@@ -404,6 +404,14 @@ namespace AbstractEditorPlugin
         public virtual T getProjectObject<T>()
         {
             return (T)projectObj;   
+        }
+
+        /// <summary>
+        /// 应用当前工程
+        /// </summary>
+        public virtual void applyProject()
+        {
+           
         }
     }
 }

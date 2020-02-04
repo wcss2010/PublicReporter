@@ -101,16 +101,16 @@ namespace AbstractEditorPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return true;
         }
 
         public string RTFFile { get; set; }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             txtContent.Clear();
         }
