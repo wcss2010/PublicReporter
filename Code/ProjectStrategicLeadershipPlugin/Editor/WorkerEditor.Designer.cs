@@ -233,18 +233,20 @@
             // Column12
             // 
             this.Column12.HeaderText = "";
+            this.Column12.MinimumWidth = 30;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             this.Column12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column12.Width = 5;
+            this.Column12.Width = 30;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "";
+            this.Column13.MinimumWidth = 30;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
             this.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column13.Width = 5;
+            this.Column13.Width = 30;
             // 
             // WorkerEditor
             // 

@@ -34,6 +34,9 @@
             this.kvKetiTabs = new System.Windows.Forms.TabControl();
             this.kpKetiItems = new System.Windows.Forms.TabPage();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKeTiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMiJi = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -46,10 +49,6 @@
             this.colMakePage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.kvKetiTabs.SuspendLayout();
@@ -133,6 +132,40 @@
             this.dgvDetail.Size = new System.Drawing.Size(1067, 555);
             this.dgvDetail.TabIndex = 3;
             // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnAdd);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(0, 555);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
+            this.plButtons.Size = new System.Drawing.Size(1067, 35);
+            this.plButtons.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAdd.Location = new System.Drawing.Point(974, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 29);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "增加";
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoHeight = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
+            this.lblInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1075, 51);
+            this.lblInfo.TabIndex = 1;
+            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
+            // 
             // selpersonid
             // 
             this.selpersonid.HeaderText = "序号";
@@ -205,71 +238,29 @@
             // colMakePage
             // 
             this.colMakePage.HeaderText = "";
+            this.colMakePage.MinimumWidth = 90;
             this.colMakePage.Name = "colMakePage";
             this.colMakePage.ReadOnly = true;
             this.colMakePage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colMakePage.Text = "生成详细页";
+            this.colMakePage.Width = 90;
             // 
             // delete
             // 
-            this.delete.HeaderText = "删除";
+            this.delete.HeaderText = "";
+            this.delete.MinimumWidth = 30;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 60;
+            this.delete.Width = 30;
             // 
             // colDetail
             // 
-            this.colDetail.HeaderText = "详细";
+            this.colDetail.HeaderText = "";
+            this.colDetail.MinimumWidth = 30;
             this.colDetail.Name = "colDetail";
             this.colDetail.ReadOnly = true;
-            this.colDetail.Visible = false;
-            this.colDetail.Width = 60;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoHeight = true;
-            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
-            this.lblInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1075, 51);
-            this.lblInfo.TabIndex = 1;
-            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
-            // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnAdd);
-            this.plButtons.Controls.Add(this.btnEdit);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 555);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
-            this.plButtons.Size = new System.Drawing.Size(1067, 35);
-            this.plButtons.TabIndex = 0;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(884, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 29);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "增加";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEdit.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEdit.Location = new System.Drawing.Point(974, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(90, 29);
-            this.btnEdit.TabIndex = 5;
-            this.btnEdit.Text = "编辑";
+            this.colDetail.Width = 30;
             // 
             // SubjectEditor
             // 
@@ -298,6 +289,7 @@
         private System.Windows.Forms.TabControl kvKetiTabs;
         private System.Windows.Forms.TabPage kpKetiItems;
         private System.Windows.Forms.DataGridView dgvDetail;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTiMingCheng;
         private System.Windows.Forms.DataGridViewComboBoxColumn colMiJi;
@@ -310,7 +302,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn colMakePage;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn colDetail;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
     }
 }
