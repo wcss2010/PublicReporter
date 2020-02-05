@@ -18,6 +18,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             query.set("ID", ID);
             query.set("ProjectID", ProjectID);
             query.set("SubjectID", SubjectID);
+            query.set("StepID", StepID);
             query.set("StepTime", StepTime);
             query.set("StepTag1", StepTag1);
             query.set("StepTag2", StepTag2);
@@ -32,6 +33,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string ID { get; set; }
         public string ProjectID { get; set; }
         public string SubjectID { get; set; }
+        public string StepID { get; set; }
         public int StepTime { get; set; }
         public string StepTag1 { get; set; }
         public string StepTag2 { get; set; }
@@ -45,6 +47,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             ID = source("ID").value<string>("");
             ProjectID = source("ProjectID").value<string>("");
             SubjectID = source("SubjectID").value<string>("");
+            StepID = source("StepID").value<string>("");
             StepTime = source("StepTime").value<int>(0);
             StepTag1 = source("StepTag1").value<string>("");
             StepTag2 = source("StepTag2").value<string>("");

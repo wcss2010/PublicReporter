@@ -146,6 +146,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                         if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             ConnectionManager.Context.table("ProjectStep").where("ID='" + task.ID + "'").delete();
+                            ConnectionManager.Context.table("Steps").where("StepID='" + task.ID + "'").delete();
+
                             PluginRootObj.refreshEditors();
                         }
                         #endregion
