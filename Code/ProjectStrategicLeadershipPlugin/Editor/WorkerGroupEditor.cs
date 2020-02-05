@@ -34,6 +34,24 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         public override void refreshView()
         {
             base.refreshView();
+
+            dgvDetail.Rows.Clear();
+            List<Subjects> subList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
+            foreach(Subjects sub in subList)
+            {
+                Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + sub.ID + "' and RoleName='负责人'").select("*").getItem<Persons>(new Persons());
+                if (string.IsNullOrEmpty(pObj.ID))
+                {
+                    continue;
+                }
+
+                List<object> cells = new List<object>();
+                cells.Add(sub.SubjectName);
+                cells.Add(pObj.Name);
+                cells.Add(pObj.AttachInfo);
+                int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
+                dgvDetail.Rows[rowIndex].Tag = pObj;
+            }
         }
 
         public override bool isInputCompleted()
@@ -43,7 +61,23 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dgvDetail.Rows.Count >= 1 && dgvDetail.Rows.Count > e.RowIndex && e.RowIndex >= 0)
+            {
+                Persons task = (Persons)dgvDetail.Rows[e.RowIndex].Tag;
+                if (task != null)
+                {
+                    if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
+                    {
+                        FrmInputBox inputFrm = new FrmInputBox(task.AttachInfo);
+                        if (inputFrm.ShowDialog() == DialogResult.OK)
+                        {
+                            task.AttachInfo = inputFrm.SelectedText;
+                            task.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + task.ID + "'").update();
+                            PluginRootObj.refreshEditors();
+                        }
+                    }
+                }
+            }
         }
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

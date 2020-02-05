@@ -106,7 +106,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         //刷新列表
-                        refreshView();
+                        PluginRootObj.refreshEditors();
                     }
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
@@ -117,8 +117,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                         //删除数据
                         ConnectionManager.Context.table("Persons").where("ID='" + ((Persons)dgvDetail.Rows[e.RowIndex].Tag).ID + "'").delete();
 
-                        //刷新
-                        refreshView();
+                        //刷新列表
+                        PluginRootObj.refreshEditors(); ;
                     }
                 }
             }
@@ -137,7 +137,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
-                refreshView();
+                PluginRootObj.refreshEditors();
             }
         }
     }
