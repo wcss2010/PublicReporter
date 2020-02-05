@@ -38,7 +38,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             InitializeComponent();
 
-            RTFFileFirstName = "课题详细_";
+            RTFFileFirstName = "详细内容附件_";
         }
 
         public override void clearView()

@@ -14,6 +14,7 @@ using AbstractEditorPlugin;
 using AbstractEditorPlugin.Controls;
 using AbstractEditorPlugin.Forms;
 using AbstractEditorPlugin.Utility;
+using System.IO;
 
 namespace ProjectStrategicLeadershipPlugin.Editor
 {
@@ -168,6 +169,36 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                             ConnectionManager.Context.table("Steps").where("SubjectID='" + kett.ID + "'").delete();
                             ConnectionManager.Context.table("Persons").where("SubjectID='" + kett.ID + "'").delete();
 
+                            TabPage tpp = getSubjectDetailPage(kett.ID);
+                            if (tpp != null)
+                            {
+                                SubjectDetailEditor sde = ((SubjectDetailEditor)tpp.Controls[0]);
+
+                                try
+                                {
+                                    File.Delete(sde.getNeedFilePath());
+                                }
+                                catch (Exception ex) { }
+
+                                try
+                                {
+                                    File.Delete(sde.getContentFilePath());
+                                }
+                                catch (Exception ex) { }
+
+                                try
+                                {
+                                    File.Delete(sde.getDestFilePath());
+                                }
+                                catch (Exception ex) { }
+
+                                try
+                                {
+                                    File.Delete(sde.getInfoFilePath());
+                                }
+                                catch (Exception ex) { }
+                            }
+                            
                             PluginRootObj.refreshEditors();
                         }
                         #endregion
@@ -175,63 +206,47 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                     else if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
                     {
                         #region 切换到详细页
-                        buildOneSubjectDetailPageWithSubjectRow(e.RowIndex);
+                        showSubjectDetailPage(e.RowIndex);
                         #endregion
                     }
                 }
             }
         }
 
-        private void buildOneSubjectDetailPageWithSubjectRow(int rowIndex)
+        private void showSubjectDetailPage(int rowIndex)
         {
-            if (dgvDetail.Rows[rowIndex].Cells[1].Value == null)
+            //判断是否有数据对象
+            if (dgvDetail.Rows[rowIndex].Tag == null)
             {
                 return;
             }
 
-            string ketiName = dgvDetail.Rows[rowIndex].Cells[1].Value.ToString();
-            string ketiID = string.Empty;
+            //课题对象
             Subjects ketiProj = (Subjects)dgvDetail.Rows[rowIndex].Tag;
-            if (ketiProj == null)
-            {
-                if (dgvDetail.Rows[rowIndex].Cells[0].Tag == null)
-                {
-                    //需要生成一个课题ID,然后生成标签
-                    ketiID = Guid.NewGuid().ToString();
 
-                    //记录一下提前生成的课题ID
-                    dgvDetail.Rows[rowIndex].Cells[0].Tag = ketiID;
-                }
-                else
-                {
-                    ketiID = dgvDetail.Rows[rowIndex].Cells[0].Tag.ToString();
-                }
-            }
-            else
-            {
-                //直接重新生成标签就可以
-                ketiID = ketiProj.ID;
-            }
+            //切换到详细页
+            kvKetiTabs.SelectedTab = getSubjectDetailPage(ketiProj.ID);
+        }
 
-            //查找是否已存在
+        /// <summary>
+        /// 获得课题详细页
+        /// </summary>
+        /// <param name="subjectID"></param>
+        /// <returns></returns>
+        private TabPage getSubjectDetailPage(string subjectID)
+        {
             TabPage oldPage = null;
             foreach (TabPage kp in kvKetiTabs.TabPages)
             {
-                if (kp.Name == ketiID)
+                if (kp.Name == subjectID)
                 {
                     oldPage = kp;
                     break;
                 }
             }
-
-            if (oldPage == null)
-            {
-                oldPage = buildOneSubjectReadmePage(ketiID, ketiName);
-            }
-
-            kvKetiTabs.SelectedTab = oldPage;
+            return oldPage;
         }
-
+        
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.Question_16;
