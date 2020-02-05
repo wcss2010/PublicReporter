@@ -17,6 +17,7 @@ using AbstractEditorPlugin.Utility;
 using System.Diagnostics;
 using System.IO;
 
+
 namespace ProjectStrategicLeadershipPlugin.Editor
 {
     public partial class ConfidentialQualificationEditor : BaseEditor
@@ -24,28 +25,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         public ConfidentialQualificationEditor()
         {
             InitializeComponent();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            FrmWorkProcess upf = new FrmWorkProcess();
-            upf.LabalText = "正在保存,请等待...";
-            upf.ShowProgressWithOnlyUI();
-            upf.PlayProgressWithOnlyUI(80);
-
-            try
-            {
-                bool result = true;
-                onSaveEvent(ref result);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("保存失败！Ex:" + ex.ToString());
-            }
-            finally
-            {
-                upf.CloseProgressWithOnlyUI();
-            }
         }
 
         public override void clearView()
@@ -60,7 +39,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             base.refreshView();
 
             dgvDetail.Rows.Clear();
-            List<ExtFiles> list = ConnectionManager.Context.table("ExtFiles").where("ProjectID='" + PluginRootObj.getProjectObject<Projects>().ID + "'").select("*").getList<ExtFiles>(new ExtFiles());
+            List<ExtFiles> list = ConnectionManager.Context.table("ExtFiles").select("*").getList<ExtFiles>(new ExtFiles());
             int index = 0;
             foreach (ExtFiles efl in list)
             {
@@ -73,275 +52,36 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = efl;
-                dgvDetail.Rows[rowIndex].Cells[2].Tag = "uploaded";
-            }
-        }
-
-        public override void onSaveEvent(ref bool result)
-        {
-            base.onSaveEvent(ref result);
-
-            foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
-            {
-                if (dgvRow.Cells[1].Value == null || string.IsNullOrEmpty(dgvRow.Cells[1].Value.ToString()))
-                {
-                    MessageBox.Show("对不起,请输入单位名称!");
-                    result = false;
-                    break; ;
-                }
-
-                if (dgvRow.Tag != null)
-                {
-                    //修改
-                    ExtFiles efl = (ExtFiles)dgvRow.Tag;
-
-                    //检查是否修改过
-                    if (dgvRow.Cells[2].Tag != null)
-                    {
-                        string sourceFile = dgvRow.Cells[2].Tag.ToString();
-                        string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(PluginRootObj.filesDir, realFileName);
-                        if (File.Exists(sourceFile))
-                        {
-                            //旧地址
-                            string oldFile = Path.Combine(PluginRootObj.filesDir, efl.RealFileName);
-                            try
-                            {
-                                File.Delete(oldFile);
-                            }
-                            catch (Exception ex) { }
-
-                            //复制新地址
-                            File.Copy(sourceFile, destFile, true);
-
-                            //源文件
-                            efl.SourceFileName = Path.GetFileName(sourceFile);
-
-                            //真实文件名称
-                            efl.RealFileName = realFileName;
-
-                            //是否为军队单位
-                            efl.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-
-                            //单位名称
-                            efl.ExtName = dgvRow.Cells[1].Value.ToString();
-
-                            //更新数据
-                            efl.copyTo(ConnectionManager.Context.table("ExtFiles")).where("ID='" + efl.ID + "'").update();
-                        }
-                        else
-                        {
-                            //是否为军队单位
-                            efl.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-
-                            //单位名称
-                            efl.ExtName = dgvRow.Cells[1].Value.ToString();
-
-                            //更新数据
-                            efl.copyTo(ConnectionManager.Context.table("ExtFiles")).where("ID='" + efl.ID + "'").update();
-                        }
-                    }
-                    else
-                    {
-                        //是否为军队单位
-                        efl.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-
-                        //单位名称
-                        efl.ExtName = dgvRow.Cells[1].Value.ToString();
-
-                        //源文件名
-                        efl.SourceFileName = string.Empty;
-
-                        //真实文件名
-                        efl.RealFileName = string.Empty;
-
-                        //更新数据
-                        efl.copyTo(ConnectionManager.Context.table("ExtFiles")).where("ID='" + efl.ID + "'").update();
-                    }
-                }
-                else
-                {
-                    //增加
-                    if (dgvRow.Cells[2].Tag != null)
-                    {
-                        string sourceFile = dgvRow.Cells[2].Tag.ToString();
-                        string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(PluginRootObj.filesDir, realFileName);
-                        if (File.Exists(sourceFile))
-                        {
-                            //复制新地址
-                            File.Copy(sourceFile, destFile, true);
-
-                            ExtFiles efll = new ExtFiles();
-                            efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = PluginRootObj.getProjectObject<Projects>().ID;
-                            efll.ExtName = dgvRow.Cells[1].Value.ToString();
-                            efll.SourceFileName = Path.GetFileName(sourceFile);
-                            efll.RealFileName = realFileName;
-                            efll.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-                            efll.copyTo(ConnectionManager.Context.table("ExtFiles")).insert();
-                        }
-                    }
-                    else
-                    {
-                        ExtFiles efll = new ExtFiles();
-                        efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = PluginRootObj.getProjectObject<Projects>().ID;
-                        efll.ExtName = dgvRow.Cells[1].Value.ToString();
-                        efll.SourceFileName = string.Empty;
-                        efll.RealFileName = string.Empty;
-                        efll.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-                        efll.copyTo(ConnectionManager.Context.table("ExtFiles")).insert();
-                    }
-                }
-            }
-
-            //刷新数据
-            refreshView();
-        }
-
-        private void SaveOnly()
-        {
-            foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
-            {
-                if (dgvRow.Cells[1].Value == null)
-                {
-                    dgvRow.Cells[1].Value = string.Empty;
-                }
-
-                if (dgvRow.Tag != null)
-                {
-                    //修改
-                    ExtFiles efl = (ExtFiles)dgvRow.Tag;
-
-                    //检查是否修改过
-                    if (dgvRow.Cells[2].Tag != null)
-                    {
-                        string sourceFile = dgvRow.Cells[2].Tag.ToString();
-                        string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(PluginRootObj.filesDir, realFileName);
-                        if (File.Exists(sourceFile))
-                        {
-                            //旧地址
-                            string oldFile = Path.Combine(PluginRootObj.filesDir, efl.RealFileName);
-                            try
-                            {
-                                File.Delete(oldFile);
-                            }
-                            catch (Exception ex) { }
-
-                            //复制新地址
-                            File.Copy(sourceFile, destFile, true);
-
-                            //源文件
-                            efl.SourceFileName = Path.GetFileName(sourceFile);
-
-                            //真实文件名称
-                            efl.RealFileName = realFileName;
-
-                            //是否为军队单位
-                            efl.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-
-                            //单位名称
-                            efl.ExtName = dgvRow.Cells[1].Value.ToString();
-
-                            //更新数据
-                            efl.copyTo(ConnectionManager.Context.table("ExtFiles")).where("ID='" + efl.ID + "'").update();
-                        }
-                        else
-                        {
-                            //是否为军队单位
-                            efl.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-
-                            //单位名称
-                            efl.ExtName = dgvRow.Cells[1].Value.ToString();
-
-                            //更新数据
-                            efl.copyTo(ConnectionManager.Context.table("ExtFiles")).where("ID='" + efl.ID + "'").update();
-                        }
-                    }
-                    else
-                    {
-                        //是否为军队单位
-                        efl.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-
-                        //单位名称
-                        efl.ExtName = dgvRow.Cells[1].Value.ToString();
-
-                        //源文件名
-                        efl.SourceFileName = string.Empty;
-
-                        //真实文件名
-                        efl.RealFileName = string.Empty;
-
-                        //更新数据
-                        efl.copyTo(ConnectionManager.Context.table("ExtFiles")).where("ID='" + efl.ID + "'").update();
-                    }
-                }
-                else
-                {
-                    //增加
-                    if (dgvRow.Cells[2].Tag != null)
-                    {
-                        string sourceFile = dgvRow.Cells[2].Tag.ToString();
-                        string realFileName = DateTime.Now.Ticks + "___" + Path.GetFileName(sourceFile);
-                        string destFile = Path.Combine(PluginRootObj.filesDir, realFileName);
-                        if (File.Exists(sourceFile))
-                        {
-                            //复制新地址
-                            File.Copy(sourceFile, destFile, true);
-
-                            ExtFiles efll = new ExtFiles();
-                            efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = PluginRootObj.getProjectObject<Projects>().ID;
-                            efll.ExtName = dgvRow.Cells[1].Value.ToString();
-                            efll.SourceFileName = Path.GetFileName(sourceFile);
-                            efll.RealFileName = realFileName;
-                            efll.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-                            efll.copyTo(ConnectionManager.Context.table("ExtFiles")).insert();
-                        }
-                    }
-                    else
-                    {
-                        ExtFiles efll = new ExtFiles();
-                        efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = PluginRootObj.getProjectObject<Projects>().ID;
-                        efll.ExtName = dgvRow.Cells[1].Value.ToString();
-                        efll.SourceFileName = string.Empty;
-                        efll.RealFileName = string.Empty;
-                        efll.IsIgnore = ((bool)dgvRow.Cells[3].Value) ? 1 : 0;
-                        efll.copyTo(ConnectionManager.Context.table("ExtFiles")).insert();
-                    }
-                }
             }
         }
 
         public override bool isInputCompleted()
         {
-            if (dgvDetail.Rows.Count == 0)
-            {
-                MessageBox.Show("对不起,请上传保密资质!");
-            }
             return dgvDetail.Rows.Count >= 1;
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDetail.Rows.Count >= 1)
+            if (dgvDetail.Rows.Count >= 1 && dgvDetail.Rows.Count > e.RowIndex && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
+                ExtFiles task = (ExtFiles)dgvDetail.Rows[e.RowIndex].Tag;
+                if (task != null)
                 {
-                    if (dgvDetail.Rows[e.RowIndex].Tag != null)
+                    if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                     {
-                        ExtFiles task = (ExtFiles)dgvDetail.Rows[e.RowIndex].Tag;
+                        #region 编辑
+                        FrmAddOrUpdateConfidentialQualification form = new FrmAddOrUpdateConfidentialQualification(task);
+                        if (form.ShowDialog() == DialogResult.OK)
+                        {
+                            refreshView();
+                        }
+                        #endregion
+                    }
+                    else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
+                    {
+                        #region 删除
                         if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            //先保存当前的
-                            if (dgvDetail.Rows.Count >= 2)
-                            {
-                                SaveOnly();
-                            }
-
                             try
                             {
                                 File.Delete(Path.Combine(PluginRootObj.filesDir, task.RealFileName));
@@ -351,39 +91,11 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                             ConnectionManager.Context.table("ExtFiles").where("ID='" + task.ID + "'").delete();
                             refreshView();
                         }
+                        #endregion
                     }
-                    else
+                    else if (e.ColumnIndex == dgvDetail.Columns.Count - 4)
                     {
-                        if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
-                        {
-                            if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                            {
-                                try
-                                {
-                                    dgvDetail.Rows.RemoveAt(e.RowIndex);
-                                }
-                                catch (Exception ex)
-                                {
-                                    refreshView();
-                                }
-                            }
-                        }
-                    }
-                }
-                else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
-                {
-                    if (ofdUpload.ShowDialog() == DialogResult.OK)
-                    {
-                        dgvDetail.Rows[e.RowIndex].Cells[2].Tag = ofdUpload.FileName;
-                        dgvDetail.Rows[e.RowIndex].Cells[2].Value = Path.GetFileName(ofdUpload.FileName);
-                    }
-                }
-                else if (e.ColumnIndex == 2)
-                {
-                    if (dgvDetail.Rows[e.RowIndex].Tag != null)
-                    {
-                        ExtFiles task = (ExtFiles)dgvDetail.Rows[e.RowIndex].Tag;
-
+                        #region 打开
                         if (string.IsNullOrEmpty(task.RealFileName))
                         {
                             return;
@@ -396,6 +108,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                             }
                             catch (Exception ex) { }
                         }
+                        #endregion
                     }
                 }
             }
@@ -403,12 +116,17 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.Question_16;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.DELETE_28;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            dgvDetail.Rows.Add(new object[] { dgvDetail.Rows.Count + 1, string.Empty, string.Empty, false });
+            FrmAddOrUpdateConfidentialQualification form = new FrmAddOrUpdateConfidentialQualification(null);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                refreshView();
+            }
         }
     }
 }

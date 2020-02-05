@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnSave = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
@@ -43,24 +42,13 @@
             this.colUnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFileName = new System.Windows.Forms.DataGridViewLinkColumn();
             this.colInore = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colUpload = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.plButtons.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(1014, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 29);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "保存";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // plMain
             // 
@@ -98,12 +86,13 @@
             this.colUnitName,
             this.colFileName,
             this.colInore,
-            this.colUpload,
-            this.delete});
+            this.delete,
+            this.Column1});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 82);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
+            this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
@@ -152,7 +141,6 @@
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnAdd);
-            this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Location = new System.Drawing.Point(10, 627);
             this.plButtons.Name = "plButtons";
@@ -164,7 +152,7 @@
             // 
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(924, 3);
+            this.btnAdd.Location = new System.Drawing.Point(1014, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 29);
             this.btnAdd.TabIndex = 4;
@@ -187,6 +175,7 @@
             this.colUnitName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colUnitName.HeaderText = "单位名称";
             this.colUnitName.Name = "colUnitName";
+            this.colUnitName.ReadOnly = true;
             // 
             // colFileName
             // 
@@ -202,22 +191,24 @@
             this.colInore.HeaderText = "是否为军队单位";
             this.colInore.MinimumWidth = 100;
             this.colInore.Name = "colInore";
-            // 
-            // colUpload
-            // 
-            this.colUpload.HeaderText = "";
-            this.colUpload.Name = "colUpload";
-            this.colUpload.ReadOnly = true;
-            this.colUpload.Text = "上传";
-            this.colUpload.UseColumnTextForButtonValue = true;
+            this.colInore.ReadOnly = true;
             // 
             // delete
             // 
             this.delete.HeaderText = "";
             this.delete.MinimumWidth = 30;
             this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.Width = 30;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 30;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 30;
             // 
             // ConfidentialQualificationEditor
             // 
@@ -237,7 +228,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plContent;
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblInfo;
@@ -250,7 +240,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitName;
         private System.Windows.Forms.DataGridViewLinkColumn colFileName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colInore;
-        private System.Windows.Forms.DataGridViewButtonColumn colUpload;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
     }
 }

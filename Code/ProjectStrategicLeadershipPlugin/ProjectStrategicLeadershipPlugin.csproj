@@ -171,6 +171,12 @@
     <Compile Include="Forms\FrmAddOrUpdateSubject.Designer.cs">
       <DependentUpon>FrmAddOrUpdateSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateFrmAddOrUpdateConfidentialQualification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateFrmAddOrUpdateConfidentialQualification.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateFrmAddOrUpdateConfidentialQualification.cs</DependentUpon>
+    </Compile>
     <Compile Include="PluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateSubject.resx">
       <DependentUpon>FrmAddOrUpdateSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateFrmAddOrUpdateConfidentialQualification.resx">
+      <DependentUpon>FrmAddOrUpdateFrmAddOrUpdateConfidentialQualification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
