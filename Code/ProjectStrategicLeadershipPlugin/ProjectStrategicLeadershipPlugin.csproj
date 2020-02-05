@@ -117,11 +117,11 @@
     <Compile Include="Editor\ProjectStepEditor.Designer.cs">
       <DependentUpon>ProjectStepEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\StepEditor.cs">
+    <Compile Include="Editor\SubjectStepEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Editor\StepEditor.Designer.cs">
-      <DependentUpon>StepEditor.cs</DependentUpon>
+    <Compile Include="Editor\SubjectStepEditor.Designer.cs">
+      <DependentUpon>SubjectStepEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\SubjectDetailEditor.cs">
       <SubType>UserControl</SubType>
@@ -233,8 +233,8 @@
     <EmbeddedResource Include="Editor\ProjectStepEditor.resx">
       <DependentUpon>ProjectStepEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\StepEditor.resx">
-      <DependentUpon>StepEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Editor\SubjectStepEditor.resx">
+      <DependentUpon>SubjectStepEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubjectDetailEditor.resx">
       <DependentUpon>SubjectDetailEditor.cs</DependentUpon>

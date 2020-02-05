@@ -185,7 +185,7 @@ namespace ProjectStrategicLeadershipPlugin
             //（一）、项目阶段划分(自定义列表)
             editorMap[tnode_6_0_Name] = new Editor.ProjectStepEditor();
             //（二）、研究内容阶段划分(自定义列表)
-            editorMap[tnode_6_1_Name] = new Editor.StepEditor();
+            editorMap[tnode_6_1_Name] = new Editor.SubjectStepEditor();
             //六、研究基础与保障条件(DocumentPasteEditor)
             editorMap[tnode_7_Name] = new DocumentPasteEditor("研究基础与保障条件", "（介绍与本项目相关的，已开展过的工作、已有的研究基础和软硬件保障条件等，限800字以内。特别是属常态化、持续性研究项目，应重点说明与已立项战略先导计划项目之间的关系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
             //七、项目负责人和研究团队(不需要显示内容)

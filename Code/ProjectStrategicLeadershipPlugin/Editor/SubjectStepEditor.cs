@@ -17,9 +17,9 @@ using AbstractEditorPlugin.Utility;
 
 namespace ProjectStrategicLeadershipPlugin.Editor
 {
-    public partial class StepEditor : BaseEditor
+    public partial class SubjectStepEditor : BaseEditor
     {
-        public StepEditor()
+        public SubjectStepEditor()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace ProjectStrategicLeadershipPlugin.Editor
 {
-    partial class StepEditor
+    partial class SubjectStepEditor
     {
         /// <summary> 
         /// 必需的设计器变量。
