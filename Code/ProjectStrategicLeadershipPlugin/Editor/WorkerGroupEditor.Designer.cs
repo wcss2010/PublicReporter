@@ -33,16 +33,17 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
+            this.dgvDetail = new System.Windows.Forms.DataGridView();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plButtons = new System.Windows.Forms.Panel();
-            this.dgvDetail = new System.Windows.Forms.DataGridView();
             this.colKeTi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colJieDuanHuaHuaFen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
-            this.plButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
+            this.plButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSave
@@ -79,6 +80,39 @@
             this.plContent.Size = new System.Drawing.Size(1073, 644);
             this.plContent.TabIndex = 1;
             // 
+            // dgvDetail
+            // 
+            this.dgvDetail.AllowUserToAddRows = false;
+            this.dgvDetail.AllowUserToResizeRows = false;
+            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.dgvDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dgvDetail.ColumnHeadersHeight = 35;
+            this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colKeTi,
+            this.colJieDuanHuaHuaFen,
+            this.colResult,
+            this.Column1});
+            this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetail.Location = new System.Drawing.Point(0, 51);
+            this.dgvDetail.MultiSelect = false;
+            this.dgvDetail.Name = "dgvDetail";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetail.RowTemplate.Height = 35;
+            this.dgvDetail.Size = new System.Drawing.Size(1073, 593);
+            this.dgvDetail.TabIndex = 6;
+            this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
+            this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
+            // 
             // lblInfo
             // 
             this.lblInfo.AutoHeight = true;
@@ -103,44 +137,12 @@
             this.plButtons.Size = new System.Drawing.Size(1073, 35);
             this.plButtons.TabIndex = 0;
             // 
-            // dgvDetail
-            // 
-            this.dgvDetail.AllowUserToAddRows = false;
-            this.dgvDetail.AllowUserToResizeRows = false;
-            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
-            this.dgvDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dgvDetail.ColumnHeadersHeight = 35;
-            this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colKeTi,
-            this.colJieDuanHuaHuaFen,
-            this.colResult});
-            this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetail.Location = new System.Drawing.Point(0, 51);
-            this.dgvDetail.MultiSelect = false;
-            this.dgvDetail.Name = "dgvDetail";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F);
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetail.RowTemplate.Height = 35;
-            this.dgvDetail.Size = new System.Drawing.Size(1073, 593);
-            this.dgvDetail.TabIndex = 6;
-            // 
             // colKeTi
             // 
-            this.colKeTi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colKeTi.HeaderText = "课题";
-            this.colKeTi.MinimumWidth = 69;
+            this.colKeTi.HeaderText = "研究内容";
+            this.colKeTi.MinimumWidth = 100;
             this.colKeTi.Name = "colKeTi";
             this.colKeTi.ReadOnly = true;
-            this.colKeTi.Width = 69;
             // 
             // colJieDuanHuaHuaFen
             // 
@@ -157,6 +159,13 @@
             this.colResult.Name = "colResult";
             this.colResult.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 30;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 30;
+            // 
             // WorkerGroupEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -167,8 +176,8 @@
             this.Size = new System.Drawing.Size(1093, 699);
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
-            this.plButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
+            this.plButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -184,5 +193,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJieDuanHuaHuaFen;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResult;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
     }
 }

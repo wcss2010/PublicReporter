@@ -23,5 +23,32 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             InitializeComponent();
         }
+
+        public override void clearView()
+        {
+            base.clearView();
+
+            dgvDetail.Rows.Clear();
+        }
+
+        public override void refreshView()
+        {
+            base.refreshView();
+        }
+
+        public override bool isInputCompleted()
+        {
+            return dgvDetail.Rows.Count >= 1;
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.Question_16;
+        }
     }
 }
