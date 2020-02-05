@@ -33,13 +33,13 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.colKeTi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colJieDuanHuaHuaFen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colJieDuanJingFei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -86,6 +86,7 @@
             this.dgvDetail.Location = new System.Drawing.Point(0, 51);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
+            this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
@@ -102,20 +103,6 @@
             this.dgvDetail.TabIndex = 6;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoHeight = true;
-            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
-            this.lblInfo.Location = new System.Drawing.Point(0, 0);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1080, 51);
-            this.lblInfo.TabIndex = 1;
-            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
             // 
             // colKeTi
             // 
@@ -144,12 +131,14 @@
             this.colContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colContent.HeaderText = "阶段成果";
             this.colContent.Name = "colContent";
+            this.colContent.ReadOnly = true;
             // 
             // colJieDuanJingFei
             // 
             this.colJieDuanJingFei.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colJieDuanJingFei.HeaderText = "考核指标";
             this.colJieDuanJingFei.Name = "colJieDuanJingFei";
+            this.colJieDuanJingFei.ReadOnly = true;
             this.colJieDuanJingFei.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // delete
@@ -160,6 +149,20 @@
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.Width = 30;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoHeight = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
+            this.lblInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1080, 51);
+            this.lblInfo.TabIndex = 1;
+            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
             // 
             // SubjectStepEditor
             // 
