@@ -37,7 +37,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTag2 = new System.Windows.Forms.TextBox();
-            this.cbxMonths = new System.Windows.Forms.ComboBox();
+            this.txtStepTime = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStepTime)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -135,26 +136,34 @@
             this.txtTag2.Size = new System.Drawing.Size(581, 103);
             this.txtTag2.TabIndex = 14;
             // 
-            // cbxMonths
+            // txtStepTime
             // 
-            this.cbxMonths.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMonths.FormattingEnabled = true;
-            this.cbxMonths.Items.AddRange(new object[] {
-            "18",
-            "12",
-            "12",
-            "18"});
-            this.cbxMonths.Location = new System.Drawing.Point(195, 19);
-            this.cbxMonths.Name = "cbxMonths";
-            this.cbxMonths.Size = new System.Drawing.Size(142, 24);
-            this.cbxMonths.TabIndex = 17;
+            this.txtStepTime.Location = new System.Drawing.Point(196, 20);
+            this.txtStepTime.Maximum = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
+            this.txtStepTime.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.txtStepTime.Name = "txtStepTime";
+            this.txtStepTime.Size = new System.Drawing.Size(83, 26);
+            this.txtStepTime.TabIndex = 18;
+            this.txtStepTime.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // FrmAddOrUpdateProjectStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 521);
-            this.Controls.Add(this.cbxMonths);
+            this.Controls.Add(this.txtStepTime);
             this.Controls.Add(this.txtTag3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtTag2);
@@ -171,6 +180,7 @@
             this.Name = "FrmAddOrUpdateProjectStep";
             this.Text = "新增/编辑项目阶段";
             this.Load += new System.EventHandler(this.FrmAddOrUpdateWorker_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtStepTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,6 +197,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtTag2;
-        private System.Windows.Forms.ComboBox cbxMonths;
+        private System.Windows.Forms.NumericUpDown txtStepTime;
     }
 }
