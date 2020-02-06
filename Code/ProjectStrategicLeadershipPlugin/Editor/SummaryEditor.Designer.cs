@@ -50,9 +50,13 @@
             this.txtDutyUnitNormalName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.cbxDutyUnit2 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtDutyUnitAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtDutyUnitContactJob = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtDutyUnitContactTelephone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDutyUnitContact = new System.Windows.Forms.TextBox();
@@ -64,14 +68,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTotalMoneys = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.cbxDutyUnit2 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtDutyUnitContactJob = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtProjectMasterName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
+            this.plButtons = new System.Windows.Forms.Panel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -226,7 +226,7 @@
             "公开",
             "秘密",
             "机密"});
-            this.cbxSecretLevel.Location = new System.Drawing.Point(891, 0);
+            this.cbxSecretLevel.Location = new System.Drawing.Point(731, 0);
             this.cbxSecretLevel.Name = "cbxSecretLevel";
             this.cbxSecretLevel.Size = new System.Drawing.Size(99, 24);
             this.cbxSecretLevel.TabIndex = 7;
@@ -235,10 +235,10 @@
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label12.Location = new System.Drawing.Point(786, 0);
+            this.label12.Location = new System.Drawing.Point(636, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 29);
+            this.label12.Size = new System.Drawing.Size(95, 29);
             this.label12.TabIndex = 3;
             this.label12.Text = "保密等级：";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -250,7 +250,7 @@
             this.txtProjectDirection.Location = new System.Drawing.Point(92, 0);
             this.txtProjectDirection.Margin = new System.Windows.Forms.Padding(4);
             this.txtProjectDirection.Name = "txtProjectDirection";
-            this.txtProjectDirection.Size = new System.Drawing.Size(694, 26);
+            this.txtProjectDirection.Size = new System.Drawing.Size(544, 26);
             this.txtProjectDirection.TabIndex = 6;
             // 
             // label3
@@ -338,6 +338,58 @@
             this.panel7.Size = new System.Drawing.Size(1047, 29);
             this.panel7.TabIndex = 6;
             // 
+            // cbxDutyUnit2
+            // 
+            this.cbxDutyUnit2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbxDutyUnit2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDutyUnit2.Font = new System.Drawing.Font("仿宋", 12F);
+            this.cbxDutyUnit2.FormattingEnabled = true;
+            this.cbxDutyUnit2.Items.AddRange(new object[] {
+            "陆军",
+            "海军",
+            "空军",
+            "火箭军",
+            "战略支援部队",
+            "联勤保障部队",
+            "军委机关直属单位",
+            "军事科学院",
+            "国防大学",
+            "国防科技大学",
+            "武警部队",
+            "教育部",
+            "工信部",
+            "中国科学院",
+            "中国兵器工业集团公司",
+            "中国兵器装备集团公司",
+            "中国船舶工业集团公司",
+            "中国船舶重工集团公司",
+            "中国电子科技集团公司",
+            "中国电子信息产业集团公司",
+            "中国航空发动机集团公司",
+            "中国航空工业集团公司",
+            "中国航天科工集团公司",
+            "中国航天科技集团公司",
+            "中国核工业集团公司",
+            "中国工程物理研究院",
+            "其它"});
+            this.cbxDutyUnit2.Location = new System.Drawing.Point(733, 0);
+            this.cbxDutyUnit2.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxDutyUnit2.Name = "cbxDutyUnit2";
+            this.cbxDutyUnit2.Size = new System.Drawing.Size(190, 24);
+            this.cbxDutyUnit2.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label8.Location = new System.Drawing.Point(562, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(171, 29);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "责任单位所属大单位：";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txtDutyUnitAddress
             // 
             this.txtDutyUnitAddress.Dock = System.Windows.Forms.DockStyle.Left;
@@ -345,7 +397,7 @@
             this.txtDutyUnitAddress.Location = new System.Drawing.Point(171, 0);
             this.txtDutyUnitAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtDutyUnitAddress.Name = "txtDutyUnitAddress";
-            this.txtDutyUnitAddress.Size = new System.Drawing.Size(450, 26);
+            this.txtDutyUnitAddress.Size = new System.Drawing.Size(391, 26);
             this.txtDutyUnitAddress.TabIndex = 6;
             // 
             // label7
@@ -373,6 +425,28 @@
             this.panel8.Size = new System.Drawing.Size(1047, 27);
             this.panel8.TabIndex = 7;
             // 
+            // txtDutyUnitContactJob
+            // 
+            this.txtDutyUnitContactJob.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtDutyUnitContactJob.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtDutyUnitContactJob.Location = new System.Drawing.Point(733, 0);
+            this.txtDutyUnitContactJob.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDutyUnitContactJob.Name = "txtDutyUnitContactJob";
+            this.txtDutyUnitContactJob.Size = new System.Drawing.Size(190, 26);
+            this.txtDutyUnitContactJob.TabIndex = 37;
+            // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label11.Location = new System.Drawing.Point(562, 0);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(171, 27);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "责任单位联系人职务：";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txtDutyUnitContactTelephone
             // 
             this.txtDutyUnitContactTelephone.Dock = System.Windows.Forms.DockStyle.Left;
@@ -380,7 +454,7 @@
             this.txtDutyUnitContactTelephone.Location = new System.Drawing.Point(434, 0);
             this.txtDutyUnitContactTelephone.Margin = new System.Windows.Forms.Padding(4);
             this.txtDutyUnitContactTelephone.Name = "txtDutyUnitContactTelephone";
-            this.txtDutyUnitContactTelephone.Size = new System.Drawing.Size(271, 26);
+            this.txtDutyUnitContactTelephone.Size = new System.Drawing.Size(128, 26);
             this.txtDutyUnitContactTelephone.TabIndex = 16;
             // 
             // label13
@@ -438,17 +512,17 @@
             this.txtRegisterDate.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtRegisterDate.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtRegisterDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtRegisterDate.Location = new System.Drawing.Point(712, 0);
+            this.txtRegisterDate.Location = new System.Drawing.Point(711, 0);
             this.txtRegisterDate.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             this.txtRegisterDate.Name = "txtRegisterDate";
-            this.txtRegisterDate.Size = new System.Drawing.Size(138, 26);
+            this.txtRegisterDate.Size = new System.Drawing.Size(141, 26);
             this.txtRegisterDate.TabIndex = 33;
             // 
             // label15
             // 
             this.label15.Dock = System.Windows.Forms.DockStyle.Left;
             this.label15.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label15.Location = new System.Drawing.Point(584, 0);
+            this.label15.Location = new System.Drawing.Point(583, 0);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(128, 29);
@@ -460,7 +534,7 @@
             // 
             this.txtTotalTimes.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtTotalTimes.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtTotalTimes.Location = new System.Drawing.Point(526, 0);
+            this.txtTotalTimes.Location = new System.Drawing.Point(525, 0);
             this.txtTotalTimes.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -474,7 +548,7 @@
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(419, 0);
+            this.label10.Location = new System.Drawing.Point(418, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(107, 29);
@@ -486,7 +560,7 @@
             // 
             this.txtTotalMoneys.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtTotalMoneys.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtTotalMoneys.Location = new System.Drawing.Point(344, 0);
+            this.txtTotalMoneys.Location = new System.Drawing.Point(343, 0);
             this.txtTotalMoneys.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -503,10 +577,32 @@
             this.label14.Location = new System.Drawing.Point(263, 0);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 29);
+            this.label14.Size = new System.Drawing.Size(80, 29);
             this.label14.TabIndex = 3;
             this.label14.Text = "总经费：";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtProjectMasterName
+            // 
+            this.txtProjectMasterName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtProjectMasterName.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtProjectMasterName.Location = new System.Drawing.Point(171, 0);
+            this.txtProjectMasterName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtProjectMasterName.Name = "txtProjectMasterName";
+            this.txtProjectMasterName.Size = new System.Drawing.Size(92, 26);
+            this.txtProjectMasterName.TabIndex = 35;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(171, 29);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "项目负责人：";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblInfo
             // 
@@ -531,102 +627,6 @@
             this.plButtons.Padding = new System.Windows.Forms.Padding(3);
             this.plButtons.Size = new System.Drawing.Size(1072, 35);
             this.plButtons.TabIndex = 0;
-            // 
-            // cbxDutyUnit2
-            // 
-            this.cbxDutyUnit2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbxDutyUnit2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDutyUnit2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.cbxDutyUnit2.FormattingEnabled = true;
-            this.cbxDutyUnit2.Items.AddRange(new object[] {
-            "陆军",
-            "海军",
-            "空军",
-            "火箭军",
-            "战略支援部队",
-            "联勤保障部队",
-            "军委机关直属单位",
-            "军事科学院",
-            "国防大学",
-            "国防科技大学",
-            "武警部队",
-            "教育部",
-            "工信部",
-            "中国科学院",
-            "中国兵器工业集团公司",
-            "中国兵器装备集团公司",
-            "中国船舶工业集团公司",
-            "中国船舶重工集团公司",
-            "中国电子科技集团公司",
-            "中国电子信息产业集团公司",
-            "中国航空发动机集团公司",
-            "中国航空工业集团公司",
-            "中国航天科工集团公司",
-            "中国航天科技集团公司",
-            "中国核工业集团公司",
-            "中国工程物理研究院",
-            "其它"});
-            this.cbxDutyUnit2.Location = new System.Drawing.Point(792, 0);
-            this.cbxDutyUnit2.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxDutyUnit2.Name = "cbxDutyUnit2";
-            this.cbxDutyUnit2.Size = new System.Drawing.Size(199, 24);
-            this.cbxDutyUnit2.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label8.Location = new System.Drawing.Point(621, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(171, 29);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "责任单位所属大单位：";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtDutyUnitContactJob
-            // 
-            this.txtDutyUnitContactJob.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtDutyUnitContactJob.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtDutyUnitContactJob.Location = new System.Drawing.Point(876, 0);
-            this.txtDutyUnitContactJob.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDutyUnitContactJob.Name = "txtDutyUnitContactJob";
-            this.txtDutyUnitContactJob.Size = new System.Drawing.Size(115, 26);
-            this.txtDutyUnitContactJob.TabIndex = 37;
-            // 
-            // label11
-            // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label11.Location = new System.Drawing.Point(705, 0);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(171, 27);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "责任单位联系人职务：";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtProjectMasterName
-            // 
-            this.txtProjectMasterName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtProjectMasterName.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtProjectMasterName.Location = new System.Drawing.Point(171, 0);
-            this.txtProjectMasterName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtProjectMasterName.Name = "txtProjectMasterName";
-            this.txtProjectMasterName.Size = new System.Drawing.Size(92, 26);
-            this.txtProjectMasterName.TabIndex = 35;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 29);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "项目负责人：";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // SummaryEditor
             // 
