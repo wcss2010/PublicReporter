@@ -39,7 +39,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             List<Subjects> subList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
             foreach(Subjects sub in subList)
             {
-                Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + sub.ID + "' and RoleName='负责人'").select("*").getItem<Persons>(new Persons());
+                Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + sub.ID + "' and RoleName='负责人' and (RoleType = '" + FrmAddOrUpdateWorker.isProjectAndSubject + "' or RoleType = '" + FrmAddOrUpdateWorker.isOnlySubject + "')").select("*").getItem<Persons>(new Persons());
                 if (string.IsNullOrEmpty(pObj.ID))
                 {
                     continue;
