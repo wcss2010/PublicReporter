@@ -90,6 +90,34 @@ namespace ProjectStrategicLeadershipPlugin
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 60, "写入表格列表数据...", 1000);
                 #region 写表格列表数据
 
+                #region 生成----(研究内容_概述列表)
+                foreach (Subjects sub in subjectList)
+                {
+                    string subFlag = "内容";
+                }
+                #endregion
+
+                #region 生成----(附件文件2)
+                #endregion
+
+                #region 生成----(项目负责人和研究团队_研究团队)
+                #endregion
+
+                #region 生成----(研究周期与进度安排_阶段详细)
+                #endregion
+
+                #region 生成----(研究内容_详细内容)
+                #endregion
+
+                #region 生成----(*经费表)
+                #endregion
+
+                #region 生成----(*人员表)
+                #endregion
+
+                #region 生成----(*联系方式表)
+                #endregion
+
                 #endregion
 
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 90, "生成文档...", 1000);
