@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnSave = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
@@ -39,27 +38,14 @@
             this.colResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
-            this.plButtons = new System.Windows.Forms.Panel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
-            this.plButtons.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(980, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 29);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "保存";
             // 
             // plMain
             // 
             this.plMain.Controls.Add(this.plContent);
-            this.plMain.Controls.Add(this.plButtons);
             this.plMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plMain.Location = new System.Drawing.Point(0, 0);
             this.plMain.Margin = new System.Windows.Forms.Padding(0);
@@ -77,7 +63,7 @@
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 10);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1073, 644);
+            this.plContent.Size = new System.Drawing.Size(1073, 679);
             this.plContent.TabIndex = 1;
             // 
             // dgvDetail
@@ -108,7 +94,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetail.RowTemplate.Height = 35;
-            this.dgvDetail.Size = new System.Drawing.Size(1073, 572);
+            this.dgvDetail.Size = new System.Drawing.Size(1073, 607);
             this.dgvDetail.TabIndex = 6;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
@@ -157,16 +143,6 @@
             this.lblInfo.Text = "简要介绍本项目除项目负责人外的各项研究内容负责人情况，包括职务职称、教育工作履历、主要学术成就、人才计划资助情况等，限500字以内。要求实事求是填报，有关信息纳入" +
     "科研诚信评价体系。";
             // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(10, 654);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Padding = new System.Windows.Forms.Padding(3);
-            this.plButtons.Size = new System.Drawing.Size(1073, 35);
-            this.plButtons.TabIndex = 0;
-            // 
             // WorkerGroupEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -178,18 +154,15 @@
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
-            this.plButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plContent;
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblInfo;
-        private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.DataGridView dgvDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJieDuanHuaHuaFen;
