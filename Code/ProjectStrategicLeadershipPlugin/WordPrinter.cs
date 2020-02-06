@@ -480,6 +480,21 @@ namespace ProjectStrategicLeadershipPlugin
 
                 #endregion
 
+                #region 写入联系方式中的固定字段
+                Persons masterObj = ConnectionManager.Context.table("Persons").where("RoleType='" + FrmAddOrUpdateWorker.isOnlyProject + "' or (RoleType='" + FrmAddOrUpdateWorker.isProjectAndSubject + "' and RoleName='负责人')").select("*").getItem<Persons>(new Persons());
+                writeStringToBookmark(wd, "联系方式_项目负责人_姓名", masterObj.Name);
+                writeStringToBookmark(wd, "联系方式_项目负责人_性别", masterObj.Sex);
+                writeStringToBookmark(wd, "联系方式_项目负责人_出生年月", masterObj.Birthday.ToString("yyyy年MM月dd日"));
+                writeStringToBookmark(wd, "联系方式_项目负责人_职务职称", masterObj.Job);
+                writeStringToBookmark(wd, "联系方式_项目负责人_座机", masterObj.Telephone);
+                writeStringToBookmark(wd, "联系方式_项目负责人_手机", masterObj.MobilePhone);
+                writeStringToBookmark(wd, "联系方式_申报单位_单位名称", projObj.UnitName);
+                writeStringToBookmark(wd, "联系方式_申报单位_单位联系人", projObj.UnitContact);
+                writeStringToBookmark(wd, "联系方式_申报单位_单位联系人职务职称", projObj.UnitContactJob);
+                writeStringToBookmark(wd, "联系方式_申报单位_单位联系人手机", projObj.UnitContactPhone);
+                writeStringToBookmark(wd, "联系方式_申报单位_通信地址", projObj.UnitAddress);
+                #endregion
+
                 #endregion
 
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 90, "生成文档...", 1000);
