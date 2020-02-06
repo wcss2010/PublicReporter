@@ -204,61 +204,39 @@ namespace ProjectStrategicLeadershipPlugin
                 #endregion
                 writeStringToBookmark(wd, "研究周期与进度安排_阶段详细", sb.ToString());
 
-                #region 生成----(研究内容_详细内容)
+                #region 生成----(研究内容_详细内容)的书签
                 wd.WordDocBuilder.MoveToBookmark("研究内容_详细内容");
 
-                //应用数字样式
-                wd.WordDocBuilder.ListFormat.List = flag22_numberList;
+                //旧的缩进样式
                 double oldFirstLineIndent = wd.WordDocBuilder.ParagraphFormat.FirstLineIndent;
-                wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = flag22_paragraphFormat.FirstLineIndent;
-
+                
                 //生成内容书签
                 foreach (Subjects sub in subjectList)
                 {
                     string indexStringg = subjectNameDict[sub.ID];
 
+                    //应用数字样式
+                    wd.WordDocBuilder.ListFormat.List = flag22_numberList;
+                    wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = flag22_paragraphFormat.FirstLineIndent;
+
                     wd.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading2;
                     wd.WordDocBuilder.Writeln(indexStringg + "：" + sub.SubjectName);
 
-                    wd.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading3;
-                    wd.WordDocBuilder.Writeln("．具体研究内容");
+                    //恢复之前的样式
+                    wd.WordDocBuilder.ListFormat.RemoveNumbers();
+                    wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = oldFirstLineIndent;
+
+                    wd.WordDocBuilder.Writeln("     1.具体研究内容");
                     wd.WordDocBuilder.StartBookmark(indexStringg + "_1");
                     wd.WordDocBuilder.EndBookmark(indexStringg + "_1");
 
-                    wd.WordDocBuilder.Writeln("．关键问题");
+                    wd.WordDocBuilder.Writeln("     2.关键问题");
                     wd.WordDocBuilder.StartBookmark(indexStringg + "_2");
                     wd.WordDocBuilder.EndBookmark(indexStringg + "_2");
 
-                    wd.WordDocBuilder.Writeln("．研究思路与方法");
+                    wd.WordDocBuilder.Writeln("     3.研究思路与方法");
                     wd.WordDocBuilder.StartBookmark(indexStringg + "_3");
                     wd.WordDocBuilder.EndBookmark(indexStringg + "_3");
-                }
-
-                //恢复之前的样式
-                wd.WordDocBuilder.ListFormat.RemoveNumbers();
-                wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = oldFirstLineIndent;
-
-                //插入研究内容附件
-                foreach (Subjects sub in subjectList)
-                {
-                    string indexStringg = subjectNameDict[sub.ID];
-
-                    string file1Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_具体研究内容.doc");
-                    string file2Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_关键问题.doc");
-                    string file3Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_研究思路与方法.doc");
-
-                    if (File.Exists(file1Path))
-                    {
-                        InsertDocumentTool.insertDocumentAfterBookMark(wd.WordDoc, new Document(file1Path), indexStringg + "_1");
-                    }
-                    if (File.Exists(file2Path))
-                    {
-                        InsertDocumentTool.insertDocumentAfterBookMark(wd.WordDoc, new Document(file2Path), indexStringg + "_2");
-                    }
-                    if (File.Exists(file3Path))
-                    {
-                        InsertDocumentTool.insertDocumentAfterBookMark(wd.WordDoc, new Document(file3Path), indexStringg + "_3");
-                    }
                 }
                 #endregion
 
@@ -584,6 +562,84 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "联系方式_申报单位_通信地址", projObj.UnitAddress);
                 #endregion
 
+                #region 插入研究内容附件
+                foreach (Subjects sub in subjectList)
+                {
+                    string indexStringg = subjectNameDict[sub.ID];
+
+                    string file1Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_具体研究内容.doc");
+                    string file2Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_关键问题.doc");
+                    string file3Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_研究思路与方法.doc");
+
+                    if (File.Exists(file1Path))
+                    {
+                        InsertDocumentWithCustomBookmark.insertDocumentAfterBookMark(wd.WordDoc, new Document(file1Path), indexStringg + "_1", false);
+                    }
+                    if (File.Exists(file2Path))
+                    {
+                        InsertDocumentWithCustomBookmark.insertDocumentAfterBookMark(wd.WordDoc, new Document(file2Path), indexStringg + "_2", false);
+                    }
+                    if (File.Exists(file3Path))
+                    {
+                        InsertDocumentWithCustomBookmark.insertDocumentAfterBookMark(wd.WordDoc, new Document(file3Path), indexStringg + "_3", false);
+                    }
+                }
+                if (wd.WordDocBuilder.CurrentParagraph != null)
+                {
+                    wd.WordDocBuilder.CurrentParagraph.Remove();
+                }
+                #endregion
+
+                #endregion
+
+                #region 更新目录
+                //try
+                //{   
+                //    wu.WordDoc.Styles["目录 1"].Font.NameFarEast = "黑体";
+                //    wu.WordDoc.Styles["目录 1"].Font.Size = 14;
+                //    wu.WordDoc.Styles["目录 1"].Font.Bold = 0;
+                //    wu.WordDoc.Styles["目录 1"].Font.Italic = 0;
+
+                //    wu.WordDoc.Styles["目录 2"].Font.NameFarEast = "楷体";
+                //    wu.WordDoc.Styles["目录 2"].Font.NameAscii = wu.WordDoc.Styles["目录 1"].Font.NameAscii;
+                //    wu.WordDoc.Styles["目录 2"].Font.NameBi = wu.WordDoc.Styles["目录 1"].Font.NameBi;
+                //    wu.WordDoc.Styles["目录 2"].Font.NameOther = wu.WordDoc.Styles["目录 1"].Font.NameOther;
+                //    wu.WordDoc.Styles["目录 2"].Font.Size = 12;
+                //    wu.WordDoc.Styles["目录 2"].Font.Bold = 0;
+                //    wu.WordDoc.Styles["目录 2"].Font.Italic = 0;
+
+                //    wu.WordDoc.Styles["目录 3"].Font.NameFarEast = "楷体";
+                //    wu.WordDoc.Styles["目录 3"].Font.NameAscii = wu.WordDoc.Styles["目录 1"].Font.NameAscii;
+                //    wu.WordDoc.Styles["目录 3"].Font.NameBi = wu.WordDoc.Styles["目录 1"].Font.NameBi;
+                //    wu.WordDoc.Styles["目录 3"].Font.NameOther = wu.WordDoc.Styles["目录 1"].Font.NameOther;
+                //    wu.WordDoc.Styles["目录 3"].Font.Size = 12;
+                //    wu.WordDoc.Styles["目录 3"].Font.Bold = 0;
+                //    wu.WordDoc.Styles["目录 3"].Font.Italic = 0;
+
+                //    object missing = System.Reflection.Missing.Value;
+                //    Microsoft.Office.Interop.Word.Range myRange = wu.WordDoc.TablesOfContents[1].Range;
+                //    wu.WordDoc.TablesOfContents[1].Delete();                    
+                //    object useHeadingStyle = true; //使用Head样式
+                //    object upperHeadingLevel = 1;  //最大一级
+                //    object lowerHeadingLevel = 2;  //最小三级
+                //    object useHypeLinks = true;
+                //    //TablesOfContents的Add方法添加目录
+                //    wu.WordDoc.TablesOfContents.Add(myRange, ref useHeadingStyle,
+                //        ref upperHeadingLevel, ref lowerHeadingLevel,
+                //        ref missing, ref missing, ref missing, ref missing,
+                //        ref missing, ref useHypeLinks, ref missing, ref missing);
+                //    wu.WordDoc.TablesOfContents[1].TabLeader = Microsoft.Office.Interop.Word.WdTabLeader.wdTabLeaderDots;
+                //}
+                //catch (Exception ex) { }
+
+                //wu.WordDoc.ResetFormFields();
+                //wu.WordDoc.Fields.Update();
+                wd.WordDoc.UpdateFields();
+                wd.WordDoc.UpdateListLabels();
+                wd.WordDoc.UpdatePageLayout();
+                wd.WordDoc.UpdateTableLayout();
+                wd.WordDoc.UpdateThumbnail();
+                wd.WordDoc.UpdateWordCount();
                 #endregion
 
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 90, "生成文档...", 1000);
@@ -662,195 +718,77 @@ namespace ProjectStrategicLeadershipPlugin
         }
     }
 
-    class InsertDocumentTool
+    /// <summary>
+    /// 专用于在自定义书签下面插入文档
+    /// </summary>
+    class InsertDocumentWithCustomBookmark
     {
-        public static Document insertDocumentAfterBookMark(Document mainDoc, Document tobeInserted, string bookmark)
+        public static Document insertDocumentAfterBookMark(Document mainDoc, Document tobeInserted, string bookmark,bool isNeedDeleteEnterFlag)
         {
-
             // check maindoc
-
             if (mainDoc == null)
             {
-
                 return null;
-
             }
-
             // check to be inserted doc
-
             if (tobeInserted == null)
             {
-
                 return mainDoc;
-
             }
-
             DocumentBuilder mainDocBuilder = new DocumentBuilder(mainDoc);
-
             // check bookmark and then process
-
             if (bookmark != null && bookmark.Trim().Length > 0)
             {
-
                 Bookmark bm = mainDoc.Range.Bookmarks[bookmark];
-
                 if (bm != null)
                 {
-
                     mainDocBuilder.MoveToBookmark(bookmark);
 
-                    mainDocBuilder.Writeln();
-
                     Node insertAfterNode = mainDocBuilder.CurrentParagraph.PreviousSibling;
-
                     insertDocumentAfterNode(insertAfterNode, mainDoc, tobeInserted);
 
+                    if (isNeedDeleteEnterFlag)
+                    {
+                        if (mainDocBuilder.CurrentParagraph != null)
+                        {
+                            mainDocBuilder.CurrentParagraph.Remove();
+                        }
+                    }
                 }
-
             }
-
-            else
-            {
-
-                // if bookmark is not provided, add the document at the end
-
-                appendDoc(mainDoc, tobeInserted);
-
-            }
-
             return mainDoc;
-
         }
 
         public static void insertDocumentAfterNode(Node insertAfterNode, Document mainDoc, Document srcDoc)
         {
-
             // Make sure that the node is either a pargraph or table.
-
             if ((insertAfterNode.NodeType != NodeType.Paragraph)
-
             & (insertAfterNode.NodeType != NodeType.Table))
-
                 throw new Exception("The destination node should be either a paragraph or table.");
 
             //We will be inserting into the parent of the destination paragraph.
-
             CompositeNode dstStory = insertAfterNode.ParentNode;
-
             //Remove empty paragraphs from the end of document
-
             while (null != srcDoc.LastSection.Body.LastParagraph && !srcDoc.LastSection.Body.LastParagraph.HasChildNodes)
             {
-
                 srcDoc.LastSection.Body.LastParagraph.Remove();
-
             }
-
             NodeImporter importer = new NodeImporter(srcDoc, mainDoc, ImportFormatMode.KeepSourceFormatting);
-
             //Loop through all sections in the source document.
-
             int sectCount = srcDoc.Sections.Count;
-
             for (int sectIndex = 0; sectIndex < sectCount; sectIndex++)
             {
-
                 Section srcSection = srcDoc.Sections[sectIndex];
-
                 //Loop through all block level nodes (paragraphs and tables) in the body of the section.
-
                 int nodeCount = srcSection.Body.ChildNodes.Count;
-
                 for (int nodeIndex = 0; nodeIndex < nodeCount; nodeIndex++)
                 {
-
                     Node srcNode = srcSection.Body.ChildNodes[nodeIndex];
-
                     Node newNode = importer.ImportNode(srcNode, true);
-
                     dstStory.InsertAfter(newNode, insertAfterNode);
-
                     insertAfterNode = newNode;
-
                 }
-
             }
-
-        }
-
-        /**
-
-        * Appends a document to another.
-
-        * @param dstDoc -- Destination document
-
-        * @param srcDoc -- Source document
-
-        * @param includeSection - if true the sections from srcDoc will be copied as it is, else only the internal nodes will be copied
-
-        * @throws Throwable
-
-        */
-
-        public static void appendDoc(Document dstDoc, Document srcDoc, bool includeSection)
-        {
-
-            // Loop through all sections in the source document.
-
-            // Section nodes are immediate children of the Document node so we can
-
-            // just enumerate the Document.
-
-            if (includeSection)
-            {
-
-                foreach (Section srcSection in srcDoc.Sections)
-                {
-
-                    Node dstNode = dstDoc.ImportNode(srcSection, true, ImportFormatMode.UseDestinationStyles);
-
-                    dstDoc.AppendChild(dstNode);
-
-                }
-
-            }
-
-            else
-            {
-
-                //find the last paragraph of the last section
-
-                Node node = dstDoc.LastSection.Body.LastParagraph;
-
-                if (node == null)
-                {
-
-                    node = new Paragraph(srcDoc);
-
-                    dstDoc.LastSection.Body.AppendChild(node);
-
-                }
-
-                if ((node.NodeType != NodeType.Paragraph)
-
-                & (node.NodeType != NodeType.Table))
-                {
-
-                    throw new Exception("Use appendDoc(dstDoc, srcDoc, true) instead of appendDoc(dstDoc, srcDoc, false)");
-
-                }
-
-                insertDocumentAfterNode(node, dstDoc, srcDoc);
-
-            }
-
-        }
-
-        public static void appendDoc(Document dstDoc, Document srcDoc)
-        {
-
-            appendDoc(dstDoc, srcDoc, true);
-
         }
     }
 }
