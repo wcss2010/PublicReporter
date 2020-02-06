@@ -398,6 +398,86 @@ namespace ProjectStrategicLeadershipPlugin
                 #endregion
 
                 #region 生成----(*联系方式表)
+                try
+                {
+                    foreach (Aspose.Words.Tables.Table table in ncc)
+                    {
+                        if (table.Range.Text.Contains("项目组联系方式"))
+                        {
+                            int titleIndex = table.Rows.Count - 1;
+                            int dataIndex = table.Rows.Count - 1;
+
+                            //构造联系方式行
+                            int rowCountt = (subjectList.Count * 3) - 1;
+                            for (int k = 0; k < rowCountt; k++)
+                            {
+                                //table.Select();
+                                table.Rows.Add((Aspose.Words.Tables.Row)table.Rows[table.Rows.Count - 1].Clone(true));
+                            }
+                            //合并单元格
+                            if (rowCountt >= 2)
+                            {
+                                for (int k = 0; k < subjectList.Count; k++)
+                                {
+                                    //计算开始位置
+                                    int rowStart = dataIndex + (k * 3);
+                                    int rowEnd = rowStart + 2;
+
+                                    #region 写入标签
+                                    wd.fillCell(true, table.Rows[rowStart].Cells[0], wd.newParagraph(wd.WordDoc, subjectNameDict[subjectList[k].ID]));
+                                    wd.fillCell(true, table.Rows[rowStart].Cells[1], wd.newParagraph(wd.WordDoc, "负 责 人"));
+                                    wd.fillCell(true, table.Rows[rowStart].Cells[3], wd.newParagraph(wd.WordDoc, "性  别"));
+                                    wd.fillCell(true, table.Rows[rowStart].Cells[5], wd.newParagraph(wd.WordDoc, "出生年月"));
+                                    wd.fillCell(true, table.Rows[rowStart + 1].Cells[1], wd.newParagraph(wd.WordDoc, "职务职称"));
+                                    wd.fillCell(true, table.Rows[rowStart + 1].Cells[3], wd.newParagraph(wd.WordDoc, "座  机"));
+                                    wd.fillCell(true, table.Rows[rowStart + 1].Cells[5], wd.newParagraph(wd.WordDoc, "手  机"));
+                                    wd.fillCell(true, table.Rows[rowStart + 2].Cells[1], wd.newParagraph(wd.WordDoc, "通信地址"));
+                                    #endregion
+
+                                    #region 写入数据
+                                    Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + subjectList[k].ID + "' and RoleName='负责人' and (RoleType = '" + FrmAddOrUpdateWorker.isProjectAndSubject + "' or RoleType = '" + FrmAddOrUpdateWorker.isOnlySubject + "')").select("*").getItem<Persons>(new Persons());
+                                    if (string.IsNullOrEmpty(pObj.ID))
+                                    {
+                                        //无数据
+                                        wd.fillCell(true, table.Rows[rowStart].Cells[2], wd.newParagraph(wd.WordDoc, "空"));
+                                        wd.fillCell(true, table.Rows[rowStart].Cells[4], wd.newParagraph(wd.WordDoc, "空"));
+                                        wd.fillCell(true, table.Rows[rowStart].Cells[6], wd.newParagraph(wd.WordDoc, "空"));
+                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[2], wd.newParagraph(wd.WordDoc, "空"));
+                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[4], wd.newParagraph(wd.WordDoc, "空"));
+                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[6], wd.newParagraph(wd.WordDoc, "空"));
+                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, "空"));
+                                    }
+                                    else
+                                    {
+                                        //有数据
+                                        wd.fillCell(true, table.Rows[rowStart].Cells[2], wd.newParagraph(wd.WordDoc, pObj.Name));
+                                        wd.fillCell(true, table.Rows[rowStart].Cells[4], wd.newParagraph(wd.WordDoc, pObj.Sex));
+                                        wd.fillCell(true, table.Rows[rowStart].Cells[6], wd.newParagraph(wd.WordDoc, pObj.Birthday.ToString("yyyy年MM月dd日")));
+                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[2], wd.newParagraph(wd.WordDoc, pObj.Job));
+                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[4], wd.newParagraph(wd.WordDoc, pObj.Telephone));
+                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[6], wd.newParagraph(wd.WordDoc, pObj.MobilePhone));
+                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, subjectList[k].UnitAddress));
+                                    }
+                                    #endregion
+
+                                    //合并单元格
+                                    wd.mergeCells(table.Rows[rowEnd].Cells[2], table.Rows[rowEnd].Cells[6], table);
+                                    wd.mergeCells(table.Rows[rowStart].Cells[0], table.Rows[rowEnd].Cells[0], table);
+                                }
+                            }
+                            else
+                            {
+                                table.Rows[titleIndex].Remove();
+                                table.Rows[dataIndex].Remove();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
                 #endregion
 
                 #endregion
