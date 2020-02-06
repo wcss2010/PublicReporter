@@ -12,6 +12,7 @@ using ProjectStrategicLeadershipPlugin.DB.Entitys;
 using System.Data;
 using PublicReporterLib;
 using AbstractEditorPlugin.Utility;
+using ProjectStrategicLeadershipPlugin.Forms;
 
 namespace ProjectStrategicLeadershipPlugin
 {
@@ -42,7 +43,7 @@ namespace ProjectStrategicLeadershipPlugin
             //创建word文档
             string fileName = projObj.ID + "-" + outputDocFileName;
             WordDocument wd = new WordDocument(Path.Combine(Path.Combine(pt.RootDir, "Helper"), "template.doc"));
-            
+
             try
             {
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 20, "准备数据...", 1000);
@@ -130,6 +131,21 @@ namespace ProjectStrategicLeadershipPlugin
                 #endregion
 
                 #region 生成----(项目负责人和研究团队_研究团队)
+                sb = new StringBuilder();
+                int sssIndexx = 0;
+                List<Subjects> subList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
+                foreach (Subjects sub in subList)
+                {
+                    sssIndexx++;
+
+                    Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + sub.ID + "' and RoleName='负责人' and (RoleType = '" + FrmAddOrUpdateWorker.isProjectAndSubject + "' or RoleType = '" + FrmAddOrUpdateWorker.isOnlySubject + "')").select("*").getItem<Persons>(new Persons());
+                    if (string.IsNullOrEmpty(pObj.ID))
+                    {
+                        continue;
+                    }
+
+                    sb.Append("     ").Append("研究内容").Append(GlobalTool.NumberToChinese(sssIndexx.ToString())).Append("负责人:").Append(",").Append(pObj.AttachInfo).AppendLine();
+                }
                 #endregion
 
                 #region 生成----(研究周期与进度安排_阶段详细)
