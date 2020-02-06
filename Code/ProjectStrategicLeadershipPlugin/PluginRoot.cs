@@ -207,10 +207,10 @@ namespace ProjectStrategicLeadershipPlugin
             #region 检查哪个Editor没有设置Name
             foreach (KeyValuePair<string, BaseEditor> kvp in editorMap)
             {
-                if (string.IsNullOrEmpty(kvp.Value.EditorName))
-                {
+                //if (string.IsNullOrEmpty(kvp.Value.EditorName))
+                //{
                     kvp.Value.EditorName = kvp.Key;
-                }
+                //}
             }
             #endregion
         }

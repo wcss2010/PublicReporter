@@ -96,7 +96,7 @@ namespace ProjectStrategicLeadershipPlugin
                 NodeCollection ncc = wd.WordDoc.GetChildNodes(NodeType.Table, true);
 
                 //课题附件头
-                string subjectFileHeadString = ProjectStrategicLeadershipPlugin.Editor.SubjectDetailEditor.SubjectFileFlag + "_";
+                string subjectFileHeadString = ProjectStrategicLeadershipPlugin.Editor.SubjectDetailEditor.SubjectFileFlag;
 
                 //课题名称字典
                 Dictionary<string, string> subjectNameDict = new Dictionary<string, string>();
@@ -120,6 +120,7 @@ namespace ProjectStrategicLeadershipPlugin
                     sb.Append(subFlag).Append("：").Append(sub.SubjectName).Append("，").Append(infoString).AppendLine("。");
                 }
                 #endregion
+                writeStringToBookmark(wd, "研究内容_概述列表", sb.ToString());
 
                 #region 生成----(附件文件2)
                 List<ExtFiles> list = ConnectionManager.Context.table("ExtFiles").select("*").getList<ExtFiles>(new ExtFiles());
@@ -153,9 +154,10 @@ namespace ProjectStrategicLeadershipPlugin
                         continue;
                     }
 
-                    sb.Append("     ").Append("研究内容").Append(GlobalTool.NumberToChinese(sssIndexx.ToString())).Append("负责人:").Append(",").Append(pObj.AttachInfo).AppendLine();
+                    sb.Append("     ").Append("研究内容").Append(GlobalTool.NumberToChinese(sssIndexx.ToString())).Append("负责人:").Append(pObj.Name).Append(",").Append(pObj.AttachInfo).AppendLine();
                 }
                 #endregion
+                writeStringToBookmark(wd, "项目负责人和研究团队_研究团队", sb.ToString());
 
                 #region 生成----(研究周期与进度安排_阶段详细)
                 int ssssIndex = 0;
@@ -169,6 +171,7 @@ namespace ProjectStrategicLeadershipPlugin
                     sb.Append("     ").Append("考核指标：").AppendLine(ps.StepTag3);
                 }
                 #endregion
+                writeStringToBookmark(wd, "研究周期与进度安排_阶段详细", sb.ToString());
 
                 #region 生成----(研究内容_详细内容)
                 #endregion
@@ -355,7 +358,7 @@ namespace ProjectStrategicLeadershipPlugin
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("任务分工") && t.GetText().Contains("身份证号码") && t.GetText().Contains("项目中职务"))
+                    if (t.GetText().Contains("身份证号码") && t.GetText().Contains("工作单位") && t.GetText().Contains("项目任务分工"))
                     {
                         //创建行
                         for (int k = 0; k < personList.Count - 1; k++)
