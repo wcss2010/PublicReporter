@@ -11,6 +11,7 @@ using ProjectStrategicLeadershipPlugin.DB;
 using ProjectStrategicLeadershipPlugin.DB.Entitys;
 using System.Data;
 using PublicReporterLib;
+using AbstractEditorPlugin.Utility;
 
 namespace ProjectStrategicLeadershipPlugin
 {
@@ -90,14 +91,42 @@ namespace ProjectStrategicLeadershipPlugin
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 60, "写入表格列表数据...", 1000);
                 #region 写表格列表数据
 
+                //课题附件头
+                string subjectFileHeadString = ProjectStrategicLeadershipPlugin.Editor.SubjectDetailEditor.SubjectFileFlag + "_";
+
                 #region 生成----(研究内容_概述列表)
+                StringBuilder sb = new StringBuilder();
+                int subIndex = 0;
                 foreach (Subjects sub in subjectList)
                 {
-                    string subFlag = "内容";
+                    subIndex++;
+                    string subFlag = "内容" + GlobalTool.NumberToChinese(subIndex.ToString());
+                    string infoString = string.Empty;
+                    string infoFile = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_概述.txt");
+                    if (File.Exists(infoFile))
+                    {
+                        infoString = File.ReadAllText(infoFile);
+                    }
+                    sb.Append(subFlag).Append("：").Append(sub.SubjectName).Append("，").Append(infoString).AppendLine("。");
                 }
                 #endregion
 
                 #region 生成----(附件文件2)
+                List<ExtFiles> list = ConnectionManager.Context.table("ExtFiles").select("*").getList<ExtFiles>(new ExtFiles());
+                foreach (ExtFiles efl in list)
+                {
+                    if (efl.IsIgnore == 0)
+                    {
+                        //图片文件
+                        string picFile = Path.Combine(pt.filesDir, efl.RealFileName);
+
+                        //检查图片是否存在，如果存在则插入
+                        if (File.Exists(picFile))
+                        {
+                            writeImageToBookmark(wd, "附件文件2", picFile);
+                        }
+                    }
+                }
                 #endregion
 
                 #region 生成----(项目负责人和研究团队_研究团队)
@@ -135,6 +164,23 @@ namespace ProjectStrategicLeadershipPlugin
             }
 
             AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 95, "", 1000);
+        }
+
+        /// <summary>
+        /// 向固定的书签写图片
+        /// </summary>
+        /// <param name="wd"></param>
+        /// <param name="bookmark"></param>
+        /// <param name="picturePath"></param>
+        private static void writeImageToBookmark(WordDocument wd, string bookmark, string picturePath)
+        {
+            if (File.Exists(picturePath))
+            {
+                if (wd.WordDocBuilder.MoveToBookmark(bookmark))
+                {
+                    wd.WordDocBuilder.InsertImage(picturePath);
+                }
+            }
         }
 
         /// <summary>

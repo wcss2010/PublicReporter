@@ -20,6 +20,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 {
     public partial class SubjectDetailEditor : AbstractEditorPlugin.BaseEditor
     {
+        public const string SubjectFileFlag = "详细内容附件_";
+
         public string RTFFileFirstName { get; set; }
 
         public string TitleLabelText { get { return TitleLabelControl.Text; } set { TitleLabelControl.Text = value; } }
@@ -38,7 +40,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             InitializeComponent();
 
-            RTFFileFirstName = "详细内容附件_";
+            RTFFileFirstName = SubjectFileFlag;
         }
 
         public override void clearView()
