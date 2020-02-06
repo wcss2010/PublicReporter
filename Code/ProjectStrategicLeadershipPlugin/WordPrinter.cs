@@ -46,6 +46,37 @@ namespace ProjectStrategicLeadershipPlugin
 
             try
             {
+                #region 查找需要生成的节点的样式
+                Aspose.Words.Lists.List flag22_numberList = null;
+                ParagraphFormat flag22_paragraphFormat = null;
+                Aspose.Words.Lists.List flag33_numberList = null;
+                ParagraphFormat flag33_paragraphFormat = null;
+                NodeCollection nodes = wd.WordDoc.GetChildNodes(NodeType.Paragraph, true);
+                foreach (Node node in nodes)
+                {
+                    if (node.Range.Text.Contains("研究内容二级标题模板"))
+                    {
+                        if (flag22_numberList == null)
+                        {
+                            flag22_numberList = ((Paragraph)node).ListFormat.List;
+                            flag22_paragraphFormat = ((Paragraph)node).ParagraphFormat;
+                        }
+
+                        node.Remove();
+                    }
+                    else if (node.Range.Text.Contains("研究内容三级标题模板"))
+                    {
+                        if (flag33_numberList == null)
+                        {
+                            flag33_numberList = ((Paragraph)node).ListFormat.List;
+                            flag33_paragraphFormat = ((Paragraph)node).ParagraphFormat;
+                        }
+
+                        node.Remove();
+                    }
+                }
+                #endregion
+
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 20, "准备数据...", 1000);
                 #region 准备数据
                 List<Subjects> subjectList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
@@ -174,6 +205,52 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "研究周期与进度安排_阶段详细", sb.ToString());
 
                 #region 生成----(研究内容_详细内容)
+                wd.WordDocBuilder.MoveToBookmark("研究内容_详细内容");
+
+                //应用数字样式
+                wd.WordDocBuilder.ListFormat.List = flag22_numberList;
+                double oldFirstLineIndent = wd.WordDocBuilder.ParagraphFormat.FirstLineIndent;
+                wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = flag22_paragraphFormat.FirstLineIndent;
+
+                //生成内容书签
+                foreach (Subjects sub in subjectList)
+                {
+                    string indexStringg = subjectNameDict[sub.ID];
+
+                    wd.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading2;
+                    wd.WordDocBuilder.Writeln(indexStringg + "：" + sub.SubjectName);
+
+                    wd.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading3;
+                    wd.WordDocBuilder.Writeln("．具体研究内容");
+                    wd.WordDocBuilder.StartBookmark(indexStringg + "_1");
+                    wd.WordDocBuilder.EndBookmark(indexStringg + "_1");
+
+                    wd.WordDocBuilder.Writeln("．关键问题");
+                    wd.WordDocBuilder.StartBookmark(indexStringg + "_2");
+                    wd.WordDocBuilder.EndBookmark(indexStringg + "_2");
+
+                    wd.WordDocBuilder.Writeln("．研究思路与方法");
+                    wd.WordDocBuilder.StartBookmark(indexStringg + "_3");
+                    wd.WordDocBuilder.EndBookmark(indexStringg + "_3");
+                }
+
+                //恢复之前的样式
+                wd.WordDocBuilder.ListFormat.RemoveNumbers();
+                wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = oldFirstLineIndent;
+
+                //插入研究内容附件
+                foreach (Subjects sub in subjectList)
+                {
+                    string indexStringg = subjectNameDict[sub.ID];
+
+                    string file1Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_具体研究内容.doc");
+                    string file2Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_关键问题.doc");
+                    string file3Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_研究思路与方法.doc");
+
+                    writeFileToBookmark(wd, indexStringg + "_1", file1Path, true);
+                    writeFileToBookmark(wd, indexStringg + "_2", file2Path, true);
+                    writeFileToBookmark(wd, indexStringg + "_3", file3Path, true);
+                }
                 #endregion
 
                 #region 生成----(*经费表)
