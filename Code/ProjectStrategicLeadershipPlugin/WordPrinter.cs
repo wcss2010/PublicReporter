@@ -149,6 +149,16 @@ namespace ProjectStrategicLeadershipPlugin
                 #endregion
 
                 #region 生成----(研究周期与进度安排_阶段详细)
+                int ssssIndex = 0;
+                sb = new StringBuilder();
+                foreach (ProjectStep ps in projectstepList)
+                {
+                    ssssIndex++;
+                    sb.Append("     ").Append("（").Append(GlobalTool.NumberToChinese(ssssIndex.ToString())).Append("）第").Append(GlobalTool.NumberToChinese(ssssIndex.ToString())).Append("阶段：").Append(ps.StepTime).AppendLine("月");
+                    sb.Append("     ").Append("完成内容：").AppendLine(ps.StepTag1);
+                    sb.Append("     ").Append("阶段成果：").AppendLine(ps.StepTag2);
+                    sb.Append("     ").Append("考核指标：").AppendLine(ps.StepTag3);
+                }
                 #endregion
 
                 #region 生成----(研究内容_详细内容)
