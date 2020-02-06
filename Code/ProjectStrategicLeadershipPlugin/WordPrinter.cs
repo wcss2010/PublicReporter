@@ -98,7 +98,7 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "基本信息_联系电话", projObj.UnitContactPhone);
                 writeStringToBookmark(wd, "基本信息_单位所在省市", projObj.UnitAddress);
                 writeStringToBookmark(wd, "基本信息_所属大单位", projObj.UnitType2);
-                writeStringToBookmark(wd, "基本信息_申报日期", projObj.RequestTime.ToShortDateString());
+                writeStringToBookmark(wd, "基本信息_申报日期", projObj.RequestTime.ToString("yyyy年MM月dd日"));
 
                 writeStringToBookmark(wd, "研究内容_研究内容数量", subjectList.Count + "");
                 writeStringToBookmark(wd, "研究周期与进度安排_周期", projObj.TotalTime + "");
@@ -247,9 +247,18 @@ namespace ProjectStrategicLeadershipPlugin
                     string file2Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_关键问题.doc");
                     string file3Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_研究思路与方法.doc");
 
-                    writeFileToBookmark(wd, indexStringg + "_1", file1Path, true);
-                    writeFileToBookmark(wd, indexStringg + "_2", file2Path, true);
-                    writeFileToBookmark(wd, indexStringg + "_3", file3Path, true);
+                    if (File.Exists(file1Path))
+                    {
+                        InsertDocumentTool.insertDocumentAfterBookMark(wd.WordDoc, new Document(file1Path), indexStringg + "_1");
+                    }
+                    if (File.Exists(file2Path))
+                    {
+                        InsertDocumentTool.insertDocumentAfterBookMark(wd.WordDoc, new Document(file2Path), indexStringg + "_2");
+                    }
+                    if (File.Exists(file3Path))
+                    {
+                        InsertDocumentTool.insertDocumentAfterBookMark(wd.WordDoc, new Document(file3Path), indexStringg + "_3");
+                    }
                 }
                 #endregion
 
@@ -452,7 +461,7 @@ namespace ProjectStrategicLeadershipPlugin
                             wd.fillCell(true, t.Rows[rowStart].Cells[3], wd.newParagraph(wd.WordDoc, data.UnitName));
                             wd.fillCell(true, t.Rows[rowStart].Cells[4], wd.newParagraph(wd.WordDoc, data.Job));
                             wd.fillCell(true, t.Rows[rowStart].Cells[5], wd.newParagraph(wd.WordDoc, data.Specialty));
-                            
+
                             string roleNamess = "未知";
 
                             switch (data.RoleType)
@@ -650,6 +659,198 @@ namespace ProjectStrategicLeadershipPlugin
             {
                 wd.WordDocBuilder.Write(value);
             }
+        }
+    }
+
+    class InsertDocumentTool
+    {
+        public static Document insertDocumentAfterBookMark(Document mainDoc, Document tobeInserted, string bookmark)
+        {
+
+            // check maindoc
+
+            if (mainDoc == null)
+            {
+
+                return null;
+
+            }
+
+            // check to be inserted doc
+
+            if (tobeInserted == null)
+            {
+
+                return mainDoc;
+
+            }
+
+            DocumentBuilder mainDocBuilder = new DocumentBuilder(mainDoc);
+
+            // check bookmark and then process
+
+            if (bookmark != null && bookmark.Trim().Length > 0)
+            {
+
+                Bookmark bm = mainDoc.Range.Bookmarks[bookmark];
+
+                if (bm != null)
+                {
+
+                    mainDocBuilder.MoveToBookmark(bookmark);
+
+                    mainDocBuilder.Writeln();
+
+                    Node insertAfterNode = mainDocBuilder.CurrentParagraph.PreviousSibling;
+
+                    insertDocumentAfterNode(insertAfterNode, mainDoc, tobeInserted);
+
+                }
+
+            }
+
+            else
+            {
+
+                // if bookmark is not provided, add the document at the end
+
+                appendDoc(mainDoc, tobeInserted);
+
+            }
+
+            return mainDoc;
+
+        }
+
+        public static void insertDocumentAfterNode(Node insertAfterNode, Document mainDoc, Document srcDoc)
+        {
+
+            // Make sure that the node is either a pargraph or table.
+
+            if ((insertAfterNode.NodeType != NodeType.Paragraph)
+
+            & (insertAfterNode.NodeType != NodeType.Table))
+
+                throw new Exception("The destination node should be either a paragraph or table.");
+
+            //We will be inserting into the parent of the destination paragraph.
+
+            CompositeNode dstStory = insertAfterNode.ParentNode;
+
+            //Remove empty paragraphs from the end of document
+
+            while (null != srcDoc.LastSection.Body.LastParagraph && !srcDoc.LastSection.Body.LastParagraph.HasChildNodes)
+            {
+
+                srcDoc.LastSection.Body.LastParagraph.Remove();
+
+            }
+
+            NodeImporter importer = new NodeImporter(srcDoc, mainDoc, ImportFormatMode.KeepSourceFormatting);
+
+            //Loop through all sections in the source document.
+
+            int sectCount = srcDoc.Sections.Count;
+
+            for (int sectIndex = 0; sectIndex < sectCount; sectIndex++)
+            {
+
+                Section srcSection = srcDoc.Sections[sectIndex];
+
+                //Loop through all block level nodes (paragraphs and tables) in the body of the section.
+
+                int nodeCount = srcSection.Body.ChildNodes.Count;
+
+                for (int nodeIndex = 0; nodeIndex < nodeCount; nodeIndex++)
+                {
+
+                    Node srcNode = srcSection.Body.ChildNodes[nodeIndex];
+
+                    Node newNode = importer.ImportNode(srcNode, true);
+
+                    dstStory.InsertAfter(newNode, insertAfterNode);
+
+                    insertAfterNode = newNode;
+
+                }
+
+            }
+
+        }
+
+        /**
+
+        * Appends a document to another.
+
+        * @param dstDoc -- Destination document
+
+        * @param srcDoc -- Source document
+
+        * @param includeSection - if true the sections from srcDoc will be copied as it is, else only the internal nodes will be copied
+
+        * @throws Throwable
+
+        */
+
+        public static void appendDoc(Document dstDoc, Document srcDoc, bool includeSection)
+        {
+
+            // Loop through all sections in the source document.
+
+            // Section nodes are immediate children of the Document node so we can
+
+            // just enumerate the Document.
+
+            if (includeSection)
+            {
+
+                foreach (Section srcSection in srcDoc.Sections)
+                {
+
+                    Node dstNode = dstDoc.ImportNode(srcSection, true, ImportFormatMode.UseDestinationStyles);
+
+                    dstDoc.AppendChild(dstNode);
+
+                }
+
+            }
+
+            else
+            {
+
+                //find the last paragraph of the last section
+
+                Node node = dstDoc.LastSection.Body.LastParagraph;
+
+                if (node == null)
+                {
+
+                    node = new Paragraph(srcDoc);
+
+                    dstDoc.LastSection.Body.AppendChild(node);
+
+                }
+
+                if ((node.NodeType != NodeType.Paragraph)
+
+                & (node.NodeType != NodeType.Table))
+                {
+
+                    throw new Exception("Use appendDoc(dstDoc, srcDoc, true) instead of appendDoc(dstDoc, srcDoc, false)");
+
+                }
+
+                insertDocumentAfterNode(node, dstDoc, srcDoc);
+
+            }
+
+        }
+
+        public static void appendDoc(Document dstDoc, Document srcDoc)
+        {
+
+            appendDoc(dstDoc, srcDoc, true);
+
         }
     }
 }
