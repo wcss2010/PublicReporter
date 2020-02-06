@@ -162,7 +162,7 @@
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(1080, 51);
             this.lblInfo.TabIndex = 1;
-            this.lblInfo.Text = "请科学严谨、实事求是填写，表述要清晰准确。";
+            this.lblInfo.Text = "请根据项目研究需要，合理设置研究阶段和进度安排。";
             // 
             // SubjectStepEditor
             // 
