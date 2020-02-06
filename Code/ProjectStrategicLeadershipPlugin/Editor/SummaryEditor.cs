@@ -231,6 +231,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             base.clearView();
 
+            txtDutyUnitContactJob.Text = string.Empty;
+            txtProjectMasterName.Text = string.Empty;
             txtProjectName.Text = string.Empty;
             txtProjectTopic.Text = string.Empty;
             txtProjectDirection.Text = string.Empty;

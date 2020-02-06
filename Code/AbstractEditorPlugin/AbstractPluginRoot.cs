@@ -408,7 +408,7 @@ namespace AbstractEditorPlugin
         }
 
         /// <summary>
-        /// 应用当前工程
+        /// 重新加载工程
         /// </summary>
         public virtual void reloadProject()
         {
@@ -421,61 +421,71 @@ namespace AbstractEditorPlugin
                 {
                     CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
 
-                    report(senderForm, 20, "正在准备...", 500);
-                    if (senderForm.IsHandleCreated)
-                    {
-                        senderForm.Invoke(new MethodInvoker(delegate()
-                            {
-                                //清空视图中的内容
-                                for (int kkk = 0; kkk < editorMap.Count; kkk++)
-                                {
-                                    editorMap[kkk].Value.clearView();
-                                }
-                                //关闭连接
-                                closeDB();
-                            }));
-                    }
-
-                    report(senderForm, 40, "正在检查目录及数据库结构...", 500);
-                    if (senderForm.IsHandleCreated)
-                    {
-                        senderForm.Invoke(new MethodInvoker(delegate()
-                        {
-                            //初始化目录结构
-                            initDirs();
-                        }));
-                    }
-
-                    report(senderForm, 60, "正在恢复数据库...", 500);
-                    if (senderForm.IsHandleCreated)
-                    {
-                        senderForm.Invoke(new MethodInvoker(delegate()
-                        {
-                            //恢复并打开数据库
-                            openDB();
-                        }));
-                    }
-
-                    report(senderForm, 80, "正在载入数据...", 500);
-                    if (senderForm.IsHandleCreated)
-                    {
-                        senderForm.Invoke(new MethodInvoker(delegate()
-                        {
-                            //初始化数据
-                            initData();
-                        }));
-                    }
-
-                    report(senderForm, 100, "正在刷新编辑器...", 500);
-                    if (senderForm.IsHandleCreated)
-                    {
-                        senderForm.Invoke(new MethodInvoker(delegate()
-                        {
-                            //刷新编辑器页
-                            refreshEditors();
-                        }));
-                    }
+                    //重新加载工程
+                    reloadProject(senderForm);
                 }));
+        }
+
+        /// <summary>
+        /// 重新加载工程
+        /// </summary>
+        /// <param name="senderForm"></param>
+        public virtual void reloadProject(CircleProgressBarDialog senderForm)
+        {
+            report(senderForm, 20, "正在准备...", 500);
+            if (senderForm.IsHandleCreated)
+            {
+                senderForm.Invoke(new MethodInvoker(delegate()
+                {
+                    //清空视图中的内容
+                    for (int kkk = 0; kkk < editorMap.Count; kkk++)
+                    {
+                        editorMap[kkk].Value.clearView();
+                    }
+                    //关闭连接
+                    closeDB();
+                }));
+            }
+
+            report(senderForm, 40, "正在检查目录及数据库结构...", 500);
+            if (senderForm.IsHandleCreated)
+            {
+                senderForm.Invoke(new MethodInvoker(delegate()
+                {
+                    //初始化目录结构
+                    initDirs();
+                }));
+            }
+
+            report(senderForm, 60, "正在恢复数据库...", 500);
+            if (senderForm.IsHandleCreated)
+            {
+                senderForm.Invoke(new MethodInvoker(delegate()
+                {
+                    //恢复并打开数据库
+                    openDB();
+                }));
+            }
+
+            report(senderForm, 80, "正在载入数据...", 500);
+            if (senderForm.IsHandleCreated)
+            {
+                senderForm.Invoke(new MethodInvoker(delegate()
+                {
+                    //初始化数据
+                    initData();
+                }));
+            }
+
+            report(senderForm, 100, "正在刷新编辑器...", 500);
+            if (senderForm.IsHandleCreated)
+            {
+                senderForm.Invoke(new MethodInvoker(delegate()
+                {
+                    //刷新编辑器页
+                    refreshEditors();
+                }));
+            }
         }
 
         /// <summary>

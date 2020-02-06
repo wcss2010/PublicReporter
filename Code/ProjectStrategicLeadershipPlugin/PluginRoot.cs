@@ -334,7 +334,7 @@ namespace ProjectStrategicLeadershipPlugin
                                     AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导入完成，正在刷新...", 600);
 
                                     //重新载入工程
-                                    reloadProject();
+                                    reloadProject(senderForm);                                    
                                 }));
                         }
                     }

@@ -18,7 +18,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
             DataObj = obj;
         }
-        
+
         private void FrmAddOrUpdateWorker_Load(object sender, EventArgs e)
         {
             if (DataObj != null)
@@ -55,23 +55,46 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             }
             else
             {
-                DataObj.SubjectName = txtName.Text;
-                DataObj.UnitName = txtUnitName.Text;
-                DataObj.UnitContactPhone = txtUnitContactPhone.Text;
-                DataObj.UnitAddress = txtUnitContactAddress.Text;
-                DataObj.UnitContact = txtUnitContact.Text;
-
-                if (string.IsNullOrEmpty(DataObj.ID))
+                if (hasErrorSubjectName())
                 {
-                    DataObj.ID = Guid.NewGuid().ToString();
-                    DataObj.copyTo(ConnectionManager.Context.table("Subjects")).insert();
+                    MessageBox.Show("对不起，研究内容名称中包括非法字符(/, \\, :, *, ?, \", <, >, |)！", "错误");
+                    return;
                 }
                 else
                 {
-                    DataObj.copyTo(ConnectionManager.Context.table("Subjects")).where("ID='" + DataObj.ID + "'").update();
+                    DataObj.SubjectName = txtName.Text;
+                    DataObj.UnitName = txtUnitName.Text;
+                    DataObj.UnitContactPhone = txtUnitContactPhone.Text;
+                    DataObj.UnitAddress = txtUnitContactAddress.Text;
+                    DataObj.UnitContact = txtUnitContact.Text;
+
+                    if (string.IsNullOrEmpty(DataObj.ID))
+                    {
+                        DataObj.ID = Guid.NewGuid().ToString();
+                        DataObj.copyTo(ConnectionManager.Context.table("Subjects")).insert();
+                    }
+                    else
+                    {
+                        DataObj.copyTo(ConnectionManager.Context.table("Subjects")).where("ID='" + DataObj.ID + "'").update();
+                    }
+                    DialogResult = System.Windows.Forms.DialogResult.OK;
                 }
-                DialogResult = System.Windows.Forms.DialogResult.OK;
             }
+        }
+
+        private bool hasErrorSubjectName()
+        {
+            string[] errorStrs = new string[] { "/", "\\", ":", "*", "?", "\"", "<", ">", "|" };
+            bool result = false;
+            foreach (string ss in errorStrs)
+            {
+                if (txtName.Text.Contains(ss))
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
         }
     }
 }
