@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtUnitContactPhone = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtUnitContactAddress = new System.Windows.Forms.TextBox();
+            this.txtUnitContactAddress = new Controls.ProjectAddressControl();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtUnitContact = new System.Windows.Forms.TextBox();
@@ -200,7 +200,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUnitContactPhone;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtUnitContactAddress;
+        private Controls.ProjectAddressControl txtUnitContactAddress;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtUnitContact;

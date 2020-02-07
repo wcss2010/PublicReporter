@@ -96,7 +96,7 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "基本信息_研究经费", projObj.TotalMoney + "");
                 writeStringToBookmark(wd, "基本信息_联系人", projObj.UnitContact);
                 writeStringToBookmark(wd, "基本信息_联系电话", projObj.UnitContactPhone);
-                writeStringToBookmark(wd, "基本信息_单位所在省市", projObj.UnitAddress);
+                writeStringToBookmark(wd, "基本信息_单位所在省市", projObj.UnitAddress != null ? projObj.UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty);
                 writeStringToBookmark(wd, "基本信息_所属大单位", projObj.UnitType2);
                 writeStringToBookmark(wd, "基本信息_申报日期", projObj.RequestTime.ToString("yyyy年MM月dd日"));
 
@@ -527,7 +527,7 @@ namespace ProjectStrategicLeadershipPlugin
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[2], wd.newParagraph(wd.WordDoc, pObj.Job));
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[4], wd.newParagraph(wd.WordDoc, pObj.Telephone));
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[6], wd.newParagraph(wd.WordDoc, pObj.MobilePhone));
-                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, subjectList[k].UnitAddress));
+                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, subjectList[k].UnitAddress != null ? subjectList[k].UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty));
                                     }
                                     #endregion
 

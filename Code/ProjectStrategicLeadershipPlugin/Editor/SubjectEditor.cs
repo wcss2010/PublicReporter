@@ -112,7 +112,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 cells.Add(subject.UnitName);
                 cells.Add(subject.UnitContact);
                 cells.Add(subject.UnitContactPhone);
-                cells.Add(subject.UnitAddress);
+                cells.Add(subject.UnitAddress != null ? subject.UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty);
 
                 cells.Add("填报研究内容");
 
