@@ -22,13 +22,42 @@ namespace ProjectStrategicLeadershipPlugin.Controls
             catch (Exception ex) { }
 
             AreaLabel.AutoSize = false;
+            AreaLabel.Visible = false;
             AreaLabel.Width = 0;
+            TownControl.Visible = false;
             TownControl.Width = 0;
+            CountyControl.Visible = false;
             CountyControl.Width = 0;
-            
+
             ProvinceControl.Text = "北京";
-            CityControl.Text = "北京";
+            CityControl.Text = "北京市";
             CountyControl.Text = "海淀区";
+        }
+
+        /// <summary>
+        /// 清空
+        /// </summary>
+        public void clear()
+        {
+            ProvinceControl.Text = "北京";
+            CityControl.Text = "北京市";
+            CountyControl.Text = "海淀区";
+            txtDetailAddress.Text = "";
+        }
+
+        /// <summary>
+        /// 是否允许编辑详细地址
+        /// </summary>
+        public bool EnabledEditAddressDetail
+        {
+            get
+            {
+                return txtDetailAddress.Visible;
+            }
+            set
+            {
+                txtDetailAddress.Visible = value;
+            }
         }
 
         /// <summary>
@@ -59,6 +88,18 @@ namespace ProjectStrategicLeadershipPlugin.Controls
                     CityControl.Text = lines[1];
                     txtDetailAddress.Text = lines[2];
                 }
+            }
+        }
+
+        private new string Text
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
             }
         }
     }

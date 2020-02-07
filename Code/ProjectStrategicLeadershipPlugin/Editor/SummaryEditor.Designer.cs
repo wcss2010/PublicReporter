@@ -52,7 +52,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.cbxDutyUnit2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDutyUnitAddress = new System.Windows.Forms.TextBox();
+            this.txtDutyUnitAddress = new ProjectStrategicLeadershipPlugin.Controls.ProjectAddressControl();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtDutyUnitContactJob = new System.Windows.Forms.TextBox();
@@ -393,11 +393,12 @@
             // txtDutyUnitAddress
             // 
             this.txtDutyUnitAddress.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtDutyUnitAddress.EnabledEditAddressDetail = true;
             this.txtDutyUnitAddress.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtDutyUnitAddress.Location = new System.Drawing.Point(155, 0);
             this.txtDutyUnitAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtDutyUnitAddress.Name = "txtDutyUnitAddress";
-            this.txtDutyUnitAddress.Size = new System.Drawing.Size(391, 26);
+            this.txtDutyUnitAddress.Size = new System.Drawing.Size(391, 29);
             this.txtDutyUnitAddress.TabIndex = 6;
             // 
             // label7
@@ -650,7 +651,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -695,7 +695,7 @@
         private System.Windows.Forms.TextBox txtProjectDirection;
         private System.Windows.Forms.TextBox txtDutyUnitName;
         private System.Windows.Forms.TextBox txtDutyUnitNormalName;
-        private System.Windows.Forms.TextBox txtDutyUnitAddress;
+        private Controls.ProjectAddressControl txtDutyUnitAddress;
         private System.Windows.Forms.ComboBox cbxSecretLevel;
         private System.Windows.Forms.TextBox txtDutyUnitContactTelephone;
         private System.Windows.Forms.TextBox txtDutyUnitContact;
@@ -708,12 +708,5 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtProjectMasterName;
         private System.Windows.Forms.Label label4;
-
-
-
-
-
-
-
     }
 }

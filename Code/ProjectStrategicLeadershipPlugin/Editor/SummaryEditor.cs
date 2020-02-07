@@ -84,9 +84,9 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 result = false;
                 return;
             }
-            if (txtDutyUnitAddress.Text == string.Empty)
+            if (txtDutyUnitAddress.getAddress() == string.Empty)
             {
-                MessageBox.Show("对不起，请输入责任单位通信地址!");
+                MessageBox.Show("对不起，请输入责任单位省市!");
                 result = false;
                 return;
             }
@@ -164,7 +164,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             proj.UnitContact = txtDutyUnitContact.Text;
             proj.UnitContactJob = txtDutyUnitContactJob.Text;
             proj.UnitContactPhone = txtDutyUnitContactTelephone.Text;
-            proj.UnitAddress = txtDutyUnitAddress.Text;
+            proj.UnitAddress = txtDutyUnitAddress.getAddress();
             proj.UnitType2 = cbxDutyUnit2.Text;
             proj.TotalMoney = txtTotalMoneys.Value;
             proj.TotalTime = (int)txtTotalTimes.Value;
@@ -198,7 +198,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 txtProjectMasterName.Text = proj.ProjectMasterName;
                 txtDutyUnitName.Text = proj.UnitName;
                 txtDutyUnitNormalName.Text = proj.UnitRealName;
-                txtDutyUnitAddress.Text = proj.UnitAddress;
+                txtDutyUnitAddress.setAddress(proj.UnitAddress);
                 txtDutyUnitContact.Text = proj.UnitContact;
                 txtDutyUnitContactJob.Text = proj.UnitContactJob;
                 txtDutyUnitContactTelephone.Text = proj.UnitContactPhone;
@@ -239,7 +239,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             cbxSecretLevel.SelectedItem = "公开";
             txtDutyUnitName.Text = string.Empty;
             txtDutyUnitNormalName.Text = string.Empty;
-            txtDutyUnitAddress.Text = string.Empty;
+            txtDutyUnitAddress.clear();
             txtDutyUnitContact.Text = string.Empty;
             txtDutyUnitContactTelephone.Text = string.Empty;
             txtTotalMoneys.Value = 0;

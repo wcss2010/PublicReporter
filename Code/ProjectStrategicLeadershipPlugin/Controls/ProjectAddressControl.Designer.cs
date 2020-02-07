@@ -35,18 +35,18 @@
             // 
             this.txtDetailAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDetailAddress.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtDetailAddress.Location = new System.Drawing.Point(556, 0);
+            this.txtDetailAddress.Location = new System.Drawing.Point(396, 0);
             this.txtDetailAddress.Name = "txtDetailAddress";
-            this.txtDetailAddress.Size = new System.Drawing.Size(172, 26);
+            this.txtDetailAddress.Size = new System.Drawing.Size(332, 26);
             this.txtDetailAddress.TabIndex = 11;
             // 
-            // ProjectAddressEditor
+            // ProjectAddressControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtDetailAddress);
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "ProjectAddressEditor";
+            this.Name = "ProjectAddressControl";
             this.Size = new System.Drawing.Size(728, 23);
             this.Controls.SetChildIndex(this.txtDetailAddress, 0);
             this.ResumeLayout(false);
