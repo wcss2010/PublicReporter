@@ -162,6 +162,19 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         }
                     }
 
+                    if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
+                    {
+                        roletypeOnlyProjectStr = "no";
+                    }
+                    if (string.IsNullOrEmpty(roletypeProjectAndSubjectStr))
+                    {
+                        roletypeProjectAndSubjectStr = "no";
+                    }
+                    if (string.IsNullOrEmpty(roletypeOnlySubjectStr))
+                    {
+                        roletypeOnlySubjectStr = "no";
+                    }
+
                     #region 生成Persons对象
                     Persons ppObj = new Persons();
                     ppObj.IDCard = idCardStr;
