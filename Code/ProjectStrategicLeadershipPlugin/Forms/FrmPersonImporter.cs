@@ -196,6 +196,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     if (roletypeOnlyProjectStr.Contains("yes"))
                     {
                         ppObj.RoleType = FrmAddOrUpdateWorker.isOnlyProject;
+                        roleNameStr = "成员";
                     }
                     else if (roletypeProjectAndSubjectStr.Contains("yes"))
                     {
