@@ -228,7 +228,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 foreach (Persons pObj in newPersonList)
                 {
                     List<object> cells = new List<object>();
-                    cells.Add(true);
+                    cells.Add("true");
                     cells.Add(pObj.Name);
                     cells.Add(pObj.Sex);
                     cells.Add(pObj.Job);
