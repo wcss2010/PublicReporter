@@ -221,21 +221,12 @@
     <None Include="DataTemplete\Current\static.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Helper\emptyPaste.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Helper\help.rtf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Helper\moneyPaste.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Helper\template.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Helper\subjectEmptyPaste.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Helper\emptyPaste.doc" />
+    <None Include="Helper\help.rtf" />
+    <None Include="Helper\moneyPaste.doc" />
+    <None Include="Helper\personTemplete.xls" />
+    <None Include="Helper\template.doc" />
+    <None Include="Helper\subjectEmptyPaste.doc" />
     <None Include="数据库结构.xlsx" />
   </ItemGroup>
   <ItemGroup>
