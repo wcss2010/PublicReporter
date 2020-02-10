@@ -591,8 +591,17 @@ namespace ProjectStrategicLeadershipPlugin
             }
             else
             {
-                showEditor(treeNode.Text);
-                Parent_BottomDefaultHintLabel.Text = "";
+                if (editorMap.ContainsKey(treeNode.Text))
+                {
+                    showEditor(treeNode.Text);
+                    Parent_BottomDefaultHintLabel.Text = "";
+                }
+                else if (treeNode.Nodes.Count >= 1)
+                {
+                    Parent_LeftTreeView.SelectedNode = treeNode.Nodes[0];
+                    showEditor(treeNode.Nodes[0].Text);
+                    Parent_BottomDefaultHintLabel.Text = "";
+                }
             }
         }
     }
