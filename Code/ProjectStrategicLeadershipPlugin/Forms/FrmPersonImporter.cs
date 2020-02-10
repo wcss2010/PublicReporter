@@ -23,8 +23,45 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            Persons[] personList = getSelectedPersonList();
+            if (personList.Length == 0)
+            {
+                MessageBox.Show("对不起，请选择要导入的人员！");
+                return;
+            }
+
+            foreach (Persons newObj in personList)
+            {
+                Persons oldObj = ConnectionManager.Context.table("Persons").where("IDCard='" + newObj.IDCard + "'").select("*").getItem<Persons>(new Persons());
+                if (string.IsNullOrEmpty(oldObj.ID))
+                {
+                    //insert
+                    newObj.ID = Guid.NewGuid().ToString();
+                    newObj.copyTo(ConnectionManager.Context.table("Persons")).insert();
+                }
+                else
+                {
+                    //update
+                    newObj.ID = oldObj.ID;
+                    newObj.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + newObj.ID + "'").update();
+                }
+            }
 
             DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private Persons[] getSelectedPersonList()
+        {
+            List<Persons> results = new List<Persons>();
+            foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
+            {
+                DataGridViewCheckBoxCell checkboxCell = ((DataGridViewCheckBoxCell)dgvRow.Cells[0]);
+                if (checkboxCell.Value == "true")
+                {
+                    results.Add((Persons)dgvRow.Tag);
+                }
+            }
+            return results.ToArray();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -125,50 +162,42 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         }
                     }
 
-                    Persons oldPersonObj = ConnectionManager.Context.table("Persons").where("IDCard='" + idCardStr + "'").select("*").getItem<Persons>(new Persons());
-                    if (string.IsNullOrEmpty(oldPersonObj.ID))
+                    #region 生成Persons对象
+                    Persons ppObj = new Persons();
+                    ppObj.IDCard = idCardStr;
+                    ppObj.Name = nameStr;
+                    ppObj.Sex = sexStr;
+                    ppObj.Birthday = DateTime.Parse(birthdayStr);
+                    ppObj.Job = jobStr;
+                    ppObj.Specialty = specStr;
+                    ppObj.Telephone = telephoneStr;
+                    ppObj.MobilePhone = mobilephoneStr;
+                    ppObj.UnitName = workunitStr;
+                    ppObj.TimeForSubject = int.Parse(timeforsubjectStr);
+                    ppObj.TaskContent = taskcontentStr;
+
+                    //课题ID
+                    ppObj.SubjectID = ConnectionManager.Context.table("Subjects").where("SubjectName='" + subjectStr + "'").select("ID").getValue<string>(defaultSubjectID);
+
+                    //角色类型
+                    if (roletypeOnlyProjectStr.Contains("yes"))
                     {
-                        #region 生成Persons对象
-                        Persons ppObj = new Persons();
-                        ppObj.IDCard = idCardStr;
-                        ppObj.Name = nameStr;
-                        ppObj.Sex = sexStr;
-                        ppObj.Birthday = DateTime.Parse(birthdayStr);
-                        ppObj.Job = jobStr;
-                        ppObj.Specialty = specStr;
-                        ppObj.Telephone = telephoneStr;
-                        ppObj.MobilePhone = mobilephoneStr;
-                        ppObj.UnitName = workunitStr;
-                        ppObj.TimeForSubject = int.Parse(timeforsubjectStr);
-                        ppObj.TaskContent = taskcontentStr;
-
-                        //课题ID
-                        ppObj.SubjectID = ConnectionManager.Context.table("Subjects").where("SubjectName='" + subjectStr + "'").select("ID").getValue<string>(defaultSubjectID);
-
-                        //角色类型
-                        if (roletypeOnlyProjectStr.Contains("yes"))
-                        {
-                            ppObj.RoleType = FrmAddOrUpdateWorker.isOnlyProject;
-                        }
-                        else if (roletypeProjectAndSubjectStr.Contains("yes"))
-                        {
-                            ppObj.RoleType = FrmAddOrUpdateWorker.isProjectAndSubject;
-                        }
-                        else
-                        {
-                            ppObj.RoleType = FrmAddOrUpdateWorker.isOnlySubject;
-                        }
-
-                        //角色名称
-                        ppObj.RoleName = roleNameStr;
-                        #endregion
-
-                        newPersonList.Add(ppObj);
+                        ppObj.RoleType = FrmAddOrUpdateWorker.isOnlyProject;
+                    }
+                    else if (roletypeProjectAndSubjectStr.Contains("yes"))
+                    {
+                        ppObj.RoleType = FrmAddOrUpdateWorker.isProjectAndSubject;
                     }
                     else
                     {
-                        continue;
+                        ppObj.RoleType = FrmAddOrUpdateWorker.isOnlySubject;
                     }
+
+                    //角色名称
+                    ppObj.RoleName = roleNameStr;
+                    #endregion
+
+                    newPersonList.Add(ppObj);
                 }
 
                 //查询研究内容列表
@@ -185,6 +214,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 foreach (Persons pObj in newPersonList)
                 {
                     List<object> cells = new List<object>();
+                    cells.Add(false);
                     cells.Add(pObj.Name);
                     cells.Add(pObj.Sex);
                     cells.Add(pObj.Job);
