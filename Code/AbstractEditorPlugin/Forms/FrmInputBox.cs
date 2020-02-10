@@ -13,6 +13,12 @@ namespace AbstractEditorPlugin.Forms
     {
         public string SelectedText { get { return txtContent.Text; } }
 
+        public bool SelectedTextReadOnly
+        {
+            get { return txtContent.ReadOnly; }
+            set { txtContent.ReadOnly = value; }
+        }
+
         public FrmInputBox(string txt)
         {
             InitializeComponent();
