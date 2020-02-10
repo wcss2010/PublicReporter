@@ -20,6 +20,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 {
     public partial class SubjectDetailEditor : AbstractEditorPlugin.BaseEditor
     {
+        private string subjectDocumentTempleteFile = string.Empty;
+
         public const string SubjectFileFlag = "详细内容附件_";
 
         public string RTFFileFirstName { get; set; }
@@ -41,6 +43,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             InitializeComponent();
 
             RTFFileFirstName = SubjectFileFlag;
+            subjectDocumentTempleteFile = Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "subjectEmptyPaste.doc"));
         }
 
         public override void clearView()
@@ -115,14 +118,28 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
             else
             {
-                try
+                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(tempFile) == false)
                 {
-                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                    wd.WordDoc.Save(tempFile);
+                    try
+                    {
+                        File.Copy(subjectDocumentTempleteFile, tempFile, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    try
+                    {
+                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                        wd.WordDoc.Save(tempFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
                 }
 
                 try
@@ -154,15 +171,30 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
             else
             {
-                try
+                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(tempFile) == false)
                 {
-                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                    wd.WordDoc.Save(tempFile);
+                    try
+                    {
+                        File.Copy(subjectDocumentTempleteFile, tempFile, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    try
+                    {
+                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                        wd.WordDoc.Save(tempFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
                 }
+
                 try
                 {
                     System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
@@ -191,14 +223,28 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
             else
             {
-                try
+                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(tempFile) == false)
                 {
-                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                    wd.WordDoc.Save(tempFile);
+                    try
+                    {
+                        File.Copy(subjectDocumentTempleteFile, tempFile, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    try
+                    {
+                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                        wd.WordDoc.Save(tempFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
                 }
 
                 try
