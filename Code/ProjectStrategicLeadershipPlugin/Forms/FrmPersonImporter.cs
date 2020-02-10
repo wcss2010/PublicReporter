@@ -272,21 +272,24 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
         private void dgvDetail_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string firstValue = string.Empty;
-            foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
+            if (e.ColumnIndex == 0)
             {
-                if (string.IsNullOrEmpty(firstValue))
+                string firstValue = string.Empty;
+                foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
                 {
-                    if (dgvRow.Cells[0].Value == "true")
+                    if (string.IsNullOrEmpty(firstValue))
                     {
-                        firstValue = "false";
+                        if (dgvRow.Cells[0].Value == "true")
+                        {
+                            firstValue = "false";
+                        }
+                        else
+                        {
+                            firstValue = "true";
+                        }
                     }
-                    else
-                    {
-                        firstValue = "true";
-                    }
+                    dgvRow.Cells[0].Value = firstValue;
                 }
-                dgvRow.Cells[0].Value = firstValue;
             }
         }
     }
