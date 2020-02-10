@@ -261,7 +261,15 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         {
             if (dgvDetail.Rows.Count > e.RowIndex && e.RowIndex >= 0)
             {
-                dgvDetail.Rows[e.RowIndex].Cells[0].Value = "true";                
+                if (dgvDetail.Rows[e.RowIndex].Cells[0].Value == "true")
+                {
+                    dgvDetail.Rows[e.RowIndex].Cells[0].Value = "false";
+                }
+                else
+                {
+                    dgvDetail.Rows[e.RowIndex].Cells[0].Value = "true";
+                }
+                dgvDetail.EndEdit();
             }
         }
 
@@ -274,6 +282,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         {
             if (e.ColumnIndex == 0)
             {
+                dgvDetail.ClearSelection();
                 string firstValue = string.Empty;
                 foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
                 {
@@ -287,9 +296,10 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         {
                             firstValue = "true";
                         }
-                    }
-                    dgvRow.Cells[0].Value = firstValue;
+                    }                    
+                    ((DataGridViewCheckBoxCell)dgvRow.Cells[0]).Value = firstValue;
                 }
+                dgvDetail.EndEdit();
             }
         }
     }
