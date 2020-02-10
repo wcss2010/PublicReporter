@@ -42,7 +42,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + sub.ID + "' and RoleName='负责人' and (RoleType = '" + FrmAddOrUpdateWorker.isProjectAndSubject + "' or RoleType = '" + FrmAddOrUpdateWorker.isOnlySubject + "')").select("*").getItem<Persons>(new Persons());
                 if (string.IsNullOrEmpty(pObj.ID))
                 {
-                    continue;
+                    pObj.Name = "*";
+                    pObj.AttachInfo = "请先编辑'主要成员情况表'!";
                 }
 
                 List<object> cells = new List<object>();
@@ -68,12 +69,19 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 {
                     if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                     {
-                        FrmInputBox inputFrm = new FrmInputBox(task.AttachInfo);
-                        if (inputFrm.ShowDialog() == DialogResult.OK)
+                        if (string.IsNullOrEmpty(task.ID))
                         {
-                            task.AttachInfo = inputFrm.SelectedText;
-                            task.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + task.ID + "'").update();
-                            PluginRootObj.refreshEditors();
+                            MessageBox.Show("对不起,请先编辑'主要成员情况表'!");
+                        }
+                        else
+                        {
+                            FrmInputBox inputFrm = new FrmInputBox(task.AttachInfo);
+                            if (inputFrm.ShowDialog() == DialogResult.OK)
+                            {
+                                task.AttachInfo = inputFrm.SelectedText;
+                                task.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + task.ID + "'").update();
+                                PluginRootObj.refreshEditors();
+                            }
                         }
                     }
                 }
