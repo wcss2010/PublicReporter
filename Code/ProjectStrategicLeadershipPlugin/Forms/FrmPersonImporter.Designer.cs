@@ -148,7 +148,6 @@
             this.dgvDetail.Location = new System.Drawing.Point(0, 41);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
-            this.dgvDetail.ReadOnly = true;
             this.dgvDetail.RowHeadersVisible = false;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("仿宋", 12F);
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -156,16 +155,18 @@
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetail.Size = new System.Drawing.Size(1001, 396);
             this.dgvDetail.TabIndex = 3;
+            this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
+            this.dgvDetail.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_ColumnHeaderMouseClick);
+            this.dgvDetail.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_RowHeaderMouseClick);
             // 
             // Column1
             // 
             this.Column1.FalseValue = "false";
-            this.Column1.HeaderText = "";
-            this.Column1.MinimumWidth = 30;
+            this.Column1.HeaderText = "全选";
+            this.Column1.MinimumWidth = 60;
             this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             this.Column1.TrueValue = "true";
-            this.Column1.Width = 30;
+            this.Column1.Width = 60;
             // 
             // Column2
             // 

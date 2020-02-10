@@ -109,15 +109,15 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
                     if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
                     {
-                        roletypeOnlyProjectStr = "no";
+                        roletypeOnlyProjectStr = "否";
                     }
                     if (string.IsNullOrEmpty(roletypeProjectAndSubjectStr))
                     {
-                        roletypeProjectAndSubjectStr = "no";
+                        roletypeProjectAndSubjectStr = "否";
                     }
                     if (string.IsNullOrEmpty(roletypeOnlySubjectStr))
                     {
-                        roletypeOnlySubjectStr = "no";
+                        roletypeOnlySubjectStr = "否";
                     }
 
                     //检查非空
@@ -159,7 +159,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     }
 
                     //判断研究内容名称是否正确
-                    if (roletypeOnlyProjectStr.Contains("no"))
+                    if (roletypeOnlyProjectStr.Contains("否"))
                     {
                         int subjectCount = 0;
                         object countObj = ConnectionManager.Context.table("Subjects").where("SubjectName='" + subjectStr + "'").select("count(*)").getValue();
@@ -193,12 +193,12 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     ppObj.SubjectID = ConnectionManager.Context.table("Subjects").where("SubjectName='" + subjectStr + "'").select("ID").getValue<string>(defaultSubjectID);
 
                     //角色类型
-                    if (roletypeOnlyProjectStr.Contains("yes"))
+                    if (roletypeOnlyProjectStr.Contains("是"))
                     {
                         ppObj.RoleType = FrmAddOrUpdateWorker.isOnlyProject;
                         roleNameStr = "成员";
                     }
-                    else if (roletypeProjectAndSubjectStr.Contains("yes"))
+                    else if (roletypeProjectAndSubjectStr.Contains("是"))
                     {
                         ppObj.RoleType = FrmAddOrUpdateWorker.isProjectAndSubject;
                     }
@@ -228,7 +228,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 foreach (Persons pObj in newPersonList)
                 {
                     List<object> cells = new List<object>();
-                    cells.Add(false);
+                    cells.Add(true);
                     cells.Add(pObj.Name);
                     cells.Add(pObj.Sex);
                     cells.Add(pObj.Job);
@@ -254,6 +254,39 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             catch (Exception ex)
             {
                 MessageBox.Show("对不起，导入失败！错误:" + ex.ToString());
+            }
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDetail.Rows.Count > e.RowIndex && e.RowIndex >= 0)
+            {
+                dgvDetail.Rows[e.RowIndex].Cells[0].Value = "true";                
+            }
+        }
+
+        private void dgvDetail_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+        private void dgvDetail_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string firstValue = string.Empty;
+            foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
+            {
+                if (string.IsNullOrEmpty(firstValue))
+                {
+                    if (dgvRow.Cells[0].Value == "true")
+                    {
+                        firstValue = "false";
+                    }
+                    else
+                    {
+                        firstValue = "true";
+                    }
+                }
+                dgvRow.Cells[0].Value = firstValue;
             }
         }
     }
