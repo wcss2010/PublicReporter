@@ -107,6 +107,19 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     string roletypeOnlySubjectStr = dr["仅为研究内容角色）"] != null ? dr["仅为研究内容角色）"].ToString().Trim() : string.Empty;
                     string roleNameStr = dr["研究内容中职务（负责人或成员）"] != null ? dr["研究内容中职务（负责人或成员）"].ToString().Trim() : string.Empty;
 
+                    if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
+                    {
+                        roletypeOnlyProjectStr = "no";
+                    }
+                    if (string.IsNullOrEmpty(roletypeProjectAndSubjectStr))
+                    {
+                        roletypeProjectAndSubjectStr = "no";
+                    }
+                    if (string.IsNullOrEmpty(roletypeOnlySubjectStr))
+                    {
+                        roletypeOnlySubjectStr = "no";
+                    }
+
                     //检查非空
                     foreach (DataColumn dc in dr.Table.Columns)
                     {
@@ -160,19 +173,6 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         {
                             throw new Exception("'研究内容名称'有误！");
                         }
-                    }
-
-                    if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
-                    {
-                        roletypeOnlyProjectStr = "no";
-                    }
-                    if (string.IsNullOrEmpty(roletypeProjectAndSubjectStr))
-                    {
-                        roletypeProjectAndSubjectStr = "no";
-                    }
-                    if (string.IsNullOrEmpty(roletypeOnlySubjectStr))
-                    {
-                        roletypeOnlySubjectStr = "no";
                     }
 
                     #region 生成Persons对象
