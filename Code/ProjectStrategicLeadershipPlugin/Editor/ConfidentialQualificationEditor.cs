@@ -57,7 +57,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         public override bool isInputCompleted()
         {
-            return dgvDetail.Rows.Count >= 1;
+            return true;
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
