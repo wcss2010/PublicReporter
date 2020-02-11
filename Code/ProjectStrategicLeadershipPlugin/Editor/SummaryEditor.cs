@@ -218,6 +218,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 foreach (Control c in flowLayoutPanel1.Controls)
                 {
                     c.Width = flowLayoutPanel1.Width - 20;
+                    c.Margin = new Padding(0, 30, 0, 0);
                 }
             }
         }
