@@ -190,7 +190,7 @@ namespace ProjectStrategicLeadershipPlugin
                         continue;
                     }
 
-                    sb.Append("     ").Append("研究内容").Append(GlobalTool.NumberToChinese(sssIndexx.ToString())).Append("负责人:").Append(pObj.Name).Append(",").Append(pObj.AttachInfo).AppendLine();
+                    sb.Append("研究内容").Append(GlobalTool.NumberToChinese(sssIndexx.ToString())).Append("负责人:").Append(pObj.Name).Append(",").Append(pObj.AttachInfo).AppendLine();
                 }
                 #endregion
                 writeStringToBookmark(wd, "项目负责人和研究团队_研究团队", sb.ToString());
