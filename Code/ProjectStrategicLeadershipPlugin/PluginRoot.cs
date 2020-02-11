@@ -43,8 +43,8 @@ namespace ProjectStrategicLeadershipPlugin
         public const string tnode_7_Name = "研究基础与保障条件";
         public const string tnode_8_Name = "项目负责人和研究团队";
         public const string tnode_8_0_Name = "项目负责人";
-        public const string tnode_8_1_Name = "研究团队";
-        public const string tnode_8_2_Name = "主要成员情况表";
+        public const string tnode_8_1_Name = "主要成员情况表";
+        public const string tnode_8_2_Name = "研究团队";
         public const string tnode_9_Name = "经费预算表";
         public const string tnode_10_Name = "附件1-项目经费预算说明";
         public const string tnode_11_Name = "附件2-保密资质复印件";
@@ -193,9 +193,9 @@ namespace ProjectStrategicLeadershipPlugin
             //（一）、项目负责人(DocumentPasteEditor)
             editorMap[tnode_8_0_Name] = new DocumentPasteEditor("项目负责人", "（介绍项目负责人的职务职称、教育工作履历，主要学术成就、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
             //（二）、研究团队(自定义列表)
-            editorMap[tnode_8_1_Name] = new Editor.WorkerGroupEditor();
+            editorMap[tnode_8_1_Name] = new Editor.WorkerEditor();
             //（三）、主要成员情况表(自定义列表)
-            editorMap[tnode_8_2_Name] = new Editor.WorkerEditor();
+            editorMap[tnode_8_2_Name] = new Editor.WorkerGroupEditor(); 
             //八、经费预算表(自定义列表)
             editorMap[tnode_9_Name] = new Editor.MoneyTableEditor();
             //附件1-项目经费预算说明(DocumentPasteEditor-带特定模板)

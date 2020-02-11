@@ -410,7 +410,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 29);
             this.label7.TabIndex = 2;
-            this.label7.Text = "责任单位所在省市：";
+            this.label7.Text = "责任单位地址：";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel8
