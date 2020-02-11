@@ -222,7 +222,7 @@ namespace ProjectStrategicLeadershipPlugin
 
                     //应用数字样式
                     wd.WordDocBuilder.ListFormat.List = flag22_numberList;
-                    wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = flag22_paragraphFormat.FirstLineIndent;
+                    //wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = flag22_paragraphFormat.FirstLineIndent;
 
                     wd.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading2;
                     wd.WordDocBuilder.Writeln(indexStringg + "：" + sub.SubjectName);
