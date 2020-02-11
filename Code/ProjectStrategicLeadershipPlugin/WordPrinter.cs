@@ -585,6 +585,7 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人职务职称", projObj.UnitContactJob);
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人手机", projObj.UnitContactPhone);
                 writeStringToBookmark(wd, "联系方式_申报单位_通信地址", projObj.UnitAddress != null ? projObj.UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty);
+                wd.WordDocBuilder.InsertParagraph();
                 #endregion
 
                 #region 插入研究内容附件
