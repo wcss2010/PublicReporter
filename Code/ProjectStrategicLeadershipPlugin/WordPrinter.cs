@@ -153,6 +153,11 @@ namespace ProjectStrategicLeadershipPlugin
                 #endregion
                 writeStringToBookmark(wd, "研究内容_概述列表", sb.ToString());
 
+                if (wd.WordDocBuilder.CurrentParagraph != null)
+                {
+                    wd.WordDocBuilder.CurrentParagraph.Remove();
+                }
+
                 #region 生成----(附件文件2)
                 List<ExtFiles> list = ConnectionManager.Context.table("ExtFiles").select("*").getList<ExtFiles>(new ExtFiles());
                 foreach (ExtFiles efl in list)
@@ -239,6 +244,9 @@ namespace ProjectStrategicLeadershipPlugin
                     wd.WordDocBuilder.EndBookmark(indexStringg + "_3");
                 }
                 #endregion
+
+                wd.WordDocBuilder.Font.Name = "仿宋_GB2312";
+                wd.WordDocBuilder.Font.Size = 12;
 
                 #region 生成----(*经费表)
                 try
@@ -420,6 +428,9 @@ namespace ProjectStrategicLeadershipPlugin
                 catch (Exception ex) { }
                 #endregion
 
+                wd.WordDocBuilder.Font.Name = "仿宋_GB2312";
+                wd.WordDocBuilder.Font.Size = 12;
+
                 #region 生成----(*人员表)
                 List<Persons> personList = ConnectionManager.Context.table("Persons").select("*").getList<Persons>(new Persons());
                 //填充数据
@@ -468,6 +479,9 @@ namespace ProjectStrategicLeadershipPlugin
                 }
                 #endregion
 
+                wd.WordDocBuilder.Font.Name = "仿宋_GB2312";
+                wd.WordDocBuilder.Font.Size = 10.5;
+
                 #region 生成----(*联系方式表)
                 try
                 {
@@ -495,7 +509,12 @@ namespace ProjectStrategicLeadershipPlugin
                                     int rowEnd = rowStart + 2;
 
                                     #region 写入标签
+                                    wd.WordDocBuilder.Font.Name = "黑体";
+                                    wd.WordDocBuilder.Font.Size = 12;
                                     wd.fillCell(true, table.Rows[rowStart].Cells[0], wd.newParagraph(wd.WordDoc, subjectNameDict[subjectList[k].ID]));
+                                    wd.WordDocBuilder.Font.Name = "仿宋_GB2312";
+                                    wd.WordDocBuilder.Font.Size = 10.5;
+
                                     wd.fillCell(true, table.Rows[rowStart].Cells[1], wd.newParagraph(wd.WordDoc, "负 责 人"));
                                     wd.fillCell(true, table.Rows[rowStart].Cells[3], wd.newParagraph(wd.WordDoc, "性  别"));
                                     wd.fillCell(true, table.Rows[rowStart].Cells[5], wd.newParagraph(wd.WordDoc, "出生年月"));
@@ -560,7 +579,7 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人", projObj.UnitContact);
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人职务职称", projObj.UnitContactJob);
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人手机", projObj.UnitContactPhone);
-                writeStringToBookmark(wd, "联系方式_申报单位_通信地址", projObj.UnitAddress);
+                writeStringToBookmark(wd, "联系方式_申报单位_通信地址", projObj.UnitAddress != null ? projObj.UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty);
                 #endregion
 
                 #region 插入研究内容附件
