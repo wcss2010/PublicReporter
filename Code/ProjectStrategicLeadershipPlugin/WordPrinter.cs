@@ -227,8 +227,11 @@ namespace ProjectStrategicLeadershipPlugin
                     wd.WordDocBuilder.ParagraphFormat.RightIndent = 0;
 
                     wd.WordDocBuilder.ParagraphFormat.StyleIdentifier = StyleIdentifier.Heading2;
+                    wd.WordDocBuilder.Font.Name = "楷体_GB2312";
+                    wd.WordDocBuilder.Font.Size = 15.75;
                     wd.WordDocBuilder.Writeln(indexStringg + "：" + sub.SubjectName);
-
+                    wd.WordDocBuilder.Font.Name = "仿宋_GB2312";
+                    wd.WordDocBuilder.Font.Size = 14.2;
                     //恢复之前的样式
                     wd.WordDocBuilder.ListFormat.RemoveNumbers();
                     wd.WordDocBuilder.ParagraphFormat.FirstLineIndent = oldFirstLineIndent;
@@ -537,7 +540,7 @@ namespace ProjectStrategicLeadershipPlugin
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[2], wd.newParagraph(wd.WordDoc, "空"));
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[4], wd.newParagraph(wd.WordDoc, "空"));
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[6], wd.newParagraph(wd.WordDoc, "空"));
-                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, "空"));
+                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, "空"), false);
                                     }
                                     else
                                     {
@@ -548,7 +551,7 @@ namespace ProjectStrategicLeadershipPlugin
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[2], wd.newParagraph(wd.WordDoc, pObj.Job));
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[4], wd.newParagraph(wd.WordDoc, pObj.Telephone));
                                         wd.fillCell(true, table.Rows[rowStart + 1].Cells[6], wd.newParagraph(wd.WordDoc, pObj.MobilePhone));
-                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, subjectList[k].UnitAddress != null ? subjectList[k].UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty));
+                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, subjectList[k].UnitAddress != null ? subjectList[k].UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty), false);
                                     }
                                     #endregion
 
