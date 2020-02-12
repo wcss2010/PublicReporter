@@ -236,6 +236,7 @@
     <None Include="Helper\moneyPaste.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Helper\moneyReadme.doc" />
     <None Include="Helper\personTemplete.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
