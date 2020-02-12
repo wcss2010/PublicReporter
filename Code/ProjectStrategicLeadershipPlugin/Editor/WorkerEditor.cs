@@ -151,28 +151,5 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 PluginRootObj.refreshEditors();
             }
         }
-
-        private void llTemplete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            string sourcePath = Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "personTemplete.xls"));
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "*.xls|*.xls";
-            sfd.FileName = "人员导入模板.xls";
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    File.Copy(sourcePath, sfd.FileName, true);
-                    Process.Start(sfd.FileName);
-
-                    MessageBox.Show("下载完成！");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("下载失败！Ex:" + ex.ToString());
-                }
-            }
-        }
     }
 }

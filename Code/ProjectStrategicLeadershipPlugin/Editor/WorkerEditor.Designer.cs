@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
@@ -46,9 +46,8 @@
             this.Column13 = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plButtons = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnImporter = new System.Windows.Forms.Button();
-            this.llTemplete = new System.Windows.Forms.LinkLabel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -101,14 +100,14 @@
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 51);
             this.dgvDetail.Name = "dgvDetail";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("仿宋", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("仿宋", 12F);
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 23;
@@ -231,7 +230,6 @@
             // 
             // plButtons
             // 
-            this.plButtons.Controls.Add(this.llTemplete);
             this.plButtons.Controls.Add(this.btnImporter);
             this.plButtons.Controls.Add(this.btnAdd);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -240,17 +238,6 @@
             this.plButtons.Padding = new System.Windows.Forms.Padding(3);
             this.plButtons.Size = new System.Drawing.Size(1070, 35);
             this.plButtons.TabIndex = 0;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(977, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 29);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "增加";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnImporter
             // 
@@ -264,18 +251,16 @@
             this.btnImporter.UseVisualStyleBackColor = true;
             this.btnImporter.Click += new System.EventHandler(this.btnImporter_Click);
             // 
-            // llTemplete
+            // btnAdd
             // 
-            this.llTemplete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.llTemplete.Font = new System.Drawing.Font("仿宋", 12F);
-            this.llTemplete.Location = new System.Drawing.Point(609, 3);
-            this.llTemplete.Name = "llTemplete";
-            this.llTemplete.Size = new System.Drawing.Size(280, 29);
-            this.llTemplete.TabIndex = 8;
-            this.llTemplete.TabStop = true;
-            this.llTemplete.Text = "点击下载\"人员导入模板.xls\"";
-            this.llTemplete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.llTemplete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTemplete_LinkClicked);
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAdd.Location = new System.Drawing.Point(977, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 29);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "增加";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // WorkerEditor
             // 
@@ -314,6 +299,5 @@
         private System.Windows.Forms.DataGridViewImageColumn Column12;
         private System.Windows.Forms.DataGridViewImageColumn Column13;
         private System.Windows.Forms.Button btnImporter;
-        private System.Windows.Forms.LinkLabel llTemplete;
     }
 }

@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.Panel();
+            this.llTemplete = new System.Windows.Forms.LinkLabel();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.txtFile = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
@@ -54,9 +55,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.llTemplete);
+            this.groupBox1.Controls.Add(this.btnSelect);
             this.groupBox1.Controls.Add(this.txtFile);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnSelect);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -64,12 +66,36 @@
             this.groupBox1.Size = new System.Drawing.Size(1001, 41);
             this.groupBox1.TabIndex = 0;
             // 
+            // llTemplete
+            // 
+            this.llTemplete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.llTemplete.Font = new System.Drawing.Font("仿宋", 12F);
+            this.llTemplete.Location = new System.Drawing.Point(713, 8);
+            this.llTemplete.Name = "llTemplete";
+            this.llTemplete.Size = new System.Drawing.Size(280, 25);
+            this.llTemplete.TabIndex = 9;
+            this.llTemplete.TabStop = true;
+            this.llTemplete.Text = "点击下载\"人员导入模板.xls\"";
+            this.llTemplete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.llTemplete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTemplete_LinkClicked);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSelect.Location = new System.Drawing.Point(602, 8);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(102, 25);
+            this.btnSelect.TabIndex = 0;
+            this.btnSelect.Text = "选择Excel文件";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // txtFile
             // 
-            this.txtFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFile.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtFile.Location = new System.Drawing.Point(65, 8);
             this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(826, 26);
+            this.txtFile.Size = new System.Drawing.Size(537, 26);
             this.txtFile.TabIndex = 2;
             // 
             // label1
@@ -81,17 +107,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "路径：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSelect.Location = new System.Drawing.Point(891, 8);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(102, 25);
-            this.btnSelect.TabIndex = 0;
-            this.btnSelect.Text = "选择Excel文件";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // panel1
             // 
@@ -246,15 +261,10 @@
             this.Controls.Add(this.dgvDetail);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("仿宋", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPersonImporter";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "人员导入";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -285,5 +295,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.LinkLabel llTemplete;
     }
 }
