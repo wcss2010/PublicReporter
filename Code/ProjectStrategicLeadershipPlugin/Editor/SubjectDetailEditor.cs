@@ -33,11 +33,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             get { return lblTitle; }
         }
 
-        public TabControl DetailTabs
-        {
-            get { return knKetiDetailTabs; }
-        }
-
         public SubjectDetailEditor()
         {
             InitializeComponent();
@@ -108,7 +103,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         public override bool isInputCompleted()
         {
-            return File.Exists(getInfoFilePath()) && File.Exists(getDestFilePath()) && File.Exists(getContentFilePath()) && File.Exists(getNeedFilePath());
+            return true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
