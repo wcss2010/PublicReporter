@@ -82,6 +82,7 @@
             this.txtTag1.Margin = new System.Windows.Forms.Padding(4);
             this.txtTag1.Multiline = true;
             this.txtTag1.Name = "txtTag1";
+            this.txtTag1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtTag1.Size = new System.Drawing.Size(581, 102);
             this.txtTag1.TabIndex = 12;
             // 
@@ -102,6 +103,7 @@
             this.txtTag3.Margin = new System.Windows.Forms.Padding(4);
             this.txtTag3.Multiline = true;
             this.txtTag3.Name = "txtTag3";
+            this.txtTag3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtTag3.Size = new System.Drawing.Size(583, 105);
             this.txtTag3.TabIndex = 16;
             // 
@@ -133,6 +135,7 @@
             this.txtTag2.Margin = new System.Windows.Forms.Padding(4);
             this.txtTag2.Multiline = true;
             this.txtTag2.Name = "txtTag2";
+            this.txtTag2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtTag2.Size = new System.Drawing.Size(581, 103);
             this.txtTag2.TabIndex = 14;
             // 
