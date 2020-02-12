@@ -60,39 +60,47 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             base.onSaveEvent(ref result);
 
-            txtInfo.SaveFile(getInfoFilePath());
-            //txtDest.SaveDoc(GetDestFilePath());
-            //txtContent.SaveDoc(GetContentFilePath());
-            //txtNeed.SaveDoc(GetNeedFilePath());
+            txtInfo.SaveFile(getDestTxtFilePath(plSubjectContent1.Tag.ToString().Trim()));
         }
 
-        public string getNeedFilePath()
+        /// <summary>
+        /// 生成存储位置
+        /// </summary>
+        /// <param name="moduleName">模块名称</param>
+        /// <param name="fileExt">扩展名</param>
+        /// <returns></returns>
+        public string getDestFilePath(string moduleName, string fileExt)
         {
-            return Path.Combine(PluginRootObj.filesDir, RTFFileFirstName + Name + "_" + kpNeed.Text + ".doc");
+            return Path.Combine(PluginRootObj.filesDir, RTFFileFirstName + Name + "_" + moduleName + fileExt);
         }
 
-        public string getContentFilePath()
+        /// <summary>
+        /// 生成文本文件存储位置
+        /// </summary>
+        /// <param name="moduleName"></param>
+        /// <returns></returns>
+        public string getDestTxtFilePath(string moduleName)
         {
-            return Path.Combine(PluginRootObj.filesDir, RTFFileFirstName + Name + "_" + kpContent.Text + ".doc");
+            return getDestFilePath(moduleName, ".txt");
         }
 
-        public string getDestFilePath()
+        /// <summary>
+        /// 生成Doc文件存储位置
+        /// </summary>
+        /// <param name="moduleName"></param>
+        /// <returns></returns>
+        public string getDestDocFilePath(string moduleName)
         {
-            return Path.Combine(PluginRootObj.filesDir, RTFFileFirstName + Name + "_" + kpDest.Text + ".doc");
-        }
-
-        public string getInfoFilePath()
-        {
-            return Path.Combine(PluginRootObj.filesDir, RTFFileFirstName + Name + "_" + kpInfo.Text + ".txt");
+            return getDestFilePath(moduleName, ".doc");
         }
 
         public override void refreshView()
         {
             base.refreshView();
 
-            if (File.Exists(getInfoFilePath()))
+            if (File.Exists(getDestTxtFilePath(plSubjectContent1.Tag.ToString().Trim())))
             {
-                txtInfo.LoadFile(getInfoFilePath());
+                txtInfo.LoadFile(getDestTxtFilePath(plSubjectContent1.Tag.ToString().Trim()));
             }
 
             lblTitle.Text = "研究内容(" + Name + ")的详细内容页";
@@ -101,172 +109,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         public override bool isInputCompleted()
         {
             return File.Exists(getInfoFilePath()) && File.Exists(getDestFilePath()) && File.Exists(getContentFilePath()) && File.Exists(getNeedFilePath());
-        }
-
-        private void btnEditDest_Click(object sender, EventArgs e)
-        {
-            string tempFile = getDestFilePath();
-
-            
-        }
-
-        private void btnEditContent_Click(object sender, EventArgs e)
-        {
-            //临时文件
-            string tempFile = getContentFilePath();
-
-            if (File.Exists(tempFile))
-            {
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-            else
-            {
-                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(tempFile) == false)
-                {
-                    try
-                    {
-                        File.Copy(subjectDocumentTempleteFile, tempFile, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                        wd.WordDoc.Save(tempFile);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-        }
-
-        private void btnEditNeed_Click(object sender, EventArgs e)
-        {
-            string tempFile = getNeedFilePath();
-
-            if (File.Exists(tempFile))
-            {
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-            else
-            {
-                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(tempFile) == false)
-                {
-                    try
-                    {
-                        File.Copy(subjectDocumentTempleteFile, tempFile, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                        wd.WordDoc.Save(tempFile);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-        }
-
-        /// <summary>
-        /// 打开或创建word文档
-        /// </summary>
-        /// <param name="destDocFile">目标文档地址</param>
-        private void openOrCreateWord(string destDocFile)
-        {
-            if (File.Exists(destDocFile))
-            {
-                try
-                {
-                    System.Diagnostics.Process.Start(destDocFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-            else
-            {
-                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(destDocFile) == false)
-                {
-                    try
-                    {
-                        File.Copy(subjectDocumentTempleteFile, destDocFile, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                        wd.WordDoc.Save(destDocFile);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-
-                try
-                {
-                    System.Diagnostics.Process.Start(destDocFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -297,6 +139,21 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             {
                 c.Margin = new Padding(0, 25, 0, 0);
             }
+        }
+
+        private void btnEditContent2_Click(object sender, EventArgs e)
+        {
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(plSubjectContent2.Tag.ToString().Trim()));
+        }
+
+        private void btnEditContent3_Click(object sender, EventArgs e)
+        {
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(plSubjectContent3.Tag.ToString().Trim()));
+        }
+
+        private void btnEditContent4_Click(object sender, EventArgs e)
+        {
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(plSubjectContent4.Tag.ToString().Trim()));
         }
     }
 }

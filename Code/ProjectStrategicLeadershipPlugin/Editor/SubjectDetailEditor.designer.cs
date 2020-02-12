@@ -30,28 +30,28 @@
         {
             this.txtInfo = new AbstractEditorPlugin.Controls.TextBoxExt();
             this.btnSave = new System.Windows.Forms.Button();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnEditDest = new System.Windows.Forms.Button();
+            this.plSubjectContent2 = new System.Windows.Forms.Panel();
+            this.btnEditContent2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEditContent = new System.Windows.Forms.Button();
+            this.plSubjectContent3 = new System.Windows.Forms.Panel();
+            this.btnEditContent3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEditNeed = new System.Windows.Forms.Button();
+            this.plSubjectContent4 = new System.Windows.Forms.Panel();
+            this.btnEditContent4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.plTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.plSubjectContent1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.plButtons.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.plSubjectContent2.SuspendLayout();
+            this.plSubjectContent3.SuspendLayout();
+            this.plSubjectContent4.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.plSubjectContent1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtInfo
@@ -62,7 +62,7 @@
             this.txtInfo.Location = new System.Drawing.Point(155, 0);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(632, 110);
+            this.txtInfo.Size = new System.Drawing.Size(632, 195);
             this.txtInfo.TabIndex = 0;
             // 
             // btnSave
@@ -71,32 +71,33 @@
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnSave.Location = new System.Drawing.Point(787, 0);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(55, 110);
+            this.btnSave.Size = new System.Drawing.Size(55, 195);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // plButtons
+            // plSubjectContent2
             // 
-            this.plButtons.Controls.Add(this.btnEditDest);
-            this.plButtons.Controls.Add(this.label2);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plButtons.Location = new System.Drawing.Point(0, 110);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(842, 38);
-            this.plButtons.TabIndex = 3;
+            this.plSubjectContent2.Controls.Add(this.btnEditContent2);
+            this.plSubjectContent2.Controls.Add(this.label2);
+            this.plSubjectContent2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plSubjectContent2.Location = new System.Drawing.Point(0, 195);
+            this.plSubjectContent2.Name = "plSubjectContent2";
+            this.plSubjectContent2.Size = new System.Drawing.Size(842, 38);
+            this.plSubjectContent2.TabIndex = 3;
+            this.plSubjectContent2.Tag = "具体研究内容";
             // 
-            // btnEditDest
+            // btnEditContent2
             // 
-            this.btnEditDest.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEditDest.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditDest.Location = new System.Drawing.Point(681, 0);
-            this.btnEditDest.Name = "btnEditDest";
-            this.btnEditDest.Size = new System.Drawing.Size(161, 38);
-            this.btnEditDest.TabIndex = 2;
-            this.btnEditDest.Text = "使用Word编辑该文档";
-            this.btnEditDest.Click += new System.EventHandler(this.btnEditDest_Click);
+            this.btnEditContent2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEditContent2.Font = new System.Drawing.Font("仿宋", 12F);
+            this.btnEditContent2.Location = new System.Drawing.Point(681, 0);
+            this.btnEditContent2.Name = "btnEditContent2";
+            this.btnEditContent2.Size = new System.Drawing.Size(161, 38);
+            this.btnEditContent2.TabIndex = 2;
+            this.btnEditContent2.Text = "使用Word编辑该文档";
+            this.btnEditContent2.Click += new System.EventHandler(this.btnEditContent2_Click);
             // 
             // label2
             // 
@@ -109,26 +110,27 @@
             this.label2.Text = "具体研究内容：";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel1
+            // plSubjectContent3
             // 
-            this.panel1.Controls.Add(this.btnEditContent);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 148);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(842, 38);
-            this.panel1.TabIndex = 3;
+            this.plSubjectContent3.Controls.Add(this.btnEditContent3);
+            this.plSubjectContent3.Controls.Add(this.label3);
+            this.plSubjectContent3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plSubjectContent3.Location = new System.Drawing.Point(0, 233);
+            this.plSubjectContent3.Name = "plSubjectContent3";
+            this.plSubjectContent3.Size = new System.Drawing.Size(842, 38);
+            this.plSubjectContent3.TabIndex = 3;
+            this.plSubjectContent3.Tag = "关键问题";
             // 
-            // btnEditContent
+            // btnEditContent3
             // 
-            this.btnEditContent.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEditContent.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditContent.Location = new System.Drawing.Point(681, 0);
-            this.btnEditContent.Name = "btnEditContent";
-            this.btnEditContent.Size = new System.Drawing.Size(161, 38);
-            this.btnEditContent.TabIndex = 2;
-            this.btnEditContent.Text = "使用Word编辑该文档";
-            this.btnEditContent.Click += new System.EventHandler(this.btnEditContent_Click);
+            this.btnEditContent3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEditContent3.Font = new System.Drawing.Font("仿宋", 12F);
+            this.btnEditContent3.Location = new System.Drawing.Point(681, 0);
+            this.btnEditContent3.Name = "btnEditContent3";
+            this.btnEditContent3.Size = new System.Drawing.Size(161, 38);
+            this.btnEditContent3.TabIndex = 2;
+            this.btnEditContent3.Text = "使用Word编辑该文档";
+            this.btnEditContent3.Click += new System.EventHandler(this.btnEditContent3_Click);
             // 
             // label3
             // 
@@ -141,26 +143,27 @@
             this.label3.Text = "关键问题：";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel2
+            // plSubjectContent4
             // 
-            this.panel2.Controls.Add(this.btnEditNeed);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 186);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(842, 38);
-            this.panel2.TabIndex = 3;
+            this.plSubjectContent4.Controls.Add(this.btnEditContent4);
+            this.plSubjectContent4.Controls.Add(this.label4);
+            this.plSubjectContent4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plSubjectContent4.Location = new System.Drawing.Point(0, 271);
+            this.plSubjectContent4.Name = "plSubjectContent4";
+            this.plSubjectContent4.Size = new System.Drawing.Size(842, 38);
+            this.plSubjectContent4.TabIndex = 3;
+            this.plSubjectContent4.Tag = "研究思路与方法";
             // 
-            // btnEditNeed
+            // btnEditContent4
             // 
-            this.btnEditNeed.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEditNeed.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditNeed.Location = new System.Drawing.Point(681, 0);
-            this.btnEditNeed.Name = "btnEditNeed";
-            this.btnEditNeed.Size = new System.Drawing.Size(161, 38);
-            this.btnEditNeed.TabIndex = 2;
-            this.btnEditNeed.Text = "使用Word编辑该文档";
-            this.btnEditNeed.Click += new System.EventHandler(this.btnEditNeed_Click);
+            this.btnEditContent4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEditContent4.Font = new System.Drawing.Font("仿宋", 12F);
+            this.btnEditContent4.Location = new System.Drawing.Point(681, 0);
+            this.btnEditContent4.Name = "btnEditContent4";
+            this.btnEditContent4.Size = new System.Drawing.Size(161, 38);
+            this.btnEditContent4.TabIndex = 2;
+            this.btnEditContent4.Text = "使用Word编辑该文档";
+            this.btnEditContent4.Click += new System.EventHandler(this.btnEditContent4_Click);
             // 
             // label4
             // 
@@ -223,10 +226,10 @@
             // 
             this.plContent.AutoScroll = true;
             this.plContent.BackColor = System.Drawing.Color.Transparent;
-            this.plContent.Controls.Add(this.panel2);
-            this.plContent.Controls.Add(this.panel1);
-            this.plContent.Controls.Add(this.plButtons);
-            this.plContent.Controls.Add(this.panel3);
+            this.plContent.Controls.Add(this.plSubjectContent4);
+            this.plContent.Controls.Add(this.plSubjectContent3);
+            this.plContent.Controls.Add(this.plSubjectContent2);
+            this.plContent.Controls.Add(this.plSubjectContent1);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(8, 36);
             this.plContent.Name = "plContent";
@@ -234,16 +237,17 @@
             this.plContent.TabIndex = 7;
             this.plContent.SizeChanged += new System.EventHandler(this.plContent_SizeChanged);
             // 
-            // panel3
+            // plSubjectContent1
             // 
-            this.panel3.Controls.Add(this.txtInfo);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.btnSave);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(842, 110);
-            this.panel3.TabIndex = 4;
+            this.plSubjectContent1.Controls.Add(this.txtInfo);
+            this.plSubjectContent1.Controls.Add(this.label1);
+            this.plSubjectContent1.Controls.Add(this.btnSave);
+            this.plSubjectContent1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plSubjectContent1.Location = new System.Drawing.Point(0, 0);
+            this.plSubjectContent1.Name = "plSubjectContent1";
+            this.plSubjectContent1.Size = new System.Drawing.Size(842, 195);
+            this.plSubjectContent1.TabIndex = 4;
+            this.plSubjectContent1.Tag = "概述";
             // 
             // label1
             // 
@@ -251,7 +255,7 @@
             this.label1.Font = new System.Drawing.Font("仿宋", 12F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 110);
+            this.label1.Size = new System.Drawing.Size(155, 195);
             this.label1.TabIndex = 1;
             this.label1.Text = "概述(200字以内)：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -265,15 +269,15 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SubjectDetailEditor";
             this.Size = new System.Drawing.Size(858, 502);
-            this.plButtons.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.plSubjectContent2.ResumeLayout(false);
+            this.plSubjectContent3.ResumeLayout(false);
+            this.plSubjectContent4.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.plTitle.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.plSubjectContent1.ResumeLayout(false);
+            this.plSubjectContent1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -285,17 +289,17 @@
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblTitle;
         private System.Windows.Forms.Panel plContent;
         private AbstractEditorPlugin.Controls.TextBoxExt txtInfo;
-        private System.Windows.Forms.Button btnEditDest;
-        private System.Windows.Forms.Button btnEditContent;
-        private System.Windows.Forms.Button btnEditNeed;
-        private System.Windows.Forms.Panel plButtons;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnEditContent2;
+        private System.Windows.Forms.Button btnEditContent3;
+        private System.Windows.Forms.Button btnEditContent4;
+        private System.Windows.Forms.Panel plSubjectContent2;
+        private System.Windows.Forms.Panel plSubjectContent3;
+        private System.Windows.Forms.Panel plSubjectContent4;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel plSubjectContent1;
     }
 }
