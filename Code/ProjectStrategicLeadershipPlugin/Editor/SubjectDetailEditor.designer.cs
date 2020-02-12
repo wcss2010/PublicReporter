@@ -59,20 +59,20 @@
             this.txtInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtInfo.EnabledMiddleInParentBox = false;
             this.txtInfo.Font = new System.Drawing.Font("仿宋", 14.25F);
-            this.txtInfo.Location = new System.Drawing.Point(155, 0);
+            this.txtInfo.Location = new System.Drawing.Point(155, 20);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInfo.Size = new System.Drawing.Size(632, 195);
+            this.txtInfo.Size = new System.Drawing.Size(612, 187);
             this.txtInfo.TabIndex = 0;
             // 
             // btnSave
             // 
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(787, 0);
+            this.btnSave.Location = new System.Drawing.Point(767, 20);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(55, 195);
+            this.btnSave.Size = new System.Drawing.Size(55, 187);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -83,9 +83,11 @@
             this.plSubjectContent2.Controls.Add(this.btnEditContent2);
             this.plSubjectContent2.Controls.Add(this.label2);
             this.plSubjectContent2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent2.Location = new System.Drawing.Point(0, 195);
+            this.plSubjectContent2.Location = new System.Drawing.Point(10, 217);
+            this.plSubjectContent2.Margin = new System.Windows.Forms.Padding(0);
             this.plSubjectContent2.Name = "plSubjectContent2";
-            this.plSubjectContent2.Size = new System.Drawing.Size(842, 38);
+            this.plSubjectContent2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.plSubjectContent2.Size = new System.Drawing.Size(822, 50);
             this.plSubjectContent2.TabIndex = 3;
             this.plSubjectContent2.Tag = "具体研究内容";
             // 
@@ -93,9 +95,9 @@
             // 
             this.btnEditContent2.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEditContent2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditContent2.Location = new System.Drawing.Point(681, 0);
+            this.btnEditContent2.Location = new System.Drawing.Point(661, 20);
             this.btnEditContent2.Name = "btnEditContent2";
-            this.btnEditContent2.Size = new System.Drawing.Size(161, 38);
+            this.btnEditContent2.Size = new System.Drawing.Size(161, 30);
             this.btnEditContent2.TabIndex = 2;
             this.btnEditContent2.Text = "使用Word编辑该文档";
             this.btnEditContent2.Click += new System.EventHandler(this.btnEditContent2_Click);
@@ -104,9 +106,9 @@
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Location = new System.Drawing.Point(0, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 38);
+            this.label2.Size = new System.Drawing.Size(155, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "具体研究内容：";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -116,9 +118,11 @@
             this.plSubjectContent3.Controls.Add(this.btnEditContent3);
             this.plSubjectContent3.Controls.Add(this.label3);
             this.plSubjectContent3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent3.Location = new System.Drawing.Point(0, 233);
+            this.plSubjectContent3.Location = new System.Drawing.Point(10, 267);
+            this.plSubjectContent3.Margin = new System.Windows.Forms.Padding(0);
             this.plSubjectContent3.Name = "plSubjectContent3";
-            this.plSubjectContent3.Size = new System.Drawing.Size(842, 38);
+            this.plSubjectContent3.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.plSubjectContent3.Size = new System.Drawing.Size(822, 50);
             this.plSubjectContent3.TabIndex = 3;
             this.plSubjectContent3.Tag = "关键问题";
             // 
@@ -126,9 +130,9 @@
             // 
             this.btnEditContent3.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEditContent3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditContent3.Location = new System.Drawing.Point(681, 0);
+            this.btnEditContent3.Location = new System.Drawing.Point(661, 20);
             this.btnEditContent3.Name = "btnEditContent3";
-            this.btnEditContent3.Size = new System.Drawing.Size(161, 38);
+            this.btnEditContent3.Size = new System.Drawing.Size(161, 30);
             this.btnEditContent3.TabIndex = 2;
             this.btnEditContent3.Text = "使用Word编辑该文档";
             this.btnEditContent3.Click += new System.EventHandler(this.btnEditContent3_Click);
@@ -137,9 +141,9 @@
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Location = new System.Drawing.Point(0, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 38);
+            this.label3.Size = new System.Drawing.Size(155, 30);
             this.label3.TabIndex = 1;
             this.label3.Text = "关键问题：";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -149,9 +153,11 @@
             this.plSubjectContent4.Controls.Add(this.btnEditContent4);
             this.plSubjectContent4.Controls.Add(this.label4);
             this.plSubjectContent4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent4.Location = new System.Drawing.Point(0, 271);
+            this.plSubjectContent4.Location = new System.Drawing.Point(10, 317);
+            this.plSubjectContent4.Margin = new System.Windows.Forms.Padding(0);
             this.plSubjectContent4.Name = "plSubjectContent4";
-            this.plSubjectContent4.Size = new System.Drawing.Size(842, 38);
+            this.plSubjectContent4.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.plSubjectContent4.Size = new System.Drawing.Size(822, 50);
             this.plSubjectContent4.TabIndex = 3;
             this.plSubjectContent4.Tag = "研究思路与方法";
             // 
@@ -159,9 +165,9 @@
             // 
             this.btnEditContent4.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEditContent4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditContent4.Location = new System.Drawing.Point(681, 0);
+            this.btnEditContent4.Location = new System.Drawing.Point(661, 20);
             this.btnEditContent4.Name = "btnEditContent4";
-            this.btnEditContent4.Size = new System.Drawing.Size(161, 38);
+            this.btnEditContent4.Size = new System.Drawing.Size(161, 30);
             this.btnEditContent4.TabIndex = 2;
             this.btnEditContent4.Text = "使用Word编辑该文档";
             this.btnEditContent4.Click += new System.EventHandler(this.btnEditContent4_Click);
@@ -170,9 +176,9 @@
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Location = new System.Drawing.Point(0, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 38);
+            this.label4.Size = new System.Drawing.Size(155, 30);
             this.label4.TabIndex = 1;
             this.label4.Text = "研究思路与方法：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -234,6 +240,7 @@
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(8, 36);
             this.plContent.Name = "plContent";
+            this.plContent.Padding = new System.Windows.Forms.Padding(10);
             this.plContent.Size = new System.Drawing.Size(842, 458);
             this.plContent.TabIndex = 7;
             this.plContent.SizeChanged += new System.EventHandler(this.plContent_SizeChanged);
@@ -244,9 +251,11 @@
             this.plSubjectContent1.Controls.Add(this.label1);
             this.plSubjectContent1.Controls.Add(this.btnSave);
             this.plSubjectContent1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent1.Location = new System.Drawing.Point(0, 0);
+            this.plSubjectContent1.Location = new System.Drawing.Point(10, 10);
+            this.plSubjectContent1.Margin = new System.Windows.Forms.Padding(0);
             this.plSubjectContent1.Name = "plSubjectContent1";
-            this.plSubjectContent1.Size = new System.Drawing.Size(842, 195);
+            this.plSubjectContent1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.plSubjectContent1.Size = new System.Drawing.Size(822, 207);
             this.plSubjectContent1.TabIndex = 4;
             this.plSubjectContent1.Tag = "概述";
             // 
@@ -254,9 +263,9 @@
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(0, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 195);
+            this.label1.Size = new System.Drawing.Size(155, 187);
             this.label1.TabIndex = 1;
             this.label1.Text = "概述(200字以内)：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
