@@ -186,6 +186,7 @@
             this.ibEditYear3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditYear3.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditYear3.Location = new System.Drawing.Point(639, 69);
+            this.ibEditYear3.MaxLength = 300;
             this.ibEditYear3.Multiline = true;
             this.ibEditYear3.Name = "ibEditYear3";
             this.ibEditYear3.Size = new System.Drawing.Size(312, 28);
@@ -197,6 +198,7 @@
             this.ibEditYear2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditYear2.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditYear2.Location = new System.Drawing.Point(321, 69);
+            this.ibEditYear2.MaxLength = 300;
             this.ibEditYear2.Multiline = true;
             this.ibEditYear2.Name = "ibEditYear2";
             this.ibEditYear2.Size = new System.Drawing.Size(312, 28);
@@ -208,6 +210,7 @@
             this.ibEditYear1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditYear1.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditYear1.Location = new System.Drawing.Point(3, 69);
+            this.ibEditYear1.MaxLength = 300;
             this.ibEditYear1.Multiline = true;
             this.ibEditYear1.Name = "ibEditYear1";
             this.ibEditYear1.Size = new System.Drawing.Size(312, 28);
@@ -357,6 +360,7 @@
             this.ibEditMoney5_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney5_2.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney5_2.Location = new System.Drawing.Point(422, 313);
+            this.ibEditMoney5_2.MaxLength = 300;
             this.ibEditMoney5_2.Multiline = true;
             this.ibEditMoney5_2.Name = "ibEditMoney5_2";
             this.ibEditMoney5_2.Size = new System.Drawing.Size(100, 25);
@@ -370,6 +374,7 @@
             this.ibEditInfo3_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo3_1.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo3_1.Location = new System.Drawing.Point(528, 127);
+            this.ibEditInfo3_1.MaxLength = 300;
             this.ibEditInfo3_1.Multiline = true;
             this.ibEditInfo3_1.Name = "ibEditInfo3_1";
             this.ibEditInfo3_1.Size = new System.Drawing.Size(423, 25);
@@ -632,6 +637,7 @@
             this.ibEditMoney1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney1.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ibEditMoney1.Location = new System.Drawing.Point(422, 34);
+            this.ibEditMoney1.MaxLength = 300;
             this.ibEditMoney1.Multiline = true;
             this.ibEditMoney1.Name = "ibEditMoney1";
             this.ibEditMoney1.ReadOnly = true;
@@ -646,6 +652,7 @@
             this.ibEditMoney2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney2.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ibEditMoney2.Location = new System.Drawing.Point(422, 65);
+            this.ibEditMoney2.MaxLength = 300;
             this.ibEditMoney2.Multiline = true;
             this.ibEditMoney2.Name = "ibEditMoney2";
             this.ibEditMoney2.ReadOnly = true;
@@ -660,6 +667,7 @@
             this.ibEditMoney3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney3.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney3.Location = new System.Drawing.Point(422, 96);
+            this.ibEditMoney3.MaxLength = 300;
             this.ibEditMoney3.Multiline = true;
             this.ibEditMoney3.Name = "ibEditMoney3";
             this.ibEditMoney3.ReadOnly = true;
@@ -674,6 +682,7 @@
             this.ibEditMoney4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney4.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney4.Location = new System.Drawing.Point(422, 220);
+            this.ibEditMoney4.MaxLength = 300;
             this.ibEditMoney4.Multiline = true;
             this.ibEditMoney4.Name = "ibEditMoney4";
             this.ibEditMoney4.Size = new System.Drawing.Size(100, 25);
@@ -687,6 +696,7 @@
             this.ibEditMoney5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney5.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney5.Location = new System.Drawing.Point(422, 251);
+            this.ibEditMoney5.MaxLength = 300;
             this.ibEditMoney5.Multiline = true;
             this.ibEditMoney5.Name = "ibEditMoney5";
             this.ibEditMoney5.ReadOnly = true;
@@ -701,6 +711,7 @@
             this.ibEditMoney6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney6.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney6.Location = new System.Drawing.Point(422, 344);
+            this.ibEditMoney6.MaxLength = 300;
             this.ibEditMoney6.Multiline = true;
             this.ibEditMoney6.Name = "ibEditMoney6";
             this.ibEditMoney6.Size = new System.Drawing.Size(100, 25);
@@ -714,6 +725,7 @@
             this.ibEditMoney7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney7.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney7.Location = new System.Drawing.Point(422, 375);
+            this.ibEditMoney7.MaxLength = 300;
             this.ibEditMoney7.Multiline = true;
             this.ibEditMoney7.Name = "ibEditMoney7";
             this.ibEditMoney7.Size = new System.Drawing.Size(100, 25);
@@ -727,6 +739,7 @@
             this.ibEditMoney8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney8.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney8.Location = new System.Drawing.Point(422, 406);
+            this.ibEditMoney8.MaxLength = 300;
             this.ibEditMoney8.Multiline = true;
             this.ibEditMoney8.Name = "ibEditMoney8";
             this.ibEditMoney8.Size = new System.Drawing.Size(100, 25);
@@ -740,6 +753,7 @@
             this.ibEditMoney9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney9.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney9.Location = new System.Drawing.Point(422, 437);
+            this.ibEditMoney9.MaxLength = 300;
             this.ibEditMoney9.Multiline = true;
             this.ibEditMoney9.Name = "ibEditMoney9";
             this.ibEditMoney9.Size = new System.Drawing.Size(100, 25);
@@ -753,6 +767,7 @@
             this.ibEditMoney10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney10.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney10.Location = new System.Drawing.Point(422, 468);
+            this.ibEditMoney10.MaxLength = 300;
             this.ibEditMoney10.Multiline = true;
             this.ibEditMoney10.Name = "ibEditMoney10";
             this.ibEditMoney10.Size = new System.Drawing.Size(100, 25);
@@ -766,6 +781,7 @@
             this.ibEditMoney11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney11.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney11.Location = new System.Drawing.Point(422, 499);
+            this.ibEditMoney11.MaxLength = 300;
             this.ibEditMoney11.Multiline = true;
             this.ibEditMoney11.Name = "ibEditMoney11";
             this.ibEditMoney11.Size = new System.Drawing.Size(100, 25);
@@ -779,6 +795,7 @@
             this.ibEditMoney12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney12.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ibEditMoney12.Location = new System.Drawing.Point(422, 530);
+            this.ibEditMoney12.MaxLength = 300;
             this.ibEditMoney12.Multiline = true;
             this.ibEditMoney12.Name = "ibEditMoney12";
             this.ibEditMoney12.ReadOnly = true;
@@ -793,6 +810,7 @@
             this.ibEditMoney13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney13.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney13.Location = new System.Drawing.Point(422, 561);
+            this.ibEditMoney13.MaxLength = 300;
             this.ibEditMoney13.Multiline = true;
             this.ibEditMoney13.Name = "ibEditMoney13";
             this.ibEditMoney13.Size = new System.Drawing.Size(100, 27);
@@ -806,6 +824,7 @@
             this.ibEditInfo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo1.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo1.Location = new System.Drawing.Point(528, 34);
+            this.ibEditInfo1.MaxLength = 300;
             this.ibEditInfo1.Multiline = true;
             this.ibEditInfo1.Name = "ibEditInfo1";
             this.ibEditInfo1.Size = new System.Drawing.Size(423, 25);
@@ -816,6 +835,7 @@
             this.ibEditInfo2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo2.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo2.Location = new System.Drawing.Point(528, 65);
+            this.ibEditInfo2.MaxLength = 300;
             this.ibEditInfo2.Multiline = true;
             this.ibEditInfo2.Name = "ibEditInfo2";
             this.ibEditInfo2.Size = new System.Drawing.Size(423, 25);
@@ -826,6 +846,7 @@
             this.ibEditInfo3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo3.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo3.Location = new System.Drawing.Point(528, 96);
+            this.ibEditInfo3.MaxLength = 300;
             this.ibEditInfo3.Multiline = true;
             this.ibEditInfo3.Name = "ibEditInfo3";
             this.ibEditInfo3.Size = new System.Drawing.Size(423, 25);
@@ -836,6 +857,7 @@
             this.ibEditInfo4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo4.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo4.Location = new System.Drawing.Point(528, 220);
+            this.ibEditInfo4.MaxLength = 300;
             this.ibEditInfo4.Multiline = true;
             this.ibEditInfo4.Name = "ibEditInfo4";
             this.ibEditInfo4.Size = new System.Drawing.Size(423, 25);
@@ -846,6 +868,7 @@
             this.ibEditInfo5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo5.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo5.Location = new System.Drawing.Point(528, 251);
+            this.ibEditInfo5.MaxLength = 300;
             this.ibEditInfo5.Multiline = true;
             this.ibEditInfo5.Name = "ibEditInfo5";
             this.ibEditInfo5.Size = new System.Drawing.Size(423, 25);
@@ -856,6 +879,7 @@
             this.ibEditInfo6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo6.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo6.Location = new System.Drawing.Point(528, 344);
+            this.ibEditInfo6.MaxLength = 300;
             this.ibEditInfo6.Multiline = true;
             this.ibEditInfo6.Name = "ibEditInfo6";
             this.ibEditInfo6.Size = new System.Drawing.Size(423, 25);
@@ -866,6 +890,7 @@
             this.ibEditInfo7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo7.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo7.Location = new System.Drawing.Point(528, 375);
+            this.ibEditInfo7.MaxLength = 300;
             this.ibEditInfo7.Multiline = true;
             this.ibEditInfo7.Name = "ibEditInfo7";
             this.ibEditInfo7.Size = new System.Drawing.Size(423, 25);
@@ -876,6 +901,7 @@
             this.ibEditInfo8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo8.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo8.Location = new System.Drawing.Point(528, 406);
+            this.ibEditInfo8.MaxLength = 300;
             this.ibEditInfo8.Multiline = true;
             this.ibEditInfo8.Name = "ibEditInfo8";
             this.ibEditInfo8.Size = new System.Drawing.Size(423, 25);
@@ -886,6 +912,7 @@
             this.ibEditInfo9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo9.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo9.Location = new System.Drawing.Point(528, 437);
+            this.ibEditInfo9.MaxLength = 300;
             this.ibEditInfo9.Multiline = true;
             this.ibEditInfo9.Name = "ibEditInfo9";
             this.ibEditInfo9.Size = new System.Drawing.Size(423, 25);
@@ -896,6 +923,7 @@
             this.ibEditInfo10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo10.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo10.Location = new System.Drawing.Point(528, 468);
+            this.ibEditInfo10.MaxLength = 300;
             this.ibEditInfo10.Multiline = true;
             this.ibEditInfo10.Name = "ibEditInfo10";
             this.ibEditInfo10.Size = new System.Drawing.Size(423, 25);
@@ -906,6 +934,7 @@
             this.ibEditInfo11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo11.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo11.Location = new System.Drawing.Point(528, 499);
+            this.ibEditInfo11.MaxLength = 300;
             this.ibEditInfo11.Multiline = true;
             this.ibEditInfo11.Name = "ibEditInfo11";
             this.ibEditInfo11.Size = new System.Drawing.Size(423, 25);
@@ -916,6 +945,7 @@
             this.ibEditInfo12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo12.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo12.Location = new System.Drawing.Point(528, 530);
+            this.ibEditInfo12.MaxLength = 300;
             this.ibEditInfo12.Multiline = true;
             this.ibEditInfo12.Name = "ibEditInfo12";
             this.ibEditInfo12.Size = new System.Drawing.Size(423, 25);
@@ -926,6 +956,7 @@
             this.ibEditInfo13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo13.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo13.Location = new System.Drawing.Point(528, 561);
+            this.ibEditInfo13.MaxLength = 300;
             this.ibEditInfo13.Multiline = true;
             this.ibEditInfo13.Name = "ibEditInfo13";
             this.ibEditInfo13.Size = new System.Drawing.Size(423, 27);
@@ -936,6 +967,7 @@
             this.ibEditInfo3_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo3_2.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo3_2.Location = new System.Drawing.Point(528, 158);
+            this.ibEditInfo3_2.MaxLength = 300;
             this.ibEditInfo3_2.Multiline = true;
             this.ibEditInfo3_2.Name = "ibEditInfo3_2";
             this.ibEditInfo3_2.Size = new System.Drawing.Size(423, 25);
@@ -946,6 +978,7 @@
             this.ibEditInfo3_3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo3_3.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo3_3.Location = new System.Drawing.Point(528, 189);
+            this.ibEditInfo3_3.MaxLength = 300;
             this.ibEditInfo3_3.Multiline = true;
             this.ibEditInfo3_3.Name = "ibEditInfo3_3";
             this.ibEditInfo3_3.Size = new System.Drawing.Size(423, 25);
@@ -956,6 +989,7 @@
             this.ibEditInfo5_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo5_1.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo5_1.Location = new System.Drawing.Point(528, 282);
+            this.ibEditInfo5_1.MaxLength = 300;
             this.ibEditInfo5_1.Multiline = true;
             this.ibEditInfo5_1.Name = "ibEditInfo5_1";
             this.ibEditInfo5_1.Size = new System.Drawing.Size(423, 25);
@@ -966,6 +1000,7 @@
             this.ibEditInfo5_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditInfo5_2.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditInfo5_2.Location = new System.Drawing.Point(528, 313);
+            this.ibEditInfo5_2.MaxLength = 300;
             this.ibEditInfo5_2.Multiline = true;
             this.ibEditInfo5_2.Name = "ibEditInfo5_2";
             this.ibEditInfo5_2.Size = new System.Drawing.Size(423, 25);
@@ -976,6 +1011,7 @@
             this.ibEditMoney3_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney3_1.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney3_1.Location = new System.Drawing.Point(422, 127);
+            this.ibEditMoney3_1.MaxLength = 300;
             this.ibEditMoney3_1.Multiline = true;
             this.ibEditMoney3_1.Name = "ibEditMoney3_1";
             this.ibEditMoney3_1.Size = new System.Drawing.Size(100, 25);
@@ -989,6 +1025,7 @@
             this.ibEditMoney3_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney3_2.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney3_2.Location = new System.Drawing.Point(422, 158);
+            this.ibEditMoney3_2.MaxLength = 300;
             this.ibEditMoney3_2.Multiline = true;
             this.ibEditMoney3_2.Name = "ibEditMoney3_2";
             this.ibEditMoney3_2.Size = new System.Drawing.Size(100, 25);
@@ -1002,6 +1039,7 @@
             this.ibEditMoney3_3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney3_3.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney3_3.Location = new System.Drawing.Point(422, 189);
+            this.ibEditMoney3_3.MaxLength = 300;
             this.ibEditMoney3_3.Multiline = true;
             this.ibEditMoney3_3.Name = "ibEditMoney3_3";
             this.ibEditMoney3_3.Size = new System.Drawing.Size(100, 25);
@@ -1015,6 +1053,7 @@
             this.ibEditMoney5_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibEditMoney5_1.Font = new System.Drawing.Font("仿宋", 14F);
             this.ibEditMoney5_1.Location = new System.Drawing.Point(422, 282);
+            this.ibEditMoney5_1.MaxLength = 300;
             this.ibEditMoney5_1.Multiline = true;
             this.ibEditMoney5_1.Name = "ibEditMoney5_1";
             this.ibEditMoney5_1.Size = new System.Drawing.Size(100, 25);

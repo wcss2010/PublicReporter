@@ -75,7 +75,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                         }
                         else
                         {
-                            FrmInputBox inputFrm = new FrmInputBox(task.AttachInfo);
+                            FrmInputBox inputFrm = new FrmInputBox(task.AttachInfo, 500);
                             if (inputFrm.ShowDialog() == DialogResult.OK)
                             {
                                 task.AttachInfo = inputFrm.SelectedText;

@@ -19,11 +19,12 @@ namespace AbstractEditorPlugin.Forms
             set { txtContent.ReadOnly = value; }
         }
 
-        public FrmInputBox(string txt)
+        public FrmInputBox(string txt,int maxLength)
         {
             InitializeComponent();
 
             txtContent.Text = txt;
+            txtContent.MaxLength = maxLength;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

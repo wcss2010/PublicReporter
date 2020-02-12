@@ -80,6 +80,7 @@
             // 
             this.txtTag1.Location = new System.Drawing.Point(196, 67);
             this.txtTag1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTag1.MaxLength = 1000;
             this.txtTag1.Multiline = true;
             this.txtTag1.Name = "txtTag1";
             this.txtTag1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -101,6 +102,7 @@
             // 
             this.txtTag3.Location = new System.Drawing.Point(196, 327);
             this.txtTag3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTag3.MaxLength = 1000;
             this.txtTag3.Multiline = true;
             this.txtTag3.Name = "txtTag3";
             this.txtTag3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -133,6 +135,7 @@
             // 
             this.txtTag2.Location = new System.Drawing.Point(195, 195);
             this.txtTag2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTag2.MaxLength = 1000;
             this.txtTag2.Multiline = true;
             this.txtTag2.Name = "txtTag2";
             this.txtTag2.ScrollBars = System.Windows.Forms.ScrollBars.Both;

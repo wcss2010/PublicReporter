@@ -211,6 +211,7 @@
             // 
             this.txtTask.Location = new System.Drawing.Point(132, 320);
             this.txtTask.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTask.MaxLength = 1000;
             this.txtTask.Name = "txtTask";
             this.txtTask.Size = new System.Drawing.Size(253, 26);
             this.txtTask.TabIndex = 22;
