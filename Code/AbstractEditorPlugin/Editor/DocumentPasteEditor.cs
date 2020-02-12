@@ -105,55 +105,11 @@ namespace AbstractEditorPlugin.Editor
                 }
                 else
                 {
+                    //目标存储位置
                     string file = Path.Combine(PluginRootObj.filesDir, EditorName + ".doc");
-                    if (File.Exists(file))
-                    {
-                        try
-                        {
-                            //启动word
-                            Process p = Process.Start(file);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                        }
-                    }
-                    else
-                    {   
-                        if (File.Exists(EmptyTempleteFile) && File.Exists(file) == false)
-                        {
-                            try
-                            {
-                                File.Copy(EmptyTempleteFile, file, true);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                            }
-                        }
-                        else
-                        {
-                            try
-                            {
-                                WordDocument wd = new WordDocument();
-                                wd.WordDoc.Save(file);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                            }
-                        }
 
-                        try
-                        {
-                            //启动word
-                            Process p = Process.Start(file);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                        }
-                    }
+                    //打开或创建文档
+                    openOrCreateWord(EditorName, EmptyTempleteFile, file);
                 }
             }
         }
@@ -166,6 +122,62 @@ namespace AbstractEditorPlugin.Editor
         public override bool isInputCompleted()
         {
             return File.Exists(Path.Combine(PluginRootObj.filesDir, EditorName + ".doc"));
+        }
+        
+        /// <summary>
+        /// 打开或创建word文档
+        /// </summary>
+        /// <param name="editorName">编辑名称</param>
+        /// <param name="docTempleteFile">模板文件地址</param>
+        /// <param name="destDocFile">目标存储位置</param>
+        public static void openOrCreateWord(string editorName, string docTempleteFile, string destDocFile)
+        {
+            if (File.Exists(destDocFile))
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(destDocFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + editorName + "失败！Ex:" + ex.ToString());
+                }
+            }
+            else
+            {
+                if (File.Exists(docTempleteFile) && File.Exists(destDocFile) == false)
+                {
+                    try
+                    {
+                        File.Copy(docTempleteFile, destDocFile, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + editorName + "失败！Ex:" + ex.ToString());
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                        wd.WordDoc.Save(destDocFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + editorName + "失败！Ex:" + ex.ToString());
+                    }
+                }
+
+                try
+                {
+                    System.Diagnostics.Process.Start(destDocFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + editorName + "失败！Ex:" + ex.ToString());
+                }
+            }
         }
     }
 }

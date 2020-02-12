@@ -94,6 +94,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             {
                 txtInfo.LoadFile(getInfoFilePath());
             }
+
+            lblTitle.Text = "研究内容(" + Name + ")的详细内容页";
         }
 
         public override bool isInputCompleted()
@@ -105,52 +107,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             string tempFile = getDestFilePath();
 
-            if (File.Exists(tempFile))
-            {
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-            else
-            {
-                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(tempFile) == false)
-                {
-                    try
-                    {
-                        File.Copy(subjectDocumentTempleteFile, tempFile, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                        wd.WordDoc.Save(tempFile);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                    }
-                }
-
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
+            
         }
 
         private void btnEditContent_Click(object sender, EventArgs e)
@@ -258,6 +215,60 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
         }
 
+        /// <summary>
+        /// 打开或创建word文档
+        /// </summary>
+        /// <param name="destDocFile">目标文档地址</param>
+        private void openOrCreateWord(string destDocFile)
+        {
+            if (File.Exists(destDocFile))
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(destDocFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+            }
+            else
+            {
+                if (File.Exists(subjectDocumentTempleteFile) && File.Exists(destDocFile) == false)
+                {
+                    try
+                    {
+                        File.Copy(subjectDocumentTempleteFile, destDocFile, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
+                        wd.WordDoc.Save(destDocFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
+                    }
+                }
+
+                try
+                {
+                    System.Diagnostics.Process.Start(destDocFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
+                }
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             FrmWorkProcess upf = new FrmWorkProcess();
@@ -277,6 +288,14 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             finally
             {
                 upf.CloseProgressWithOnlyUI();
+            }
+        }
+
+        private void plContent_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Control c in plContent.Controls)
+            {
+                c.Margin = new Padding(0, 25, 0, 0);
             }
         }
     }
