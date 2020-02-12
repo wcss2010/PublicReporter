@@ -100,6 +100,7 @@
             this.ibEditMoney5_1 = new System.Windows.Forms.TextBox();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.llTemplete = new System.Windows.Forms.LinkLabel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1038,6 +1039,7 @@
             // 
             // plButtons
             // 
+            this.plButtons.Controls.Add(this.llTemplete);
             this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Location = new System.Drawing.Point(10, 796);
@@ -1045,6 +1047,19 @@
             this.plButtons.Padding = new System.Windows.Forms.Padding(3);
             this.plButtons.Size = new System.Drawing.Size(1066, 35);
             this.plButtons.TabIndex = 0;
+            // 
+            // llTemplete
+            // 
+            this.llTemplete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.llTemplete.Font = new System.Drawing.Font("仿宋", 12F);
+            this.llTemplete.Location = new System.Drawing.Point(693, 3);
+            this.llTemplete.Name = "llTemplete";
+            this.llTemplete.Size = new System.Drawing.Size(280, 29);
+            this.llTemplete.TabIndex = 10;
+            this.llTemplete.TabStop = true;
+            this.llTemplete.Text = "点击下载\"经费预算编制说明.doc\"";
+            this.llTemplete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.llTemplete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTemplete_LinkClicked);
             // 
             // MoneyTableEditor
             // 
@@ -1140,6 +1155,7 @@
         private System.Windows.Forms.TextBox ibEditMoney3_2;
         private System.Windows.Forms.TextBox ibEditMoney3_3;
         private System.Windows.Forms.TextBox ibEditMoney5_1;
+        private System.Windows.Forms.LinkLabel llTemplete;
 
 
     }

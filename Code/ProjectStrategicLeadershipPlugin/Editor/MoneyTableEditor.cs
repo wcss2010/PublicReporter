@@ -14,6 +14,8 @@ using AbstractEditorPlugin;
 using AbstractEditorPlugin.Controls;
 using AbstractEditorPlugin.Forms;
 using AbstractEditorPlugin.Utility;
+using System.IO;
+using System.Diagnostics;
 
 namespace ProjectStrategicLeadershipPlugin.Editor
 {
@@ -294,6 +296,29 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 catch
                 {
                     e.KeyChar = (char)0;   //处理非法字符 
+                }
+            }
+        }
+
+        private void llTemplete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string sourcePath = Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "moneyReadme.doc"));
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "*.doc|*.doc";
+            sfd.FileName = "经费预算编制说明.doc";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.Copy(sourcePath, sfd.FileName, true);
+                    Process.Start(sfd.FileName);
+
+                    MessageBox.Show("下载完成！");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("下载失败！Ex:" + ex.ToString());
                 }
             }
         }
