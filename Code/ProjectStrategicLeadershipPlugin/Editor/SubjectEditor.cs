@@ -173,30 +173,20 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                             if (tpp != null)
                             {
                                 SubjectDetailEditor sde = ((SubjectDetailEditor)tpp.Controls[0]);
-
-                                try
+                                //文件名头部
+                                string fileHead = sde.RTFFileFirstName + sde.Name + "_";
+                                string[] sss = Directory.GetFiles(PluginRootObj.filesDir);
+                                foreach (string s in sss)
                                 {
-                                    File.Delete(sde.getNeedFilePath());
+                                    if (Path.GetFileName(s).StartsWith(fileHead))
+                                    {
+                                        try
+                                        {
+                                            File.Delete(s);
+                                        }
+                                        catch (Exception ex) { }
+                                    }
                                 }
-                                catch (Exception ex) { }
-
-                                try
-                                {
-                                    File.Delete(sde.getContentFilePath());
-                                }
-                                catch (Exception ex) { }
-
-                                try
-                                {
-                                    File.Delete(sde.getDestFilePath());
-                                }
-                                catch (Exception ex) { }
-
-                                try
-                                {
-                                    File.Delete(sde.getInfoFilePath());
-                                }
-                                catch (Exception ex) { }
                             }
                             
                             PluginRootObj.refreshEditors();
