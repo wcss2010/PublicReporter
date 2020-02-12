@@ -62,6 +62,7 @@
             this.txtInfo.Location = new System.Drawing.Point(155, 0);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
+            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtInfo.Size = new System.Drawing.Size(632, 195);
             this.txtInfo.TabIndex = 0;
             // 
