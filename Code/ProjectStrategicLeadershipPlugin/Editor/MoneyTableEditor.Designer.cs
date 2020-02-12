@@ -362,6 +362,7 @@
             this.ibEditMoney5_2.TabIndex = 19;
             this.ibEditMoney5_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney5_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditInfo3_1
             // 
@@ -637,6 +638,7 @@
             this.ibEditMoney1.TabIndex = 10;
             this.ibEditMoney1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney2
             // 
@@ -650,6 +652,7 @@
             this.ibEditMoney2.TabIndex = 11;
             this.ibEditMoney2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney3
             // 
@@ -663,6 +666,7 @@
             this.ibEditMoney3.TabIndex = 12;
             this.ibEditMoney3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney4
             // 
@@ -675,6 +679,7 @@
             this.ibEditMoney4.TabIndex = 16;
             this.ibEditMoney4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney4.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney5
             // 
@@ -688,6 +693,7 @@
             this.ibEditMoney5.TabIndex = 17;
             this.ibEditMoney5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney6
             // 
@@ -700,6 +706,7 @@
             this.ibEditMoney6.TabIndex = 20;
             this.ibEditMoney6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney6.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney7
             // 
@@ -712,6 +719,7 @@
             this.ibEditMoney7.TabIndex = 21;
             this.ibEditMoney7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney7.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney8
             // 
@@ -724,6 +732,7 @@
             this.ibEditMoney8.TabIndex = 22;
             this.ibEditMoney8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney8.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney9
             // 
@@ -736,6 +745,7 @@
             this.ibEditMoney9.TabIndex = 23;
             this.ibEditMoney9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney9.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney10
             // 
@@ -748,6 +758,7 @@
             this.ibEditMoney10.TabIndex = 24;
             this.ibEditMoney10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney10.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney11
             // 
@@ -760,6 +771,7 @@
             this.ibEditMoney11.TabIndex = 25;
             this.ibEditMoney11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney11.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney12
             // 
@@ -773,6 +785,7 @@
             this.ibEditMoney12.TabIndex = 26;
             this.ibEditMoney12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney12.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney13
             // 
@@ -785,6 +798,7 @@
             this.ibEditMoney13.TabIndex = 27;
             this.ibEditMoney13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney13.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditInfo1
             // 
@@ -967,6 +981,7 @@
             this.ibEditMoney3_1.TabIndex = 13;
             this.ibEditMoney3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney3_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney3_2
             // 
@@ -979,6 +994,7 @@
             this.ibEditMoney3_2.TabIndex = 14;
             this.ibEditMoney3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney3_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney3_3
             // 
@@ -991,6 +1007,7 @@
             this.ibEditMoney3_3.TabIndex = 15;
             this.ibEditMoney3_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney3_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // ibEditMoney5_1
             // 
@@ -1003,6 +1020,7 @@
             this.ibEditMoney5_1.TabIndex = 18;
             this.ibEditMoney5_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
+            this.ibEditMoney5_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
             // 
             // lblInfo
             // 
