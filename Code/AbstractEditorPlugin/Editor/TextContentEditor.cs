@@ -83,11 +83,12 @@ namespace AbstractEditorPlugin.Editor
             InitializeComponent();
         }
 
-        public TextContentEditor(string name, string info)
+        public TextContentEditor(string name, string info,int maxInfoLength)
             : this()
         {
             EditorName = name;
             InfoLabelText = info;
+            txtContent.MaxLength = maxInfoLength;
         }
 
         public override void onSaveEvent(ref bool result)
