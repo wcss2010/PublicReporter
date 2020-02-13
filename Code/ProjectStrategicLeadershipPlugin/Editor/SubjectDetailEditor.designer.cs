@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtInfo = new AbstractEditorPlugin.Controls.TextBoxExt();
+            this.txtInfo = new AbstractEditorPlugin.Controls.TextBoxWithFileIO();
             this.btnSave = new System.Windows.Forms.Button();
             this.plSubjectContent2 = new System.Windows.Forms.Panel();
             this.btnEditContent2 = new System.Windows.Forms.Button();
@@ -300,7 +300,7 @@
         private System.Windows.Forms.Panel plTitle;
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblTitle;
         private System.Windows.Forms.Panel plContent;
-        private AbstractEditorPlugin.Controls.TextBoxExt txtInfo;
+        private AbstractEditorPlugin.Controls.TextBoxWithFileIO txtInfo;
         private System.Windows.Forms.Button btnEditContent2;
         private System.Windows.Forms.Button btnEditContent3;
         private System.Windows.Forms.Button btnEditContent4;

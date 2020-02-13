@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace AbstractEditorPlugin.Controls
 {
-    public class TextBoxExt : TextBox
+    public class TextBoxWithFileIO : TextBox
     {
-        public TextBoxExt()
+        public TextBoxWithFileIO()
         {
             EnabledMiddleInParentBox = false;
         }

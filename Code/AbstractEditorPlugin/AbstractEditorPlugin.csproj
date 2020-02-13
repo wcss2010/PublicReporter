@@ -86,10 +86,13 @@
     <Compile Include="Controls\HSkinTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\TextBoxAndHintLabel.cs">
+    <Compile Include="Controls\TextBoxWithHintLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\TextBoxExt.cs">
+    <Compile Include="Controls\TextBoxWithFileIO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextBoxWithOnlyNumber.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Editor\DocumentPasteEditor.cs">

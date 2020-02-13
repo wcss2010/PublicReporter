@@ -8,7 +8,7 @@ namespace AbstractEditorPlugin.Controls
     /// <summary>
     /// 带右上角标签的文本框
     /// </summary>
-    public class TextBoxAndHintLabel :TextBox
+    public class TextBoxWithHintLabel :TextBox
     {
         private Label infoLabel;
         /// <summary>
@@ -19,7 +19,7 @@ namespace AbstractEditorPlugin.Controls
             get { return infoLabel; }
         }
 
-        public TextBoxAndHintLabel() : base()
+        public TextBoxWithHintLabel() : base()
         {
             Multiline = true;
             infoLabel = new Label();
