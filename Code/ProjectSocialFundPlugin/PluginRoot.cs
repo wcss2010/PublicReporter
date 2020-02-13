@@ -114,10 +114,10 @@ namespace ProjectSocialFundPlugin
         public override void initEditorMaps()
         {
             #region 初始化编辑器Map
-            ////基本信息(需要一个自定义输入界面)
-            //editorMap[tnode_0_Name] = new Editor.SummaryEditor();
-            ////项目摘要(TextContentEditor)
-            //editorMap[tnode_1_Name] = new TextContentEditor("项目摘要", "简要介绍研究问题提出的国防科技发展背景或需求来源，简述项目研究目标与研究内容，拟采取的研究思路与研究方法、拟使用的主要数据资源，以及主要预期成果（名称、形式、数量、指标等）、成果服务方式等。本项目由XXX单位牵头，XXX等单位参研，研究周期X年，申请经费XX万元。项目负责人为XXX（院士/研究员/教授）。（800字以内）", 800);
+            //基本信息(需要一个自定义输入界面)
+            editorMap[tnode_0_Name] = new Editor.SummaryEditor();
+            //项目组成员(需一人自定义的输入界面)
+            editorMap[tnode_1_Name] = new Editor.WorkerEditor();
             #endregion
 
             #region 检查哪个Editor没有设置Name

@@ -105,6 +105,12 @@
     <Compile Include="Editor\SummaryEditor.Designer.cs">
       <DependentUpon>SummaryEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\WorkerEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\WorkerEditor.Designer.cs">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmProjectManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\SummaryEditor.resx">
       <DependentUpon>SummaryEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\WorkerEditor.resx">
+      <DependentUpon>WorkerEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
