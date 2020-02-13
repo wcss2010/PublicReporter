@@ -1,4 +1,3 @@
-using Noear.Weed;
 using System;
 using System.Data;
 using System.Text;
@@ -9,7 +8,7 @@ namespace ProjectSocialFundPlugin.DB.Entitys
     /// 类Persons。
     /// </summary>
     [Serializable]
-    public partial class Persons : IEntity
+    public partial class Persons : Noear.Weed.IEntity
     {
         public Persons() { }
 
