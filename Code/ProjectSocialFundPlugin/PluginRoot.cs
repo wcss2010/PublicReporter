@@ -277,16 +277,8 @@ namespace ProjectSocialFundPlugin
                         return;
                     }
 
-                    CircleProgressBarDialog dialogc = new CircleProgressBarDialog();
-                    dialogc.TransparencyKey = dialogc.BackColor;
-                    dialogc.ProgressBar.ForeColor = Color.Red;
-                    dialogc.MessageLabel.ForeColor = Color.Blue;
-                    dialogc.FormBorderStyle = FormBorderStyle.None;
-                    dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
-                    {
-                        //word预览
-                        WordPrinter.wordOutput(((CircleProgressBarDialog)thisObject));
-                    }));
+                    FrmUploadPDF form = new FrmUploadPDF();
+                    form.ShowDialog();
                     break;
                 case button6_Name:
                     //导出数据包
