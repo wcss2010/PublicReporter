@@ -1,4 +1,4 @@
-﻿namespace ProjectStrategicLeadershipPlugin.Forms
+﻿namespace ProjectSocialFundPlugin.Forms
 {
     partial class FrmProjectManager
     {

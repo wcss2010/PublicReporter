@@ -1,4 +1,4 @@
-﻿using ProjectStrategicLeadershipPlugin.DB.Entitys;
+﻿using ProjectSocialFundPlugin.DB.Entitys;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectStrategicLeadershipPlugin.Forms
+namespace ProjectSocialFundPlugin.Forms
 {
     public partial class FrmProjectManager : AbstractEditorPlugin.BaseForm
     {

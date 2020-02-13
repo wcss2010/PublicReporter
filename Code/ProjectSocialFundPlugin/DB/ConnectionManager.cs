@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjectStrategicLeadershipPlugin.DB
+namespace ProjectSocialFundPlugin.DB
 {
     public class ConnectionManager
     {

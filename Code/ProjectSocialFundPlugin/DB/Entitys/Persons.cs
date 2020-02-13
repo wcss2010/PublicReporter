@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Text;
 
-namespace ProjectStrategicLeadershipPlugin.DB.Entitys 
+namespace ProjectSocialFundPlugin.DB.Entitys 
 {
     /// <summary>
     /// 类Persons。

@@ -1,4 +1,4 @@
-﻿namespace ProjectStrategicLeadershipPlugin.Editor
+﻿namespace ProjectSocialFundPlugin.Editor
 {
     partial class SummaryEditor
     {
@@ -52,7 +52,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.cbxDutyUnit2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDutyUnitAddress = new ProjectStrategicLeadershipPlugin.Controls.ProjectAddressControl();
+            this.txtDutyUnitAddress = new ProjectSocialFundPlugin.Controls.ProjectAddressControl();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtDutyUnitContactJob = new System.Windows.Forms.TextBox();

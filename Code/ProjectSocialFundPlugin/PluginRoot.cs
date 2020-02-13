@@ -2,9 +2,9 @@
 using AbstractEditorPlugin.Editor;
 using AbstractEditorPlugin.Forms;
 using AbstractEditorPlugin.Utility;
-using ProjectStrategicLeadershipPlugin.DB;
-using ProjectStrategicLeadershipPlugin.DB.Entitys;
-using ProjectStrategicLeadershipPlugin.Forms;
+using ProjectSocialFundPlugin.DB;
+using ProjectSocialFundPlugin.DB.Entitys;
+using ProjectSocialFundPlugin.Forms;
 using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectStrategicLeadershipPlugin
+namespace ProjectSocialFundPlugin
 {
     public class PluginRoot : AbstractEditorPlugin.AbstractPluginRoot
     {

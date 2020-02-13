@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PublicReporterLib.ControlAndForms;
 
-namespace ProjectStrategicLeadershipPlugin.Controls
+namespace ProjectSocialFundPlugin.Controls
 {
     public partial class ProjectAddressControl : AddressControl
     {

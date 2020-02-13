@@ -1,4 +1,4 @@
-﻿namespace ProjectStrategicLeadershipPlugin.Controls
+﻿namespace ProjectSocialFundPlugin.Controls
 {
     partial class ProjectAddressControl
     {
