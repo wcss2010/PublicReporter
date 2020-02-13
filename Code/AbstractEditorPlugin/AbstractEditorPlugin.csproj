@@ -147,6 +147,7 @@
     <Compile Include="Utility\FileOp.cs" />
     <Compile Include="Utility\FormatCheckTool.cs" />
     <Compile Include="Utility\GlobalTool.cs" />
+    <Compile Include="Utility\InputControlDict.cs" />
     <Compile Include="Utility\WatermarkUtility.cs" />
   </ItemGroup>
   <ItemGroup>
