@@ -371,7 +371,7 @@ namespace ProjectSocialFundPlugin
         protected string getNewExportZipName()
         {
             Projects projObj = (Projects)projectObj;
-            return projObj.ProjectName + "-" + projObj.UnitName + "-" + projObj.UnitContact + ".zip";
+            return projObj.ProjectName + "-" + projObj.WorkUnit + "-" + projObj.ProjectMaster + ".zip";
         }
 
         /// <summary>
