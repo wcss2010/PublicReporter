@@ -297,19 +297,19 @@ namespace ProjectSocialFundPlugin
                         return;
                     }
 
-                    string docFile = Path.Combine(dataDir, WordPrinter.outputDocFileName);
+                    string docFile = Path.Combine(dataDir, "申请书.pdf");
                     if (File.Exists(docFile) == false)
                     {
-                        MessageBox.Show("对不起，请先点击\"生成报告\"按钮生成\"" + WordPrinter.outputDocFileName + "\"！");
+                        MessageBox.Show("对不起，请先点击\"上传PDF\"按钮上传\"" + Path.GetFileName(docFile) + "\"！");
                         return;
                     }
 
-                    DateTime dtDoc = File.GetLastWriteTime(docFile);
-                    if (dtLastUpdateDate > dtDoc)
-                    {
-                        MessageBox.Show("对不起，当前的\"" + WordPrinter.outputDocFileName + "\"不是最新的，请点击\"生成报告\"按钮重新生成\"" + WordPrinter.outputDocFileName + "\"！");
-                        return;
-                    }
+                    //DateTime dtDoc = File.GetLastWriteTime(docFile);
+                    //if (dtLastUpdateDate > dtDoc)
+                    //{
+                    //    MessageBox.Show("对不起，当前的\"" + WordPrinter.outputDocFileName + "\"不是最新的，请点击\"生成报告\"按钮重新生成\"" + WordPrinter.outputDocFileName + "\"！");
+                    //    return;
+                    //}
 
                     string errorPage = string.Empty;
                     if (!isInputCompleted(ref errorPage))
