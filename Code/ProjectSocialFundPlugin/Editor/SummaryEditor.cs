@@ -54,96 +54,7 @@ namespace ProjectSocialFundPlugin.Editor
         {
             base.onSaveEvent(ref result);
 
-            if (txtProjectName.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目名称!");
-                result = false;
-                return;
-            }
-            if (txtProjectTopic.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目主题!");
-                result = false;
-                return;
-            }
-            if (txtProjectDirection.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目方向!");
-                result = false;
-                return;
-            }
-            if (txtDutyUnitName.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入责任单位名称!");
-                result = false;
-                return;
-            }
-            if (txtDutyUnitNormalName.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入责任单位常用名称!");
-                result = false;
-                return;
-            }
-            if (txtDutyUnitAddress.getAddress() == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入责任单位省市!");
-                result = false;
-                return;
-            }
-            if (txtDutyUnitContact.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入责任单位联系人!");
-                result = false;
-                return;
-            }
-            if (txtDutyUnitContactTelephone.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入责任单位联系人电话!");
-                result = false;
-                return;
-            }
-            if (cbxSecretLevel.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入保密等级!");
-                result = false;
-                return;
-            }
-            if (cbxDutyUnit2.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入责任单位所属大单位!");
-                result = false;
-                return;
-            }
-            if (txtTotalMoneys.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入总经费!");
-                result = false;
-                return;
-            }
-            if (txtTotalTimes.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入总时间!");
-                result = false;
-                return;
-            }
-            if (txtRegisterDate.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入申报日期!");
-                result = false;
-                return;
-            }
-            if (txtProjectMasterName.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入项目负责人!");
-                result = false;
-                return;
-            }
-            if (txtDutyUnitContactJob.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入责任单位联系人职务!");
-                result = false;
-                return;
-            }
+            
 
             //检查是否需要创建项目对象
             if (PluginRootObj.projectObj == null)
@@ -153,23 +64,7 @@ namespace ProjectSocialFundPlugin.Editor
 
             //获得项目对象
             Projects proj = PluginRootObj.getProjectObject<Projects>();
-
-            proj.ProjectName = txtProjectName.Text;
-            proj.ProjectTopic = txtProjectTopic.Text;
-            proj.ProjectDirection = txtProjectDirection.Text;
-            proj.ProjectSecretLevel = cbxSecretLevel.Text;
-            proj.ProjectMasterName = txtProjectMasterName.Text;
-            proj.UnitName = txtDutyUnitName.Text;
-            proj.UnitRealName = txtDutyUnitNormalName.Text;
-            proj.UnitContact = txtDutyUnitContact.Text;
-            proj.UnitContactJob = txtDutyUnitContactJob.Text;
-            proj.UnitContactPhone = txtDutyUnitContactTelephone.Text;
-            proj.UnitAddress = txtDutyUnitAddress.getAddress();
-            proj.UnitType2 = cbxDutyUnit2.Text;
-            proj.TotalMoney = txtTotalMoneys.Value;
-            proj.TotalTime = (int)txtTotalTimes.Value;
-            proj.RequestTime = txtRegisterDate.Value;
-
+                        
             //更新数据库
             if (string.IsNullOrEmpty(proj.ID))
             {
@@ -191,21 +86,6 @@ namespace ProjectSocialFundPlugin.Editor
             {
                 Projects proj = PluginRootObj.getProjectObject<Projects>();
 
-                txtProjectName.Text = proj.ProjectName;
-                txtProjectTopic.Text = proj.ProjectTopic;
-                txtProjectDirection.Text = proj.ProjectDirection;
-                cbxSecretLevel.SelectedItem = proj.ProjectSecretLevel;
-                txtProjectMasterName.Text = proj.ProjectMasterName;
-                txtDutyUnitName.Text = proj.UnitName;
-                txtDutyUnitNormalName.Text = proj.UnitRealName;
-                txtDutyUnitAddress.setAddress(proj.UnitAddress);
-                txtDutyUnitContact.Text = proj.UnitContact;
-                txtDutyUnitContactJob.Text = proj.UnitContactJob;
-                txtDutyUnitContactTelephone.Text = proj.UnitContactPhone;
-                txtTotalMoneys.Value = proj.TotalMoney;
-                txtTotalTimes.Value = proj.TotalTime;
-                txtRegisterDate.Value = proj.RequestTime;
-                cbxDutyUnit2.SelectedItem = proj.UnitType2;
             }
         }
 
@@ -232,24 +112,7 @@ namespace ProjectSocialFundPlugin.Editor
         {
             base.clearView();
 
-            txtDutyUnitContactJob.Text = string.Empty;
-            txtProjectMasterName.Text = string.Empty;
-            txtProjectName.Text = string.Empty;
-            txtProjectTopic.Text = string.Empty;
-            txtProjectDirection.Text = string.Empty;
-            cbxSecretLevel.SelectedItem = "公开";
-            txtDutyUnitName.Text = string.Empty;
-            txtDutyUnitNormalName.Text = string.Empty;
-            txtDutyUnitAddress.clear();
-            txtDutyUnitContact.Text = string.Empty;
-            txtDutyUnitContactTelephone.Text = string.Empty;
-            txtTotalMoneys.Value = 0;
-            txtTotalTimes.Value = 0;
-            txtRegisterDate.Value = DateTime.Now;
-            if (cbxDutyUnit2.Items.Count >= 1)
-            {
-                cbxDutyUnit2.SelectedItem = cbxDutyUnit2.Items[cbxDutyUnit2.Items.Count - 1];
-            }
+            
         }
     }
 }
