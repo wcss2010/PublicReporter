@@ -21,33 +21,12 @@ namespace ProjectSocialFundPlugin
         public const string button2_Name = "新建项目";
         public const string button3_Name = "导入数据包";
         public const string button4_Name = "保存所有";
-        public const string button5_Name = "生成报告";
+        public const string button5_Name = "上传文档";
         public const string button6_Name = "导出数据包";
         public const string button7_Name = "帮助";
 
         public const string tnode_0_Name = "基本信息";
-        public const string tnode_1_Name = "项目摘要";
-        public const string tnode_2_Name = "概述";
-        public const string tnode_2_0_Name = "需求分析";
-        public const string tnode_2_1_Name = "研究现状";
-        public const string tnode_3_Name = "研究目标";
-        public const string tnode_4_Name = "研究内容";
-        public const string tnode_4_0_Name = "研究内容列表";
-        public const string tnode_4_1_Name = "各项研究内容之间的关系";
-        public const string tnode_5_Name = "研究成果";
-        public const string tnode_5_0_Name = "研究成果及考核指标";
-        public const string tnode_5_1_Name = "成果服务方式";
-        public const string tnode_6_Name = "研究周期与进度安排 ";
-        public const string tnode_6_0_Name = "项目阶段列表";
-        public const string tnode_6_1_Name = "研究内容阶段列表";
-        public const string tnode_7_Name = "研究基础与保障条件";
-        public const string tnode_8_Name = "项目负责人和研究团队";
-        public const string tnode_8_0_Name = "项目负责人";
-        public const string tnode_8_1_Name = "主要成员情况表";
-        public const string tnode_8_2_Name = "研究团队";
-        public const string tnode_9_Name = "经费预算表";
-        public const string tnode_10_Name = "附件1-项目经费预算说明";
-        public const string tnode_11_Name = "附件2-保密资质复印件";
+        public const string tnode_1_Name = "项目组成员";
 
         public PluginRoot()
             : base()
@@ -124,27 +103,6 @@ namespace ProjectSocialFundPlugin
         {
             TreeNode rootNode = new TreeNode(tnode_0_Name);
             rootNode.Nodes.Add(new TreeNode(tnode_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_2_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_2_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_2_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_3_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_4_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_4_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_4_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_5_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_5_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_5_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_6_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_6_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_6_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_7_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_8_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_8_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_8_1_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_8_2_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_9_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_10_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_11_Name));
 
             Parent_LeftTreeView.Nodes.Add(rootNode);
             rootNode.ExpandAll();
@@ -156,52 +114,10 @@ namespace ProjectSocialFundPlugin
         public override void initEditorMaps()
         {
             #region 初始化编辑器Map
-            //基本信息(需要一个自定义输入界面)
-            editorMap[tnode_0_Name] = new Editor.SummaryEditor();
-            //项目摘要(TextContentEditor)
-            editorMap[tnode_1_Name] = new TextContentEditor("项目摘要", "简要介绍研究问题提出的国防科技发展背景或需求来源，简述项目研究目标与研究内容，拟采取的研究思路与研究方法、拟使用的主要数据资源，以及主要预期成果（名称、形式、数量、指标等）、成果服务方式等。本项目由XXX单位牵头，XXX等单位参研，研究周期X年，申请经费XX万元。项目负责人为XXX（院士/研究员/教授）。（800字以内）", 800);
-            //一、概述(不需要显示内容)
-            //editorMap[tnode_2_Name] = null;
-            //（一）需求分析(DocumentPasteEditor)
-            editorMap[tnode_2_0_Name] = new DocumentPasteEditor("需求分析", "（简要介绍本项目的国防科技发展背景或需求来源，分析提出研究问题。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //（二）研究现状(DocumentPasteEditor)
-            editorMap[tnode_2_1_Name] = new DocumentPasteEditor("研究现状", "（客观简述国内外研究现状，重点聚焦与本项目核心问题相关的研究情况，注重定量描述，避免泛泛而谈） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //二、研究目标(DocumentPasteEditor)
-            editorMap[tnode_3_Name] = new DocumentPasteEditor("研究目标", "（凝练提出项目研究目标，表述需明确、具体、准确，避免过于笼统。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //三、研究内容(不需要显示内容)
-            //editorMap[tnode_4_Name] = null;
-            //（一）、研究内容列表(自定义列表)
-            editorMap[tnode_4_0_Name] = new Editor.SubjectEditor();
-            //（二）、各项研究内容之间的关系(DocumentPasteEditor)
-            editorMap[tnode_4_1_Name] = new DocumentPasteEditor("各项研究内容之间的关系", "（简要叙述项目目标与各项研究内容、各项研究内容之间的关系，500字以内，可用图表示 ） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //四、研究成果(不需要显示内容)
-            //editorMap[tnode_5_Name] = null;
-            //（一）研究成果及考核指标(DocumentPasteEditor)
-            editorMap[tnode_5_0_Name] = new DocumentPasteEditor("研究成果及考核指标", "（分类逐项列出研究成果及考核指标。研究成果形式包括但不限于研究报告、专报、刊物、模拟试验（仿真）结果、数据库、软件、标准（规范）等。考核指标应定性与定量结合，无理解歧义，可评估可考核。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //（二）成果服务方式(DocumentPasteEditor)
-            editorMap[tnode_5_1_Name] = new DocumentPasteEditor("成果服务方式", "（简要描述该项目研究成果以何种方式、面向何种对象提供服务，预期可发挥何种支撑作用。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //五、研究周期与进度安排(不需要显示内容)
-            //editorMap[tnode_6_Name] = null;
-            //（一）、项目阶段划分(自定义列表)
-            editorMap[tnode_6_0_Name] = new Editor.ProjectStepEditor();
-            //（二）、研究内容阶段划分(自定义列表)
-            editorMap[tnode_6_1_Name] = new Editor.SubjectStepEditor();
-            //六、研究基础与保障条件(DocumentPasteEditor)
-            editorMap[tnode_7_Name] = new DocumentPasteEditor("研究基础与保障条件", "（介绍与本项目相关的，已开展过的工作、已有的研究基础和软硬件保障条件等，限800字以内。特别是属常态化、持续性研究项目，应重点说明与已立项战略先导计划项目之间的关系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //七、项目负责人和研究团队(不需要显示内容)
-            //editorMap[tnode_8_Name] = null;
-            //（一）、项目负责人(DocumentPasteEditor)
-            editorMap[tnode_8_0_Name] = new DocumentPasteEditor("项目负责人", "（介绍项目负责人的职务职称、教育工作履历，主要学术成就、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
-            //（二）、研究团队(自定义列表)
-            editorMap[tnode_8_1_Name] = new Editor.WorkerEditor();
-            //（三）、主要成员情况表(自定义列表)
-            editorMap[tnode_8_2_Name] = new Editor.WorkerGroupEditor(); 
-            //八、经费预算表(自定义列表)
-            editorMap[tnode_9_Name] = new Editor.MoneyTableEditor();
-            //附件1-项目经费预算说明(DocumentPasteEditor-带特定模板)
-            editorMap[tnode_10_Name] = new DocumentPasteEditor("项目经费预算说明", "（介绍本项目预算依据、内容构成、具体安排，应能够支撑对项目经费预算合理性进行审核评估） ", Path.Combine(RootDir, Path.Combine("Helper", "moneyPaste.doc")));
-            //附件2-保密资质复印件(自定义列表)
-            editorMap[tnode_11_Name] = new Editor.ConfidentialQualificationEditor();
+            ////基本信息(需要一个自定义输入界面)
+            //editorMap[tnode_0_Name] = new Editor.SummaryEditor();
+            ////项目摘要(TextContentEditor)
+            //editorMap[tnode_1_Name] = new TextContentEditor("项目摘要", "简要介绍研究问题提出的国防科技发展背景或需求来源，简述项目研究目标与研究内容，拟采取的研究思路与研究方法、拟使用的主要数据资源，以及主要预期成果（名称、形式、数量、指标等）、成果服务方式等。本项目由XXX单位牵头，XXX等单位参研，研究周期X年，申请经费XX万元。项目负责人为XXX（院士/研究员/教授）。（800字以内）", 800);
             #endregion
 
             #region 检查哪个Editor没有设置Name
