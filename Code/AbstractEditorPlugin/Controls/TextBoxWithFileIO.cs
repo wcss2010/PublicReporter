@@ -37,17 +37,23 @@ namespace AbstractEditorPlugin.Controls
             base.OnSizeChanged(e);
 
             //是否在父控件里居中
-            //if (EnabledMiddleInParentBox)
-            //{
-            //    if (Parent is HSkinTableLayoutPanel)
-            //    {
-            //        HSkinTableLayoutPanel table = ((HSkinTableLayoutPanel)Parent);
-            //        TableLayoutPanelCellPosition cellObj = table.GetCellPosition(this);
-            //        RowStyle rs = table.RowStyles[cellObj.Row];
-            //        float topVal = (rs.Height - this.Height) / 2;
-            //        Margin = new Padding(3, (int)topVal, 3, 3);
-            //    }
-            //}
+            if (EnabledMiddleInParentBox)
+            {
+                if (Parent is HSkinTableLayoutPanel)
+                {
+                    HSkinTableLayoutPanel table = ((HSkinTableLayoutPanel)Parent);
+                    TableLayoutPanelCellPosition cellObj = table.GetCellPosition(this);
+                    RowStyle rs = table.RowStyles[cellObj.Row];
+                    float topVal = (rs.Height - this.Height) / 2;
+                    Margin = new Padding(3, (int)topVal, 3, 3);
+                }
+                else if (Parent is Panel)
+                {
+                    Panel panel = (Panel)Parent;
+                    Top = (panel.Height - Height) / 2;
+                    Left = (panel.Width - Width) / 2;
+                }
+            }
         }
     }
 }
