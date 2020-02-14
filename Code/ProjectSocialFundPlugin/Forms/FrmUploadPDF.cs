@@ -99,5 +99,28 @@ namespace ProjectSocialFundPlugin.Forms
                 txtImgFile.Tag = ofdUpload.FileName;
             }
         }
+
+        private void llTemplete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string sourcePath = Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "template.doc"));
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "*.doc|*.doc";
+            sfd.FileName = "文档模板.doc";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.Copy(sourcePath, sfd.FileName, true);
+                    Process.Start(sfd.FileName);
+
+                    MessageBox.Show("下载完成！");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("下载失败！Ex:" + ex.ToString());
+                }
+            }
+        }
     }
 }

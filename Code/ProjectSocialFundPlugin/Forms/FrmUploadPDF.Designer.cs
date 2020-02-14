@@ -34,6 +34,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.ofdUpload = new System.Windows.Forms.OpenFileDialog();
+            this.llTemplete = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // txtImgFile
@@ -95,17 +96,30 @@
             // 
             this.ofdUpload.Filter = "*.PDF|*.PDF";
             // 
+            // llTemplete
+            // 
+            this.llTemplete.Font = new System.Drawing.Font("仿宋", 12F);
+            this.llTemplete.Location = new System.Drawing.Point(133, 75);
+            this.llTemplete.Name = "llTemplete";
+            this.llTemplete.Size = new System.Drawing.Size(280, 25);
+            this.llTemplete.TabIndex = 23;
+            this.llTemplete.TabStop = true;
+            this.llTemplete.Text = "点击下载\"文档模板.doc\"";
+            this.llTemplete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.llTemplete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTemplete_LinkClicked);
+            // 
             // FrmUploadPDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 124);
+            this.Controls.Add(this.llTemplete);
             this.Controls.Add(this.txtImgFile);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmUploadPDF";
@@ -123,5 +137,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.OpenFileDialog ofdUpload;
+        private System.Windows.Forms.LinkLabel llTemplete;
     }
 }
