@@ -48,6 +48,8 @@
             this.txtMobilephone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBirthday = new System.Windows.Forms.DateTimePicker();
+            this.txtAttachInfo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -160,7 +162,7 @@
             this.txtWorkUnit.Location = new System.Drawing.Point(132, 198);
             this.txtWorkUnit.Margin = new System.Windows.Forms.Padding(4);
             this.txtWorkUnit.Name = "txtWorkUnit";
-            this.txtWorkUnit.Size = new System.Drawing.Size(647, 26);
+            this.txtWorkUnit.Size = new System.Drawing.Size(253, 26);
             this.txtWorkUnit.TabIndex = 16;
             // 
             // label7
@@ -251,11 +253,32 @@
             this.txtBirthday.Size = new System.Drawing.Size(179, 26);
             this.txtBirthday.TabIndex = 31;
             // 
+            // txtAttachInfo
+            // 
+            this.txtAttachInfo.Location = new System.Drawing.Point(601, 198);
+            this.txtAttachInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAttachInfo.Name = "txtAttachInfo";
+            this.txtAttachInfo.Size = new System.Drawing.Size(179, 26);
+            this.txtAttachInfo.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label2.Location = new System.Drawing.Point(538, 201);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "学位：";
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 359);
+            this.Controls.Add(this.txtAttachInfo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.txtIDCard);
             this.Controls.Add(this.label8);
@@ -310,5 +333,7 @@
         private System.Windows.Forms.TextBox txtMobilephone;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker txtBirthday;
+        private System.Windows.Forms.TextBox txtAttachInfo;
+        private System.Windows.Forms.Label label2;
     }
 }

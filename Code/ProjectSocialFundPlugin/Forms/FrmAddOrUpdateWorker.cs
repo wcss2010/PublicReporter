@@ -32,6 +32,7 @@ namespace ProjectSocialFundPlugin.Forms
                 cbxSexs.SelectedItem = DataObj.Sex;
                 txtTelephone.Text = DataObj.Telephone;
                 txtMobilephone.Text = DataObj.MobilePhone;
+                txtAttachInfo.Text = DataObj.AttachInfo;
             }
             else
             {
@@ -55,6 +56,7 @@ namespace ProjectSocialFundPlugin.Forms
                 || String.IsNullOrEmpty(txtIDCard.Text)
                 || String.IsNullOrEmpty(txtTelephone.Text)
                 || String.IsNullOrEmpty(txtMobilephone.Text)
+                || String.IsNullOrEmpty(txtAttachInfo.Text)
                 || cbxSexs.SelectedItem == null)
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
@@ -71,6 +73,7 @@ namespace ProjectSocialFundPlugin.Forms
                 DataObj.Telephone = txtTelephone.Text;
                 DataObj.MobilePhone = txtMobilephone.Text;
                 DataObj.Sex = cbxSexs.SelectedItem.ToString();
+                DataObj.AttachInfo = txtAttachInfo.Text;
 
                 if (string.IsNullOrEmpty(DataObj.ID))
                 {

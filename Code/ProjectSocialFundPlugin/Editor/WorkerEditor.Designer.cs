@@ -164,18 +164,18 @@
             // Column3
             // 
             this.Column3.HeaderText = "出生年月";
-            this.Column3.MinimumWidth = 80;
+            this.Column3.MinimumWidth = 120;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 80;
+            this.Column3.Width = 120;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "专业职称";
-            this.Column4.MinimumWidth = 80;
+            this.Column4.MinimumWidth = 120;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 80;
+            this.Column4.Width = 120;
             // 
             // Column5
             // 
