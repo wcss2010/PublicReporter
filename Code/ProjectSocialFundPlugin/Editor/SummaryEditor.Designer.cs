@@ -46,73 +46,75 @@
             this.rbWorkType1 = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.rbProjectSort3 = new System.Windows.Forms.RadioButton();
-            this.rbProjectSort2 = new System.Windows.Forms.RadioButton();
-            this.rbProjectSort1 = new System.Windows.Forms.RadioButton();
+            this.rbProjectType3 = new System.Windows.Forms.RadioButton();
+            this.rbProjectType2 = new System.Windows.Forms.RadioButton();
+            this.rbProjectType1 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
+            this.dtpProjectMasterBirthday = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtNation = new System.Windows.Forms.TextBox();
+            this.txtProjectMasterNation = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbxSexs = new System.Windows.Forms.ComboBox();
+            this.cbxProjectMasterSex = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtProjectMaster = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtAreasOfSpecialization = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtProfessionalTitle = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtWorkJob = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtAsAMentor = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtFinalDegree = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtFinalEducation = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtContactPhone = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtWorkUnit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txtOwnedSystem = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtFirstRecommenderUnit = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtFirstRecommenderTitle = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtFirstRecommender = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtSecondRecommenderUnit = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txtSecondRecommenderTitle = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txtSecondRecommender = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.textBoxWithOnlyNumber1 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.txtWordCount = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
             this.label32 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.rbExpectedResults7 = new System.Windows.Forms.RadioButton();
+            this.rbExpectedResults6 = new System.Windows.Forms.RadioButton();
+            this.rbExpectedResults5 = new System.Windows.Forms.RadioButton();
+            this.rbExpectedResults4 = new System.Windows.Forms.RadioButton();
+            this.rbExpectedResults3 = new System.Windows.Forms.RadioButton();
+            this.rbExpectedResults2 = new System.Windows.Forms.RadioButton();
+            this.rbExpectedResults1 = new System.Windows.Forms.RadioButton();
             this.label15 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpCompleteDate = new System.Windows.Forms.DateTimePicker();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dtpRequestDate = new System.Windows.Forms.DateTimePicker();
             this.label33 = new System.Windows.Forms.Label();
-            this.textBoxWithOnlyNumber2 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.txtRequestMoney = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
             this.label18 = new System.Windows.Forms.Label();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plButtons = new System.Windows.Forms.Panel();
@@ -290,7 +292,6 @@
             this.rbWorkType4.Name = "rbWorkType4";
             this.rbWorkType4.Size = new System.Drawing.Size(90, 29);
             this.rbWorkType4.TabIndex = 3;
-            this.rbWorkType4.TabStop = true;
             this.rbWorkType4.Text = "其他研究";
             this.rbWorkType4.UseVisualStyleBackColor = true;
             // 
@@ -302,7 +303,6 @@
             this.rbWorkType3.Name = "rbWorkType3";
             this.rbWorkType3.Size = new System.Drawing.Size(90, 29);
             this.rbWorkType3.TabIndex = 2;
-            this.rbWorkType3.TabStop = true;
             this.rbWorkType3.Text = "综合研究";
             this.rbWorkType3.UseVisualStyleBackColor = true;
             // 
@@ -314,13 +314,13 @@
             this.rbWorkType2.Name = "rbWorkType2";
             this.rbWorkType2.Size = new System.Drawing.Size(90, 29);
             this.rbWorkType2.TabIndex = 1;
-            this.rbWorkType2.TabStop = true;
             this.rbWorkType2.Text = "应用研究";
             this.rbWorkType2.UseVisualStyleBackColor = true;
             // 
             // rbWorkType1
             // 
             this.rbWorkType1.AutoSize = true;
+            this.rbWorkType1.Checked = true;
             this.rbWorkType1.Dock = System.Windows.Forms.DockStyle.Left;
             this.rbWorkType1.Location = new System.Drawing.Point(0, 0);
             this.rbWorkType1.Name = "rbWorkType1";
@@ -344,50 +344,49 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.rbProjectSort3);
-            this.panel4.Controls.Add(this.rbProjectSort2);
-            this.panel4.Controls.Add(this.rbProjectSort1);
+            this.panel4.Controls.Add(this.rbProjectType3);
+            this.panel4.Controls.Add(this.rbProjectType2);
+            this.panel4.Controls.Add(this.rbProjectType1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(121, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(272, 29);
             this.panel4.TabIndex = 3;
             // 
-            // rbProjectSort3
+            // rbProjectType3
             // 
-            this.rbProjectSort3.AutoSize = true;
-            this.rbProjectSort3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbProjectSort3.Location = new System.Drawing.Point(180, 0);
-            this.rbProjectSort3.Name = "rbProjectSort3";
-            this.rbProjectSort3.Size = new System.Drawing.Size(90, 29);
-            this.rbProjectSort3.TabIndex = 2;
-            this.rbProjectSort3.TabStop = true;
-            this.rbProjectSort3.Text = "青年项目";
-            this.rbProjectSort3.UseVisualStyleBackColor = true;
+            this.rbProjectType3.AutoSize = true;
+            this.rbProjectType3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbProjectType3.Location = new System.Drawing.Point(180, 0);
+            this.rbProjectType3.Name = "rbProjectType3";
+            this.rbProjectType3.Size = new System.Drawing.Size(90, 29);
+            this.rbProjectType3.TabIndex = 2;
+            this.rbProjectType3.Text = "青年项目";
+            this.rbProjectType3.UseVisualStyleBackColor = true;
             // 
-            // rbProjectSort2
+            // rbProjectType2
             // 
-            this.rbProjectSort2.AutoSize = true;
-            this.rbProjectSort2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbProjectSort2.Location = new System.Drawing.Point(90, 0);
-            this.rbProjectSort2.Name = "rbProjectSort2";
-            this.rbProjectSort2.Size = new System.Drawing.Size(90, 29);
-            this.rbProjectSort2.TabIndex = 1;
-            this.rbProjectSort2.TabStop = true;
-            this.rbProjectSort2.Text = "重点项目";
-            this.rbProjectSort2.UseVisualStyleBackColor = true;
+            this.rbProjectType2.AutoSize = true;
+            this.rbProjectType2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbProjectType2.Location = new System.Drawing.Point(90, 0);
+            this.rbProjectType2.Name = "rbProjectType2";
+            this.rbProjectType2.Size = new System.Drawing.Size(90, 29);
+            this.rbProjectType2.TabIndex = 1;
+            this.rbProjectType2.Text = "重点项目";
+            this.rbProjectType2.UseVisualStyleBackColor = true;
             // 
-            // rbProjectSort1
+            // rbProjectType1
             // 
-            this.rbProjectSort1.AutoSize = true;
-            this.rbProjectSort1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbProjectSort1.Location = new System.Drawing.Point(0, 0);
-            this.rbProjectSort1.Name = "rbProjectSort1";
-            this.rbProjectSort1.Size = new System.Drawing.Size(90, 29);
-            this.rbProjectSort1.TabIndex = 0;
-            this.rbProjectSort1.TabStop = true;
-            this.rbProjectSort1.Text = "重大项目";
-            this.rbProjectSort1.UseVisualStyleBackColor = true;
+            this.rbProjectType1.AutoSize = true;
+            this.rbProjectType1.Checked = true;
+            this.rbProjectType1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbProjectType1.Location = new System.Drawing.Point(0, 0);
+            this.rbProjectType1.Name = "rbProjectType1";
+            this.rbProjectType1.Size = new System.Drawing.Size(90, 29);
+            this.rbProjectType1.TabIndex = 0;
+            this.rbProjectType1.TabStop = true;
+            this.rbProjectType1.Text = "重大项目";
+            this.rbProjectType1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -403,11 +402,11 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dtpBirthday);
+            this.panel5.Controls.Add(this.dtpProjectMasterBirthday);
             this.panel5.Controls.Add(this.label13);
-            this.panel5.Controls.Add(this.txtNation);
+            this.panel5.Controls.Add(this.txtProjectMasterNation);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Controls.Add(this.cbxSexs);
+            this.panel5.Controls.Add(this.cbxProjectMasterSex);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.txtProjectMaster);
             this.panel5.Controls.Add(this.label5);
@@ -416,17 +415,17 @@
             this.panel5.Size = new System.Drawing.Size(1047, 29);
             this.panel5.TabIndex = 4;
             // 
-            // dtpBirthday
+            // dtpProjectMasterBirthday
             // 
-            this.dtpBirthday.CustomFormat = "yyyy年MM月dd日";
-            this.dtpBirthday.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dtpBirthday.Font = new System.Drawing.Font("仿宋", 12F);
-            this.dtpBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBirthday.Location = new System.Drawing.Point(610, 0);
-            this.dtpBirthday.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
-            this.dtpBirthday.Name = "dtpBirthday";
-            this.dtpBirthday.Size = new System.Drawing.Size(141, 26);
-            this.dtpBirthday.TabIndex = 42;
+            this.dtpProjectMasterBirthday.CustomFormat = "yyyy年MM月dd日";
+            this.dtpProjectMasterBirthday.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dtpProjectMasterBirthday.Font = new System.Drawing.Font("仿宋", 12F);
+            this.dtpProjectMasterBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpProjectMasterBirthday.Location = new System.Drawing.Point(610, 0);
+            this.dtpProjectMasterBirthday.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
+            this.dtpProjectMasterBirthday.Name = "dtpProjectMasterBirthday";
+            this.dtpProjectMasterBirthday.Size = new System.Drawing.Size(141, 26);
+            this.dtpProjectMasterBirthday.TabIndex = 42;
             // 
             // label13
             // 
@@ -440,15 +439,15 @@
             this.label13.Text = "出生日期：";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtNation
+            // txtProjectMasterNation
             // 
-            this.txtNation.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtNation.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtNation.Location = new System.Drawing.Point(414, 0);
-            this.txtNation.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNation.Name = "txtNation";
-            this.txtNation.Size = new System.Drawing.Size(92, 26);
-            this.txtNation.TabIndex = 40;
+            this.txtProjectMasterNation.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtProjectMasterNation.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtProjectMasterNation.Location = new System.Drawing.Point(414, 0);
+            this.txtProjectMasterNation.Margin = new System.Windows.Forms.Padding(4);
+            this.txtProjectMasterNation.Name = "txtProjectMasterNation";
+            this.txtProjectMasterNation.Size = new System.Drawing.Size(92, 26);
+            this.txtProjectMasterNation.TabIndex = 40;
             // 
             // label12
             // 
@@ -462,19 +461,19 @@
             this.label12.Text = "民族：";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cbxSexs
+            // cbxProjectMasterSex
             // 
-            this.cbxSexs.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbxSexs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSexs.FormattingEnabled = true;
-            this.cbxSexs.Items.AddRange(new object[] {
+            this.cbxProjectMasterSex.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbxProjectMasterSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxProjectMasterSex.FormattingEnabled = true;
+            this.cbxProjectMasterSex.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cbxSexs.Location = new System.Drawing.Point(282, 0);
-            this.cbxSexs.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxSexs.Name = "cbxSexs";
-            this.cbxSexs.Size = new System.Drawing.Size(60, 24);
-            this.cbxSexs.TabIndex = 38;
+            this.cbxProjectMasterSex.Location = new System.Drawing.Point(282, 0);
+            this.cbxProjectMasterSex.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxProjectMasterSex.Name = "cbxProjectMasterSex";
+            this.cbxProjectMasterSex.Size = new System.Drawing.Size(60, 24);
+            this.cbxProjectMasterSex.TabIndex = 38;
             // 
             // label11
             // 
@@ -512,26 +511,26 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.textBox7);
+            this.panel6.Controls.Add(this.txtAreasOfSpecialization);
             this.panel6.Controls.Add(this.label17);
-            this.panel6.Controls.Add(this.textBox6);
+            this.panel6.Controls.Add(this.txtProfessionalTitle);
             this.panel6.Controls.Add(this.label16);
-            this.panel6.Controls.Add(this.textBox5);
+            this.panel6.Controls.Add(this.txtWorkJob);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Location = new System.Drawing.Point(3, 148);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1047, 29);
             this.panel6.TabIndex = 5;
             // 
-            // textBox7
+            // txtAreasOfSpecialization
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox7.Location = new System.Drawing.Point(751, 0);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(296, 26);
-            this.textBox7.TabIndex = 44;
+            this.txtAreasOfSpecialization.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAreasOfSpecialization.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtAreasOfSpecialization.Location = new System.Drawing.Point(751, 0);
+            this.txtAreasOfSpecialization.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAreasOfSpecialization.Name = "txtAreasOfSpecialization";
+            this.txtAreasOfSpecialization.Size = new System.Drawing.Size(296, 26);
+            this.txtAreasOfSpecialization.TabIndex = 44;
             // 
             // label17
             // 
@@ -545,15 +544,15 @@
             this.label17.Text = "研究专长：";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox6
+            // txtProfessionalTitle
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox6.Location = new System.Drawing.Point(445, 0);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(205, 26);
-            this.textBox6.TabIndex = 42;
+            this.txtProfessionalTitle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtProfessionalTitle.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtProfessionalTitle.Location = new System.Drawing.Point(445, 0);
+            this.txtProfessionalTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.txtProfessionalTitle.Name = "txtProfessionalTitle";
+            this.txtProfessionalTitle.Size = new System.Drawing.Size(205, 26);
+            this.txtProfessionalTitle.TabIndex = 42;
             // 
             // label16
             // 
@@ -567,15 +566,15 @@
             this.label16.Text = "专业职称：";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox5
+            // txtWorkJob
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox5.Location = new System.Drawing.Point(121, 0);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(221, 26);
-            this.textBox5.TabIndex = 36;
+            this.txtWorkJob.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtWorkJob.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWorkJob.Location = new System.Drawing.Point(121, 0);
+            this.txtWorkJob.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWorkJob.Name = "txtWorkJob";
+            this.txtWorkJob.Size = new System.Drawing.Size(221, 26);
+            this.txtWorkJob.TabIndex = 36;
             // 
             // label6
             // 
@@ -591,26 +590,26 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.textBox9);
+            this.panel7.Controls.Add(this.txtAsAMentor);
             this.panel7.Controls.Add(this.label24);
-            this.panel7.Controls.Add(this.textBox10);
+            this.panel7.Controls.Add(this.txtFinalDegree);
             this.panel7.Controls.Add(this.label25);
-            this.panel7.Controls.Add(this.textBox8);
+            this.panel7.Controls.Add(this.txtFinalEducation);
             this.panel7.Controls.Add(this.label7);
             this.panel7.Location = new System.Drawing.Point(3, 183);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1047, 29);
             this.panel7.TabIndex = 6;
             // 
-            // textBox9
+            // txtAsAMentor
             // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox9.Location = new System.Drawing.Point(751, 0);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(296, 26);
-            this.textBox9.TabIndex = 48;
+            this.txtAsAMentor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAsAMentor.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtAsAMentor.Location = new System.Drawing.Point(751, 0);
+            this.txtAsAMentor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAsAMentor.Name = "txtAsAMentor";
+            this.txtAsAMentor.Size = new System.Drawing.Size(296, 26);
+            this.txtAsAMentor.TabIndex = 48;
             // 
             // label24
             // 
@@ -624,15 +623,15 @@
             this.label24.Text = "担任导师：";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox10
+            // txtFinalDegree
             // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox10.Location = new System.Drawing.Point(445, 0);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(205, 26);
-            this.textBox10.TabIndex = 46;
+            this.txtFinalDegree.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtFinalDegree.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtFinalDegree.Location = new System.Drawing.Point(445, 0);
+            this.txtFinalDegree.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFinalDegree.Name = "txtFinalDegree";
+            this.txtFinalDegree.Size = new System.Drawing.Size(205, 26);
+            this.txtFinalDegree.TabIndex = 46;
             // 
             // label25
             // 
@@ -646,15 +645,15 @@
             this.label25.Text = "最后学位：";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox8
+            // txtFinalEducation
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox8.Location = new System.Drawing.Point(121, 0);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(221, 26);
-            this.textBox8.TabIndex = 37;
+            this.txtFinalEducation.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtFinalEducation.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtFinalEducation.Location = new System.Drawing.Point(121, 0);
+            this.txtFinalEducation.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFinalEducation.Name = "txtFinalEducation";
+            this.txtFinalEducation.Size = new System.Drawing.Size(221, 26);
+            this.txtFinalEducation.TabIndex = 37;
             // 
             // label7
             // 
@@ -670,24 +669,24 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBox11);
+            this.panel8.Controls.Add(this.txtContactPhone);
             this.panel8.Controls.Add(this.label26);
-            this.panel8.Controls.Add(this.textBox12);
+            this.panel8.Controls.Add(this.txtWorkUnit);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Location = new System.Drawing.Point(3, 218);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1047, 29);
             this.panel8.TabIndex = 7;
             // 
-            // textBox11
+            // txtContactPhone
             // 
-            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox11.Location = new System.Drawing.Point(751, 0);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(296, 26);
-            this.textBox11.TabIndex = 49;
+            this.txtContactPhone.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContactPhone.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtContactPhone.Location = new System.Drawing.Point(751, 0);
+            this.txtContactPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContactPhone.Name = "txtContactPhone";
+            this.txtContactPhone.Size = new System.Drawing.Size(296, 26);
+            this.txtContactPhone.TabIndex = 49;
             // 
             // label26
             // 
@@ -701,15 +700,15 @@
             this.label26.Text = "联系电话：";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox12
+            // txtWorkUnit
             // 
-            this.textBox12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox12.Location = new System.Drawing.Point(121, 0);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(529, 26);
-            this.textBox12.TabIndex = 47;
+            this.txtWorkUnit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtWorkUnit.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWorkUnit.Location = new System.Drawing.Point(121, 0);
+            this.txtWorkUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWorkUnit.Name = "txtWorkUnit";
+            this.txtWorkUnit.Size = new System.Drawing.Size(529, 26);
+            this.txtWorkUnit.TabIndex = 47;
             // 
             // label4
             // 
@@ -725,24 +724,24 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.textBox13);
+            this.panel10.Controls.Add(this.txtIDCard);
             this.panel10.Controls.Add(this.label27);
-            this.panel10.Controls.Add(this.textBox14);
+            this.panel10.Controls.Add(this.txtOwnedSystem);
             this.panel10.Controls.Add(this.label9);
             this.panel10.Location = new System.Drawing.Point(3, 253);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1047, 29);
             this.panel10.TabIndex = 8;
             // 
-            // textBox13
+            // txtIDCard
             // 
-            this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox13.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox13.Location = new System.Drawing.Point(751, 0);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(296, 26);
-            this.textBox13.TabIndex = 52;
+            this.txtIDCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtIDCard.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtIDCard.Location = new System.Drawing.Point(751, 0);
+            this.txtIDCard.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIDCard.Name = "txtIDCard";
+            this.txtIDCard.Size = new System.Drawing.Size(296, 26);
+            this.txtIDCard.TabIndex = 52;
             // 
             // label27
             // 
@@ -756,15 +755,15 @@
             this.label27.Text = "身份证号码：";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox14
+            // txtOwnedSystem
             // 
-            this.textBox14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox14.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox14.Location = new System.Drawing.Point(121, 0);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(514, 26);
-            this.textBox14.TabIndex = 50;
+            this.txtOwnedSystem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtOwnedSystem.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtOwnedSystem.Location = new System.Drawing.Point(121, 0);
+            this.txtOwnedSystem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOwnedSystem.Name = "txtOwnedSystem";
+            this.txtOwnedSystem.Size = new System.Drawing.Size(514, 26);
+            this.txtOwnedSystem.TabIndex = 50;
             // 
             // label9
             // 
@@ -780,26 +779,26 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.textBox16);
+            this.panel11.Controls.Add(this.txtFirstRecommenderUnit);
             this.panel11.Controls.Add(this.label28);
-            this.panel11.Controls.Add(this.textBox17);
+            this.panel11.Controls.Add(this.txtFirstRecommenderTitle);
             this.panel11.Controls.Add(this.label29);
-            this.panel11.Controls.Add(this.textBox15);
+            this.panel11.Controls.Add(this.txtFirstRecommender);
             this.panel11.Controls.Add(this.label10);
             this.panel11.Location = new System.Drawing.Point(3, 288);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1047, 29);
             this.panel11.TabIndex = 9;
             // 
-            // textBox16
+            // txtFirstRecommenderUnit
             // 
-            this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox16.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox16.Location = new System.Drawing.Point(515, 0);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(532, 26);
-            this.textBox16.TabIndex = 48;
+            this.txtFirstRecommenderUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFirstRecommenderUnit.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtFirstRecommenderUnit.Location = new System.Drawing.Point(515, 0);
+            this.txtFirstRecommenderUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFirstRecommenderUnit.Name = "txtFirstRecommenderUnit";
+            this.txtFirstRecommenderUnit.Size = new System.Drawing.Size(532, 26);
+            this.txtFirstRecommenderUnit.TabIndex = 48;
             // 
             // label28
             // 
@@ -813,15 +812,15 @@
             this.label28.Text = "工作单位：";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox17
+            // txtFirstRecommenderTitle
             // 
-            this.textBox17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox17.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox17.Location = new System.Drawing.Point(316, 0);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(98, 26);
-            this.textBox17.TabIndex = 46;
+            this.txtFirstRecommenderTitle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtFirstRecommenderTitle.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtFirstRecommenderTitle.Location = new System.Drawing.Point(316, 0);
+            this.txtFirstRecommenderTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFirstRecommenderTitle.Name = "txtFirstRecommenderTitle";
+            this.txtFirstRecommenderTitle.Size = new System.Drawing.Size(98, 26);
+            this.txtFirstRecommenderTitle.TabIndex = 46;
             // 
             // label29
             // 
@@ -835,15 +834,15 @@
             this.label29.Text = "专业职称：";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox15
+            // txtFirstRecommender
             // 
-            this.textBox15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox15.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox15.Location = new System.Drawing.Point(121, 0);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(92, 26);
-            this.textBox15.TabIndex = 37;
+            this.txtFirstRecommender.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtFirstRecommender.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtFirstRecommender.Location = new System.Drawing.Point(121, 0);
+            this.txtFirstRecommender.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFirstRecommender.Name = "txtFirstRecommender";
+            this.txtFirstRecommender.Size = new System.Drawing.Size(92, 26);
+            this.txtFirstRecommender.TabIndex = 37;
             // 
             // label10
             // 
@@ -859,26 +858,26 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.textBox18);
+            this.panel12.Controls.Add(this.txtSecondRecommenderUnit);
             this.panel12.Controls.Add(this.label30);
-            this.panel12.Controls.Add(this.textBox19);
+            this.panel12.Controls.Add(this.txtSecondRecommenderTitle);
             this.panel12.Controls.Add(this.label31);
-            this.panel12.Controls.Add(this.textBox20);
+            this.panel12.Controls.Add(this.txtSecondRecommender);
             this.panel12.Controls.Add(this.label14);
             this.panel12.Location = new System.Drawing.Point(3, 323);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1047, 29);
             this.panel12.TabIndex = 10;
             // 
-            // textBox18
+            // txtSecondRecommenderUnit
             // 
-            this.textBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox18.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox18.Location = new System.Drawing.Point(515, 0);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(532, 26);
-            this.textBox18.TabIndex = 53;
+            this.txtSecondRecommenderUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSecondRecommenderUnit.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtSecondRecommenderUnit.Location = new System.Drawing.Point(515, 0);
+            this.txtSecondRecommenderUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSecondRecommenderUnit.Name = "txtSecondRecommenderUnit";
+            this.txtSecondRecommenderUnit.Size = new System.Drawing.Size(532, 26);
+            this.txtSecondRecommenderUnit.TabIndex = 53;
             // 
             // label30
             // 
@@ -892,15 +891,15 @@
             this.label30.Text = "工作单位：";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox19
+            // txtSecondRecommenderTitle
             // 
-            this.textBox19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox19.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox19.Location = new System.Drawing.Point(316, 0);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(98, 26);
-            this.textBox19.TabIndex = 51;
+            this.txtSecondRecommenderTitle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtSecondRecommenderTitle.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtSecondRecommenderTitle.Location = new System.Drawing.Point(316, 0);
+            this.txtSecondRecommenderTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSecondRecommenderTitle.Name = "txtSecondRecommenderTitle";
+            this.txtSecondRecommenderTitle.Size = new System.Drawing.Size(98, 26);
+            this.txtSecondRecommenderTitle.TabIndex = 51;
             // 
             // label31
             // 
@@ -914,15 +913,15 @@
             this.label31.Text = "专业职称：";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox20
+            // txtSecondRecommender
             // 
-            this.textBox20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox20.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox20.Location = new System.Drawing.Point(121, 0);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(92, 26);
-            this.textBox20.TabIndex = 49;
+            this.txtSecondRecommender.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtSecondRecommender.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtSecondRecommender.Location = new System.Drawing.Point(121, 0);
+            this.txtSecondRecommender.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSecondRecommender.Name = "txtSecondRecommender";
+            this.txtSecondRecommender.Size = new System.Drawing.Size(92, 26);
+            this.txtSecondRecommender.TabIndex = 49;
             // 
             // label14
             // 
@@ -938,7 +937,7 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.textBoxWithOnlyNumber1);
+            this.panel13.Controls.Add(this.txtWordCount);
             this.panel13.Controls.Add(this.label32);
             this.panel13.Controls.Add(this.panel20);
             this.panel13.Controls.Add(this.label15);
@@ -947,13 +946,13 @@
             this.panel13.Size = new System.Drawing.Size(1047, 29);
             this.panel13.TabIndex = 11;
             // 
-            // textBoxWithOnlyNumber1
+            // txtWordCount
             // 
-            this.textBoxWithOnlyNumber1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxWithOnlyNumber1.Location = new System.Drawing.Point(751, 0);
-            this.textBoxWithOnlyNumber1.Name = "textBoxWithOnlyNumber1";
-            this.textBoxWithOnlyNumber1.Size = new System.Drawing.Size(100, 26);
-            this.textBoxWithOnlyNumber1.TabIndex = 45;
+            this.txtWordCount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtWordCount.Location = new System.Drawing.Point(751, 0);
+            this.txtWordCount.Name = "txtWordCount";
+            this.txtWordCount.Size = new System.Drawing.Size(100, 26);
+            this.txtWordCount.TabIndex = 45;
             // 
             // label32
             // 
@@ -969,102 +968,97 @@
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.radioButton14);
-            this.panel20.Controls.Add(this.radioButton13);
-            this.panel20.Controls.Add(this.radioButton12);
-            this.panel20.Controls.Add(this.radioButton11);
-            this.panel20.Controls.Add(this.radioButton8);
-            this.panel20.Controls.Add(this.radioButton9);
-            this.panel20.Controls.Add(this.radioButton10);
+            this.panel20.Controls.Add(this.rbExpectedResults7);
+            this.panel20.Controls.Add(this.rbExpectedResults6);
+            this.panel20.Controls.Add(this.rbExpectedResults5);
+            this.panel20.Controls.Add(this.rbExpectedResults4);
+            this.panel20.Controls.Add(this.rbExpectedResults3);
+            this.panel20.Controls.Add(this.rbExpectedResults2);
+            this.panel20.Controls.Add(this.rbExpectedResults1);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel20.Location = new System.Drawing.Point(121, 0);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(503, 29);
             this.panel20.TabIndex = 4;
             // 
-            // radioButton14
+            // rbExpectedResults7
             // 
-            this.radioButton14.AutoSize = true;
-            this.radioButton14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton14.Location = new System.Drawing.Point(444, 0);
-            this.radioButton14.Name = "radioButton14";
-            this.radioButton14.Size = new System.Drawing.Size(58, 29);
-            this.radioButton14.TabIndex = 6;
-            this.radioButton14.TabStop = true;
-            this.radioButton14.Text = "其他";
-            this.radioButton14.UseVisualStyleBackColor = true;
+            this.rbExpectedResults7.AutoSize = true;
+            this.rbExpectedResults7.Checked = true;
+            this.rbExpectedResults7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbExpectedResults7.Location = new System.Drawing.Point(444, 0);
+            this.rbExpectedResults7.Name = "rbExpectedResults7";
+            this.rbExpectedResults7.Size = new System.Drawing.Size(58, 29);
+            this.rbExpectedResults7.TabIndex = 6;
+            this.rbExpectedResults7.TabStop = true;
+            this.rbExpectedResults7.Text = "其他";
+            this.rbExpectedResults7.UseVisualStyleBackColor = true;
             // 
-            // radioButton13
+            // rbExpectedResults6
             // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton13.Location = new System.Drawing.Point(354, 0);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(90, 29);
-            this.radioButton13.TabIndex = 5;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "电脑软件";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.rbExpectedResults6.AutoSize = true;
+            this.rbExpectedResults6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbExpectedResults6.Location = new System.Drawing.Point(354, 0);
+            this.rbExpectedResults6.Name = "rbExpectedResults6";
+            this.rbExpectedResults6.Size = new System.Drawing.Size(90, 29);
+            this.rbExpectedResults6.TabIndex = 5;
+            this.rbExpectedResults6.Text = "电脑软件";
+            this.rbExpectedResults6.UseVisualStyleBackColor = true;
             // 
-            // radioButton12
+            // rbExpectedResults5
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton12.Location = new System.Drawing.Point(280, 0);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(74, 29);
-            this.radioButton12.TabIndex = 4;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "工具书";
-            this.radioButton12.UseVisualStyleBackColor = true;
+            this.rbExpectedResults5.AutoSize = true;
+            this.rbExpectedResults5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbExpectedResults5.Location = new System.Drawing.Point(280, 0);
+            this.rbExpectedResults5.Name = "rbExpectedResults5";
+            this.rbExpectedResults5.Size = new System.Drawing.Size(74, 29);
+            this.rbExpectedResults5.TabIndex = 4;
+            this.rbExpectedResults5.Text = "工具书";
+            this.rbExpectedResults5.UseVisualStyleBackColor = true;
             // 
-            // radioButton11
+            // rbExpectedResults4
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton11.Location = new System.Drawing.Point(190, 0);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(90, 29);
-            this.radioButton11.TabIndex = 3;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "研究报告";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.rbExpectedResults4.AutoSize = true;
+            this.rbExpectedResults4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbExpectedResults4.Location = new System.Drawing.Point(190, 0);
+            this.rbExpectedResults4.Name = "rbExpectedResults4";
+            this.rbExpectedResults4.Size = new System.Drawing.Size(90, 29);
+            this.rbExpectedResults4.TabIndex = 3;
+            this.rbExpectedResults4.Text = "研究报告";
+            this.rbExpectedResults4.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // rbExpectedResults3
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton8.Location = new System.Drawing.Point(116, 0);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(74, 29);
-            this.radioButton8.TabIndex = 2;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "论文集";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.rbExpectedResults3.AutoSize = true;
+            this.rbExpectedResults3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbExpectedResults3.Location = new System.Drawing.Point(116, 0);
+            this.rbExpectedResults3.Name = "rbExpectedResults3";
+            this.rbExpectedResults3.Size = new System.Drawing.Size(74, 29);
+            this.rbExpectedResults3.TabIndex = 2;
+            this.rbExpectedResults3.Text = "论文集";
+            this.rbExpectedResults3.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // rbExpectedResults2
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton9.Location = new System.Drawing.Point(58, 0);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(58, 29);
-            this.radioButton9.TabIndex = 1;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "译著";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.rbExpectedResults2.AutoSize = true;
+            this.rbExpectedResults2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbExpectedResults2.Location = new System.Drawing.Point(58, 0);
+            this.rbExpectedResults2.Name = "rbExpectedResults2";
+            this.rbExpectedResults2.Size = new System.Drawing.Size(58, 29);
+            this.rbExpectedResults2.TabIndex = 1;
+            this.rbExpectedResults2.Text = "译著";
+            this.rbExpectedResults2.UseVisualStyleBackColor = true;
             // 
-            // radioButton10
+            // rbExpectedResults1
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton10.Location = new System.Drawing.Point(0, 0);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(58, 29);
-            this.radioButton10.TabIndex = 0;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "专著";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.rbExpectedResults1.AutoSize = true;
+            this.rbExpectedResults1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbExpectedResults1.Location = new System.Drawing.Point(0, 0);
+            this.rbExpectedResults1.Name = "rbExpectedResults1";
+            this.rbExpectedResults1.Size = new System.Drawing.Size(58, 29);
+            this.rbExpectedResults1.TabIndex = 0;
+            this.rbExpectedResults1.Text = "专著";
+            this.rbExpectedResults1.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -1080,46 +1074,72 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.dateTimePicker2);
+            this.panel14.Controls.Add(this.dtpCompleteDate);
+            this.panel14.Controls.Add(this.label19);
+            this.panel14.Controls.Add(this.dtpRequestDate);
             this.panel14.Controls.Add(this.label33);
-            this.panel14.Controls.Add(this.textBoxWithOnlyNumber2);
+            this.panel14.Controls.Add(this.txtRequestMoney);
             this.panel14.Controls.Add(this.label18);
             this.panel14.Location = new System.Drawing.Point(3, 393);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(1047, 29);
             this.panel14.TabIndex = 12;
             // 
-            // dateTimePicker2
+            // dtpCompleteDate
             // 
-            this.dateTimePicker2.CustomFormat = "yyyy年MM月dd日";
-            this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dateTimePicker2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(405, 0);
-            this.dateTimePicker2.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(141, 26);
-            this.dateTimePicker2.TabIndex = 48;
+            this.dtpCompleteDate.CustomFormat = "yyyy年MM月dd日";
+            this.dtpCompleteDate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dtpCompleteDate.Font = new System.Drawing.Font("仿宋", 12F);
+            this.dtpCompleteDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpCompleteDate.Location = new System.Drawing.Point(710, 0);
+            this.dtpCompleteDate.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
+            this.dtpCompleteDate.Name = "dtpCompleteDate";
+            this.dtpCompleteDate.Size = new System.Drawing.Size(141, 26);
+            this.dtpCompleteDate.TabIndex = 50;
+            // 
+            // label19
+            // 
+            this.label19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label19.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label19.Location = new System.Drawing.Point(542, 0);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(168, 29);
+            this.label19.TabIndex = 49;
+            this.label19.Text = "计划完成时间：";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dtpRequestDate
+            // 
+            this.dtpRequestDate.CustomFormat = "yyyy年MM月dd日";
+            this.dtpRequestDate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dtpRequestDate.Font = new System.Drawing.Font("仿宋", 12F);
+            this.dtpRequestDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpRequestDate.Location = new System.Drawing.Point(401, 0);
+            this.dtpRequestDate.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
+            this.dtpRequestDate.Name = "dtpRequestDate";
+            this.dtpRequestDate.Size = new System.Drawing.Size(141, 26);
+            this.dtpRequestDate.TabIndex = 48;
             // 
             // label33
             // 
             this.label33.Dock = System.Windows.Forms.DockStyle.Left;
             this.label33.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label33.Location = new System.Drawing.Point(221, 0);
+            this.label33.Location = new System.Drawing.Point(214, 0);
             this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(184, 29);
+            this.label33.Size = new System.Drawing.Size(187, 29);
             this.label33.TabIndex = 47;
-            this.label33.Text = "(万元)  计划完成时间：";
+            this.label33.Text = "(万元)      填表日期：";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBoxWithOnlyNumber2
+            // txtRequestMoney
             // 
-            this.textBoxWithOnlyNumber2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxWithOnlyNumber2.Location = new System.Drawing.Point(121, 0);
-            this.textBoxWithOnlyNumber2.Name = "textBoxWithOnlyNumber2";
-            this.textBoxWithOnlyNumber2.Size = new System.Drawing.Size(100, 26);
-            this.textBoxWithOnlyNumber2.TabIndex = 46;
+            this.txtRequestMoney.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtRequestMoney.Location = new System.Drawing.Point(121, 0);
+            this.txtRequestMoney.Name = "txtRequestMoney";
+            this.txtRequestMoney.Size = new System.Drawing.Size(93, 26);
+            this.txtRequestMoney.TabIndex = 46;
             // 
             // label18
             // 
@@ -1225,9 +1245,9 @@
         private System.Windows.Forms.TextBox txtProjectName;
         private System.Windows.Forms.TextBox txtKeyText;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RadioButton rbProjectSort1;
-        private System.Windows.Forms.RadioButton rbProjectSort3;
-        private System.Windows.Forms.RadioButton rbProjectSort2;
+        private System.Windows.Forms.RadioButton rbProjectType1;
+        private System.Windows.Forms.RadioButton rbProjectType3;
+        private System.Windows.Forms.RadioButton rbProjectType2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.RadioButton rbWorkType3;
         private System.Windows.Forms.RadioButton rbWorkType2;
@@ -1235,16 +1255,16 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rbWorkType4;
         private System.Windows.Forms.TextBox txtProjectMaster;
-        private System.Windows.Forms.ComboBox cbxSexs;
+        private System.Windows.Forms.ComboBox cbxProjectMasterSex;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtNation;
+        private System.Windows.Forms.TextBox txtProjectMasterNation;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dtpBirthday;
+        private System.Windows.Forms.DateTimePicker dtpProjectMasterBirthday;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtWorkJob;
+        private System.Windows.Forms.TextBox txtAreasOfSpecialization;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtProfessionalTitle;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label4;
@@ -1258,39 +1278,41 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtFinalEducation;
+        private System.Windows.Forms.TextBox txtAsAMentor;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtFinalDegree;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtContactPhone;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtWorkUnit;
+        private System.Windows.Forms.TextBox txtIDCard;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtOwnedSystem;
+        private System.Windows.Forms.TextBox txtFirstRecommender;
+        private System.Windows.Forms.TextBox txtFirstRecommenderUnit;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtFirstRecommenderTitle;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtSecondRecommenderUnit;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtSecondRecommenderTitle;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txtSecondRecommender;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton14;
-        private System.Windows.Forms.RadioButton radioButton13;
-        private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton rbExpectedResults3;
+        private System.Windows.Forms.RadioButton rbExpectedResults2;
+        private System.Windows.Forms.RadioButton rbExpectedResults1;
+        private System.Windows.Forms.RadioButton rbExpectedResults7;
+        private System.Windows.Forms.RadioButton rbExpectedResults6;
+        private System.Windows.Forms.RadioButton rbExpectedResults5;
+        private System.Windows.Forms.RadioButton rbExpectedResults4;
         private System.Windows.Forms.Label label32;
-        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber textBoxWithOnlyNumber1;
-        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber textBoxWithOnlyNumber2;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber txtWordCount;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber txtRequestMoney;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpRequestDate;
+        private System.Windows.Forms.DateTimePicker dtpCompleteDate;
+        private System.Windows.Forms.Label label19;
     }
 }
