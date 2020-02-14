@@ -16,6 +16,7 @@ using AbstractEditorPlugin.Forms;
 using AbstractEditorPlugin.Utility;
 using System.Reflection;
 using Noear.Weed;
+using PublicReporterLib;
 
 namespace ProjectSocialFundPlugin.Editor
 {
@@ -149,97 +150,37 @@ namespace ProjectSocialFundPlugin.Editor
             //加载数据
             if (PluginRootObj.projectObj != null)
             {
-                #region 读取数据
                 Projects proj = PluginRootObj.getProjectObject<Projects>();
-                Dictionary<string, object> dict = new Dictionary<string, object>();
-                dict["ProjectName"] = proj.ProjectName;
-                dict["KeyText"] = proj.KeyText;
-                dict["ProjectType"] = proj.ProjectType;
-                dict["WorkType"] = proj.WorkType;
-                dict["ProjectMaster"] = proj.ProjectMaster;
-                dict["ProjectMasterSex"] = proj.ProjectMasterSex;
-                dict["ProjectMasterNation"] = proj.ProjectMasterNation;
-                dict["ProjectMasterBirthday"] = proj.ProjectMasterBirthday;
-                dict["WorkJob"] = proj.WorkJob;
-                dict["ProfessionalTitle"] = proj.ProfessionalTitle;
-                dict["AreasOfSpecialization"] = proj.AreasOfSpecialization;
-                dict["FinalEducation"] = proj.FinalEducation;
-                dict["FinalDegree"] = proj.FinalDegree;
-                dict["AsAMentor"] = proj.AsAMentor;
-                dict["WorkUnit"] = proj.WorkUnit;
-                dict["ContactPhone"] = proj.ContactPhone;
-                dict["OwnedSystem"] = proj.OwnedSystem;
-                dict["IDCard"] = proj.IDCard;
-                dict["FirstRecommender"] = proj.FirstRecommender;
-                dict["FirstRecommenderTitle"] = proj.FirstRecommenderTitle;
-                dict["FirstRecommenderUnit"] = proj.FirstRecommenderUnit;
-                dict["SecondRecommender"] = proj.SecondRecommender;
-                dict["SecondRecommenderTitle"] = proj.SecondRecommenderTitle;
-                dict["SecondRecommenderUnit"] = proj.SecondRecommenderUnit;
-                dict["ExpectedResults"] = proj.ExpectedResults;
-                dict["WordCount"] = proj.WordCount;
-                dict["RequestMoney"] = proj.RequestMoney;
-                dict["RequestDate"] = proj.RequestDate;
-                dict["CompleteDate"] = proj.CompleteDate;
-                #endregion
 
-                foreach (KeyValuePair<string, object> kvp in dict)
-                {
-                    bool isRadioType = true;
-
-                    #region 设置数值TextBox,TextBoxWithOnlyNumber,DateTimePicker,ComboBox
-                    foreach (Control cc in ctrlDicts.CtrlDicts.Values)
-                    {
-                        if (cc.Name.Contains(kvp.Key))
-                        {
-                            if (cc is TextBox)
-                            {
-                                ((TextBox)cc).Text = kvp.Value != null ? kvp.Value.ToString() : string.Empty;
-
-                                isRadioType = false;
-                                break;
-                            }
-                            else if (cc is TextBoxWithOnlyNumber)
-                            {
-                                ((TextBoxWithOnlyNumber)cc).Text = kvp.Value != null ? kvp.Value.ToString() : string.Empty;
-
-                                isRadioType = false;
-                                break;
-                            }
-                            else if (cc is DateTimePicker)
-                            {
-                                try
-                                {
-                                    ((DateTimePicker)cc).Value = DateTime.Parse(kvp.Value != null ? kvp.Value.ToString() : string.Empty);
-                                }
-                                catch (Exception ex)
-                                {
-                                    ((DateTimePicker)cc).Value = DateTime.Now;
-                                }
-
-                                isRadioType = false;
-                                break;
-                            }
-                            else if (cc is ComboBox)
-                            {
-                                try
-                                {
-                                    ((ComboBox)cc).SelectedItem = kvp.Value != null ? kvp.Value.ToString() : string.Empty;
-                                }
-                                catch (Exception ex) { }
-
-                                isRadioType = false;
-                                break;
-                            }
-                        }
-                    }
-                    #endregion
-
-                    if (isRadioType)
-                    {
-                        setCurrentWithRadioList(kvp.Key, kvp.Value != null ? kvp.Value.ToString() : string.Empty);
-                    }
-                }
+                txtProjectName.Text = proj.ProjectName;
+                txtKeyText.Text = proj.KeyText;
+                setCurrentWithRadioList("ProjectType", proj.ProjectType);
+                setCurrentWithRadioList("WorkType", proj.WorkType);
+                txtProjectMaster.Text = proj.ProjectMaster;
+                cbxProjectMasterSex.Text = proj.ProjectMasterSex;
+                txtProjectMasterNation.Text = proj.ProjectMasterNation;
+                dtpProjectMasterBirthday.Text = proj.ProjectMasterBirthday;
+                txtWorkJob.Text = proj.WorkJob;
+                txtProfessionalTitle.Text = proj.ProfessionalTitle;
+                txtAreasOfSpecialization.Text = proj.AreasOfSpecialization;
+                txtFinalEducation.Text = proj.FinalEducation;
+                txtFinalDegree.Text = proj.FinalDegree;
+                txtAsAMentor.Text = proj.AsAMentor;
+                txtWorkUnit.Text = proj.WorkUnit;
+                txtContactPhone.Text = proj.ContactPhone;
+                txtOwnedSystem.Text = proj.OwnedSystem;
+                txtIDCard.Text = proj.IDCard;
+                txtFirstRecommender.Text = proj.FirstRecommender;
+                txtFirstRecommenderTitle.Text = proj.FirstRecommenderTitle;
+                txtFirstRecommenderUnit.Text = proj.FirstRecommenderUnit;
+                txtSecondRecommender.Text = proj.SecondRecommender;
+                txtSecondRecommenderTitle.Text = proj.SecondRecommenderTitle;
+                txtSecondRecommenderUnit.Text = proj.SecondRecommenderUnit;
+                setCurrentWithRadioList("ExpectedResults", proj.ExpectedResults);
+                txtWordCount.Text = proj.WordCount + "";
+                txtRequestMoney.Text = proj.RequestMoney + "";
+                dtpRequestDate.Value = proj.RequestDate;
+                dtpCompleteDate.Value = proj.CompleteDate;
             }
         }
 
