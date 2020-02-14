@@ -70,7 +70,7 @@ namespace ProjectSocialFundPlugin.Forms
                             try
                             {
                                 //上传
-                                File.Copy(txtImgFile.Tag.ToString(), constPdf);
+                                File.Copy(txtImgFile.Tag.ToString(), constPdf, true);
                             }
                             catch (Exception ex)
                             {
