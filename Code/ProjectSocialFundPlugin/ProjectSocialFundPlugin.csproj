@@ -111,6 +111,12 @@
     <Compile Include="Editor\WorkerEditor.Designer.cs">
       <DependentUpon>WorkerEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateWorker.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmProjectManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\WorkerEditor.resx">
       <DependentUpon>WorkerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateWorker.resx">
+      <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
