@@ -315,6 +315,12 @@
     <Compile Include="Forms\FrmInputBox.designer.cs">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmWorkerImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmWorkerImporter.Designer.cs">
+      <DependentUpon>FrmWorkerImporter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmWorkProcess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +453,9 @@
     <EmbeddedResource Include="Forms\FrmInputBox.resx">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmWorkerImporter.resx">
+      <DependentUpon>FrmWorkerImporter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmWorkProcess.resx">
       <DependentUpon>FrmWorkProcess.cs</DependentUpon>
     </EmbeddedResource>
@@ -473,6 +482,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Helper\help.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Helper\personTemplete.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Helper\readonlyA.rtf">

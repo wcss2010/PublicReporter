@@ -181,5 +181,14 @@ namespace ProjectContractPlugin.Editor
                 }
             }
         }
+
+        private void btnImporter_Click(object sender, EventArgs e)
+        {
+            FrmWorkerImporter fei = new FrmWorkerImporter();
+            if (fei.ShowDialog() == DialogResult.OK)
+            {
+                RefreshView();
+            }
+        }
     }
 }
