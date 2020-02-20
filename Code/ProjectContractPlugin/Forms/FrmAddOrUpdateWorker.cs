@@ -13,6 +13,19 @@ namespace ProjectContractPlugin.Forms
 {
     public partial class FrmAddOrUpdateWorker : PublicReporterLib.SuperForm
     {
+        /// <summary>
+        /// 仅为项目负责人
+        /// </summary>
+        public const string isOnlyProject = "rbIsOnlyProject";
+        /// <summary>
+        /// 项目负责人兼研究内容负责人或成员
+        /// </summary>
+        public const string isProjectAndSubject = "rbIsProjectAndSubject";
+        /// <summary>
+        /// 仅为研究内容负责人或成员
+        /// </summary>
+        public const string isOnlySubject = "rbIsOnlySubject";
+
         List<KeTiBiao> List = new List<KeTiBiao>();
         public FrmAddOrUpdateWorker(RenYuanBiao obj, List<KeTiBiao> list, double count = -1)
         {

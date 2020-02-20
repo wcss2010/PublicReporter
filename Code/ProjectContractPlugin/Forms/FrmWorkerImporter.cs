@@ -25,12 +25,12 @@ namespace ProjectContractPlugin.Forms
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-
+            DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            DialogResult = System.Windows.Forms.DialogResult.Cancel;
         }
 
         private void llTemplete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
