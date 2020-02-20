@@ -152,6 +152,8 @@
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetail.Size = new System.Drawing.Size(1023, 435);
             this.dgvDetail.TabIndex = 6;
+            this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
+            this.dgvDetail.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_ColumnHeaderMouseClick);
             // 
             // Column9
             // 
