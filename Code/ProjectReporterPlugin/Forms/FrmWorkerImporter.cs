@@ -25,27 +25,27 @@ namespace ProjectReporterPlugin.Forms
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Persons[] personList = getSelectedPersonList();
+            Person[] personList = getSelectedPersonList();
             if (personList.Length == 0)
             {
                 MessageBox.Show("对不起，请选择要导入的人员！");
                 return;
             }
 
-            foreach (Persons newObj in personList)
+            foreach (Person newObj in personList)
             {
-                Persons oldObj = ConnectionManager.Context.table("Persons").where("IDCard='" + newObj.IDCard + "'").select("*").getItem<Persons>(new Persons());
+                Person oldObj = ConnectionManager.Context.table("Person").where("IDCard='" + newObj.IDCard + "'").select("*").getItem<Person>(new Person());
                 if (string.IsNullOrEmpty(oldObj.ID))
                 {
                     //insert
                     newObj.ID = Guid.NewGuid().ToString();
-                    newObj.copyTo(ConnectionManager.Context.table("Persons")).insert();
+                    newObj.copyTo(ConnectionManager.Context.table("Person")).insert();
                 }
                 else
                 {
                     //update
                     newObj.ID = oldObj.ID;
-                    newObj.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + newObj.ID + "'").update();
+                    newObj.copyTo(ConnectionManager.Context.table("Person")).where("ID='" + newObj.ID + "'").update();
                 }
             }
 
@@ -54,13 +54,13 @@ namespace ProjectReporterPlugin.Forms
 
         private Person[] getSelectedPersonList()
         {
-            List<Persons> results = new List<Persons>();
+            List<Person> results = new List<Person>();
             foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
             {
                 DataGridViewCheckBoxCell checkboxCell = ((DataGridViewCheckBoxCell)dgvRow.Cells[0]);
                 if (checkboxCell.Value == "true")
                 {
-                    results.Add((Persons)dgvRow.Tag);
+                    results.Add((Person)dgvRow.Tag);
                 }
             }
             return results.ToArray();
@@ -84,10 +84,10 @@ namespace ProjectReporterPlugin.Forms
         {
             try
             {
-                newPersonList = new List<Persons>();
+                newPersonList = new List<Person>();
 
                 //初始的课题ID
-                string defaultSubjectID = ConnectionManager.Context.table("Subjects").select("ID").getValue<string>("");
+                string defaultSubjectID = ConnectionManager.Context.table("Project").select("ID").getValue<string>("");
 
                 DataTable dtData = ExcelBuilder.excelToDataTable(xlsFile, "Person", true);
                 foreach (DataRow dr in dtData.Rows)
@@ -101,25 +101,25 @@ namespace ProjectReporterPlugin.Forms
                     string telephoneStr = dr["电话"] != null ? dr["电话"].ToString().Trim() : string.Empty;
                     string mobilephoneStr = dr["手机"] != null ? dr["手机"].ToString().Trim() : string.Empty;
                     string workunitStr = dr["工作单位"] != null ? dr["工作单位"].ToString().Trim() : string.Empty;
-                    string timeforsubjectStr = dr["每年投入时间"] != null ? dr["每年投入时间"].ToString().Trim() : string.Empty;
+                    string timeforProjecttr = dr["每年投入时间"] != null ? dr["每年投入时间"].ToString().Trim() : string.Empty;
                     string taskcontentStr = dr["任务分工"] != null ? dr["任务分工"].ToString().Trim() : string.Empty;
-                    string subjectStr = dr["研究内容名称(如是仅为项目负责人则为空)"] != null ? dr["研究内容名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
+                    string Projecttr = dr["研究内容名称(如是仅为项目负责人则为空)"] != null ? dr["研究内容名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
                     string roletypeOnlyProjectStr = dr["仅为项目负责人"] != null ? dr["仅为项目负责人"].ToString().Trim() : string.Empty;
-                    string roletypeProjectAndSubjectStr = dr["项目负责人兼研究内容角色"] != null ? dr["项目负责人兼研究内容角色"].ToString().Trim() : string.Empty;
-                    string roletypeOnlySubjectStr = dr["仅为研究内容角色"] != null ? dr["仅为研究内容角色"].ToString().Trim() : string.Empty;
+                    string roletypeProjectAndProjecttr = dr["项目负责人兼研究内容角色"] != null ? dr["项目负责人兼研究内容角色"].ToString().Trim() : string.Empty;
+                    string roletypeOnlyProjecttr = dr["仅为研究内容角色"] != null ? dr["仅为研究内容角色"].ToString().Trim() : string.Empty;
                     string roleNameStr = dr["研究内容中职务（负责人或成员）"] != null ? dr["研究内容中职务（负责人或成员）"].ToString().Trim() : string.Empty;
 
                     if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
                     {
                         roletypeOnlyProjectStr = "否";
                     }
-                    if (string.IsNullOrEmpty(roletypeProjectAndSubjectStr))
+                    if (string.IsNullOrEmpty(roletypeProjectAndProjecttr))
                     {
-                        roletypeProjectAndSubjectStr = "否";
+                        roletypeProjectAndProjecttr = "否";
                     }
-                    if (string.IsNullOrEmpty(roletypeOnlySubjectStr))
+                    if (string.IsNullOrEmpty(roletypeOnlyProjecttr))
                     {
-                        roletypeOnlySubjectStr = "否";
+                        roletypeOnlyProjecttr = "否";
                     }
 
                     //检查非空
@@ -144,7 +144,7 @@ namespace ProjectReporterPlugin.Forms
                     }
 
                     int intResult = 0;
-                    if (int.TryParse(timeforsubjectStr, out intResult) == false)
+                    if (int.TryParse(timeforProjecttr, out intResult) == false)
                     {
                         throw new Exception("'每年投入时间'只能是数字！");
                     }
@@ -164,7 +164,7 @@ namespace ProjectReporterPlugin.Forms
                     if (roletypeOnlyProjectStr.Contains("否"))
                     {
                         int subjectCount = 0;
-                        object countObj = ConnectionManager.Context.table("Subjects").where("SubjectName='" + subjectStr + "'").select("count(*)").getValue();
+                        object countObj = ConnectionManager.Context.table("Project").where("SubjectName='" + Projecttr + "'").select("count(*)").getValue();
                         try
                         {
                             subjectCount = int.Parse(countObj.ToString());
@@ -177,8 +177,8 @@ namespace ProjectReporterPlugin.Forms
                         }
                     }
 
-                    #region 生成Persons对象
-                    Persons ppObj = new Persons();
+                    #region 生成Person对象
+                    Person ppObj = new Person();
                     ppObj.IDCard = idCardStr;
                     ppObj.Name = nameStr;
                     ppObj.Sex = sexStr;
@@ -187,47 +187,47 @@ namespace ProjectReporterPlugin.Forms
                     ppObj.Specialty = specStr;
                     ppObj.Telephone = telephoneStr;
                     ppObj.MobilePhone = mobilephoneStr;
-                    ppObj.UnitName = workunitStr;
-                    ppObj.TimeForSubject = int.Parse(timeforsubjectStr);
-                    ppObj.TaskContent = taskcontentStr;
+                    //ppObj.UnitName = workunitStr;
+                    //ppObj.TimeForSubject = int.Parse(timeforProjecttr);
+                    //ppObj.TaskContent = taskcontentStr;
 
                     //课题ID
-                    ppObj.SubjectID = ConnectionManager.Context.table("Subjects").where("SubjectName='" + subjectStr + "'").select("ID").getValue<string>(defaultSubjectID);
+                    //ppObj.SubjectID = ConnectionManager.Context.table("Project").where("SubjectName='" + Projecttr + "'").select("ID").getValue<string>(defaultSubjectID);
 
                     //角色类型
-                    if (roletypeOnlyProjectStr.Contains("是"))
-                    {
-                        ppObj.RoleType = FrmAddOrUpdateWorker.isOnlyProject;
-                        roleNameStr = "成员";
-                    }
-                    else if (roletypeProjectAndSubjectStr.Contains("是"))
-                    {
-                        ppObj.RoleType = FrmAddOrUpdateWorker.isProjectAndSubject;
-                    }
-                    else
-                    {
-                        ppObj.RoleType = FrmAddOrUpdateWorker.isOnlySubject;
-                    }
+                    //if (roletypeOnlyProjectStr.Contains("是"))
+                    //{
+                    //    ppObj.RoleType = FrmAddOrUpdateWorker.isOnlyProject;
+                    //    roleNameStr = "成员";
+                    //}
+                    //else if (roletypeProjectAndProjecttr.Contains("是"))
+                    //{
+                    //    ppObj.RoleType = FrmAddOrUpdateWorker.isProjectAndSubject;
+                    //}
+                    //else
+                    //{
+                    //    ppObj.RoleType = FrmAddOrUpdateWorker.isOnlySubject;
+                    //}
 
-                    //角色名称
-                    ppObj.RoleName = roleNameStr;
+                    ////角色名称
+                    //ppObj.RoleName = roleNameStr;
                     #endregion
 
                     newPersonList.Add(ppObj);
                 }
 
                 //查询研究内容列表
-                List<Subjects> subjectList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
+                List<Project> subjectList = ConnectionManager.Context.table("Project").select("*").getList<Project>(new Project());
                 //生成研究内容X字典
                 int kindex = 0;
                 Dictionary<string, string> ktDict = new Dictionary<string, string>();
-                foreach (Subjects ktb in subjectList)
+                foreach (Project ktb in subjectList)
                 {
                     kindex++;
                     ktDict[ktb.ID] = "研究内容" + kindex;
                 }
                 dgvDetail.Rows.Clear();
-                foreach (Persons pObj in newPersonList)
+                foreach (Person pObj in newPersonList)
                 {
                     List<object> cells = new List<object>();
                     cells.Add("true");
@@ -235,19 +235,19 @@ namespace ProjectReporterPlugin.Forms
                     cells.Add(pObj.Sex);
                     cells.Add(pObj.Job);
                     cells.Add(pObj.Specialty);
-                    cells.Add(pObj.UnitName);
-                    cells.Add(pObj.TimeForSubject);
-                    cells.Add(pObj.TaskContent);
-                    cells.Add(pObj.IDCard);
+                    //cells.Add(pObj.UnitName);
+                    //cells.Add(pObj.TimeForSubject);
+                    //cells.Add(pObj.TaskContent);
+                    //cells.Add(pObj.IDCard);
 
-                    if (pObj.RoleType == FrmAddOrUpdateWorker.isOnlyProject)
-                    {
-                        cells.Add("项目负责人");
-                    }
-                    else
-                    {
-                        cells.Add((pObj.RoleType == FrmAddOrUpdateWorker.isProjectAndSubject ? "项目负责人兼" : "") + ((ktDict.ContainsKey(pObj.SubjectID) ? ktDict[pObj.SubjectID] : string.Empty) + pObj.RoleName));
-                    }
+                    //if (pObj.RoleType == FrmAddOrUpdateWorker.isOnlyProject)
+                    //{
+                    //    cells.Add("项目负责人");
+                    //}
+                    //else
+                    //{
+                    //    cells.Add((pObj.RoleType == FrmAddOrUpdateWorker.isProjectAndSubject ? "项目负责人兼" : "") + ((ktDict.ContainsKey(pObj.SubjectID) ? ktDict[pObj.SubjectID] : string.Empty) + pObj.RoleName));
+                    //}
 
                     int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                     dgvDetail.Rows[rowIndex].Tag = pObj;
