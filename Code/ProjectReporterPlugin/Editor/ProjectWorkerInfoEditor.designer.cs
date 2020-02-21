@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.plTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnExcelLoad = new System.Windows.Forms.Button();
-            this.lklDownloadFuJian = new System.Windows.Forms.LinkLabel();
+            this.btnNewPerson = new System.Windows.Forms.Button();
+            this.btnImporter = new System.Windows.Forms.Button();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colXingMing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,8 +54,6 @@
             this.colMoveDown = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colEditThis = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
             this.plTitle.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,7 +68,7 @@
             this.plTitle.Location = new System.Drawing.Point(14, 10);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
-            this.plTitle.Size = new System.Drawing.Size(927, 40);
+            this.plTitle.Size = new System.Drawing.Size(1096, 40);
             this.plTitle.TabIndex = 0;
             // 
             // label1
@@ -80,7 +80,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(927, 40);
+            this.label1.Size = new System.Drawing.Size(1096, 40);
             this.label1.TabIndex = 1;
             this.label1.Text = "负责人及研究骨干情况表";
             // 
@@ -102,7 +102,7 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(955, 572);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(1124, 572);
             this.tableLayoutPanel15.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -110,42 +110,38 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.btnExcelLoad, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lklDownloadFuJian, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btnNewPerson, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnImporter, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 525);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(929, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 34);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // btnExcelLoad
+            // btnNewPerson
             // 
-            this.btnExcelLoad.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExcelLoad.Location = new System.Drawing.Point(812, 3);
-            this.btnExcelLoad.Name = "btnExcelLoad";
-            this.btnExcelLoad.Size = new System.Drawing.Size(114, 27);
-            this.btnExcelLoad.TabIndex = 3;
-            this.btnExcelLoad.Text = "从Excel导入";
-            this.btnExcelLoad.Click += new System.EventHandler(this.btnExcelLoad_Click);
+            this.btnNewPerson.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNewPerson.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnNewPerson.Location = new System.Drawing.Point(1001, 3);
+            this.btnNewPerson.Name = "btnNewPerson";
+            this.btnNewPerson.Size = new System.Drawing.Size(94, 28);
+            this.btnNewPerson.TabIndex = 3;
+            this.btnNewPerson.Text = "新增";
+            this.btnNewPerson.Click += new System.EventHandler(this.btnNewPerson_Click);
             // 
-            // lklDownloadFuJian
+            // btnImporter
             // 
-            this.lklDownloadFuJian.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lklDownloadFuJian.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lklDownloadFuJian.Location = new System.Drawing.Point(535, 0);
-            this.lklDownloadFuJian.Name = "lklDownloadFuJian";
-            this.lklDownloadFuJian.Size = new System.Drawing.Size(171, 34);
-            this.lklDownloadFuJian.TabIndex = 4;
-            this.lklDownloadFuJian.TabStop = true;
-            this.lklDownloadFuJian.Text = "研究骨干导入模板.xls";
-            this.lklDownloadFuJian.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lklDownloadFuJian.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklDownloadFuJian_LinkClicked);
+            this.btnImporter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnImporter.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnImporter.Location = new System.Drawing.Point(901, 3);
+            this.btnImporter.Name = "btnImporter";
+            this.btnImporter.Size = new System.Drawing.Size(94, 28);
+            this.btnImporter.TabIndex = 4;
+            this.btnImporter.Text = "人员导入";
+            this.btnImporter.Click += new System.EventHandler(this.btnImporter_Click);
             // 
             // plContent
             // 
@@ -154,7 +150,7 @@
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(13, 53);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(929, 466);
+            this.plContent.Size = new System.Drawing.Size(1098, 466);
             this.plContent.TabIndex = 7;
             // 
             // dgvDetail
@@ -184,52 +180,63 @@
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 35;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(929, 466);
+            this.dgvDetail.Size = new System.Drawing.Size(1098, 466);
             this.dgvDetail.TabIndex = 5;
-            this.dgvDetail.EditModeChanged += new System.EventHandler(this.dgvDetail_EditModeChanged);
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentDoubleClick);
-            this.dgvDetail.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvDetail_CellParsing);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "删除";
+            this.dataGridViewImageColumn1.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 45;
+            // 
+            // ofdExcelDialog
+            // 
+            this.ofdExcelDialog.Filter = "*.xls|*.xls";
             // 
             // selpersonid
             // 
             this.selpersonid.HeaderText = "序号";
-            this.selpersonid.MinimumWidth = 50;
+            this.selpersonid.MinimumWidth = 60;
             this.selpersonid.Name = "selpersonid";
             this.selpersonid.ReadOnly = true;
-            this.selpersonid.Width = 50;
+            this.selpersonid.Width = 60;
             // 
             // colXingMing
             // 
             this.colXingMing.HeaderText = "姓名";
-            this.colXingMing.MinimumWidth = 50;
+            this.colXingMing.MinimumWidth = 60;
             this.colXingMing.Name = "colXingMing";
             this.colXingMing.ReadOnly = true;
             this.colXingMing.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colXingMing.Width = 50;
+            this.colXingMing.Width = 60;
             // 
             // colSex
             // 
             this.colSex.HeaderText = "性别";
-            this.colSex.MinimumWidth = 50;
+            this.colSex.MinimumWidth = 60;
             this.colSex.Name = "colSex";
             this.colSex.ReadOnly = true;
-            this.colSex.Width = 50;
+            this.colSex.Width = 60;
             // 
             // colZhiWu
             // 
@@ -258,20 +265,19 @@
             // colMeiNianGongZuoShiJian
             // 
             this.colMeiNianGongZuoShiJian.HeaderText = "工作时间(月)";
-            this.colMeiNianGongZuoShiJian.MinimumWidth = 60;
+            this.colMeiNianGongZuoShiJian.MinimumWidth = 110;
             this.colMeiNianGongZuoShiJian.Name = "colMeiNianGongZuoShiJian";
             this.colMeiNianGongZuoShiJian.ReadOnly = true;
             this.colMeiNianGongZuoShiJian.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMeiNianGongZuoShiJian.Width = 60;
+            this.colMeiNianGongZuoShiJian.Width = 110;
             // 
             // colRenWuFenGong
             // 
-            this.colRenWuFenGong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colRenWuFenGong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colRenWuFenGong.HeaderText = "任务分工";
-            this.colRenWuFenGong.MinimumWidth = 50;
+            this.colRenWuFenGong.MinimumWidth = 80;
             this.colRenWuFenGong.Name = "colRenWuFenGong";
             this.colRenWuFenGong.ReadOnly = true;
-            this.colRenWuFenGong.Width = 61;
             // 
             // colIDCard
             // 
@@ -319,26 +325,13 @@
             // 
             // delete
             // 
-            this.delete.HeaderText = "删除";
+            this.delete.HeaderText = "";
             this.delete.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
             this.delete.MinimumWidth = 45;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.Width = 45;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "删除";
-            this.dataGridViewImageColumn1.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 45;
-            // 
-            // ofdExcelDialog
-            // 
-            this.ofdExcelDialog.Filter = "*.xls|*.xls";
             // 
             // ProjectWorkerInfoEditor
             // 
@@ -348,7 +341,7 @@
             this.Controls.Add(this.tableLayoutPanel15);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProjectWorkerInfoEditor";
-            this.Size = new System.Drawing.Size(955, 572);
+            this.Size = new System.Drawing.Size(1124, 572);
             this.plTitle.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -367,9 +360,9 @@
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.DataGridView dgvDetail;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.Button btnExcelLoad;
+        private System.Windows.Forms.Button btnNewPerson;
         private System.Windows.Forms.OpenFileDialog ofdExcelDialog;
-        private System.Windows.Forms.LinkLabel lklDownloadFuJian;
+        private System.Windows.Forms.Button btnImporter;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colXingMing;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
