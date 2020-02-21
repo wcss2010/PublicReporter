@@ -16,6 +16,8 @@ namespace ProjectReporterPlugin.Editor
 {
     public partial class ProjectWorkerInfoEditor : BaseEditor
     {
+        private List<PersonObject> personList = new List<PersonObject>();
+
         public ProjectWorkerInfoEditor()
         {
             InitializeComponent();
@@ -48,9 +50,67 @@ namespace ProjectReporterPlugin.Editor
         public override void RefreshView()
         {
             base.RefreshView();
-        }
 
-        public List<Task> TaskList { get; set; }
+            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + PluginRootObj.projectObj.ID + "') or ProjectID='" + PluginRootObj.projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+
+            int indexx = 0;
+            dgvDetail.Rows.Clear();
+            foreach (Task taskObj in taskList)
+            {
+                indexx++;
+
+                PersonObject pObject = new PersonObject(null, null, null, null);
+                #region 构造Person汇总对象
+                pObject.TaskObj = taskObj;
+                pObject.SubjectObj = ConnectionManager.Context.table("Project").where("ID='" + taskObj.ProjectID + "'").select("*").getItem<Project>(new Project());
+                if (pObject.SubjectObj == null || string.IsNullOrEmpty(pObject.SubjectObj.ID))
+                {
+                    continue;
+                }
+                pObject.PersonObj = ConnectionManager.Context.table("Person").where("ID='" + taskObj.PersonID + "'").select("*").getItem<Person>(new Person());
+                if (pObject.PersonObj == null || string.IsNullOrEmpty(pObject.PersonObj.ID))
+                {
+                    continue;
+                }
+                pObject.UnitObj = ConnectionManager.Context.table("Unit").where("ID='" + pObject.PersonObj.UnitID + "'").select("*").getItem<Unit>(new Unit());
+                if (pObject.UnitObj == null || string.IsNullOrEmpty(pObject.UnitObj.ID))
+                {
+                    continue;
+                }
+                #endregion
+
+                List<object> cells = new List<object>();
+                cells.Add(indexx + "");
+                cells.Add(pObject.PersonObj.Name);
+                cells.Add(pObject.PersonObj.Sex);
+                cells.Add(pObject.PersonObj.Job);
+                cells.Add(pObject.PersonObj.Specialty);
+                cells.Add(pObject.UnitObj.UnitName);
+                cells.Add(pObject.TaskObj.TotalTime);
+                cells.Add(pObject.TaskObj.Content);
+                cells.Add(pObject.PersonObj.IDCard);
+
+                string roleName = string.Empty;
+                if (pObject.SubjectObj.ID == PluginRootObj.projectObj.ID)
+                {
+                    roleName = "项目" + pObject.TaskObj.Role;
+                }
+                else
+                {
+                    roleName = pObject.SubjectObj.Name + pObject.TaskObj.Role;
+                }
+                cells.Add(roleName);                
+                
+                cells.Add("向上");
+                cells.Add("向下");
+                cells.Add("编辑");
+
+                int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
+                dgvDetail.Rows[rowIndex].Tag = pObject;
+
+                personList.Add(pObject);
+            }
+        }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -60,7 +120,7 @@ namespace ProjectReporterPlugin.Editor
                 {
                     if (dgvDetail.Rows[e.RowIndex].Tag != null)
                     {
-                        Task task = (Task)dgvDetail.Rows[e.RowIndex].Tag;
+                        PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
                         MoveToDown(e.RowIndex, task);
                     }
                 }
@@ -69,7 +129,7 @@ namespace ProjectReporterPlugin.Editor
                 {
                     if (dgvDetail.Rows[e.RowIndex].Tag != null)
                     {
-                        Task task = (Task)dgvDetail.Rows[e.RowIndex].Tag;
+                        PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
                         MoveToUp(e.RowIndex, task);
                     }
                 }
@@ -78,12 +138,12 @@ namespace ProjectReporterPlugin.Editor
                 {
                     if (dgvDetail.Rows[e.RowIndex].Tag != null)
                     {
-                        Task task = (Task)dgvDetail.Rows[e.RowIndex].Tag;
+                        PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
 
                         FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
                         if (form.ShowDialog() == DialogResult.OK)
                         {
-                            PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
+                            PluginRootObj.refreshEditors();
                         }
                     }
                 }
@@ -92,11 +152,11 @@ namespace ProjectReporterPlugin.Editor
                 {
                     if (dgvDetail.Rows[e.RowIndex].Tag != null)
                     {
-                        Task task = (Task)dgvDetail.Rows[e.RowIndex].Tag;
+                        PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
                         if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            ConnectionManager.Context.table("Task").where("ID='" + task.ID + "'").delete();
-                            PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
+                            ConnectionManager.Context.table("Task").where("ID='" + task.TaskObj.ID + "'").delete();
+                            PluginRootObj.refreshEditors();
                         }
                     }
                     else
@@ -125,23 +185,23 @@ namespace ProjectReporterPlugin.Editor
         /// </summary>
         /// <param name="rowIndex"></param>
         /// <param name="task"></param>
-        private void MoveToUp(int rowIndex, Task task)
+        private void MoveToUp(int rowIndex, PersonObject task)
         {
-            if (TaskList != null)
+            if (personList != null)
             {
-                int taskIndex = TaskList.IndexOf(task);
+                int taskIndex = personList.IndexOf(task);
                 if (taskIndex >= 1)
                 {
-                    TaskList.Remove(task);
-                    TaskList.Insert(taskIndex - 1, task);
+                    personList.Remove(task);
+                    personList.Insert(taskIndex - 1, task);
 
                     int ri = 0;
-                    foreach (Task t in TaskList)
+                    foreach (PersonObject t in personList)
                     {
-                        t.DisplayOrder = ri;
+                        t.TaskObj.DisplayOrder = ri;
                         ri++;
 
-                        t.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.ID + "'").update();
+                        t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
                     }
 
                     //UpdateTaskList();
@@ -158,23 +218,23 @@ namespace ProjectReporterPlugin.Editor
         /// </summary>
         /// <param name="rowIndex"></param>
         /// <param name="task"></param>
-        private void MoveToDown(int rowIndex, Task task)
+        private void MoveToDown(int rowIndex, PersonObject task)
         {
-            if (TaskList != null)
+            if (personList != null)
             {
-                int taskIndex = TaskList.IndexOf(task);
-                if (taskIndex <= TaskList.Count - 2)
+                int taskIndex = personList.IndexOf(task);
+                if (taskIndex <= personList.Count - 2)
                 {
-                    TaskList.Remove(task);
-                    TaskList.Insert(taskIndex + 1, task);
+                    personList.Remove(task);
+                    personList.Insert(taskIndex + 1, task);
 
                     int ri = 0;
-                    foreach (Task t in TaskList)
+                    foreach (PersonObject t in personList)
                     {
-                        t.DisplayOrder = ri;
+                        t.TaskObj.DisplayOrder = ri;
                         ri++;
 
-                        t.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.ID + "'").update();
+                        t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
                     }
 
                     //UpdateTaskList();
