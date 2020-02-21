@@ -59,46 +59,49 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtWorkTimeInYear = new System.Windows.Forms.NumericUpDown();
-            this.cbxItemJobs = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTaskContent = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbIsOnlySubject = new System.Windows.Forms.RadioButton();
+            this.rbIsProjectAndSubject = new System.Windows.Forms.RadioButton();
+            this.rbIsOnlyProject = new System.Windows.Forms.RadioButton();
+            this.cbxJobInProjects = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxSubjects = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.plContent.SuspendLayout();
             this.plPersonInfo.SuspendLayout();
             this.plWorkUnit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkTimeInYear)).BeginInit();
             this.plButtons.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // plContent
             // 
-            this.plContent.Controls.Add(this.label18);
+            this.plContent.Controls.Add(this.groupBox1);
             this.plContent.Controls.Add(this.plPersonInfo);
             this.plContent.Controls.Add(this.plWorkUnit);
-            this.plContent.Controls.Add(this.txtWorkTimeInYear);
-            this.plContent.Controls.Add(this.cbxItemJobs);
-            this.plContent.Controls.Add(this.label2);
-            this.plContent.Controls.Add(this.txtTaskContent);
-            this.plContent.Controls.Add(this.label11);
-            this.plContent.Controls.Add(this.label12);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.plContent.Location = new System.Drawing.Point(0, 0);
             this.plContent.Margin = new System.Windows.Forms.Padding(4);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(696, 530);
+            this.plContent.Size = new System.Drawing.Size(696, 577);
             this.plContent.TabIndex = 10;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(245, 458);
+            this.label18.Location = new System.Drawing.Point(206, 86);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(21, 14);
@@ -229,7 +232,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(17, 28);
+            this.label3.Location = new System.Drawing.Point(19, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 14);
@@ -251,7 +254,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(30, 66);
+            this.label5.Location = new System.Drawing.Point(32, 66);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 14);
@@ -271,7 +274,7 @@
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(13, 171);
+            this.label17.Location = new System.Drawing.Point(17, 171);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(124, 19);
@@ -281,7 +284,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(1, 101);
+            this.label8.Location = new System.Drawing.Point(4, 101);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 19);
@@ -311,10 +314,10 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(0, 135);
+            this.label10.Location = new System.Drawing.Point(4, 135);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(148, 19);
+            this.label10.Size = new System.Drawing.Size(140, 19);
             this.label10.TabIndex = 8;
             this.label10.Text = "    座    机：";
             // 
@@ -417,62 +420,41 @@
             // txtWorkTimeInYear
             // 
             this.txtWorkTimeInYear.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtWorkTimeInYear.Location = new System.Drawing.Point(159, 454);
+            this.txtWorkTimeInYear.Location = new System.Drawing.Point(120, 82);
             this.txtWorkTimeInYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtWorkTimeInYear.Name = "txtWorkTimeInYear";
             this.txtWorkTimeInYear.Size = new System.Drawing.Size(79, 23);
             this.txtWorkTimeInYear.TabIndex = 16;
             // 
-            // cbxItemJobs
-            // 
-            this.cbxItemJobs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxItemJobs.DropDownWidth = 300;
-            this.cbxItemJobs.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbxItemJobs.Location = new System.Drawing.Point(130, 334);
-            this.cbxItemJobs.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxItemJobs.Name = "cbxItemJobs";
-            this.cbxItemJobs.Size = new System.Drawing.Size(514, 22);
-            this.cbxItemJobs.TabIndex = 14;
-            // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(4, 458);
+            this.label2.Location = new System.Drawing.Point(2, 86);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 19);
+            this.label2.Size = new System.Drawing.Size(110, 19);
             this.label2.TabIndex = 10;
-            this.label2.Text = "每年为本项目工作时间：";
+            this.label2.Text = "每年工作时间：";
             // 
             // txtTaskContent
             // 
             this.txtTaskContent.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtTaskContent.Location = new System.Drawing.Point(130, 364);
+            this.txtTaskContent.Location = new System.Drawing.Point(120, 23);
             this.txtTaskContent.Margin = new System.Windows.Forms.Padding(4);
             this.txtTaskContent.Multiline = true;
             this.txtTaskContent.Name = "txtTaskContent";
-            this.txtTaskContent.Size = new System.Drawing.Size(514, 75);
+            this.txtTaskContent.Size = new System.Drawing.Size(514, 51);
             this.txtTaskContent.TabIndex = 15;
             // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(36, 392);
+            this.label11.Location = new System.Drawing.Point(32, 38);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 23);
             this.label11.TabIndex = 8;
             this.label11.Text = "任务分工：";
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(23, 337);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(93, 19);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "项目中职务：";
             // 
             // plButtons
             // 
@@ -480,7 +462,7 @@
             this.plButtons.Controls.Add(this.btnCancel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plButtons.Location = new System.Drawing.Point(0, 490);
+            this.plButtons.Location = new System.Drawing.Point(0, 537);
             this.plButtons.Margin = new System.Windows.Forms.Padding(4);
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(696, 40);
@@ -512,24 +494,139 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.cbxJobInProjects);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cbxSubjects);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txtTaskContent);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtWorkTimeInYear);
+            this.groupBox1.Location = new System.Drawing.Point(11, 329);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(672, 200);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "项目信息";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbIsOnlySubject);
+            this.panel1.Controls.Add(this.rbIsProjectAndSubject);
+            this.panel1.Controls.Add(this.rbIsOnlyProject);
+            this.panel1.Location = new System.Drawing.Point(120, 113);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(422, 33);
+            this.panel1.TabIndex = 35;
+            // 
+            // rbIsOnlySubject
+            // 
+            this.rbIsOnlySubject.AutoSize = true;
+            this.rbIsOnlySubject.Checked = true;
+            this.rbIsOnlySubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbIsOnlySubject.Location = new System.Drawing.Point(288, 0);
+            this.rbIsOnlySubject.Name = "rbIsOnlySubject";
+            this.rbIsOnlySubject.Size = new System.Drawing.Size(109, 33);
+            this.rbIsOnlySubject.TabIndex = 2;
+            this.rbIsOnlySubject.TabStop = true;
+            this.rbIsOnlySubject.Text = "仅为课题角色";
+            this.rbIsOnlySubject.UseVisualStyleBackColor = true;
+            // 
+            // rbIsProjectAndSubject
+            // 
+            this.rbIsProjectAndSubject.AutoSize = true;
+            this.rbIsProjectAndSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbIsProjectAndSubject.Location = new System.Drawing.Point(123, 0);
+            this.rbIsProjectAndSubject.Name = "rbIsProjectAndSubject";
+            this.rbIsProjectAndSubject.Size = new System.Drawing.Size(165, 33);
+            this.rbIsProjectAndSubject.TabIndex = 1;
+            this.rbIsProjectAndSubject.Text = "项目负责人兼课题角色";
+            this.rbIsProjectAndSubject.UseVisualStyleBackColor = true;
+            // 
+            // rbIsOnlyProject
+            // 
+            this.rbIsOnlyProject.AutoSize = true;
+            this.rbIsOnlyProject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbIsOnlyProject.Location = new System.Drawing.Point(0, 0);
+            this.rbIsOnlyProject.Name = "rbIsOnlyProject";
+            this.rbIsOnlyProject.Size = new System.Drawing.Size(123, 33);
+            this.rbIsOnlyProject.TabIndex = 0;
+            this.rbIsOnlyProject.Text = "仅为项目负责人";
+            this.rbIsOnlyProject.UseVisualStyleBackColor = true;
+            // 
+            // cbxJobInProjects
+            // 
+            this.cbxJobInProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxJobInProjects.FormattingEnabled = true;
+            this.cbxJobInProjects.Items.AddRange(new object[] {
+            "负责人",
+            "成员"});
+            this.cbxJobInProjects.Location = new System.Drawing.Point(535, 153);
+            this.cbxJobInProjects.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxJobInProjects.Name = "cbxJobInProjects";
+            this.cbxJobInProjects.Size = new System.Drawing.Size(99, 22);
+            this.cbxJobInProjects.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label1.Location = new System.Drawing.Point(54, 156);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "课题：";
+            // 
+            // cbxSubjects
+            // 
+            this.cbxSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSubjects.FormattingEnabled = true;
+            this.cbxSubjects.Items.AddRange(new object[] {
+            "负责人",
+            "成员"});
+            this.cbxSubjects.Location = new System.Drawing.Point(115, 155);
+            this.cbxSubjects.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxSubjects.Name = "cbxSubjects";
+            this.cbxSubjects.Size = new System.Drawing.Size(302, 22);
+            this.cbxSubjects.TabIndex = 32;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label12.Location = new System.Drawing.Point(425, 156);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(104, 16);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "课题中职务：";
+            // 
             // FrmEditWorkerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 530);
+            this.ClientSize = new System.Drawing.Size(696, 577);
             this.Controls.Add(this.plContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmEditWorkerInfo";
             this.Text = "添加/修改负责人及研究骨干";
             this.plContent.ResumeLayout(false);
-            this.plContent.PerformLayout();
             this.plPersonInfo.ResumeLayout(false);
             this.plPersonInfo.PerformLayout();
             this.plWorkUnit.ResumeLayout(false);
             this.plWorkUnit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkTimeInYear)).EndInit();
             this.plButtons.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -560,8 +657,6 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.NumericUpDown txtWorkTimeInYear;
-        private System.Windows.Forms.ComboBox cbxItemJobs;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtUnitTelephone;
         private System.Windows.Forms.TextBox txtUnitContactName;
         private System.Windows.Forms.Label label15;
@@ -575,5 +670,14 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbIsOnlySubject;
+        private System.Windows.Forms.RadioButton rbIsProjectAndSubject;
+        private System.Windows.Forms.RadioButton rbIsOnlyProject;
+        private System.Windows.Forms.ComboBox cbxJobInProjects;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbxSubjects;
+        private System.Windows.Forms.Label label12;
     }
 }
