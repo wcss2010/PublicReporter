@@ -264,11 +264,11 @@ namespace ProjectReporterPlugin.Editor
         {
             if (dgvDetail.Rows[e.RowIndex].Tag != null)
             {
-                Task task = (Task)dgvDetail.Rows[e.RowIndex].Tag;
+                PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
                 FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
+                    PluginRootObj.refreshEditors();
                 }
             }
         }
