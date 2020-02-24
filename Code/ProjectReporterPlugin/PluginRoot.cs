@@ -52,7 +52,7 @@ namespace ProjectReporterPlugin
         /// </summary>
         public override string DefaultTitle
         {
-            get { return "重点基础研究项目建议书信息填报系统（1.4版）"; }
+            get { return "重点基础研究项目建议书信息填报系统（1.4.1版）"; }
         }
 
         /// <summary>
