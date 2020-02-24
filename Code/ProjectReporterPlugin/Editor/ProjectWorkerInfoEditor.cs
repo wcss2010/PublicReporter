@@ -53,6 +53,31 @@ namespace ProjectReporterPlugin.Editor
 
             List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + PluginRootObj.projectObj.ID + "') or ProjectID='" + PluginRootObj.projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
+            //查找项目负责人
+            Task masterTask = null;
+            Task masterSecondTask = null;
+            foreach (Task taskObjj in taskList)
+            {
+                if (taskObjj.ProjectID == PluginRootObj.projectObj.ID)
+                {
+                    masterTask = taskObjj;
+                    break;
+                }
+            }
+            //查找项目负责人兼任
+            if (masterTask != null)
+            {                
+                foreach (Task taskObjj in taskList)
+                {
+                    if (taskObjj.PersonID == masterTask.PersonID)
+                    {
+                        masterSecondTask = taskObjj;
+                        break;
+                    }
+                }
+            }
+
+            personList = new List<PersonObject>();
             int indexx = 0;
             dgvDetail.Rows.Clear();
             foreach (Task taskObj in taskList)
@@ -93,11 +118,24 @@ namespace ProjectReporterPlugin.Editor
                 string roleName = string.Empty;
                 if (pObject.SubjectObj.ID == PluginRootObj.projectObj.ID)
                 {
+                    if (masterSecondTask != null)
+                    {
+                        indexx--;
+                        continue;
+                    }
+
                     roleName = "项目" + pObject.TaskObj.Role;
                 }
                 else
                 {
-                    roleName = pObject.SubjectObj.Name + pObject.TaskObj.Role;
+                    if (masterSecondTask != null && masterSecondTask.PersonID == pObject.PersonObj.ID)
+                    {
+                        roleName = "项目负责人兼" + pObject.SubjectObj.Name + pObject.TaskObj.Role;
+                    }
+                    else
+                    {
+                        roleName = pObject.SubjectObj.Name + pObject.TaskObj.Role;
+                    }
                 }
                 cells.Add(roleName);                
                 
