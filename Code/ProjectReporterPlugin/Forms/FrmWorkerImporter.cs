@@ -1,5 +1,6 @@
 ﻿using ProjectReporterPlugin.DB;
 using ProjectReporterPlugin.DB.Entitys;
+using ProjectReporterPlugin.Editor;
 using PublicReporterLib.Utility;
 using System;
 using System.Collections.Generic;
@@ -326,6 +327,145 @@ namespace ProjectReporterPlugin.Forms
                     MessageBox.Show("下载失败！Ex:" + ex.ToString());
                 }
             }
+        }
+
+        /// <summary>
+        /// 插入人员信息
+        /// </summary>
+        /// <param name="personInfo"></param>
+        /// <param name="unitName"></param>
+        /// <param name="unitAddress"></param>
+        /// <param name="unitContactName"></param>
+        /// <param name="unitTelephone"></param>
+        /// <param name="personName"></param>
+        /// <param name="personIDCard"></param>
+        /// <param name="personJob"></param>
+        /// <param name="personSpecialty"></param>
+        /// <param name="personSex"></param>
+        /// <param name="personBirthday"></param>
+        /// <param name="personTelephone"></param>
+        /// <param name="personMobilePhone"></param>
+        /// <param name="personAddress"></param>
+        /// <param name="workTimeInYear"></param>
+        /// <param name="taskContent"></param>
+        /// <param name="jobInProjects"></param>
+        /// <param name="subjectID"></param>
+        /// <param name="isOnlyProject"></param>
+        /// <param name="isProjectAndSubject"></param>
+        /// <param name="isOnlySubject"></param>
+        private void insertOrUpdatePerson(PersonObject personInfo,string unitName, string unitAddress, string unitContactName, string unitTelephone, string personName, string personIDCard, string personJob, string personSpecialty, string personSex, DateTime personBirthday, string personTelephone, string personMobilePhone, string personAddress, int workTimeInYear, string taskContent, string jobInProjects, string subjectID, bool isOnlyProject, bool isProjectAndSubject, bool isOnlySubject)
+        {
+            //项目负责人显示序号
+            int masterDiaplayOrder = 0;
+            //XXXX普通人显示序号
+            int personDisplayOrder = 0;
+            //检查当前人员是什么角色
+            if (isOnlyProject)
+            {
+                //仅为项目负责人,需要先删除当前的项目负责人
+                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
+                ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").delete();
+            }
+            else if (isProjectAndSubject)
+            {
+                //项目兼课题角色,需要先删除当前的项目负责人和课题角色
+                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
+                ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").delete();
+
+                personDisplayOrder = personInfo.TaskObj.DisplayOrder != null ? personInfo.TaskObj.DisplayOrder.Value : 0;
+                ConnectionManager.Context.table("Task").where("ID='" + personInfo.TaskObj.ID + "'").delete();
+            }
+            else if (isOnlySubject)
+            {
+                //课题角色,需要先删除当前的课题角色
+                personDisplayOrder = personInfo.TaskObj.DisplayOrder != null ? personInfo.TaskObj.DisplayOrder.Value : 0;
+                ConnectionManager.Context.table("Task").where("ID='" + personInfo.TaskObj.ID + "'").delete();
+            }
+
+            //工作单位ID
+            string workUnitID = string.IsNullOrEmpty(personInfo.UnitObj.ID) ? Guid.NewGuid().ToString() : personInfo.UnitObj.ID;
+            //创建工作单位
+            ProjectEditor.BuildUnitRecord(workUnitID, unitName, unitName, unitName, unitContactName, unitTelephone, "课题单位", unitAddress);
+
+            //输入人员信息
+            personInfo.PersonObj = new Person();
+            personInfo.PersonObj.UnitID = workUnitID;
+            personInfo.PersonObj.ID = Guid.NewGuid().ToString();
+            personInfo.PersonObj.Name = personName;
+            personInfo.PersonObj.Sex = personSex;
+            personInfo.PersonObj.Birthday = personBirthday != null ? personBirthday : DateTime.Now;
+            personInfo.PersonObj.IDCard = personIDCard;
+            personInfo.PersonObj.Job = personJob;
+            personInfo.PersonObj.Specialty = personSpecialty;
+            personInfo.PersonObj.Address = personAddress;
+            personInfo.PersonObj.Telephone = personTelephone;
+            personInfo.PersonObj.MobilePhone = personMobilePhone;
+
+            //输入项目信息
+            personInfo.TaskObj = new Task();
+            personInfo.TaskObj.PersonID = personInfo.PersonObj.ID;
+            personInfo.TaskObj.IDCard = personInfo.PersonObj.IDCard;
+            personInfo.TaskObj.Content = taskContent;
+            personInfo.TaskObj.TotalTime = workTimeInYear;
+            personInfo.TaskObj.Role = jobInProjects;
+
+            //清理人员信息引用
+            clearAndUpdatePersonRef(personInfo.PersonObj.IDCard, personInfo.PersonObj.ID);
+
+            //检查当前人员是什么角色
+            if (isOnlyProject)
+            {
+                //仅为项目负责人
+                personInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
+                personInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                personInfo.TaskObj.Type = "项目";
+                personInfo.TaskObj.Role = "负责人";
+                personInfo.TaskObj.DisplayOrder = masterDiaplayOrder;
+                personInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+            }
+            else if (isProjectAndSubject)
+            {
+                //项目兼课题角色
+                personInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
+                personInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                personInfo.TaskObj.Type = "项目";
+                personInfo.TaskObj.Role = "负责人";
+                personInfo.TaskObj.DisplayOrder = masterDiaplayOrder;
+                personInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+
+                personInfo.TaskObj.ProjectID = subjectID;
+                personInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                personInfo.TaskObj.Type = "课题";
+                personInfo.TaskObj.Role = jobInProjects;
+                personInfo.TaskObj.DisplayOrder = personDisplayOrder;
+                personInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+            }
+            else if (isOnlySubject)
+            {
+                //课题角色
+                personInfo.TaskObj.ProjectID = subjectID;
+                personInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                personInfo.TaskObj.Type = "课题";
+                personInfo.TaskObj.Role = jobInProjects;
+                personInfo.TaskObj.DisplayOrder = personDisplayOrder;
+                personInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+            }
+
+            //添加人员信息
+            personInfo.PersonObj.copyTo(ConnectionManager.Context.table("Person")).insert();
+        }
+
+        /// <summary>
+        /// 以身份证号为基础清理并更新人员信息的引用
+        /// </summary>
+        /// <param name="personIDCard"></param>
+        /// <param name="personId"></param>
+        private void clearAndUpdatePersonRef(string personIDCard, string personId)
+        {
+            //创建人员
+            ConnectionManager.Context.table("Person").where("IDCard = '" + personIDCard + "'").delete();
+            //更新人员ID
+            ConnectionManager.Context.table("Task").where("IDCard = '" + personIDCard + "'").set("PersonID", personId).update();
         }
     }
 }
