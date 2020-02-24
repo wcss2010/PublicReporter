@@ -237,21 +237,6 @@ namespace ProjectReporterPlugin.Forms
             }
         }
 
-        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvDetail_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
-        private void dgvDetail_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
         private void llTemplete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string sourcePath = Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "lianxiren.xls"));
@@ -415,6 +400,47 @@ namespace ProjectReporterPlugin.Forms
             ConnectionManager.Context.table("Person").where("IDCard = '" + personIDCard + "'").delete();
             //更新人员ID
             ConnectionManager.Context.table("Task").where("IDCard = '" + personIDCard + "'").set("PersonID", personId).update();
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDetail.Rows.Count > e.RowIndex && e.RowIndex >= 0)
+            {
+                if (dgvDetail.Rows[e.RowIndex].Cells[0].Value == "true")
+                {
+                    dgvDetail.Rows[e.RowIndex].Cells[0].Value = "false";
+                }
+                else
+                {
+                    dgvDetail.Rows[e.RowIndex].Cells[0].Value = "true";
+                }
+                dgvDetail.EndEdit();
+            }
+        }
+
+        private void dgvDetail_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                dgvDetail.ClearSelection();
+                string firstValue = string.Empty;
+                foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
+                {
+                    if (string.IsNullOrEmpty(firstValue))
+                    {
+                        if (dgvRow.Cells[0].Value == "true")
+                        {
+                            firstValue = "false";
+                        }
+                        else
+                        {
+                            firstValue = "true";
+                        }
+                    }
+                    ((DataGridViewCheckBoxCell)dgvRow.Cells[0]).Value = firstValue;
+                }
+                dgvDetail.EndEdit();
+            }
         }
     }
 
