@@ -38,7 +38,7 @@ namespace ProjectReporterPlugin.Forms
                 try
                 {
                     //生成对象
-                    PersonObject po = new PersonObject(new Project(), new Unit(), new Person(), new Task());
+                    PersonObject po = new PersonObject(null, null, null, null);
 
                     string subjectID = string.Empty;
                     if (string.IsNullOrEmpty(newObj.subjectStr))
@@ -51,6 +51,12 @@ namespace ProjectReporterPlugin.Forms
                         //课题ID
                         subjectID = ConnectionManager.Context.table("Project").where("Name='" + newObj.subjectStr + "'").select("ID").getValue<string>(string.Empty);
                     }
+
+                    //查询当前记录
+                    po.SubjectObj = ConnectionManager.Context.table("Project").where("ID='" + subjectID + "'").select("*").getItem<Project>(new Project());
+                    po.UnitObj = ConnectionManager.Context.table("Unit").where("UnitName='" + newObj.unitName + "'").select("*").getItem<Unit>(new Unit());
+                    po.PersonObj = ConnectionManager.Context.table("Person").where("IDCard='" + newObj.personIDCard + "'").select("*").getItem<Person>(new Person());
+                    po.TaskObj = ConnectionManager.Context.table("Task").where("IDCard='" + newObj.personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(newObj.subjectStr) ? PluginRootObj.projectObj.Name : newObj.subjectStr) + "')").select("*").getItem<Task>(new Task());
 
                     //更新数据
                     insertOrUpdatePerson(po, newObj.unitName, newObj.unitAddress, newObj.unitContact, newObj.unitTelephone, newObj.personName, newObj.personIDCard, newObj.personJob, newObj.personSpecialty, newObj.personSex, DateTime.Parse(newObj.personBirthday), newObj.personTelephone, newObj.personMobilePhone, newObj.personAddress, int.Parse(newObj.timeInProject), newObj.taskInProject, newObj.roleNameStr, subjectID, newObj.roletypeOnlyProjectStr == "是", newObj.roletypeProjectAndSubjectStr == "是", newObj.roletypeOnlySubjectStr == "是");
@@ -233,18 +239,7 @@ namespace ProjectReporterPlugin.Forms
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDetail.Rows.Count > e.RowIndex && e.RowIndex >= 0)
-            {
-                if (dgvDetail.Rows[e.RowIndex].Cells[0].Value == "true")
-                {
-                    dgvDetail.Rows[e.RowIndex].Cells[0].Value = "false";
-                }
-                else
-                {
-                    dgvDetail.Rows[e.RowIndex].Cells[0].Value = "true";
-                }
-                dgvDetail.EndEdit();
-            }
+
         }
 
         private void dgvDetail_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -254,27 +249,7 @@ namespace ProjectReporterPlugin.Forms
 
         private void dgvDetail_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 0)
-            {
-                dgvDetail.ClearSelection();
-                string firstValue = string.Empty;
-                foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
-                {
-                    if (string.IsNullOrEmpty(firstValue))
-                    {
-                        if (dgvRow.Cells[0].Value == "true")
-                        {
-                            firstValue = "false";
-                        }
-                        else
-                        {
-                            firstValue = "true";
-                        }
-                    }
-                    ((DataGridViewCheckBoxCell)dgvRow.Cells[0]).Value = firstValue;
-                }
-                dgvDetail.EndEdit();
-            }
+
         }
 
         private void llTemplete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
