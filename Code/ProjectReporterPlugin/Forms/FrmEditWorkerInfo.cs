@@ -323,6 +323,23 @@ namespace ProjectReporterPlugin.Forms
             //更新人员ID
             ConnectionManager.Context.table("Task").where("IDCard = '" + personIDCard + "'").set("PersonID", personId).update();
         }
+
+        private void rbIsOnlyProject_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rbCurrent = ((RadioButton)sender);
+            if (rbCurrent == rbIsOnlyProject)
+            {
+                cbxSubjects.Enabled = false;
+                cbxJobInProjects.Enabled = false;
+                cbxJobInProjects.SelectedItem = "负责人";
+            }
+            else
+            {
+                cbxSubjects.Enabled = true;
+                cbxJobInProjects.Enabled = true;
+                cbxJobInProjects.SelectedItem = "负责人";
+            }
+        }
     }
 
     /// <summary>
