@@ -28,7 +28,7 @@ namespace ProjectReporterPlugin.Forms
         public void InitData()
         {
             #region 显示课题列表
-            List<Project> subjectList = ConnectionManager.Context.table("Project").where("ParentID is not null").select("*").getList<Project>(new Project());
+            List<Project> subjectList = ConnectionManager.Context.table("Project").where("ParentID in ('" + PluginRootObj.projectObj.ID + "')").select("*").getList<Project>(new Project());
             cbxSubjects.Items.Clear();
             foreach (Project subject in subjectList)
             {
@@ -227,9 +227,11 @@ namespace ProjectReporterPlugin.Forms
             }
             else if (rbIsOnlySubject.Checked)
             {
-                //课题角色,需要先删除当前的课题角色
+                //课题角色,需要先删除当前的课题角色,如果此人原来是项目负责人，也删除
                 personDisplayOrder = PersonInfo.TaskObj.DisplayOrder != null ? PersonInfo.TaskObj.DisplayOrder.Value : 0;
                 ConnectionManager.Context.table("Task").where("ID='" + PersonInfo.TaskObj.ID + "'").delete();
+
+                ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人' and IDCard = '" + PersonInfo.PersonObj.IDCard + "'").delete();
             }
             
             //工作单位ID

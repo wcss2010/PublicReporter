@@ -98,9 +98,6 @@ namespace ProjectReporterPlugin.Forms
             {
                 newPersonList = new List<PersonImportRecord>();
 
-                //初始的课题ID
-                string defaultSubjectID = ConnectionManager.Context.table("Project").where("ParentID is not null").select("ID").getValue<string>("");
-
                 DataTable dtData = ExcelBuilder.excelToDataTable(xlsFile, "Person", true);
                 foreach (DataRow dr in dtData.Rows)
                 {
@@ -306,7 +303,7 @@ namespace ProjectReporterPlugin.Forms
         /// <summary>
         /// 插入人员信息
         /// </summary>
-        /// <param name="newMersonInfo"></param>
+        /// <param name="newPersonInfo"></param>
         /// <param name="unitName"></param>
         /// <param name="unitAddress"></param>
         /// <param name="unitContactName"></param>
@@ -327,7 +324,7 @@ namespace ProjectReporterPlugin.Forms
         /// <param name="isOnlyProject"></param>
         /// <param name="isProjectAndSubject"></param>
         /// <param name="isOnlySubject"></param>
-        private void insertOrUpdatePerson(PersonObject newMersonInfo,string unitName, string unitAddress, string unitContactName, string unitTelephone, string personName, string personIDCard, string personJob, string personSpecialty, string personSex, DateTime personBirthday, string personTelephone, string personMobilePhone, string personAddress, int workTimeInYear, string taskContent, string jobInProjects, string subjectID, bool isOnlyProject, bool isProjectAndSubject, bool isOnlySubject)
+        private void insertOrUpdatePerson(PersonObject newPersonInfo,string unitName, string unitAddress, string unitContactName, string unitTelephone, string personName, string personIDCard, string personJob, string personSpecialty, string personSex, DateTime personBirthday, string personTelephone, string personMobilePhone, string personAddress, int workTimeInYear, string taskContent, string jobInProjects, string subjectID, bool isOnlyProject, bool isProjectAndSubject, bool isOnlySubject)
         {
             //项目负责人显示序号
             int masterDiaplayOrder = 0;
@@ -346,87 +343,89 @@ namespace ProjectReporterPlugin.Forms
                 masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
                 ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").delete();
 
-                personDisplayOrder = newMersonInfo.TaskObj.DisplayOrder != null ? newMersonInfo.TaskObj.DisplayOrder.Value : 0;
-                ConnectionManager.Context.table("Task").where("ID='" + newMersonInfo.TaskObj.ID + "'").delete();
+                personDisplayOrder = newPersonInfo.TaskObj.DisplayOrder != null ? newPersonInfo.TaskObj.DisplayOrder.Value : 0;
+                ConnectionManager.Context.table("Task").where("ID='" + newPersonInfo.TaskObj.ID + "'").delete();
             }
             else if (isOnlySubject)
             {
-                //课题角色,需要先删除当前的课题角色
-                personDisplayOrder = newMersonInfo.TaskObj.DisplayOrder != null ? newMersonInfo.TaskObj.DisplayOrder.Value : 0;
-                ConnectionManager.Context.table("Task").where("ID='" + newMersonInfo.TaskObj.ID + "'").delete();
+                //课题角色,需要先删除当前的课题角色,如果此人原来是项目负责人，也删除
+                personDisplayOrder = newPersonInfo.TaskObj.DisplayOrder != null ? newPersonInfo.TaskObj.DisplayOrder.Value : 0;
+                ConnectionManager.Context.table("Task").where("ID='" + newPersonInfo.TaskObj.ID + "'").delete();
+
+                ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人' and IDCard = '" + newPersonInfo.PersonObj.IDCard + "'").delete();
             }
 
             //工作单位ID
-            string workUnitID = string.IsNullOrEmpty(newMersonInfo.UnitObj.ID) ? Guid.NewGuid().ToString() : newMersonInfo.UnitObj.ID;
+            string workUnitID = string.IsNullOrEmpty(newPersonInfo.UnitObj.ID) ? Guid.NewGuid().ToString() : newPersonInfo.UnitObj.ID;
             //创建工作单位
             ProjectEditor.BuildUnitRecord(workUnitID, unitName, unitName, unitName, unitContactName, unitTelephone, "课题单位", unitAddress);
 
             //输入人员信息
-            newMersonInfo.PersonObj = new Person();
-            newMersonInfo.PersonObj.UnitID = workUnitID;
-            newMersonInfo.PersonObj.ID = Guid.NewGuid().ToString();
-            newMersonInfo.PersonObj.Name = personName;
-            newMersonInfo.PersonObj.Sex = personSex;
-            newMersonInfo.PersonObj.Birthday = personBirthday != null ? personBirthday : DateTime.Now;
-            newMersonInfo.PersonObj.IDCard = personIDCard;
-            newMersonInfo.PersonObj.Job = personJob;
-            newMersonInfo.PersonObj.Specialty = personSpecialty;
-            newMersonInfo.PersonObj.Address = personAddress;
-            newMersonInfo.PersonObj.Telephone = personTelephone;
-            newMersonInfo.PersonObj.MobilePhone = personMobilePhone;
+            newPersonInfo.PersonObj = new Person();
+            newPersonInfo.PersonObj.UnitID = workUnitID;
+            newPersonInfo.PersonObj.ID = Guid.NewGuid().ToString();
+            newPersonInfo.PersonObj.Name = personName;
+            newPersonInfo.PersonObj.Sex = personSex;
+            newPersonInfo.PersonObj.Birthday = personBirthday != null ? personBirthday : DateTime.Now;
+            newPersonInfo.PersonObj.IDCard = personIDCard;
+            newPersonInfo.PersonObj.Job = personJob;
+            newPersonInfo.PersonObj.Specialty = personSpecialty;
+            newPersonInfo.PersonObj.Address = personAddress;
+            newPersonInfo.PersonObj.Telephone = personTelephone;
+            newPersonInfo.PersonObj.MobilePhone = personMobilePhone;
 
             //输入项目信息
-            newMersonInfo.TaskObj = new Task();
-            newMersonInfo.TaskObj.PersonID = newMersonInfo.PersonObj.ID;
-            newMersonInfo.TaskObj.IDCard = newMersonInfo.PersonObj.IDCard;
-            newMersonInfo.TaskObj.Content = taskContent;
-            newMersonInfo.TaskObj.TotalTime = workTimeInYear;
-            newMersonInfo.TaskObj.Role = jobInProjects;
+            newPersonInfo.TaskObj = new Task();
+            newPersonInfo.TaskObj.PersonID = newPersonInfo.PersonObj.ID;
+            newPersonInfo.TaskObj.IDCard = newPersonInfo.PersonObj.IDCard;
+            newPersonInfo.TaskObj.Content = taskContent;
+            newPersonInfo.TaskObj.TotalTime = workTimeInYear;
+            newPersonInfo.TaskObj.Role = jobInProjects;
 
             //清理人员信息引用
-            clearAndUpdatePersonRef(newMersonInfo.PersonObj.IDCard, newMersonInfo.PersonObj.ID);
+            clearAndUpdatePersonRef(newPersonInfo.PersonObj.IDCard, newPersonInfo.PersonObj.ID);
 
             //检查当前人员是什么角色
             if (isOnlyProject)
             {
                 //仅为项目负责人
-                newMersonInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
-                newMersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
-                newMersonInfo.TaskObj.Type = "项目";
-                newMersonInfo.TaskObj.Role = "负责人";
-                newMersonInfo.TaskObj.DisplayOrder = masterDiaplayOrder;
-                newMersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+                newPersonInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
+                newPersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                newPersonInfo.TaskObj.Type = "项目";
+                newPersonInfo.TaskObj.Role = "负责人";
+                newPersonInfo.TaskObj.DisplayOrder = masterDiaplayOrder;
+                newPersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
             }
             else if (isProjectAndSubject)
             {
                 //项目兼课题角色
-                newMersonInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
-                newMersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
-                newMersonInfo.TaskObj.Type = "项目";
-                newMersonInfo.TaskObj.Role = "负责人";
-                newMersonInfo.TaskObj.DisplayOrder = masterDiaplayOrder;
-                newMersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+                newPersonInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
+                newPersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                newPersonInfo.TaskObj.Type = "项目";
+                newPersonInfo.TaskObj.Role = "负责人";
+                newPersonInfo.TaskObj.DisplayOrder = masterDiaplayOrder;
+                newPersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
 
-                newMersonInfo.TaskObj.ProjectID = subjectID;
-                newMersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
-                newMersonInfo.TaskObj.Type = "课题";
-                newMersonInfo.TaskObj.Role = jobInProjects;
-                newMersonInfo.TaskObj.DisplayOrder = personDisplayOrder;
-                newMersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+                newPersonInfo.TaskObj.ProjectID = subjectID;
+                newPersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                newPersonInfo.TaskObj.Type = "课题";
+                newPersonInfo.TaskObj.Role = jobInProjects;
+                newPersonInfo.TaskObj.DisplayOrder = personDisplayOrder;
+                newPersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
             }
             else if (isOnlySubject)
             {
                 //课题角色
-                newMersonInfo.TaskObj.ProjectID = subjectID;
-                newMersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
-                newMersonInfo.TaskObj.Type = "课题";
-                newMersonInfo.TaskObj.Role = jobInProjects;
-                newMersonInfo.TaskObj.DisplayOrder = personDisplayOrder;
-                newMersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
+                newPersonInfo.TaskObj.ProjectID = subjectID;
+                newPersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
+                newPersonInfo.TaskObj.Type = "课题";
+                newPersonInfo.TaskObj.Role = jobInProjects;
+                newPersonInfo.TaskObj.DisplayOrder = personDisplayOrder;
+                newPersonInfo.TaskObj.copyTo(ConnectionManager.Context.table("Task")).insert();
             }
 
             //添加人员信息
-            newMersonInfo.PersonObj.copyTo(ConnectionManager.Context.table("Person")).insert();
+            newPersonInfo.PersonObj.copyTo(ConnectionManager.Context.table("Person")).insert();
         }
 
         /// <summary>
