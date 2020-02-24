@@ -69,7 +69,7 @@ namespace ProjectReporterPlugin.Editor
             {                
                 foreach (Task taskObjj in taskList)
                 {
-                    if (taskObjj.PersonID == masterTask.PersonID)
+                    if (taskObjj.PersonID == masterTask.PersonID && taskObjj.ProjectID != masterTask.ProjectID)
                     {
                         masterSecondTask = taskObjj;
                         break;
@@ -242,7 +242,8 @@ namespace ProjectReporterPlugin.Editor
                         t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
                     }
 
-                    //UpdateTaskList();
+                    RefreshView();
+
                     if (taskIndex >= 1)
                     {
                         dgvDetail.Rows[taskIndex - 1].Selected = true;
@@ -275,7 +276,8 @@ namespace ProjectReporterPlugin.Editor
                         t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
                     }
 
-                    //UpdateTaskList();
+                    RefreshView();
+
                     if (taskIndex < dgvDetail.Rows.Count - 1)
                     {
                         dgvDetail.Rows[taskIndex + 1].Selected = true;
