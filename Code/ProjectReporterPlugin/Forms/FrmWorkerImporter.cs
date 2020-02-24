@@ -330,16 +330,17 @@ namespace ProjectReporterPlugin.Forms
             int masterDiaplayOrder = 0;
             //XXXX普通人显示序号
             int personDisplayOrder = 0;
-            //检查当前人员是什么角色
             if (isOnlyProject)
             {
-                //仅为项目负责人,需要先删除当前的项目负责人
+                //仅为项目负责人,需要删除当前的项目负责人,也删除此人原来的职务
                 masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
                 ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").delete();
+
+                ConnectionManager.Context.table("Task").where("ID='" + newPersonInfo.TaskObj.ID + "'").delete();
             }
             else if (isProjectAndSubject)
             {
-                //项目兼课题角色,需要先删除当前的项目负责人和课题角色
+                //项目兼课题角色,需要删除当前的项目负责人和课题角色
                 masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
                 ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").delete();
 
@@ -348,7 +349,7 @@ namespace ProjectReporterPlugin.Forms
             }
             else if (isOnlySubject)
             {
-                //课题角色,需要先删除当前的课题角色,如果此人原来是项目负责人，也删除
+                //课题角色,需要删除当前的课题角色,如果此人原来是项目负责人，也删除
                 personDisplayOrder = newPersonInfo.TaskObj.DisplayOrder != null ? newPersonInfo.TaskObj.DisplayOrder.Value : 0;
                 ConnectionManager.Context.table("Task").where("ID='" + newPersonInfo.TaskObj.ID + "'").delete();
 
