@@ -100,6 +100,11 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "基本信息_所属大单位", projObj.UnitType2);
                 writeStringToBookmark(wd, "基本信息_申报日期", projObj.RequestTime.ToString("yyyy年MM月dd日"));
 
+                writeStringToBookmark(wd, "项目摘要_项目名称", projObj.ProjectName);
+                writeStringToBookmark(wd, "项目摘要_申报单位", projObj.UnitName);
+                writeStringToBookmark(wd, "项目摘要_项目负责人", projObj.ProjectMasterName);
+                writeStringToBookmark(wd, "项目摘要_申请经费", projObj.TotalMoney + "");
+
                 writeStringToBookmark(wd, "研究内容_研究内容数量", subjectList.Count + "");
                 writeStringToBookmark(wd, "研究周期与进度安排_周期", projObj.TotalTime + "");
                 writeStringToBookmark(wd, "研究周期与进度安排_经费", projObj.TotalMoney + "");
