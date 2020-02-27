@@ -92,16 +92,16 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 DataTable dtData = ExcelBuilder.excelToDataTable(xlsFile, "Person", true);
                 foreach (DataRow dr in dtData.Rows)
                 {
-                    string idCardStr = dr["身份证"] != null ? dr["身份证"].ToString().Trim() : string.Empty;
+                    string idCardStr = dr["身份证号"] != null ? dr["身份证号"].ToString().Trim() : string.Empty;
                     string nameStr = dr["姓名"] != null ? dr["姓名"].ToString().Trim() : string.Empty;
                     string sexStr = dr["性别"] != null ? dr["性别"].ToString().Trim() : string.Empty;
-                    string birthdayStr = dr["出生年月"] != null ? dr["出生年月"].ToString().Trim() : string.Empty;
-                    string jobStr = dr["职务/职称"] != null ? dr["职务/职称"].ToString().Trim() : string.Empty;
-                    string specStr = dr["所学专业"] != null ? dr["所学专业"].ToString().Trim() : string.Empty;
+                    string birthdayStr = dr["生日"] != null ? dr["生日"].ToString().Trim() : string.Empty;
+                    string jobStr = dr["职称"] != null ? dr["职称"].ToString().Trim() : string.Empty;
+                    string specStr = dr["专业"] != null ? dr["专业"].ToString().Trim() : string.Empty;
                     string telephoneStr = dr["电话"] != null ? dr["电话"].ToString().Trim() : string.Empty;
                     string mobilephoneStr = dr["手机"] != null ? dr["手机"].ToString().Trim() : string.Empty;
                     string workunitStr = dr["工作单位"] != null ? dr["工作单位"].ToString().Trim() : string.Empty;
-                    string timeforsubjectStr = dr["每年投入时间"] != null ? dr["每年投入时间"].ToString().Trim() : string.Empty;
+                    string timeforsubjectStr = dr["每年投入时间（月）"] != null ? dr["每年投入时间（月）"].ToString().Trim() : string.Empty;
                     string taskcontentStr = dr["任务分工"] != null ? dr["任务分工"].ToString().Trim() : string.Empty;
                     string subjectStr = dr["研究内容名称(如是仅为项目负责人则为空)"] != null ? dr["研究内容名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
                     string roletypeOnlyProjectStr = dr["仅为项目负责人"] != null ? dr["仅为项目负责人"].ToString().Trim() : string.Empty;
