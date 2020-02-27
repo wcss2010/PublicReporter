@@ -293,17 +293,19 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         private void ibEditMoney1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 0x20) e.KeyChar = (char)0;  //禁止空格键 
-            if ((e.KeyChar == 0x2D) && (((TextBox)sender).Text.Length == 0)) return;   //处理负数 
+            if (e.KeyChar == 0x0D || e.KeyChar == 0x0A || e.KeyChar == 0x20) return;  //禁止回车,换行，空格键 
+
+            if ((e.KeyChar == 0x2D) && (Text.Length == 0)) return;   //处理负数 
+
             if (e.KeyChar > 0x20)
             {
                 try
                 {
-                    double.Parse(((TextBox)sender).Text + e.KeyChar.ToString());
+                    double.Parse(Text + e.KeyChar.ToString());
                 }
                 catch
                 {
-                    e.KeyChar = (char)0;   //处理非法字符 
+                    return;   //处理非法字符 
                 }
             }
         }
