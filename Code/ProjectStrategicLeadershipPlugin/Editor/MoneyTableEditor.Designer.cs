@@ -192,6 +192,8 @@
             this.ibEditYear3.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear3.TabIndex = 30;
             this.ibEditYear3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ibEditYear3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditYear3.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditYear2
             // 
@@ -204,6 +206,8 @@
             this.ibEditYear2.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear2.TabIndex = 29;
             this.ibEditYear2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ibEditYear2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditYear2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditYear1
             // 
@@ -216,6 +220,8 @@
             this.ibEditYear1.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear1.TabIndex = 28;
             this.ibEditYear1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ibEditYear1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditYear1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // label15
             // 
@@ -368,6 +374,7 @@
             this.ibEditMoney5_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney5_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney5_2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditInfo3_1
             // 
@@ -646,6 +653,7 @@
             this.ibEditMoney1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney2
             // 
@@ -661,6 +669,7 @@
             this.ibEditMoney2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney3
             // 
@@ -676,6 +685,7 @@
             this.ibEditMoney3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney3.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney4
             // 
@@ -690,6 +700,7 @@
             this.ibEditMoney4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney4.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney4.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney5
             // 
@@ -705,6 +716,7 @@
             this.ibEditMoney5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney5.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney6
             // 
@@ -719,6 +731,7 @@
             this.ibEditMoney6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney6.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney6.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney7
             // 
@@ -733,6 +746,7 @@
             this.ibEditMoney7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney7.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney7.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney8
             // 
@@ -747,6 +761,7 @@
             this.ibEditMoney8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney8.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney8.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney9
             // 
@@ -761,6 +776,7 @@
             this.ibEditMoney9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney9.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney9.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney10
             // 
@@ -775,6 +791,7 @@
             this.ibEditMoney10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney10.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney10.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney11
             // 
@@ -789,6 +806,7 @@
             this.ibEditMoney11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney11.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney11.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney12
             // 
@@ -804,6 +822,7 @@
             this.ibEditMoney12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney12.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney12.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney13
             // 
@@ -818,6 +837,7 @@
             this.ibEditMoney13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney13.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney13.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditInfo1
             // 
@@ -1019,6 +1039,7 @@
             this.ibEditMoney3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney3_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney3_1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney3_2
             // 
@@ -1033,6 +1054,7 @@
             this.ibEditMoney3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney3_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney3_2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney3_3
             // 
@@ -1047,6 +1069,7 @@
             this.ibEditMoney3_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney3_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney3_3.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney5_1
             // 
@@ -1061,6 +1084,7 @@
             this.ibEditMoney5_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
             this.ibEditMoney5_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
+            this.ibEditMoney5_1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // lblInfo
             // 

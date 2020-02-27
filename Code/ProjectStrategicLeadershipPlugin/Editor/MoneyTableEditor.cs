@@ -143,6 +143,12 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                     boxDict[ctrlName].Text = ysb.Value;
                 }
             }
+
+            if (list.Count == 0)
+            {
+                bool result = true;
+                onSaveEvent(ref result);
+            }
         }
 
         public override void onSaveEvent(ref bool result)
@@ -330,6 +336,14 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 {
                     MessageBox.Show("下载失败！Ex:" + ex.ToString());
                 }
+            }
+        }
+
+        private void ibEditMoney1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(((TextBox)sender).Text))
+            {
+                ((TextBox)sender).Text = "0";
             }
         }
     }

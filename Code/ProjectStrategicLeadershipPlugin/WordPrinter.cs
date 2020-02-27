@@ -275,75 +275,75 @@ namespace ProjectStrategicLeadershipPlugin
                         {
                             //金额
                             t.Rows[2].Cells[1].RemoveAllChildren();
-                            t.Rows[2].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money1"]));
+                            t.Rows[2].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money1"])));
                             ((Paragraph)t.Rows[2].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[3].Cells[1].RemoveAllChildren();
-                            t.Rows[3].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money2"]));
+                            t.Rows[3].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money2"])));
                             ((Paragraph)t.Rows[3].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[4].Cells[1].RemoveAllChildren();
-                            t.Rows[4].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money3"]));
+                            t.Rows[4].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money3"])));
                             ((Paragraph)t.Rows[4].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[5].Cells[1].RemoveAllChildren();
-                            t.Rows[5].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money3_1"]));
+                            t.Rows[5].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money3_1"])));
                             ((Paragraph)t.Rows[5].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[6].Cells[1].RemoveAllChildren();
-                            t.Rows[6].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money3_2"]));
+                            t.Rows[6].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money3_2"])));
                             ((Paragraph)t.Rows[6].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[7].Cells[1].RemoveAllChildren();
-                            t.Rows[7].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money3_3"]));
+                            t.Rows[7].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money3_3"])));
                             ((Paragraph)t.Rows[7].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[8].Cells[1].RemoveAllChildren();
-                            t.Rows[8].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money4"]));
+                            t.Rows[8].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money4"])));
                             ((Paragraph)t.Rows[8].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[9].Cells[1].RemoveAllChildren();
-                            t.Rows[9].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money5"]));
+                            t.Rows[9].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money5"])));
                             ((Paragraph)t.Rows[9].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[10].Cells[1].RemoveAllChildren();
-                            t.Rows[10].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money5_1"]));
+                            t.Rows[10].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money5_1"])));
                             ((Paragraph)t.Rows[10].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[11].Cells[1].RemoveAllChildren();
-                            t.Rows[11].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money5_2"]));
+                            t.Rows[11].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money5_2"])));
                             ((Paragraph)t.Rows[11].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[12].Cells[1].RemoveAllChildren();
-                            t.Rows[12].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money6"]));
+                            t.Rows[12].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money6"])));
                             ((Paragraph)t.Rows[12].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[13].Cells[1].RemoveAllChildren();
-                            t.Rows[13].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money7"]));
+                            t.Rows[13].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money7"])));
                             ((Paragraph)t.Rows[13].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[14].Cells[1].RemoveAllChildren();
-                            t.Rows[14].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money8"]));
+                            t.Rows[14].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money8"])));
                             ((Paragraph)t.Rows[14].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[15].Cells[1].RemoveAllChildren();
-                            t.Rows[15].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money9"]));
+                            t.Rows[15].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money9"])));
                             ((Paragraph)t.Rows[15].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[16].Cells[1].RemoveAllChildren();
-                            t.Rows[16].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money10"]));
+                            t.Rows[16].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money10"])));
                             ((Paragraph)t.Rows[16].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[17].Cells[1].RemoveAllChildren();
-                            t.Rows[17].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money11"]));
+                            t.Rows[17].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money11"])));
                             ((Paragraph)t.Rows[17].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[18].Cells[1].RemoveAllChildren();
-                            t.Rows[18].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money12"]));
+                            t.Rows[18].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money12"])));
                             ((Paragraph)t.Rows[18].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[19].Cells[1].RemoveAllChildren();
-                            t.Rows[19].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Money13"]));
+                            t.Rows[19].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Money13"])));
                             ((Paragraph)t.Rows[19].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             //备注
@@ -421,15 +421,15 @@ namespace ProjectStrategicLeadershipPlugin
 
                             //年度金额
                             t.Rows[t.Rows.Count - 1].Cells[0].RemoveAllChildren();
-                            t.Rows[t.Rows.Count - 1].Cells[0].AppendChild(wd.newParagraph(t.Document, tempDict["Year1"]));
+                            t.Rows[t.Rows.Count - 1].Cells[0].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Year1"])));
                             ((Paragraph)t.Rows[t.Rows.Count - 1].Cells[0].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[t.Rows.Count - 1].Cells[1].RemoveAllChildren();
-                            t.Rows[t.Rows.Count - 1].Cells[1].AppendChild(wd.newParagraph(t.Document, tempDict["Year2"]));
+                            t.Rows[t.Rows.Count - 1].Cells[1].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Year2"])));
                             ((Paragraph)t.Rows[t.Rows.Count - 1].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                             t.Rows[t.Rows.Count - 1].Cells[2].RemoveAllChildren();
-                            t.Rows[t.Rows.Count - 1].Cells[2].AppendChild(wd.newParagraph(t.Document, tempDict["Year3"]));
+                            t.Rows[t.Rows.Count - 1].Cells[2].AppendChild(wd.newParagraph(t.Document, getMoneyValue(tempDict["Year3"])));
                             ((Paragraph)t.Rows[t.Rows.Count - 1].Cells[2].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                             break;
                         }
@@ -745,6 +745,23 @@ namespace ProjectStrategicLeadershipPlugin
             if (wd.WordDocBuilder.MoveToBookmark(bookmarkString) && value != null)
             {
                 wd.WordDocBuilder.Write(value);
+            }
+        }
+
+        /// <summary>
+        /// 获得金额数字
+        /// </summary>
+        /// <param name="svalue"></param>
+        /// <returns></returns>
+        private static string getMoneyValue(string svalue)
+        {
+            if (string.IsNullOrEmpty(svalue))
+            {
+                return "0";
+            }
+            else
+            {
+                return svalue;
             }
         }
     }
