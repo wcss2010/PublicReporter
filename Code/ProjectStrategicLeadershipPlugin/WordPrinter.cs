@@ -578,7 +578,7 @@ namespace ProjectStrategicLeadershipPlugin
                 #endregion
 
                 #region 写入联系方式中的固定字段
-                Persons masterObj = ConnectionManager.Context.table("Persons").where("RoleType='" + FrmAddOrUpdateWorker.isOnlyProject + "' or (RoleType='" + FrmAddOrUpdateWorker.isProjectAndSubject + "' and RoleName='负责人')").select("*").getItem<Persons>(new Persons());
+                Persons masterObj = ConnectionManager.Context.table("Persons").where("RoleType='" + FrmAddOrUpdateWorker.isOnlyProject + "' or RoleType='" + FrmAddOrUpdateWorker.isProjectAndSubject + "'").select("*").getItem<Persons>(new Persons());
                 writeStringToBookmark(wd, "联系方式_项目负责人_姓名", masterObj.Name);
                 writeStringToBookmark(wd, "联系方式_项目负责人_性别", masterObj.Sex);
                 writeStringToBookmark(wd, "联系方式_项目负责人_出生年月", masterObj.Birthday.ToString("yyyy年MM月dd日"));
