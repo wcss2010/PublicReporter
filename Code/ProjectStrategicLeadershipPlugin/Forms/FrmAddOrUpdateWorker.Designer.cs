@@ -231,12 +231,12 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(476, 322);
+            this.label9.Location = new System.Drawing.Point(428, 324);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 16);
+            this.label9.Size = new System.Drawing.Size(168, 16);
             this.label9.TabIndex = 19;
-            this.label9.Text = "每年投入时间：";
+            this.label9.Text = "每年投入时间（月）：";
             // 
             // txtTotalTime
             // 

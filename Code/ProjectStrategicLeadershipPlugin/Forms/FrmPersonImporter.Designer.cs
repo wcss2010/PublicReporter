@@ -63,14 +63,14 @@
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(8);
-            this.groupBox1.Size = new System.Drawing.Size(1001, 41);
+            this.groupBox1.Size = new System.Drawing.Size(1012, 41);
             this.groupBox1.TabIndex = 0;
             // 
             // llTemplete
             // 
             this.llTemplete.Dock = System.Windows.Forms.DockStyle.Right;
             this.llTemplete.Font = new System.Drawing.Font("仿宋", 12F);
-            this.llTemplete.Location = new System.Drawing.Point(713, 8);
+            this.llTemplete.Location = new System.Drawing.Point(724, 8);
             this.llTemplete.Name = "llTemplete";
             this.llTemplete.Size = new System.Drawing.Size(280, 25);
             this.llTemplete.TabIndex = 9;
@@ -115,7 +115,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 437);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 45);
+            this.panel1.Size = new System.Drawing.Size(1012, 45);
             this.panel1.TabIndex = 1;
             // 
             // btnCancel
@@ -168,7 +168,7 @@
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 23;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(1001, 396);
+            this.dgvDetail.Size = new System.Drawing.Size(1012, 396);
             this.dgvDetail.TabIndex = 3;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_ColumnHeaderMouseClick);
@@ -239,7 +239,7 @@
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "身份证号码";
+            this.Column9.HeaderText = "身份证号";
             this.Column9.MinimumWidth = 120;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 482);
+            this.ClientSize = new System.Drawing.Size(1012, 482);
             this.Controls.Add(this.dgvDetail);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
@@ -285,6 +285,7 @@
         private System.Windows.Forms.TextBox txtFile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvDetail;
+        private System.Windows.Forms.LinkLabel llTemplete;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -295,6 +296,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.LinkLabel llTemplete;
     }
 }
