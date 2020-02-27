@@ -92,8 +92,8 @@ namespace ProjectStrategicLeadershipPlugin
                 writeStringToBookmark(wd, "基本信息_申报单位名称", projObj.UnitName);
                 writeStringToBookmark(wd, "基本信息_申报单位常用名称", projObj.UnitRealName);
                 writeStringToBookmark(wd, "基本信息_项目负责人", projObj.ProjectMasterName);
-                writeStringToBookmark(wd, "基本信息_研究周期", projObj.TotalTime + "");
-                writeStringToBookmark(wd, "基本信息_研究经费", projObj.TotalMoney + "");
+                writeStringToBookmark(wd, "基本信息_研究周期", projObj.TotalTime + "年");
+                writeStringToBookmark(wd, "基本信息_研究经费", projObj.TotalMoney + "万");
                 writeStringToBookmark(wd, "基本信息_联系人", projObj.UnitContact);
                 writeStringToBookmark(wd, "基本信息_联系电话", projObj.UnitContactPhone);
                 writeStringToBookmark(wd, "基本信息_单位所在省市", projObj.UnitAddress != null ? projObj.UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty);
