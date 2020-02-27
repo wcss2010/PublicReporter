@@ -11,6 +11,8 @@ namespace AbstractEditorPlugin.Controls
         {
             base.OnKeyPress(e);
 
+            if (e.KeyChar == 0x0D) e.KeyChar = (char)0;  //禁止回车键 
+            if (e.KeyChar == 0x0A) e.KeyChar = (char)0;  //禁止换行键 
             if (e.KeyChar == 0x20) e.KeyChar = (char)0;  //禁止空格键 
             if ((e.KeyChar == 0x2D) && (Text.Length == 0)) return;   //处理负数 
             if (e.KeyChar > 0x20)

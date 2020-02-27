@@ -29,6 +29,14 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
             //查找所有的TextBox
             GetAllTextBoxObject(this);
+
+            foreach (TextBox tb in boxDict.Values)
+            {
+                if (tb.Name.StartsWith("ibEditMoney"))
+                {
+                    tb.Text = "0";
+                }
+            }
         }
 
         /// <summary>
