@@ -297,25 +297,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
         }
 
-        private void ibEditMoney1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 0x0D || e.KeyChar == 0x0A || e.KeyChar == 0x20) e.KeyChar = (char)0;  //禁止回车,换行，空格键 
-
-            if ((e.KeyChar == 0x2D) && (Text.Length == 0)) return;   //处理负数 
-
-            if (e.KeyChar > 0x20)
-            {
-                try
-                {
-                    double.Parse(Text + e.KeyChar.ToString());
-                }
-                catch
-                {
-                    e.KeyChar = (char)0;   //处理非法字符 
-                }
-            }
-        }
-
         private void llTemplete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string sourcePath = Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "moneyReadme.doc"));
@@ -336,14 +317,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 {
                     MessageBox.Show("下载失败！Ex:" + ex.ToString());
                 }
-            }
-        }
-
-        private void ibEditMoney1_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(((TextBox)sender).Text))
-            {
-                ((TextBox)sender).Text = "0";
             }
         }
     }

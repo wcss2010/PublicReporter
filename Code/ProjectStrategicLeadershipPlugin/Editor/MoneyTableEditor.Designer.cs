@@ -33,15 +33,15 @@
             this.plContent = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.hSkinTableLayoutPanel2 = new AbstractEditorPlugin.Controls.HSkinTableLayoutPanel();
-            this.ibEditYear3 = new System.Windows.Forms.TextBox();
-            this.ibEditYear2 = new System.Windows.Forms.TextBox();
-            this.ibEditYear1 = new System.Windows.Forms.TextBox();
+            this.ibEditYear3 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditYear2 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditYear1 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.hSkinTableLayoutPanel1 = new AbstractEditorPlugin.Controls.HSkinTableLayoutPanel();
-            this.ibEditMoney5_2 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney5_2 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
             this.ibEditInfo3_1 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -64,19 +64,19 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.ibEditMoney1 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney2 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney3 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney4 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney5 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney6 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney7 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney8 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney9 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney10 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney11 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney12 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney13 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney1 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney2 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney3 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney4 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney5 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney6 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney7 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney8 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney9 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney10 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney11 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney12 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney13 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
             this.ibEditInfo1 = new System.Windows.Forms.TextBox();
             this.ibEditInfo2 = new System.Windows.Forms.TextBox();
             this.ibEditInfo3 = new System.Windows.Forms.TextBox();
@@ -94,10 +94,10 @@
             this.ibEditInfo3_3 = new System.Windows.Forms.TextBox();
             this.ibEditInfo5_1 = new System.Windows.Forms.TextBox();
             this.ibEditInfo5_2 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney3_1 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney3_2 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney3_3 = new System.Windows.Forms.TextBox();
-            this.ibEditMoney5_1 = new System.Windows.Forms.TextBox();
+            this.ibEditMoney3_1 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney3_2 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney3_3 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
+            this.ibEditMoney5_1 = new AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber();
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plButtons = new System.Windows.Forms.Panel();
             this.llTemplete = new System.Windows.Forms.LinkLabel();
@@ -192,8 +192,6 @@
             this.ibEditYear3.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear3.TabIndex = 30;
             this.ibEditYear3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ibEditYear3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditYear3.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditYear2
             // 
@@ -206,8 +204,6 @@
             this.ibEditYear2.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear2.TabIndex = 29;
             this.ibEditYear2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ibEditYear2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditYear2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditYear1
             // 
@@ -220,8 +216,6 @@
             this.ibEditYear1.Size = new System.Drawing.Size(312, 28);
             this.ibEditYear1.TabIndex = 28;
             this.ibEditYear1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ibEditYear1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditYear1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // label15
             // 
@@ -373,8 +367,6 @@
             this.ibEditMoney5_2.TabIndex = 19;
             this.ibEditMoney5_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney5_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney5_2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditInfo3_1
             // 
@@ -652,8 +644,6 @@
             this.ibEditMoney1.TabIndex = 10;
             this.ibEditMoney1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney2
             // 
@@ -668,8 +658,6 @@
             this.ibEditMoney2.TabIndex = 11;
             this.ibEditMoney2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney3
             // 
@@ -684,8 +672,6 @@
             this.ibEditMoney3.TabIndex = 12;
             this.ibEditMoney3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney3.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney4
             // 
@@ -699,8 +685,6 @@
             this.ibEditMoney4.TabIndex = 16;
             this.ibEditMoney4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney4.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney4.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney5
             // 
@@ -715,8 +699,6 @@
             this.ibEditMoney5.TabIndex = 17;
             this.ibEditMoney5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney5.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney6
             // 
@@ -730,8 +712,6 @@
             this.ibEditMoney6.TabIndex = 20;
             this.ibEditMoney6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney6.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney6.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney7
             // 
@@ -745,8 +725,6 @@
             this.ibEditMoney7.TabIndex = 21;
             this.ibEditMoney7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney7.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney7.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney8
             // 
@@ -760,8 +738,6 @@
             this.ibEditMoney8.TabIndex = 22;
             this.ibEditMoney8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney8.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney8.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney9
             // 
@@ -775,8 +751,6 @@
             this.ibEditMoney9.TabIndex = 23;
             this.ibEditMoney9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney9.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney9.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney10
             // 
@@ -790,8 +764,6 @@
             this.ibEditMoney10.TabIndex = 24;
             this.ibEditMoney10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney10.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney10.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney11
             // 
@@ -805,8 +777,6 @@
             this.ibEditMoney11.TabIndex = 25;
             this.ibEditMoney11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney11.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney11.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney12
             // 
@@ -821,8 +791,6 @@
             this.ibEditMoney12.TabIndex = 26;
             this.ibEditMoney12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney12.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney12.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney13
             // 
@@ -836,8 +804,6 @@
             this.ibEditMoney13.TabIndex = 27;
             this.ibEditMoney13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney13.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney13.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditInfo1
             // 
@@ -1038,8 +1004,6 @@
             this.ibEditMoney3_1.TabIndex = 13;
             this.ibEditMoney3_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney3_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney3_1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney3_2
             // 
@@ -1053,8 +1017,6 @@
             this.ibEditMoney3_2.TabIndex = 14;
             this.ibEditMoney3_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_2.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney3_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney3_2.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney3_3
             // 
@@ -1068,8 +1030,6 @@
             this.ibEditMoney3_3.TabIndex = 15;
             this.ibEditMoney3_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney3_3.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney3_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney3_3.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // ibEditMoney5_1
             // 
@@ -1083,8 +1043,6 @@
             this.ibEditMoney5_1.TabIndex = 18;
             this.ibEditMoney5_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ibEditMoney5_1.TextChanged += new System.EventHandler(this.ibEditMoney1_TextChanged);
-            this.ibEditMoney5_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ibEditMoney1_KeyPress);
-            this.ibEditMoney5_1.Leave += new System.EventHandler(this.ibEditMoney1_Leave);
             // 
             // lblInfo
             // 
@@ -1153,15 +1111,15 @@
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel panel1;
         private AbstractEditorPlugin.Controls.HSkinTableLayoutPanel hSkinTableLayoutPanel2;
-        private System.Windows.Forms.TextBox ibEditYear3;
-        private System.Windows.Forms.TextBox ibEditYear2;
-        private System.Windows.Forms.TextBox ibEditYear1;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditYear3;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditYear2;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditYear1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label20;
         private AbstractEditorPlugin.Controls.HSkinTableLayoutPanel hSkinTableLayoutPanel1;
-        private System.Windows.Forms.TextBox ibEditMoney5_2;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney5_2;
         private System.Windows.Forms.TextBox ibEditInfo3_1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label27;
@@ -1184,19 +1142,19 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox ibEditMoney1;
-        private System.Windows.Forms.TextBox ibEditMoney2;
-        private System.Windows.Forms.TextBox ibEditMoney3;
-        private System.Windows.Forms.TextBox ibEditMoney4;
-        private System.Windows.Forms.TextBox ibEditMoney5;
-        private System.Windows.Forms.TextBox ibEditMoney6;
-        private System.Windows.Forms.TextBox ibEditMoney7;
-        private System.Windows.Forms.TextBox ibEditMoney8;
-        private System.Windows.Forms.TextBox ibEditMoney9;
-        private System.Windows.Forms.TextBox ibEditMoney10;
-        private System.Windows.Forms.TextBox ibEditMoney11;
-        private System.Windows.Forms.TextBox ibEditMoney12;
-        private System.Windows.Forms.TextBox ibEditMoney13;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney1;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney2;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney3;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney4;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney5;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney6;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney7;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney8;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney9;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney10;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney11;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney12;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney13;
         private System.Windows.Forms.TextBox ibEditInfo1;
         private System.Windows.Forms.TextBox ibEditInfo2;
         private System.Windows.Forms.TextBox ibEditInfo3;
@@ -1214,10 +1172,10 @@
         private System.Windows.Forms.TextBox ibEditInfo3_3;
         private System.Windows.Forms.TextBox ibEditInfo5_1;
         private System.Windows.Forms.TextBox ibEditInfo5_2;
-        private System.Windows.Forms.TextBox ibEditMoney3_1;
-        private System.Windows.Forms.TextBox ibEditMoney3_2;
-        private System.Windows.Forms.TextBox ibEditMoney3_3;
-        private System.Windows.Forms.TextBox ibEditMoney5_1;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney3_1;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney3_2;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney3_3;
+        private AbstractEditorPlugin.Controls.TextBoxWithOnlyNumber ibEditMoney5_1;
         private System.Windows.Forms.LinkLabel llTemplete;
 
 
