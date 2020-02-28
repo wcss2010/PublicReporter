@@ -39,6 +39,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             query.set("RoleType", RoleType);
             query.set("SubjectID", SubjectID);
             query.set("RoleName", RoleName);
+            query.set("DisplayOrder", DisplayOrder);
 
             return query;
         }
@@ -66,6 +67,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string RoleType { get; set; }
         public string SubjectID { get; set; }
         public string RoleName { get; set; }
+        public int DisplayOrder { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
@@ -92,6 +94,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             RoleType = source("RoleType").value<string>("");
             SubjectID = source("SubjectID").value<string>("");
             RoleName = source("RoleName").value<string>("");
+            DisplayOrder = source("DisplayOrder").value<int>(0);
         }
 
         public override Noear.Weed.IBinder clone()
