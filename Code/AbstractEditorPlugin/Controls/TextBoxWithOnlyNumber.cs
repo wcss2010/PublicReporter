@@ -42,18 +42,18 @@ namespace AbstractEditorPlugin.Controls
         {
             get
             {
-                if (string.IsNullOrEmpty(base.Text))
-                {
-                    return "0";
-                }
-                else
-                {
-                    return base.Text;
-                }
+                return base.Text;                
             }
             set
             {
-                base.Text = value;
+                if (string.IsNullOrEmpty(value))
+                {
+                    base.Text = "0";
+                }
+                else
+                {
+                    base.Text = value;
+                }
             }
         }
     }
