@@ -39,12 +39,14 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 {
                     //insert
                     newObj.ID = Guid.NewGuid().ToString();
+                    newObj.DisplayOrder = ProjectStrategicLeadershipPlugin.Editor.WorkerEditor.GetMaxDisplayOrder() + 1;
                     newObj.copyTo(ConnectionManager.Context.table("Persons")).insert();
                 }
                 else
                 {
                     //update
                     newObj.ID = oldObj.ID;
+                    newObj.DisplayOrder = oldObj.DisplayOrder;
                     newObj.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + newObj.ID + "'").update();
                 }
             }

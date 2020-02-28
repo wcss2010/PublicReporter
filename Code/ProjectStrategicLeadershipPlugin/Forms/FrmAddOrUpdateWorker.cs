@@ -121,6 +121,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 if (string.IsNullOrEmpty(DataObj.ID))
                 {
                     DataObj.ID = Guid.NewGuid().ToString();
+                    DataObj.DisplayOrder = ProjectStrategicLeadershipPlugin.Editor.WorkerEditor.GetMaxDisplayOrder() + 1;
                     DataObj.copyTo(ConnectionManager.Context.table("Persons")).insert();
                 }
                 else

@@ -123,6 +123,17 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                         PluginRootObj.refreshEditors(); ;
                     }
                 }
+                else if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
+                {
+                    Persons pp = (Persons)dgvDetail.Rows[e.RowIndex].Tag;
+                    FrmEditOrder feo = new FrmEditOrder();
+                    feo.OrderNum = pp.DisplayOrder;
+                    if (feo.ShowDialog() == DialogResult.OK)
+                    {
+                        pp.DisplayOrder = (int)feo.OrderNum;
+                        PluginRootObj.refreshEditors();
+                    }
+                }
             }
         }
 
@@ -130,6 +141,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.Question_16;
             ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectStrategicLeadershipPlugin.Resource.orderEdit;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -149,6 +161,22 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             if (form.ShowDialog() == DialogResult.OK)
             {
                 PluginRootObj.refreshEditors();
+            }
+        }
+
+        /// <summary>
+        /// 获得最大的记录号
+        /// </summary>
+        /// <returns></returns>
+        public static int GetMaxDisplayOrder()
+        {
+            try
+            {
+                return (int)ConnectionManager.Context.table("Persons").select("max(DisplayOrder)").getValue<long>(0);
+            }
+            catch (Exception ex)
+            {
+                return 0;
             }
         }
     }

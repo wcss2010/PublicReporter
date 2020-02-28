@@ -48,6 +48,7 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewImageColumn();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -96,7 +97,8 @@
             this.Column9,
             this.Column11,
             this.Column12,
-            this.Column13});
+            this.Column13,
+            this.Column10});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 51);
             this.dgvDetail.Name = "dgvDetail";
@@ -262,6 +264,14 @@
             this.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column13.Width = 30;
             // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "";
+            this.Column10.MinimumWidth = 30;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 30;
+            // 
             // WorkerEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -299,5 +309,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewImageColumn Column12;
         private System.Windows.Forms.DataGridViewImageColumn Column13;
+        private System.Windows.Forms.DataGridViewImageColumn Column10;
     }
 }

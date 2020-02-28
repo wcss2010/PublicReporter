@@ -165,6 +165,12 @@
     <Compile Include="Forms\FrmAddOrUpdateWorker.Designer.cs">
       <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmEditOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEditOrder.Designer.cs">
+      <DependentUpon>FrmEditOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmPersonImporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     <EmbeddedResource Include="Forms\FrmAddOrUpdateWorker.resx">
       <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEditOrder.resx">
+      <DependentUpon>FrmEditOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPersonImporter.resx">
       <DependentUpon>FrmPersonImporter.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +363,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Doc书签列表.txt" />
+    <None Include="Resources\orderEdit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
