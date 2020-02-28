@@ -163,23 +163,23 @@ namespace ProjectStrategicLeadershipPlugin
             //一、概述(不需要显示内容)
             //editorMap[tnode_2_Name] = null;
             //（一）需求分析(DocumentPasteEditor)
-            editorMap[tnode_2_0_Name] = new DocumentPasteEditor("需求分析", "（简要介绍本项目的国防科技发展背景或需求来源，分析提出研究问题。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_2_0_Name] = new DocumentPasteEditor("需求分析", "（简要介绍本项目的国防科技发展背景或需求来源，分析提出研究问题。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //（二）研究现状(DocumentPasteEditor)
-            editorMap[tnode_2_1_Name] = new DocumentPasteEditor("研究现状", "（客观简述国内外研究现状，重点聚焦与本项目核心问题相关的研究情况，注重定量描述，避免泛泛而谈） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_2_1_Name] = new DocumentPasteEditor("研究现状", "（客观简述国内外研究现状，重点聚焦与本项目核心问题相关的研究情况，注重定量描述，避免泛泛而谈） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //二、研究目标(DocumentPasteEditor)
-            editorMap[tnode_3_Name] = new DocumentPasteEditor("研究目标", "（凝练提出项目研究目标，表述需明确、具体、准确，避免过于笼统。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_3_Name] = new DocumentPasteEditor("研究目标", "（凝练提出项目研究目标，表述需明确、具体、准确，避免过于笼统。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //三、研究内容(不需要显示内容)
             //editorMap[tnode_4_Name] = null;
             //（一）、研究内容列表(自定义列表)
             editorMap[tnode_4_0_Name] = new Editor.SubjectEditor();
             //（二）、各项研究内容之间的关系(DocumentPasteEditor)
-            editorMap[tnode_4_1_Name] = new DocumentPasteEditor("各项研究内容之间的关系", "（简要叙述项目目标与各项研究内容、各项研究内容之间的关系，500字以内，可用图表示 ） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_4_1_Name] = new DocumentPasteEditor("各项研究内容之间的关系", "（简要叙述项目目标与各项研究内容、各项研究内容之间的关系，500字以内，可用图表示 ） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //四、研究成果(不需要显示内容)
             //editorMap[tnode_5_Name] = null;
             //（一）研究成果及考核指标(DocumentPasteEditor)
-            editorMap[tnode_5_0_Name] = new DocumentPasteEditor("研究成果及考核指标", "（分类逐项列出研究成果及考核指标。研究成果形式包括但不限于研究报告、专报、刊物、模拟试验（仿真）结果、数据库、软件、标准（规范）等。考核指标应定性与定量结合，无理解歧义，可评估可考核。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_5_0_Name] = new DocumentPasteEditor("研究成果及考核指标", "（分类逐项列出研究成果及考核指标。研究成果形式包括但不限于研究报告、专报、刊物、模拟试验（仿真）结果、数据库、软件、标准（规范）等。考核指标应定性与定量结合，无理解歧义，可评估可考核。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //（二）成果服务方式(DocumentPasteEditor)
-            editorMap[tnode_5_1_Name] = new DocumentPasteEditor("成果服务方式", "（简要描述该项目研究成果以何种方式、面向何种对象提供服务，预期可发挥何种支撑作用。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_5_1_Name] = new DocumentPasteEditor("成果服务方式", "（简要描述该项目研究成果以何种方式、面向何种对象提供服务，预期可发挥何种支撑作用。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //五、研究周期与进度安排(不需要显示内容)
             //editorMap[tnode_6_Name] = null;
             //（一）、项目阶段划分(自定义列表)
@@ -187,11 +187,11 @@ namespace ProjectStrategicLeadershipPlugin
             //（二）、研究内容阶段划分(自定义列表)
             editorMap[tnode_6_1_Name] = new Editor.SubjectStepEditor();
             //六、研究基础与保障条件(DocumentPasteEditor)
-            editorMap[tnode_7_Name] = new DocumentPasteEditor("研究基础与保障条件", "（介绍与本项目相关的，已开展过的工作、已有的研究基础和软硬件保障条件等，限800字以内。特别是属常态化、持续性研究项目，应重点说明与已立项战略先导计划项目之间的关系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_7_Name] = new DocumentPasteEditor("研究基础与保障条件", "（介绍与本项目相关的，已开展过的工作、已有的研究基础和软硬件保障条件等，限800字以内。特别是属常态化、持续性研究项目，应重点说明与已立项战略先导计划项目之间的关系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //七、项目负责人和研究团队(不需要显示内容)
             //editorMap[tnode_8_Name] = null;
             //（一）、项目负责人(DocumentPasteEditor)
-            editorMap[tnode_8_0_Name] = new DocumentPasteEditor("项目负责人", "（介绍项目负责人的职务职称、教育工作履历，主要学术成就、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")));
+            editorMap[tnode_8_0_Name] = new DocumentPasteEditor("项目负责人", "（介绍项目负责人的职务职称、教育工作履历，主要学术成就、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //（二）、研究团队(自定义列表)
             editorMap[tnode_8_1_Name] = new Editor.WorkerEditor();
             //（三）、主要成员情况表(自定义列表)
@@ -199,7 +199,7 @@ namespace ProjectStrategicLeadershipPlugin
             //八、经费预算表(自定义列表)
             editorMap[tnode_9_Name] = new Editor.MoneyTableEditor();
             //附件1-项目经费预算说明(DocumentPasteEditor-带特定模板)
-            editorMap[tnode_10_Name] = new DocumentPasteEditor("项目经费预算说明", "（介绍本项目预算依据、内容构成、具体安排，应能够支撑对项目经费预算合理性进行审核评估） ", Path.Combine(RootDir, Path.Combine("Helper", "moneyPaste.doc")));
+            editorMap[tnode_10_Name] = new DocumentPasteEditor("项目经费预算说明", "（介绍本项目预算依据、内容构成、具体安排，应能够支撑对项目经费预算合理性进行审核评估） ", Path.Combine(RootDir, Path.Combine("Helper", "moneyPaste.doc")), getDocumentPasteReadmeFile());
             //附件2-保密资质复印件(自定义列表)
             editorMap[tnode_11_Name] = new Editor.ConfidentialQualificationEditor();
             #endregion
@@ -603,6 +603,15 @@ namespace ProjectStrategicLeadershipPlugin
                     Parent_BottomDefaultHintLabel.Text = "";
                 }
             }
+        }
+
+        /// <summary>
+        /// 获得文档填报说明
+        /// </summary>
+        /// <returns></returns>
+        protected string getDocumentPasteReadmeFile()
+        {
+            return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme.rtf"));
         }
     }
 }
