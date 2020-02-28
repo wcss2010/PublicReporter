@@ -44,10 +44,12 @@ namespace AbstractEditorPlugin.Controls
             {
                 if (string.IsNullOrEmpty(base.Text))
                 {
-                    base.Text = "0";
+                    return "0";
                 }
-
-                return base.Text;
+                else
+                {
+                    return base.Text;
+                }
             }
             set
             {
