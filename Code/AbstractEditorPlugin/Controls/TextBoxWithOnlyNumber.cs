@@ -27,5 +27,32 @@ namespace AbstractEditorPlugin.Controls
                 }
             }
         }
+
+        protected override void OnLeave(EventArgs e)
+        {
+            base.OnLeave(e);
+
+            if (string.IsNullOrEmpty(Text))
+            {
+                Text = "0";
+            }
+        }
+
+        public override string Text
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(base.Text))
+                {
+                    base.Text = "0";
+                }
+
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
     }
 }
