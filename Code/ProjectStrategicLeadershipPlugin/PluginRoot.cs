@@ -159,7 +159,7 @@ namespace ProjectStrategicLeadershipPlugin
             //基本信息(需要一个自定义输入界面)
             editorMap[tnode_0_Name] = new Editor.SummaryEditor();
             //项目摘要(TextContentEditor)
-            editorMap[tnode_1_Name] = new TextContentEditor("项目摘要", "简要介绍研究问题提出的国防科技发展背景或需求来源，简述项目研究目标与研究内容，拟采取的研究思路与研究方法，拟使用的主要数据资源，以及主要预期成果（名称、形式、数量、指标等）、成果服务方式等。（限1000字以内）", 1000);
+            editorMap[tnode_1_Name] = new DocumentPasteEditor("项目摘要", "简要介绍研究问题提出的国防科技发展背景或需求来源，简述项目研究目标与研究内容，拟采取的研究思路与研究方法，拟使用的主要数据资源，以及主要预期成果（名称、形式、数量、指标等）、成果服务方式等。（限1000字以内）", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //一、概述(不需要显示内容)
             //editorMap[tnode_2_Name] = null;
             //（一）需求分析(DocumentPasteEditor)
