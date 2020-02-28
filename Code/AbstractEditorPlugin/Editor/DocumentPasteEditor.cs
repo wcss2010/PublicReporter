@@ -88,11 +88,20 @@ namespace AbstractEditorPlugin.Editor
             InitializeComponent();
         }
 
-        public DocumentPasteEditor(string name,string info,string templeteFile) : this()
+        public DocumentPasteEditor(string name,string info,string templeteFile,string readmeFile) : this()
         {
             EditorName = name;
             InfoLabelText = info;
             EmptyTempleteFile = templeteFile;
+
+            if (readmeFile != null && File.Exists(readmeFile))
+            {
+                try
+                {
+                    txtWordReadme.LoadFile(readmeFile);
+                }
+                catch (Exception ex) { }
+            }
         }
 
         private void btnEditDocument_Click(object sender, EventArgs e)

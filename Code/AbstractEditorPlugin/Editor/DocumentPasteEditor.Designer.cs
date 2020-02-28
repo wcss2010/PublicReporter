@@ -33,6 +33,7 @@
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
+            this.txtWordReadme = new System.Windows.Forms.RichTextBox();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
             this.plMain.SuspendLayout();
@@ -54,6 +55,7 @@
             // plContent
             // 
             this.plContent.BackColor = System.Drawing.SystemColors.Control;
+            this.plContent.Controls.Add(this.txtWordReadme);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(10, 61);
@@ -95,6 +97,18 @@
             this.plMain.Size = new System.Drawing.Size(1083, 571);
             this.plMain.TabIndex = 0;
             // 
+            // txtWordReadme
+            // 
+            this.txtWordReadme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWordReadme.Enabled = false;
+            this.txtWordReadme.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWordReadme.Location = new System.Drawing.Point(0, 38);
+            this.txtWordReadme.Name = "txtWordReadme";
+            this.txtWordReadme.ReadOnly = true;
+            this.txtWordReadme.Size = new System.Drawing.Size(1063, 462);
+            this.txtWordReadme.TabIndex = 2;
+            this.txtWordReadme.Text = "";
+            // 
             // DocumentPasteEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -117,5 +131,6 @@
         private System.Windows.Forms.Button btnEditDocument;
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plButtons;
+        private System.Windows.Forms.RichTextBox txtWordReadme;
     }
 }
