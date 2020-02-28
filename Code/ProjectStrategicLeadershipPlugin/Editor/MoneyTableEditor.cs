@@ -162,7 +162,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 ysb.ID = Guid.NewGuid().ToString();
                 ysb.Name = kvp.Key.Replace("ibEdit", string.Empty);
 
-                if (ysb.Name.StartsWith("money") && string.IsNullOrEmpty(kvp.Value.Text))
+                if (ysb.Name.StartsWith("Money") && string.IsNullOrEmpty(kvp.Value.Text))
                 {
                     kvp.Value.Text = "0";
                 }
