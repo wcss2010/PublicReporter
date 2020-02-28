@@ -131,6 +131,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                     if (feo.ShowDialog() == DialogResult.OK)
                     {
                         pp.DisplayOrder = (int)feo.OrderNum;
+                        pp.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + pp.ID + "'").update();
+
                         PluginRootObj.refreshEditors();
                     }
                 }
