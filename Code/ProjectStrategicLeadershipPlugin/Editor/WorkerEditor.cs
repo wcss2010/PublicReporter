@@ -52,7 +52,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             }
 
             //查询人员列表
-            list = ConnectionManager.Context.table("Persons").select("*").getList<Persons>(new Persons());
+            list = ConnectionManager.Context.table("Persons").orderBy("DisplayOrder").select("*").getList<Persons>(new Persons());
 
             dgvDetail.Rows.Clear();
             int index = 0;
