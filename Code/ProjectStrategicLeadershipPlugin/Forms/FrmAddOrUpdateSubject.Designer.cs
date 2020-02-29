@@ -32,14 +32,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtUnitName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtUnitContactPhone = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtUnitContactAddress = new Controls.ProjectAddressControl();
+            this.txtUnitContactAddress = new ProjectStrategicLeadershipPlugin.Controls.ProjectAddressControl();
             this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtUnitContact = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +50,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(550, 311);
+            this.btnSave.Location = new System.Drawing.Point(549, 128);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 43);
@@ -68,7 +62,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(668, 311);
+            this.btnClose.Location = new System.Drawing.Point(667, 128);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 43);
@@ -85,47 +79,11 @@
             this.txtName.Size = new System.Drawing.Size(581, 26);
             this.txtName.TabIndex = 4;
             // 
-            // txtUnitName
-            // 
-            this.txtUnitName.Location = new System.Drawing.Point(196, 81);
-            this.txtUnitName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(581, 26);
-            this.txtUnitName.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(68, 84);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 16);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "责任单位名称：";
-            // 
-            // txtUnitContactPhone
-            // 
-            this.txtUnitContactPhone.Location = new System.Drawing.Point(196, 198);
-            this.txtUnitContactPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUnitContactPhone.Name = "txtUnitContactPhone";
-            this.txtUnitContactPhone.Size = new System.Drawing.Size(583, 26);
-            this.txtUnitContactPhone.TabIndex = 16;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label7.Location = new System.Drawing.Point(20, 201);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(168, 16);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "责任单位联系人电话：";
-            // 
             // txtUnitContactAddress
             // 
-            this.txtUnitContactAddress.Location = new System.Drawing.Point(196, 257);
+            this.txtUnitContactAddress.EnabledEditAddressDetail = true;
+            this.txtUnitContactAddress.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtUnitContactAddress.Location = new System.Drawing.Point(198, 75);
             this.txtUnitContactAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnitContactAddress.Name = "txtUnitContactAddress";
             this.txtUnitContactAddress.Size = new System.Drawing.Size(581, 26);
@@ -135,45 +93,20 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label8.Location = new System.Drawing.Point(36, 260);
+            this.label8.Location = new System.Drawing.Point(38, 78);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(152, 16);
             this.label8.TabIndex = 17;
             this.label8.Text = "责任单位通信地址：";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label11.Location = new System.Drawing.Point(52, 140);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(136, 16);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "责任单位联系人：";
-            // 
-            // txtUnitContact
-            // 
-            this.txtUnitContact.Location = new System.Drawing.Point(196, 137);
-            this.txtUnitContact.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUnitContact.Name = "txtUnitContact";
-            this.txtUnitContact.Size = new System.Drawing.Size(581, 26);
-            this.txtUnitContact.TabIndex = 14;
-            // 
             // FrmAddOrUpdateSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 373);
+            this.ClientSize = new System.Drawing.Size(832, 189);
             this.Controls.Add(this.txtUnitContactAddress);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtUnitContactPhone);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtUnitContact);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtUnitName);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -196,13 +129,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtUnitName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtUnitContactPhone;
-        private System.Windows.Forms.Label label7;
         private Controls.ProjectAddressControl txtUnitContactAddress;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtUnitContact;
     }
 }

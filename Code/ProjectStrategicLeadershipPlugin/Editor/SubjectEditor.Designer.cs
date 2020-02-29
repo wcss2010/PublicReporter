@@ -34,18 +34,15 @@
             this.kvKetiTabs = new System.Windows.Forms.TabControl();
             this.kpKetiItems = new System.Windows.Forms.TabPage();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKeTiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMiJi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFuZeRen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPersonIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colChengDanDanWeiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMakePage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewImageColumn();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.kvKetiTabs.SuspendLayout();
@@ -108,9 +105,6 @@
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selpersonid,
             this.colKeTiMingCheng,
-            this.colMiJi,
-            this.colFuZeRen,
-            this.colPersonIDCard,
             this.colChengDanDanWeiMingCheng,
             this.colMakePage,
             this.delete,
@@ -128,79 +122,6 @@
             this.dgvDetail.TabIndex = 3;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
-            // 
-            // selpersonid
-            // 
-            this.selpersonid.HeaderText = "序号";
-            this.selpersonid.Name = "selpersonid";
-            this.selpersonid.ReadOnly = true;
-            this.selpersonid.Width = 60;
-            // 
-            // colKeTiMingCheng
-            // 
-            this.colKeTiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKeTiMingCheng.HeaderText = "研究内容名称";
-            this.colKeTiMingCheng.Name = "colKeTiMingCheng";
-            this.colKeTiMingCheng.ReadOnly = true;
-            this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // colMiJi
-            // 
-            this.colMiJi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMiJi.HeaderText = "责任单位名称";
-            this.colMiJi.Name = "colMiJi";
-            this.colMiJi.ReadOnly = true;
-            this.colMiJi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // colFuZeRen
-            // 
-            this.colFuZeRen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFuZeRen.HeaderText = "责任单位联系人";
-            this.colFuZeRen.Name = "colFuZeRen";
-            this.colFuZeRen.ReadOnly = true;
-            this.colFuZeRen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // colPersonIDCard
-            // 
-            this.colPersonIDCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPersonIDCard.HeaderText = "责任单位联系人电话";
-            this.colPersonIDCard.Name = "colPersonIDCard";
-            this.colPersonIDCard.ReadOnly = true;
-            this.colPersonIDCard.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colChengDanDanWeiMingCheng
-            // 
-            this.colChengDanDanWeiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colChengDanDanWeiMingCheng.HeaderText = "责任单位通信地址";
-            this.colChengDanDanWeiMingCheng.Name = "colChengDanDanWeiMingCheng";
-            this.colChengDanDanWeiMingCheng.ReadOnly = true;
-            // 
-            // colMakePage
-            // 
-            this.colMakePage.HeaderText = "";
-            this.colMakePage.MinimumWidth = 90;
-            this.colMakePage.Name = "colMakePage";
-            this.colMakePage.ReadOnly = true;
-            this.colMakePage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMakePage.Text = "生成详细页";
-            this.colMakePage.Width = 90;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "";
-            this.delete.MinimumWidth = 30;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 30;
-            // 
-            // colDetail
-            // 
-            this.colDetail.HeaderText = "";
-            this.colDetail.MinimumWidth = 30;
-            this.colDetail.Name = "colDetail";
-            this.colDetail.ReadOnly = true;
-            this.colDetail.Width = 30;
             // 
             // plButtons
             // 
@@ -237,6 +158,55 @@
             this.lblInfo.TabIndex = 1;
             this.lblInfo.Text = "围绕如何全面、有效实现项目目标，进行项目分解，明确具体研究内容";
             // 
+            // selpersonid
+            // 
+            this.selpersonid.HeaderText = "序号";
+            this.selpersonid.Name = "selpersonid";
+            this.selpersonid.ReadOnly = true;
+            this.selpersonid.Width = 60;
+            // 
+            // colKeTiMingCheng
+            // 
+            this.colKeTiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colKeTiMingCheng.HeaderText = "研究内容名称";
+            this.colKeTiMingCheng.Name = "colKeTiMingCheng";
+            this.colKeTiMingCheng.ReadOnly = true;
+            this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // colChengDanDanWeiMingCheng
+            // 
+            this.colChengDanDanWeiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colChengDanDanWeiMingCheng.HeaderText = "责任单位通信地址";
+            this.colChengDanDanWeiMingCheng.Name = "colChengDanDanWeiMingCheng";
+            this.colChengDanDanWeiMingCheng.ReadOnly = true;
+            // 
+            // colMakePage
+            // 
+            this.colMakePage.HeaderText = "";
+            this.colMakePage.MinimumWidth = 90;
+            this.colMakePage.Name = "colMakePage";
+            this.colMakePage.ReadOnly = true;
+            this.colMakePage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMakePage.Text = "生成详细页";
+            this.colMakePage.Width = 90;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "";
+            this.delete.MinimumWidth = 30;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.Width = 30;
+            // 
+            // colDetail
+            // 
+            this.colDetail.HeaderText = "";
+            this.colDetail.MinimumWidth = 30;
+            this.colDetail.Name = "colDetail";
+            this.colDetail.ReadOnly = true;
+            this.colDetail.Width = 30;
+            // 
             // SubjectEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -267,9 +237,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTiMingCheng;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMiJi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFuZeRen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPersonIDCard;
         private System.Windows.Forms.DataGridViewTextBoxColumn colChengDanDanWeiMingCheng;
         private System.Windows.Forms.DataGridViewButtonColumn colMakePage;
         private System.Windows.Forms.DataGridViewImageColumn delete;

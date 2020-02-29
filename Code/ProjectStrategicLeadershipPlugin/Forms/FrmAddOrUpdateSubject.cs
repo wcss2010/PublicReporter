@@ -24,10 +24,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             if (DataObj != null)
             {
                 txtName.Text = DataObj.SubjectName;
-                txtUnitName.Text = DataObj.UnitName;
-                txtUnitContactPhone.Text = DataObj.UnitContactPhone;
                 txtUnitContactAddress.setAddress(DataObj.UnitAddress);
-                txtUnitContact.Text = DataObj.UnitContact;
             }
             else
             {
@@ -45,10 +42,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtName.Text)
-                || String.IsNullOrEmpty(txtUnitName.Text)
-                || String.IsNullOrEmpty(txtUnitContactPhone.Text)
-                || String.IsNullOrEmpty(txtUnitContactAddress.getAddress())
-                || String.IsNullOrEmpty(txtUnitContact.Text))
+                || String.IsNullOrEmpty(txtUnitContactAddress.getAddress()))
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
                 return;
@@ -63,10 +57,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 else
                 {
                     DataObj.SubjectName = txtName.Text;
-                    DataObj.UnitName = txtUnitName.Text;
-                    DataObj.UnitContactPhone = txtUnitContactPhone.Text;
                     DataObj.UnitAddress = txtUnitContactAddress.getAddress();
-                    DataObj.UnitContact = txtUnitContact.Text;
 
                     if (string.IsNullOrEmpty(DataObj.ID))
                     {

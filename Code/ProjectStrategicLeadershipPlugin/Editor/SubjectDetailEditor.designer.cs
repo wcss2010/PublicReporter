@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtInfo = new AbstractEditorPlugin.Controls.TextBoxWithFileIO();
-            this.btnSave = new System.Windows.Forms.Button();
             this.plSubjectContent2 = new System.Windows.Forms.Panel();
             this.btnEditContent2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,48 +41,20 @@
             this.plTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.plSubjectContent1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.plSubjectContent2.SuspendLayout();
             this.plSubjectContent3.SuspendLayout();
             this.plSubjectContent4.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.plTitle.SuspendLayout();
             this.plContent.SuspendLayout();
-            this.plSubjectContent1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtInfo
-            // 
-            this.txtInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInfo.EnabledMiddleInParentBox = false;
-            this.txtInfo.Font = new System.Drawing.Font("仿宋", 14.25F);
-            this.txtInfo.Location = new System.Drawing.Point(155, 20);
-            this.txtInfo.MaxLength = 200;
-            this.txtInfo.Multiline = true;
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInfo.Size = new System.Drawing.Size(608, 114);
-            this.txtInfo.TabIndex = 0;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(763, 20);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(55, 114);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // plSubjectContent2
             // 
             this.plSubjectContent2.Controls.Add(this.btnEditContent2);
             this.plSubjectContent2.Controls.Add(this.label2);
             this.plSubjectContent2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent2.Location = new System.Drawing.Point(10, 134);
+            this.plSubjectContent2.Location = new System.Drawing.Point(10, 0);
             this.plSubjectContent2.Margin = new System.Windows.Forms.Padding(0);
             this.plSubjectContent2.Name = "plSubjectContent2";
             this.plSubjectContent2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
@@ -119,7 +89,7 @@
             this.plSubjectContent3.Controls.Add(this.btnEditContent3);
             this.plSubjectContent3.Controls.Add(this.label3);
             this.plSubjectContent3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent3.Location = new System.Drawing.Point(10, 184);
+            this.plSubjectContent3.Location = new System.Drawing.Point(10, 50);
             this.plSubjectContent3.Margin = new System.Windows.Forms.Padding(0);
             this.plSubjectContent3.Name = "plSubjectContent3";
             this.plSubjectContent3.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
@@ -154,7 +124,7 @@
             this.plSubjectContent4.Controls.Add(this.btnEditContent4);
             this.plSubjectContent4.Controls.Add(this.label4);
             this.plSubjectContent4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent4.Location = new System.Drawing.Point(10, 234);
+            this.plSubjectContent4.Location = new System.Drawing.Point(10, 100);
             this.plSubjectContent4.Margin = new System.Windows.Forms.Padding(0);
             this.plSubjectContent4.Name = "plSubjectContent4";
             this.plSubjectContent4.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
@@ -238,7 +208,6 @@
             this.plContent.Controls.Add(this.plSubjectContent4);
             this.plContent.Controls.Add(this.plSubjectContent3);
             this.plContent.Controls.Add(this.plSubjectContent2);
-            this.plContent.Controls.Add(this.plSubjectContent1);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(8, 36);
             this.plContent.Name = "plContent";
@@ -246,31 +215,6 @@
             this.plContent.Size = new System.Drawing.Size(842, 458);
             this.plContent.TabIndex = 7;
             this.plContent.SizeChanged += new System.EventHandler(this.plContent_SizeChanged);
-            // 
-            // plSubjectContent1
-            // 
-            this.plSubjectContent1.Controls.Add(this.txtInfo);
-            this.plSubjectContent1.Controls.Add(this.label1);
-            this.plSubjectContent1.Controls.Add(this.btnSave);
-            this.plSubjectContent1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plSubjectContent1.Location = new System.Drawing.Point(10, 0);
-            this.plSubjectContent1.Margin = new System.Windows.Forms.Padding(0);
-            this.plSubjectContent1.Name = "plSubjectContent1";
-            this.plSubjectContent1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.plSubjectContent1.Size = new System.Drawing.Size(818, 134);
-            this.plSubjectContent1.TabIndex = 4;
-            this.plSubjectContent1.Tag = "概述";
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(0, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 114);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "概述(200字以内)：";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // SubjectDetailEditor
             // 
@@ -288,8 +232,6 @@
             this.tableLayoutPanel15.PerformLayout();
             this.plTitle.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
-            this.plSubjectContent1.ResumeLayout(false);
-            this.plSubjectContent1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -300,18 +242,14 @@
         private System.Windows.Forms.Panel plTitle;
         private AbstractEditorPlugin.Controls.AutoHeightLabel lblTitle;
         private System.Windows.Forms.Panel plContent;
-        private AbstractEditorPlugin.Controls.TextBoxWithFileIO txtInfo;
         private System.Windows.Forms.Button btnEditContent2;
         private System.Windows.Forms.Button btnEditContent3;
         private System.Windows.Forms.Button btnEditContent4;
         private System.Windows.Forms.Panel plSubjectContent2;
         private System.Windows.Forms.Panel plSubjectContent3;
         private System.Windows.Forms.Panel plSubjectContent4;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel plSubjectContent1;
     }
 }

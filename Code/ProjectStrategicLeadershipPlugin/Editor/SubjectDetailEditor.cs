@@ -44,18 +44,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         public override void clearView()
         {
             base.clearView();
-
-            txtInfo.Clear();
-            //txtDest.Clear();
-            //txtContent.Clear();
-            //txtNeed.Clear();
-        }
-
-        public override void onSaveEvent(ref bool result)
-        {
-            base.onSaveEvent(ref result);
-
-            txtInfo.SaveFile(getDestTxtFilePath(plSubjectContent1.Tag.ToString().Trim()));
         }
 
         /// <summary>
@@ -93,39 +81,12 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             base.refreshView();
 
-            if (File.Exists(getDestTxtFilePath(plSubjectContent1.Tag.ToString().Trim())))
-            {
-                txtInfo.LoadFile(getDestTxtFilePath(plSubjectContent1.Tag.ToString().Trim()));
-            }
-
             lblTitle.Text = "研究内容(" + Name + ")的详细内容页";
         }
 
         public override bool isInputCompleted()
         {
             return true;
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            FrmWorkProcess upf = new FrmWorkProcess();
-            upf.LabalText = "正在保存,请等待...";
-            upf.ShowProgressWithOnlyUI();
-            upf.PlayProgressWithOnlyUI(80);
-
-            try
-            {
-                bool result = true;
-                onSaveEvent(ref result);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("保存失败！Ex:" + ex.ToString());
-            }
-            finally
-            {
-                upf.CloseProgressWithOnlyUI();
-            }
         }
 
         private void plContent_SizeChanged(object sender, EventArgs e)

@@ -129,12 +129,6 @@
     <Compile Include="Editor\ProjectStepEditor.Designer.cs">
       <DependentUpon>ProjectStepEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\SubjectStepEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\SubjectStepEditor.Designer.cs">
-      <DependentUpon>SubjectStepEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\SubjectDetailEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,12 +152,6 @@
     </Compile>
     <Compile Include="Editor\WorkerEditor.Designer.cs">
       <DependentUpon>WorkerEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\WorkerGroupEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\WorkerGroupEditor.Designer.cs">
-      <DependentUpon>WorkerGroupEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAddOrUpdateWorker.cs">
       <SubType>Form</SubType>
@@ -206,12 +194,6 @@
     </Compile>
     <Compile Include="Forms\FrmAddOrUpdateProjectStep.Designer.cs">
       <DependentUpon>FrmAddOrUpdateProjectStep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectStep.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectStep.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateSubjectStep.cs</DependentUpon>
     </Compile>
     <Compile Include="PluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -281,9 +263,6 @@
     <EmbeddedResource Include="Editor\ProjectStepEditor.resx">
       <DependentUpon>ProjectStepEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor\SubjectStepEditor.resx">
-      <DependentUpon>SubjectStepEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Editor\SubjectDetailEditor.resx">
       <DependentUpon>SubjectDetailEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,9 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\WorkerEditor.resx">
       <DependentUpon>WorkerEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\WorkerGroupEditor.resx">
-      <DependentUpon>WorkerGroupEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateWorker.resx">
       <DependentUpon>FrmAddOrUpdateWorker.cs</DependentUpon>
@@ -319,9 +295,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateProjectStep.resx">
       <DependentUpon>FrmAddOrUpdateProjectStep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectStep.resx">
-      <DependentUpon>FrmAddOrUpdateSubjectStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
