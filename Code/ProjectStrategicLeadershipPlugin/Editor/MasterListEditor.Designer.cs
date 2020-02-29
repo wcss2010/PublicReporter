@@ -123,6 +123,7 @@
             // 
             // plMain
             // 
+            this.plMain.BackColor = System.Drawing.SystemColors.Control;
             this.plMain.Controls.Add(this.plContent);
             this.plMain.Controls.Add(this.plButtons);
             this.plMain.Dock = System.Windows.Forms.DockStyle.Fill;
