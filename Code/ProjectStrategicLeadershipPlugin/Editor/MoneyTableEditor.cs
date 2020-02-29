@@ -278,10 +278,10 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             {
                 text = "请注意，分年度经费预算之和与总经费不等。\r\n";
             }
-            if (elseMoneys > (directMoneys - deviceBuyMoneys - helpMoneys) * 0.2m)
-            {
-                text += "请注意，间接经费不超过直接经费减去设备购置费和外协费的20%。\r\n";
-            }
+            //if (elseMoneys > (directMoneys - deviceBuyMoneys - helpMoneys) * 0.2m)
+            //{
+            //    text += "请注意，间接经费不超过直接经费减去设备购置费和外协费的20%。\r\n";
+            //}
             if (text != string.Empty)
             {
                 MessageBox.Show(text, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
