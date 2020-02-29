@@ -76,9 +76,19 @@
             0,
             0,
             0});
+            this.txtNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(158, 26);
             this.txtNumber.TabIndex = 7;
+            this.txtNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FrmEditOrder
             // 
