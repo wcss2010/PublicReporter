@@ -30,10 +30,10 @@
         {
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
+            this.txtWordReadme = new System.Windows.Forms.RichTextBox();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
-            this.txtWordReadme = new System.Windows.Forms.RichTextBox();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
             this.plMain.SuspendLayout();
@@ -63,13 +63,26 @@
             this.plContent.Size = new System.Drawing.Size(1063, 500);
             this.plContent.TabIndex = 1;
             // 
+            // txtWordReadme
+            // 
+            this.txtWordReadme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWordReadme.Enabled = false;
+            this.txtWordReadme.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWordReadme.Location = new System.Drawing.Point(0, 51);
+            this.txtWordReadme.Name = "txtWordReadme";
+            this.txtWordReadme.ReadOnly = true;
+            this.txtWordReadme.Size = new System.Drawing.Size(1063, 449);
+            this.txtWordReadme.TabIndex = 2;
+            this.txtWordReadme.Text = "";
+            // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnEditDocument);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.plButtons.Location = new System.Drawing.Point(0, 0);
             this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(1063, 38);
+            this.plButtons.Padding = new System.Windows.Forms.Padding(10);
+            this.plButtons.Size = new System.Drawing.Size(1063, 51);
             this.plButtons.TabIndex = 1;
             // 
             // btnEditDocument
@@ -77,9 +90,9 @@
             this.btnEditDocument.BackColor = System.Drawing.SystemColors.Control;
             this.btnEditDocument.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEditDocument.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditDocument.Location = new System.Drawing.Point(893, 0);
+            this.btnEditDocument.Location = new System.Drawing.Point(883, 10);
             this.btnEditDocument.Name = "btnEditDocument";
-            this.btnEditDocument.Size = new System.Drawing.Size(170, 38);
+            this.btnEditDocument.Size = new System.Drawing.Size(170, 31);
             this.btnEditDocument.TabIndex = 0;
             this.btnEditDocument.Text = "使用Word编辑该文档";
             this.btnEditDocument.UseVisualStyleBackColor = false;
@@ -96,18 +109,6 @@
             this.plMain.Padding = new System.Windows.Forms.Padding(10);
             this.plMain.Size = new System.Drawing.Size(1083, 571);
             this.plMain.TabIndex = 0;
-            // 
-            // txtWordReadme
-            // 
-            this.txtWordReadme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtWordReadme.Enabled = false;
-            this.txtWordReadme.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtWordReadme.Location = new System.Drawing.Point(0, 38);
-            this.txtWordReadme.Name = "txtWordReadme";
-            this.txtWordReadme.ReadOnly = true;
-            this.txtWordReadme.Size = new System.Drawing.Size(1063, 462);
-            this.txtWordReadme.TabIndex = 2;
-            this.txtWordReadme.Text = "";
             // 
             // DocumentPasteEditor
             // 
