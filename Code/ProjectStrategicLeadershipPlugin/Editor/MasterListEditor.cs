@@ -60,7 +60,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 txtProjectMasterMobilephone.Text = obj.ProjectMasterMobilephone;
                 txtTeamContactName.Text = obj.TeamContactName;
                 txtTeamContactSex.Text = obj.TeamContactSex;
-                txtTeamContactBirthday.Text = obj.TeamContactBirthday;
+                txtTeamContactBirthday.Value = obj.TeamContactBirthday;
                 txtTeamContactJob.Text = obj.TeamContactJob;
                 txtTeamContactTelephone.Text = obj.TeamContactTelephone;
                 txtTeamContactMobilephone.Text = obj.TeamContactMobilephone;
@@ -165,7 +165,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 result = false;
                 return;
             }
-            if (txtTeamContactBirthday.Text == string.Empty)
+            DateTime ddTeamContactBirthday;
+            if (DateTime.TryParse(txtTeamContactBirthday.Text, out ddTeamContactBirthday) == false)
             {
                 MessageBox.Show("对不起，请输入项目组联系人出生年月!");
                 result = false;
@@ -213,7 +214,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             proj.ProjectMasterMobilephone = txtProjectMasterMobilephone.Text;
             proj.TeamContactName = txtTeamContactName.Text;
             proj.TeamContactSex = txtTeamContactSex.Text;
-            proj.TeamContactBirthday = txtTeamContactBirthday.Text;
+            proj.TeamContactBirthday = txtTeamContactBirthday.Value;
             proj.TeamContactJob = txtTeamContactJob.Text;
             proj.TeamContactTelephone = txtTeamContactTelephone.Text;
             proj.TeamContactMobilephone = txtTeamContactMobilephone.Text;
