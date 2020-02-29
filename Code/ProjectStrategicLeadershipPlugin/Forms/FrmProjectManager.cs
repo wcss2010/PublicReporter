@@ -112,8 +112,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                             try
                             {
                                 switchToCurrent(tvProject.SelectedNode.Name);
-
-                                MessageBox.Show("项目加载完成！");
+                                Close();
                             }
                             catch (Exception ex)
                             {
