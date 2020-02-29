@@ -38,7 +38,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -162,13 +162,20 @@
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetail.Size = new System.Drawing.Size(996, 396);
             this.dgvDetail.TabIndex = 3;
+            this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
+            this.dgvDetail.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_ColumnHeaderMouseClick);
+            this.dgvDetail.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetail_RowHeaderMouseClick);
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "序号";
+            this.Column1.FalseValue = "false";
+            this.Column1.HeaderText = "全选";
             this.Column1.MinimumWidth = 65;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column1.TrueValue = "true";
             this.Column1.Width = 65;
             // 
             // Column2
@@ -252,7 +259,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel llTemplete;
         private System.Windows.Forms.DataGridView dgvDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
