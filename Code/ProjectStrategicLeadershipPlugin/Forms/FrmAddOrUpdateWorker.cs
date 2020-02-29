@@ -12,67 +12,27 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 {
     public partial class FrmAddOrUpdateWorker : AbstractEditorPlugin.BaseForm
     {
-        /// <summary>
-        /// 仅为项目负责人
-        /// </summary>
-        public const string isOnlyProject = "rbIsOnlyProject";
-        /// <summary>
-        /// 项目负责人兼研究内容负责人或成员
-        /// </summary>
-        public const string isProjectAndSubject = "rbIsProjectAndSubject";
-        /// <summary>
-        /// 仅为研究内容负责人或成员
-        /// </summary>
-        public const string isOnlySubject = "rbIsOnlySubject";
-
-        List<Subjects> List = new List<Subjects>();
-        public FrmAddOrUpdateWorker(Persons obj, List<Subjects> list)
+        public FrmAddOrUpdateWorker(Persons obj)
         {
             InitializeComponent();
 
             DataObj = obj;
-            List = list;
         }
         
         private void FrmAddOrUpdateWorker_Load(object sender, EventArgs e)
         {
-            cbxSubjects.DisplayMember = "SubjectName";
-            cbxSubjects.ValueMember = "ID";
-            cbxSubjects.DataSource = List;
-
             if (DataObj != null)
             {
                 txtName.Text = DataObj.Name;
-                txtBirthday.Value = DataObj.Birthday;
                 txtJob.Text = DataObj.Job;
                 txtSep.Text = DataObj.Specialty;
                 txtWorkUnit.Text = DataObj.UnitName;
                 txtIDCard.Text = DataObj.IDCard;
                 txtTask.Text = DataObj.TaskContent;
-                cbxSexs.SelectedItem = DataObj.Sex;
-                cbxSubjects.SelectedValue = DataObj.SubjectID;
-                cbxJobInProjects.SelectedItem = DataObj.RoleName;
-                txtTotalTime.Value = DataObj.TimeForSubject;
-                txtTelephone.Text = DataObj.Telephone;
-                txtMobilephone.Text = DataObj.MobilePhone;
-
-                if (DataObj.RoleType == rbIsOnlyProject.Name)
-                {
-                    rbIsOnlyProject.Checked = true;
-                }
-                else if (DataObj.RoleType == rbIsOnlySubject.Name)
-                {
-                    rbIsOnlySubject.Checked = true;
-                }
-                else if (DataObj.RoleType == rbIsProjectAndSubject.Name)
-                {
-                    rbIsProjectAndSubject.Checked = true;
-                }
             }
             else
             {
                 DataObj = new Persons();
-                DataObj.RoleType = "rbIsOnlySubject";
             }
         }
 
@@ -91,13 +51,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 || String.IsNullOrEmpty(txtSep.Text)
                 || String.IsNullOrEmpty(txtWorkUnit.Text)
                 || String.IsNullOrEmpty(txtIDCard.Text)
-                || String.IsNullOrEmpty(txtTelephone.Text)
-                || String.IsNullOrEmpty(txtMobilephone.Text)
-                || String.IsNullOrEmpty(txtTask.Text)
-                || (cbxSexs.SelectedItem == null && rbIsOnlyProject.Checked == false)
-                || (cbxJobInProjects.SelectedItem == null && rbIsOnlyProject.Checked == false)
-                || String.IsNullOrEmpty(txtTotalTime.Value.ToString())
-                || cbxSubjects.SelectedValue == null)
+                || String.IsNullOrEmpty(txtTask.Text))
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
                 return;
@@ -105,18 +59,11 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             else
             {
                 DataObj.Name = txtName.Text;
-                DataObj.Birthday = txtBirthday.Value;
                 DataObj.Job = txtJob.Text;
                 DataObj.Specialty = txtSep.Text;
                 DataObj.UnitName = txtWorkUnit.Text;
                 DataObj.IDCard = txtIDCard.Text;
-                DataObj.Telephone = txtTelephone.Text;
-                DataObj.MobilePhone = txtMobilephone.Text;
                 DataObj.TaskContent = txtTask.Text;
-                DataObj.Sex = cbxSexs.SelectedItem.ToString();
-                DataObj.SubjectID = cbxSubjects.SelectedValue.ToString();
-                DataObj.RoleName = cbxJobInProjects.SelectedItem != null ? cbxJobInProjects.SelectedItem.ToString() : "负责人";
-                DataObj.TimeForSubject = Convert.ToInt32(txtTotalTime.Value);
 
                 if (string.IsNullOrEmpty(DataObj.ID))
                 {
@@ -129,30 +76,6 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     DataObj.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + DataObj.ID + "'").update();
                 }
                 DialogResult = System.Windows.Forms.DialogResult.OK;
-            }
-        }
-
-        private void rbIsOnlySubjectMaster_CheckedChanged(object sender, EventArgs e)
-        {
-            if (((RadioButton)sender).Checked)
-            {
-                DataObj.RoleType = ((RadioButton)sender).Name;
-
-                if (((RadioButton)sender).Name == "rbIsOnlyProject")
-                {
-                    if (cbxSubjects.Items.Count >= 1)
-                    {
-                        cbxSubjects.SelectedItem = cbxSubjects.Items[0];
-                    }
-                    cbxSubjects.Enabled = false;
-                    cbxJobInProjects.SelectedItem = "成员";
-                    cbxJobInProjects.Enabled = false;
-                }
-                else
-                {
-                    cbxSubjects.Enabled = true;
-                    cbxJobInProjects.Enabled = true;
-                }
             }
         }
     }

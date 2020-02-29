@@ -21,7 +21,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 {
     public partial class WorkerEditor : BaseEditor
     {
-        private List<Subjects> subjectList;
         private List<Persons> list;
         public WorkerEditor()
         {
@@ -39,18 +38,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             base.refreshView();
 
-            //查询研究内容列表
-            subjectList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
-
-            //生成研究内容X字典
-            int kindex = 0;
-            Dictionary<string, string> ktDict = new Dictionary<string, string>();
-            foreach (Subjects ktb in subjectList)
-            {
-                kindex++;
-                ktDict[ktb.ID] = "研究内容" + kindex;
-            }
-
             //查询人员列表
             list = ConnectionManager.Context.table("Persons").orderBy("DisplayOrder").select("*").getList<Persons>(new Persons());
 
@@ -62,23 +49,12 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 List<object> cells = new List<object>();
                 cells.Add(index.ToString());
                 cells.Add(data.Name);
-                cells.Add(data.Sex);
-                cells.Add(data.Job);
-                cells.Add(data.Specialty);
-                cells.Add(data.UnitName);
-                cells.Add(data.TimeForSubject);
-                cells.Add(data.TaskContent);
                 cells.Add(data.IDCard);
-
-                if (data.RoleType == FrmAddOrUpdateWorker.isOnlyProject)
-                {
-                    cells.Add("项目负责人");
-                }
-                else
-                {
-                    cells.Add((data.RoleType == FrmAddOrUpdateWorker.isProjectAndSubject ? "项目负责人兼" : "") + ((ktDict.ContainsKey(data.SubjectID) ? ktDict[data.SubjectID] : string.Empty) + data.RoleName));
-                }
-
+                cells.Add(data.UnitName);
+                cells.Add(data.Job);
+                cells.Add(data.Specialty);                
+                cells.Add(data.TaskContent);
+                
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
             }
@@ -104,7 +80,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                     //编辑
 
                     //显示编辑窗体
-                    FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker((Persons)dgvDetail.Rows[e.RowIndex].Tag, subjectList);
+                    FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker((Persons)dgvDetail.Rows[e.RowIndex].Tag);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         //刷新列表
@@ -149,7 +125,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //显示编辑窗体
-            FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, subjectList);
+            FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
