@@ -34,6 +34,7 @@
             this.btnDel = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
             this.ofdSelect = new System.Windows.Forms.OpenFileDialog();
+            this.btnImport = new System.Windows.Forms.Button();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
             this.SuspendLayout();
@@ -63,8 +64,9 @@
             // 
             // plButtons
             // 
-            this.plButtons.Controls.Add(this.btnDel);
+            this.plButtons.Controls.Add(this.btnImport);
             this.plButtons.Controls.Add(this.btnOpen);
+            this.plButtons.Controls.Add(this.btnDel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Location = new System.Drawing.Point(0, 157);
             this.plButtons.Margin = new System.Windows.Forms.Padding(4);
@@ -76,29 +78,41 @@
             // 
             this.btnDel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDel.Location = new System.Drawing.Point(536, 0);
+            this.btnDel.Location = new System.Drawing.Point(615, 0);
             this.btnDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(100, 48);
+            this.btnDel.Size = new System.Drawing.Size(121, 48);
             this.btnDel.TabIndex = 31;
-            this.btnDel.Text = "删除";
+            this.btnDel.Text = "删除数据包";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnOpen
             // 
             this.btnOpen.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnOpen.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnOpen.Location = new System.Drawing.Point(636, 0);
+            this.btnOpen.Location = new System.Drawing.Point(494, 0);
             this.btnOpen.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(100, 48);
+            this.btnOpen.Size = new System.Drawing.Size(121, 48);
             this.btnOpen.TabIndex = 29;
-            this.btnOpen.Text = "切换";
+            this.btnOpen.Text = "编辑数据包";
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // ofdSelect
             // 
             this.ofdSelect.Filter = "Zip压缩文件(*.zip)|*.zip";
+            // 
+            // btnImport
+            // 
+            this.btnImport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnImport.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnImport.Location = new System.Drawing.Point(373, 0);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(121, 48);
+            this.btnImport.TabIndex = 32;
+            this.btnImport.Text = "导入数据包";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // FrmProjectManager
             // 
@@ -125,5 +139,6 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.OpenFileDialog ofdSelect;
         private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnImport;
     }
 }
