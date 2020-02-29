@@ -22,6 +22,18 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             query.set("ProjectDirection", ProjectDirection);
             query.set("ProjectSecretLevel", ProjectSecretLevel);
             query.set("ProjectMasterName", ProjectMasterName);
+            query.set("ProjectMasterSex", ProjectMasterSex);
+            query.set("ProjectMasterBirthday", ProjectMasterBirthday);
+            query.set("ProjectMasterJob", ProjectMasterJob);
+            query.set("ProjectMasterTelephone", ProjectMasterTelephone);
+            query.set("ProjectMasterMobilephone", ProjectMasterMobilephone);
+            query.set("TeamContactName", TeamContactName);
+            query.set("TeamContactSex", TeamContactSex);
+            query.set("TeamContactBirthday", TeamContactBirthday);
+            query.set("TeamContactJob", TeamContactJob);
+            query.set("TeamContactTelephone", TeamContactTelephone);
+            query.set("TeamContactMobilephone", TeamContactMobilephone);
+            query.set("TeamContactAddress", TeamContactAddress);
             query.set("UnitName", UnitName);
             query.set("UnitRealName", UnitRealName);
             query.set("UnitAddress", UnitAddress);
@@ -42,6 +54,18 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string ProjectDirection { get; set; }
         public string ProjectSecretLevel { get; set; }
         public string ProjectMasterName { get; set; }
+        public string ProjectMasterSex { get; set; }
+        public DateTime ProjectMasterBirthday { get; set; }
+        public string ProjectMasterJob { get; set; }
+        public string ProjectMasterTelephone { get; set; }
+        public string ProjectMasterMobilephone { get; set; }
+        public string TeamContactName { get; set; }
+        public string TeamContactSex { get; set; }
+        public string TeamContactBirthday { get; set; }
+        public string TeamContactJob { get; set; }
+        public string TeamContactTelephone { get; set; }
+        public string TeamContactMobilephone { get; set; }
+        public string TeamContactAddress { get; set; }
         public string UnitName { get; set; }
         public string UnitRealName { get; set; }
         public string UnitAddress { get; set; }
@@ -61,6 +85,18 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             ProjectDirection = source("ProjectDirection").value<string>("");
             ProjectSecretLevel = source("ProjectSecretLevel").value<string>("");
             ProjectMasterName = source("ProjectMasterName").value<string>("");
+            ProjectMasterSex = source("ProjectMasterSex").value<string>("");
+            ProjectMasterBirthday = source("ProjectMasterBirthday").value<DateTime>(DateTime.Now);
+            ProjectMasterJob = source("ProjectMasterJob").value<string>("");
+            ProjectMasterTelephone = source("ProjectMasterTelephone").value<string>("");
+            ProjectMasterMobilephone = source("ProjectMasterMobilephone").value<string>("");
+            TeamContactName = source("TeamContactName").value<string>("");
+            TeamContactSex = source("TeamContactSex").value<string>("");
+            TeamContactBirthday = source("TeamContactBirthday").value<string>("");
+            TeamContactJob = source("TeamContactJob").value<string>("");
+            TeamContactTelephone = source("TeamContactTelephone").value<string>("");
+            TeamContactMobilephone = source("TeamContactMobilephone").value<string>("");
+            TeamContactAddress = source("TeamContactAddress").value<string>("");
             UnitName = source("UnitName").value<string>("");
             UnitRealName = source("UnitRealName").value<string>("");
             UnitAddress = source("UnitAddress").value<string>("");
