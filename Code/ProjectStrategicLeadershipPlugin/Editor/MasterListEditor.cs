@@ -97,10 +97,14 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             {
                 bool result = true;
                 onSaveEvent(ref result);
-                PluginRootObj.refreshEditors();
 
-                //更新保存日期
-                PluginRootObj.updateSaveDate();
+                if (result)
+                {
+                    PluginRootObj.refreshEditors();
+
+                    //更新保存日期
+                    PluginRootObj.updateSaveDate();
+                }
             }
             catch (Exception ex)
             {
