@@ -109,8 +109,27 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                         pp.DisplayOrder = (int)feo.OrderNum;
                         pp.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + pp.ID + "'").update();
 
+                        //对后面的记录重新排序
+                        reorderPersonList(pp);
+
                         PluginRootObj.refreshEditors();
                     }
+                }
+            }
+        }
+
+        private void reorderPersonList(Persons pObj)
+        {
+            foreach (Persons pp in list)
+            {
+                if (pp == pObj)
+                {
+                    continue;
+                }
+                else if (pp.DisplayOrder >= pObj.DisplayOrder)
+                {
+                    pp.DisplayOrder++;
+                    pp.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + pp.ID + "'").update();
                 }
             }
         }
