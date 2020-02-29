@@ -54,13 +54,21 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
                 txtProjectMasterName.Text = obj.ProjectMasterName;
                 txtProjectMasterSex.Text = obj.ProjectMasterSex;
-                txtProjectMasterBirthday.Value = obj.ProjectMasterBirthday;
+                try
+                {
+                    txtProjectMasterBirthday.Value = obj.ProjectMasterBirthday;
+                }
+                catch (Exception ex) { }
                 txtProjectMasterJob.Text = obj.ProjectMasterJob;
                 txtProjectMasterTelephone.Text = obj.ProjectMasterTelephone;
                 txtProjectMasterMobilephone.Text = obj.ProjectMasterMobilephone;
                 txtTeamContactName.Text = obj.TeamContactName;
                 txtTeamContactSex.Text = obj.TeamContactSex;
-                txtTeamContactBirthday.Value = obj.TeamContactBirthday;
+                try
+                {
+                    txtTeamContactBirthday.Value = obj.TeamContactBirthday;
+                }
+                catch (Exception ex) { }
                 txtTeamContactJob.Text = obj.TeamContactJob;
                 txtTeamContactTelephone.Text = obj.TeamContactTelephone;
                 txtTeamContactMobilephone.Text = obj.TeamContactMobilephone;

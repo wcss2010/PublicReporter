@@ -512,10 +512,10 @@
             this.txtRegisterDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtRegisterDate.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtRegisterDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtRegisterDate.Location = new System.Drawing.Point(841, 0);
+            this.txtRegisterDate.Location = new System.Drawing.Point(815, 0);
             this.txtRegisterDate.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             this.txtRegisterDate.Name = "txtRegisterDate";
-            this.txtRegisterDate.Size = new System.Drawing.Size(206, 26);
+            this.txtRegisterDate.Size = new System.Drawing.Size(232, 26);
             this.txtRegisterDate.TabIndex = 33;
             // 
             // label15
@@ -525,9 +525,9 @@
             this.label15.Location = new System.Drawing.Point(669, 0);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(172, 29);
+            this.label15.Size = new System.Drawing.Size(146, 29);
             this.label15.TabIndex = 4;
-            this.label15.Text = "年       申报日期：";
+            this.label15.Text = "年     申报日期：";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtTotalTimes
