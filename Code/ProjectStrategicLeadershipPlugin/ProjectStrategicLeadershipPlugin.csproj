@@ -105,12 +105,6 @@
     <Compile Include="DB\Entitys\ProjectStep.cs" />
     <Compile Include="DB\Entitys\Steps.cs" />
     <Compile Include="DB\Entitys\Subjects.cs" />
-    <Compile Include="Editor\ConfidentialQualificationEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\ConfidentialQualificationEditor.Designer.cs">
-      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editor\MasterListEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -245,14 +239,14 @@
     <None Include="Helper\documentPasteReadme.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Helper\secretPaste.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="数据库结构.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\ProjectAddressControl.resx">
       <DependentUpon>ProjectAddressControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\ConfidentialQualificationEditor.resx">
-      <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\MasterListEditor.resx">
       <DependentUpon>MasterListEditor.cs</DependentUpon>

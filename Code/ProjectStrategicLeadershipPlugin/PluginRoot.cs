@@ -186,8 +186,8 @@ namespace ProjectStrategicLeadershipPlugin
             editorMap[tnode_12_Name] = new Editor.MasterListEditor();
             //附件1-项目经费预算说明(DocumentPasteEditor-带特定模板)
             editorMap[tnode_10_Name] = new DocumentPasteEditor("项目经费预算说明", "（介绍本项目预算依据、内容构成、具体安排，应能够支撑对项目经费预算合理性进行审核评估） ", Path.Combine(RootDir, Path.Combine("Helper", "moneyPaste.doc")), getDocumentPasteReadmeFile());
-            //附件2-保密资质复印件(自定义列表)
-            editorMap[tnode_11_Name] = new Editor.ConfidentialQualificationEditor();
+            //附件2-保密资质复印件(DocumentPasteEditor-带特定模板)
+            editorMap[tnode_11_Name] = new DocumentPasteEditor("保密资质复印件", "若该项目内容涉密，请申报单位提供与项目内容密级相应的保密资质复印件", Path.Combine(RootDir, Path.Combine("Helper", "secretPaste.doc")), getDocumentPasteReadmeFile());
             #endregion
 
             #region 检查哪个Editor没有设置Name
