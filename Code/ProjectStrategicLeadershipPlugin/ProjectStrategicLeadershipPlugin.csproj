@@ -111,6 +111,12 @@
     <Compile Include="Editor\ConfidentialQualificationEditor.Designer.cs">
       <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\MasterListEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MasterListEditor.Designer.cs">
+      <DependentUpon>MasterListEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\MoneyTableEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ConfidentialQualificationEditor.resx">
       <DependentUpon>ConfidentialQualificationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\MasterListEditor.resx">
+      <DependentUpon>MasterListEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\MoneyTableEditor.resx">
       <DependentUpon>MoneyTableEditor.cs</DependentUpon>
