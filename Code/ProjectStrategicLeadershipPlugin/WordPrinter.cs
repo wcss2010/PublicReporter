@@ -13,6 +13,7 @@ using System.Data;
 using PublicReporterLib;
 using AbstractEditorPlugin.Utility;
 using ProjectStrategicLeadershipPlugin.Forms;
+using Aspose.Words.Drawing;
 
 namespace ProjectStrategicLeadershipPlugin
 {
@@ -137,18 +138,17 @@ namespace ProjectStrategicLeadershipPlugin
                 StringBuilder sb = new StringBuilder();
 
                 #region 生成----(附件文件2)
-                List<ExtFiles> list = ConnectionManager.Context.table("ExtFiles").select("*").getList<ExtFiles>(new ExtFiles());
-                foreach (ExtFiles efl in list)
+                string ef2 = Path.Combine(pt.filesDir, PluginRoot.tnode_11_Name) + ".doc";
+                if (File.Exists(ef2))
                 {
-                    if (efl.IsIgnore == 0)
+                    Document tempDoc = new Document(ef2);
+                    NodeCollection shapes = tempDoc.GetChildNodes(NodeType.Shape, true);
+                    foreach (Shape shape in shapes)
                     {
-                        //图片文件
-                        string picFile = Path.Combine(pt.filesDir, efl.RealFileName);
-
-                        //检查图片是否存在，如果存在则插入
-                        if (File.Exists(picFile))
+                        if (shape.HasImage)
                         {
-                            writeImageToBookmark(wd, "附件文件2", picFile);
+                            writeFileToBookmark(wd, "附件文件2", ef2, true);
+                            break;
                         }
                     }
                 }
