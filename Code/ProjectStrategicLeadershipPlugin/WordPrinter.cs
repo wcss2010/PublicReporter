@@ -397,7 +397,7 @@ namespace ProjectStrategicLeadershipPlugin
                 wd.WordDocBuilder.Font.Size = 12;
 
                 #region 生成----(*人员表)
-                List<Persons> personList = ConnectionManager.Context.table("Persons").select("*").getList<Persons>(new Persons());
+                List<Persons> personList = ConnectionManager.Context.table("Persons").orderBy("DisplayOrder").select("*").getList<Persons>(new Persons());
                 //填充数据
                 foreach (Node node in ncc)
                 {
