@@ -113,16 +113,16 @@ namespace ProjectStrategicLeadershipPlugin
 
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 40, "写入文档文件...", 1000);
                 #region 写文档文件
-                writeFileToBookmark(wd, "项目摘要", Path.Combine(pt.filesDir, PluginRoot.tnode_1_Name) + ".txt", true);
+                writeFileToBookmark(wd, "项目摘要", Path.Combine(pt.filesDir, PluginRoot.tnode_1_Name) + ".doc", true);
                 writeFileToBookmark(wd, "概述_需求分析", Path.Combine(pt.filesDir, PluginRoot.tnode_2_0_Name) + ".doc", true);
                 writeFileToBookmark(wd, "概述_研究现状", Path.Combine(pt.filesDir, PluginRoot.tnode_2_1_Name) + ".doc", true);
-                writeFileToBookmark(wd, "研究目标", Path.Combine(pt.filesDir, PluginRoot.tnode_3_Name) + ".doc", true);
-                //writeFileToBookmark(wd, "研究内容_之间关系", Path.Combine(pt.filesDir, PluginRoot.tnode_4_1_Name) + ".doc", true);
+                writeFileToBookmark(wd, "研究目标", Path.Combine(pt.filesDir, PluginRoot.tnode_3_Name) + ".doc", true);                
                 writeFileToBookmark(wd, "研究成果_研究成果及考核指标", Path.Combine(pt.filesDir, PluginRoot.tnode_5_0_Name) + ".doc", true);
                 writeFileToBookmark(wd, "研究成果_成果服务方式", Path.Combine(pt.filesDir, PluginRoot.tnode_5_1_Name) + ".doc", true);
                 writeFileToBookmark(wd, "研究基础与保障条件", Path.Combine(pt.filesDir, PluginRoot.tnode_7_Name) + ".doc", true);
                 writeFileToBookmark(wd, "项目负责人和研究团队_项目负责人", Path.Combine(pt.filesDir, PluginRoot.tnode_8_0_Name) + ".doc", true);
                 writeFileToBookmark(wd, "附件文件1", Path.Combine(pt.filesDir, PluginRoot.tnode_10_Name) + ".doc", true);
+                writeFileToBookmark(wd, "项目负责人和研究团队_研究团队", Path.Combine(pt.filesDir, PluginRoot.tnode_8_1_Name) + ".doc", true);
                 #endregion
 
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 60, "写入表格列表数据...", 1000);
@@ -137,31 +137,7 @@ namespace ProjectStrategicLeadershipPlugin
                 //课题名称字典
                 Dictionary<string, string> subjectNameDict = new Dictionary<string, string>();
 
-                #region 生成----(研究内容_概述列表)
                 StringBuilder sb = new StringBuilder();
-                int subIndex = 0;
-                foreach (Subjects sub in subjectList)
-                {
-                    subIndex++;
-                    string subFlag = "内容" + GlobalTool.NumberToChinese(subIndex.ToString());
-
-                    subjectNameDict[sub.ID] = "研究内容" + GlobalTool.NumberToChinese(subIndex.ToString());
-
-                    string infoString = string.Empty;
-                    string infoFile = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_概述.txt");
-                    if (File.Exists(infoFile))
-                    {
-                        infoString = File.ReadAllText(infoFile);
-                    }
-                    sb.Append(subFlag).Append("：").Append(sub.SubjectName).Append("，").Append(infoString).AppendLine("。");
-                }
-                #endregion
-                writeStringToBookmark(wd, "研究内容_概述列表", sb.ToString());
-
-                if (wd.WordDocBuilder.CurrentParagraph != null)
-                {
-                    wd.WordDocBuilder.CurrentParagraph.Remove();
-                }
 
                 #region 生成----(附件文件2)
                 List<ExtFiles> list = ConnectionManager.Context.table("ExtFiles").select("*").getList<ExtFiles>(new ExtFiles());
@@ -181,25 +157,6 @@ namespace ProjectStrategicLeadershipPlugin
                 }
                 #endregion
 
-                #region 生成----(项目负责人和研究团队_研究团队)
-                sb = new StringBuilder();
-                int sssIndexx = 0;
-                List<Subjects> subList = ConnectionManager.Context.table("Subjects").select("*").getList<Subjects>(new Subjects());
-                foreach (Subjects sub in subList)
-                {
-                    sssIndexx++;
-
-                    Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + sub.ID + "' and RoleName='负责人' and (RoleType = '" + FrmAddOrUpdateWorker.isProjectAndSubject + "' or RoleType = '" + FrmAddOrUpdateWorker.isOnlySubject + "')").select("*").getItem<Persons>(new Persons());
-                    if (string.IsNullOrEmpty(pObj.ID))
-                    {
-                        continue;
-                    }
-
-                    sb.Append("研究内容").Append(GlobalTool.NumberToChinese(sssIndexx.ToString())).Append("负责人:").Append(pObj.Name).Append(",").Append(pObj.AttachInfo).AppendLine();
-                }
-                #endregion
-                writeStringToBookmark(wd, "项目负责人和研究团队_研究团队", sb.ToString());
-
                 #region 生成----(研究周期与进度安排_阶段详细)
                 int ssssIndex = 0;
                 sb = new StringBuilder();
@@ -207,9 +164,7 @@ namespace ProjectStrategicLeadershipPlugin
                 {
                     ssssIndex++;
                     sb.Append("     ").Append("（").Append(GlobalTool.NumberToChinese(ssssIndex.ToString())).Append("）第").Append(GlobalTool.NumberToChinese(ssssIndex.ToString())).Append("阶段：").Append(ps.StepTime).AppendLine("月");
-                    sb.Append("     ").Append("完成内容：").AppendLine(ps.StepTag1);
-                    sb.Append("     ").Append("阶段成果：").AppendLine(ps.StepTag2);
-                    sb.Append("     ").Append("考核指标：").AppendLine(ps.StepTag3);
+                    sb.Append("     ").Append("阶段成果：").AppendLine(ps.StepTag1);
                 }
                 #endregion
                 writeStringToBookmark(wd, "研究周期与进度安排_阶段详细", sb.ToString());
@@ -464,24 +419,7 @@ namespace ProjectStrategicLeadershipPlugin
                             wd.fillCell(true, t.Rows[rowStart].Cells[3], wd.newParagraph(wd.WordDoc, data.UnitName));
                             wd.fillCell(true, t.Rows[rowStart].Cells[4], wd.newParagraph(wd.WordDoc, data.Job));
                             wd.fillCell(true, t.Rows[rowStart].Cells[5], wd.newParagraph(wd.WordDoc, data.Specialty));
-
-                            string roleNamess = "未知";
-
-                            switch (data.RoleType)
-                            {
-                                case FrmAddOrUpdateWorker.isOnlyProject:
-                                    roleNamess = "项目负责人";
-                                    break;
-                                case FrmAddOrUpdateWorker.isProjectAndSubject:
-                                    roleNamess = "项目负责人兼" + (subjectNameDict.ContainsKey(data.SubjectID) ? subjectNameDict[data.SubjectID] + data.RoleName : "未知");
-                                    break;
-                                case FrmAddOrUpdateWorker.isOnlySubject:
-                                    roleNamess = subjectNameDict.ContainsKey(data.SubjectID) ? subjectNameDict[data.SubjectID] + data.RoleName : "未知";
-                                    break;
-                            }
-                            wd.fillCell(true, t.Rows[rowStart].Cells[6], wd.newParagraph(wd.WordDoc, roleNamess));
-
-                            wd.fillCell(true, t.Rows[rowStart].Cells[7], wd.newParagraph(wd.WordDoc, data.TimeForSubject.ToString()));
+                            wd.fillCell(true, t.Rows[rowStart].Cells[6], wd.newParagraph(wd.WordDoc, data.TaskContent));
 
                             rowStart++;
                         }
@@ -492,104 +430,28 @@ namespace ProjectStrategicLeadershipPlugin
                 wd.WordDocBuilder.Font.Name = "仿宋_GB2312";
                 wd.WordDocBuilder.Font.Size = 10.5;
 
-                #region 生成----(*联系方式表)
-                try
-                {
-                    foreach (Aspose.Words.Tables.Table table in ncc)
-                    {
-                        if (table.Range.Text.Contains("项目组联系方式"))
-                        {
-                            int titleIndex = table.Rows.Count - 1;
-                            int dataIndex = table.Rows.Count - 1;
-
-                            //构造联系方式行
-                            int rowCountt = (subjectList.Count * 3) - 1;
-                            for (int k = 0; k < rowCountt; k++)
-                            {
-                                //table.Select();
-                                table.Rows.Add((Aspose.Words.Tables.Row)table.Rows[table.Rows.Count - 1].Clone(true));
-                            }
-                            //合并单元格
-                            if (rowCountt >= 2)
-                            {
-                                for (int k = 0; k < subjectList.Count; k++)
-                                {
-                                    //计算开始位置
-                                    int rowStart = dataIndex + (k * 3);
-                                    int rowEnd = rowStart + 2;
-
-                                    #region 写入标签
-                                    wd.WordDocBuilder.Font.Name = "黑体";
-                                    wd.WordDocBuilder.Font.Size = 12;
-                                    wd.fillCell(true, table.Rows[rowStart].Cells[0], wd.newParagraph(wd.WordDoc, subjectNameDict[subjectList[k].ID]));
-                                    wd.WordDocBuilder.Font.Name = "仿宋_GB2312";
-                                    wd.WordDocBuilder.Font.Size = 10.5;
-
-                                    wd.fillCell(true, table.Rows[rowStart].Cells[1], wd.newParagraph(wd.WordDoc, "负 责 人"));
-                                    wd.fillCell(true, table.Rows[rowStart].Cells[3], wd.newParagraph(wd.WordDoc, "性  别"));
-                                    wd.fillCell(true, table.Rows[rowStart].Cells[5], wd.newParagraph(wd.WordDoc, "出生年月"));
-                                    wd.fillCell(true, table.Rows[rowStart + 1].Cells[1], wd.newParagraph(wd.WordDoc, "职务职称"));
-                                    wd.fillCell(true, table.Rows[rowStart + 1].Cells[3], wd.newParagraph(wd.WordDoc, "座  机"));
-                                    wd.fillCell(true, table.Rows[rowStart + 1].Cells[5], wd.newParagraph(wd.WordDoc, "手  机"));
-                                    wd.fillCell(true, table.Rows[rowStart + 2].Cells[1], wd.newParagraph(wd.WordDoc, "通信地址"));
-                                    #endregion
-
-                                    #region 写入数据
-                                    Persons pObj = ConnectionManager.Context.table("Persons").where("SubjectID = '" + subjectList[k].ID + "' and RoleName='负责人' and (RoleType = '" + FrmAddOrUpdateWorker.isProjectAndSubject + "' or RoleType = '" + FrmAddOrUpdateWorker.isOnlySubject + "')").select("*").getItem<Persons>(new Persons());
-                                    if (string.IsNullOrEmpty(pObj.ID))
-                                    {
-                                        //无数据
-                                        wd.fillCell(true, table.Rows[rowStart].Cells[2], wd.newParagraph(wd.WordDoc, "空"));
-                                        wd.fillCell(true, table.Rows[rowStart].Cells[4], wd.newParagraph(wd.WordDoc, "空"));
-                                        wd.fillCell(true, table.Rows[rowStart].Cells[6], wd.newParagraph(wd.WordDoc, "空"));
-                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[2], wd.newParagraph(wd.WordDoc, "空"));
-                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[4], wd.newParagraph(wd.WordDoc, "空"));
-                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[6], wd.newParagraph(wd.WordDoc, "空"));
-                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, "空"), false);
-                                    }
-                                    else
-                                    {
-                                        //有数据
-                                        wd.fillCell(true, table.Rows[rowStart].Cells[2], wd.newParagraph(wd.WordDoc, pObj.Name));
-                                        wd.fillCell(true, table.Rows[rowStart].Cells[4], wd.newParagraph(wd.WordDoc, pObj.Sex));
-                                        wd.fillCell(true, table.Rows[rowStart].Cells[6], wd.newParagraph(wd.WordDoc, pObj.Birthday.ToString("yyyy年MM月dd日")));
-                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[2], wd.newParagraph(wd.WordDoc, pObj.Job));
-                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[4], wd.newParagraph(wd.WordDoc, pObj.Telephone));
-                                        wd.fillCell(true, table.Rows[rowStart + 1].Cells[6], wd.newParagraph(wd.WordDoc, pObj.MobilePhone));
-                                        wd.fillCell(true, table.Rows[rowStart + 2].Cells[2], wd.newParagraph(wd.WordDoc, subjectList[k].UnitAddress != null ? subjectList[k].UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty), false);
-                                    }
-                                    #endregion
-
-                                    //合并单元格
-                                    wd.mergeCells(table.Rows[rowEnd].Cells[2], table.Rows[rowEnd].Cells[6], table);
-                                    wd.mergeCells(table.Rows[rowStart].Cells[0], table.Rows[rowEnd].Cells[0], table);
-                                }
-                            }
-                            else
-                            {
-                                table.Rows[titleIndex].Remove();
-                                table.Rows[dataIndex].Remove();
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex) { }
-
-                #endregion
-
                 #region 写入联系方式中的固定字段
-                Persons masterObj = ConnectionManager.Context.table("Persons").where("RoleType='" + FrmAddOrUpdateWorker.isOnlyProject + "' or RoleType='" + FrmAddOrUpdateWorker.isProjectAndSubject + "'").select("*").getItem<Persons>(new Persons());
-                writeStringToBookmark(wd, "联系方式_项目负责人_姓名", masterObj.Name);
-                writeStringToBookmark(wd, "联系方式_项目负责人_性别", masterObj.Sex);
-                writeStringToBookmark(wd, "联系方式_项目负责人_出生年月", masterObj.Birthday.ToString("yyyy年MM月dd日"));
-                writeStringToBookmark(wd, "联系方式_项目负责人_职务职称", masterObj.Job);
-                writeStringToBookmark(wd, "联系方式_项目负责人_座机", masterObj.Telephone);
-                writeStringToBookmark(wd, "联系方式_项目负责人_手机", masterObj.MobilePhone);
+                writeStringToBookmark(wd, "联系方式_项目负责人_姓名", projObj.ProjectMasterName);
+                writeStringToBookmark(wd, "联系方式_项目负责人_性别", projObj.ProjectMasterSex);
+                writeStringToBookmark(wd, "联系方式_项目负责人_出生年月", projObj.ProjectMasterBirthday.ToString("yyyy年MM月dd日"));
+                writeStringToBookmark(wd, "联系方式_项目负责人_职务职称", projObj.ProjectMasterJob);
+                writeStringToBookmark(wd, "联系方式_项目负责人_座机", projObj.ProjectMasterTelephone);
+                writeStringToBookmark(wd, "联系方式_项目负责人_手机", projObj.ProjectMasterMobilephone);
+                
                 writeStringToBookmark(wd, "联系方式_申报单位_单位名称", projObj.UnitName);
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人", projObj.UnitContact);
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人职务职称", projObj.UnitContactJob);
                 writeStringToBookmark(wd, "联系方式_申报单位_单位联系人手机", projObj.UnitContactPhone);
                 writeStringToBookmark(wd, "联系方式_申报单位_通信地址", projObj.UnitAddress != null ? projObj.UnitAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty);
+
+                writeStringToBookmark(wd, "联系方式_项目组联系人_姓名", projObj.TeamContactName);
+                writeStringToBookmark(wd, "联系方式_项目组联系人_性别", projObj.TeamContactSex);
+                writeStringToBookmark(wd, "联系方式_项目组联系人_出生年月", projObj.TeamContactBirthday.ToString("yyyy年MM月dd日"));
+                writeStringToBookmark(wd, "联系方式_项目组联系人_职务职称", projObj.TeamContactJob);
+                writeStringToBookmark(wd, "联系方式_项目组联系人_座机", projObj.TeamContactTelephone);
+                writeStringToBookmark(wd, "联系方式_项目组联系人_手机", projObj.TeamContactMobilephone);
+                writeStringToBookmark(wd, "联系方式_项目组联系人_通信地址", projObj.TeamContactAddress != null ? projObj.TeamContactAddress.Replace(PublicReporterLib.JsonConfigObject.cellFlag, string.Empty) : string.Empty);
+
                 wd.WordDocBuilder.InsertParagraph();
                 #endregion
 

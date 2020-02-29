@@ -61,7 +61,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
         public string ProjectMasterMobilephone { get; set; }
         public string TeamContactName { get; set; }
         public string TeamContactSex { get; set; }
-        public string TeamContactBirthday { get; set; }
+        public DateTime TeamContactBirthday { get; set; }
         public string TeamContactJob { get; set; }
         public string TeamContactTelephone { get; set; }
         public string TeamContactMobilephone { get; set; }
@@ -92,7 +92,7 @@ namespace ProjectStrategicLeadershipPlugin.DB.Entitys
             ProjectMasterMobilephone = source("ProjectMasterMobilephone").value<string>("");
             TeamContactName = source("TeamContactName").value<string>("");
             TeamContactSex = source("TeamContactSex").value<string>("");
-            TeamContactBirthday = source("TeamContactBirthday").value<string>("");
+            TeamContactBirthday = source("TeamContactBirthday").value<DateTime>(DateTime.Now);
             TeamContactJob = source("TeamContactJob").value<string>("");
             TeamContactTelephone = source("TeamContactTelephone").value<string>("");
             TeamContactMobilephone = source("TeamContactMobilephone").value<string>("");
