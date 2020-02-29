@@ -55,8 +55,6 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 cells.Add(indexx.ToString());
                 cells.Add(ps.StepTime);
                 cells.Add(ps.StepTag1);
-                cells.Add(ps.StepTag2);
-                cells.Add(ps.StepTag3);
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = ps;

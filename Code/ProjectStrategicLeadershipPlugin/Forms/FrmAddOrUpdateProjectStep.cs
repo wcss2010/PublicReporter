@@ -30,8 +30,6 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 catch (Exception ex) { }
 
                 txtTag1.Text = DataObj.StepTag1;
-                txtTag2.Text = DataObj.StepTag2;
-                txtTag3.Text = DataObj.StepTag3;
             }
             else
             {
@@ -48,9 +46,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtTag1.Text)
-                || String.IsNullOrEmpty(txtTag2.Text)
-                || String.IsNullOrEmpty(txtTag3.Text))
+            if (String.IsNullOrEmpty(txtTag1.Text))
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
                 return;
@@ -59,8 +55,6 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             {
                 DataObj.StepTime = (int)txtStepTime.Value;
                 DataObj.StepTag1 = txtTag1.Text;
-                DataObj.StepTag2 = txtTag2.Text;
-                DataObj.StepTag3 = txtTag3.Text;
 
                 if (string.IsNullOrEmpty(DataObj.ID))
                 {
