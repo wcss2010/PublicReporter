@@ -136,13 +136,13 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 result = false;
                 return;
             }
-            DateTime ddProjectMasterBirthday;
-            if (DateTime.TryParse(txtProjectMasterBirthday.Text, out ddProjectMasterBirthday) == false)
-            {
-                MessageBox.Show("对不起，请输入项目负责人出生日期!");
-                result = false;
-                return;
-            }
+            //DateTime ddProjectMasterBirthday;
+            //if (DateTime.TryParse(txtProjectMasterBirthday.Text, out ddProjectMasterBirthday) == false)
+            //{
+            //    MessageBox.Show("对不起，请输入项目负责人出生日期!");
+            //    result = false;
+            //    return;
+            //}
             if (txtProjectMasterJob.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目负责人职务/职称!");
@@ -173,13 +173,13 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 result = false;
                 return;
             }
-            DateTime ddTeamContactBirthday;
-            if (DateTime.TryParse(txtTeamContactBirthday.Text, out ddTeamContactBirthday) == false)
-            {
-                MessageBox.Show("对不起，请输入项目组联系人出生年月!");
-                result = false;
-                return;
-            }
+            //DateTime ddTeamContactBirthday;
+            //if (DateTime.TryParse(txtTeamContactBirthday.Text, out ddTeamContactBirthday) == false)
+            //{
+            //    MessageBox.Show("对不起，请输入项目组联系人出生年月!");
+            //    result = false;
+            //    return;
+            //}
             if (txtTeamContactJob.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目组联系人职务/职称!");
