@@ -117,7 +117,7 @@ namespace ProjectStrategicLeadershipPlugin
                 writeFileToBookmark(wd, "概述_需求分析", Path.Combine(pt.filesDir, PluginRoot.tnode_2_0_Name) + ".doc", true);
                 writeFileToBookmark(wd, "概述_研究现状", Path.Combine(pt.filesDir, PluginRoot.tnode_2_1_Name) + ".doc", true);
                 writeFileToBookmark(wd, "研究目标", Path.Combine(pt.filesDir, PluginRoot.tnode_3_Name) + ".doc", true);
-                writeFileToBookmark(wd, "研究内容_之间关系", Path.Combine(pt.filesDir, PluginRoot.tnode_4_1_Name) + ".doc", true);
+                //writeFileToBookmark(wd, "研究内容_之间关系", Path.Combine(pt.filesDir, PluginRoot.tnode_4_1_Name) + ".doc", true);
                 writeFileToBookmark(wd, "研究成果_研究成果及考核指标", Path.Combine(pt.filesDir, PluginRoot.tnode_5_0_Name) + ".doc", true);
                 writeFileToBookmark(wd, "研究成果_成果服务方式", Path.Combine(pt.filesDir, PluginRoot.tnode_5_1_Name) + ".doc", true);
                 writeFileToBookmark(wd, "研究基础与保障条件", Path.Combine(pt.filesDir, PluginRoot.tnode_7_Name) + ".doc", true);
