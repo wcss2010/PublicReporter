@@ -33,7 +33,7 @@ namespace ProjectStrategicLeadershipPlugin
         public const string tnode_3_Name = "研究目标";
         public const string tnode_4_Name = "研究内容";
         public const string tnode_5_Name = "研究成果";
-        public const string tnode_5_0_Name = "研究成果";
+        public const string tnode_5_0_Name = "成果内容";
         public const string tnode_5_1_Name = "成果服务方式";
         public const string tnode_6_Name = "研究周期与进度安排 ";
         public const string tnode_7_Name = "研究基础与保障条件";
@@ -597,7 +597,7 @@ namespace ProjectStrategicLeadershipPlugin
         /// 获得文档填报说明
         /// </summary>
         /// <returns></returns>
-        protected string getDocumentPasteReadmeFile()
+        public string getDocumentPasteReadmeFile()
         {
             return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme.rtf"));
         }

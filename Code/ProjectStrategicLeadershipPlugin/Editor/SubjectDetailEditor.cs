@@ -81,7 +81,8 @@ namespace ProjectStrategicLeadershipPlugin.Editor
         {
             base.refreshView();
 
-            lblTitle.Text = "研究内容(" + Name + ")的详细内容页";
+            lblTitle.Text = Name + "------详细内容页";
+            txtReadme.LoadFile(((PluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
         }
 
         public override bool isInputCompleted()
@@ -99,17 +100,17 @@ namespace ProjectStrategicLeadershipPlugin.Editor
 
         private void btnEditContent2_Click(object sender, EventArgs e)
         {
-            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(plSubjectContent2.Tag.ToString().Trim()));
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(btnEditContent2.Tag.ToString().Trim()));
         }
 
         private void btnEditContent3_Click(object sender, EventArgs e)
         {
-            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(plSubjectContent3.Tag.ToString().Trim()));
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(btnEditContent3.Tag.ToString().Trim()));
         }
 
         private void btnEditContent4_Click(object sender, EventArgs e)
         {
-            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(plSubjectContent4.Tag.ToString().Trim()));
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, getDestDocFilePath(btnEditContent4.Tag.ToString().Trim()));
         }
     }
 }
