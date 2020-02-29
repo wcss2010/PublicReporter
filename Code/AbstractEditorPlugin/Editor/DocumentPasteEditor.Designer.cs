@@ -32,6 +32,7 @@
             this.plContent = new System.Windows.Forms.Panel();
             this.txtWordReadme = new System.Windows.Forms.RichTextBox();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent.SuspendLayout();
@@ -46,10 +47,11 @@
             this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
-            this.lblInfo.Location = new System.Drawing.Point(10, 10);
+            this.lblInfo.Location = new System.Drawing.Point(13, 13);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1063, 51);
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1418, 51);
             this.lblInfo.TabIndex = 0;
             // 
             // plContent
@@ -58,9 +60,10 @@
             this.plContent.Controls.Add(this.txtWordReadme);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 61);
+            this.plContent.Location = new System.Drawing.Point(13, 64);
+            this.plContent.Margin = new System.Windows.Forms.Padding(4);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1063, 500);
+            this.plContent.Size = new System.Drawing.Size(1418, 684);
             this.plContent.TabIndex = 1;
             // 
             // txtWordReadme
@@ -68,31 +71,48 @@
             this.txtWordReadme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtWordReadme.Enabled = false;
             this.txtWordReadme.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtWordReadme.Location = new System.Drawing.Point(0, 51);
+            this.txtWordReadme.Location = new System.Drawing.Point(0, 60);
+            this.txtWordReadme.Margin = new System.Windows.Forms.Padding(4);
             this.txtWordReadme.Name = "txtWordReadme";
             this.txtWordReadme.ReadOnly = true;
-            this.txtWordReadme.Size = new System.Drawing.Size(1063, 449);
+            this.txtWordReadme.Size = new System.Drawing.Size(1418, 624);
             this.txtWordReadme.TabIndex = 2;
             this.txtWordReadme.Text = "";
             // 
             // plButtons
             // 
+            this.plButtons.Controls.Add(this.label1);
             this.plButtons.Controls.Add(this.btnEditDocument);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.plButtons.Location = new System.Drawing.Point(0, 0);
+            this.plButtons.Margin = new System.Windows.Forms.Padding(4);
             this.plButtons.Name = "plButtons";
-            this.plButtons.Padding = new System.Windows.Forms.Padding(10);
-            this.plButtons.Size = new System.Drawing.Size(1063, 51);
+            this.plButtons.Padding = new System.Windows.Forms.Padding(13);
+            this.plButtons.Size = new System.Drawing.Size(1418, 60);
             this.plButtons.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("仿宋", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1218, 34);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "请先仔细阅读下面的说明文字,然后再点击\"使用Word编辑该文档\"按钮！";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnEditDocument
             // 
             this.btnEditDocument.BackColor = System.Drawing.SystemColors.Control;
             this.btnEditDocument.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEditDocument.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnEditDocument.Location = new System.Drawing.Point(883, 10);
+            this.btnEditDocument.Location = new System.Drawing.Point(1231, 13);
+            this.btnEditDocument.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditDocument.Name = "btnEditDocument";
-            this.btnEditDocument.Size = new System.Drawing.Size(170, 31);
+            this.btnEditDocument.Size = new System.Drawing.Size(174, 34);
             this.btnEditDocument.TabIndex = 0;
             this.btnEditDocument.Text = "使用Word编辑该文档";
             this.btnEditDocument.UseVisualStyleBackColor = false;
@@ -106,18 +126,20 @@
             this.plMain.Location = new System.Drawing.Point(0, 0);
             this.plMain.Margin = new System.Windows.Forms.Padding(0);
             this.plMain.Name = "plMain";
-            this.plMain.Padding = new System.Windows.Forms.Padding(10);
-            this.plMain.Size = new System.Drawing.Size(1083, 571);
+            this.plMain.Padding = new System.Windows.Forms.Padding(13);
+            this.plMain.Size = new System.Drawing.Size(1444, 761);
             this.plMain.TabIndex = 0;
             // 
             // DocumentPasteEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
+            this.Font = new System.Drawing.Font("仿宋", 12F);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DocumentPasteEditor";
-            this.Size = new System.Drawing.Size(1083, 571);
+            this.Size = new System.Drawing.Size(1444, 761);
             this.plContent.ResumeLayout(false);
             this.plButtons.ResumeLayout(false);
             this.plMain.ResumeLayout(false);
@@ -133,5 +155,6 @@
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.RichTextBox txtWordReadme;
+        private System.Windows.Forms.Label label1;
     }
 }

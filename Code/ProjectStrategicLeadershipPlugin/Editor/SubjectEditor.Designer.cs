@@ -39,7 +39,6 @@
             this.lblInfo = new AbstractEditorPlugin.Controls.AutoHeightLabel();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKeTiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChengDanDanWeiMingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMakePage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewImageColumn();
@@ -105,7 +104,6 @@
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selpersonid,
             this.colKeTiMingCheng,
-            this.colChengDanDanWeiMingCheng,
             this.colMakePage,
             this.delete,
             this.colDetail});
@@ -173,13 +171,6 @@
             this.colKeTiMingCheng.ReadOnly = true;
             this.colKeTiMingCheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // colChengDanDanWeiMingCheng
-            // 
-            this.colChengDanDanWeiMingCheng.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colChengDanDanWeiMingCheng.HeaderText = "责任单位通信地址";
-            this.colChengDanDanWeiMingCheng.Name = "colChengDanDanWeiMingCheng";
-            this.colChengDanDanWeiMingCheng.ReadOnly = true;
-            // 
             // colMakePage
             // 
             this.colMakePage.HeaderText = "";
@@ -237,7 +228,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn selpersonid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKeTiMingCheng;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChengDanDanWeiMingCheng;
         private System.Windows.Forms.DataGridViewButtonColumn colMakePage;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn colDetail;
