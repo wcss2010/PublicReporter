@@ -17,13 +17,11 @@ namespace ProjectStrategicLeadershipPlugin
 {
     public class PluginRoot : AbstractEditorPlugin.AbstractPluginRoot
     {
-        public const string button1_Name = "项目管理";
-        public const string button2_Name = "新建项目";
-        public const string button3_Name = "导入数据包";
-        public const string button4_Name = "保存所有";
-        public const string button5_Name = "生成报告";
-        public const string button6_Name = "导出数据包";
-        public const string button7_Name = "帮助";
+        public const string button1_Name = "新建项目";
+        public const string button2_Name = "生成报告";
+        public const string button3_Name = "导出数据包";
+        public const string button4_Name = "数据包管理";
+        public const string button5_Name = "帮助";
 
         public const string tnode_0_Name = "基本信息";
         public const string tnode_1_Name = "项目摘要";
@@ -238,111 +236,20 @@ namespace ProjectStrategicLeadershipPlugin
         void topButton_Click(object sender, EventArgs e)
         {
             ToolStripButton button = ((ToolStripButton)sender);
+
             switch (button.Text)
             {
                 case button1_Name:
-                    //项目管理
-                    FrmProjectManager manager = new FrmProjectManager();
-                    manager.ShowDialog();
-                    break;
-                case button2_Name:
-                    //新建项目
+                    #region 新建项目
                     if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //新建项目
                         rebuildProject();
                     }
+                    #endregion
                     break;
-                case button3_Name:
-                    //导入数据包
-                    OpenFileDialog ofd = new OpenFileDialog();
-                    ofd.Filter = "ZIP申报包|*.zip";
-                    if (ofd.ShowDialog() == DialogResult.OK)
-                    {
-                        if (MessageBox.Show("真的要导入吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            CircleProgressBarDialog dialogb = new CircleProgressBarDialog();
-                            dialogb.TransparencyKey = dialogb.BackColor;
-                            dialogb.ProgressBar.ForeColor = Color.Red;
-                            dialogb.MessageLabel.ForeColor = Color.Blue;
-                            dialogb.FormBorderStyle = FormBorderStyle.None;
-                            dialogb.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
-                                {
-                                    CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
-
-                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 10, "准备导入...", 600);
-
-                                    string uuid = projectObj != null ? ((Projects)projectObj).ID : string.Empty;
-
-                                    //关闭连接
-                                    closeDB();
-
-                                    //当前项目目录
-                                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
-
-                                    //backup
-                                    string backupPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), uuid);
-
-                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 20, "清空当前目录...", 600);
-
-                                    //检查是否需要备份
-                                    if (uuid != null && uuid.Length >= 2)
-                                    {
-                                        //移动backupDir
-                                        if (System.IO.Directory.Exists(backupPath))
-                                        {
-                                            System.IO.Directory.Delete(backupPath, true);
-                                        }
-                                        //备份当前
-                                        System.IO.Directory.Move(currentPath, backupPath);
-                                    }
-                                    else
-                                    {
-                                        //直接删除Current
-                                        if (System.IO.Directory.Exists(currentPath))
-                                        {
-                                            System.IO.Directory.Delete(currentPath, true);
-                                        }
-                                    }
-
-                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 30, "创建导入目录...", 600);
-
-                                    //创建当前目录
-                                    try
-                                    {
-                                        Directory.CreateDirectory(currentPath);
-                                    }
-                                    catch (Exception ex) { }
-
-                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 40, "正在导入...", 600);
-
-                                    //解压
-                                    new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, currentPath, string.Empty, true);
-
-                                    AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导入完成，正在刷新...", 600);
-
-                                    //重新载入工程
-                                    reloadProject(senderForm);                                    
-                                }));
-                        }
-                    }
-                    break;
-                case button4_Name:
-                    //保存所有
-                    if (projectObj == null)
-                    {
-                        MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
-                        return;
-                    }
-
-                    //更新保存日期
-                    updateSaveDate();
-
-                    //保存所有
-                    saveAllWithNoResult();
-                    break;
-                case button5_Name:
-                    //生成报告
+                case button2_Name:
+                    #region 生成报告
                     if (projectObj == null)
                     {
                         MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
@@ -359,9 +266,10 @@ namespace ProjectStrategicLeadershipPlugin
                         //word预览
                         WordPrinter.wordOutput(((CircleProgressBarDialog)thisObject));
                     }));
+                    #endregion
                     break;
-                case button6_Name:
-                    //导出数据包
+                case button3_Name:
+                    #region 导出数据包
                     if (projectObj == null)
                     {
                         MessageBox.Show("对不起，请先填写项目信息，然后再继续！");
@@ -435,11 +343,19 @@ namespace ProjectStrategicLeadershipPlugin
                             }));
                         }
                     }
+                    #endregion
                     break;
-                case button7_Name:
-                    //帮助
+                case button4_Name:
+                    #region 数据包管理
+                    FrmProjectManager manager = new FrmProjectManager();
+                    manager.ShowDialog();
+                    #endregion
+                    break;
+                case button5_Name:
+                    #region 帮助
                     FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(RootDir, Path.Combine("Helper", "help.rtf")));
                     helpBox.ShowDialog();
+                    #endregion
                     break;
             }
         }
@@ -483,32 +399,29 @@ namespace ProjectStrategicLeadershipPlugin
             //隐藏默认的分隔符
             hideSysSeparator();
 
-            //添加项目管理按钮
-            addTopButton(Resource.manager, Guid.NewGuid().ToString(), button1_Name, new System.Drawing.Size(53, 56));
+            //新建项目
+            addTopButton(Resource.w5, Guid.NewGuid().ToString(), button1_Name, new System.Drawing.Size(53, 56));
 
-            //添加新建项目
-            addTopButton(Resource.w5, Guid.NewGuid().ToString(), button2_Name, new System.Drawing.Size(53, 56));
+            //生成报告
+            addTopButton(Resource.word, Guid.NewGuid().ToString(), button2_Name, new System.Drawing.Size(53, 56));
 
-            //添加导入项目按钮
-            addTopButton(Resource.import, Guid.NewGuid().ToString(), button3_Name, new System.Drawing.Size(53, 56));
-
-            //添加分割符
-            addToTopToolStrip(getTopSeparator());
-
-            //添加保存所有按钮
-            addTopButton(Resource._new, Guid.NewGuid().ToString(), button4_Name, new System.Drawing.Size(53, 56));
-
-            //添加生成报告按钮
-            addTopButton(Resource.word, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
-
-            //添加导出项目按钮
-            addTopButton(Resource.export, Guid.NewGuid().ToString(), button6_Name, new System.Drawing.Size(53, 56));
+            //导出数据包
+            addTopButton(Resource._new, Guid.NewGuid().ToString(), button3_Name, new System.Drawing.Size(53, 56));
 
             //添加分割符
             addToTopToolStrip(getTopSeparator());
 
-            //添加帮助按钮
-            addTopButton(Resource.help, Guid.NewGuid().ToString(), button7_Name, new System.Drawing.Size(53, 56));
+            //数据包管理
+            addTopButton(Resource.manager, Guid.NewGuid().ToString(), button4_Name, new System.Drawing.Size(53, 56));
+
+            //添加分割符
+            addToTopToolStrip(getTopSeparator());
+
+            //帮助
+            addTopButton(Resource.help, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
+
+            //添加分割符
+            addToTopToolStrip(getTopSeparator());
         }
 
         /// <summary>
