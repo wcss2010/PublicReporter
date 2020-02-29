@@ -198,7 +198,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 result = false;
                 return;
             }
-            if (txtTeamContactAddress.Text == string.Empty)
+            if (txtTeamContactAddress.getAddress() == string.Empty)
             {
                 MessageBox.Show("对不起，请输入项目组联系人通信地址!");
                 result = false;
@@ -226,7 +226,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             proj.TeamContactJob = txtTeamContactJob.Text;
             proj.TeamContactTelephone = txtTeamContactTelephone.Text;
             proj.TeamContactMobilephone = txtTeamContactMobilephone.Text;
-            proj.TeamContactAddress = txtTeamContactAddress.Text;
+            proj.TeamContactAddress = txtTeamContactAddress.getAddress();
 
             //更新数据库
             if (string.IsNullOrEmpty(proj.ID))

@@ -371,6 +371,7 @@
             // txtUnitAddress
             // 
             this.txtUnitAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUnitAddress.Enabled = false;
             this.txtUnitAddress.EnabledEditAddressDetail = true;
             this.txtUnitAddress.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtUnitAddress.Location = new System.Drawing.Point(107, 0);

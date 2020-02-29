@@ -134,9 +134,6 @@ namespace ProjectStrategicLeadershipPlugin
                 //课题附件头
                 string subjectFileHeadString = ProjectStrategicLeadershipPlugin.Editor.SubjectDetailEditor.SubjectFileFlag;
 
-                //课题名称字典
-                Dictionary<string, string> subjectNameDict = new Dictionary<string, string>();
-
                 StringBuilder sb = new StringBuilder();
 
                 #region 生成----(附件文件2)
@@ -174,11 +171,14 @@ namespace ProjectStrategicLeadershipPlugin
 
                 //旧的缩进样式
                 double oldFirstLineIndent = wd.WordDocBuilder.ParagraphFormat.FirstLineIndent;
-                
+
+                int indexxx = 0;
                 //生成内容书签
                 foreach (Subjects sub in subjectList)
                 {
-                    string indexStringg = subjectNameDict[sub.ID];
+                    indexxx++;
+
+                    string indexStringg = "研究内容" + indexxx;
 
                     //应用数字样式
                     wd.WordDocBuilder.ListFormat.List = flag22_numberList;
@@ -456,9 +456,12 @@ namespace ProjectStrategicLeadershipPlugin
                 #endregion
 
                 #region 插入研究内容附件
+                indexxx = 0;
                 foreach (Subjects sub in subjectList)
                 {
-                    string indexStringg = subjectNameDict[sub.ID];
+                    indexxx++;
+
+                    string indexStringg = "研究内容" + indexxx;
 
                     string file1Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_具体研究内容.doc");
                     string file2Path = Path.Combine(pt.filesDir, subjectFileHeadString + sub.SubjectName + "_关键问题.doc");
