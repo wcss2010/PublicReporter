@@ -452,7 +452,26 @@ namespace ProjectStrategicLeadershipPlugin
         /// <returns></returns>
         public override bool exportTo(string destPkgFile)
         {
-            return false;
+            try
+            {
+                //关闭连接
+                closeDB();
+
+                //当前项目目录
+                string currentPath = Path.Combine(Path.Combine(RootDir, "Data"), "Current");
+
+                //压缩
+                new PublicReporterLib.Utility.ZipUtil().ZipFileDirectory(currentPath, destPkgFile);
+
+                //打开数据库
+                openDB();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
