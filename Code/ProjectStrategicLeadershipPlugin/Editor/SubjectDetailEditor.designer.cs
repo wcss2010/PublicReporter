@@ -140,10 +140,10 @@
             // txtReadme
             // 
             this.txtReadme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtReadme.Enabled = false;
             this.txtReadme.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtReadme.Location = new System.Drawing.Point(0, 55);
             this.txtReadme.Name = "txtReadme";
-            this.txtReadme.ReadOnly = true;
             this.txtReadme.Size = new System.Drawing.Size(842, 403);
             this.txtReadme.TabIndex = 4;
             this.txtReadme.Text = "";
