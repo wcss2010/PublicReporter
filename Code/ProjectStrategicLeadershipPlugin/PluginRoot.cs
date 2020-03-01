@@ -179,7 +179,7 @@ namespace ProjectStrategicLeadershipPlugin
             //（二）、研究团队(自定义列表)
             editorMap[tnode_8_1_Name] = new DocumentPasteEditor("研究团队", "简要介绍本项目除项目负责人外的各项研究内容负责人情况，包括职务职称、教育工作履历、主要学术成就、人才计划资助情况等，限500字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。 ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
             //（三）、主要成员情况表(自定义列表)
-            editorMap[tnode_8_2_Name] = new Editor.WorkerEditor(); 
+            editorMap[tnode_8_2_Name] = new Editor.WorkerEditor();
             //八、经费预算表(自定义列表)
             editorMap[tnode_9_Name] = new Editor.MoneyTableEditor();
             //九、联系方式
@@ -195,7 +195,7 @@ namespace ProjectStrategicLeadershipPlugin
             {
                 //if (string.IsNullOrEmpty(kvp.Value.EditorName))
                 //{
-                    kvp.Value.EditorName = kvp.Key;
+                kvp.Value.EditorName = kvp.Key;
                 //}
             }
             #endregion
@@ -243,8 +243,20 @@ namespace ProjectStrategicLeadershipPlugin
                     #region 新建项目
                     if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        //新建项目
-                        rebuildProject("");
+                        //检查前先关闭数据库
+                        closeDB();
+                        if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(dataDir))
+                        {
+                            //检查后打开数据库
+                            openDB();
+
+                            MessageBox.Show("对不起，新建失败，可能是您打开了某些文件或目录没有关闭！");
+                        }
+                        else
+                        {
+                            //新建项目
+                            rebuildProject("");
+                        }
                     }
                     #endregion
                     break;
