@@ -116,7 +116,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("对不起，项目加载失败！Ex:" + ex.ToString());
+                                MessageBox.Show("对不起，编辑该数据包失败！可能是因为您打开了某些文件(可能是word文档)没有关闭导致的，请关闭后重试！详细:" + ex.ToString());
                             }
                         }
                     }

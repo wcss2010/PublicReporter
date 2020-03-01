@@ -329,7 +329,7 @@ namespace ProjectStrategicLeadershipPlugin
         /// 获得新的导出包名字
         /// </summary>
         /// <returns></returns>
-        protected string getNewExportZipName()
+        public string getNewExportZipName()
         {
             Projects projObj = (Projects)projectObj;
             return projObj.ProjectName + "-" + projObj.UnitName + "-" + projObj.UnitContact + ".zip";
