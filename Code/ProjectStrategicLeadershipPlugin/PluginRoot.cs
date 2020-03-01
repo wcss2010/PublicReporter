@@ -370,6 +370,14 @@ namespace ProjectStrategicLeadershipPlugin
                 //切换到这个目录，并备份当前目录
                 switchProject(destProjectDir.Name);
             }
+            else
+            {
+                //检查前先关闭数据库
+                closeDB();
+
+                //检查后打开数据库
+                openDB();
+            }
 
             return true;
         }
