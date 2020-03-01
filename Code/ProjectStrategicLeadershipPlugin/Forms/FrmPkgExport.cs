@@ -25,19 +25,28 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         {
             btnOK.Enabled = false;
             btnCancel.Enabled = false;
-            Enabled = false;
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "ZIP申报包|*.zip";
             sfd.FileName = ((PluginRoot)PluginRootObj).getNewExportZipName();
             if (sfd.ShowDialog() == DialogResult.OK)
             {
+                //检查前先关闭数据库
+                PluginRootObj.closeDB();
+
                 if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(PluginRootObj.dataDir))
                 {
+                    //检查后打开数据库
+                    PluginRootObj.openDB();
+
                     MessageBox.Show("对不起，导出失败，可能是您打开了某些文件或目录没有关闭！");
+                    Close();
                 }
                 else
                 {
+                    //检查后打开数据库
+                    PluginRootObj.openDB();
+
                     CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
                     dialoga.TransparencyKey = dialoga.BackColor;
                     dialoga.ProgressBar.ForeColor = Color.Red;
@@ -67,6 +76,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         catch (Exception ex)
                         {
                             MessageBox.Show("对不起，操作错误请检查！Ex：" + ex.ToString());
+                            Close();
                         }
                         finally
                         {
