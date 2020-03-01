@@ -49,7 +49,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             {
                 if (hasErrorSubjectName())
                 {
-                    MessageBox.Show("对不起，研究内容名称中包括非法字符(/, \\, :, *, ?, \", <, >, |)！", "错误");
+                    MessageBox.Show("对不起，研究内容名称中包括非法字符(/, \\, :, *, ?, \", <, >, |,回车符，换行符等)！", "错误");
                     return;
                 }
                 else
@@ -72,7 +72,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
         private bool hasErrorSubjectName()
         {
-            string[] errorStrs = new string[] { "/", "\\", ":", "*", "?", "\"", "<", ">", "|" };
+            string[] errorStrs = new string[] { "/", "\\", ":", "*", "?", "\"", "<", ">", "|","\r","\n" };
             bool result = false;
             foreach (string ss in errorStrs)
             {
