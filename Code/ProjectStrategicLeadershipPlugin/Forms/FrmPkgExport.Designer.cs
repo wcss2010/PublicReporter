@@ -33,12 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnModifyWords = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnCancel.Location = new System.Drawing.Point(347, 121);
+            this.btnCancel.Location = new System.Drawing.Point(346, 161);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(85, 31);
@@ -50,7 +51,7 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnOK.Location = new System.Drawing.Point(229, 121);
+            this.btnOK.Location = new System.Drawing.Point(228, 161);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(85, 31);
@@ -90,11 +91,22 @@
             this.btnModifyWords.UseVisualStyleBackColor = true;
             this.btnModifyWords.Click += new System.EventHandler(this.btnModifyWords_Click);
             // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(0, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(689, 43);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "3.导出前请确保生成的文档已经关闭。";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FrmPkgExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 174);
+            this.ClientSize = new System.Drawing.Size(689, 206);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnModifyWords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnModifyWords;
+        private System.Windows.Forms.Label label3;
     }
 }
