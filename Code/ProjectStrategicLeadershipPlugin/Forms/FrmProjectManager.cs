@@ -131,7 +131,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("对不起，操作错误请检查！Ex:" + ex.ToString());
+                                    MessageBox.Show("对不起，请检查您是否打开了某个word文件或目录没有关闭，然后重试！");
                                 }
                             }
                         }
@@ -178,7 +178,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("对不起，操作错误请检查！Ex:" + ex.ToString());
+                                    MessageBox.Show("对不起，请检查您是否打开了某个word文件或目录没有关闭，然后重试！");
                                 }
 
                                 updateProjects();
