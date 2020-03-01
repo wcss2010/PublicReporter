@@ -165,6 +165,12 @@
     <Compile Include="Forms\FrmPersonImporter.Designer.cs">
       <DependentUpon>FrmPersonImporter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmPkgExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPkgExport.Designer.cs">
+      <DependentUpon>FrmPkgExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmProjectManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPersonImporter.resx">
       <DependentUpon>FrmPersonImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPkgExport.resx">
+      <DependentUpon>FrmPkgExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>

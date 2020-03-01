@@ -307,42 +307,7 @@ namespace ProjectStrategicLeadershipPlugin
                         return;
                     }
 
-                    SaveFileDialog sfd = new SaveFileDialog();
-                    sfd.Filter = "ZIP申报包|*.zip";
-                    sfd.FileName = getNewExportZipName();
-                    if (sfd.ShowDialog() == DialogResult.OK)
-                    {
-                        if (MessageBox.Show("真的要导出吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
-                            dialoga.TransparencyKey = dialoga.BackColor;
-                            dialoga.ProgressBar.ForeColor = Color.Red;
-                            dialoga.MessageLabel.ForeColor = Color.Blue;
-                            dialoga.FormBorderStyle = FormBorderStyle.None;
-                            dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
-                            {
-                                CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
-
-                                AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 10, "准备导出...", 600);
-
-                                //关闭连接
-                                closeDB();
-
-                                //当前项目目录
-                                string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
-
-                                AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 20, "正在导出...", 600);
-
-                                //压缩
-                                new PublicReporterLib.Utility.ZipUtil().ZipFileDirectory(currentPath, sfd.FileName);
-
-                                AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导出完成...", 600);
-
-                                //打开数据库
-                                openDB();
-                            }));
-                        }
-                    }
+                    new FrmPkgExport().ShowDialog();
                     #endregion
                     break;
                 case button4_Name:
