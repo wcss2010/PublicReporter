@@ -35,24 +35,22 @@
             // 
             this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(4);
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(687, 568);
+            this.txtContent.Size = new System.Drawing.Size(784, 375);
             this.txtContent.TabIndex = 0;
             this.txtContent.Text = "";
             // 
             // FrmHelpBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 568);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(784, 375);
             this.Controls.Add(this.txtContent);
-            this.DoubleBuffered = true;
-            this.MaximizeBox = false;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimizeBox = false;
             this.Name = "FrmHelpBox";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "帮助";
             this.ResumeLayout(false);
 
