@@ -187,7 +187,7 @@ namespace ProjectStrategicLeadershipPlugin
             //附件1-项目经费预算说明(DocumentPasteEditor-带特定模板)
             editorMap[tnode_10_Name] = new DocumentPasteEditor("项目经费预算说明", "（介绍本项目预算依据、内容构成、具体安排，应能够支撑对项目经费预算合理性进行审核评估） ", Path.Combine(RootDir, Path.Combine("Helper", "moneyPaste.doc")), getDocumentPasteReadmeFile());
             //附件2-保密资质复印件(DocumentPasteEditor-带特定模板)
-            editorMap[tnode_11_Name] = new DocumentPasteEditor("保密资质复印件", "若该项目内容涉密，请申报单位提供与项目内容密级相应的保密资质复印件", Path.Combine(RootDir, Path.Combine("Helper", "secretPaste.doc")), getDocumentPasteReadmeFile());
+            editorMap[tnode_11_Name] = new DocumentPasteEditor("保密资质复印件", "若该项目内容涉密，请申报单位提供与项目内容密级相应的保密资质复印件", Path.Combine(RootDir, Path.Combine("Helper", "secretPaste.doc")), getDocumentPasteReadmeFile2());
             #endregion
 
             #region 检查哪个Editor没有设置Name
@@ -513,6 +513,15 @@ namespace ProjectStrategicLeadershipPlugin
         public string getDocumentPasteReadmeFile()
         {
             return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme.rtf"));
+        }
+
+        /// <summary>
+        /// 获得文档填报说明2
+        /// </summary>
+        /// <returns></returns>
+        public string getDocumentPasteReadmeFile2()
+        {
+            return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme2.rtf"));
         }
     }
 }
