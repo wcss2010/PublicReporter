@@ -512,5 +512,15 @@ namespace ProjectSocialFundPlugin
                 }
             }
         }
+
+        public override bool rebuildProject(string projName)
+        {
+            return false;
+        }
+
+        public override bool switchProject(string projName)
+        {
+            return false;
+        }
     }
 }

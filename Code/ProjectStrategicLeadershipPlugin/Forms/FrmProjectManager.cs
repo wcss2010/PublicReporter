@@ -111,7 +111,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         {
                             try
                             {
-                                switchToCurrent(tvProject.SelectedNode.Name);
+                                PluginRootObj.switchProject(tvProject.SelectedNode.Name);
                                 Close();
                             }
                             catch (Exception ex)
@@ -132,47 +132,6 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         private string getPkgDir(string pkgDirName)
         {
             return System.IO.Path.Combine(System.IO.Path.Combine(PluginRootObj.RootDir, "Data"), pkgDirName);
-        }
-
-        /// <summary>
-        /// 切换到编辑状态
-        /// </summary>
-        /// <param name="pkgDirName"></param>
-        private void switchToCurrent(string pkgDirName)
-        {
-            string ddDir = System.IO.Path.Combine(PluginRootObj.RootDir, "Data");
-
-            //项目ID
-            string projId = PluginRootObj.projectObj != null ? ((Projects)PluginRootObj.projectObj).ID : Guid.NewGuid().ToString();
-
-            //临时目录名
-            string tempDirName = projId + "_" + DateTime.Now.Ticks;
-
-            //关闭连接
-            PluginRootObj.closeDB();
-
-            //当前项目目录
-            string currentPath = System.IO.Path.Combine(ddDir, "Current");
-
-            //目标目录
-            string destPath = System.IO.Path.Combine(ddDir, tempDirName);
-
-            //移动当前目录
-            if (System.IO.Directory.Exists(currentPath))
-            {
-                if (System.IO.Directory.Exists(destPath))
-                {
-                    System.IO.Directory.Delete(destPath, true);
-                }
-
-                System.IO.Directory.Move(currentPath, destPath);
-            }
-
-            //将这个目录切换为当前目录
-            System.IO.Directory.Move(System.IO.Path.Combine(ddDir, pkgDirName), currentPath);
-
-            //重新载入工程
-            PluginRootObj.reloadProject();
         }
 
         private void btnDel_Click(object sender, EventArgs e)

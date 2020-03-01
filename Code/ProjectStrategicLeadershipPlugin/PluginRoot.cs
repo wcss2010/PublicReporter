@@ -244,7 +244,7 @@ namespace ProjectStrategicLeadershipPlugin
                     if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //新建项目
-                        rebuildProject();
+                        rebuildProject("");
                     }
                     #endregion
                     break;
@@ -373,22 +373,76 @@ namespace ProjectStrategicLeadershipPlugin
         /// <summary>
         /// 新建工程
         /// </summary>
-        public void rebuildProject()
+        public override bool rebuildProject(string projName)
         {
-            //关闭连接
-            closeDB();
+            string ddDir = Path.Combine(RootDir, "Data");
+            DirectoryInfo destProjectDir = new DirectoryInfo(Path.Combine(ddDir, Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks));
 
-            //当前项目目录
-            string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
-
-            //移动当前目录
-            if (System.IO.Directory.Exists(currentPath))
+            //创建一个空目录
+            try
             {
-                System.IO.Directory.Delete(currentPath, true);
+                destProjectDir.Create();
+            }
+            catch (Exception ex) { }
+
+            if (projectObj != null && !string.IsNullOrEmpty(((Projects)projectObj).ID))
+            {
+                //切换到这个目录，并备份当前目录
+                switchProject(destProjectDir.Name);
             }
 
-            //重新载入工程
-            reloadProject();
+            return true;
+        }
+
+        /// <summary>
+        /// 切换工程
+        /// </summary>
+        /// <param name="projName"></param>
+        /// <returns></returns>
+        public override bool switchProject(string projName)
+        {
+            try
+            {
+                string ddDir = System.IO.Path.Combine(RootDir, "Data");
+
+                //项目ID
+                string projId = projectObj != null ? ((Projects)projectObj).ID : Guid.NewGuid().ToString();
+
+                //临时目录名
+                string tempDirName = projId + "_" + DateTime.Now.Ticks;
+
+                //关闭连接
+                closeDB();
+
+                //当前项目目录
+                string currentPath = System.IO.Path.Combine(ddDir, "Current");
+
+                //目标目录
+                string destPath = System.IO.Path.Combine(ddDir, tempDirName);
+
+                //移动当前目录
+                if (System.IO.Directory.Exists(currentPath))
+                {
+                    if (System.IO.Directory.Exists(destPath))
+                    {
+                        System.IO.Directory.Delete(destPath, true);
+                    }
+
+                    System.IO.Directory.Move(currentPath, destPath);
+                }
+
+                //将这个目录切换为当前目录
+                System.IO.Directory.Move(System.IO.Path.Combine(ddDir, projName), currentPath);
+
+                //重新载入工程
+                reloadProject();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
