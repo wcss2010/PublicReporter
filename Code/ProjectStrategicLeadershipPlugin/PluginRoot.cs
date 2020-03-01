@@ -378,15 +378,15 @@ namespace ProjectStrategicLeadershipPlugin
             string ddDir = Path.Combine(RootDir, "Data");
             DirectoryInfo destProjectDir = new DirectoryInfo(Path.Combine(ddDir, Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks));
 
-            //创建一个空目录
-            try
-            {
-                destProjectDir.Create();
-            }
-            catch (Exception ex) { }
-
             if (projectObj != null && !string.IsNullOrEmpty(((Projects)projectObj).ID))
             {
+                //创建一个空目录
+                try
+                {
+                    destProjectDir.Create();
+                }
+                catch (Exception ex) { }
+
                 //切换到这个目录，并备份当前目录
                 switchProject(destProjectDir.Name);
             }
