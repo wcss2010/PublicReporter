@@ -52,9 +52,9 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 cells.Add(data.IDCard);
                 cells.Add(data.UnitName);
                 cells.Add(data.Job);
-                cells.Add(data.Specialty);                
+                cells.Add(data.Specialty);
                 cells.Add(data.TaskContent);
-                
+
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;
             }
@@ -96,7 +96,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                         ConnectionManager.Context.table("Persons").where("ID='" + ((Persons)dgvDetail.Rows[e.RowIndex].Tag).ID + "'").delete();
 
                         //刷新列表
-                        PluginRootObj.refreshEditors(); ;
+                        PluginRootObj.refreshEditors();
                     }
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
@@ -106,29 +106,43 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                     feo.OrderNum = pp.DisplayOrder;
                     if (feo.ShowDialog() == DialogResult.OK)
                     {
-                        pp.DisplayOrder = (int)feo.OrderNum;
-                        pp.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + pp.ID + "'").update();
-
                         //对后面的记录重新排序
-                        reorderPersonList(pp);
+                        reorderPersonList(pp, (int)feo.OrderNum);
 
+                        //刷新列表
                         PluginRootObj.refreshEditors();
                     }
                 }
             }
         }
 
-        private void reorderPersonList(Persons pObj)
+        private void reorderPersonList(Persons pObj, int newPersonIndex)
         {
-            foreach (Persons pp in list)
+            if (pObj.DisplayOrder != newPersonIndex)
             {
-                if (pp == pObj)
+                int pIndex = newPersonIndex - 1;
+
+                if (pIndex >= list.Count - 1)
                 {
-                    continue;
+                    list.Remove(pObj);
+                    list.Add(pObj);
                 }
-                else if (pp.DisplayOrder >= pObj.DisplayOrder)
+                else if (pIndex <= 0)
                 {
-                    pp.DisplayOrder++;
+                    list.Remove(pObj);
+                    list.Insert(0, pObj);
+                }
+                else
+                {
+                    list.Remove(pObj);
+                    list.Insert(pIndex, pObj);
+                }
+
+                int rindexx = 0;
+                foreach (Persons pp in list)
+                {
+                    rindexx++;
+                    pp.DisplayOrder = rindexx;
                     pp.copyTo(ConnectionManager.Context.table("Persons")).where("ID='" + pp.ID + "'").update();
                 }
             }
