@@ -148,16 +148,25 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     {
                         if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                         {
-                            try
-                            {
-                                System.IO.Directory.Delete(getPkgDir(tvProject.SelectedNode.Name), true);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("删除错误！Ex:" + ex.ToString());
-                            }
+                            string projDir = getPkgDir(tvProject.SelectedNode.Name);
 
-                            updateProjects();
+                            if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(projDir))
+                            {
+                                MessageBox.Show("对不起，删除失败，因为您可能打开了某些文件或目录没有关闭！");
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    System.IO.Directory.Delete(projDir, true);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("对不起，操作错误请检查！Ex:" + ex.ToString());
+                                }
+
+                                updateProjects();
+                            }
                         }
                     }
                 }

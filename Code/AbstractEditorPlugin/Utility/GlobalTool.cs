@@ -121,14 +121,17 @@ namespace AbstractEditorPlugin.Utility
                     }
                 }
             }
-            //检查文件
-            string[] filesss = Directory.GetFiles(path);
-            foreach (string s in filesss)
+            if (result == false)
             {
-                result = isFileUsing(s);
-                if (result)
+                //检查文件
+                string[] filesss = Directory.GetFiles(path);
+                foreach (string s in filesss)
                 {
-                    break;
+                    result = isFileUsing(s);
+                    if (result)
+                    {
+                        break;
+                    }
                 }
             }
             return result;
