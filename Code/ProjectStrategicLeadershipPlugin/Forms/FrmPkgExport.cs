@@ -13,6 +13,23 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         public FrmPkgExport()
         {
             InitializeComponent();
+
+            llMainDocument.Text = "使用word打开'" + WordPrinter.outputDocFileName + "'";
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void llMainDocument_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }
