@@ -14,7 +14,7 @@ namespace AbstractEditorPlugin.Utility
         /// </summary>
         /// <param name="str_telephone"></param>
         /// <returns></returns>
-        public static bool IsTelephone(string str_telephone)
+        public static bool isTelephone(string str_telephone)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(str_telephone, @"^(\d{3,4}-)?\d{6,8}$");
         }
@@ -24,7 +24,7 @@ namespace AbstractEditorPlugin.Utility
         /// </summary>
         /// <param name="str_handset"></param>
         /// <returns></returns>
-        public static bool IsHandset(string str_handset)
+        public static bool isHandset(string str_handset)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"^[1]+[2,3,4,5,6,7,8,9]+\d{9}");
         }
@@ -34,7 +34,7 @@ namespace AbstractEditorPlugin.Utility
         /// </summary>
         /// <param name="str_idcard"></param>
         /// <returns></returns>
-        public static bool IsIDcard(string str_idcard)
+        public static bool isIDcard(string str_idcard)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(str_idcard, @"(^\d{18}$)|(^\d{15}$)");
         }
@@ -44,7 +44,7 @@ namespace AbstractEditorPlugin.Utility
         /// </summary>
         /// <param name="str_number"></param>
         /// <returns></returns>
-        public static bool IsNumber(string str_number)
+        public static bool isNumber(string str_number)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(str_number, @"^[0-9]*$");
         }
@@ -54,7 +54,7 @@ namespace AbstractEditorPlugin.Utility
         /// </summary>
         /// <param name="str_postalcode"></param>
         /// <returns></returns>
-        public static bool IsPostalcode(string str_postalcode)
+        public static bool isPostalcode(string str_postalcode)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(str_postalcode, @"^\d{6}$");
         }

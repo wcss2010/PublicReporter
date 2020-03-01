@@ -177,7 +177,7 @@ namespace ProjectStrategicLeadershipPlugin
                 foreach (ProjectStep ps in projectstepList)
                 {
                     ssssIndex++;
-                    sb.Append("     ").Append("（").Append(GlobalTool.NumberToChinese(ssssIndex.ToString())).Append("）第").Append(GlobalTool.NumberToChinese(ssssIndex.ToString())).Append("阶段：").Append(ps.StepTime).AppendLine("月");
+                    sb.Append("     ").Append("（").Append(GlobalTool.numberToChinese(ssssIndex.ToString())).Append("）第").Append(GlobalTool.numberToChinese(ssssIndex.ToString())).Append("阶段：").Append(ps.StepTime).AppendLine("月");
                     sb.Append("     ").Append("阶段成果：").AppendLine(ps.StepTag1);
                 }
                 #endregion

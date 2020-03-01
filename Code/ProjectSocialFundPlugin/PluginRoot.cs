@@ -81,7 +81,7 @@ namespace ProjectSocialFundPlugin
             else
             {
                 //复制DataTemplete中的Current到Data中
-                FileOp.CopyDirectory(Path.Combine(RootDir, Path.Combine("DataTemplete", "Current")), Path.Combine(RootDir, Path.Combine("Data", "Current")), true);
+                FileOp.copyDirectory(Path.Combine(RootDir, Path.Combine("DataTemplete", "Current")), Path.Combine(RootDir, Path.Combine("Data", "Current")), true);
 
                 //打开数据库连接
                 ConnectionManager.Open(dbFile);

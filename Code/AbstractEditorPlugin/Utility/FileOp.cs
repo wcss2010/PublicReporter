@@ -9,7 +9,7 @@ namespace AbstractEditorPlugin.Utility
 	{
 		public static Process myProcess;
 
-		public static bool RunWordInstCheck(out string msg)
+		public static bool runWordInstCheck(out string msg)
 		{
 			msg = "";
 			try
@@ -44,7 +44,7 @@ namespace AbstractEditorPlugin.Utility
 			return true;
 		}
 
-		public static bool OpenFile(string path)
+		public static bool openFile(string path)
 		{
 			bool result = false;
 			FileOp.myProcess = new Process();
@@ -70,7 +70,7 @@ namespace AbstractEditorPlugin.Utility
 			FileOp.myProcess = null;
 		}
 
-        public static bool CopyDirectory(string SourcePath, string DestinationPath, bool overwriteexisting)
+        public static bool copyDirectory(string SourcePath, string DestinationPath, bool overwriteexisting)
         {
             bool ret = false;
             try
@@ -91,7 +91,7 @@ namespace AbstractEditorPlugin.Utility
                     foreach (string drs in Directory.GetDirectories(SourcePath))
                     {
                         DirectoryInfo drinfo = new DirectoryInfo(drs);
-                        if (CopyDirectory(drs, DestinationPath + drinfo.Name, overwriteexisting) == false)
+                        if (copyDirectory(drs, DestinationPath + drinfo.Name, overwriteexisting) == false)
                             ret = false;
                     }
                 }
@@ -104,7 +104,7 @@ namespace AbstractEditorPlugin.Utility
             return ret;
         }
 
-        public static void WipeFile(string filename, int timesToWrite)
+        public static void wipeFile(string filename, int timesToWrite)
         {
             try
             {

@@ -11,12 +11,12 @@ namespace AbstractEditorPlugin.Utility
 		[DllImport("user32.dll", CharSet = CharSet.Auto)]
 		private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
-		public static void SetWatermark(TextBox textBox, string watermark)
+		public static void setWatermark(TextBox textBox, string watermark)
 		{
 			WatermarkUtility.SendMessage(textBox.Handle, 5377, 0, watermark);
 		}
 
-		public static void ClearWatermark(TextBox textBox)
+		public static void clearWatermark(TextBox textBox)
 		{
 			WatermarkUtility.SendMessage(textBox.Handle, 5377, 0, string.Empty);
 		}
