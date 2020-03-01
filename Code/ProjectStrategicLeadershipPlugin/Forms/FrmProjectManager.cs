@@ -109,14 +109,21 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     {
                         if (MessageBox.Show("真的要编辑该数据包吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                         {
-                            try
+                            if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(getPkgDir(tvProject.SelectedNode.Name)))
                             {
-                                PluginRootObj.switchProject(tvProject.SelectedNode.Name);
-                                Close();
+                                MessageBox.Show("对不起，编辑该数据包失败，因为您可能打开了某些文件或目录没有关闭！");
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("对不起，编辑该数据包失败！可能是因为您打开了某些文件(可能是word文档)没有关闭导致的，请关闭后重试！详细:" + ex.ToString());
+                                try
+                                {
+                                    PluginRootObj.switchProject(tvProject.SelectedNode.Name);
+                                    Close();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("对不起，操作错误请检查！Ex:" + ex.ToString());
+                                }
                             }
                         }
                     }

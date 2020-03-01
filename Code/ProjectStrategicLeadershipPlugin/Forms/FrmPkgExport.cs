@@ -32,51 +32,58 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             sfd.FileName = ((PluginRoot)PluginRootObj).getNewExportZipName();
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
-                dialoga.TransparencyKey = dialoga.BackColor;
-                dialoga.ProgressBar.ForeColor = Color.Red;
-                dialoga.MessageLabel.ForeColor = Color.Blue;
-                dialoga.FormBorderStyle = FormBorderStyle.None;
-                dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(PluginRootObj.dataDir))
                 {
-                    CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
-
-                    try
+                    MessageBox.Show("对不起，导出失败，可能是您打开了某些文件或目录没有关闭！");
+                }
+                else
+                {
+                    CircleProgressBarDialog dialoga = new CircleProgressBarDialog();
+                    dialoga.TransparencyKey = dialoga.BackColor;
+                    dialoga.ProgressBar.ForeColor = Color.Red;
+                    dialoga.MessageLabel.ForeColor = Color.Blue;
+                    dialoga.FormBorderStyle = FormBorderStyle.None;
+                    dialoga.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
                     {
-                        AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 40, "准备导出...", 600);
+                        CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
 
-                        //检查目标文件是否存在，如果存在先删除
-                        if (File.Exists(sfd.FileName))
+                        try
                         {
-                            File.Delete(sfd.FileName);
+                            AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 40, "准备导出...", 600);
+
+                            //检查目标文件是否存在，如果存在先删除
+                            if (File.Exists(sfd.FileName))
+                            {
+                                File.Delete(sfd.FileName);
+                            }
+
+                            AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 65, "正在导出...", 600);
+
+                            //导出数据包
+                            PluginRootObj.exportTo(sfd.FileName);
+
+                            AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 98, "导出完毕.", 600);
                         }
-
-                        AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 65, "正在导出...", 600);
-
-                        //导出数据包
-                        PluginRootObj.exportTo(sfd.FileName);
-
-                        AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 98, "导出完毕.", 600);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("对不起，导出失败！可能是某些文件打开后没有关闭的原因。详细：" + ex.ToString());
-                    }
-                    finally
-                    {
-                        if (IsHandleCreated)
+                        catch (Exception ex)
                         {
-                            Invoke(new MethodInvoker(delegate()
-                                {
-                                    try
+                            MessageBox.Show("对不起，操作错误请检查！Ex：" + ex.ToString());
+                        }
+                        finally
+                        {
+                            if (IsHandleCreated)
+                            {
+                                Invoke(new MethodInvoker(delegate()
                                     {
-                                        Close();
-                                    }
-                                    catch (Exception ex) { }
-                                }));
-                        }                        
-                    }
-                }));
+                                        try
+                                        {
+                                            Close();
+                                        }
+                                        catch (Exception ex) { }
+                                    }));
+                            }
+                        }
+                    }));
+                }
             }
         }
 
