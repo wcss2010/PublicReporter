@@ -446,6 +446,16 @@ namespace ProjectStrategicLeadershipPlugin
         }
 
         /// <summary>
+        /// 导出数据包
+        /// </summary>
+        /// <param name="destPkgFile"></param>
+        /// <returns></returns>
+        public override bool exportTo(string destPkgFile)
+        {
+            return false;
+        }
+
+        /// <summary>
         /// 初始化顶部工具按钮
         /// </summary>
         public override void initTopToolBar()

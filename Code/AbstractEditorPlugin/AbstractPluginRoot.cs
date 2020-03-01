@@ -519,5 +519,12 @@ namespace AbstractEditorPlugin
         /// <param name="projName"></param>
         /// <returns></returns>
         public abstract bool switchProject(string projName);
+
+        /// <summary>
+        /// 导出数据包
+        /// </summary>
+        /// <param name="destPkgFile"></param>
+        /// <returns></returns>
+        public abstract bool exportTo(string destPkgFile);
     }
 }

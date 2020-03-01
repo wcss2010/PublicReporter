@@ -522,5 +522,10 @@ namespace ProjectSocialFundPlugin
         {
             return false;
         }
+
+        public override bool exportTo(string destPkgFile)
+        {
+            return false;
+        }
     }
 }
