@@ -138,6 +138,10 @@ namespace ProjectStrategicLeadershipPlugin
                 StringBuilder sb = new StringBuilder();
 
                 #region 生成----(附件文件2)
+
+                //是否允许删除最后一页
+                bool acceptDeleteEndPage = true;
+
                 string ef2 = Path.Combine(pt.filesDir, PluginRoot.tnode_11_Name) + ".doc";
                 if (File.Exists(ef2))
                 {
@@ -147,8 +151,21 @@ namespace ProjectStrategicLeadershipPlugin
                     {
                         if (shape.HasImage)
                         {
+                            acceptDeleteEndPage = false;
                             writeFileToBookmark(wd, "附件文件2", ef2, true);
                             break;
+                        }
+                    }
+                }
+
+                //检查是否需要删除
+                if (acceptDeleteEndPage)
+                {
+                    if (wd.WordDocBuilder.MoveToBookmark("附件文件2"))
+                    {
+                        if (wd.WordDocBuilder.CurrentSection != null)
+                        {
+                            wd.WordDocBuilder.CurrentSection.Remove();
                         }
                     }
                 }
