@@ -16,9 +16,6 @@ namespace ProjectStrategicLeadershipPlugin.Forms
         public FrmPkgExport()
         {
             InitializeComponent();
-
-            llMainDocument.Text = "使用word打开'" + WordPrinter.outputDocFileName + "'";
-            txtReadme.LoadFile(Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "exportReadme.rtf")));
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -102,7 +99,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             Close();
         }
 
-        private void llMainDocument_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnModifyWords_Click(object sender, EventArgs e)
         {
             string docFile = Path.Combine(PluginRootObj.dataDir, WordPrinter.outputDocFileName);
             if (File.Exists(docFile))
