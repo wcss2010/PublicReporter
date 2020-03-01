@@ -505,5 +505,19 @@ namespace AbstractEditorPlugin
             }
             catch (Exception ex) { }
         }
+
+        /// <summary>
+        /// 重建工程
+        /// </summary>
+        /// <param name="projName"></param>
+        /// <returns></returns>
+        public abstract bool rebuildProject(string projName);
+
+        /// <summary>
+        /// 切换工程
+        /// </summary>
+        /// <param name="projName"></param>
+        /// <returns></returns>
+        public abstract bool switchProject(string projName);
     }
 }
