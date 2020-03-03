@@ -99,14 +99,27 @@ namespace AbstractEditorPlugin.Utility
         /// 检查目录是否被占用
         /// </summary>
         /// <param name="path"></param>
+        /// <param name="excludeList"></param>
         /// <returns></returns>
-        public static bool isDirUsingWithAll(string path)
+        public static bool isDirUsingWithAll(string path, List<string> excludeList)
         {
-            bool result = false;            
+            bool result = false;
+
+            //判断是否有值
+            if (excludeList == null)
+            {
+                excludeList = new List<string>();
+            }
+
             //检查目录
             string[] dirss = Directory.GetDirectories(path);
             foreach (string s in dirss)
             {
+                if (excludeList.Contains(s))
+                {
+                    continue;
+                }
+
                 result = isDirUsing(s);
                 if (result)
                 {
@@ -114,7 +127,7 @@ namespace AbstractEditorPlugin.Utility
                 }
                 else
                 {
-                    result = isDirUsingWithAll(s);
+                    result = isDirUsingWithAll(s, excludeList);
                     if (result)
                     {
                         break;
@@ -127,6 +140,11 @@ namespace AbstractEditorPlugin.Utility
                 string[] filesss = Directory.GetFiles(path);
                 foreach (string s in filesss)
                 {
+                    if (excludeList.Contains(s))
+                    {
+                        continue;
+                    }
+
                     result = isFileUsing(s);
                     if (result)
                     {
@@ -135,6 +153,16 @@ namespace AbstractEditorPlugin.Utility
                 }
             }
             return result;
+        }
+
+        /// <summary>
+        /// 检查目录是否被占用
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static bool isDirUsingWithAll(string path)
+        {
+            return isDirUsingWithAll(path, new List<string>());
         }
     }
 }
