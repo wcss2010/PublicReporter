@@ -243,14 +243,21 @@ namespace ProjectStrategicLeadershipPlugin
                     #region 新建项目
                     if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        if (isUsingDir(dataDir,true))
+                        if (isUsingDir(dataDir, true))
                         {
                             MessageBox.Show("对不起，新建失败，可能是您打开了某些文件或目录没有关闭！");
                         }
                         else
                         {
-                            //新建项目
-                            rebuildProject("");
+                            try
+                            {
+                                //新建项目
+                                rebuildProject("");
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("对不起，请检查您是否打开了某个word文件或目录没有关闭，然后重试！");
+                            }
                         }
                     }
                     #endregion
