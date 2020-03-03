@@ -101,6 +101,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             {
                 if (tvProject.SelectedNode.Text.EndsWith("(正在使用)"))
                 {
+                    MessageBox.Show("对不起，当前项目正在编辑，不能进行此操作！");
                     return;
                 }
                 else
@@ -156,6 +157,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
             {
                 if (tvProject.SelectedNode.Text.EndsWith("(正在使用)"))
                 {
+                    MessageBox.Show("对不起，当前项目正在编辑，不能进行此操作！");
                     return;
                 }
                 else
