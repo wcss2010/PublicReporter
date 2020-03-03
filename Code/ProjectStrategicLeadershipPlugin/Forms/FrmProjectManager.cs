@@ -110,21 +110,12 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     {
                         if (MessageBox.Show("真的要编辑该数据包吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                         {
-                            //检查前先关闭数据库
-                            PluginRootObj.closeDB();
-
-                            if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(getPkgDir(tvProject.SelectedNode.Name)) || AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(PluginRootObj.dataDir))
+                            if (PluginRootObj.isUsingDir(getPkgDir(tvProject.SelectedNode.Name), false) || PluginRootObj.isUsingDir(PluginRootObj.dataDir, false))
                             {
-                                //检查后打开数据库
-                                PluginRootObj.openDB();
-
                                 MessageBox.Show("对不起，编辑该数据包失败，因为您可能打开了某些文件或目录没有关闭！");
                             }
                             else
                             {
-                                //检查后打开数据库
-                                PluginRootObj.openDB();
-
                                 try
                                 {
                                     PluginRootObj.switchProject(tvProject.SelectedNode.Name);
@@ -168,7 +159,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         {
                             string projDir = getPkgDir(tvProject.SelectedNode.Name);
 
-                            if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(projDir))
+                            if (PluginRootObj.isUsingDir(projDir, false))
                             {
                                 MessageBox.Show("对不起，删除失败，因为您可能打开了某些文件或目录没有关闭！");
                             }

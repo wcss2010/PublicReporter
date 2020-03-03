@@ -243,13 +243,8 @@ namespace ProjectStrategicLeadershipPlugin
                     #region 新建项目
                     if (MessageBox.Show("真的要新建吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        //检查前先关闭数据库
-                        closeDB();
-                        if (AbstractEditorPlugin.Utility.GlobalTool.isDirUsingWithAll(dataDir))
+                        if (isUsingDir(dataDir,true))
                         {
-                            //检查后打开数据库
-                            openDB();
-
                             MessageBox.Show("对不起，新建失败，可能是您打开了某些文件或目录没有关闭！");
                         }
                         else
@@ -268,16 +263,23 @@ namespace ProjectStrategicLeadershipPlugin
                         return;
                     }
 
-                    CircleProgressBarDialog dialogc = new CircleProgressBarDialog();
-                    dialogc.TransparencyKey = dialogc.BackColor;
-                    dialogc.ProgressBar.ForeColor = Color.Red;
-                    dialogc.MessageLabel.ForeColor = Color.Blue;
-                    dialogc.FormBorderStyle = FormBorderStyle.None;
-                    dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                    if (isUsingDir(dataDir, true))
                     {
-                        //word预览
-                        WordPrinter.wordOutput(((CircleProgressBarDialog)thisObject));
-                    }));
+                        MessageBox.Show("对不起，生成报告失败，可能是您打开了某些文件或目录没有关闭！");
+                    }
+                    else
+                    {
+                        CircleProgressBarDialog dialogc = new CircleProgressBarDialog();
+                        dialogc.TransparencyKey = dialogc.BackColor;
+                        dialogc.ProgressBar.ForeColor = Color.Red;
+                        dialogc.MessageLabel.ForeColor = Color.Blue;
+                        dialogc.FormBorderStyle = FormBorderStyle.None;
+                        dialogc.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                        {
+                            //word预览
+                            WordPrinter.wordOutput(((CircleProgressBarDialog)thisObject));
+                        }));
+                    }
                     #endregion
                     break;
                 case button3_Name:
