@@ -527,5 +527,10 @@ namespace ProjectSocialFundPlugin
         {
             return false;
         }
+
+        public override bool isUsingDir(string dirPath, bool isExcludeDB)
+        {
+            return false;
+        }
     }
 }

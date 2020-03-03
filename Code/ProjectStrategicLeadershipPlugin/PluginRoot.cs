@@ -594,5 +594,22 @@ namespace ProjectStrategicLeadershipPlugin
         {
             return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme2.rtf"));
         }
+
+        /// <summary>
+        /// 判断一个目录是否正在使用
+        /// </summary>
+        /// <param name="pkgPath"></param>
+        /// <param name="isExcludeDB"></param>
+        /// <returns></returns>
+        public override bool isUsingDir(string pkgPath, bool isExcludeDB)
+        {
+            List<string> excludeList = new List<string>();
+            if (isExcludeDB)
+            {
+                excludeList.Add(Path.Combine(pkgPath, "static.db"));
+            }
+
+            return GlobalTool.isDirUsingWithAll(pkgPath, excludeList);
+        }
     }
 }

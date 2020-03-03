@@ -526,5 +526,13 @@ namespace AbstractEditorPlugin
         /// <param name="destPkgFile"></param>
         /// <returns></returns>
         public abstract bool exportTo(string destPkgFile);
+
+        /// <summary>
+        /// 判断一个目录是否存在使用
+        /// </summary>
+        /// <param name="dirPath"></param>
+        /// <param name="isExcludeDB"></param>
+        /// <returns></returns>
+        public abstract bool isUsingDir(string dirPath, bool isExcludeDB);
     }
 }
