@@ -434,7 +434,14 @@ namespace ProjectStrategicLeadershipPlugin
                         System.IO.Directory.Delete(destPath, true);
                     }
 
-                    System.IO.Directory.Move(currentPath, destPath);
+                    if (projectObj != null)
+                    {
+                        System.IO.Directory.Move(currentPath, destPath);
+                    }
+                    else
+                    {
+                        System.IO.Directory.Delete(currentPath, true);
+                    }
                 }
 
                 //将这个目录切换为当前目录
