@@ -376,8 +376,17 @@ namespace ProjectStrategicLeadershipPlugin
                 }
                 catch (Exception ex) { }
 
-                //切换到这个目录，并备份当前目录
-                switchProject(destProjectDir.Name);
+                try
+                {
+                    //切换到这个目录，并备份当前目录
+                    switchProject(destProjectDir.Name);
+                }
+                catch (Exception ex)
+                {
+                    Directory.Delete(destProjectDir.FullName, true);
+
+                    throw ex;
+                }
             }
             else
             {
