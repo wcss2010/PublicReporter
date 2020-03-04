@@ -219,7 +219,10 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                         //创建当前目录
                         try
                         {
-                            Directory.CreateDirectory(destDecompressDir);
+                            if (Directory.Exists(destDecompressDir))
+                            {
+                                Directory.Delete(destDecompressDir, true);
+                            }
                         }
                         catch (Exception ex) { }
 
