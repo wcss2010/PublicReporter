@@ -201,11 +201,21 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
                         AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 10, "准备导入...", 600);
 
-                        //解压目录
-                        string destDecompressDir = getPkgDir(Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks);
-
+                        //解压到临时目录先
+                        string decompressTemp = getPkgDir(Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks + "_Temp");
+                        try
+                        {
+                            Directory.CreateDirectory(decompressTemp);
+                        }
+                        catch (Exception ex) { }
+                        new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, decompressTemp, string.Empty, true);
+                        
                         AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 30, "创建导入目录...", 600);
 
+                        //读取数据对象
+                        Projects projObj = getProjectObject(decompressTemp);
+                        //解压目录
+                        string destDecompressDir = getPkgDir((projObj != null && !string.IsNullOrEmpty(projObj.ID) ? projObj.ID : Guid.NewGuid().ToString()) + "_" + DateTime.Now.Ticks);
                         //创建当前目录
                         try
                         {
@@ -215,8 +225,8 @@ namespace ProjectStrategicLeadershipPlugin.Forms
 
                         AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 40, "正在导入...", 600);
 
-                        //解压
-                        new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, destDecompressDir, string.Empty, true);
+                        //移到临时目录到目标地址
+                        Directory.Move(decompressTemp, destDecompressDir);
 
                         AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导入完成，正在刷新...", 600);
 
