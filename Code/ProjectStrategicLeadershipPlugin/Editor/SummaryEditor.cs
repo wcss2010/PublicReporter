@@ -157,7 +157,7 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             proj.ProjectName = txtProjectName.Text;
             proj.ProjectTopic = txtProjectTopic.Text;
             proj.ProjectDirection = txtProjectDirection.Text;
-            proj.ProjectSecretLevel = cbxSecretLevel.Text;
+            proj.ProjectSecretLevel = cbxSecretLevel.Text + PublicReporterLib.JsonConfigObject.rowFlag + txtSecretYears.Value;
             proj.ProjectMasterName = txtProjectMasterName.Text;
             proj.UnitName = txtDutyUnitName.Text;
             proj.UnitRealName = txtDutyUnitNormalName.Text;
@@ -194,7 +194,21 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 txtProjectName.Text = proj.ProjectName;
                 txtProjectTopic.Text = proj.ProjectTopic;
                 txtProjectDirection.Text = proj.ProjectDirection;
-                cbxSecretLevel.SelectedItem = proj.ProjectSecretLevel;
+
+                if (proj.ProjectSecretLevel != null)
+                {
+                    string[] tttt = proj.ProjectSecretLevel.Split(new string[] { PublicReporterLib.JsonConfigObject.rowFlag }, StringSplitOptions.None);
+                    if (tttt != null && tttt.Length >= 2)
+                    {
+                        cbxSecretLevel.SelectedItem = tttt[0];
+                        txtSecretYears.Value = decimal.Parse(tttt[1]);
+                    }
+                }
+                else
+                {
+                    cbxSecretLevel.SelectedItem = "公开";
+                }
+
                 txtProjectMasterName.Text = proj.ProjectMasterName;
                 txtDutyUnitName.Text = proj.UnitName;
                 txtDutyUnitNormalName.Text = proj.UnitRealName;
@@ -249,6 +263,19 @@ namespace ProjectStrategicLeadershipPlugin.Editor
             if (cbxDutyUnit2.Items.Count >= 1)
             {
                 cbxDutyUnit2.SelectedItem = cbxDutyUnit2.Items[cbxDutyUnit2.Items.Count - 1];
+            }
+        }
+
+        private void cbxSecretLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSecretLevel.SelectedItem == "公开" || cbxSecretLevel.SelectedItem == "内部")
+            {
+                txtSecretYears.Enabled = false;
+                txtSecretYears.Value = 0;
+            }
+            else
+            {
+                txtSecretYears.Enabled = true;
             }
         }
     }

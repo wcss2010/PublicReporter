@@ -43,6 +43,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxSecretLevel = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtSecretYears = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtDutyUnitName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -78,6 +81,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSecretYears)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -211,6 +215,9 @@
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.cbxSecretLevel);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.txtSecretYears);
+            this.panel3.Controls.Add(this.label16);
             this.panel3.Location = new System.Drawing.Point(3, 78);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1047, 29);
@@ -223,14 +230,14 @@
             this.txtProjectDirection.Location = new System.Drawing.Point(155, 0);
             this.txtProjectDirection.Margin = new System.Windows.Forms.Padding(4);
             this.txtProjectDirection.Name = "txtProjectDirection";
-            this.txtProjectDirection.Size = new System.Drawing.Size(673, 26);
+            this.txtProjectDirection.Size = new System.Drawing.Size(502, 26);
             this.txtProjectDirection.TabIndex = 6;
             // 
             // label12
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Right;
             this.label12.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label12.Location = new System.Drawing.Point(828, 0);
+            this.label12.Location = new System.Drawing.Point(657, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(120, 29);
@@ -258,12 +265,52 @@
             this.cbxSecretLevel.Font = new System.Drawing.Font("仿宋", 12F);
             this.cbxSecretLevel.Items.AddRange(new object[] {
             "公开",
+            "内部",
             "秘密",
             "机密"});
-            this.cbxSecretLevel.Location = new System.Drawing.Point(948, 0);
+            this.cbxSecretLevel.Location = new System.Drawing.Point(777, 0);
             this.cbxSecretLevel.Name = "cbxSecretLevel";
-            this.cbxSecretLevel.Size = new System.Drawing.Size(99, 24);
+            this.cbxSecretLevel.Size = new System.Drawing.Size(75, 24);
             this.cbxSecretLevel.TabIndex = 7;
+            this.cbxSecretLevel.SelectedIndexChanged += new System.EventHandler(this.cbxSecretLevel_SelectedIndexChanged);
+            // 
+            // label17
+            // 
+            this.label17.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label17.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label17.Location = new System.Drawing.Point(852, 0);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(110, 29);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "保密期限：";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSecretYears
+            // 
+            this.txtSecretYears.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtSecretYears.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtSecretYears.Location = new System.Drawing.Point(962, 0);
+            this.txtSecretYears.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.txtSecretYears.Name = "txtSecretYears";
+            this.txtSecretYears.Size = new System.Drawing.Size(59, 26);
+            this.txtSecretYears.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label16.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label16.Location = new System.Drawing.Point(1021, 0);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(26, 29);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "年";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -645,6 +692,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSecretYears)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -707,5 +755,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtProjectMasterName;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown txtSecretYears;
+        private System.Windows.Forms.Label label17;
     }
 }
