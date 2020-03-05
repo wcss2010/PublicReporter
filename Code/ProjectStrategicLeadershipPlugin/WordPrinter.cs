@@ -86,7 +86,7 @@ namespace ProjectStrategicLeadershipPlugin
 
                 AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 30, "写入基本信息...", 1000);
                 #region 写基本信息
-                writeStringToBookmark(wd, "基本信息_密级", projObj.ProjectSecretLevel);
+                writeStringToBookmark(wd, "基本信息_密级", getSecretString(projObj.ProjectSecretLevel));
                 writeStringToBookmark(wd, "基本信息_申报主题", projObj.ProjectTopic);
                 writeStringToBookmark(wd, "基本信息_申报方向", projObj.ProjectDirection);
                 writeStringToBookmark(wd, "基本信息_项目名称", projObj.ProjectName);
@@ -570,6 +570,42 @@ namespace ProjectStrategicLeadershipPlugin
             }
 
             AbstractEditorPlugin.AbstractPluginRoot.report(progressDialog, 95, "", 1000);
+        }
+
+        /// <summary>
+        /// 获得保密等级
+        /// </summary>
+        /// <param name="secretStr"></param>
+        /// <returns></returns>
+        private static string getSecretString(string secretStr)
+        {
+            if (secretStr != null)
+            {
+                if (secretStr.StartsWith("公开"))
+                {
+                    return "公开";
+                }
+                else if (secretStr.StartsWith("内部"))
+                {
+                    return "内部※注意保管";
+                }
+                else if (secretStr.StartsWith("秘密"))
+                {
+                    return secretStr.Replace(JsonConfigObject.rowFlag, "※") + "年";
+                }
+                else if (secretStr.StartsWith("机密"))
+                {
+                    return secretStr.Replace(JsonConfigObject.rowFlag, "※") + "年";
+                }
+                else
+                {
+                    return "公开";
+                }
+            }
+            else
+            {
+                return "公开";
+            }
         }
 
         /// <summary>

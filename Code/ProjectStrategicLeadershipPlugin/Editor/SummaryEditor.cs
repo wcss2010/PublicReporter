@@ -202,11 +202,13 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                     {
                         cbxSecretLevel.SelectedItem = tttt[0];
                         txtSecretYears.Value = decimal.Parse(tttt[1]);
+                        cbxSecretLevel_SelectedIndexChanged(cbxSecretLevel, new EventArgs());
                     }
                 }
                 else
                 {
                     cbxSecretLevel.SelectedItem = "公开";
+                    txtSecretYears.Enabled = true;
                 }
 
                 txtProjectMasterName.Text = proj.ProjectMasterName;
