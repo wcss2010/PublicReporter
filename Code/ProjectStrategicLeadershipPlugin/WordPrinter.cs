@@ -587,15 +587,15 @@ namespace ProjectStrategicLeadershipPlugin
                 }
                 else if (secretStr.StartsWith("内部"))
                 {
-                    return "内部※注意保管";
+                    return "内部★注意保管";
                 }
                 else if (secretStr.StartsWith("秘密"))
                 {
-                    return secretStr.Replace(JsonConfigObject.rowFlag, "※") + "年";
+                    return secretStr.Replace(JsonConfigObject.rowFlag, "★") + "年";
                 }
                 else if (secretStr.StartsWith("机密"))
                 {
-                    return secretStr.Replace(JsonConfigObject.rowFlag, "※") + "年";
+                    return secretStr.Replace(JsonConfigObject.rowFlag, "★") + "年";
                 }
                 else
                 {
