@@ -148,5 +148,27 @@ namespace ProjectContractPlugin.Editor
 
             return results;
         }
+
+        /// <summary>
+        /// 获得当前控件中有多少文本框有输入
+        /// </summary>
+        /// <returns></returns>
+        public int getInputCount()
+        {
+            List<KeTiYuSuanBiao> list = getMoneys();
+            int inputCount = 0;
+            foreach (KeTiYuSuanBiao biao in list)
+            {
+                if (string.IsNullOrEmpty(biao.ShuJu))
+                {
+                    continue;
+                }
+                else
+                {
+                    inputCount++;
+                }
+            }
+            return inputCount;
+        }
     }
 }

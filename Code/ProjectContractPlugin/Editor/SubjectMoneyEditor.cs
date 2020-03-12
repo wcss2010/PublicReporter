@@ -73,7 +73,27 @@ namespace ProjectContractPlugin.Editor
 
         public override bool IsInputCompleted()
         {
-            return true;
+            bool result = true;
+            foreach (TabPage tp in tcMoneys.TabPages)
+            {
+                if (tp.Controls.Count >= 1)
+                {
+                    if (tp.Controls[0] is MoneyTableControl)
+                    {
+                        MoneyTableControl mtc = (MoneyTableControl)tp.Controls[0];
+                        if (mtc.getInputCount() >= 3)
+                        {
+                            continue;
+                        }
+                        else 
+                        {
+                            result = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            return result;
         }
 
         public override void OnSaveEvent(ref bool result)
