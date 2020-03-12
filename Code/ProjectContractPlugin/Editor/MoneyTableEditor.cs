@@ -178,48 +178,86 @@ namespace ProjectContractPlugin.Editor
         /// <returns></returns>
         private bool isComplete()
         {
-            //decimal d = 0m;
-            //decimal d2 = 0m;
-            //decimal num = 0m;
-            //decimal.TryParse(this.ibEditMoney1.Text, out d);
-            //decimal.TryParse(this.ibEditYear1.Text, out d2);
-            //num += d2;
-            //decimal.TryParse(this.ibEditYear2.Text, out d2);
-            //num += d2;
-            //decimal.TryParse(this.ibEditYear3.Text, out d2);
-            //num += d2;
-            //decimal.TryParse(this.ibEditYear4.Text, out d2);
-            //num += d2;
-            //decimal.TryParse(this.ibEditYear5.Text, out d2);
-            //num += d2;
-            //string text = "";
-            //if (d != num)
+            string text = string.Empty;
+
+            #region 读取数值
+            //计算分年度经费
+            decimal yearTotalMoneys = 0;
+            try
+            {
+                yearTotalMoneys += decimal.Parse(ibEditYear1.Text);
+                yearTotalMoneys += decimal.Parse(ibEditYear2.Text);
+                yearTotalMoneys += decimal.Parse(ibEditYear3.Text);
+                yearTotalMoneys += decimal.Parse(ibEditYear4.Text);
+                yearTotalMoneys += decimal.Parse(ibEditYear5.Text);
+            }
+            catch (Exception ex) { }
+
+            //读取直接经费
+            decimal directMoneys = 0;
+            try
+            {
+                directMoneys = decimal.Parse(ibEditMoney2.Text);
+            }
+            catch (Exception ex) { }
+
+            //读取设备购置费
+            decimal deviceBuyMoneys = 0;
+            try
+            {
+                deviceBuyMoneys = decimal.Parse(ibEditMoney3_1.Text);
+            }
+            catch (Exception ex) { }
+
+            //读取外部协作费
+            decimal helpMoneys = 0;
+            try
+            {
+                helpMoneys = decimal.Parse(ibEditMoney5.Text);
+            }
+            catch (Exception ex) { }
+
+            //读取间接经费
+            decimal elseMoneys = 0;
+            try
+            {
+                elseMoneys = decimal.Parse(ibEditMoney13.Text);
+            }
+            catch (Exception ex) { }
+
+            //读取总经费
+            decimal totalMoneys = 0;
+            try
+            {
+                totalMoneys = decimal.Parse(ibEditMoney1.Text);
+            }
+            catch (Exception ex) { }
+
+            //读取项目总经费
+            decimal projectTotalMoneys = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJiaKuan;
+            #endregion
+
+            if (projectTotalMoneys != yearTotalMoneys)
+            {
+                text = "请注意，分年度经费预算之和与项目总经费不等。\r\n";
+            }
+            if (yearTotalMoneys != totalMoneys)
+            {
+                text = "请注意，分年度经费预算之和与总经费不等。\r\n";
+            }
+            //if (elseMoneys > (directMoneys - deviceBuyMoneys - helpMoneys) * 0.2m)
             //{
-            //    text = "请注意，分年度经费预算之和与项目总经费不等，正确无误后方能保存。\r\n";
+            //    text += "请注意，间接经费不超过直接经费减去设备购置费和外协费的20%。\r\n";
             //}
-            ////else if (d > 500m)
-            ////{
-            ////    text += "请注意，经费总额超过500万,需要重新制定，正确无误后方能保存。\r\n";
-            ////}
-            //decimal d3 = 0m;
-            //decimal d4 = 0m;            
-            //decimal d6 = 0m;
-            //decimal.TryParse(this.ibEditMoney12.Text, out d3);
-            //decimal.TryParse(this.ibEditMoney2.Text, out d4);            
-            //decimal.TryParse(this.ibEditMoney5.Text, out d6);
-            //if (d3 > (d4 - d6) * 0.2m)
-            //{
-            //    text += "请注意，间接经费不超过直接经费减去外协费的20%，正确无误后方能保存。\r\n";
-            //}
-            //if (text != string.Empty)
-            //{
-            //    MessageBox.Show(text, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            //    return false;
-            //}
-            //else
-            //{
+            if (text != string.Empty)
+            {
+                MessageBox.Show(text, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
+            else
+            {
                 return true;
-            //}
+            }
         }
     }
 }
