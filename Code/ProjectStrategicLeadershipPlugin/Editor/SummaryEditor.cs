@@ -280,5 +280,11 @@ namespace ProjectStrategicLeadershipPlugin.Editor
                 txtSecretYears.Enabled = true;
             }
         }
+
+        private void txtTotalMoneys_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nud = (NumericUpDown)sender;
+            nud.Value = (int)nud.Value; 
+        }
     }
 }

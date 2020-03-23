@@ -299,6 +299,7 @@
             this.txtSecretYears.Name = "txtSecretYears";
             this.txtSecretYears.Size = new System.Drawing.Size(59, 26);
             this.txtSecretYears.TabIndex = 13;
+            this.txtSecretYears.ValueChanged += new System.EventHandler(this.txtTotalMoneys_ValueChanged);
             // 
             // label16
             // 
@@ -590,6 +591,7 @@
             this.txtTotalTimes.Name = "txtTotalTimes";
             this.txtTotalTimes.Size = new System.Drawing.Size(83, 26);
             this.txtTotalTimes.TabIndex = 10;
+            this.txtTotalTimes.ValueChanged += new System.EventHandler(this.txtTotalMoneys_ValueChanged);
             // 
             // label10
             // 
@@ -616,6 +618,7 @@
             this.txtTotalMoneys.Name = "txtTotalMoneys";
             this.txtTotalMoneys.Size = new System.Drawing.Size(87, 26);
             this.txtTotalMoneys.TabIndex = 10;
+            this.txtTotalMoneys.ValueChanged += new System.EventHandler(this.txtTotalMoneys_ValueChanged);
             // 
             // label14
             // 
