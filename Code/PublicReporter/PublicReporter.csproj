@@ -105,6 +105,7 @@
     <EmbeddedResource Include="StartupForm.resx">
       <DependentUpon>StartupForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Fonts\simfang_0.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
