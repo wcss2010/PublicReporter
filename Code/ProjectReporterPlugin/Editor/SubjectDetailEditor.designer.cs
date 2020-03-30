@@ -36,24 +36,24 @@
             this.kryptonPanel1 = new System.Windows.Forms.Panel();
             this.autoHeightLabel1 = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.kpDest = new System.Windows.Forms.TabPage();
+            this.txtWordReadme = new System.Windows.Forms.RichTextBox();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEditDest = new System.Windows.Forms.Button();
             this.kpContent = new System.Windows.Forms.TabPage();
+            this.txtWordReadme2 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnEditContent = new System.Windows.Forms.Button();
             this.kpNeed = new System.Windows.Forms.TabPage();
+            this.txtWordReadme3 = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnEditNeed = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.plTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new ProjectReporterPlugin.Controls.AutoHeightLabel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtWordReadme = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtWordReadme2 = new System.Windows.Forms.RichTextBox();
-            this.txtWordReadme3 = new System.Windows.Forms.RichTextBox();
             this.knKetiDetailTabs.SuspendLayout();
             this.kpInfo.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -163,19 +163,47 @@
             this.kpDest.TabIndex = 1;
             this.kpDest.Text = "研究目标";
             // 
+            // txtWordReadme
+            // 
+            this.txtWordReadme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWordReadme.Enabled = false;
+            this.txtWordReadme.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWordReadme.Location = new System.Drawing.Point(0, 38);
+            this.txtWordReadme.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWordReadme.Name = "txtWordReadme";
+            this.txtWordReadme.ReadOnly = true;
+            this.txtWordReadme.Size = new System.Drawing.Size(834, 390);
+            this.txtWordReadme.TabIndex = 4;
+            this.txtWordReadme.Text = "";
+            // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.label1);
             this.plButtons.Controls.Add(this.btnEditDest);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plButtons.Font = new System.Drawing.Font("宋体", 9F);
             this.plButtons.Location = new System.Drawing.Point(0, 0);
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(834, 38);
             this.plButtons.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(667, 38);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "请先仔细阅读下面的说明文字,然后再点击\"使用Word编辑该文档\"按钮！";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnEditDest
             // 
             this.btnEditDest.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEditDest.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnEditDest.Location = new System.Drawing.Point(667, 0);
             this.btnEditDest.Name = "btnEditDest";
             this.btnEditDest.Size = new System.Drawing.Size(167, 38);
@@ -194,19 +222,47 @@
             this.kpContent.TabIndex = 2;
             this.kpContent.Text = "研究内容";
             // 
+            // txtWordReadme2
+            // 
+            this.txtWordReadme2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWordReadme2.Enabled = false;
+            this.txtWordReadme2.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWordReadme2.Location = new System.Drawing.Point(0, 38);
+            this.txtWordReadme2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWordReadme2.Name = "txtWordReadme2";
+            this.txtWordReadme2.ReadOnly = true;
+            this.txtWordReadme2.Size = new System.Drawing.Size(834, 390);
+            this.txtWordReadme2.TabIndex = 5;
+            this.txtWordReadme2.Text = "";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnEditContent);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(834, 38);
             this.panel1.TabIndex = 3;
             // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(650, 38);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "请先仔细阅读下面的说明文字,然后再点击\"使用Word编辑该文档\"按钮！";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnEditContent
             // 
             this.btnEditContent.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEditContent.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnEditContent.Location = new System.Drawing.Point(650, 0);
             this.btnEditContent.Name = "btnEditContent";
             this.btnEditContent.Size = new System.Drawing.Size(184, 38);
@@ -225,19 +281,47 @@
             this.kpNeed.TabIndex = 3;
             this.kpNeed.Text = "研究思路";
             // 
+            // txtWordReadme3
+            // 
+            this.txtWordReadme3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWordReadme3.Enabled = false;
+            this.txtWordReadme3.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWordReadme3.Location = new System.Drawing.Point(0, 38);
+            this.txtWordReadme3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWordReadme3.Name = "txtWordReadme3";
+            this.txtWordReadme3.ReadOnly = true;
+            this.txtWordReadme3.Size = new System.Drawing.Size(834, 390);
+            this.txtWordReadme3.TabIndex = 5;
+            this.txtWordReadme3.Text = "";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btnEditNeed);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("宋体", 9F);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(834, 38);
             this.panel2.TabIndex = 3;
             // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(670, 38);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "请先仔细阅读下面的说明文字,然后再点击\"使用Word编辑该文档\"按钮！";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnEditNeed
             // 
             this.btnEditNeed.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEditNeed.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnEditNeed.Location = new System.Drawing.Point(670, 0);
             this.btnEditNeed.Name = "btnEditNeed";
             this.btnEditNeed.Size = new System.Drawing.Size(164, 38);
@@ -300,84 +384,6 @@
             this.plContent.Name = "plContent";
             this.plContent.Size = new System.Drawing.Size(842, 458);
             this.plContent.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(667, 38);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "请先仔细阅读下面的说明文字,然后再点击\"使用Word编辑该文档\"按钮！";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtWordReadme
-            // 
-            this.txtWordReadme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtWordReadme.Enabled = false;
-            this.txtWordReadme.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtWordReadme.Location = new System.Drawing.Point(0, 38);
-            this.txtWordReadme.Margin = new System.Windows.Forms.Padding(4);
-            this.txtWordReadme.Name = "txtWordReadme";
-            this.txtWordReadme.ReadOnly = true;
-            this.txtWordReadme.Size = new System.Drawing.Size(834, 390);
-            this.txtWordReadme.TabIndex = 4;
-            this.txtWordReadme.Text = "";
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(650, 38);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "请先仔细阅读下面的说明文字,然后再点击\"使用Word编辑该文档\"按钮！";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(670, 38);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "请先仔细阅读下面的说明文字,然后再点击\"使用Word编辑该文档\"按钮！";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtWordReadme2
-            // 
-            this.txtWordReadme2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtWordReadme2.Enabled = false;
-            this.txtWordReadme2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtWordReadme2.Location = new System.Drawing.Point(0, 38);
-            this.txtWordReadme2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtWordReadme2.Name = "txtWordReadme2";
-            this.txtWordReadme2.ReadOnly = true;
-            this.txtWordReadme2.Size = new System.Drawing.Size(834, 390);
-            this.txtWordReadme2.TabIndex = 5;
-            this.txtWordReadme2.Text = "";
-            // 
-            // txtWordReadme3
-            // 
-            this.txtWordReadme3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtWordReadme3.Enabled = false;
-            this.txtWordReadme3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtWordReadme3.Location = new System.Drawing.Point(0, 38);
-            this.txtWordReadme3.Margin = new System.Windows.Forms.Padding(4);
-            this.txtWordReadme3.Name = "txtWordReadme3";
-            this.txtWordReadme3.ReadOnly = true;
-            this.txtWordReadme3.Size = new System.Drawing.Size(834, 390);
-            this.txtWordReadme3.TabIndex = 5;
-            this.txtWordReadme3.Text = "";
             // 
             // SubjectDetailEditor
             // 
