@@ -684,15 +684,6 @@ namespace ProjectReporterPlugin
         }
 
         /// <summary>
-        /// 获得文档填报说明2
-        /// </summary>
-        /// <returns></returns>
-        public string getDocumentPasteReadmeFile2()
-        {
-            return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme2.rtf"));
-        }
-
-        /// <summary>
         /// 判断一个目录是否正在使用
         /// </summary>
         /// <param name="pkgPath"></param>

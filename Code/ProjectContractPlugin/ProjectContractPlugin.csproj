@@ -113,12 +113,6 @@
     <Compile Include="DB\Entitys\YuSuanBiao.cs" />
     <Compile Include="DB\Entitys\ZhiBiaoBiao.cs" />
     <Compile Include="DB\Entitys\ZiDianBiao.cs" />
-    <Compile Include="Editor\BaseEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\BaseEditor.Designer.cs">
-      <DependentUpon>BaseEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\DataGridViewWithMerge.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -127,12 +121,6 @@
     </Compile>
     <Compile Include="Editor\DestNameAndQuestionEditor.Designer.cs">
       <DependentUpon>DestNameAndQuestionEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\DocumentPasteEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\DocumentPasteEditor.Designer.cs">
-      <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\HSkinTableLayoutPanel.cs">
       <SubType>Component</SubType>
@@ -210,18 +198,6 @@
     </Compile>
     <Compile Include="Editor\TechnologyQuestionEditor.Designer.cs">
       <DependentUpon>TechnologyQuestionEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\TextContentEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\TextContentEditor.Designer.cs">
-      <DependentUpon>TextContentEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\TextReadOnlyEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Editor\TextReadOnlyEditor.Designer.cs">
-      <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\UnitMoneyYearEditor.cs">
       <SubType>UserControl</SubType>
@@ -319,6 +295,12 @@
     <Compile Include="Forms\FrmInputBox.designer.cs">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmPkgExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPkgExport.Designer.cs">
+      <DependentUpon>FrmPkgExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmWorkerImporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +319,7 @@
     <Compile Include="Forms\FrmProjectManager.designer.cs">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewPluginRoot.cs" />
     <Compile Include="PluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -367,9 +350,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Editor\DestNameAndQuestionEditor.resx">
       <DependentUpon>DestNameAndQuestionEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\DocumentPasteEditor.resx">
-      <DependentUpon>DocumentPasteEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ExtFile2Editor.resx">
       <DependentUpon>ExtFile2Editor.cs</DependentUpon>
@@ -406,12 +386,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TechnologyQuestionEditor.resx">
       <DependentUpon>TechnologyQuestionEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\TextContentEditor.resx">
-      <DependentUpon>TextContentEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\TextReadOnlyEditor.resx">
-      <DependentUpon>TextReadOnlyEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\UnitMoneyYearEditor.resx">
       <DependentUpon>UnitMoneyYearEditor.cs</DependentUpon>
@@ -460,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmInputBox.resx">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPkgExport.resx">
+      <DependentUpon>FrmPkgExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmWorkerImporter.resx">
       <DependentUpon>FrmWorkerImporter.cs</DependentUpon>
