@@ -303,7 +303,7 @@ namespace ProjectReporterPlugin.Editor
             //工程
             if (((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj) == null)
             {
-                ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj) = new Project();
+                (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj) = new Project();
             }
 
             ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ParentID = string.Empty;
