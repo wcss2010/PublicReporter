@@ -1,4 +1,4 @@
-﻿using ProjectStrategicLeadershipPlugin.DB.Entitys;
+﻿using ProjectReporterPlugin.DB.Entitys;
 using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
@@ -55,9 +55,9 @@ namespace ProjectReporterPlugin.Forms
         /// </summary>
         /// <param name="projectDir"></param>
         /// <returns></returns>
-        public Projects getProjectObject(string projectDir)
+        public Project getProjectObject(string projectDir)
         {
-            Projects proj = null;
+            Project proj = null;
             string dbFile = System.IO.Path.Combine(projectDir, "static.db");
 
             if (System.IO.File.Exists(dbFile))
@@ -68,7 +68,7 @@ namespace ProjectReporterPlugin.Forms
                 context.IsSupportGCAfterDispose = true;
                 try
                 {
-                    proj = context.table("Projects").select("*").getItem<Projects>(new Projects());
+                    proj = context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
                 }
                 catch (Exception ex)
                 {

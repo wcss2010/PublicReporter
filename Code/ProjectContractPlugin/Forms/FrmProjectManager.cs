@@ -1,4 +1,4 @@
-﻿using ProjectStrategicLeadershipPlugin.DB.Entitys;
+﻿using ProjectContractPlugin.DB.Entitys;
 using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
@@ -55,9 +55,9 @@ namespace ProjectContractPlugin.Forms
         /// </summary>
         /// <param name="projectDir"></param>
         /// <returns></returns>
-        public Projects getProjectObject(string projectDir)
+        public JiBenXinXiBiao getProjectObject(string projectDir)
         {
-            Projects proj = null;
+            JiBenXinXiBiao proj = null;
             string dbFile = System.IO.Path.Combine(projectDir, "static.db");
 
             if (System.IO.File.Exists(dbFile))
@@ -68,7 +68,7 @@ namespace ProjectContractPlugin.Forms
                 context.IsSupportGCAfterDispose = true;
                 try
                 {
-                    proj = context.table("Projects").select("*").getItem<Projects>(new Projects());
+                    proj = context.table("JiBenXinXiBiao").select("*").getItem<JiBenXinXiBiao>(new JiBenXinXiBiao());
                 }
                 catch (Exception ex)
                 {
