@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectReporterPlugin.Forms
 {
-    public partial class FrmProjectManager : PublicReporterLib.SuperForm
+    public partial class FrmProjectManager : AbstractEditorPlugin.BaseForm
     {
         public FrmProjectManager()
         {

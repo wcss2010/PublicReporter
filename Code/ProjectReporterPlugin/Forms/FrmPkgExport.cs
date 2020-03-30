@@ -9,7 +9,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectStrategicLeadershipPlugin.Forms
+namespace ProjectReporterPlugin.Forms
 {
     public partial class FrmPkgExport : AbstractEditorPlugin.BaseForm
     {

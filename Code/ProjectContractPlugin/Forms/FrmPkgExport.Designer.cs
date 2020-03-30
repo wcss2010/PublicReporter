@@ -1,4 +1,4 @@
-﻿namespace ProjectStrategicLeadershipPlugin.Forms
+﻿namespace ProjectContractPlugin.Forms
 {
     partial class FrmPkgExport
     {
