@@ -2078,7 +2078,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -2090,17 +2090,17 @@ namespace ProjectReporterPlugin.Editor
             }
         }
         
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             pbinfo = new ProjectBudgetInfo();
             RefreshCall();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             ConvertMoneyData();
             RefreshCall();
@@ -2146,9 +2146,9 @@ namespace ProjectReporterPlugin.Editor
             return result;
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             #region 保存数据到pbinfo
             if (!this.CanSave())
@@ -2191,7 +2191,7 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return CanSave();
         }

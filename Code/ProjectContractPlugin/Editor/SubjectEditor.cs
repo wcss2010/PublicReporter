@@ -19,9 +19,9 @@ namespace ProjectContractPlugin.Editor
             InitializeComponent();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             dgvDetail.Rows.Clear();
             list = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
@@ -88,7 +88,7 @@ namespace ProjectContractPlugin.Editor
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
-                RefreshView();
+                refreshView();
 
                 //刷新其它页面
                 refreshOtherView();
@@ -110,7 +110,7 @@ namespace ProjectContractPlugin.Editor
                     }
 
                     //刷新列表
-                    RefreshView();
+                    refreshView();
 
                     //刷新其它页面
                     refreshOtherView();
@@ -144,7 +144,7 @@ namespace ProjectContractPlugin.Editor
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //刷新列表
-                    RefreshView();
+                    refreshView();
 
                     //刷新其它页面
                     refreshOtherView();
@@ -171,7 +171,7 @@ namespace ProjectContractPlugin.Editor
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         //刷新列表
-                        RefreshView();
+                        refreshView();
 
                         //刷新其它页面
                         refreshOtherView();
@@ -188,7 +188,7 @@ namespace ProjectContractPlugin.Editor
                         ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
 
                         //刷新列表
-                        RefreshView();
+                        refreshView();
 
                         //刷新其它页面
                         refreshOtherView();
@@ -208,7 +208,7 @@ namespace ProjectContractPlugin.Editor
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //刷新列表
-                    RefreshView();
+                    refreshView();
 
                     //刷新其它页面
                     refreshOtherView();
@@ -222,16 +222,16 @@ namespace ProjectContractPlugin.Editor
             {
                 if (be is SubjectMoneyYearEditor)
                 {
-                    ((SubjectMoneyYearEditor)be).RefreshView();
+                    ((SubjectMoneyYearEditor)be).refreshView();
                 }
                 else if (be is SubjectMoneyEditor)
                 {
-                    ((SubjectMoneyEditor)be).RefreshView();
+                    ((SubjectMoneyEditor)be).refreshView();
                 }
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return dgvDetail.Rows.Count >= 1;
         }

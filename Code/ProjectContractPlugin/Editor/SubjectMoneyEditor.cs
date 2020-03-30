@@ -17,9 +17,9 @@ namespace ProjectContractPlugin.Editor
             InitializeComponent();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             //获得课题列表
             List<KeTiBiao> subjectList = ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
@@ -71,7 +71,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             bool result = true;
             foreach (TabPage tp in tcMoneys.TabPages)
@@ -96,9 +96,9 @@ namespace ProjectContractPlugin.Editor
             return result;
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             //保存数据
             foreach (TabPage tp in tcMoneys.TabPages)
@@ -122,7 +122,7 @@ namespace ProjectContractPlugin.Editor
             }
 
             //刷新数据
-            RefreshView();
+            refreshView();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace ProjectContractPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {

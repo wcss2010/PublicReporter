@@ -18,9 +18,9 @@ namespace ProjectContractPlugin.Editor
             InitializeComponent();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             dgvDetail.Rows.Clear();
             list = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
@@ -53,7 +53,7 @@ namespace ProjectContractPlugin.Editor
                     FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule((BoFuBiao)dgvDetail.Rows[e.RowIndex].Tag);
                     if (form.ShowDialog() == DialogResult.OK)
                         //刷新列表
-                        RefreshView();
+                        refreshView();
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
@@ -64,7 +64,7 @@ namespace ProjectContractPlugin.Editor
                         ConnectionManager.Context.table("BoFuBiao").where("BianHao='" + ((BoFuBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
 
                         //刷新
-                        RefreshView();
+                        refreshView();
                     }
                 }
             }
@@ -81,7 +81,7 @@ namespace ProjectContractPlugin.Editor
                 form.ShowDialog();
 
                 //刷新列表
-                RefreshView();
+                refreshView();
             }
         }
 
@@ -91,7 +91,7 @@ namespace ProjectContractPlugin.Editor
             FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule(null, list.Count);
             if (form.ShowDialog() == DialogResult.OK)
                 //刷新列表
-                RefreshView();
+                refreshView();
         }
 
         private void btnDelAll_Click(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace ProjectContractPlugin.Editor
                     }
 
                     //刷新
-                    RefreshView();
+                    refreshView();
                 }
             }
         }
@@ -137,7 +137,7 @@ namespace ProjectContractPlugin.Editor
                 FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule(null, statusNum);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
-                    RefreshView();
+                    refreshView();
 
             }
             else
@@ -147,7 +147,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return dgvDetail.Rows.Count >= 1;
         }

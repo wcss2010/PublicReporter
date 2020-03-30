@@ -35,7 +35,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -47,17 +47,17 @@ namespace ProjectReporterPlugin.Editor
             }
         }
         
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             lbcomattpath.Text = string.Empty;
             FilePath = string.Empty;
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             if (Directory.Exists(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir))
             {
@@ -78,9 +78,9 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             try
             {
@@ -92,7 +92,7 @@ namespace ProjectReporterPlugin.Editor
                     }
 
                     File.Copy(ofdUpload.FileName, Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, FileKeyName + "_" + new FileInfo(ofdUpload.FileName).Name));
-                    RefreshView();
+                    refreshView();
                 }
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return File.Exists(FilePath);
         }

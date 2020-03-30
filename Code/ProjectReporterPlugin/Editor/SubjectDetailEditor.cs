@@ -33,9 +33,9 @@ namespace ProjectReporterPlugin.Editor
             RTFFileFirstName = "课题详细_";
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             txtInfo.Clear();
             //txtDest.Clear();
@@ -43,9 +43,9 @@ namespace ProjectReporterPlugin.Editor
             //txtNeed.Clear();
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             txtInfo.SaveFile(GetInfoFilePath());
             //txtDest.SaveDoc(GetDestFilePath());
@@ -73,9 +73,9 @@ namespace ProjectReporterPlugin.Editor
             return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().filesDir, RTFFileFirstName + Name + "_简介" + ".txt");
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             if (File.Exists(GetInfoFilePath()))
             {
@@ -83,7 +83,7 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return File.Exists(GetInfoFilePath()) && File.Exists(GetDestFilePath()) && File.Exists(GetContentFilePath()) && File.Exists(GetNeedFilePath());
         }
@@ -212,7 +212,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {

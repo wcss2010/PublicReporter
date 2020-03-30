@@ -32,7 +32,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -49,9 +49,9 @@ namespace ProjectReporterPlugin.Editor
             ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::ProjectReporterPlugin.Resource.DELETE_28;
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             txtTotalTime.Text = "";
             txtTotalMoney.Text = "";
@@ -60,9 +60,9 @@ namespace ProjectReporterPlugin.Editor
             dgvDetail.Rows.Clear();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj != null)
             {
@@ -124,9 +124,9 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             try
             {
@@ -259,7 +259,7 @@ namespace ProjectReporterPlugin.Editor
                 }
 
                 //刷新当前页
-                RefreshView();
+                refreshView();
 
                 //刷新课题阶段划分表
                 foreach (BaseEditor be in PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().editorMap.Values)
@@ -267,7 +267,7 @@ namespace ProjectReporterPlugin.Editor
                     if (be is SubjectStepMoneyEditor)
                     {
                         //刷新列表
-                        be.RefreshView();
+                        be.refreshView();
                         break;
                     }
                 }
@@ -465,7 +465,7 @@ namespace ProjectReporterPlugin.Editor
 
         public List<Project> KeTiList { get; set; }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             if (dgvDetail.Rows.Count == 0)
             {
@@ -531,7 +531,7 @@ namespace ProjectReporterPlugin.Editor
 
                         upf.CloseProgressWithOnlyUI();
 
-                        RefreshView();
+                        refreshView();
                         MessageBox.Show("操作完成！");
                     }
                 }

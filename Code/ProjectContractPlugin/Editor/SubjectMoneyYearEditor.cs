@@ -31,7 +31,7 @@ namespace ProjectContractPlugin.Editor
                     FrmAddOrUpdateSubjectMoneyYear form = new FrmAddOrUpdateSubjectMoneyYear(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
                     if (form.ShowDialog() == DialogResult.OK)
                         //刷新列表
-                        RefreshView();
+                        refreshView();
                 }
             }
         }
@@ -47,13 +47,13 @@ namespace ProjectContractPlugin.Editor
                 form.ShowDialog();
 
                 //刷新列表
-                RefreshView();
+                refreshView();
             }
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             dgvDetail.Rows.Clear();
             List<KeTiBiao> subjectList = ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
@@ -76,7 +76,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return dgvDetail.Rows.Count >= 1;
         }

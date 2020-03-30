@@ -291,7 +291,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -315,9 +315,9 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             if (hasErrorSubjectName())
             {
@@ -512,7 +512,7 @@ namespace ProjectReporterPlugin.Editor
                         {
                             try
                             {
-                                ((BaseEditor)kp.Controls[0]).OnSaveEvent(ref result);
+                                ((BaseEditor)kp.Controls[0]).onSaveEvent(ref result);
                             }
                             catch (Exception ex)
                             {
@@ -523,7 +523,7 @@ namespace ProjectReporterPlugin.Editor
                 }
                 
                 //刷新当前页
-                RefreshView();
+                refreshView();
 
                 //刷新课题阶段划分表
                 foreach (BaseEditor be in PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().editorMap.Values)
@@ -531,22 +531,22 @@ namespace ProjectReporterPlugin.Editor
                     if (be is SubjectStepMoneyEditor)
                     {
                         //刷新列表
-                        be.RefreshView();
+                        be.refreshView();
                     }
                     else if (be is ProjectWorkerInfoEditor)
                     {
                         //刷新列表
-                        be.RefreshView();
+                        be.refreshView();
                     }
                     else if (be is ProjectWorkerGroupEditor)
                     {
                         //刷新列表
-                        be.RefreshView();
+                        be.refreshView();
                     }
                     else if (be is ProjectEditor)
                     {
                         //刷新列表
-                        be.RefreshView();
+                        be.refreshView();
                     }
                 }
             }
@@ -732,16 +732,16 @@ namespace ProjectReporterPlugin.Editor
             //}
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             dgvDetail.Rows.Clear();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             //显示负责人
             UpdatePersonList();
@@ -764,7 +764,7 @@ namespace ProjectReporterPlugin.Editor
 
         //protected Dictionary<string, Person> PersonDict = new Dictionary<string, Person>();
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             if (dgvDetail.Rows.Count == 0)
             {
@@ -784,7 +784,7 @@ namespace ProjectReporterPlugin.Editor
                 if (be is ProjectStepMoneyEditor)
                 {
                     //刷新列表
-                    be.RefreshView();
+                    be.refreshView();
 
                     //尝试创建4个初始项目
                     ((ProjectStepMoneyEditor)be).Build4StepItems();
@@ -851,7 +851,7 @@ namespace ProjectReporterPlugin.Editor
             rtfTextEditor.BackColor = Color.White;
 
             rtfTextEditor.Name = ketiName;
-            rtfTextEditor.RefreshView();
+            rtfTextEditor.refreshView();
 
             kp.Controls.Add(rtfTextEditor);
 

@@ -40,16 +40,16 @@ namespace ProjectReporterPlugin.Editor
             ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 4, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "向上";
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             dgvDetail.Rows.Clear();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + PluginRootObj.projectObj.ID + "') or ProjectID='" + PluginRootObj.projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
@@ -242,7 +242,7 @@ namespace ProjectReporterPlugin.Editor
                         t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
                     }
 
-                    RefreshView();
+                    refreshView();
 
                     if (taskIndex >= 1)
                     {
@@ -276,7 +276,7 @@ namespace ProjectReporterPlugin.Editor
                         t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
                     }
 
-                    RefreshView();
+                    refreshView();
 
                     if (taskIndex < dgvDetail.Rows.Count - 1)
                     {
@@ -290,7 +290,7 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             if (dgvDetail.Rows.Count == 0)
             {

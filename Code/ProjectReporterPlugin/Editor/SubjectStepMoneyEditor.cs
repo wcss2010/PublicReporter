@@ -113,7 +113,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -137,16 +137,16 @@ namespace ProjectReporterPlugin.Editor
 
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             dgvDetail.Rows.Clear();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             UpdateStepList();
         }
@@ -216,9 +216,9 @@ namespace ProjectReporterPlugin.Editor
             }
         }
         
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
             {
@@ -279,7 +279,7 @@ namespace ProjectReporterPlugin.Editor
 
         public List<Step> StepList { get; set; }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             if (dgvDetail.Rows.Count == 0)
             {

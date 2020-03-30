@@ -29,7 +29,7 @@ namespace ProjectReporterPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -41,16 +41,16 @@ namespace ProjectReporterPlugin.Editor
             }           
         }
         
-        public override void ClearView()
+        public override void clearView()
         {
-            base.ClearView();
+            base.clearView();
 
             dgvDetail.Rows.Clear();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             dgvDetail.Rows.Clear();
             List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
@@ -70,9 +70,9 @@ namespace ProjectReporterPlugin.Editor
             }
         }
         
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
             {
@@ -190,7 +190,7 @@ namespace ProjectReporterPlugin.Editor
             }
 
             //刷新数据
-            RefreshView();
+            refreshView();
         }
 
         private void SaveOnly()
@@ -309,7 +309,7 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             if (dgvDetail.Rows.Count == 0)
             {
@@ -342,7 +342,7 @@ namespace ProjectReporterPlugin.Editor
                             catch (Exception ex) { }
 
                             ConnectionManager.Context.table("ExtFileList").where("ID='" + task.ID + "'").delete();
-                            RefreshView();
+                            refreshView();
                         }
                     }
                     else
@@ -357,7 +357,7 @@ namespace ProjectReporterPlugin.Editor
                                 }
                                 catch (Exception ex)
                                 {
-                                    RefreshView();
+                                    refreshView();
                                 }
                             }
                         }

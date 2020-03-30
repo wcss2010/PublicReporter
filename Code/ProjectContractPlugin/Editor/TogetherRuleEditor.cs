@@ -137,7 +137,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return true;
         }

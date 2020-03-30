@@ -28,7 +28,7 @@ namespace ProjectContractPlugin.Editor
             try
             {
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
                 PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectContractPlugin.PluginRoot>().refreshEditors();
             }
             catch (Exception ex)
@@ -41,9 +41,9 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             if (PluginRootObj.projectObj != null)
             {
@@ -98,9 +98,9 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             if (ibEdit1.Text == string.Empty)
             {
@@ -449,7 +449,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return true;
         }

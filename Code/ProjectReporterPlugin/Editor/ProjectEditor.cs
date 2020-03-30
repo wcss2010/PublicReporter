@@ -76,7 +76,7 @@ namespace ProjectReporterPlugin.Editor
             UpdatePersonList();
         }
 
-        public override void ClearView()
+        public override void clearView()
         {
             //cbxPersonList.Items.Clear();
             //leSearchList.Properties.DataSource = null;
@@ -421,21 +421,21 @@ namespace ProjectReporterPlugin.Editor
             //plMain.Top = (Height - plMain.Height) / 2;
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             LoadProject();
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             result = SaveProject() >= 0;
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return true;
         }

@@ -27,7 +27,7 @@ namespace ProjectContractPlugin.Editor
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
-                RefreshView();
+                refreshView();
             }
         }
 
@@ -44,7 +44,7 @@ namespace ProjectContractPlugin.Editor
                     }
 
                     //刷新
-                    RefreshView();
+                    refreshView();
                 }
             }
         }
@@ -62,7 +62,7 @@ namespace ProjectContractPlugin.Editor
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         //刷新列表
-                        RefreshView();
+                        refreshView();
                     }
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
@@ -73,7 +73,7 @@ namespace ProjectContractPlugin.Editor
                         //删除数据
                         ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing='" + dgvDetail.Rows[e.RowIndex].Tag + "'").delete();
                         //刷新
-                        RefreshView();
+                        refreshView();
                     }
                 }
             }
@@ -90,14 +90,14 @@ namespace ProjectContractPlugin.Editor
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //刷新列表
-                    RefreshView();
+                    refreshView();
                 }
             }
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             //读取单位经费数据并进行分类
             CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>> unitDict = new CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>>();
@@ -134,7 +134,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return dgvDetail.Rows.Count >= 1;
         }

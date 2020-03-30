@@ -19,9 +19,9 @@ namespace ProjectContractPlugin.Editor
             InitializeComponent();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             //查询课题列表
             ktList = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
@@ -77,7 +77,7 @@ namespace ProjectContractPlugin.Editor
             FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, list.Count);
             if (form.ShowDialog() == DialogResult.OK)
                 //刷新列表
-                RefreshView();
+                refreshView();
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -92,7 +92,7 @@ namespace ProjectContractPlugin.Editor
                     FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker((RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag, ktList);
                     if (form.ShowDialog() == DialogResult.OK)
                         //刷新列表
-                        RefreshView();
+                        refreshView();
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
@@ -103,7 +103,7 @@ namespace ProjectContractPlugin.Editor
                         ConnectionManager.Context.table("RenYuanBiao").where("BianHao='" + ((RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
 
                         //刷新
-                        RefreshView();
+                        refreshView();
                     }
                 }
             }
@@ -119,12 +119,12 @@ namespace ProjectContractPlugin.Editor
                 FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker((RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag, ktList);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
-                    RefreshView();
+                    refreshView();
             }
 
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return dgvDetail.Rows.Count >= 1;
         }
@@ -154,7 +154,7 @@ namespace ProjectContractPlugin.Editor
                 FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, statusNum);
                 if (form.ShowDialog() == DialogResult.OK)
                     //刷新列表
-                    RefreshView();
+                    refreshView();
 
             }
             else
@@ -177,7 +177,7 @@ namespace ProjectContractPlugin.Editor
                     }
 
                     //刷新
-                    RefreshView();
+                    refreshView();
                 }
             }
         }
@@ -187,7 +187,7 @@ namespace ProjectContractPlugin.Editor
             FrmWorkerImporter fei = new FrmWorkerImporter();
             if (fei.ShowDialog() == DialogResult.OK)
             {
-                RefreshView();
+                refreshView();
             }
         }
     }

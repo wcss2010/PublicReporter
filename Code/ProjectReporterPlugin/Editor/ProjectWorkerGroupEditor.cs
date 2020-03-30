@@ -19,9 +19,9 @@ namespace ProjectReporterPlugin.Editor
             InitializeComponent();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             if (PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj != null)
             {
@@ -58,7 +58,7 @@ namespace ProjectReporterPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return true;
         }
@@ -79,7 +79,7 @@ namespace ProjectReporterPlugin.Editor
                         obj.AttachInfo = box.SelectedText;
                         obj.copyTo(ConnectionManager.Context.table("Person")).where("ID='" + obj.ID + "'").update();
 
-                        RefreshView();
+                        refreshView();
                     }
                 }
             }

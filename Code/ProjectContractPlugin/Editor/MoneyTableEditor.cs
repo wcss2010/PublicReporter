@@ -110,9 +110,9 @@ namespace ProjectContractPlugin.Editor
             boxDict["ibEditMoney1"].Text = (total + secondMoney).ToString();
         }
 
-        public override void RefreshView()
+        public override void refreshView()
         {
-            base.RefreshView();
+            base.refreshView();
 
             List<YuSuanBiao> list = ConnectionManager.Context.table("YuSuanBiao").select("*").getList<YuSuanBiao>(new YuSuanBiao());
             foreach (YuSuanBiao ysb in list)
@@ -125,9 +125,9 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override void OnSaveEvent(ref bool result)
+        public override void onSaveEvent(ref bool result)
         {
-            base.OnSaveEvent(ref result);
+            base.onSaveEvent(ref result);
 
             ConnectionManager.Context.table("YuSuanBiao").delete();
             foreach (KeyValuePair<string, TextBox> kvp in boxDict)
@@ -155,7 +155,7 @@ namespace ProjectContractPlugin.Editor
                 }
 
                 bool result = true;
-                OnSaveEvent(ref result);
+                onSaveEvent(ref result);
             }
             catch (Exception ex)
             {
@@ -167,7 +167,7 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public override bool IsInputCompleted()
+        public override bool isInputCompleted()
         {
             return isComplete();
         }
