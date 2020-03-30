@@ -10,7 +10,7 @@ using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class MoneySendRuleEditor : BaseEditor
+    public partial class MoneySendRuleEditor : AbstractEditorPlugin.BaseEditor
     {
         List<BoFuBiao> list = new List<BoFuBiao>();
         public MoneySendRuleEditor()

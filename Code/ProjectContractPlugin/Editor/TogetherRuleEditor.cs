@@ -18,7 +18,7 @@ namespace ProjectContractPlugin.Editor
     /// <summary>
     /// 文档编辑控件
     /// </summary>
-    public partial class TogetherRuleEditor : BaseEditor
+    public partial class TogetherRuleEditor : AbstractEditorPlugin.BaseEditor
     {
         public const string TRCode1Key = "TRCode1";
         public const string TRCode2Key = "TRCode2";

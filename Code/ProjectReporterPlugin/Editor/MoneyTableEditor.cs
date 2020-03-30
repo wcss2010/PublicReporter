@@ -12,7 +12,7 @@ using System.Data;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public class MoneyTableEditor : BaseEditor
+    public class MoneyTableEditor : AbstractEditorPlugin.BaseEditor
 	{
 		private IContainer components;
 

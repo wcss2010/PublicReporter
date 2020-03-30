@@ -13,7 +13,7 @@ using System.Linq;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class SubjectStepMoneyEditor : BaseEditor
+    public partial class SubjectStepMoneyEditor : AbstractEditorPlugin.BaseEditor
     {
         public SubjectStepMoneyEditor()
         {

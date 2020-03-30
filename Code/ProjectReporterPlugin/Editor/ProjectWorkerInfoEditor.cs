@@ -14,7 +14,7 @@ using System.Diagnostics;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class ProjectWorkerInfoEditor : BaseEditor
+    public partial class ProjectWorkerInfoEditor : AbstractEditorPlugin.BaseEditor
     {
         private List<PersonObject> personList = new List<PersonObject>();
 

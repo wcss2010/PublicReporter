@@ -12,7 +12,7 @@ using ProjectReporterPlugin.Forms;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class ProjectWorkerGroupEditor : BaseEditor
+    public partial class ProjectWorkerGroupEditor : AbstractEditorPlugin.BaseEditor
     {
         public ProjectWorkerGroupEditor()
         {

@@ -13,7 +13,7 @@ using ProjectContractPlugin.Forms;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class UnitMoneyYearEditor : BaseEditor
+    public partial class UnitMoneyYearEditor : AbstractEditorPlugin.BaseEditor
     {
         public UnitMoneyYearEditor()
         {

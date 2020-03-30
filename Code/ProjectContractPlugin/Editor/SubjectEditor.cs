@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class SubjectEditor : BaseEditor
+    public partial class SubjectEditor : AbstractEditorPlugin.BaseEditor
     {
         public List<KeTiBiao> list = new List<KeTiBiao>();
         public SubjectEditor()

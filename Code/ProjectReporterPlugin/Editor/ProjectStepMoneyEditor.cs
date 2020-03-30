@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class ProjectStepMoneyEditor : BaseEditor
+    public partial class ProjectStepMoneyEditor : AbstractEditorPlugin.BaseEditor
     {
         public ProjectStepMoneyEditor()
         {

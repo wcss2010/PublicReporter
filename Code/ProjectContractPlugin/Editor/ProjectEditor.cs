@@ -11,7 +11,7 @@ using ProjectContractPlugin.DB;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class ProjectEditor : BaseEditor
+    public partial class ProjectEditor : AbstractEditorPlugin.BaseEditor
     {
         public ProjectEditor()
         {

@@ -12,7 +12,7 @@ using Aspose.Words;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class ExtFile2Editor : BaseEditor
+    public partial class ExtFile2Editor : AbstractEditorPlugin.BaseEditor
     {
         /// <summary>
         /// 编辑器名称

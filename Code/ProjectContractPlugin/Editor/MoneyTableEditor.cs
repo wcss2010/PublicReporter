@@ -10,7 +10,7 @@ using ProjectContractPlugin.DB.Entitys;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class MoneyTableEditor : BaseEditor
+    public partial class MoneyTableEditor : AbstractEditorPlugin.BaseEditor
     {
         Dictionary<string, TextBox> boxDict = new Dictionary<string, TextBox>();
 

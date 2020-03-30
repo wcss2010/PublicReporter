@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class TechnologyQuestionEditor : BaseEditor
+    public partial class TechnologyQuestionEditor : AbstractEditorPlugin.BaseEditor
     {
         List<JiShuBiao> list = new List<JiShuBiao>();
         public TechnologyQuestionEditor()

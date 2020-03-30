@@ -12,7 +12,7 @@ using System.Diagnostics;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class ConfidentialQualificationEditor : BaseEditor
+    public partial class ConfidentialQualificationEditor : AbstractEditorPlugin.BaseEditor
     {
         public ConfidentialQualificationEditor()
         {

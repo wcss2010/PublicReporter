@@ -10,7 +10,7 @@ using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class WorkerEditor : BaseEditor
+    public partial class WorkerEditor : AbstractEditorPlugin.BaseEditor
     {
         List<RenYuanBiao> list = new List<RenYuanBiao>();
         List<KeTiBiao> ktList = new List<KeTiBiao>();

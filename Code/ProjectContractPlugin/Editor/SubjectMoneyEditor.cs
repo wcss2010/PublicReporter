@@ -10,7 +10,7 @@ using ProjectContractPlugin.DB;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class SubjectMoneyEditor : BaseEditor
+    public partial class SubjectMoneyEditor : AbstractEditorPlugin.BaseEditor
     {
         public SubjectMoneyEditor()
         {

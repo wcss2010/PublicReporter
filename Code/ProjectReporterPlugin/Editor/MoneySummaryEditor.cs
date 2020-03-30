@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class MoneySummaryEditor : BaseEditor
+    public partial class MoneySummaryEditor : AbstractEditorPlugin.BaseEditor
     {
         public string FilePath { get; set; }
 

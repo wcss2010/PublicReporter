@@ -10,7 +10,7 @@ using Aspose.Words;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class SubjectDetailEditor : BaseEditor
+    public partial class SubjectDetailEditor : AbstractEditorPlugin.BaseEditor
     {
         public string RTFFileFirstName { get; set; }
 

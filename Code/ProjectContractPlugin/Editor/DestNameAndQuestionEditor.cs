@@ -11,7 +11,7 @@ using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class DestNameAndQuestionEditor : BaseEditor
+    public partial class DestNameAndQuestionEditor : AbstractEditorPlugin.BaseEditor
     {
         List<ZhiBiaoBiao> list = new List<ZhiBiaoBiao>();
         public DestNameAndQuestionEditor()

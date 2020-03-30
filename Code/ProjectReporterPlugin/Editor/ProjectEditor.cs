@@ -12,7 +12,7 @@ using ProjectReporterPlugin.DB;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class ProjectEditor : BaseEditor
+    public partial class ProjectEditor : AbstractEditorPlugin.BaseEditor
     {   
         UnitExtService _unitInforService = new UnitExtService();
 

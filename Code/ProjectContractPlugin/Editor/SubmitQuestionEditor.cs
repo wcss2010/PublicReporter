@@ -10,8 +10,7 @@ using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
-   
-    public partial class SubmitQuestionEditor : BaseEditor
+    public partial class SubmitQuestionEditor : AbstractEditorPlugin.BaseEditor
     {
         List<TiJiaoYaoQiuBiao> list = new List<TiJiaoYaoQiuBiao>();
         public SubmitQuestionEditor()

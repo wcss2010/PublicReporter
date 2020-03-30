@@ -12,6 +12,7 @@ using ProjectReporterPlugin.DB.Entitys;
 using ProjectReporterPlugin.Editor;
 using ProjectReporterPlugin.Forms;
 using ProjectReporterPlugin.Utility;
+using AbstractEditorPlugin.Editor;
 
 namespace ProjectReporterPlugin
 {
@@ -23,27 +24,6 @@ namespace ProjectReporterPlugin
         public const string button4_Name = "数据包管理";
         public const string button5_Name = "帮助";
 
-        public const string tnode_0_Name = "基本信息";
-        public const string tnode_1_Name = "项目摘要";
-        public const string tnode_2_Name = "概述";
-        public const string tnode_2_0_Name = "需求分析";
-        public const string tnode_2_1_Name = "研究现状";
-        public const string tnode_3_Name = "研究目标";
-        public const string tnode_4_Name = "研究内容";
-        public const string tnode_5_Name = "研究成果";
-        public const string tnode_5_0_Name = "成果内容";
-        public const string tnode_5_1_Name = "成果服务方式";
-        public const string tnode_6_Name = "研究周期与进度安排 ";
-        public const string tnode_7_Name = "研究基础与保障条件";
-        public const string tnode_8_Name = "项目负责人和研究团队";
-        public const string tnode_8_0_Name = "项目负责人";
-        public const string tnode_8_1_Name = "研究团队";
-        public const string tnode_8_2_Name = "主要成员情况表";
-        public const string tnode_9_Name = "经费预算表";
-        public const string tnode_10_Name = "附件1-项目经费预算说明";
-        public const string tnode_11_Name = "附件2-保密资质复印件";
-        public const string tnode_12_Name = "联系方式";
-
         public NewPluginRoot()
             : base()
         {
@@ -52,7 +32,7 @@ namespace ProjectReporterPlugin
 
         public override string DefaultTitle
         {
-            get { return "国防科技战略先导计划项目建议书填报系统(V1.0)"; }
+            get { return "重点基础研究项目建议书信息填报系统（1.4.2版）"; }
         }
 
         /// <summary>
@@ -117,29 +97,121 @@ namespace ProjectReporterPlugin
         /// </summary>
         public override void initTrees()
         {
-            TreeNode rootNode = new TreeNode(tnode_0_Name);
-            rootNode.Nodes.Add(new TreeNode(tnode_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_2_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_2_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_2_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_3_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_4_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_5_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_5_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_5_1_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_6_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_7_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_8_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_8_0_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_8_1_Name));
-            rootNode.Nodes[rootNode.Nodes.Count - 1].Nodes.Add(new TreeNode(tnode_8_2_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_9_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_12_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_10_Name));
-            rootNode.Nodes.Add(new TreeNode(tnode_11_Name));
+            TreeNode firstNode = new TreeNode();
+            firstNode.Name = "root";
+            firstNode.Text = "申报书";
 
-            Parent_LeftTreeView.Nodes.Add(rootNode);
-            rootNode.ExpandAll();
+            TreeNode itemObj = new TreeNode();
+            itemObj.Text = "概述";
+            firstNode.Nodes.Add(itemObj);
+
+            TreeNode subItemObj = new TreeNode();
+            subItemObj.Text = "项目摘要";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "基本概念及内涵";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "军事需求分析";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "研究现状";
+            itemObj.Nodes.Add(subItemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "研究目标";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "基础性问题";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "项目分解";
+            firstNode.Nodes.Add(itemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "课题列表";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "课题之间的关系";
+            itemObj.Nodes.Add(subItemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "研究成果";
+            firstNode.Nodes.Add(itemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "研究成果及考核指标";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "评估方案";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "预期效益";
+            itemObj.Nodes.Add(subItemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "研究周期、阶段划分和经费安排";
+            firstNode.Nodes.Add(itemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "项目阶段划分和经费安排";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "课题阶段划分和经费安排";
+            itemObj.Nodes.Add(subItemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "项目负责人和研究团队";
+            firstNode.Nodes.Add(itemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "项目负责人";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "研究团队";
+            itemObj.Nodes.Add(subItemObj);
+
+            subItemObj = new TreeNode();
+            subItemObj.Text = "各课题负责人及研究骨干情况表";
+            itemObj.Nodes.Add(subItemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "研究基础与保障条件";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "组织实施与风险控制";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "与有关计划关系";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "经费预算表";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "附件1-经费概算";
+            firstNode.Nodes.Add(itemObj);
+
+            itemObj = new TreeNode();
+            itemObj.Text = "附件2-保密资质";
+            firstNode.Nodes.Add(itemObj);
+
+            Parent_LeftTreeView.Nodes.Add(firstNode);
+
+            firstNode.ExpandAll();
         }
 
         /// <summary>
@@ -148,46 +220,29 @@ namespace ProjectReporterPlugin
         public override void initEditorMaps()
         {
             #region 初始化编辑器Map
-            //基本信息(需要一个自定义输入界面)
-            editorMap[tnode_0_Name] = new Editor.SummaryEditor();
-            //项目摘要(TextContentEditor)
-            editorMap[tnode_1_Name] = new DocumentPasteEditor("项目摘要", "简要介绍研究问题提出的国防科技发展背景或需求来源，简述项目研究目标与研究内容，拟采取的研究思路与研究方法，拟使用的主要数据资源，以及主要预期成果（名称、形式、数量、指标等）、成果服务方式等。（限1000字以内）", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //一、概述(不需要显示内容)
-            //editorMap[tnode_2_Name] = null;
-            //（一）需求分析(DocumentPasteEditor)
-            editorMap[tnode_2_0_Name] = new DocumentPasteEditor("需求分析", "（简要介绍本项目的国防科技发展背景或需求来源，分析提出研究问题。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //（二）研究现状(DocumentPasteEditor)
-            editorMap[tnode_2_1_Name] = new DocumentPasteEditor("研究现状", "（客观简述国内外研究现状，重点聚焦与本项目核心问题相关的研究情况，注重定量描述，避免泛泛而谈） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //二、研究目标(DocumentPasteEditor)
-            editorMap[tnode_3_Name] = new DocumentPasteEditor("研究目标", "（凝练提出项目研究目标，表述需明确、具体、准确，避免过于笼统。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //三、研究内容(不需要显示内容)
-            editorMap[tnode_4_Name] = new Editor.SubjectEditor();
-            //四、研究成果(不需要显示内容)
-            //editorMap[tnode_5_Name] = null;
-            //（一）研究成果(DocumentPasteEditor)
-            editorMap[tnode_5_0_Name] = new DocumentPasteEditor("研究成果", "分类逐项列出研究成果。研究成果形式包括但不限于研究报告、专报、刊物、模拟试验（仿真）结果、数据库、软件、标准（规范）等。", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //（二）成果服务方式(DocumentPasteEditor)
-            editorMap[tnode_5_1_Name] = new DocumentPasteEditor("成果服务方式", "（简要描述该项目研究成果以何种方式、面向何种对象提供服务，预期可发挥何种支撑作用。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //五、研究周期与进度安排(不需要显示内容)
-            editorMap[tnode_6_Name] = new Editor.ProjectStepEditor();
-            //六、研究基础与保障条件(DocumentPasteEditor)
-            editorMap[tnode_7_Name] = new DocumentPasteEditor("研究基础与保障条件", "（介绍与本项目相关的，已开展过的工作、已有的研究基础和软硬件保障条件等，限800字以内。特别是属常态化、持续性研究项目，应重点说明与已立项战略先导计划项目之间的关系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //七、项目负责人和研究团队(不需要显示内容)
-            //editorMap[tnode_8_Name] = null;
-            //（一）、项目负责人(DocumentPasteEditor)
-            editorMap[tnode_8_0_Name] = new DocumentPasteEditor("项目负责人", "（介绍项目负责人的职务职称、教育工作履历，主要学术成就、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。） ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //（二）、研究团队(自定义列表)
-            editorMap[tnode_8_1_Name] = new DocumentPasteEditor("研究团队", "简要介绍本项目除项目负责人外的各项研究内容负责人情况，包括职务职称、教育工作履历、主要学术成就、人才计划资助情况等，限500字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。 ", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile());
-            //（三）、主要成员情况表(自定义列表)
-            editorMap[tnode_8_2_Name] = new Editor.WorkerEditor();
-            //八、经费预算表(自定义列表)
-            editorMap[tnode_9_Name] = new Editor.MoneyTableEditor();
-            //九、联系方式
-            editorMap[tnode_12_Name] = new Editor.MasterListEditor();
-            //附件1-项目经费预算说明(DocumentPasteEditor-带特定模板)
-            editorMap[tnode_10_Name] = new DocumentPasteEditor("项目经费预算说明", "（介绍本项目预算依据、内容构成、具体安排，应能够支撑对项目经费预算合理性进行审核评估） ", Path.Combine(RootDir, Path.Combine("Helper", "moneyPaste.doc")), getDocumentPasteReadmeFile());
-            //附件2-保密资质复印件(DocumentPasteEditor-带特定模板)
-            editorMap[tnode_11_Name] = new DocumentPasteEditor("保密资质复印件", "若该项目内容涉密，请申报单位提供与项目内容密级相应的保密资质复印件", Path.Combine(RootDir, Path.Combine("Helper", "secretPaste.doc")), getDocumentPasteReadmeFile2());
+            editorMap.Add("项目摘要", new TextContentEditor("项目摘要", "一般以文字形式表述，不配图、不列公式，要求内容精炼，限1500字以内", 999999999));
+            editorMap.Add("基本概念及内涵", new DocumentPasteEditor("基本概念及内涵", "简要介绍相关研究对象的基本概念及内涵等", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("军事需求分析", new DocumentPasteEditor("军事需求分析", "分析本项目有关军事需求背景，提出面临的困难和瓶颈问题等", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("研究现状", new DocumentPasteEditor("研究现状", "全面客观地论述国内与国外研究现状，重点聚焦与本项目核心问题相关的技术研究情况其中包括研究水平、差距与不足等，注重定量描述，避免泛泛而谈", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("研究目标", new DocumentPasteEditor("研究目标", "凝练提出项目研究目标，表述需明确、具体、准确，避免过于笼统。", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("基础性问题", new DocumentPasteEditor("基础性问题", "围绕项目研究目标，突出国防基础研究的任务特点，梳理提出本项目需要重点研究解决的基础性问题(简要描述每个问题，200字以内)", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("课题之间的关系", new DocumentPasteEditor("课题之间的关系", "基础性问题与课题之间的关系、各课题之间的关系（简要叙述，建议1000字之内，可用图表示）", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("研究成果及考核指标", new DocumentPasteEditor("研究成果及考核指标", "分类逐项列出研究成果及考核指标。研究成果形式包括演示试验/验证系统 、样机、样品/样件、理论、标准/规范、数据库/软件、工程工艺等。指标体系应系统完整。", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("评估方案", new DocumentPasteEditor("评估方案", "围绕课题的研究成果及考核指标，提出具体的评估方案。可考虑通过国标、检测机构、企业标准测量、实验等多种方法，具体落实各项指标的评测。对可能影响指标评测结果的各种边界因素条件，均应明确说明，避免理解歧义。", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("预期效益", new DocumentPasteEditor("预期效益", "简要描述该项目研究成果得到应用后，对解决国防科技现实瓶颈问题和支撑未来技术发展方面的预期支撑作用。", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("项目负责人", new TextContentEditor("项目负责人", "介绍项目负责人的职务职称、受教育情况、履历，代表性论文、专著、专利、奖励、人才计划资助情况，以及近五年主持的相关国家科技计划项目情况，限800字以内。要求实事求是填报，有关信息纳入科研诚信评价体系。", 999999999));
+            editorMap.Add("研究基础与保障条件", new DocumentPasteEditor("研究基础与保障条件", "已有研究基础和软硬件保障条件，包括国家研究中心、国家重点实验室、国家工程（技术）中心等，以及自筹经费情况，800字以内", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("组织实施与风险控制", new DocumentPasteEditor("组织实施与风险控制", "对本项目可能存在的技术和管理风险进行分析，提出思路举措，500字以内", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("与有关计划关系", new DocumentPasteEditor("与有关计划关系", "介绍与本项目研究内容相关的国家和军队各类科技计划安排情况，对本项目与有关计划安排的界面关系进行说明。", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
+            editorMap.Add("课题列表", new SubjectTableEditor());
+            editorMap.Add("申报书", new ProjectEditor());
+            editorMap.Add("项目阶段划分和经费安排", new ProjectStepMoneyEditor());
+            editorMap.Add("课题阶段划分和经费安排", new SubjectStepMoneyEditor());
+            editorMap.Add("研究团队", new ProjectWorkerGroupEditor());
+            editorMap.Add("各课题负责人及研究骨干情况表", new ProjectWorkerInfoEditor());
+            editorMap.Add("经费预算表", new MoneyTableEditor());
+            editorMap.Add("附件1-经费概算", new MoneySummaryEditor());
+            editorMap.Add("附件2-保密资质", new ConfidentialQualificationEditor());
             #endregion
 
             #region 检查哪个Editor没有设置Name
@@ -355,8 +410,25 @@ namespace ProjectReporterPlugin
         /// <returns></returns>
         public string getNewExportZipName()
         {
-            Projects projObj = (Projects)projectObj;
-            return projObj.ProjectName + "-" + projObj.UnitName + "-" + projObj.UnitContact + ".zip";
+            Project proj = (Project)projectObj;
+            string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.ID + "')").select("UnitName").getValue<string>(string.Empty);
+            string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.ID + "')").select("Name").getValue<string>(string.Empty);
+
+            if (proj.DirectionCode == 0)
+            {
+                //方向代码为0,忽略此项,然后生成压缩包名
+                return proj.Domain + "-" + proj.Name + "-" + unitName + "-" + personName;
+            }
+            else
+            {
+                //生成完整的压缩包名
+                string directionCode = proj.DirectionCode.ToString();
+                if (proj.DirectionCode < 10)
+                {
+                    directionCode = "0" + directionCode;
+                }
+                return proj.Domain + "-" + directionCode + "-" + proj.Name + "-" + unitName + "-" + personName;
+            }
         }
 
         /// <summary>
@@ -367,7 +439,7 @@ namespace ProjectReporterPlugin
             string ddDir = Path.Combine(RootDir, "Data");
             DirectoryInfo destProjectDir = new DirectoryInfo(Path.Combine(ddDir, Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks));
 
-            if (projectObj != null && !string.IsNullOrEmpty(((Projects)projectObj).ID))
+            if (projectObj != null && !string.IsNullOrEmpty(((Project)projectObj).ID))
             {
                 //创建一个空目录
                 try
@@ -412,7 +484,7 @@ namespace ProjectReporterPlugin
                 string ddDir = System.IO.Path.Combine(RootDir, "Data");
 
                 //项目ID
-                string projId = projectObj != null ? ((Projects)projectObj).ID : Guid.NewGuid().ToString();
+                string projId = projectObj != null ? ((Project)projectObj).ID : Guid.NewGuid().ToString();
 
                 //临时目录名
                 string tempDirName = projId + "_" + DateTime.Now.Ticks;
@@ -528,9 +600,9 @@ namespace ProjectReporterPlugin
             try
             {
                 //加载项目信息
-                projectObj = ConnectionManager.Context.table("Projects").select("*").getItem<Projects>(new Projects());
+                projectObj = ConnectionManager.Context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
 
-                if (string.IsNullOrEmpty(getProjectObject<Projects>().ID))
+                if (string.IsNullOrEmpty(getProjectObject<Project>().ID))
                 {
                     //项目数据清空
                     projectObj = null;

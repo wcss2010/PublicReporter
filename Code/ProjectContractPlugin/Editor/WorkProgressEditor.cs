@@ -10,7 +10,7 @@ using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
-    public partial class WorkProgressEditor : BaseEditor
+    public partial class WorkProgressEditor : AbstractEditorPlugin.BaseEditor
     {
         List<JinDuBiao> list = new List<JinDuBiao>();
         public WorkProgressEditor()

@@ -12,7 +12,7 @@ using System.IO;
 
 namespace ProjectReporterPlugin.Editor
 {
-    public partial class SubjectTableEditor : BaseEditor
+    public partial class SubjectTableEditor : AbstractEditorPlugin.BaseEditor
     {
         private Balloon.NET.BalloonHelp balloonHelp = null;
 
