@@ -31,6 +31,10 @@ namespace ProjectReporterPlugin.Editor
             InitializeComponent();
 
             RTFFileFirstName = "课题详细_";
+
+            txtWordReadme.LoadFile(((NewPluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
+            txtWordReadme2.LoadFile(((NewPluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
+            txtWordReadme3.LoadFile(((NewPluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
         }
 
         public override void clearView()
