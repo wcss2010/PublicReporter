@@ -27,13 +27,13 @@ namespace ProjectContractPlugin.Forms
             foreach (string s in dirs)
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(s);
-                Projects proj = getProjectObject(s);
-                if (proj != null && proj.ProjectName != null && proj.ProjectName.Length >= 1)
+                JiBenXinXiBiao proj = getProjectObject(s);
+                if (proj != null && proj.HeTongMingCheng != null && proj.HeTongMingCheng.Length >= 1)
                 {
                     if (di.Name == "Current")
                     {
                         TreeNode tn = new TreeNode();
-                        tn.Text = proj.ProjectName + "," + proj.UnitName + "," + proj.ProjectMasterName + "(正在使用)";
+                        tn.Text = proj.HeTongMingCheng + "," + proj.HeTongFuZeDanWei + "," + proj.HeTongFuZeRen + "(正在使用)";
                         tn.Name = di.Name;
                         tn.Tag = proj;
                         tvProject.Nodes.Add(tn);
@@ -41,7 +41,7 @@ namespace ProjectContractPlugin.Forms
                     else
                     {
                         TreeNode tn = new TreeNode();
-                        tn.Text = proj.ProjectName + "," + proj.UnitName + "," + proj.ProjectMasterName;
+                        tn.Text = proj.HeTongMingCheng + "," + proj.HeTongFuZeDanWei + "," + proj.HeTongFuZeRen;
                         tn.Name = di.Name;
                         tn.Tag = proj;
                         tvProject.Nodes.Add(tn);
@@ -213,9 +213,9 @@ namespace ProjectContractPlugin.Forms
                         AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 30, "创建导入目录...", 600);
 
                         //读取数据对象
-                        Projects projObj = getProjectObject(decompressTemp);
+                        JiBenXinXiBiao projObj = getProjectObject(decompressTemp);
                         //解压目录
-                        string destDecompressDir = getPkgDir((projObj != null && !string.IsNullOrEmpty(projObj.ID) ? projObj.ID : Guid.NewGuid().ToString()) + "_" + DateTime.Now.Ticks);
+                        string destDecompressDir = getPkgDir((projObj != null && !string.IsNullOrEmpty(projObj.BianHao) ? projObj.BianHao : Guid.NewGuid().ToString()) + "_" + DateTime.Now.Ticks);
                         //创建当前目录
                         try
                         {

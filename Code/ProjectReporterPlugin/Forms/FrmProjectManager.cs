@@ -27,13 +27,13 @@ namespace ProjectReporterPlugin.Forms
             foreach (string s in dirs)
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(s);
-                Projects proj = getProjectObject(s);
-                if (proj != null && proj.ProjectName != null && proj.ProjectName.Length >= 1)
+                Project proj = getProjectObject(s);
+                if (proj != null && proj.Name != null && proj.Name.Length >= 1)
                 {
                     if (di.Name == "Current")
                     {
                         TreeNode tn = new TreeNode();
-                        tn.Text = proj.ProjectName + "," + proj.UnitName + "," + proj.ProjectMasterName + "(正在使用)";
+                        tn.Text = proj.Name + "(正在使用)";
                         tn.Name = di.Name;
                         tn.Tag = proj;
                         tvProject.Nodes.Add(tn);
@@ -41,7 +41,7 @@ namespace ProjectReporterPlugin.Forms
                     else
                     {
                         TreeNode tn = new TreeNode();
-                        tn.Text = proj.ProjectName + "," + proj.UnitName + "," + proj.ProjectMasterName;
+                        tn.Text = proj.Name;
                         tn.Name = di.Name;
                         tn.Tag = proj;
                         tvProject.Nodes.Add(tn);
@@ -69,6 +69,19 @@ namespace ProjectReporterPlugin.Forms
                 try
                 {
                     proj = context.table("Project").where("Type='" + "项目" + "'").select("*").getItem<Project>(new Project());
+
+                    Person projectPersonObj = context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + proj.ID + "')").select("*").getItem<Person>(new Person());
+                    if (projectPersonObj == null)
+                    {
+                        throw new Exception("项目负责人为空！");
+                    }
+                    Unit projectUnitObj = context.table("Unit").where("ID = '" + proj.UnitID + "'").select("*").getItem<Unit>(new Unit());
+                    if (projectUnitObj == null)
+                    {
+                        throw new Exception("项目负责单位为空");
+                    }
+
+                    proj.Name += "," + projectUnitObj.UnitName + "," + projectPersonObj.Name;
                 }
                 catch (Exception ex)
                 {
@@ -213,7 +226,7 @@ namespace ProjectReporterPlugin.Forms
                         AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 30, "创建导入目录...", 600);
 
                         //读取数据对象
-                        Projects projObj = getProjectObject(decompressTemp);
+                        Project projObj = getProjectObject(decompressTemp);
                         //解压目录
                         string destDecompressDir = getPkgDir((projObj != null && !string.IsNullOrEmpty(projObj.ID) ? projObj.ID : Guid.NewGuid().ToString()) + "_" + DateTime.Now.Ticks);
                         //创建当前目录

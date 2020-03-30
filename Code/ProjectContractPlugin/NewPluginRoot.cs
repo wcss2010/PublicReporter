@@ -609,7 +609,7 @@ namespace ProjectContractPlugin
         /// <param name="treeNode"></param>
         protected override void switchCurrentEditor(System.Windows.Forms.TreeNode treeNode)
         {
-            if (projectObj == null || string.IsNullOrEmpty(getProjectObject<Projects>().ID))
+            if (projectObj == null || string.IsNullOrEmpty(getProjectObject<JiBenXinXiBiao>().BianHao))
             {
                 //因为项目信息为空，所以锁定在项目信息页
                 Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
