@@ -57,6 +57,10 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Noear.Weed3">
       <HintPath>..\..\Lib\Noear.Weed3.dll</HintPath>
     </Reference>
@@ -351,6 +355,10 @@
     <Compile Include="Utility\WordUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AbstractEditorPlugin\AbstractEditorPlugin.csproj">
+      <Project>{69f88fac-0a8d-46e5-94e3-ed928cfd04ee}</Project>
+      <Name>AbstractEditorPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PublicReporterLib\PublicReporterLib.csproj">
       <Project>{9e5cdd7b-9ce2-42a8-907e-c1f9d3e8312c}</Project>
       <Name>PublicReporterLib</Name>
