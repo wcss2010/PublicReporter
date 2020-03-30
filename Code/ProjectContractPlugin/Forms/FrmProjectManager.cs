@@ -1,9 +1,11 @@
-﻿using ProjectContractPlugin.DB.Entitys;
+﻿using ProjectStrategicLeadershipPlugin.DB.Entitys;
+using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -21,21 +23,25 @@ namespace ProjectContractPlugin.Forms
         private void updateProjects()
         {
             tvProject.Nodes.Clear();
-            string[] dirs = System.IO.Directory.GetDirectories(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"));
+            string[] dirs = System.IO.Directory.GetDirectories(System.IO.Path.Combine(PluginRootObj.RootDir, "Data"));
             foreach (string s in dirs)
             {
                 System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(s);
-                JiBenXinXiBiao proj = getProjectObject(s);
-                if (proj != null && proj.HeTongMingCheng != null && proj.HeTongMingCheng.Length >= 1)
+                Projects proj = getProjectObject(s);
+                if (proj != null && proj.ProjectName != null && proj.ProjectName.Length >= 1)
                 {
                     if (di.Name == "Current")
                     {
-                        Text = "项目管理(当前:" + proj.HeTongMingCheng + ")";
+                        TreeNode tn = new TreeNode();
+                        tn.Text = proj.ProjectName + "," + proj.UnitName + "," + proj.ProjectMasterName + "(正在使用)";
+                        tn.Name = di.Name;
+                        tn.Tag = proj;
+                        tvProject.Nodes.Add(tn);
                     }
                     else
                     {
                         TreeNode tn = new TreeNode();
-                        tn.Text = di.Name + "(" + proj.HeTongMingCheng + ")";
+                        tn.Text = proj.ProjectName + "," + proj.UnitName + "," + proj.ProjectMasterName;
                         tn.Name = di.Name;
                         tn.Tag = proj;
                         tvProject.Nodes.Add(tn);
@@ -49,9 +55,9 @@ namespace ProjectContractPlugin.Forms
         /// </summary>
         /// <param name="projectDir"></param>
         /// <returns></returns>
-        public JiBenXinXiBiao getProjectObject(string projectDir)
+        public Projects getProjectObject(string projectDir)
         {
-            JiBenXinXiBiao proj = null;
+            Projects proj = null;
             string dbFile = System.IO.Path.Combine(projectDir, "static.db");
 
             if (System.IO.File.Exists(dbFile))
@@ -62,7 +68,7 @@ namespace ProjectContractPlugin.Forms
                 context.IsSupportGCAfterDispose = true;
                 try
                 {
-                    proj = context.table("JiBenXinXiBiao").select("*").getItem<JiBenXinXiBiao>(new JiBenXinXiBiao());
+                    proj = context.table("Projects").select("*").getItem<Projects>(new Projects());
                 }
                 catch (Exception ex)
                 {
@@ -91,130 +97,151 @@ namespace ProjectContractPlugin.Forms
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            if (tvProject.SelectedNode != null && System.IO.Directory.Exists(System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), tvProject.SelectedNode.Name)))
+            if (tvProject.SelectedNode != null)
             {
-                if (MessageBox.Show("真的要切换吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (tvProject.SelectedNode.Text.EndsWith("(正在使用)"))
                 {
-                    string uuid = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj.BianHao : Guid.NewGuid().ToString();
-
-                    //关闭连接
-                    DB.ConnectionManager.Close();
-
-                    //当前项目目录
-                    string currentPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), "Current");
-
-                    //目标目录
-                    string destPath = System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), uuid);
-
-                    //移动当前目录
-                    if (System.IO.Directory.Exists(currentPath))
+                    MessageBox.Show("对不起，当前项目正在编辑，不能进行此操作！");
+                    return;
+                }
+                else
+                {
+                    if (System.IO.Directory.Exists(getPkgDir(tvProject.SelectedNode.Name)))
                     {
-                        if (System.IO.Directory.Exists(destPath))
+                        if (MessageBox.Show("真的要编辑该数据包吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                         {
-                            System.IO.Directory.Delete(destPath, true);
+                            if (PluginRootObj.isUsingDir(getPkgDir(tvProject.SelectedNode.Name), false) || PluginRootObj.isUsingDir(PluginRootObj.dataDir, true))
+                            {
+                                MessageBox.Show("对不起，编辑该数据包失败，因为您可能打开了某些文件或目录没有关闭！");
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    PluginRootObj.switchProject(tvProject.SelectedNode.Name);
+                                    Close();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("对不起，请检查您是否打开了某个word文件或目录没有关闭，然后重试！");
+                                }
+                            }
                         }
-
-                        System.IO.Directory.Move(currentPath, destPath);
                     }
-
-                    //将这个目录切换为当前目录
-                    System.IO.Directory.Move(System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), tvProject.SelectedNode.Name), currentPath);
-
-                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().enabledShowExitHint = false;
-                    DB.ConnectionManager.Close();
-                    System.Diagnostics.Process.Start(Application.ExecutablePath);
-                    PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj = null;
-                    Application.Exit();
                 }
             }
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 获得包路径
+        /// </summary>
+        /// <param name="pkgDirName"></param>
+        /// <returns></returns>
+        private string getPkgDir(string pkgDirName)
         {
-            if (ofdSelect.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                //新项目目录
-                string newProjectDir = System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, System.IO.Path.Combine("Data", Guid.NewGuid().ToString()));
-
-                SuperCodeFactoryUILib.Forms.CircleProgressBarDialog dialog = new SuperCodeFactoryUILib.Forms.CircleProgressBarDialog();
-                dialog.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                dialog.TransparencyKey = dialog.BackColor;
-                dialog.ProgressBar.ForeColor = Color.Red;
-                dialog.MessageLabel.ForeColor = Color.Blue;
-                dialog.Start(new EventHandler<SuperCodeFactoryUILib.Forms.CircleProgressBarEventArgs>(delegate(object thisObj, SuperCodeFactoryUILib.Forms.CircleProgressBarEventArgs args)
-                {
-                    try
-                    {
-                        dialog.ReportProgress(20, 100);
-                        dialog.ReportInfo("创建导入目录");
-                        try
-                        {
-                            System.Threading.Thread.Sleep(1000);
-                        }
-                        catch (Exception ex) { }
-
-                        //创建目录
-                        try
-                        {
-                            System.IO.Directory.CreateDirectory(newProjectDir);
-                        }
-                        catch (Exception ex) { }
-
-                        dialog.ReportProgress(40, 100);
-                        dialog.ReportInfo("准备解包");
-
-                        //解压需要导入的包                        
-                        new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofdSelect.FileName, newProjectDir, string.Empty, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        dialog.ReportProgress(90, 100);
-                        dialog.ReportInfo("解包出错，正在删除导入目录");
-                        try
-                        {
-                            System.Threading.Thread.Sleep(1000);
-                        }
-                        catch (Exception exx) { }
-
-                        if (System.IO.Directory.Exists(newProjectDir))
-                        {
-                            System.IO.Directory.Delete(newProjectDir);
-                        }
-                    }
-
-                    dialog.ReportProgress(98, 100);
-                    dialog.ReportInfo("刷新列表");
-                    try
-                    {
-                        System.Threading.Thread.Sleep(1000);
-                    }
-                    catch (Exception ex) { }
-
-                    //更新列表
-                    Invoke(new MethodInvoker(delegate()
-                        {
-                            updateProjects();
-                        }));                    
-                }));
-            }
+            return System.IO.Path.Combine(System.IO.Path.Combine(PluginRootObj.RootDir, "Data"), pkgDirName);
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
             if (tvProject.SelectedNode != null)
             {
-                if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (tvProject.SelectedNode.Text.EndsWith("(正在使用)"))
                 {
-                    try
+                    MessageBox.Show("对不起，当前项目正在编辑，不能进行此操作！");
+                    return;
+                }
+                else
+                {
+                    if (System.IO.Directory.Exists(getPkgDir(tvProject.SelectedNode.Name)))
                     {
-                        System.IO.Directory.Delete(System.IO.Path.Combine(System.IO.Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, "Data"), tvProject.SelectedNode.Name), true);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("删除错误！Ex:" + ex.ToString());
-                    }
+                        if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            string projDir = getPkgDir(tvProject.SelectedNode.Name);
 
-                    updateProjects();
+                            if (PluginRootObj.isUsingDir(projDir, false))
+                            {
+                                MessageBox.Show("对不起，删除失败，因为您可能打开了某些文件或目录没有关闭！");
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    System.IO.Directory.Delete(projDir, true);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("对不起，请检查您是否打开了某个word文件或目录没有关闭，然后重试！");
+                                }
+
+                                updateProjects();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "ZIP申报包|*.zip";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                if (MessageBox.Show("真的要导入吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    CircleProgressBarDialog dialogb = new CircleProgressBarDialog();
+                    dialogb.TransparencyKey = dialogb.BackColor;
+                    dialogb.ProgressBar.ForeColor = Color.Red;
+                    dialogb.MessageLabel.ForeColor = Color.Blue;
+                    dialogb.FormBorderStyle = FormBorderStyle.None;
+                    dialogb.Start(new EventHandler<CircleProgressBarEventArgs>(delegate(object thisObject, CircleProgressBarEventArgs argss)
+                    {
+                        CircleProgressBarDialog senderForm = (CircleProgressBarDialog)thisObject;
+
+                        AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 10, "准备导入...", 600);
+
+                        //解压到临时目录先
+                        string decompressTemp = getPkgDir(Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks + "_Temp");
+                        try
+                        {
+                            Directory.CreateDirectory(decompressTemp);
+                        }
+                        catch (Exception ex) { }
+                        new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, decompressTemp, string.Empty, true);
+                        
+                        AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 30, "创建导入目录...", 600);
+
+                        //读取数据对象
+                        Projects projObj = getProjectObject(decompressTemp);
+                        //解压目录
+                        string destDecompressDir = getPkgDir((projObj != null && !string.IsNullOrEmpty(projObj.ID) ? projObj.ID : Guid.NewGuid().ToString()) + "_" + DateTime.Now.Ticks);
+                        //创建当前目录
+                        try
+                        {
+                            if (Directory.Exists(destDecompressDir))
+                            {
+                                Directory.Delete(destDecompressDir, true);
+                            }
+                        }
+                        catch (Exception ex) { }
+
+                        AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 40, "正在导入...", 600);
+
+                        //移到临时目录到目标地址
+                        Directory.Move(decompressTemp, destDecompressDir);
+
+                        AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 90, "导入完成，正在刷新...", 600);
+
+                        //刷新列表
+                        if (IsHandleCreated)
+                        {
+                            Invoke(new MethodInvoker(delegate()
+                                {
+                                    updateProjects();
+                                }));
+                        }                        
+                    }));
                 }
             }
         }
