@@ -77,6 +77,8 @@ namespace ProjectContractPlugin.Editor
         public ExtFile2Editor()
         {
             InitializeComponent();
+
+            txtWordReadme.LoadFile(((NewPluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
         }
 
         private void btnEditDocument_Click(object sender, EventArgs e)
