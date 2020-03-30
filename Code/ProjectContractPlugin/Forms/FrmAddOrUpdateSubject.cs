@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateSubject : PublicReporterLib.SuperForm
+    public partial class FrmAddOrUpdateSubject : AbstractEditorPlugin.BaseForm
     {
         public FrmAddOrUpdateSubject(KeTiBiao obj, double count = -1)
         {

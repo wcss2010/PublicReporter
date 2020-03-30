@@ -12,7 +12,7 @@ using ProjectReporterPlugin.Editor;
 
 namespace ProjectReporterPlugin.Forms
 {
-    public partial class FrmEditWorkerInfo : PublicReporterLib.SuperForm
+    public partial class FrmEditWorkerInfo : AbstractEditorPlugin.BaseForm
     {
         public PersonObject PersonInfo { get; set; }
 

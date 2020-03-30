@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmWorkerImporter : PublicReporterLib.SuperForm
+    public partial class FrmWorkerImporter : AbstractEditorPlugin.BaseForm
     {
         private List<RenYuanBiao> newPersonList;
         public FrmWorkerImporter()

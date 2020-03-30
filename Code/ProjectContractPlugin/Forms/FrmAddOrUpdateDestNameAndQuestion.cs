@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateDestNameAndQuestion : PublicReporterLib.SuperForm
+    public partial class FrmAddOrUpdateDestNameAndQuestion : AbstractEditorPlugin.BaseForm
     {
         public FrmAddOrUpdateDestNameAndQuestion(ZhiBiaoBiao obj, double count = -1)
         {

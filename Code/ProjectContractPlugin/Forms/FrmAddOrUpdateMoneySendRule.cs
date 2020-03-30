@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateMoneySendRule : PublicReporterLib.SuperForm
+    public partial class FrmAddOrUpdateMoneySendRule : AbstractEditorPlugin.BaseForm
     {
         public FrmAddOrUpdateMoneySendRule(BoFuBiao obj, double count = -1)
         {

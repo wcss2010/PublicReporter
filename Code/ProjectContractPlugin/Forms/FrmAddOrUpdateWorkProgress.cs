@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateWorkProgress : PublicReporterLib.SuperForm
+    public partial class FrmAddOrUpdateWorkProgress : AbstractEditorPlugin.BaseForm
     {
         public FrmAddOrUpdateWorkProgress(JinDuBiao obj, double count = -1)
         {

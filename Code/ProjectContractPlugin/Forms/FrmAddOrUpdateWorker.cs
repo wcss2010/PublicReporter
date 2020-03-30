@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateWorker : PublicReporterLib.SuperForm
+    public partial class FrmAddOrUpdateWorker : AbstractEditorPlugin.BaseForm
     {
         /// <summary>
         /// 仅为项目负责人

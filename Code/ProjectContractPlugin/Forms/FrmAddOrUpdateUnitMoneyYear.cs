@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateUnitMoneyYear : PublicReporterLib.SuperForm
+    public partial class FrmAddOrUpdateUnitMoneyYear : AbstractEditorPlugin.BaseForm
     {
         private string lastUnit;
         public FrmAddOrUpdateUnitMoneyYear(string unitName)

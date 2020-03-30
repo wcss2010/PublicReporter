@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProjectReporterPlugin.Forms
 {
-    public partial class FrmInputBox : PublicReporterLib.SuperForm
+    public partial class FrmInputBox : AbstractEditorPlugin.BaseForm
     {
         public string SelectedText { get { return txtContent.Text; } }
 
