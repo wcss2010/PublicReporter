@@ -223,7 +223,7 @@ namespace ProjectReporterPlugin.Utility
 
                     //金额
                     string moneyStr = "0";
-                    Task ketiTask = ConnectionManager.Context.table("Task").where("ProjectID='" + subjectObj.ID + "'").select("*").getItem<Task>(new Task());
+                    Task ketiTask = ConnectionManager.Context.table("Task").where("ProjectID='" + subjectObj.ID + "' and Role= '负责人'").select("*").getItem<Task>(new Task());
                     if (ketiTask != null)
                     {
                         moneyStr = "  " + ketiTask.TotalMoney + "万";
