@@ -28,7 +28,7 @@ namespace ProjectReporterPlugin.Editor
             FrmEditWorkerInfo form = new FrmEditWorkerInfo(null);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().refreshEditors();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().refreshEditors();
             }
         }
 

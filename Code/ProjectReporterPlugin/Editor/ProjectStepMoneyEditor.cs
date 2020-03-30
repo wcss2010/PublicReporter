@@ -10,6 +10,7 @@ using ProjectReporterPlugin.DB.Entitys;
 using ProjectReporterPlugin.Utility;
 using System.IO;
 using System.Diagnostics;
+using AbstractEditorPlugin;
 
 namespace ProjectReporterPlugin.Editor
 {
@@ -64,10 +65,10 @@ namespace ProjectReporterPlugin.Editor
         {
             base.refreshView();
 
-            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj != null)
+            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj != null)
             {
-                txtTotalTime.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalTime != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalTime.Value + "" : "0";
-                txtTotalMoney.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalMoney != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.TotalMoney.Value + "" : "0";
+                txtTotalTime.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalTime != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalTime.Value + "" : "0";
+                txtTotalMoney.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalMoney != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalMoney.Value + "" : "0";
                 txtStepCount.Text = "0";
 
                 UpdateStepList();
@@ -76,8 +77,8 @@ namespace ProjectReporterPlugin.Editor
 
         public void UpdateStepList()
         {
-            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "'").select("*").getList<Step>(new Step());
-            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
+            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID + "'").select("*").getList<Step>(new Step());
+            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();
@@ -140,7 +141,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
+                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
                     }
                     else
                     {
@@ -262,7 +263,7 @@ namespace ProjectReporterPlugin.Editor
                 refreshView();
 
                 //刷新课题阶段划分表
-                foreach (BaseEditor be in PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().editorMap.Values)
+                foreach (BaseEditor be in PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().editorMap.Values)
                 {
                     if (be is SubjectStepMoneyEditor)
                     {
@@ -292,7 +293,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().projectObj.ID;
+                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
                     }
                     else
                     {
@@ -441,7 +442,7 @@ namespace ProjectReporterPlugin.Editor
                             }
                         }
 
-                        PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().refreshEditors();
+                        PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().refreshEditors();
                     }
                 }else
                 {
@@ -617,7 +618,7 @@ namespace ProjectReporterPlugin.Editor
 
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string sourcePath = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, Path.Combine("Helper", "jieduanhuafen.xls"));
+            string sourcePath = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().RootDir, Path.Combine("Helper", "jieduanhuafen.xls"));
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*.xls|*.xls";

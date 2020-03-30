@@ -13,6 +13,9 @@ using ProjectReporterPlugin.Editor;
 using ProjectReporterPlugin.Forms;
 using ProjectReporterPlugin.Utility;
 using AbstractEditorPlugin.Editor;
+using AbstractEditorPlugin;
+using AbstractEditorPlugin.Utility;
+using AbstractEditorPlugin.Forms;
 
 namespace ProjectReporterPlugin
 {

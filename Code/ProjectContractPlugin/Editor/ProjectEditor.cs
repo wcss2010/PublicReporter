@@ -29,7 +29,7 @@ namespace ProjectContractPlugin.Editor
             {
                 bool result = true;
                 onSaveEvent(ref result);
-                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectContractPlugin.PluginRoot>().refreshEditors();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectContractPlugin.NewPluginRoot>().refreshEditors();
             }
             catch (Exception ex)
             {
@@ -383,11 +383,11 @@ namespace ProjectContractPlugin.Editor
                 return;
             }
 
-            JiBenXinXiBiao obj = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj;
+            JiBenXinXiBiao obj = PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj;
             if (obj == null)
             {
-                PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj = new JiBenXinXiBiao();
-                obj = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().projectObj;
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj = new JiBenXinXiBiao();
+                obj = PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj;
             }
 
             obj.HeTongBianHao = ibEdit1.Text;

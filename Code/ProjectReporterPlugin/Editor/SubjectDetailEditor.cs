@@ -55,22 +55,22 @@ namespace ProjectReporterPlugin.Editor
 
         public string GetNeedFilePath()
         {
-            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().filesDir, RTFFileFirstName + Name + "_研究思路" + ".doc");
+            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().filesDir, RTFFileFirstName + Name + "_研究思路" + ".doc");
         }
 
         public string GetContentFilePath()
         {
-            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().filesDir, RTFFileFirstName + Name + "_研究内容" + ".doc");
+            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().filesDir, RTFFileFirstName + Name + "_研究内容" + ".doc");
         }
 
         public string GetDestFilePath()
         {
-            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().filesDir, RTFFileFirstName + Name + "_研究目标" + ".doc");
+            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().filesDir, RTFFileFirstName + Name + "_研究目标" + ".doc");
         }
 
         public string GetInfoFilePath()
         {
-            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().filesDir, RTFFileFirstName + Name + "_简介" + ".txt");
+            return Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().filesDir, RTFFileFirstName + Name + "_简介" + ".txt");
         }
 
         public override void refreshView()

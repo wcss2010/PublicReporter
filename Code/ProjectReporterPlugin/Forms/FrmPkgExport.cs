@@ -1,4 +1,5 @@
-﻿using SuperCodeFactoryUILib.Forms;
+﻿using ProjectReporterPlugin.Utility;
+using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace ProjectReporterPlugin.Forms
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "ZIP申报包|*.zip";
-            sfd.FileName = ((PluginRoot)PluginRootObj).getNewExportZipName();
+            sfd.FileName = ((NewPluginRoot)PluginRootObj).getNewExportZipName();
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 if (PluginRootObj.isUsingDir(PluginRootObj.dataDir, true))

@@ -13,6 +13,9 @@ using ProjectContractPlugin.Editor;
 using ProjectContractPlugin.Forms;
 using ProjectContractPlugin.Utility;
 using AbstractEditorPlugin.Editor;
+using AbstractEditorPlugin;
+using AbstractEditorPlugin.Utility;
+using AbstractEditorPlugin.Forms;
 
 namespace ProjectContractPlugin
 {

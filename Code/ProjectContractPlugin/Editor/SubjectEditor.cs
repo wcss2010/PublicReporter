@@ -8,6 +8,7 @@ using ProjectContractPlugin.DB;
 using PublicReporterLib;
 using System.IO;
 using System.Text;
+using AbstractEditorPlugin;
 
 namespace ProjectContractPlugin.Editor
 {

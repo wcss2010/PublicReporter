@@ -59,9 +59,9 @@ namespace ProjectReporterPlugin.Editor
         {
             base.refreshView();
 
-            if (Directory.Exists(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir))
+            if (Directory.Exists(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().filesDir))
             {
-                string[] files = Directory.GetFiles(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir);
+                string[] files = Directory.GetFiles(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().filesDir);
                 if (files != null)
                 {
                     foreach (string f in files)
@@ -91,7 +91,7 @@ namespace ProjectReporterPlugin.Editor
                         File.Delete(FilePath);
                     }
 
-                    File.Copy(ofdUpload.FileName, Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.PluginRoot>().filesDir, FileKeyName + "_" + new FileInfo(ofdUpload.FileName).Name));
+                    File.Copy(ofdUpload.FileName, Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().filesDir, FileKeyName + "_" + new FileInfo(ofdUpload.FileName).Name));
                     refreshView();
                 }
             }
@@ -115,7 +115,7 @@ namespace ProjectReporterPlugin.Editor
         }
 
         private void lklDownloadFuJian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            string sourcePath = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>().RootDir, Path.Combine("Helper", "JingFeiFuJian.doc"));
+            string sourcePath = Path.Combine(PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().RootDir, Path.Combine("Helper", "JingFeiFuJian.doc"));
             string destPath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "项目经费概算说明.doc");
             File.Copy(sourcePath, destPath, true);
             MessageBox.Show("已下载到桌面！");
