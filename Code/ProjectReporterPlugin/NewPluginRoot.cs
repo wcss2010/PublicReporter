@@ -1,8 +1,17 @@
-﻿using System;
+﻿using PublicReporterLib;
+using SuperCodeFactoryUILib.Forms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using ProjectReporterPlugin.Controls;
+using ProjectReporterPlugin.DB;
+using ProjectReporterPlugin.DB.Entitys;
+using ProjectReporterPlugin.Editor;
+using ProjectReporterPlugin.Forms;
+using ProjectReporterPlugin.Utility;
 
 namespace ProjectReporterPlugin
 {

@@ -1,8 +1,17 @@
-﻿using System;
+﻿using PublicReporterLib;
+using SuperCodeFactoryUILib.Forms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using ProjectContractPlugin.Controls;
+using ProjectContractPlugin.DB;
+using ProjectContractPlugin.DB.Entitys;
+using ProjectContractPlugin.Editor;
+using ProjectContractPlugin.Forms;
+using ProjectContractPlugin.Utility;
 
 namespace ProjectContractPlugin
 {
