@@ -16,6 +16,11 @@ namespace ProjectReporterPlugin.Utility
     public class WordPrinter
     {
         /// <summary>
+        /// Doc输出文件名
+        /// </summary>
+        public static string outputDocFileName = "项目申报书.doc";
+
+        /// <summary>
         /// 经费概算附件
         /// </summary>
         private static string uploadA = string.Empty;
@@ -27,11 +32,13 @@ namespace ProjectReporterPlugin.Utility
         public static void wordOutput(CircleProgressBarDialog progressDialog)
         {
             //判断是否加载了项目信息
-            PluginRoot pt = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>();
+            NewPluginRoot pt = PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>();
             if (pt.projectObj == null)
             {
                 return;
             }
+
+            Project proj = (Project)pt.projectObj;
 
             Report(progressDialog, 10, "准备Word...", 1000);
 
@@ -49,7 +56,7 @@ namespace ProjectReporterPlugin.Utility
             List<string[]> subjectMasterInfoList = new List<string[]>();
 
             //创建word文档
-            string fileName = pt.projectObj.Name + "-项目建议书.docx";
+            string fileName = proj.Name + "-项目建议书.docx";
             WordUtility wu = new WordUtility();
             wu.createNewDocument(Path.Combine(Path.Combine(pt.RootDir, "Helper"), "newtemplete.docx"));
 
@@ -77,12 +84,12 @@ namespace ProjectReporterPlugin.Utility
                 #endregion
 
                 #region 查询项目负责人及单位信息
-                Person projectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Person>(new Person());
+                Person projectPersonObj = ConnectionManager.Context.table("Person").where("ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + proj.ID + "')").select("*").getItem<Person>(new Person());
                 if (projectPersonObj == null)
                 {
                     return;
                 }
-                Unit projectUnitObj = ConnectionManager.Context.table("Unit").where("ID = '" + pt.projectObj.UnitID + "'").select("*").getItem<Unit>(new Unit());
+                Unit projectUnitObj = ConnectionManager.Context.table("Unit").where("ID = '" + proj.UnitID + "'").select("*").getItem<Unit>(new Unit());
                 if (projectUnitObj == null)
                 {
                     return;
@@ -92,27 +99,27 @@ namespace ProjectReporterPlugin.Utility
                 Report(progressDialog, 30, "写入基本信息...", 1000);
 
                 #region 固定文本替换
-                wu.insertValue("项目名称", pt.projectObj.Name);
-                wu.insertValue("首页密级", pt.projectObj.SecretLevel);
-                wu.insertValue("申报领域", pt.projectObj.Domain);
-                wu.insertValue("申报方向", pt.projectObj.Direction);
+                wu.insertValue("项目名称", proj.Name);
+                wu.insertValue("首页密级", proj.SecretLevel);
+                wu.insertValue("申报领域", proj.Domain);
+                wu.insertValue("申报方向", proj.Direction);
                 wu.insertValue("单位名称", projectUnitObj.UnitName);
                 wu.insertValue("单位常用名", projectUnitObj.NormalName);
                 wu.insertValue("项目负责人", projectPersonObj.Name);
                 wu.insertValue("单位联系人", projectUnitObj.ContactName);
                 wu.insertValue("联系电话", projectUnitObj.Telephone, 18, false, false, true);
                 wu.insertValue("通信地址", projectUnitObj.Address);
-                wu.insertValue("研究周期", pt.projectObj.TotalTime + "");
-                wu.insertValue("研究经费", pt.projectObj.TotalMoney + "");
-                wu.insertValue("项目关键字", pt.projectObj.Keywords != null ? pt.projectObj.Keywords : string.Empty);
+                wu.insertValue("研究周期", proj.TotalTime + "");
+                wu.insertValue("研究经费", proj.TotalMoney + "");
+                wu.insertValue("项目关键字", proj.Keywords != null ? proj.Keywords : string.Empty);
 
-                List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID = '" + pt.projectObj.ID + "'").select("*").getList<Project>(new Project());
+                List<Project> ketiList = ConnectionManager.Context.table("Project").where("ParentID = '" + proj.ID + "'").select("*").getList<Project>(new Project());
                 wu.insertValue("课题数量", ketiList.Count + "");
 
-                wu.insertValue("研究周期B", pt.projectObj.TotalTime + "");
-                wu.insertValue("研究经费B", pt.projectObj.TotalMoney + "");
+                wu.insertValue("研究周期B", proj.TotalTime + "");
+                wu.insertValue("研究经费B", proj.TotalMoney + "");
 
-                List<Step> projectStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + pt.projectObj.ID + "'").select("*").getList<Step>(new Step());
+                List<Step> projectStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + proj.ID + "'").select("*").getList<Step>(new Step());
                 wu.insertValue("阶段数量", projectStepList.Count + "");
                 StringBuilder stepBuilders = new StringBuilder();
                 foreach (Step step in projectStepList)
@@ -132,7 +139,7 @@ namespace ProjectReporterPlugin.Utility
                 wu.insertValue("项目负责人座机", projectPersonObj.Telephone);
                 wu.insertValue("项目负责人手机", projectPersonObj.MobilePhone);
 
-                Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + pt.projectObj.ID + "')").select("*").getItem<Unit>(new Unit());
+                Unit whiteUnit = ConnectionManager.Context.table("Unit").where("ID in (select UnitID from WhiteList where ProjectID = '" + proj.ID + "')").select("*").getItem<Unit>(new Unit());
                 wu.insertValue("候选单位名称", whiteUnit.UnitName);
                 wu.insertValue("候选单位联系人", whiteUnit.ContactName);
                 wu.insertValue("候选单位联系电话", whiteUnit.Telephone);
@@ -166,7 +173,7 @@ namespace ProjectReporterPlugin.Utility
                 wu.insertFile("附件1", uploadA, true);
 
                 //插入保密资质
-                List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + pt.projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+                List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + proj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
                 foreach (ExtFileList efl in list)
                 {
                     if (efl.IsIgnore == 0)
@@ -185,7 +192,7 @@ namespace ProjectReporterPlugin.Utility
                 //处理诚信承诺书
                 string uploadC = Path.Combine(pt.RootDir, Path.Combine("Helper", "chengnuoshu.doc"));
                 wu.insertFile("附件3", uploadC, true);
-                wu.insertValue("诚信负责人", pt.projectObj.Name);
+                wu.insertValue("诚信负责人", proj.Name);
                 #endregion
 
                 #region 插入课题详细标签
@@ -639,7 +646,7 @@ namespace ProjectReporterPlugin.Utility
                         if (table.Range.Text.Contains("年投入"))
                         {
                             //获得课题与研究骨干关系表
-                            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + pt.projectObj.ID + "') or ProjectID='" + pt.projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+                            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + proj.ID + "') or ProjectID='" + proj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
                             //生成行和列
                             int rowCount = taskList.Count;
@@ -751,7 +758,7 @@ namespace ProjectReporterPlugin.Utility
                 #region 插入经费预算表
                 try
                 {
-                    ProjectBudgetInfo pbinfo = MoneyTableEditor.GetBudgetInfoObject(pt.projectObj.ID);
+                    ProjectBudgetInfo pbinfo = MoneyTableEditor.GetBudgetInfoObject(proj.ID);
                     if (pbinfo != null)
                     {
                         wu.insertValue("本项目申请经费", pbinfo.ProjectRFA + "");

@@ -18,6 +18,11 @@ namespace ProjectContractPlugin.Utility
     public class WordPrinter
     {
         /// <summary>
+        /// Doc输出文件名
+        /// </summary>
+        public static string outputDocFileName = "合同书.doc";
+
+        /// <summary>
         /// 经费概算附件
         /// </summary>
         private static string uploadA = string.Empty;
@@ -29,16 +34,18 @@ namespace ProjectContractPlugin.Utility
         public static void wordOutput(CircleProgressBarDialog progressDialog)
         {
             //判断是否加载了项目信息
-            PluginRoot pt = PublicReporterLib.PluginLoader.getLocalPluginRoot<PluginRoot>();
+            NewPluginRoot pt = PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>();
             if (pt.projectObj == null)
             {
                 return;
             }
 
+            JiBenXinXiBiao proj = (JiBenXinXiBiao)pt.projectObj;
+
             Report(progressDialog, 10, "准备Word...", 1000);
 
             //创建word文档
-            string fileName = pt.projectObj.BianHao + "-合同书.docx";
+            string fileName = proj.BianHao + "-合同书.docx";
             WordUtility wu = new WordUtility();
             wu.createNewDocument(Path.Combine(Path.Combine(pt.RootDir, "Helper"), "template.doc"));
 
@@ -49,46 +56,46 @@ namespace ProjectContractPlugin.Utility
                 Report(progressDialog, 30, "写入基本信息...", 1000);
 
                 #region 固定文本替换
-                wu.insertValue("首页_合同编号", pt.projectObj.HeTongBianHao);
-                wu.insertValue("首页_密级", pt.projectObj.HeTongMiJi);
-                wu.insertValue("首页_密级期限", pt.projectObj.HeTongMiQi.ToString());
-                wu.insertValue("首页_合同名称", pt.projectObj.HeTongMingCheng);
-                wu.insertValue("首页_承研单位", pt.projectObj.ChengYanDanWeiMingCheng);
-                wu.insertValue("首页_项目负责人", pt.projectObj.HeTongFuZeRen);
-                wu.insertValue("首页_起止时间", pt.projectObj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + pt.projectObj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
-                wu.insertValue("基本信息_合同编号", pt.projectObj.HeTongBianHao);
-                wu.insertValue("基本信息_合同名称", pt.projectObj.HeTongMingCheng);
-                wu.insertValue("基本信息_起止时间", pt.projectObj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + pt.projectObj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
-                wu.insertValue("基本信息_合同价款", pt.projectObj.HeTongJiaKuan.ToString());
-                wu.insertValue("基本信息_经费管理模式", pt.projectObj.HeTongJingFeiGuanLiMoShi);
-                wu.insertValue("基本信息_委托_单位名称", pt.projectObj.WeiTuoDanWeiMingCheng);
-                wu.insertValue("基本信息_承研_单位名称", pt.projectObj.ChengYanDanWeiMingCheng);
-                wu.insertValue("基本信息_委托_单位性质", pt.projectObj.WeiTuoDanWeiXingZhi);
-                wu.insertValue("基本信息_承研_单位性质", pt.projectObj.ChengYanDanWeiXingZhi);
-                wu.insertValue("基本信息_委托_法定代表人", pt.projectObj.WeiTuoDanWeiFaDingDaiBiaoRen);
-                wu.insertValue("基本信息_承研_法定代表人", pt.projectObj.ChengYanDanWeiFaDingDaiBiaoRen);
-                wu.insertValue("基本信息_委托_联系人", pt.projectObj.WeiTuoDanWeiLianXiRen);
-                wu.insertValue("基本信息_承研_联系人", pt.projectObj.ChengYanDanWeiLianXiRen);
-                wu.insertValue("基本信息_委托_联系电话", pt.projectObj.WeiTuoDanWeiLianXiRenDianHua);
-                wu.insertValue("基本信息_承研_联系电话", pt.projectObj.ChengYanDanWeiLianXiRenDianHua);
-                wu.insertValue("基本信息_委托_通信地址", pt.projectObj.WeiTuoDanWeiTongXinDiZhi);
-                wu.insertValue("基本信息_承研_通信地址", pt.projectObj.ChengYanDanWeiTongXinDiZhi);
-                wu.insertValue("基本信息_委托_邮政编码", pt.projectObj.WeiTuoDanWeiYouZhengBianMa);
-                wu.insertValue("基本信息_承研_邮政编码", pt.projectObj.ChengYanDanWeiYouZhengBianMa);
-                wu.insertValue("基本信息_委托_组织机构代码", pt.projectObj.WeiTuoDanWeiZuZhiJiGouDaiMa);
-                wu.insertValue("基本信息_承研_组织机构代码", pt.projectObj.ChengYanDanWeiZuZhiJiGouDaiMa);
-                wu.insertValue("基本信息_委托_税号", pt.projectObj.WeiTuoDanWeiShuiHao);
-                wu.insertValue("基本信息_承研_税号", pt.projectObj.ChengYanDanWeiShuiHao);
-                wu.insertValue("基本信息_委托_开户名称", pt.projectObj.WeiTuoDanWeiKaiHuMingCheng);
-                wu.insertValue("基本信息_承研_开户名称", pt.projectObj.ChengYanDanWeiKaiHuMingCheng);
-                wu.insertValue("基本信息_委托_开户银行", pt.projectObj.WeiTuoDanWeiKaiHuYingHang);
-                wu.insertValue("基本信息_承研_开户银行", pt.projectObj.ChengYanDanWeiKaiHuYingHang);
-                wu.insertValue("基本信息_委托_银行帐号", pt.projectObj.WeiTuoDanWeiYinHangZhangHao);
-                wu.insertValue("基本信息_承研_银行帐号", pt.projectObj.ChengYanDanWeiYinHangZhangHao);
-                wu.insertValue("基本信息_委托_财务负责人", pt.projectObj.WeiTuoDanWeiCaiWuFuZeRen);
-                wu.insertValue("基本信息_承研_财务负责人", pt.projectObj.ChengYanDanWeiCaiWuFuZeRen);
-                wu.insertValue("基本信息_委托_财务联系电话", pt.projectObj.WeiTuoDanWeiCaiWuFuZeRenDianHua);
-                wu.insertValue("基本信息_承研_财务联系电话", pt.projectObj.ChengYanDanWeiCaiWuFuZeRenDianHua);
+                wu.insertValue("首页_合同编号", proj.HeTongBianHao);
+                wu.insertValue("首页_密级", proj.HeTongMiJi);
+                wu.insertValue("首页_密级期限", proj.HeTongMiQi.ToString());
+                wu.insertValue("首页_合同名称", proj.HeTongMingCheng);
+                wu.insertValue("首页_承研单位", proj.ChengYanDanWeiMingCheng);
+                wu.insertValue("首页_项目负责人", proj.HeTongFuZeRen);
+                wu.insertValue("首页_起止时间", proj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + proj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
+                wu.insertValue("基本信息_合同编号", proj.HeTongBianHao);
+                wu.insertValue("基本信息_合同名称", proj.HeTongMingCheng);
+                wu.insertValue("基本信息_起止时间", proj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + proj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
+                wu.insertValue("基本信息_合同价款", proj.HeTongJiaKuan.ToString());
+                wu.insertValue("基本信息_经费管理模式", proj.HeTongJingFeiGuanLiMoShi);
+                wu.insertValue("基本信息_委托_单位名称", proj.WeiTuoDanWeiMingCheng);
+                wu.insertValue("基本信息_承研_单位名称", proj.ChengYanDanWeiMingCheng);
+                wu.insertValue("基本信息_委托_单位性质", proj.WeiTuoDanWeiXingZhi);
+                wu.insertValue("基本信息_承研_单位性质", proj.ChengYanDanWeiXingZhi);
+                wu.insertValue("基本信息_委托_法定代表人", proj.WeiTuoDanWeiFaDingDaiBiaoRen);
+                wu.insertValue("基本信息_承研_法定代表人", proj.ChengYanDanWeiFaDingDaiBiaoRen);
+                wu.insertValue("基本信息_委托_联系人", proj.WeiTuoDanWeiLianXiRen);
+                wu.insertValue("基本信息_承研_联系人", proj.ChengYanDanWeiLianXiRen);
+                wu.insertValue("基本信息_委托_联系电话", proj.WeiTuoDanWeiLianXiRenDianHua);
+                wu.insertValue("基本信息_承研_联系电话", proj.ChengYanDanWeiLianXiRenDianHua);
+                wu.insertValue("基本信息_委托_通信地址", proj.WeiTuoDanWeiTongXinDiZhi);
+                wu.insertValue("基本信息_承研_通信地址", proj.ChengYanDanWeiTongXinDiZhi);
+                wu.insertValue("基本信息_委托_邮政编码", proj.WeiTuoDanWeiYouZhengBianMa);
+                wu.insertValue("基本信息_承研_邮政编码", proj.ChengYanDanWeiYouZhengBianMa);
+                wu.insertValue("基本信息_委托_组织机构代码", proj.WeiTuoDanWeiZuZhiJiGouDaiMa);
+                wu.insertValue("基本信息_承研_组织机构代码", proj.ChengYanDanWeiZuZhiJiGouDaiMa);
+                wu.insertValue("基本信息_委托_税号", proj.WeiTuoDanWeiShuiHao);
+                wu.insertValue("基本信息_承研_税号", proj.ChengYanDanWeiShuiHao);
+                wu.insertValue("基本信息_委托_开户名称", proj.WeiTuoDanWeiKaiHuMingCheng);
+                wu.insertValue("基本信息_承研_开户名称", proj.ChengYanDanWeiKaiHuMingCheng);
+                wu.insertValue("基本信息_委托_开户银行", proj.WeiTuoDanWeiKaiHuYingHang);
+                wu.insertValue("基本信息_承研_开户银行", proj.ChengYanDanWeiKaiHuYingHang);
+                wu.insertValue("基本信息_委托_银行帐号", proj.WeiTuoDanWeiYinHangZhangHao);
+                wu.insertValue("基本信息_承研_银行帐号", proj.ChengYanDanWeiYinHangZhangHao);
+                wu.insertValue("基本信息_委托_财务负责人", proj.WeiTuoDanWeiCaiWuFuZeRen);
+                wu.insertValue("基本信息_承研_财务负责人", proj.ChengYanDanWeiCaiWuFuZeRen);
+                wu.insertValue("基本信息_委托_财务联系电话", proj.WeiTuoDanWeiCaiWuFuZeRenDianHua);
+                wu.insertValue("基本信息_承研_财务联系电话", proj.ChengYanDanWeiCaiWuFuZeRenDianHua);
 
                 wu.insertValue("共同条款_合同数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
                 wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
@@ -102,10 +109,10 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("附件3_联系方式_职务职称", masterPerson.ZhiCheng);
                 wu.insertValue("附件3_联系方式_座机", masterPerson.DianHua);
                 wu.insertValue("附件3_联系方式_手机", masterPerson.ShouJi);
-                wu.insertValue("附件3_联系方式_单位名称", pt.projectObj.ChengYanDanWeiMingCheng);
-                wu.insertValue("附件3_联系方式_联系人", pt.projectObj.ChengYanDanWeiLianXiRen);
-                wu.insertValue("附件3_联系方式_联系电话", pt.projectObj.ChengYanDanWeiLianXiRenDianHua);
-                wu.insertValue("附件3_联系方式_通信地址", pt.projectObj.ChengYanDanWeiTongXinDiZhi);
+                wu.insertValue("附件3_联系方式_单位名称", proj.ChengYanDanWeiMingCheng);
+                wu.insertValue("附件3_联系方式_联系人", proj.ChengYanDanWeiLianXiRen);
+                wu.insertValue("附件3_联系方式_联系电话", proj.ChengYanDanWeiLianXiRenDianHua);
+                wu.insertValue("附件3_联系方式_通信地址", proj.ChengYanDanWeiTongXinDiZhi);
                 #endregion
 
                 Report(progressDialog, 40, "写入文档文件...", 1000);
@@ -133,7 +140,7 @@ namespace ProjectContractPlugin.Utility
                 }
 
                 //生成年份名称
-                int yearStart = pt.projectObj.HeTongKaiShiShiJian.Year;
+                int yearStart = proj.HeTongKaiShiShiJian.Year;
                 for (int kk = 0; kk < 5; kk++)
                 {
                     tempDict["YearName" + (kk + 1)] = (yearStart + kk).ToString();
