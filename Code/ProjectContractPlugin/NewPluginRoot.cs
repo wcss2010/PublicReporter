@@ -357,12 +357,9 @@ namespace ProjectContractPlugin
                     string errorPage = string.Empty;
                     if (!isInputCompleted(ref errorPage))
                     {
-                        if (errorPage != tnode_11_Name)
-                        {
                             MessageBox.Show("对不起，内容未填写完不能上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             MessageBox.Show("请将页签[" + errorPage + "]填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return;
-                        }
+                            return;                        
                     }
 
                     new FrmPkgExport().ShowDialog();

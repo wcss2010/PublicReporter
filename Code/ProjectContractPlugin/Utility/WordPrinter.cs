@@ -1011,8 +1011,8 @@ namespace ProjectContractPlugin.Utility
                                 #endregion
 
                                 #region 写入实际数据
-                                KeTiBiao proj = ktList[k];
-                                RenYuanBiao personObj = ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao ='" + proj.BianHao + "' and ZhiWu='负责人'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
+                                KeTiBiao subjectObj = ktList[k];
+                                RenYuanBiao personObj = ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao ='" + subjectObj.BianHao + "' and ZhiWu='负责人'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
 
                                 wu.Document.fillCell(true, table.Rows[rowStart].Cells[2], wu.Document.newParagraph(table.Document, personObj.XingMing));
                                 wu.Document.setFontInCell(table.Rows[rowStart].Cells[2], "宋体", 10.5);
@@ -1032,7 +1032,7 @@ namespace ProjectContractPlugin.Utility
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShouJi));
                                 wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[6], "宋体", 10.5);
 
-                                wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, proj.KeTiFuZeDanWei + "," + proj.KeTiFuZeDanWeiTongXunDiZhi), false);
+                                wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, subjectObj.KeTiFuZeDanWei + "," + subjectObj.KeTiFuZeDanWeiTongXunDiZhi), false);
                                 wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[2], "宋体", 10.5);
                                 
                                 #endregion

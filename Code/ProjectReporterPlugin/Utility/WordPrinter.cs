@@ -207,7 +207,7 @@ namespace ProjectReporterPlugin.Utility
 
                 for (int kk = 0; kk < ketiList.Count; kk++)
                 {
-                    Project proj = ketiList[kk];
+                    Project subjectObj = ketiList[kk];
 
                     int ketiIndex = (kk + 1);
 
@@ -215,15 +215,15 @@ namespace ProjectReporterPlugin.Utility
                     string fuzeUnit = string.Empty;
                     string fuzePerson = string.Empty;
                     string fuzeInfo = string.Empty;
-                    fuzeUnit = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = (select ProjectID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "'))").select("UnitName").getValue<string>(string.Empty);
-                    fuzePerson = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "')").select("Name").getValue<string>(string.Empty);
-                    fuzeInfo = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + proj.ID + "')").select("AttachInfo").getValue<string>(string.Empty);
+                    fuzeUnit = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = (select ProjectID from Task where Role= '负责人' and ProjectID = '" + subjectObj.ID + "'))").select("UnitName").getValue<string>(string.Empty);
+                    fuzePerson = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + subjectObj.ID + "')").select("Name").getValue<string>(string.Empty);
+                    fuzeInfo = ConnectionManager.Context.table("Person").where("ID = (select PersonID from Task where Role= '负责人' and ProjectID = '" + subjectObj.ID + "')").select("AttachInfo").getValue<string>(string.Empty);
 
                     //wu.InsertValue("课题详细_" + ketiIndex + "_4", "  负责人：" + fuzePerson + "\n  负责单位：" + fuzeUnit, true);
 
                     //金额
                     string moneyStr = "0";
-                    Task ketiTask = ConnectionManager.Context.table("Task").where("ProjectID='" + proj.ID + "'").select("*").getItem<Task>(new Task());
+                    Task ketiTask = ConnectionManager.Context.table("Task").where("ProjectID='" + subjectObj.ID + "'").select("*").getItem<Task>(new Task());
                     if (ketiTask != null)
                     {
                         moneyStr = "  " + ketiTask.TotalMoney + "万";
@@ -298,50 +298,50 @@ namespace ProjectReporterPlugin.Utility
 
                 try
                 {
-                    ketiMap.Add(new KeyValuePair<string, Project>("项目", pt.projectObj));
+                    ketiMap.Add(new KeyValuePair<string, Project>("项目", proj));
 
                     //替换课题详细内容
                     int ketiIndex = 1;
-                    foreach (Project proj in ketiList)
+                    foreach (Project subjectObj in ketiList)
                     {
                         string ketiCode = "课题" + ketiIndex;
 
                         wu.selectBookMark("课题详细_" + ketiIndex);
-                        wu.replaceA("F2-" + ketiIndex, ketiCode + ":" + proj.Name);
+                        wu.replaceA("F2-" + ketiIndex, ketiCode + ":" + subjectObj.Name);
 
                         //研究目标，研究内容，技术要求等文档
-                        wu.insertFile("课题详细_" + ketiIndex + "", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究目标" + ".doc"), false);
-                        wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究内容" + ".doc"), false);
-                        wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_研究思路" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "", Path.Combine(pt.filesDir, "课题详细_" + subjectObj.Name + "_研究目标" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_1", Path.Combine(pt.filesDir, "课题详细_" + subjectObj.Name + "_研究内容" + ".doc"), false);
+                        wu.insertFile("课题详细_" + ketiIndex + "_2", Path.Combine(pt.filesDir, "课题详细_" + subjectObj.Name + "_研究思路" + ".doc"), false);
 
                         ketiIndex++;
 
                         if (ketiMap.Count == 1)
                         {
-                            ketiMap.Add(new KeyValuePair<string, Project>(ketiCode, proj));
+                            ketiMap.Add(new KeyValuePair<string, Project>(ketiCode, subjectObj));
                         }
                         else
                         {
-                            ketiMap.Add(new KeyValuePair<string, Project>(ketiCode, proj));
+                            ketiMap.Add(new KeyValuePair<string, Project>(ketiCode, subjectObj));
                         }
                     }
 
                     //插入课题摘要
                     int indexx = 0;
                     StringBuilder ketiStringBuilder = new StringBuilder();
-                    foreach (Project proj in ketiList)
+                    foreach (Project subjectObj in ketiList)
                     {
                         indexx++;
-                        Task tt = ConnectionManager.Context.table("Task").where("ProjectID = '" + proj.ID + "'").select("*").getItem<Task>(new Task());
+                        Task tt = ConnectionManager.Context.table("Task").where("ProjectID = '" + subjectObj.ID + "'").select("*").getItem<Task>(new Task());
 
                         string shortContent = "无";
-                        if (File.Exists(Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_简介" + ".txt")))
+                        if (File.Exists(Path.Combine(pt.filesDir, "课题详细_" + subjectObj.Name + "_简介" + ".txt")))
                         {
-                            shortContent = File.ReadAllText(Path.Combine(pt.filesDir, "课题详细_" + proj.Name + "_简介" + ".txt"));
+                            shortContent = File.ReadAllText(Path.Combine(pt.filesDir, "课题详细_" + subjectObj.Name + "_简介" + ".txt"));
                         }
 
                         //ketiStringBuilder.Append("课题").Append(indexx).Append("(").Append(proj.Type2.Contains("非") ? string.Empty : proj.Type2).Append(proj.Type2.Contains("非") ? string.Empty : ",").Append(proj.SecretLevel).Append("):").Append(proj.Name).Append(",").Append(shortContent).Append("\n");
-                        ketiStringBuilder.Append("课题").Append(indexx).Append("(").Append(proj.SecretLevel).Append("):").Append(proj.Name).Append(",").Append(shortContent).Append("\n");
+                        ketiStringBuilder.Append("课题").Append(indexx).Append("(").Append(subjectObj.SecretLevel).Append("):").Append(subjectObj.Name).Append(",").Append(shortContent).Append("\n");
                     }
                     if (ketiStringBuilder.Length > 0)
                     {
@@ -1013,9 +1013,9 @@ namespace ProjectReporterPlugin.Utility
                                     #endregion
 
                                     #region 写入实际数据
-                                    Project proj = ketiList[k];
-                                    Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + proj.UnitID + "'").select("*").getItem<Unit>(new Unit());
-                                    Task taskObj = ConnectionManager.Context.table("Task").where("ProjectID = '" + proj.ID + "' and Type='课题' and Role='负责人'").select("*").getItem<Task>(new Task());
+                                    Project subjectObj = ketiList[k];
+                                    Unit unitObj = ConnectionManager.Context.table("Unit").where("ID='" + subjectObj.UnitID + "'").select("*").getItem<Unit>(new Unit());
+                                    Task taskObj = ConnectionManager.Context.table("Task").where("ProjectID = '" + subjectObj.ID + "' and Type='课题' and Role='负责人'").select("*").getItem<Task>(new Task());
                                     Person personObj = ConnectionManager.Context.table("Person").where("ID ='" + taskObj.PersonID + "'").select("*").getItem<Person>(new Person());
 
                                     table.Rows[rowStart].Cells[2].RemoveAllChildren();

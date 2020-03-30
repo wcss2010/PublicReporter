@@ -425,16 +425,16 @@ namespace ProjectReporterPlugin
             decimal projectMoney = convertToDecimal(ConnectionManager.Context.table("MoneyAndYear").where("Name = 'ProjectRFA'").select("Value").getValue());
 
             //阶段总额
-            decimal totalStepMoney = convertToDecimal(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepMoney)").getValue());
+            decimal totalStepMoney = convertToDecimal(ConnectionManager.Context.table("Step").where("ProjectID = '" + ((Project)projectObj).ID + "'").select("sum(StepMoney)").getValue());
 
             //阶段总时间
-            decimal totalStepTime = Math.Round(convertToDecimal(ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("sum(StepTime)").getValue()) / (decimal)12);
+            decimal totalStepTime = Math.Round(convertToDecimal(ConnectionManager.Context.table("Step").where("ProjectID = '" + ((Project)projectObj).ID + "'").select("sum(StepTime)").getValue()) / (decimal)12);
 
             //课题阶段经费总额
             decimal totalKetiStepMoney = convertToDecimal(ConnectionManager.Context.table("ProjectAndStep").where("StepID in (select ID from Step where ProjectID in (select ID from Project where Type = '课题'))").select("sum(Money)").getValue());
 
             //阶段经费表
-            Noear.Weed.DataList dlStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + projectObj.ID + "'").select("StepIndex,StepMoney").getDataList();
+            Noear.Weed.DataList dlStepList = ConnectionManager.Context.table("Step").where("ProjectID = '" + ((Project)projectObj).ID + "'").select("StepIndex,StepMoney").getDataList();
 
             //课题阶段经费表
             int totalRightStepCount = 0;
@@ -519,8 +519,8 @@ namespace ProjectReporterPlugin
         public string getNewExportZipName()
         {
             Project proj = (Project)projectObj;
-            string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + projectObj.ID + "')").select("UnitName").getValue<string>(string.Empty);
-            string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + projectObj.ID + "')").select("Name").getValue<string>(string.Empty);
+            string unitName = ConnectionManager.Context.table("Unit").where("ID = (select UnitID from Project where ID = '" + ((Project)projectObj).ID + "')").select("UnitName").getValue<string>(string.Empty);
+            string personName = ConnectionManager.Context.table("Person").where("ID=(select PersonID from Task where Role = '负责人' and  ProjectID = '" + ((Project)projectObj).ID + "')").select("Name").getValue<string>(string.Empty);
 
             if (proj.DirectionCode == 0)
             {
@@ -759,7 +759,7 @@ namespace ProjectReporterPlugin
         /// <param name="treeNode"></param>
         protected override void switchCurrentEditor(System.Windows.Forms.TreeNode treeNode)
         {
-            if (projectObj == null || string.IsNullOrEmpty(getProjectObject<Projects>().ID))
+            if (projectObj == null || string.IsNullOrEmpty(getProjectObject<Project>().ID))
             {
                 //因为项目信息为空，所以锁定在项目信息页
                 Parent_LeftTreeView.SelectedNode = Parent_LeftTreeView.Nodes[Parent_LeftTreeView.Nodes.Count - 1];
