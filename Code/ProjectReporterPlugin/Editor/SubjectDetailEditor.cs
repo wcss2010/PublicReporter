@@ -12,6 +12,7 @@ namespace ProjectReporterPlugin.Editor
 {
     public partial class SubjectDetailEditor : AbstractEditorPlugin.BaseEditor
     {
+        private string subjectDocumentTempleteFile;
         public string RTFFileFirstName { get; set; }
 
         public string TitleLabelText { get { return TitleLabelControl.Text; } set { TitleLabelControl.Text = value; } }
@@ -35,6 +36,8 @@ namespace ProjectReporterPlugin.Editor
             txtWordReadme.LoadFile(((NewPluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
             txtWordReadme2.LoadFile(((NewPluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
             txtWordReadme3.LoadFile(((NewPluginRoot)PluginRootObj).getDocumentPasteReadmeFile());
+
+            subjectDocumentTempleteFile = Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "subjectEmptyPaste.doc"));
         }
 
         public override void clearView()
@@ -96,38 +99,7 @@ namespace ProjectReporterPlugin.Editor
         {
             string tempFile = GetDestFilePath();
 
-            if (File.Exists(tempFile))
-            {
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-            else
-            {
-                try
-                {
-                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                    wd.WordDoc.Save(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, tempFile);
         }
 
         private void btnEditContent_Click(object sender, EventArgs e)
@@ -135,75 +107,16 @@ namespace ProjectReporterPlugin.Editor
             //临时文件
             string tempFile = GetContentFilePath();
 
-            if (File.Exists(tempFile))
-            {
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-            else
-            {
-                try
-                {
-                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                    wd.WordDoc.Save(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
+            
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, tempFile);
         }
 
         private void btnEditNeed_Click(object sender, EventArgs e)
         {
             string tempFile = GetNeedFilePath();
 
-            if (File.Exists(tempFile))
-            {
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
-            else
-            {
-                try
-                {
-                    Aspose.Words.WordDocument wd = new Aspose.Words.WordDocument();
-                    wd.WordDoc.Save(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("写入文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-
-                try
-                {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(tempFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开文档" + EditorName + "失败！Ex:" + ex.ToString());
-                }
-            }
+            
+            AbstractEditorPlugin.Editor.DocumentPasteEditor.openOrCreateWord(EditorName, subjectDocumentTempleteFile, tempFile);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
