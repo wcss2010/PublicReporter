@@ -53,7 +53,7 @@ namespace ProjectReporterPlugin.Editor
             base.refreshView();
 
             dgvDetail.Rows.Clear();
-            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+            List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
             int index = 0;
             foreach (ExtFileList efl in list)
             {
@@ -167,7 +167,7 @@ namespace ProjectReporterPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
+                            efll.ProjectID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -179,7 +179,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
+                        efll.ProjectID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;
@@ -286,7 +286,7 @@ namespace ProjectReporterPlugin.Editor
 
                             ExtFileList efll = new ExtFileList();
                             efll.ID = Guid.NewGuid().ToString();
-                            efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
+                            efll.ProjectID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID;
                             efll.ExtName = dgvRow.Cells[1].Value.ToString();
                             efll.SourceFileName = Path.GetFileName(sourceFile);
                             efll.RealFileName = realFileName;
@@ -298,7 +298,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         ExtFileList efll = new ExtFileList();
                         efll.ID = Guid.NewGuid().ToString();
-                        efll.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
+                        efll.ProjectID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID;
                         efll.ExtName = dgvRow.Cells[1].Value.ToString();
                         efll.SourceFileName = string.Empty;
                         efll.RealFileName = string.Empty;

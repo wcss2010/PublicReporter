@@ -19,8 +19,8 @@ namespace ProjectContractPlugin.Forms
 
             try
             {
-                int start = PluginRootObj.projectObj.HeTongKaiShiShiJian.Year;
-                int end = PluginRootObj.projectObj.HeTongJieShuShiJian.Year;
+                int start = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year;
+                int end = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJieShuShiJian.Year;
                 for (int kkk = start; kkk <= end; kkk++)
                 {
                     ((DataGridViewComboBoxColumn)dgvDetail.Columns[0]).Items.Add(kkk.ToString());
@@ -41,13 +41,13 @@ namespace ProjectContractPlugin.Forms
                 foreach (KeTiJingFeiNianDuBiao obj in list)
                 {
                     List<object> cells = new List<object>();
-                    if (PluginRootObj.projectObj.HeTongJieShuShiJian.Year >= obj.NianDu && obj.NianDu >= PluginRootObj.projectObj.HeTongKaiShiShiJian.Year)
+                    if (((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJieShuShiJian.Year >= obj.NianDu && obj.NianDu >= ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year)
                     {
                         cells.Add(obj.NianDu.ToString());
                     }
                     else
                     {
-                        cells.Add(PluginRootObj.projectObj.HeTongKaiShiShiJian.Year.ToString());
+                        cells.Add(((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year.ToString());
                     }
                     cells.Add(obj.JingFei);
                     dgvDetail.Rows.Add(cells.ToArray());

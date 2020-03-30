@@ -234,7 +234,7 @@ namespace ProjectContractPlugin.Editor
             catch (Exception ex) { }
 
             //读取项目总经费
-            decimal projectTotalMoneys = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJiaKuan;
+            decimal projectTotalMoneys = ((JiBenXinXiBiao)((JiBenXinXiBiao)PluginRootObj.projectObj)).HeTongJiaKuan;
             #endregion
 
             if (projectTotalMoneys != yearTotalMoneys)

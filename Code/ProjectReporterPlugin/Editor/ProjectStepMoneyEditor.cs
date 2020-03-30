@@ -65,10 +65,10 @@ namespace ProjectReporterPlugin.Editor
         {
             base.refreshView();
 
-            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj != null)
+            if (((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj) != null)
             {
-                txtTotalTime.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalTime != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalTime.Value + "" : "0";
-                txtTotalMoney.Text = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalMoney != null ? PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.TotalMoney.Value + "" : "0";
+                txtTotalTime.Text = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).TotalTime != null ? ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).TotalTime.Value + "" : "0";
+                txtTotalMoney.Text = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).TotalMoney != null ? ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).TotalMoney.Value + "" : "0";
                 txtStepCount.Text = "0";
 
                 UpdateStepList();
@@ -77,8 +77,8 @@ namespace ProjectReporterPlugin.Editor
 
         public void UpdateStepList()
         {
-            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID + "'").select("*").getList<Step>(new Step());
-            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
+            StepList = ConnectionManager.Context.table("Step").where("ProjectID='" + ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID + "'").select("*").getList<Step>(new Step());
+            KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID + "'").select("*").getList<Project>(new Project());
 
             int indexx = 0;
             dgvDetail.Rows.Clear();
@@ -141,7 +141,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
+                        step.ProjectID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID;
                     }
                     else
                     {
@@ -293,7 +293,7 @@ namespace ProjectReporterPlugin.Editor
                     {
                         //新行
                         step = new Step();
-                        step.ProjectID = PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj.ID;
+                        step.ProjectID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectReporterPlugin.NewPluginRoot>().projectObj).ID;
                     }
                     else
                     {

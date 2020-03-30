@@ -23,9 +23,9 @@ namespace ProjectReporterPlugin.Editor
         {
             base.refreshView();
 
-            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj != null)
+            if (((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj) != null)
             {
-                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
+                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj).ID + "'").select("*").getList<Project>(new Project());
 
                 dgvDetail.Rows.Clear();
                 

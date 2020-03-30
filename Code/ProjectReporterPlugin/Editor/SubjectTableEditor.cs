@@ -64,9 +64,9 @@ namespace ProjectReporterPlugin.Editor
 
         private void UpdateKeTiList()
         {
-            if (PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj != null)
+            if (((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj) != null)
             {
-                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj.ID + "'").select("*").getList<Project>(new Project());
+                KeTiList = ConnectionManager.Context.table("Project").where("Type='" + "课题" + "' and ParentID='" + ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj).ID + "'").select("*").getList<Project>(new Project());
 
                 dgvDetail.Rows.Clear();
                 ((DataGridViewImageColumn)dgvDetail.Columns[dgvDetail.Columns.Count - 1]).Image = ProjectReporterPlugin.Resource.DELETE_28;
@@ -435,7 +435,7 @@ namespace ProjectReporterPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj.ID;
+                    proj.ParentID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj).ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
@@ -658,7 +658,7 @@ namespace ProjectReporterPlugin.Editor
                     proj.Name = dgvRow.Cells[1].Value.ToString();
                     proj.SecretLevel = dgvRow.Cells[2].Value.ToString();
                     proj.Type = "课题";
-                    proj.ParentID = PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj.ID;
+                    proj.ParentID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj).ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
                     proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 

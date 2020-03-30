@@ -51,14 +51,14 @@ namespace ProjectReporterPlugin.Editor
         {
             base.refreshView();
 
-            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + PluginRootObj.projectObj.ID + "') or ProjectID='" + PluginRootObj.projectObj.ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
+            List<Task> taskList = ConnectionManager.Context.table("Task").where("ProjectID in (select ID from Project where ParentID = '" + ((Project)PluginRootObj.projectObj).ID + "') or ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "'").orderBy("DisplayOrder").select("*").getList<Task>(new Task());
 
             //查找项目负责人
             Task masterTask = null;
             Task masterSecondTask = null;
             foreach (Task taskObjj in taskList)
             {
-                if (taskObjj.ProjectID == PluginRootObj.projectObj.ID)
+                if (taskObjj.ProjectID == ((Project)PluginRootObj.projectObj).ID)
                 {
                     masterTask = taskObjj;
                     break;
@@ -116,7 +116,7 @@ namespace ProjectReporterPlugin.Editor
                 cells.Add(pObject.PersonObj.IDCard);
 
                 string roleName = string.Empty;
-                if (pObject.SubjectObj.ID == PluginRootObj.projectObj.ID)
+                if (pObject.SubjectObj.ID == ((Project)PluginRootObj.projectObj).ID)
                 {
                     if (masterSecondTask != null)
                     {

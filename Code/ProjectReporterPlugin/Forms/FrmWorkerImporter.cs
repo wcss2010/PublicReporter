@@ -44,7 +44,7 @@ namespace ProjectReporterPlugin.Forms
                     if (string.IsNullOrEmpty(newObj.subjectStr))
                     {
                         //项目ID
-                        subjectID = PluginRootObj.projectObj.ID;
+                        subjectID = ((Project)PluginRootObj.projectObj).ID;
                     }
                     else
                     {
@@ -56,7 +56,7 @@ namespace ProjectReporterPlugin.Forms
                     po.SubjectObj = ConnectionManager.Context.table("Project").where("ID='" + subjectID + "'").select("*").getItem<Project>(new Project());
                     po.UnitObj = ConnectionManager.Context.table("Unit").where("UnitName='" + newObj.unitName + "'").select("*").getItem<Unit>(new Unit());
                     po.PersonObj = ConnectionManager.Context.table("Person").where("IDCard='" + newObj.personIDCard + "'").select("*").getItem<Person>(new Person());
-                    po.TaskObj = ConnectionManager.Context.table("Task").where("IDCard='" + newObj.personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(newObj.subjectStr) ? PluginRootObj.projectObj.Name : newObj.subjectStr) + "')").select("*").getItem<Task>(new Task());
+                    po.TaskObj = ConnectionManager.Context.table("Task").where("IDCard='" + newObj.personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(newObj.subjectStr) ? ((Project)PluginRootObj.projectObj).Name : newObj.subjectStr) + "')").select("*").getItem<Task>(new Task());
 
                     //更新数据
                     insertOrUpdatePerson(po, newObj.unitName, newObj.unitAddress, newObj.unitContact, newObj.unitTelephone, newObj.personName, newObj.personIDCard, newObj.personJob, newObj.personSpecialty, newObj.personSex, DateTime.Parse(newObj.personBirthday), newObj.personTelephone, newObj.personMobilePhone, newObj.personAddress, int.Parse(newObj.timeInProject), newObj.taskInProject, newObj.roleNameStr, subjectID, newObj.roletypeOnlyProjectStr == "是", newObj.roletypeProjectAndSubjectStr == "是", newObj.roletypeOnlySubjectStr == "是");
@@ -293,16 +293,16 @@ namespace ProjectReporterPlugin.Forms
             if (isOnlyProject)
             {
                 //仅为项目负责人,需要删除当前的项目负责人,也删除此人原来的职务
-                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
-                ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").delete();
+                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
+                ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").delete();
 
                 ConnectionManager.Context.table("Task").where("ID='" + newPersonInfo.TaskObj.ID + "'").delete();
             }
             else if (isProjectAndSubject)
             {
                 //项目兼课题角色,需要删除当前的项目负责人和课题角色
-                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
-                ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人'").delete();
+                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
+                ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").delete();
 
                 personDisplayOrder = newPersonInfo.TaskObj.DisplayOrder != null ? newPersonInfo.TaskObj.DisplayOrder.Value : 0;
                 ConnectionManager.Context.table("Task").where("ID='" + newPersonInfo.TaskObj.ID + "'").delete();
@@ -313,7 +313,7 @@ namespace ProjectReporterPlugin.Forms
                 personDisplayOrder = newPersonInfo.TaskObj.DisplayOrder != null ? newPersonInfo.TaskObj.DisplayOrder.Value : 0;
                 ConnectionManager.Context.table("Task").where("ID='" + newPersonInfo.TaskObj.ID + "'").delete();
 
-                ConnectionManager.Context.table("Task").where("ProjectID='" + PluginRootObj.projectObj.ID + "' and Type = '项目' and Role='负责人' and IDCard = '" + newPersonInfo.PersonObj.IDCard + "'").delete();
+                ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人' and IDCard = '" + newPersonInfo.PersonObj.IDCard + "'").delete();
             }
 
             //工作单位ID
@@ -350,7 +350,7 @@ namespace ProjectReporterPlugin.Forms
             if (isOnlyProject)
             {
                 //仅为项目负责人
-                newPersonInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
+                newPersonInfo.TaskObj.ProjectID = ((Project)PluginRootObj.projectObj).ID;
                 newPersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
                 newPersonInfo.TaskObj.Type = "项目";
                 newPersonInfo.TaskObj.Role = "负责人";
@@ -360,7 +360,7 @@ namespace ProjectReporterPlugin.Forms
             else if (isProjectAndSubject)
             {
                 //项目兼课题角色
-                newPersonInfo.TaskObj.ProjectID = PluginRootObj.projectObj.ID;
+                newPersonInfo.TaskObj.ProjectID = ((Project)PluginRootObj.projectObj).ID;
                 newPersonInfo.TaskObj.ID = Guid.NewGuid().ToString();
                 newPersonInfo.TaskObj.Type = "项目";
                 newPersonInfo.TaskObj.Role = "负责人";
