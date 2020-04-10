@@ -485,6 +485,7 @@
     <Content Include="DataTemplete\Current\Files\项目负责人.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Q1.png" />
     <None Include="Resources\word.png" />
     <None Include="Resources\w51.png" />
     <None Include="Resources\manager.png" />

@@ -525,6 +525,7 @@
     <Content Include="DataTemplete\Current\Files\研究目标.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Q1.png" />
     <Content Include="word模板中的书签.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

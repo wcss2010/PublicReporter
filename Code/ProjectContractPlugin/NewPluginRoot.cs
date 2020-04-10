@@ -25,7 +25,8 @@ namespace ProjectContractPlugin
         public const string button2_Name = "生成报告";
         public const string button3_Name = "导出数据包";
         public const string button4_Name = "数据包管理";
-        public const string button5_Name = "帮助";
+        public const string button5_Name = "上传PDF";
+        public const string button6_Name = "帮助";
 
         public NewPluginRoot()
             : base()
@@ -372,6 +373,12 @@ namespace ProjectContractPlugin
                     #endregion
                     break;
                 case button5_Name:
+                    #region 上传PDF
+                    FrmUploadUserPDF pdfForm = new FrmUploadUserPDF("请在此上传您的PDF文档！", "用户上传的PDF");
+                    pdfForm.ShowDialog();
+                    #endregion
+                    break;
+                case button6_Name:
                     #region 帮助
                     FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(RootDir, Path.Combine("Helper", "help.rtf")));
                     helpBox.ShowDialog();
@@ -540,11 +547,14 @@ namespace ProjectContractPlugin
             //数据包管理
             addTopButton(Resource.manager, Guid.NewGuid().ToString(), button4_Name, new System.Drawing.Size(53, 56));
 
+            //上传PDF
+            addTopButton(Resource.help, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
+
             //添加分割符
             addToTopToolStrip(getTopSeparator());
 
             //帮助
-            addTopButton(Resource.help, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
+            addTopButton(Resource.help, Guid.NewGuid().ToString(), button6_Name, new System.Drawing.Size(53, 56));
 
             //添加分割符
             addToTopToolStrip(getTopSeparator());
