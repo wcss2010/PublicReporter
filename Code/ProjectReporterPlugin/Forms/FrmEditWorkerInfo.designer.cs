@@ -238,12 +238,12 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(505, 272);
+            this.label9.Location = new System.Drawing.Point(531, 272);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 19);
+            this.label9.Size = new System.Drawing.Size(59, 19);
             this.label9.TabIndex = 8;
-            this.label9.Text = "出生年月：";
+            this.label9.Text = "生日：";
             // 
             // label18
             // 
@@ -277,12 +277,12 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(410, 330);
+            this.label2.Location = new System.Drawing.Point(465, 329);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 19);
+            this.label2.Size = new System.Drawing.Size(120, 19);
             this.label2.TabIndex = 10;
-            this.label2.Text = "每年投入工作时间(月)：";
+            this.label2.Text = "每年投入时间：";
             // 
             // label4
             // 
@@ -371,12 +371,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label5.Location = new System.Drawing.Point(41, 92);
+            this.label5.Location = new System.Drawing.Point(79, 93);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 16);
+            this.label5.Size = new System.Drawing.Size(56, 16);
             this.label5.TabIndex = 8;
-            this.label5.Text = "职务/职称：";
+            this.label5.Text = "职称：";
             // 
             // label10
             // 
@@ -386,7 +386,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 19);
             this.label10.TabIndex = 8;
-            this.label10.Text = "座机：";
+            this.label10.Text = "电话：";
             // 
             // txtPersonSpecialty
             // 
@@ -448,12 +448,12 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label7.Location = new System.Drawing.Point(489, 93);
+            this.label7.Location = new System.Drawing.Point(537, 93);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 19);
+            this.label7.Size = new System.Drawing.Size(56, 19);
             this.label7.TabIndex = 8;
-            this.label7.Text = "  技术方向：";
+            this.label7.Text = "专业：";
             // 
             // label3
             // 
