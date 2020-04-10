@@ -75,7 +75,7 @@ namespace ProjectContractPlugin.Editor
         private void btnNew_Click(object sender, EventArgs e)
         {
             //显示编辑窗体
-            FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, GetMaxDisplayOrder());
+            FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, getMaxDisplayOrder());
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
@@ -117,7 +117,7 @@ namespace ProjectContractPlugin.Editor
                     RenYuanBiao personObj = (RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag;
 
                     #region 下移
-                    MoveToDown(e.RowIndex, personObj);
+                    moveToDown(e.RowIndex, personObj);
                     #endregion
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 4)
@@ -125,7 +125,7 @@ namespace ProjectContractPlugin.Editor
                     RenYuanBiao personObj = (RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag;
 
                     #region 上移
-                    MoveToUp(e.RowIndex, personObj);
+                    moveToUp(e.RowIndex, personObj);
                     #endregion
                 }
             }
@@ -136,7 +136,7 @@ namespace ProjectContractPlugin.Editor
         /// </summary>
         /// <param name="rowIndex"></param>
         /// <param name="task"></param>
-        private void MoveToUp(int rowIndex, RenYuanBiao task)
+        private void moveToUp(int rowIndex, RenYuanBiao task)
         {
             if (list != null)
             {
@@ -157,8 +157,10 @@ namespace ProjectContractPlugin.Editor
 
                     refreshView();
 
+                    dgvDetail.ClearSelection();
+
                     if (taskIndex >= 1)
-                    {
+                    {   
                         dgvDetail.Rows[taskIndex - 1].Selected = true;
                     }
                 }
@@ -170,14 +172,19 @@ namespace ProjectContractPlugin.Editor
         /// </summary>
         /// <param name="rowIndex"></param>
         /// <param name="task"></param>
-        private void MoveToDown(int rowIndex, RenYuanBiao task)
+        private void moveToDown(int rowIndex, RenYuanBiao task)
         {
             if (list != null)
             {
                 int taskIndex = list.IndexOf(task);
                 if (taskIndex <= list.Count - 2)
                 {
-                    list.Remove(task);
+                    try
+                    {
+                        list.Remove(task);
+                    }
+                    catch (Exception ex) { }
+
                     list.Insert(taskIndex + 1, task);
 
                     int ri = 0;
@@ -191,6 +198,8 @@ namespace ProjectContractPlugin.Editor
 
                     refreshView();
 
+                    dgvDetail.ClearSelection();
+
                     if (taskIndex < dgvDetail.Rows.Count - 1)
                     {
                         dgvDetail.Rows[taskIndex + 1].Selected = true;
@@ -203,7 +212,19 @@ namespace ProjectContractPlugin.Editor
             }
         }
 
-        public static int GetMaxDisplayOrder()
+        /// <summary>
+        /// 将指定项目插入到当前选项下方
+        /// </summary>
+        /// <param name="task"></param>
+        public void moveToCurrentDown(RenYuanBiao task)
+        {
+            if (dgvDetail.SelectedRows.Count >= 1)
+            {
+                moveToDown(dgvDetail.SelectedRows[0].Index, task);
+            }
+        }
+
+        public static int getMaxDisplayOrder()
         {
             try
             {
@@ -239,28 +260,31 @@ namespace ProjectContractPlugin.Editor
         {
             if (dgvDetail.SelectedRows.Count == 1)
             {
-                double statusNum = 0;
-                try
-                {
-                    if (dgvDetail.SelectedRows[0].Index + 1 == dgvDetail.Rows.Count)
-                    {
-                        statusNum = ((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai + 1;
-                    }
-                    else
-                    {
-                        double a = ((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai;
-                        double b = ((RenYuanBiao)dgvDetail.Rows[dgvDetail.SelectedRows[0].Index + 1].Tag).ZhuangTai;
+                //double statusNum = 0;
+                //try
+                //{
+                //    if (dgvDetail.SelectedRows[0].Index + 1 == dgvDetail.Rows.Count)
+                //    {
+                //        statusNum = ((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai + 1;
+                //    }
+                //    else
+                //    {
+                //        double a = ((RenYuanBiao)dgvDetail.SelectedRows[0].Tag).ZhuangTai;
+                //        double b = ((RenYuanBiao)dgvDetail.Rows[dgvDetail.SelectedRows[0].Index + 1].Tag).ZhuangTai;
 
-                        statusNum = (a + b) / 2;
-                    }
-                }
-                catch (Exception ex) { }
+                //        statusNum = (a + b) / 2;
+                //    }
+                //}
+                //catch (Exception ex) { }
 
                 //显示编辑窗体
-                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, statusNum);
+                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList);
                 if (form.ShowDialog() == DialogResult.OK)
+                {
+                    moveToCurrentDown(form.DataObj);
                     //刷新列表
                     refreshView();
+                }
 
             }
             else

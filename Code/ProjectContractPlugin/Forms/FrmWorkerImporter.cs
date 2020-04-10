@@ -240,7 +240,7 @@ namespace ProjectContractPlugin.Forms
                 {
                     //insert
                     newObj.BianHao = Guid.NewGuid().ToString();
-                    newObj.ZhuangTai = ProjectContractPlugin.Editor.WorkerEditor.GetMaxDisplayOrder() + 1;
+                    newObj.ZhuangTai = ProjectContractPlugin.Editor.WorkerEditor.getMaxDisplayOrder() + 1;
                     newObj.ModifyTime = DateTime.Now;
                     newObj.copyTo(ConnectionManager.Context.table("RenYuanBiao")).insert();
                 }

@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnImporter = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,30 +52,11 @@
             this.Column14 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnImporter = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnDelAll = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.plButtons.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoHeight = true;
-            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
-            this.lblInfo.Location = new System.Drawing.Point(10, 10);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1272, 51);
-            this.lblInfo.TabIndex = 0;
-            this.lblInfo.Visible = false;
             // 
             // plMain
             // 
@@ -118,7 +104,6 @@
             this.Column13});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 0);
-            this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -137,121 +122,6 @@
             this.dgvDetail.TabIndex = 1;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "序号";
-            this.Column1.MinimumWidth = 60;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "姓名";
-            this.Column2.MinimumWidth = 60;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "性别";
-            this.Column3.MinimumWidth = 60;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 60;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "职称";
-            this.Column4.MinimumWidth = 60;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 60;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "专业";
-            this.Column5.MinimumWidth = 60;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 60;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "工作单位";
-            this.Column6.MinimumWidth = 90;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 90;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "每年投入时间（月）";
-            this.Column7.MinimumWidth = 70;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 70;
-            // 
-            // Column8
-            // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column8.HeaderText = "任务分工";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "身份证号码";
-            this.Column9.MinimumWidth = 120;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 120;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "项目中职务";
-            this.Column11.MinimumWidth = 170;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 170;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Text = "上移";
-            this.Column10.UseColumnTextForButtonValue = true;
-            this.Column10.Width = 5;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Text = "下移";
-            this.Column14.UseColumnTextForButtonValue = true;
-            this.Column14.Width = 5;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Text = "删除";
-            this.Column12.UseColumnTextForButtonValue = true;
-            this.Column12.Width = 5;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Text = "编辑";
-            this.Column13.UseColumnTextForButtonValue = true;
-            this.Column13.Width = 5;
             // 
             // plButtons
             // 
@@ -308,6 +178,145 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "插入";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoHeight = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
+            this.lblInfo.Location = new System.Drawing.Point(10, 10);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1272, 51);
+            this.lblInfo.TabIndex = 0;
+            this.lblInfo.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "序号";
+            this.Column1.MinimumWidth = 60;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "姓名";
+            this.Column2.MinimumWidth = 60;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2.Width = 60;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "性别";
+            this.Column3.MinimumWidth = 60;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column3.Width = 60;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "职称";
+            this.Column4.MinimumWidth = 60;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column4.Width = 60;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "专业";
+            this.Column5.MinimumWidth = 60;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column5.Width = 60;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "工作单位";
+            this.Column6.MinimumWidth = 90;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column6.Width = 90;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "每年投入时间（月）";
+            this.Column7.MinimumWidth = 70;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column7.Width = 70;
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column8.HeaderText = "任务分工";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "身份证号码";
+            this.Column9.MinimumWidth = 120;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column9.Width = 120;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "项目中职务";
+            this.Column11.MinimumWidth = 170;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column11.Width = 170;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Text = "上移";
+            this.Column10.UseColumnTextForButtonValue = true;
+            this.Column10.Width = 5;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Text = "下移";
+            this.Column14.UseColumnTextForButtonValue = true;
+            this.Column14.Width = 5;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Text = "删除";
+            this.Column12.UseColumnTextForButtonValue = true;
+            this.Column12.Width = 5;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Text = "编辑";
+            this.Column13.UseColumnTextForButtonValue = true;
+            this.Column13.Width = 5;
             // 
             // WorkerEditor
             // 
