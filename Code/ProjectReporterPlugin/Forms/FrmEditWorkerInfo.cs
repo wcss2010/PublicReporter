@@ -58,16 +58,16 @@ namespace ProjectReporterPlugin.Forms
                     dePersonBirthday.Value = PersonInfo.PersonObj.Birthday != null ? PersonInfo.PersonObj.Birthday.Value : DateTime.MinValue;
                     txtPersonJob.Text = PersonInfo.PersonObj.Job;
                     txtPersonSpecialty.Text = PersonInfo.PersonObj.Specialty;
-                    txtPersonAddress.Text = PersonInfo.PersonObj.Address;
+                    //txtPersonAddress.Text = PersonInfo.PersonObj.Address;
                     txtPersonTelephone.Text = PersonInfo.PersonObj.Telephone;
                     txtPersonMobilePhone.Text = PersonInfo.PersonObj.MobilePhone;
 
                     if (PersonInfo.UnitObj != null)
                     {
                         txtUnitName.Text = PersonInfo.UnitObj.UnitName;
-                        txtUnitAddress.Text = PersonInfo.UnitObj.Address;
-                        txtUnitContactName.Text = PersonInfo.UnitObj.ContactName;
-                        txtUnitTelephone.Text = PersonInfo.UnitObj.Telephone;
+                        //txtUnitAddress.Text = PersonInfo.UnitObj.Address;
+                        //txtUnitContactName.Text = PersonInfo.UnitObj.ContactName;
+                        //txtUnitTelephone.Text = PersonInfo.UnitObj.Telephone;
                     }
 
                     txtTaskContent.Text = PersonInfo.TaskObj.Content;
@@ -134,21 +134,21 @@ namespace ProjectReporterPlugin.Forms
                 MessageBox.Show("对不起，请输入单位名称！");
                 return;
             }
-            if (string.IsNullOrEmpty(txtUnitAddress.Text))
-            {
-                MessageBox.Show("对不起，请输入单位通信地址！");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtUnitContactName.Text))
-            {
-                MessageBox.Show("对不起，请输入单位联系人！");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtUnitTelephone.Text))
-            {
-                MessageBox.Show("对不起，请输入单位联系电话！");
-                return;
-            }
+            //if (string.IsNullOrEmpty(txtUnitAddress.Text))
+            //{
+            //    MessageBox.Show("对不起，请输入单位通信地址！");
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(txtUnitContactName.Text))
+            //{
+            //    MessageBox.Show("对不起，请输入单位联系人！");
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(txtUnitTelephone.Text))
+            //{
+            //    MessageBox.Show("对不起，请输入单位联系电话！");
+            //    return;
+            //}
             if (string.IsNullOrEmpty(txtPersonName.Text))
             {
                 MessageBox.Show("对不起，请输入人员名称！");
@@ -189,11 +189,11 @@ namespace ProjectReporterPlugin.Forms
                 MessageBox.Show("对不起，请输入人员手机！");
                 return;
             }
-            if (string.IsNullOrEmpty(txtPersonAddress.Text))
-            {
-                MessageBox.Show("对不起，请输入人员通信地址！");
-                return;
-            }
+            //if (string.IsNullOrEmpty(txtPersonAddress.Text))
+            //{
+            //    MessageBox.Show("对不起，请输入人员通信地址！");
+            //    return;
+            //}
             if (string.IsNullOrEmpty(txtWorkTimeInYear.Text))
             {
                 MessageBox.Show("对不起，请输入每年为项目工作时间(月)！");
@@ -239,7 +239,8 @@ namespace ProjectReporterPlugin.Forms
             //工作单位ID
             string workUnitID = string.IsNullOrEmpty(PersonInfo.UnitObj.ID) ? Guid.NewGuid().ToString() : PersonInfo.UnitObj.ID;
             //创建工作单位
-            ProjectEditor.BuildUnitRecord(workUnitID, txtUnitName.Text, txtUnitName.Text, txtUnitName.Text, txtUnitContactName.Text, txtUnitTelephone.Text, "课题单位", txtUnitAddress.Text);
+            //ProjectEditor.BuildUnitRecord(workUnitID, txtUnitName.Text, txtUnitName.Text, txtUnitName.Text, txtUnitContactName.Text, txtUnitTelephone.Text, "课题单位", txtUnitAddress.Text);
+            ProjectEditor.BuildUnitRecord(workUnitID, txtUnitName.Text, txtUnitName.Text, txtUnitName.Text, string.Empty, string.Empty, "课题单位", string.Empty);
 
             //输入人员信息
             PersonInfo.PersonObj = new Person();
@@ -251,7 +252,8 @@ namespace ProjectReporterPlugin.Forms
             PersonInfo.PersonObj.IDCard = txtPersonIDCard.Text;
             PersonInfo.PersonObj.Job = txtPersonJob.Text;
             PersonInfo.PersonObj.Specialty = txtPersonSpecialty.Text;
-            PersonInfo.PersonObj.Address = txtPersonAddress.Text;
+            //PersonInfo.PersonObj.Address = txtPersonAddress.Text;
+            PersonInfo.PersonObj.Address = string.Empty;
             PersonInfo.PersonObj.Telephone = txtPersonTelephone.Text;
             PersonInfo.PersonObj.MobilePhone = txtPersonMobilePhone.Text;
 
