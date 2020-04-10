@@ -46,8 +46,8 @@
             this.plButtons.Controls.Add(this.btnOK);
             this.plButtons.Controls.Add(this.btnCancel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 115);
-            this.plButtons.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.plButtons.Location = new System.Drawing.Point(0, 108);
+            this.plButtons.Margin = new System.Windows.Forms.Padding(7);
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(594, 40);
             this.plButtons.TabIndex = 14;
@@ -57,7 +57,7 @@
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnOK.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOK.Location = new System.Drawing.Point(428, 0);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(7);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(83, 40);
             this.btnOK.TabIndex = 17;
@@ -70,7 +70,7 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCancel.Location = new System.Drawing.Point(511, 0);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(7);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(83, 40);
             this.btnCancel.TabIndex = 18;
@@ -88,6 +88,7 @@
             this.lklPDFFile.TabIndex = 11;
             this.lklPDFFile.TabStop = true;
             this.lklPDFFile.Text = "......";
+            this.lklPDFFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lklPDFFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklPDFFile_LinkClicked);
             // 
             // label1
@@ -105,7 +106,7 @@
             // 
             this.btnSelect.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSelect.Location = new System.Drawing.Point(512, 10);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(72, 34);
             this.btnSelect.TabIndex = 12;
@@ -123,7 +124,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSelect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 61);
+            this.panel1.Location = new System.Drawing.Point(0, 54);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
@@ -134,26 +135,26 @@
             // 
             this.lblWelcome.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblWelcome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblWelcome.Font = new System.Drawing.Font("仿宋", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblWelcome.Font = new System.Drawing.Font("仿宋", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblWelcome.Location = new System.Drawing.Point(0, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(594, 61);
+            this.lblWelcome.Size = new System.Drawing.Size(594, 54);
             this.lblWelcome.TabIndex = 16;
             this.lblWelcome.Text = "XXXXXXXXXXX";
             this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmUploadPDF
+            // FrmUploadUserPDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 155);
+            this.ClientSize = new System.Drawing.Size(594, 148);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.plButtons);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmUploadPDF";
+            this.Name = "FrmUploadUserPDF";
             this.Text = "上传PDF";
             this.plButtons.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
