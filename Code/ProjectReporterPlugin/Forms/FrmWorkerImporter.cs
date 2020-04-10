@@ -109,12 +109,15 @@ namespace ProjectReporterPlugin.Forms
                 {
                     PersonImportRecord pir = new PersonImportRecord();
 
-                    pir.unitName = dr["单位名称"] != null ? dr["单位名称"].ToString() : string.Empty;
+                    pir.unitName = dr["工作单位"] != null ? dr["工作单位"].ToString() : string.Empty;
                     //string unitType = dr["隶属部门"] != null ? dr["隶属部门"].ToString() : string.Empty;
                     pir.unitType = "其它";
-                    pir.unitAddress = dr["单位通信地址"] != null ? dr["单位通信地址"].ToString() : string.Empty;
-                    pir.unitContact = dr["单位联系人"] != null ? dr["单位联系人"].ToString() : string.Empty;
-                    pir.unitTelephone = dr["单位联系电话"] != null ? dr["单位联系电话"].ToString() : string.Empty;
+                    //pir.unitAddress = dr["单位通信地址"] != null ? dr["单位通信地址"].ToString() : string.Empty;
+                    pir.unitAddress = string.Empty;
+                    //pir.unitContact = dr["单位联系人"] != null ? dr["单位联系人"].ToString() : string.Empty;
+                    pir.unitContact = string.Empty;
+                    //pir.unitTelephone = dr["单位联系电话"] != null ? dr["单位联系电话"].ToString() : string.Empty;
+                    pir.unitTelephone = string.Empty;
                     pir.personName = dr["姓名"] != null ? dr["姓名"].ToString() : string.Empty;
                     pir.personIDCard = dr["身份证"] != null ? dr["身份证"].ToString() : string.Empty;
                     pir.personJob = dr["职务职称"] != null ? dr["职务职称"].ToString() : string.Empty;
@@ -123,7 +126,8 @@ namespace ProjectReporterPlugin.Forms
                     pir.personBirthday = dr["出生年月"] != null ? dr["出生年月"].ToString() : string.Empty;
                     pir.personTelephone = dr["座机"] != null ? dr["座机"].ToString() : string.Empty;
                     pir.personMobilePhone = dr["手机"] != null ? dr["手机"].ToString() : string.Empty;
-                    pir.personAddress = dr["通信地址"] != null ? dr["通信地址"].ToString() : string.Empty;
+                    //pir.personAddress = dr["通信地址"] != null ? dr["通信地址"].ToString() : string.Empty;
+                    pir.personAddress = string.Empty;
                     pir.taskInProject = dr["任务分工"] != null ? dr["任务分工"].ToString() : string.Empty;
                     pir.timeInProject = dr["每年为本项目工作时间(月)"] != null ? dr["每年为本项目工作时间(月)"].ToString() : string.Empty;
 

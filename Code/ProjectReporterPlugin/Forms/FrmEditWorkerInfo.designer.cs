@@ -34,35 +34,35 @@
             this.rbIsProjectAndSubject = new System.Windows.Forms.RadioButton();
             this.rbIsOnlyProject = new System.Windows.Forms.RadioButton();
             this.cbxJobInProjects = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxSubjects = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtTaskContent = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtWorkTimeInYear = new System.Windows.Forms.NumericUpDown();
-            this.txtPersonName = new System.Windows.Forms.TextBox();
             this.dePersonBirthday = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPersonName = new System.Windows.Forms.TextBox();
+            this.cbxSubjects = new System.Windows.Forms.ComboBox();
             this.txtPersonIDCard = new System.Windows.Forms.TextBox();
-            this.cbxPersonSex = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtUnitName = new System.Windows.Forms.TextBox();
+            this.txtTaskContent = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtWorkTimeInYear = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtPersonJob = new System.Windows.Forms.TextBox();
             this.txtPersonMobilePhone = new System.Windows.Forms.TextBox();
+            this.cbxPersonSex = new System.Windows.Forms.ComboBox();
             this.txtPersonTelephone = new System.Windows.Forms.TextBox();
-            this.txtPersonSpecialty = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtUnitName = new System.Windows.Forms.TextBox();
+            this.txtPersonSpecialty = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.plContent.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkTimeInYear)).BeginInit();
@@ -171,6 +171,16 @@
             this.cbxJobInProjects.Size = new System.Drawing.Size(167, 24);
             this.cbxJobInProjects.TabIndex = 34;
             // 
+            // dePersonBirthday
+            // 
+            this.dePersonBirthday.Font = new System.Drawing.Font("仿宋", 12F);
+            this.dePersonBirthday.Location = new System.Drawing.Point(599, 269);
+            this.dePersonBirthday.Margin = new System.Windows.Forms.Padding(4);
+            this.dePersonBirthday.Name = "dePersonBirthday";
+            this.dePersonBirthday.Size = new System.Drawing.Size(167, 26);
+            this.dePersonBirthday.TabIndex = 10;
+            this.dePersonBirthday.Value = new System.DateTime(2019, 8, 22, 16, 5, 41, 162);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -181,6 +191,15 @@
             this.label1.Size = new System.Drawing.Size(56, 16);
             this.label1.TabIndex = 33;
             this.label1.Text = "课题：";
+            // 
+            // txtPersonName
+            // 
+            this.txtPersonName.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtPersonName.Location = new System.Drawing.Point(144, 30);
+            this.txtPersonName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPersonName.Name = "txtPersonName";
+            this.txtPersonName.Size = new System.Drawing.Size(260, 26);
+            this.txtPersonName.TabIndex = 5;
             // 
             // cbxSubjects
             // 
@@ -196,6 +215,15 @@
             this.cbxSubjects.Size = new System.Drawing.Size(260, 24);
             this.cbxSubjects.TabIndex = 32;
             // 
+            // txtPersonIDCard
+            // 
+            this.txtPersonIDCard.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtPersonIDCard.Location = new System.Drawing.Point(144, 269);
+            this.txtPersonIDCard.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPersonIDCard.Name = "txtPersonIDCard";
+            this.txtPersonIDCard.Size = new System.Drawing.Size(260, 26);
+            this.txtPersonIDCard.TabIndex = 6;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -207,14 +235,15 @@
             this.label12.TabIndex = 31;
             this.label12.Text = "课题中职务：";
             // 
-            // txtTaskContent
+            // label9
             // 
-            this.txtTaskContent.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtTaskContent.Location = new System.Drawing.Point(144, 326);
-            this.txtTaskContent.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTaskContent.Name = "txtTaskContent";
-            this.txtTaskContent.Size = new System.Drawing.Size(260, 26);
-            this.txtTaskContent.TabIndex = 15;
+            this.label9.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label9.Location = new System.Drawing.Point(505, 272);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 19);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "出生年月：";
             // 
             // label18
             // 
@@ -227,25 +256,44 @@
             this.label18.TabIndex = 19;
             this.label18.Text = "月";
             // 
-            // label11
+            // txtUnitName
             // 
-            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label11.Location = new System.Drawing.Point(47, 329);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 20);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "任务分工：";
+            this.txtUnitName.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtUnitName.Location = new System.Drawing.Point(144, 212);
+            this.txtUnitName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUnitName.Name = "txtUnitName";
+            this.txtUnitName.Size = new System.Drawing.Size(621, 26);
+            this.txtUnitName.TabIndex = 1;
+            // 
+            // txtTaskContent
+            // 
+            this.txtTaskContent.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtTaskContent.Location = new System.Drawing.Point(144, 326);
+            this.txtTaskContent.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTaskContent.Name = "txtTaskContent";
+            this.txtTaskContent.Size = new System.Drawing.Size(260, 26);
+            this.txtTaskContent.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(475, 329);
+            this.label2.Location = new System.Drawing.Point(410, 330);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 19);
+            this.label2.Size = new System.Drawing.Size(184, 19);
             this.label2.TabIndex = 10;
-            this.label2.Text = "每年投入时间：";
+            this.label2.Text = "每年投入工作时间(月)：";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label4.Location = new System.Drawing.Point(47, 272);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "身份证号：";
             // 
             // txtWorkTimeInYear
             // 
@@ -256,47 +304,15 @@
             this.txtWorkTimeInYear.Size = new System.Drawing.Size(167, 26);
             this.txtWorkTimeInYear.TabIndex = 16;
             // 
-            // txtPersonName
+            // label11
             // 
-            this.txtPersonName.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtPersonName.Location = new System.Drawing.Point(144, 30);
-            this.txtPersonName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPersonName.Name = "txtPersonName";
-            this.txtPersonName.Size = new System.Drawing.Size(260, 26);
-            this.txtPersonName.TabIndex = 5;
-            // 
-            // dePersonBirthday
-            // 
-            this.dePersonBirthday.Font = new System.Drawing.Font("仿宋", 12F);
-            this.dePersonBirthday.Location = new System.Drawing.Point(599, 269);
-            this.dePersonBirthday.Margin = new System.Windows.Forms.Padding(4);
-            this.dePersonBirthday.Name = "dePersonBirthday";
-            this.dePersonBirthday.Size = new System.Drawing.Size(167, 26);
-            this.dePersonBirthday.TabIndex = 10;
-            this.dePersonBirthday.Value = new System.DateTime(2019, 8, 22, 16, 5, 41, 162);
-            // 
-            // txtPersonIDCard
-            // 
-            this.txtPersonIDCard.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtPersonIDCard.Location = new System.Drawing.Point(144, 269);
-            this.txtPersonIDCard.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPersonIDCard.Name = "txtPersonIDCard";
-            this.txtPersonIDCard.Size = new System.Drawing.Size(260, 26);
-            this.txtPersonIDCard.TabIndex = 6;
-            // 
-            // cbxPersonSex
-            // 
-            this.cbxPersonSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPersonSex.DropDownWidth = 300;
-            this.cbxPersonSex.Font = new System.Drawing.Font("仿宋", 12F);
-            this.cbxPersonSex.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.cbxPersonSex.Location = new System.Drawing.Point(599, 31);
-            this.cbxPersonSex.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxPersonSex.Name = "cbxPersonSex";
-            this.cbxPersonSex.Size = new System.Drawing.Size(167, 24);
-            this.cbxPersonSex.TabIndex = 9;
+            this.label11.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label11.Location = new System.Drawing.Point(47, 329);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 20);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "任务分工：";
             // 
             // txtPersonJob
             // 
@@ -317,6 +333,20 @@
             this.txtPersonMobilePhone.Size = new System.Drawing.Size(167, 26);
             this.txtPersonMobilePhone.TabIndex = 12;
             // 
+            // cbxPersonSex
+            // 
+            this.cbxPersonSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPersonSex.DropDownWidth = 300;
+            this.cbxPersonSex.Font = new System.Drawing.Font("仿宋", 12F);
+            this.cbxPersonSex.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.cbxPersonSex.Location = new System.Drawing.Point(599, 31);
+            this.cbxPersonSex.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxPersonSex.Name = "cbxPersonSex";
+            this.cbxPersonSex.Size = new System.Drawing.Size(167, 24);
+            this.cbxPersonSex.TabIndex = 9;
+            // 
             // txtPersonTelephone
             // 
             this.txtPersonTelephone.Font = new System.Drawing.Font("仿宋", 12F);
@@ -326,68 +356,6 @@
             this.txtPersonTelephone.Name = "txtPersonTelephone";
             this.txtPersonTelephone.Size = new System.Drawing.Size(260, 26);
             this.txtPersonTelephone.TabIndex = 11;
-            // 
-            // txtPersonSpecialty
-            // 
-            this.txtPersonSpecialty.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtPersonSpecialty.Location = new System.Drawing.Point(599, 89);
-            this.txtPersonSpecialty.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPersonSpecialty.Name = "txtPersonSpecialty";
-            this.txtPersonSpecialty.Size = new System.Drawing.Size(167, 26);
-            this.txtPersonSpecialty.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(65, 33);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "  姓名：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(47, 272);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "身份证号：";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label5.Location = new System.Drawing.Point(80, 92);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 16);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "职称：";
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label7.Location = new System.Drawing.Point(489, 93);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 19);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "  技术方向：";
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label8.Location = new System.Drawing.Point(505, 34);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 19);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "    性别：";
             // 
             // label16
             // 
@@ -399,15 +367,16 @@
             this.label16.TabIndex = 8;
             this.label16.Text = "    手机：";
             // 
-            // label9
+            // label5
             // 
-            this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(538, 272);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 19);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "生日：";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label5.Location = new System.Drawing.Point(41, 92);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 16);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "职务/职称：";
             // 
             // label10
             // 
@@ -417,16 +386,16 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 19);
             this.label10.TabIndex = 8;
-            this.label10.Text = "电话：";
+            this.label10.Text = "座机：";
             // 
-            // txtUnitName
+            // txtPersonSpecialty
             // 
-            this.txtUnitName.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtUnitName.Location = new System.Drawing.Point(144, 212);
-            this.txtUnitName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(621, 26);
-            this.txtUnitName.TabIndex = 1;
+            this.txtPersonSpecialty.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtPersonSpecialty.Location = new System.Drawing.Point(599, 89);
+            this.txtPersonSpecialty.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPersonSpecialty.Name = "txtPersonSpecialty";
+            this.txtPersonSpecialty.Size = new System.Drawing.Size(167, 26);
+            this.txtPersonSpecialty.TabIndex = 8;
             // 
             // label6
             // 
@@ -475,6 +444,37 @@
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label7.Location = new System.Drawing.Point(489, 93);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 19);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "  技术方向：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label3.Location = new System.Drawing.Point(65, 33);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "  姓名：";
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label8.Location = new System.Drawing.Point(505, 34);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 19);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "    性别：";
             // 
             // FrmEditWorkerInfo
             // 
