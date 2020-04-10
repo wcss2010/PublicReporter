@@ -38,7 +38,8 @@ namespace ProjectContractPlugin.Editor
 
             //查询人员列表
             list = ProjectContractPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
-            list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+            //list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+            list = list.OrderBy(t => t.ZhuangTai).ToList();
 
             dgvDetail.Rows.Clear();
             int index = 0;
@@ -74,10 +75,12 @@ namespace ProjectContractPlugin.Editor
         private void btnNew_Click(object sender, EventArgs e)
         {
             //显示编辑窗体
-            FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, list.Count);
+            FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList, GetMaxDisplayOrder());
             if (form.ShowDialog() == DialogResult.OK)
+            {
                 //刷新列表
                 refreshView();
+            }
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -86,17 +89,19 @@ namespace ProjectContractPlugin.Editor
             {
                 if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                 {
-                    //编辑
-
+                    #region 编辑
                     //显示编辑窗体
                     FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker((RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag, ktList);
                     if (form.ShowDialog() == DialogResult.OK)
+                    {
                         //刷新列表
                         refreshView();
+                    }
+                    #endregion
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
-                    //删除
+                    #region 删除
                     if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //删除数据
@@ -105,7 +110,108 @@ namespace ProjectContractPlugin.Editor
                         //刷新
                         refreshView();
                     }
+                    #endregion
                 }
+                else if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
+                {
+                    RenYuanBiao personObj = (RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag;
+
+                    #region 下移
+                    MoveToDown(e.RowIndex, personObj);
+                    #endregion
+                }
+                else if (e.ColumnIndex == dgvDetail.Columns.Count - 4)
+                {
+                    RenYuanBiao personObj = (RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag;
+
+                    #region 上移
+                    MoveToUp(e.RowIndex, personObj);
+                    #endregion
+                }
+            }
+        }
+
+        /// <summary>
+        /// 向上移动
+        /// </summary>
+        /// <param name="rowIndex"></param>
+        /// <param name="task"></param>
+        private void MoveToUp(int rowIndex, RenYuanBiao task)
+        {
+            if (list != null)
+            {
+                int taskIndex = list.IndexOf(task);
+                if (taskIndex >= 1)
+                {
+                    list.Remove(task);
+                    list.Insert(taskIndex - 1, task);
+
+                    int ri = 0;
+                    foreach (RenYuanBiao t in list)
+                    {
+                        t.ZhuangTai = ri;
+                        ri++;
+
+                        t.copyTo(ConnectionManager.Context.table("RenYuanBiao")).where("BianHao='" + t.BianHao + "'").update();
+                    }
+
+                    refreshView();
+
+                    if (taskIndex >= 1)
+                    {
+                        dgvDetail.Rows[taskIndex - 1].Selected = true;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 向下移动
+        /// </summary>
+        /// <param name="rowIndex"></param>
+        /// <param name="task"></param>
+        private void MoveToDown(int rowIndex, RenYuanBiao task)
+        {
+            if (list != null)
+            {
+                int taskIndex = list.IndexOf(task);
+                if (taskIndex <= list.Count - 2)
+                {
+                    list.Remove(task);
+                    list.Insert(taskIndex + 1, task);
+
+                    int ri = 0;
+                    foreach (RenYuanBiao t in list)
+                    {
+                        t.ZhuangTai = ri;
+                        ri++;
+
+                        t.copyTo(ConnectionManager.Context.table("RenYuanBiao")).where("BianHao='" + t.BianHao + "'").update();
+                    }
+
+                    refreshView();
+
+                    if (taskIndex < dgvDetail.Rows.Count - 1)
+                    {
+                        dgvDetail.Rows[taskIndex + 1].Selected = true;
+                    }
+                    else
+                    {
+                        dgvDetail.Rows[dgvDetail.Rows.Count - 1].Selected = true;
+                    }
+                }
+            }
+        }
+
+        public static int GetMaxDisplayOrder()
+        {
+            try
+            {
+                return (int)ConnectionManager.Context.table("RenYuanBiao").select("max(ZhuangTai)").getValue<long>(0);
+            }
+            catch (Exception ex)
+            {
+                return 0;
             }
         }
 

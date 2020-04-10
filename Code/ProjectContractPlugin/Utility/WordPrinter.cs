@@ -563,7 +563,8 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入人员数据
                 //查询数据
-                List<RenYuanBiao> rylist = ConnectionManager.Context.table("RenYuanBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+                //List<RenYuanBiao> rylist = ConnectionManager.Context.table("RenYuanBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+                List<RenYuanBiao> rylist = ConnectionManager.Context.table("RenYuanBiao").orderBy("ZhuangTai").select("*").getList<RenYuanBiao>(new RenYuanBiao());
                 //填充数据
                 foreach (Node node in ncc)
                 {
