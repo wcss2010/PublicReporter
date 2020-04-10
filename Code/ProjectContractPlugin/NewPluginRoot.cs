@@ -548,7 +548,7 @@ namespace ProjectContractPlugin
             addTopButton(Resource.manager, Guid.NewGuid().ToString(), button4_Name, new System.Drawing.Size(53, 56));
 
             //上传PDF
-            addTopButton(Resource.help, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
+            addTopButton(Resource.Q1, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
 
             //添加分割符
             addToTopToolStrip(getTopSeparator());
