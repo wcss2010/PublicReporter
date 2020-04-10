@@ -91,9 +91,8 @@
             this.txtWord5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtWord5.Font = new System.Drawing.Font("仿宋", 12F);
             this.txtWord5.Location = new System.Drawing.Point(0, 0);
-            this.txtWord5.Multiline = true;
             this.txtWord5.Name = "txtWord5";
-            this.txtWord5.Size = new System.Drawing.Size(87, 31);
+            this.txtWord5.Size = new System.Drawing.Size(87, 26);
             this.txtWord5.TabIndex = 2;
             // 
             // panel1
