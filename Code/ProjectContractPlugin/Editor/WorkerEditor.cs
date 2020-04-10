@@ -207,7 +207,7 @@ namespace ProjectContractPlugin.Editor
         {
             try
             {
-                return (int)ConnectionManager.Context.table("RenYuanBiao").select("max(ZhuangTai)").getValue<long>(0);
+                return (int)ConnectionManager.Context.table("RenYuanBiao").select("max(ZhuangTai)").getValue<double>(0d);
             }
             catch (Exception ex)
             {

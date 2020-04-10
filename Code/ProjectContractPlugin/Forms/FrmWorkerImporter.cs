@@ -240,12 +240,16 @@ namespace ProjectContractPlugin.Forms
                 {
                     //insert
                     newObj.BianHao = Guid.NewGuid().ToString();
+                    newObj.ZhuangTai = ProjectContractPlugin.Editor.WorkerEditor.GetMaxDisplayOrder() + 1;
+                    newObj.ModifyTime = DateTime.Now;
                     newObj.copyTo(ConnectionManager.Context.table("RenYuanBiao")).insert();
                 }
                 else
                 {
                     //update
                     newObj.BianHao = oldObj.BianHao;
+                    newObj.ZhuangTai = oldObj.ZhuangTai;
+                    newObj.ModifyTime = DateTime.Now;
                     newObj.copyTo(ConnectionManager.Context.table("RenYuanBiao")).where("BianHao='" + newObj.BianHao + "'").update();
                 }
             }
