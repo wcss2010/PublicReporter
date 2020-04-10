@@ -484,6 +484,8 @@
             this.Controls.Add(this.plContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmEditWorkerInfo";
             this.Text = "添加/修改负责人及研究骨干";
             this.plContent.ResumeLayout(false);
