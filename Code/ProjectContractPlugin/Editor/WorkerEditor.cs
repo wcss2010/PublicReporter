@@ -218,9 +218,38 @@ namespace ProjectContractPlugin.Editor
         /// <param name="task"></param>
         public void moveToCurrentDown(RenYuanBiao task)
         {
-            if (dgvDetail.SelectedRows.Count >= 1)
+            if (dgvDetail.SelectedRows.Count == 1)
             {
-                moveToDown(dgvDetail.SelectedRows[0].Index, task);
+                if (list != null)
+                {
+                    int taskIndex = dgvDetail.SelectedRows[0].Index;
+                    if (taskIndex <= list.Count - 2)
+                    {
+                        list.Insert(taskIndex + 1, task);
+
+                        int ri = 0;
+                        foreach (RenYuanBiao t in list)
+                        {
+                            t.ZhuangTai = ri;
+                            ri++;
+
+                            t.copyTo(ConnectionManager.Context.table("RenYuanBiao")).where("BianHao='" + t.BianHao + "'").update();
+                        }
+
+                        refreshView();
+
+                        dgvDetail.ClearSelection();
+
+                        if (taskIndex < dgvDetail.Rows.Count - 1)
+                        {
+                            dgvDetail.Rows[taskIndex + 1].Selected = true;
+                        }
+                        else
+                        {
+                            dgvDetail.Rows[dgvDetail.Rows.Count - 1].Selected = true;
+                        }
+                    }
+                }
             }
         }
 
@@ -278,7 +307,7 @@ namespace ProjectContractPlugin.Editor
                 //catch (Exception ex) { }
 
                 //显示编辑窗体
-                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList);
+                FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker(null, ktList,getMaxDisplayOrder());
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     moveToCurrentDown(form.DataObj);
