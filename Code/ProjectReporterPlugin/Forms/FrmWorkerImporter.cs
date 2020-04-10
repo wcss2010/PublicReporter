@@ -120,16 +120,16 @@ namespace ProjectReporterPlugin.Forms
                     pir.unitTelephone = string.Empty;
                     pir.personName = dr["姓名"] != null ? dr["姓名"].ToString() : string.Empty;
                     pir.personIDCard = dr["身份证"] != null ? dr["身份证"].ToString() : string.Empty;
-                    pir.personJob = dr["职务职称"] != null ? dr["职务职称"].ToString() : string.Empty;
-                    pir.personSpecialty = dr["从事专业"] != null ? dr["从事专业"].ToString() : string.Empty;
+                    pir.personJob = dr["职务/职称"] != null ? dr["职务/职称"].ToString().Trim() : string.Empty;
+                    pir.personSpecialty = dr["所学专业"] != null ? dr["所学专业"].ToString().Trim() : string.Empty;
                     pir.personSex = dr["性别"] != null ? dr["性别"].ToString() : string.Empty;
                     pir.personBirthday = dr["出生年月"] != null ? dr["出生年月"].ToString() : string.Empty;
-                    pir.personTelephone = dr["座机"] != null ? dr["座机"].ToString() : string.Empty;
+                    pir.personTelephone = dr["电话"] != null ? dr["电话"].ToString().Trim() : string.Empty;
                     pir.personMobilePhone = dr["手机"] != null ? dr["手机"].ToString() : string.Empty;
                     //pir.personAddress = dr["通信地址"] != null ? dr["通信地址"].ToString() : string.Empty;
                     pir.personAddress = string.Empty;
                     pir.taskInProject = dr["任务分工"] != null ? dr["任务分工"].ToString() : string.Empty;
-                    pir.timeInProject = dr["每年为本项目工作时间(月)"] != null ? dr["每年为本项目工作时间(月)"].ToString() : string.Empty;
+                    pir.timeInProject = dr["每年投入时间"] != null ? dr["每年投入时间"].ToString().Trim() : string.Empty;
 
                     pir.subjectStr = dr["课题名称(如是仅为项目负责人则为空)"] != null ? dr["课题名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
                     pir.roletypeOnlyProjectStr = dr["仅为项目负责人"] != null ? dr["仅为项目负责人"].ToString().Trim() : string.Empty;

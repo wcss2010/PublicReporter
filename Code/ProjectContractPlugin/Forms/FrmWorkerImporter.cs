@@ -68,11 +68,12 @@ namespace ProjectContractPlugin.Forms
                     string workunitStr = dr["工作单位"] != null ? dr["工作单位"].ToString().Trim() : string.Empty;
                     string timeforsubjectStr = dr["每年投入时间"] != null ? dr["每年投入时间"].ToString().Trim() : string.Empty;
                     string taskcontentStr = dr["任务分工"] != null ? dr["任务分工"].ToString().Trim() : string.Empty;
-                    string subjectStr = dr["研究内容名称(如是仅为项目负责人则为空)"] != null ? dr["研究内容名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
+
+                    string subjectStr = dr["课题名称(如是仅为项目负责人则为空)"] != null ? dr["课题名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
                     string roletypeOnlyProjectStr = dr["仅为项目负责人"] != null ? dr["仅为项目负责人"].ToString().Trim() : string.Empty;
-                    string roletypeProjectAndSubjectStr = dr["项目负责人兼研究内容角色"] != null ? dr["项目负责人兼研究内容角色"].ToString().Trim() : string.Empty;
-                    string roletypeOnlySubjectStr = dr["仅为研究内容角色"] != null ? dr["仅为研究内容角色"].ToString().Trim() : string.Empty;
-                    string roleNameStr = dr["研究内容中职务（负责人或成员）"] != null ? dr["研究内容中职务（负责人或成员）"].ToString().Trim() : string.Empty;
+                    string roletypeProjectAndSubjectStr = dr["项目负责人兼课题角色"] != null ? dr["项目负责人兼课题角色"].ToString().Trim() : string.Empty;
+                    string roletypeOnlySubjectStr = dr["仅为课题角色"] != null ? dr["仅为课题角色"].ToString().Trim() : string.Empty;
+                    string roleNameStr = dr["项目或课题中职务（负责人或成员）"] != null ? dr["项目或课题中职务（负责人或成员）"].ToString().Trim() : string.Empty;
 
                     if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
                     {
@@ -90,7 +91,7 @@ namespace ProjectContractPlugin.Forms
                     //检查非空
                     foreach (DataColumn dc in dr.Table.Columns)
                     {
-                        if (dc.ColumnName == "研究内容名称(如是仅为项目负责人则为空)" || dc.ColumnName == "仅为项目负责人" || dc.ColumnName == "项目负责人兼研究内容角色" || dc.ColumnName == "仅为研究内容角色")
+                        if (dc.ColumnName == "课题名称(如是仅为项目负责人则为空)" || dc.ColumnName == "仅为项目负责人" || dc.ColumnName == "项目负责人兼课题角色" || dc.ColumnName == "仅为课题角色")
                         {
                             continue;
                         }
