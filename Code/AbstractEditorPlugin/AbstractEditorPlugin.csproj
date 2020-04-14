@@ -150,8 +150,10 @@
       <DependentUpon>FrmWorkProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\DistrictCodeTable.cs" />
     <Compile Include="Utility\FileOp.cs" />
     <Compile Include="Utility\FormatCheckTool.cs" />
+    <Compile Include="Utility\GetIDCardInfoCls.cs" />
     <Compile Include="Utility\GlobalTool.cs" />
     <Compile Include="Utility\InputControlDict.cs" />
     <Compile Include="Utility\WatermarkUtility.cs" />
