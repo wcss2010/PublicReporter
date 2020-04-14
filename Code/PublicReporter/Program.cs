@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublicReporterLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -14,9 +15,19 @@ namespace PublicReporter
         [STAThread]
         static void Main()
         {
+            //载入配置
+            PluginConfig.loadConfig();
+
+            //生成程序ID
+            string pluginID = "PublicReporter-Main";
+            if (PluginConfig.CurrentConfig != null && !string.IsNullOrEmpty(PluginConfig.CurrentConfig.PluginName))
+            {
+                pluginID += "-**" + PluginConfig.CurrentConfig.PluginName + "**";
+            }
+
             bool canCreateNew;
             //限制单例运行
-            Mutex m = new Mutex(true, "PublicReporter-Main", out canCreateNew);
+            Mutex m = new Mutex(true, pluginID, out canCreateNew);
             if (canCreateNew)
             {
                 //添加忽略

@@ -44,9 +44,6 @@ namespace PublicReporter
                     pbLog.Image = Image.FromFile(Path.Combine(Application.StartupPath, "welcome.jpg"));
                 }
 
-                //载入配置
-                PluginConfig.loadConfig();
-
                 //启动一个第三方线程进行这个操作
                 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(delegate(object obj)
                     {
