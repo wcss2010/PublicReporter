@@ -118,7 +118,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public string ChengYanDanWeiYinHangZhangHao { get; set; }
         public string ChengYanDanWeiCaiWuFuZeRen { get; set; }
         public string ChengYanDanWeiCaiWuFuZeRenDianHua { get; set; }
-        public string ZhuangTai { get; set; }
+        public double ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
@@ -171,7 +171,7 @@ namespace ProjectContractPlugin.DB.Entitys
             ChengYanDanWeiYinHangZhangHao = source("ChengYanDanWeiYinHangZhangHao").value<string>("");
             ChengYanDanWeiCaiWuFuZeRen = source("ChengYanDanWeiCaiWuFuZeRen").value<string>("");
             ChengYanDanWeiCaiWuFuZeRenDianHua = source("ChengYanDanWeiCaiWuFuZeRenDianHua").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<string>("");
+            ZhuangTai = source("ZhuangTai").value<double>(0);
         }
 
         public override Noear.Weed.IBinder clone()

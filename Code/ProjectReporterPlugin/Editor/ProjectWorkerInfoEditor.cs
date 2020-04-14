@@ -184,7 +184,11 @@ namespace ProjectReporterPlugin.Editor
 
                     #region 编辑序号
                     FrmEditOrder feo = new FrmEditOrder();
-                    feo.OrderNum = task.TaskObj.DisplayOrder != null ? (decimal)task.TaskObj.DisplayOrder.Value : 0;
+                    try
+                    {
+                        feo.OrderNum = task.TaskObj.DisplayOrder != null ? (decimal)task.TaskObj.DisplayOrder.Value : 0;
+                    }
+                    catch (Exception ex) { }
                     if (feo.ShowDialog() == DialogResult.OK)
                     {
                         //对后面的记录重新排序

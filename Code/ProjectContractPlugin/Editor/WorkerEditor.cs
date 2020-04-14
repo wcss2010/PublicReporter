@@ -117,7 +117,11 @@ namespace ProjectContractPlugin.Editor
 
                     #region 编辑序号
                     FrmEditOrder feo = new FrmEditOrder();
-                    feo.OrderNum = (decimal)personObj.ZhuangTai;
+                    try
+                    {
+                        feo.OrderNum = (decimal)personObj.ZhuangTai;
+                    }
+                    catch (Exception ex) { }
                     if (feo.ShowDialog() == DialogResult.OK)
                     {
                         //对后面的记录重新排序
