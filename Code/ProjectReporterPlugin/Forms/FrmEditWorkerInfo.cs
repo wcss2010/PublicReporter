@@ -214,7 +214,7 @@ namespace ProjectReporterPlugin.Forms
             if (rbIsOnlyProject.Checked)
             {
                 //仅为项目负责人,需要删除当前的项目负责人,也删除此人原来的职务
-                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
+                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>((ProjectWorkerInfoEditor.GetMaxDisplayOrder() + 1));
                 ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").delete();
 
                 ConnectionManager.Context.table("Task").where("ID='" + PersonInfo.TaskObj.ID + "'").delete();
@@ -222,16 +222,16 @@ namespace ProjectReporterPlugin.Forms
             else if (rbIsProjectAndSubject.Checked)
             {
                 //项目兼课题角色,需要删除当前的项目负责人和课题角色
-                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>(0);
+                masterDiaplayOrder = ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").select("DisplayOrder").getValue<int>((ProjectWorkerInfoEditor.GetMaxDisplayOrder() + 1));
                 ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人'").delete();
 
-                personDisplayOrder = PersonInfo.TaskObj.DisplayOrder != null ? PersonInfo.TaskObj.DisplayOrder.Value : 0;
+                personDisplayOrder = PersonInfo.TaskObj.DisplayOrder != null ? PersonInfo.TaskObj.DisplayOrder.Value : (ProjectWorkerInfoEditor.GetMaxDisplayOrder() + 1);
                 ConnectionManager.Context.table("Task").where("ID='" + PersonInfo.TaskObj.ID + "'").delete();
             }
             else if (rbIsOnlySubject.Checked)
             {
                 //课题角色,需要删除当前的课题角色,如果此人原来是项目负责人，也删除
-                personDisplayOrder = PersonInfo.TaskObj.DisplayOrder != null ? PersonInfo.TaskObj.DisplayOrder.Value : 0;
+                personDisplayOrder = PersonInfo.TaskObj.DisplayOrder != null ? PersonInfo.TaskObj.DisplayOrder.Value : (ProjectWorkerInfoEditor.GetMaxDisplayOrder() + 1);
                 ConnectionManager.Context.table("Task").where("ID='" + PersonInfo.TaskObj.ID + "'").delete();
 
                 ConnectionManager.Context.table("Task").where("ProjectID='" + ((Project)PluginRootObj.projectObj).ID + "' and Type = '项目' and Role='负责人' and IDCard = '" + PersonInfo.PersonObj.IDCard + "'").delete();
