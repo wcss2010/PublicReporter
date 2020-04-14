@@ -136,11 +136,7 @@ namespace ProjectReporterPlugin.Editor
                         roleName = pObject.SubjectObj.Name + pObject.TaskObj.Role;
                     }
                 }
-                cells.Add(roleName);                
-                
-                cells.Add("向上");
-                cells.Add("向下");
-                cells.Add("编辑");
+                cells.Add(roleName);
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = pObject;

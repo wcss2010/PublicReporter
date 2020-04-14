@@ -9,6 +9,8 @@ using ProjectReporterPlugin.DB.Services;
 using ProjectReporterPlugin.DB.Entitys;
 using ProjectReporterPlugin.Forms;
 using ProjectReporterPlugin.DB;
+using AbstractEditorPlugin.Forms;
+using System.IO;
 
 namespace ProjectReporterPlugin.Editor
 {
@@ -440,7 +442,12 @@ namespace ProjectReporterPlugin.Editor
             return true;
         }
 
-
+        private void llUnitNameForExample_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "UnitForExample.rtf")));
+            helpBox.Text = "填写示例";
+            helpBox.ShowDialog();
+        }
     }
 
     public delegate void EditValueChangedDelegate(object sender, EventArgs e);

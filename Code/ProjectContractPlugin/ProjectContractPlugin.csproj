@@ -500,6 +500,9 @@
     <None Include="Helper\template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Helper\UnitForExample.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\w5.png" />
     <None Include="填报系统表格修改.xlsx" />
   </ItemGroup>

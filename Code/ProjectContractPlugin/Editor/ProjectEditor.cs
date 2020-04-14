@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using PublicReporterLib;
 using ProjectContractPlugin.DB.Entitys;
 using ProjectContractPlugin.DB;
+using AbstractEditorPlugin.Forms;
+using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
@@ -55,6 +57,7 @@ namespace ProjectContractPlugin.Editor
                 ibEdit5.Text = obj.HeTongFuZeRen;
                 ibEdit6.Text = obj.HeTongFuZeRenShenFenZheng;
                 ibEdit39.Text = obj.HeTongFuZeDanWei;
+                ibEdit44.Text = obj.HeTongFuZeDanWeiChangYongMingCheng;
                 ibEdit40.Text = obj.HeTongSuoShuBuMen;
                 ibEdit41.setAddress(obj.HeTongSuoShuDiDian);
                 ibEdit42.Text = obj.HeTongSuoShuLingYu;
@@ -398,6 +401,7 @@ namespace ProjectContractPlugin.Editor
             obj.HeTongFuZeRenShenFenZheng = ibEdit6.Text;
             //obj.HeTongFuZeRenDianHua = ibEdit44.Text;
             obj.HeTongFuZeDanWei = ibEdit39.Text;
+            obj.HeTongFuZeDanWeiChangYongMingCheng = ibEdit44.Text;
             obj.HeTongSuoShuBuMen = ibEdit40.Text;
             obj.HeTongSuoShuDiDian = ibEdit41.getAddress();
             obj.HeTongSuoShuLingYu = ibEdit42.Text;
@@ -452,6 +456,13 @@ namespace ProjectContractPlugin.Editor
         public override bool isInputCompleted()
         {
             return true;
+        }
+
+        private void llUnitNameForExample_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "UnitForExample.rtf")));
+            helpBox.Text = "填写示例";
+            helpBox.ShowDialog();
         }
     }
 }
