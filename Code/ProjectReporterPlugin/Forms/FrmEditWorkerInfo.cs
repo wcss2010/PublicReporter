@@ -354,11 +354,20 @@ namespace ProjectReporterPlugin.Forms
                 if (isOK)
                 {
                     dePersonBirthday.Value = DateTime.Parse(teamss[0]);
+                    btnOK.Enabled = true;
+                }
+                else
+                {
+                    btnOK.Enabled = false;
+                    MessageBox.Show("对不起，身份证号错误！");
                 }
             }
             catch (Exception ex)
             {
                 dePersonBirthday.Value = DateTime.Now;
+
+                btnOK.Enabled = false;
+                MessageBox.Show("对不起，身份证号错误！");
             }
         }
     }

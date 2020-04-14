@@ -172,11 +172,20 @@ namespace ProjectContractPlugin.Forms
                 if (isOK)
                 {
                     txtBirthday.Value = DateTime.Parse(teamss[0]);
+                    btnSave.Enabled = true;
+                }
+                else
+                {
+                    btnSave.Enabled = false;
+                    MessageBox.Show("对不起，身份证号错误！");
                 }
             }
             catch (Exception ex)
             {
                 txtBirthday.Value = DateTime.Now;
+
+                btnSave.Enabled = false;
+                MessageBox.Show("对不起，身份证号错误！");
             }
         }
     }
