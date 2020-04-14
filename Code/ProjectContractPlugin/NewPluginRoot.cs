@@ -31,7 +31,7 @@ namespace ProjectContractPlugin
         public NewPluginRoot()
             : base()
         {
-            defaultSplitterDistance = 300;
+            defaultSplitterDistance = 235;
         }
 
         public override string DefaultTitle
