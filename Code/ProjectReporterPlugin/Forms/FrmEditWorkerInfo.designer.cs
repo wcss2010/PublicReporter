@@ -173,6 +173,7 @@
             // 
             // dePersonBirthday
             // 
+            this.dePersonBirthday.Enabled = false;
             this.dePersonBirthday.Font = new System.Drawing.Font("仿宋", 12F);
             this.dePersonBirthday.Location = new System.Drawing.Point(599, 269);
             this.dePersonBirthday.Margin = new System.Windows.Forms.Padding(4);
@@ -223,6 +224,7 @@
             this.txtPersonIDCard.Name = "txtPersonIDCard";
             this.txtPersonIDCard.Size = new System.Drawing.Size(260, 26);
             this.txtPersonIDCard.TabIndex = 6;
+            this.txtPersonIDCard.TextChanged += new System.EventHandler(this.txtPersonIDCard_TextChanged);
             // 
             // label12
             // 

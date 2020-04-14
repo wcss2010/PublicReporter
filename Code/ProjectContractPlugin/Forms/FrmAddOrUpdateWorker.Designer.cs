@@ -195,6 +195,7 @@
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(253, 26);
             this.txtIDCard.TabIndex = 18;
+            this.txtIDCard.TextChanged += new System.EventHandler(this.txtIDCard_TextChanged);
             // 
             // label8
             // 
@@ -398,6 +399,7 @@
             // txtBirthday
             // 
             this.txtBirthday.CustomFormat = "yyyy年MM月dd日";
+            this.txtBirthday.Enabled = false;
             this.txtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtBirthday.Location = new System.Drawing.Point(601, 257);
             this.txtBirthday.Name = "txtBirthday";

@@ -9,6 +9,7 @@ using ProjectReporterPlugin.DB;
 using ProjectReporterPlugin.DB.Entitys;
 using PublicReporterLib.ControlAndForms;
 using ProjectReporterPlugin.Editor;
+using AbstractEditorPlugin.Utility;
 
 namespace ProjectReporterPlugin.Forms
 {
@@ -340,6 +341,24 @@ namespace ProjectReporterPlugin.Forms
                 cbxSubjects.Enabled = true;
                 cbxJobInProjects.Enabled = true;
                 cbxJobInProjects.SelectedItem = "负责人";
+            }
+        }
+
+        private void txtPersonIDCard_TextChanged(object sender, EventArgs e)
+        {
+            bool isOK = false;
+            GetIDCardInfoCls gci = new GetIDCardInfoCls();
+            try
+            {
+                string[] teamss = gci.AnalyzeIDCard(txtPersonIDCard.Text.Trim(), out isOK);
+                if (isOK)
+                {
+                    dePersonBirthday.Value = DateTime.Parse(teamss[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                dePersonBirthday.Value = DateTime.Now;
             }
         }
     }

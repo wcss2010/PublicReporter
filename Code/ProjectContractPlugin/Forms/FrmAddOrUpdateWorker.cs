@@ -1,4 +1,5 @@
-﻿using ProjectContractPlugin.DB;
+﻿using AbstractEditorPlugin.Utility;
+using ProjectContractPlugin.DB;
 using ProjectContractPlugin.DB.Entitys;
 using System;
 using System.Collections.Generic;
@@ -158,6 +159,24 @@ namespace ProjectContractPlugin.Forms
                     cbxSubjects.Enabled = true;
                     cbxJobInProjects.Enabled = true;
                 }
+            }
+        }
+
+        private void txtIDCard_TextChanged(object sender, EventArgs e)
+        {
+            bool isOK = false;
+            GetIDCardInfoCls gci = new GetIDCardInfoCls();
+            try
+            {
+                string[] teamss = gci.AnalyzeIDCard(txtIDCard.Text.Trim(), out isOK);
+                if (isOK)
+                {
+                    txtBirthday.Value = DateTime.Parse(teamss[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                txtBirthday.Value = DateTime.Now;
             }
         }
     }
