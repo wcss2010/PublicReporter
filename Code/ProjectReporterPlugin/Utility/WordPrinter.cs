@@ -155,7 +155,7 @@ namespace ProjectReporterPlugin.Utility
                 wu.insertFile("基本概念及内涵", Path.Combine(pt.filesDir, "基本概念及内涵.doc"), true);
                 wu.insertFile("军事需求分析", Path.Combine(pt.filesDir, "军事需求分析.doc"), true);
                 wu.insertFile("研究现状", Path.Combine(pt.filesDir, "研究现状.doc"), true);
-                wu.insertFile("研究目标", Path.Combine(pt.filesDir, "研究目标.doc"), false);
+                wu.insertFile("研究目标", Path.Combine(pt.filesDir, "研究目标.doc"), true);
                 wu.insertFile("基础性问题", Path.Combine(pt.filesDir, "基础性问题.doc"), true);
                 wu.insertFile("课题之间的关系", Path.Combine(pt.filesDir, "课题之间的关系.doc"), true);
                 wu.insertFile("研究成果及考核指标", Path.Combine(pt.filesDir, "研究成果及考核指标.doc"), true);
