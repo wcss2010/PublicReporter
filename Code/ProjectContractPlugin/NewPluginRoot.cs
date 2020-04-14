@@ -36,7 +36,7 @@ namespace ProjectContractPlugin
 
         public override string DefaultTitle
         {
-            get { return "重点基础研究项目合同书信息填报系统（1.4.2版）"; }
+            get { return "重点基础研究项目合同书信息填报系统（1.5版）"; }
         }
 
         /// <summary>
