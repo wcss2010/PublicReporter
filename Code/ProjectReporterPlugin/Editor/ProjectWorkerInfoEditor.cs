@@ -302,13 +302,16 @@ namespace ProjectReporterPlugin.Editor
 
         private void dgvDetail_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDetail.Rows[e.RowIndex].Tag != null)
+            if (e.RowIndex >= 0 && dgvDetail.Rows.Count >= 1)
             {
-                PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
-                FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
-                if (form.ShowDialog() == DialogResult.OK)
+                if (dgvDetail.Rows[e.RowIndex].Tag != null)
                 {
-                    PluginRootObj.refreshEditors();
+                    PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
+                    FrmEditWorkerInfo form = new FrmEditWorkerInfo(task);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        PluginRootObj.refreshEditors();
+                    }
                 }
             }
         }
