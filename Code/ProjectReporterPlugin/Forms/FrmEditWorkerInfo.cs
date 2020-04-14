@@ -23,10 +23,10 @@ namespace ProjectReporterPlugin.Forms
 
             PersonInfo = pObject;
 
-            InitData();
+            initData();
         }
 
-        public void InitData()
+        public void initData()
         {
             #region 显示课题列表
             List<Project> subjectList = ConnectionManager.Context.table("Project").where("ParentID in ('" + ((Project)PluginRootObj.projectObj).ID + "')").select("*").getList<Project>(new Project());
@@ -53,10 +53,12 @@ namespace ProjectReporterPlugin.Forms
             {
                 if (PersonInfo.PersonObj != null)
                 {
-                    txtPersonName.Text = PersonInfo.PersonObj.Name;
-                    txtPersonIDCard.Text = PersonInfo.PersonObj.IDCard;
+                    btnOK.Enabled = true;
+
+                    txtPersonName.Text = PersonInfo.PersonObj.Name;                    
                     cbxPersonSex.Text = PersonInfo.PersonObj.Sex;
                     dePersonBirthday.Value = PersonInfo.PersonObj.Birthday != null ? PersonInfo.PersonObj.Birthday.Value : DateTime.MinValue;
+                    txtPersonIDCard.Text = PersonInfo.PersonObj.IDCard;
                     txtPersonJob.Text = PersonInfo.PersonObj.Job;
                     txtPersonSpecialty.Text = PersonInfo.PersonObj.Specialty;
                     //txtPersonAddress.Text = PersonInfo.PersonObj.Address;
@@ -119,6 +121,8 @@ namespace ProjectReporterPlugin.Forms
             }
             else
             {
+                btnOK.Enabled = false;
+
                 PersonInfo = new PersonObject(new Project(), new Unit(), new Person(), new Task());
             }
         }
@@ -355,11 +359,12 @@ namespace ProjectReporterPlugin.Forms
                 {
                     dePersonBirthday.Value = DateTime.Parse(teamss[0]);
                     btnOK.Enabled = true;
+                    lblError.Text = string.Empty;
                 }
                 else
                 {
                     btnOK.Enabled = false;
-                    MessageBox.Show("对不起，身份证号错误！");
+                    lblError.Text = "对不起，身份证号错误！";
                 }
             }
             catch (Exception ex)
@@ -367,7 +372,7 @@ namespace ProjectReporterPlugin.Forms
                 dePersonBirthday.Value = DateTime.Now;
 
                 btnOK.Enabled = false;
-                MessageBox.Show("对不起，身份证号错误！");
+                lblError.Text = "对不起，身份证号错误！";
             }
         }
     }

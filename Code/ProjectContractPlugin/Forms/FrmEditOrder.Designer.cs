@@ -38,10 +38,10 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(183, 83);
+            this.btnClose.Location = new System.Drawing.Point(199, 88);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(111, 43);
+            this.btnClose.Size = new System.Drawing.Size(75, 29);
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "取消";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -50,10 +50,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(65, 83);
+            this.btnSave.Location = new System.Drawing.Point(81, 88);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(111, 43);
+            this.btnSave.Size = new System.Drawing.Size(75, 29);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;

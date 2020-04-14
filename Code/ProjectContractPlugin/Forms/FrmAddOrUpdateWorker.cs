@@ -36,9 +36,10 @@ namespace ProjectContractPlugin.Forms
             Count = count;
             List = list;
 
+            initData();
         }
-        
-        private void FrmAddOrUpdateWorker_Load(object sender, EventArgs e)
+
+        private void initData()
         {
             cbxSubjects.DisplayMember = "KeTiMingCheng";
             cbxSubjects.ValueMember = "BianHao";
@@ -46,6 +47,8 @@ namespace ProjectContractPlugin.Forms
 
             if (DataObj != null)
             {
+                btnSave.Enabled = true;
+
                 txtName.Text = DataObj.XingMing;
                 txtBirthday.Value = DataObj.ShengRi;
                 txtJob.Text = DataObj.ZhiCheng;
@@ -75,6 +78,8 @@ namespace ProjectContractPlugin.Forms
             }
             else
             {
+                btnSave.Enabled = false;
+
                 DataObj = new RenYuanBiao();
                 DataObj.ShiXiangMuFuZeRen = "rbIsOnlySubject";
             }
@@ -173,11 +178,12 @@ namespace ProjectContractPlugin.Forms
                 {
                     txtBirthday.Value = DateTime.Parse(teamss[0]);
                     btnSave.Enabled = true;
+                    lblError.Text = string.Empty;
                 }
                 else
                 {
                     btnSave.Enabled = false;
-                    MessageBox.Show("对不起，身份证号错误！");
+                    lblError.Text = "对不起，身份证号错误！";
                 }
             }
             catch (Exception ex)
@@ -185,7 +191,7 @@ namespace ProjectContractPlugin.Forms
                 txtBirthday.Value = DateTime.Now;
 
                 btnSave.Enabled = false;
-                MessageBox.Show("对不起，身份证号错误！");
+                lblError.Text = "对不起，身份证号错误！";
             }
         }
     }

@@ -60,8 +60,11 @@
             this.txtMobilephone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBirthday = new System.Windows.Forms.DateTimePicker();
+            this.lblError = new System.Windows.Forms.Label();
+            this.plButtons = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).BeginInit();
             this.panel1.SuspendLayout();
+            this.plButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -77,11 +80,13 @@
             // 
             // btnSave
             // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(548, 513);
+            this.btnSave.Location = new System.Drawing.Point(644, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(111, 43);
+            this.btnSave.Size = new System.Drawing.Size(96, 40);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -89,11 +94,12 @@
             // 
             // btnClose
             // 
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(666, 513);
+            this.btnClose.Location = new System.Drawing.Point(740, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(111, 43);
+            this.btnClose.Size = new System.Drawing.Size(96, 40);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "取消";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -406,11 +412,35 @@
             this.txtBirthday.Size = new System.Drawing.Size(179, 26);
             this.txtBirthday.TabIndex = 31;
             // 
+            // lblError
+            // 
+            this.lblError.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(198, 0);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(446, 40);
+            this.lblError.TabIndex = 32;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.lblError);
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Controls.Add(this.btnClose);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plButtons.Location = new System.Drawing.Point(0, 528);
+            this.plButtons.Margin = new System.Windows.Forms.Padding(4);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Size = new System.Drawing.Size(836, 40);
+            this.plButtons.TabIndex = 33;
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 568);
+            this.Controls.Add(this.plButtons);
             this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbxJobInProjects);
@@ -437,8 +467,6 @@
             this.Controls.Add(this.cbxSexs);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -446,10 +474,10 @@
             this.MinimizeBox = false;
             this.Name = "FrmAddOrUpdateWorker";
             this.Text = "新增/编辑人员情况";
-            this.Load += new System.EventHandler(this.FrmAddOrUpdateWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.plButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,5 +517,7 @@
         private System.Windows.Forms.TextBox txtMobilephone;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker txtBirthday;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Panel plButtons;
     }
 }

@@ -63,6 +63,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.plContent.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkTimeInYear)).BeginInit();
@@ -411,6 +412,7 @@
             // 
             // plButtons
             // 
+            this.plButtons.Controls.Add(this.lblError);
             this.plButtons.Controls.Add(this.btnOK);
             this.plButtons.Controls.Add(this.btnCancel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -424,11 +426,12 @@
             // btnOK
             // 
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnOK.Enabled = false;
             this.btnOK.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnOK.Location = new System.Drawing.Point(596, 0);
+            this.btnOK.Location = new System.Drawing.Point(662, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(120, 40);
+            this.btnOK.Size = new System.Drawing.Size(87, 40);
             this.btnOK.TabIndex = 17;
             this.btnOK.TabStop = false;
             this.btnOK.Text = "保存";
@@ -438,10 +441,10 @@
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.Location = new System.Drawing.Point(716, 0);
+            this.btnCancel.Location = new System.Drawing.Point(749, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 40);
+            this.btnCancel.Size = new System.Drawing.Size(87, 40);
             this.btnCancel.TabIndex = 18;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "取消";
@@ -477,6 +480,16 @@
             this.label8.Size = new System.Drawing.Size(89, 19);
             this.label8.TabIndex = 8;
             this.label8.Text = "    性别：";
+            // 
+            // lblError
+            // 
+            this.lblError.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(216, 0);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(446, 40);
+            this.lblError.TabIndex = 33;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmEditWorkerInfo
             // 
@@ -537,5 +550,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxSubjects;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblError;
     }
 }
