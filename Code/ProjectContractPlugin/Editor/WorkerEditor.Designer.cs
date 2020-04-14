@@ -32,12 +32,6 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnImporter = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnDelAll = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +45,12 @@
             this.Column10 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnImporter = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -121,76 +121,6 @@
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
-            // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnImporter);
-            this.plButtons.Controls.Add(this.btnNew);
-            this.plButtons.Controls.Add(this.btnDelAll);
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 583);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(1272, 30);
-            this.plButtons.TabIndex = 0;
-            // 
-            // btnImporter
-            // 
-            this.btnImporter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnImporter.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnImporter.Location = new System.Drawing.Point(912, 0);
-            this.btnImporter.Name = "btnImporter";
-            this.btnImporter.Size = new System.Drawing.Size(90, 30);
-            this.btnImporter.TabIndex = 5;
-            this.btnImporter.Text = "人员导入";
-            this.btnImporter.Click += new System.EventHandler(this.btnImporter_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNew.Location = new System.Drawing.Point(1002, 0);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(90, 30);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "新增";
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnDelAll
-            // 
-            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelAll.Location = new System.Drawing.Point(1092, 0);
-            this.btnDelAll.Name = "btnDelAll";
-            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
-            this.btnDelAll.TabIndex = 2;
-            this.btnDelAll.Text = "删除选中";
-            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(1182, 0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 30);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "插入";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoHeight = true;
-            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
-            this.lblInfo.Location = new System.Drawing.Point(10, 10);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1272, 51);
-            this.lblInfo.TabIndex = 0;
-            this.lblInfo.Visible = false;
             // 
             // Column1
             // 
@@ -304,6 +234,77 @@
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
             this.Column13.Width = 30;
+            // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnImporter);
+            this.plButtons.Controls.Add(this.btnNew);
+            this.plButtons.Controls.Add(this.btnDelAll);
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(0, 583);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Size = new System.Drawing.Size(1272, 30);
+            this.plButtons.TabIndex = 0;
+            // 
+            // btnImporter
+            // 
+            this.btnImporter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnImporter.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnImporter.Location = new System.Drawing.Point(912, 0);
+            this.btnImporter.Name = "btnImporter";
+            this.btnImporter.Size = new System.Drawing.Size(90, 30);
+            this.btnImporter.TabIndex = 5;
+            this.btnImporter.Text = "人员导入";
+            this.btnImporter.Click += new System.EventHandler(this.btnImporter_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnNew.Location = new System.Drawing.Point(1002, 0);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(90, 30);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "新增";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnDelAll
+            // 
+            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDelAll.Location = new System.Drawing.Point(1092, 0);
+            this.btnDelAll.Name = "btnDelAll";
+            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
+            this.btnDelAll.TabIndex = 2;
+            this.btnDelAll.Text = "删除选中";
+            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(1182, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "插入";
+            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoHeight = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblInfo.Font = new System.Drawing.Font("仿宋", 15.75F);
+            this.lblInfo.Location = new System.Drawing.Point(10, 10);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblInfo.Size = new System.Drawing.Size(1272, 51);
+            this.lblInfo.TabIndex = 0;
+            this.lblInfo.Visible = false;
             // 
             // WorkerEditor
             // 
