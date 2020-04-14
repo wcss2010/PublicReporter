@@ -34,10 +34,9 @@ namespace ProjectReporterPlugin.Editor
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = global::ProjectReporterPlugin.Resource.DELETE_28;
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "编辑";
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "向下";
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 4, e.RowIndex == 0 ? e.RowIndex : e.RowIndex - 1].Value = "向上";
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectReporterPlugin.Resource.Question_162;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectReporterPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectReporterPlugin.Resource.orderEdit;
         }
 
         public override void clearView()
@@ -152,28 +151,11 @@ namespace ProjectReporterPlugin.Editor
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDetail.Rows.Count >= 1)
+            if (dgvDetail.Rows.Count >= 1 && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
+                if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                 {
-                    if (dgvDetail.Rows[e.RowIndex].Tag != null)
-                    {
-                        PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
-                        MoveToDown(e.RowIndex, task);
-                    }
-                }
-
-                if (e.ColumnIndex == dgvDetail.Columns.Count - 4)
-                {
-                    if (dgvDetail.Rows[e.RowIndex].Tag != null)
-                    {
-                        PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
-                        MoveToUp(e.RowIndex, task);
-                    }
-                }
-
-                if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
-                {
+                    #region 编辑
                     if (dgvDetail.Rows[e.RowIndex].Tag != null)
                     {
                         PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
@@ -184,10 +166,11 @@ namespace ProjectReporterPlugin.Editor
                             PluginRootObj.refreshEditors();
                         }
                     }
+                    #endregion
                 }
-
-                if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
+                else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
+                    #region 删除
                     if (dgvDetail.Rows[e.RowIndex].Tag != null)
                     {
                         PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
@@ -197,99 +180,60 @@ namespace ProjectReporterPlugin.Editor
                             PluginRootObj.refreshEditors();
                         }
                     }
-                    else
-                    {
-                        if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
-                        {
-                            if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                            {
-                                try
-                                {
-                                    dgvDetail.Rows.RemoveAt(e.RowIndex);
-                                }
-                                catch (Exception ex)
-                                {
-                                    //UpdateTaskList();
-                                }
-                            }
-                        }
-                    }
+                    #endregion
                 }
-            }
-        }
-
-        /// <summary>
-        /// 向上移动
-        /// </summary>
-        /// <param name="rowIndex"></param>
-        /// <param name="task"></param>
-        private void MoveToUp(int rowIndex, PersonObject task)
-        {
-            if (personList != null)
-            {
-                int taskIndex = personList.IndexOf(task);
-                if (taskIndex >= 1)
+                else if (e.ColumnIndex == dgvDetail.Columns.Count - 3)
                 {
-                    personList.Remove(task);
-                    personList.Insert(taskIndex - 1, task);
+                    PersonObject task = (PersonObject)dgvDetail.Rows[e.RowIndex].Tag;
 
-                    int ri = 0;
-                    foreach (PersonObject t in personList)
+                    #region 编辑序号
+                    FrmEditOrder feo = new FrmEditOrder();
+                    feo.OrderNum = task.TaskObj.DisplayOrder != null ? (decimal)task.TaskObj.DisplayOrder.Value : 0;
+                    if (feo.ShowDialog() == DialogResult.OK)
                     {
-                        t.TaskObj.DisplayOrder = ri;
-                        ri++;
+                        //对后面的记录重新排序
+                        reorderPersonList(task, (int)feo.OrderNum);
 
-                        t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
+                        //刷新列表
+                        PluginRootObj.refreshEditors();
                     }
-
-                    refreshView();
-
-                    if (taskIndex >= 1)
-                    {
-                        dgvDetail.Rows[taskIndex - 1].Selected = true;
-                    }
+                    #endregion
                 }
             }
         }
 
-        /// <summary>
-        /// 向下移动
-        /// </summary>
-        /// <param name="rowIndex"></param>
-        /// <param name="task"></param>
-        private void MoveToDown(int rowIndex, PersonObject task)
+        private void reorderPersonList(PersonObject pObj, int newPersonIndex)
         {
-            if (personList != null)
+            if (pObj.TaskObj != null && pObj.TaskObj.DisplayOrder != newPersonIndex)
             {
-                int taskIndex = personList.IndexOf(task);
-                if (taskIndex <= personList.Count - 2)
+                int pIndex = newPersonIndex - 1;
+
+                if (pIndex >= personList.Count - 1)
                 {
-                    personList.Remove(task);
-                    personList.Insert(taskIndex + 1, task);
+                    personList.Remove(pObj);
+                    personList.Add(pObj);
+                }
+                else if (pIndex <= 0)
+                {
+                    personList.Remove(pObj);
+                    personList.Insert(0, pObj);
+                }
+                else
+                {
+                    personList.Remove(pObj);
+                    personList.Insert(pIndex, pObj);
+                }
 
-                    int ri = 0;
-                    foreach (PersonObject t in personList)
-                    {
-                        t.TaskObj.DisplayOrder = ri;
-                        ri++;
-
-                        t.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + t.TaskObj.ID + "'").update();
-                    }
-
-                    refreshView();
-
-                    if (taskIndex < dgvDetail.Rows.Count - 1)
-                    {
-                        dgvDetail.Rows[taskIndex + 1].Selected = true;
-                    }
-                    else
-                    {
-                        dgvDetail.Rows[dgvDetail.Rows.Count - 1].Selected = true;
-                    }
+                int rindexx = 0;
+                foreach (PersonObject pp in personList)
+                {
+                    rindexx++;
+                    pp.TaskObj.DisplayOrder = rindexx;
+                    pp.TaskObj.copyTo(ConnectionManager.Context.table("Task")).where("ID='" + pp.TaskObj.ID + "'").update();
                 }
             }
         }
-
+        
         public override bool isInputCompleted()
         {
             if (dgvDetail.Rows.Count == 0)

@@ -167,6 +167,7 @@
             this.Column1.MinimumWidth = 60;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column1.Width = 60;
             // 
             // Column2
@@ -175,6 +176,7 @@
             this.Column2.MinimumWidth = 60;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column2.Width = 60;
             // 
             // Column9
@@ -183,6 +185,7 @@
             this.Column9.MinimumWidth = 120;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column9.Width = 120;
             // 
             // Column6
@@ -191,6 +194,7 @@
             this.Column6.MinimumWidth = 120;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column6.Width = 120;
             // 
             // Column4
@@ -199,6 +203,7 @@
             this.Column4.MinimumWidth = 120;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column4.Width = 120;
             // 
             // Column5
@@ -207,6 +212,7 @@
             this.Column5.MinimumWidth = 120;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column5.Width = 120;
             // 
             // Column11
@@ -216,6 +222,7 @@
             this.Column11.MinimumWidth = 170;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Column12
             // 

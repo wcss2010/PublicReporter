@@ -12,7 +12,7 @@ namespace ProjectContractPlugin.Editor
 {
     public partial class WorkerEditor : AbstractEditorPlugin.BaseEditor
     {
-        List<RenYuanBiao> list = new List<RenYuanBiao>();
+        List<RenYuanBiao> personList = new List<RenYuanBiao>();
         List<KeTiBiao> ktList = new List<KeTiBiao>();
         public WorkerEditor()
         {
@@ -37,13 +37,13 @@ namespace ProjectContractPlugin.Editor
             }
 
             //查询人员列表
-            list = ProjectContractPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+            personList = ProjectContractPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
             //list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
-            list = list.OrderBy(t => t.ZhuangTai).ToList();
+            personList = personList.OrderBy(t => t.ZhuangTai).ToList();
 
             dgvDetail.Rows.Clear();
             int index = 0;
-            foreach (RenYuanBiao data in list)
+            foreach (RenYuanBiao data in personList)
             {
                 index++;
                 List<object> cells = new List<object>();
@@ -90,7 +90,6 @@ namespace ProjectContractPlugin.Editor
                 if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                 {
                     #region 编辑
-                    //显示编辑窗体
                     FrmAddOrUpdateWorker form = new FrmAddOrUpdateWorker((RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag, ktList);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
@@ -116,98 +115,50 @@ namespace ProjectContractPlugin.Editor
                 {
                     RenYuanBiao personObj = (RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag;
 
-                    #region 下移
-                    moveToDown(e.RowIndex, personObj);
-                    #endregion
-                }
-                else if (e.ColumnIndex == dgvDetail.Columns.Count - 4)
-                {
-                    RenYuanBiao personObj = (RenYuanBiao)dgvDetail.Rows[e.RowIndex].Tag;
+                    #region 编辑序号
+                    FrmEditOrder feo = new FrmEditOrder();
+                    feo.OrderNum = (decimal)personObj.ZhuangTai;
+                    if (feo.ShowDialog() == DialogResult.OK)
+                    {
+                        //对后面的记录重新排序
+                        reorderPersonList(personObj, (int)feo.OrderNum);
 
-                    #region 上移
-                    moveToUp(e.RowIndex, personObj);
+                        //刷新列表
+                        PluginRootObj.refreshEditors();
+                    }
                     #endregion
                 }
             }
         }
 
-        /// <summary>
-        /// 向上移动
-        /// </summary>
-        /// <param name="rowIndex"></param>
-        /// <param name="task"></param>
-        private void moveToUp(int rowIndex, RenYuanBiao task)
+        private void reorderPersonList(RenYuanBiao pObj, int newPersonIndex)
         {
-            if (list != null)
+            if (pObj.ZhuangTai != newPersonIndex)
             {
-                int taskIndex = list.IndexOf(task);
-                if (taskIndex >= 1)
+                int pIndex = newPersonIndex - 1;
+
+                if (pIndex >= personList.Count - 1)
                 {
-                    list.Remove(task);
-                    list.Insert(taskIndex - 1, task);
-
-                    int ri = 0;
-                    foreach (RenYuanBiao t in list)
-                    {
-                        t.ZhuangTai = ri;
-                        ri++;
-
-                        t.copyTo(ConnectionManager.Context.table("RenYuanBiao")).where("BianHao='" + t.BianHao + "'").update();
-                    }
-
-                    refreshView();
-
-                    dgvDetail.ClearSelection();
-
-                    if (taskIndex >= 1)
-                    {   
-                        dgvDetail.Rows[taskIndex - 1].Selected = true;
-                    }
+                    personList.Remove(pObj);
+                    personList.Add(pObj);
                 }
-            }
-        }
-
-        /// <summary>
-        /// 向下移动
-        /// </summary>
-        /// <param name="rowIndex"></param>
-        /// <param name="task"></param>
-        private void moveToDown(int rowIndex, RenYuanBiao task)
-        {
-            if (list != null)
-            {
-                int taskIndex = list.IndexOf(task);
-                if (taskIndex <= list.Count - 2)
+                else if (pIndex <= 0)
                 {
-                    try
-                    {
-                        list.Remove(task);
-                    }
-                    catch (Exception ex) { }
+                    personList.Remove(pObj);
+                    personList.Insert(0, pObj);
+                }
+                else
+                {
+                    personList.Remove(pObj);
+                    personList.Insert(pIndex, pObj);
+                }
 
-                    list.Insert(taskIndex + 1, task);
-
-                    int ri = 0;
-                    foreach (RenYuanBiao t in list)
-                    {
-                        t.ZhuangTai = ri;
-                        ri++;
-
-                        t.copyTo(ConnectionManager.Context.table("RenYuanBiao")).where("BianHao='" + t.BianHao + "'").update();
-                    }
-
-                    refreshView();
-
-                    dgvDetail.ClearSelection();
-
-                    if (taskIndex < dgvDetail.Rows.Count - 1)
-                    {
-                        dgvDetail.Rows[taskIndex + 1].Selected = true;
-                    }
-                    else
-                    {
-                        dgvDetail.Rows[dgvDetail.Rows.Count - 1].Selected = true;
-                    }
+                int rindexx = 0;
+                foreach (RenYuanBiao pp in personList)
+                {
+                    rindexx++;
+                    pp.ZhuangTai = rindexx;
+                    pp.copyTo(ConnectionManager.Context.table("RenYuanBiao")).where("BianHao='" + pp.BianHao + "'").update();
                 }
             }
         }
@@ -220,15 +171,15 @@ namespace ProjectContractPlugin.Editor
         {
             if (dgvDetail.SelectedRows.Count == 1)
             {
-                if (list != null)
+                if (personList != null)
                 {
                     int taskIndex = dgvDetail.SelectedRows[0].Index;
-                    if (taskIndex <= list.Count - 2)
+                    if (taskIndex <= personList.Count - 2)
                     {
-                        list.Insert(taskIndex + 1, task);
+                        personList.Insert(taskIndex + 1, task);
 
                         int ri = 0;
-                        foreach (RenYuanBiao t in list)
+                        foreach (RenYuanBiao t in personList)
                         {
                             t.ZhuangTai = ri;
                             ri++;
@@ -348,6 +299,13 @@ namespace ProjectContractPlugin.Editor
             {
                 refreshView();
             }
+        }
+
+        private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectContractPlugin.Resource.Question_162;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectContractPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectContractPlugin.Resource.orderEdit;
         }
     }
 }

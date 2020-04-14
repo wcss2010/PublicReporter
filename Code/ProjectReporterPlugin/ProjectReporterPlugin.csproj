@@ -183,6 +183,12 @@
     <Compile Include="Editor\ProjectWorkerInfoEditor.designer.cs">
       <DependentUpon>ProjectWorkerInfoEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmEditOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEditOrder.Designer.cs">
+      <DependentUpon>FrmEditOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmInputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectWorkerInfoEditor.resx">
       <DependentUpon>ProjectWorkerInfoEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEditOrder.resx">
+      <DependentUpon>FrmEditOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmInputBox.resx">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
@@ -486,6 +495,14 @@
     <Content Include="DataTemplete\Current\Files\项目负责人.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Question_162.png" />
+    <None Include="Resources\UP_161.png" />
+    <None Include="Resources\Question_161.png" />
+    <None Include="Resources\orderEdit.png" />
+    <None Include="Resources\DOWN_161.png" />
+    <None Include="Resources\DELETE_281.png" />
+    <None Include="Resources\DELETE_161.png" />
+    <None Include="Resources\Attachment_161.png" />
     <None Include="Resources\Q1.png" />
     <None Include="Resources\word.png" />
     <None Include="Resources\w51.png" />

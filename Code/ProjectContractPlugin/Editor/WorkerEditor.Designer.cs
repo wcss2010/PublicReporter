@@ -48,10 +48,9 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewImageColumn();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -99,7 +98,6 @@
             this.Column9,
             this.Column11,
             this.Column10,
-            this.Column14,
             this.Column12,
             this.Column13});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,6 +120,7 @@
             this.dgvDetail.TabIndex = 1;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
+            this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
             // 
             // plButtons
             // 
@@ -249,12 +248,12 @@
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "每年投入时间（月）";
-            this.Column7.MinimumWidth = 70;
+            this.Column7.HeaderText = "每年投入时间";
+            this.Column7.MinimumWidth = 90;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column7.Width = 70;
+            this.Column7.Width = 90;
             // 
             // Column8
             // 
@@ -285,38 +284,26 @@
             // Column10
             // 
             this.Column10.HeaderText = "";
+            this.Column10.MinimumWidth = 30;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Text = "上移";
-            this.Column10.UseColumnTextForButtonValue = true;
-            this.Column10.Width = 5;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Text = "下移";
-            this.Column14.UseColumnTextForButtonValue = true;
-            this.Column14.Width = 5;
+            this.Column10.Width = 30;
             // 
             // Column12
             // 
             this.Column12.HeaderText = "";
+            this.Column12.MinimumWidth = 30;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            this.Column12.Text = "删除";
-            this.Column12.UseColumnTextForButtonValue = true;
-            this.Column12.Width = 5;
+            this.Column12.Width = 30;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "";
+            this.Column13.MinimumWidth = 30;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            this.Column13.Text = "编辑";
-            this.Column13.UseColumnTextForButtonValue = true;
-            this.Column13.Width = 5;
+            this.Column13.Width = 30;
             // 
             // WorkerEditor
             // 
@@ -355,9 +342,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewButtonColumn Column10;
-        private System.Windows.Forms.DataGridViewButtonColumn Column14;
-        private System.Windows.Forms.DataGridViewButtonColumn Column12;
-        private System.Windows.Forms.DataGridViewButtonColumn Column13;
+        private System.Windows.Forms.DataGridViewImageColumn Column10;
+        private System.Windows.Forms.DataGridViewImageColumn Column12;
+        private System.Windows.Forms.DataGridViewImageColumn Column13;
     }
 }

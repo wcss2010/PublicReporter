@@ -163,6 +163,16 @@ namespace ProjectContractPlugin {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap orderEdit {
+            get {
+                object obj = ResourceManager.GetObject("orderEdit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Q1 {
             get {
                 object obj = ResourceManager.GetObject("Q1", resourceCulture);
@@ -176,6 +186,16 @@ namespace ProjectContractPlugin {
         internal static System.Drawing.Bitmap Question_16 {
             get {
                 object obj = ResourceManager.GetObject("Question_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Question_162 {
+            get {
+                object obj = ResourceManager.GetObject("Question_162", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

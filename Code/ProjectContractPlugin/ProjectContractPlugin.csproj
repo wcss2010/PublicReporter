@@ -283,6 +283,12 @@
     <Compile Include="Forms\FrmAddOrUpdateTechnologyQuestion.Designer.cs">
       <DependentUpon>FrmAddOrUpdateTechnologyQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmEditOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEditOrder.Designer.cs">
+      <DependentUpon>FrmEditOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmInputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,6 +424,9 @@
     <EmbeddedResource Include="Forms\FrmAddOrUpdateTechnologyQuestion.resx">
       <DependentUpon>FrmAddOrUpdateTechnologyQuestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEditOrder.resx">
+      <DependentUpon>FrmEditOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmInputBox.resx">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -526,6 +535,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Q1.png" />
+    <None Include="Resources\orderEdit.png" />
+    <None Include="Resources\Question_162.png" />
     <Content Include="word模板中的书签.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -38,8 +38,8 @@
             this.btnImporter = new System.Windows.Forms.Button();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colXingMing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +50,9 @@
             this.colRenWuFenGong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colXiangMuZhongZhiWu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMoveUp = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colMoveDown = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colEditThis = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.plTitle.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,7 +67,7 @@
             this.plTitle.Location = new System.Drawing.Point(14, 10);
             this.plTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.plTitle.Name = "plTitle";
-            this.plTitle.Size = new System.Drawing.Size(1096, 40);
+            this.plTitle.Size = new System.Drawing.Size(1153, 40);
             this.plTitle.TabIndex = 0;
             // 
             // label1
@@ -80,7 +79,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(1096, 40);
+            this.label1.Size = new System.Drawing.Size(1153, 40);
             this.label1.TabIndex = 1;
             this.label1.Text = "负责人及研究骨干情况表";
             // 
@@ -102,7 +101,7 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(1124, 572);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(1181, 572);
             this.tableLayoutPanel15.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -118,14 +117,14 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1155, 34);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnNewPerson
             // 
             this.btnNewPerson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNewPerson.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNewPerson.Location = new System.Drawing.Point(1001, 3);
+            this.btnNewPerson.Location = new System.Drawing.Point(1058, 3);
             this.btnNewPerson.Name = "btnNewPerson";
             this.btnNewPerson.Size = new System.Drawing.Size(94, 28);
             this.btnNewPerson.TabIndex = 3;
@@ -136,7 +135,7 @@
             // 
             this.btnImporter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnImporter.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnImporter.Location = new System.Drawing.Point(901, 3);
+            this.btnImporter.Location = new System.Drawing.Point(958, 3);
             this.btnImporter.Name = "btnImporter";
             this.btnImporter.Size = new System.Drawing.Size(94, 28);
             this.btnImporter.TabIndex = 4;
@@ -150,7 +149,7 @@
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plContent.Location = new System.Drawing.Point(13, 53);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1098, 466);
+            this.plContent.Size = new System.Drawing.Size(1155, 466);
             this.plContent.TabIndex = 7;
             // 
             // dgvDetail
@@ -171,10 +170,9 @@
             this.colRenWuFenGong,
             this.colIDCard,
             this.colXiangMuZhongZhiWu,
-            this.colMoveUp,
-            this.colMoveDown,
-            this.colEditThis,
-            this.delete});
+            this.delete,
+            this.Column1,
+            this.Column2});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 0);
             this.dgvDetail.MultiSelect = false;
@@ -194,24 +192,25 @@
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 35;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(1098, 466);
+            this.dgvDetail.Size = new System.Drawing.Size(1155, 466);
             this.dgvDetail.TabIndex = 5;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentDoubleClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
             // 
+            // ofdExcelDialog
+            // 
+            this.ofdExcelDialog.Filter = "*.xls|*.xls";
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "删除";
             this.dataGridViewImageColumn1.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
+            this.dataGridViewImageColumn1.MinimumWidth = 45;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.Width = 45;
-            // 
-            // ofdExcelDialog
-            // 
-            this.ofdExcelDialog.Filter = "*.xls|*.xls";
             // 
             // selpersonid
             // 
@@ -270,7 +269,7 @@
             // 
             // colMeiNianGongZuoShiJian
             // 
-            this.colMeiNianGongZuoShiJian.HeaderText = "每年投入时间（月）";
+            this.colMeiNianGongZuoShiJian.HeaderText = "每年投入时间";
             this.colMeiNianGongZuoShiJian.MinimumWidth = 110;
             this.colMeiNianGongZuoShiJian.Name = "colMeiNianGongZuoShiJian";
             this.colMeiNianGongZuoShiJian.ReadOnly = true;
@@ -305,43 +304,30 @@
             this.colXiangMuZhongZhiWu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colXiangMuZhongZhiWu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colMoveUp
-            // 
-            this.colMoveUp.HeaderText = "";
-            this.colMoveUp.MinimumWidth = 50;
-            this.colMoveUp.Name = "colMoveUp";
-            this.colMoveUp.ReadOnly = true;
-            this.colMoveUp.Text = "向上";
-            this.colMoveUp.Width = 50;
-            // 
-            // colMoveDown
-            // 
-            this.colMoveDown.HeaderText = "";
-            this.colMoveDown.MinimumWidth = 50;
-            this.colMoveDown.Name = "colMoveDown";
-            this.colMoveDown.ReadOnly = true;
-            this.colMoveDown.Text = "向下";
-            this.colMoveDown.Width = 50;
-            // 
-            // colEditThis
-            // 
-            this.colEditThis.HeaderText = "";
-            this.colEditThis.MinimumWidth = 50;
-            this.colEditThis.Name = "colEditThis";
-            this.colEditThis.ReadOnly = true;
-            this.colEditThis.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colEditThis.Text = "编辑";
-            this.colEditThis.Width = 50;
-            // 
             // delete
             // 
             this.delete.HeaderText = "";
-            this.delete.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
-            this.delete.MinimumWidth = 45;
+            this.delete.MinimumWidth = 30;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 45;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.delete.Width = 30;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 30;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 30;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "";
+            this.Column2.MinimumWidth = 30;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 30;
             // 
             // ProjectWorkerInfoEditor
             // 
@@ -351,7 +337,7 @@
             this.Controls.Add(this.tableLayoutPanel15);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProjectWorkerInfoEditor";
-            this.Size = new System.Drawing.Size(1124, 572);
+            this.Size = new System.Drawing.Size(1181, 572);
             this.plTitle.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -383,9 +369,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRenWuFenGong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDCard;
         private System.Windows.Forms.DataGridViewTextBoxColumn colXiangMuZhongZhiWu;
-        private System.Windows.Forms.DataGridViewButtonColumn colMoveUp;
-        private System.Windows.Forms.DataGridViewButtonColumn colMoveDown;
-        private System.Windows.Forms.DataGridViewButtonColumn colEditThis;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
+        private System.Windows.Forms.DataGridViewImageColumn Column2;
     }
 }
