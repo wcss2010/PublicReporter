@@ -1,4 +1,5 @@
-﻿using ProjectReporterPlugin.DB;
+﻿using AbstractEditorPlugin.Utility;
+using ProjectReporterPlugin.DB;
 using ProjectReporterPlugin.DB.Entitys;
 using ProjectReporterPlugin.Editor;
 using PublicReporterLib.Utility;
@@ -123,7 +124,7 @@ namespace ProjectReporterPlugin.Forms
                     pir.personJob = dr["职务/职称"] != null ? dr["职务/职称"].ToString().Trim() : string.Empty;
                     pir.personSpecialty = dr["所学专业"] != null ? dr["所学专业"].ToString().Trim() : string.Empty;
                     pir.personSex = dr["性别"] != null ? dr["性别"].ToString() : string.Empty;
-                    pir.personBirthday = dr["出生年月"] != null ? dr["出生年月"].ToString() : string.Empty;
+                    //pir.personBirthday = dr["出生年月"] != null ? dr["出生年月"].ToString() : string.Empty;
                     pir.personTelephone = dr["电话"] != null ? dr["电话"].ToString().Trim() : string.Empty;
                     pir.personMobilePhone = dr["手机"] != null ? dr["手机"].ToString() : string.Empty;
                     //pir.personAddress = dr["通信地址"] != null ? dr["通信地址"].ToString() : string.Empty;
@@ -182,11 +183,30 @@ namespace ProjectReporterPlugin.Forms
                         throw new Exception("'项目或课题中职务'只能是负责人或成员！");
                     }
 
-                    DateTime dtResult = DateTime.MinValue;
-                    if (DateTime.TryParse(pir.personBirthday, out dtResult) == false)
+                    bool isOK = false;
+                    GetIDCardInfoCls gci = new GetIDCardInfoCls();
+                    try
                     {
-                        throw new Exception("'出生年月'格式有误！例如：" + DateTime.Now.ToShortDateString());
+                        string[] teamss = gci.AnalyzeIDCard(pir.personIDCard.Trim(), out isOK);
+                        if (isOK)
+                        {
+                            pir.personBirthday = DateTime.Parse(teamss[0]).ToString();
+                        }
+                        else
+                        {
+                            throw new Exception("身份证号有误！");
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("身份证号有误！");
+                    }
+
+                    //DateTime dtResult = DateTime.MinValue;
+                    //if (DateTime.TryParse(pir.personBirthday, out dtResult) == false)
+                    //{
+                    //    throw new Exception("'出生年月'格式有误！例如：" + DateTime.Now.ToShortDateString());
+                    //}
 
                     //判断研究内容名称是否正确
                     if (pir.roletypeOnlyProjectStr.Contains("否"))
