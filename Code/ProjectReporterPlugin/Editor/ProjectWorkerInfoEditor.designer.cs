@@ -219,6 +219,7 @@
             this.selpersonid.MinimumWidth = 60;
             this.selpersonid.Name = "selpersonid";
             this.selpersonid.ReadOnly = true;
+            this.selpersonid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.selpersonid.Width = 60;
             // 
             // colXingMing
@@ -228,6 +229,7 @@
             this.colXingMing.Name = "colXingMing";
             this.colXingMing.ReadOnly = true;
             this.colXingMing.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colXingMing.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colXingMing.Width = 60;
             // 
             // colSex
@@ -236,6 +238,7 @@
             this.colSex.MinimumWidth = 60;
             this.colSex.Name = "colSex";
             this.colSex.ReadOnly = true;
+            this.colSex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colSex.Width = 60;
             // 
             // colZhiWu
@@ -244,6 +247,7 @@
             this.colZhiWu.MinimumWidth = 90;
             this.colZhiWu.Name = "colZhiWu";
             this.colZhiWu.ReadOnly = true;
+            this.colZhiWu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colZhiWu.Width = 90;
             // 
             // colCongShiZhuanYe
@@ -252,6 +256,7 @@
             this.colCongShiZhuanYe.MinimumWidth = 90;
             this.colCongShiZhuanYe.Name = "colCongShiZhuanYe";
             this.colCongShiZhuanYe.ReadOnly = true;
+            this.colCongShiZhuanYe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colCongShiZhuanYe.Width = 90;
             // 
             // colGongZuoDanWei
@@ -260,6 +265,7 @@
             this.colGongZuoDanWei.MinimumWidth = 90;
             this.colGongZuoDanWei.Name = "colGongZuoDanWei";
             this.colGongZuoDanWei.ReadOnly = true;
+            this.colGongZuoDanWei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colGongZuoDanWei.Width = 90;
             // 
             // colMeiNianGongZuoShiJian
@@ -269,6 +275,7 @@
             this.colMeiNianGongZuoShiJian.Name = "colMeiNianGongZuoShiJian";
             this.colMeiNianGongZuoShiJian.ReadOnly = true;
             this.colMeiNianGongZuoShiJian.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMeiNianGongZuoShiJian.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colMeiNianGongZuoShiJian.Width = 110;
             // 
             // colRenWuFenGong
@@ -278,6 +285,7 @@
             this.colRenWuFenGong.MinimumWidth = 80;
             this.colRenWuFenGong.Name = "colRenWuFenGong";
             this.colRenWuFenGong.ReadOnly = true;
+            this.colRenWuFenGong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colIDCard
             // 
@@ -286,6 +294,7 @@
             this.colIDCard.MinimumWidth = 70;
             this.colIDCard.Name = "colIDCard";
             this.colIDCard.ReadOnly = true;
+            this.colIDCard.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colXiangMuZhongZhiWu
             // 
@@ -294,6 +303,7 @@
             this.colXiangMuZhongZhiWu.Name = "colXiangMuZhongZhiWu";
             this.colXiangMuZhongZhiWu.ReadOnly = true;
             this.colXiangMuZhongZhiWu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colXiangMuZhongZhiWu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colMoveUp
             // 
