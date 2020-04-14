@@ -27,6 +27,7 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("HeTongJieShuShiJian", HeTongJieShuShiJian);
             query.set("HeTongJiaKuan", HeTongJiaKuan);
             query.set("HeTongFuZeDanWei", HeTongFuZeDanWei);
+            query.set("HeTongFuZeDanWeiChangYongMingCheng", HeTongFuZeDanWeiChangYongMingCheng);
             query.set("HeTongFuZeDanWeiTongXunDiZhi", HeTongFuZeDanWeiTongXunDiZhi);
             query.set("HeTongFuZeDanWeiLianXiRen", HeTongFuZeDanWeiLianXiRen);
             query.set("HeTongFuZeDanWeiLianXiRenDianHua", HeTongFuZeDanWeiLianXiRenDianHua);
@@ -80,6 +81,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public DateTime HeTongJieShuShiJian { get; set; }
         public decimal HeTongJiaKuan { get; set; }
         public string HeTongFuZeDanWei { get; set; }
+        public string HeTongFuZeDanWeiChangYongMingCheng { get; set; }
         public string HeTongFuZeDanWeiTongXunDiZhi { get; set; }
         public string HeTongFuZeDanWeiLianXiRen { get; set; }
         public string HeTongFuZeDanWeiLianXiRenDianHua { get; set; }
@@ -116,11 +118,11 @@ namespace ProjectContractPlugin.DB.Entitys
         public string ChengYanDanWeiYinHangZhangHao { get; set; }
         public string ChengYanDanWeiCaiWuFuZeRen { get; set; }
         public string ChengYanDanWeiCaiWuFuZeRenDianHua { get; set; }
-        public double ZhuangTai { get; set; }
+        public string ZhuangTai { get; set; }
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
-            BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
+            BianHao = source("BianHao").value<string>("");
             HeTongBianHao = source("HeTongBianHao").value<string>("");
             HeTongMingCheng = source("HeTongMingCheng").value<string>("");
             HeTongMiJi = source("HeTongMiJi").value<string>("");
@@ -132,6 +134,7 @@ namespace ProjectContractPlugin.DB.Entitys
             HeTongJieShuShiJian = source("HeTongJieShuShiJian").value<DateTime>(DateTime.Now);
             HeTongJiaKuan = source("HeTongJiaKuan").value<decimal>(0);
             HeTongFuZeDanWei = source("HeTongFuZeDanWei").value<string>("");
+            HeTongFuZeDanWeiChangYongMingCheng = source("HeTongFuZeDanWeiChangYongMingCheng").value<string>("");
             HeTongFuZeDanWeiTongXunDiZhi = source("HeTongFuZeDanWeiTongXunDiZhi").value<string>("");
             HeTongFuZeDanWeiLianXiRen = source("HeTongFuZeDanWeiLianXiRen").value<string>("");
             HeTongFuZeDanWeiLianXiRenDianHua = source("HeTongFuZeDanWeiLianXiRenDianHua").value<string>("");
@@ -168,7 +171,7 @@ namespace ProjectContractPlugin.DB.Entitys
             ChengYanDanWeiYinHangZhangHao = source("ChengYanDanWeiYinHangZhangHao").value<string>("");
             ChengYanDanWeiCaiWuFuZeRen = source("ChengYanDanWeiCaiWuFuZeRen").value<string>("");
             ChengYanDanWeiCaiWuFuZeRenDianHua = source("ChengYanDanWeiCaiWuFuZeRenDianHua").value<string>("");
-            ZhuangTai = source("ZhuangTai").value<double>(0);
+            ZhuangTai = source("ZhuangTai").value<string>("");
         }
 
         public override Noear.Weed.IBinder clone()
