@@ -232,9 +232,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utility\ExcelHelper.cs" />
-    <Compile Include="Utility\FormatCheckTool.cs" />
-    <Compile Include="Utility\WatermarkUtility.cs" />
     <Compile Include="Utility\WordPrinter.cs" />
     <Compile Include="Utility\WordUtility.cs" />
   </ItemGroup>

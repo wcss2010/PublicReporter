@@ -2246,7 +2246,7 @@ namespace ProjectReporterPlugin.Editor
             {
                 try
                 {
-                    DataSet ds = ProjectReporterPlugin.Utility.ExcelHelper.ExcelToDataSet(ofdExcelDialog.FileName);
+                    DataSet ds = PublicReporterLib.Utility.ExcelBuilder.excelToDataSet(ofdExcelDialog.FileName);
                     if (ds != null && ds.Tables.Count >= 1)
                     {
                         //显示提示窗体
