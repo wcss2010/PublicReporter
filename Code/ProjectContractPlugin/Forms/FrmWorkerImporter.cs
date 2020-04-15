@@ -56,8 +56,12 @@ namespace ProjectContractPlugin.Forms
                 string defaultSubjectID = ConnectionManager.Context.table("KeTiBiao").select("BianHao").getValue<string>("");
 
                 DataTable dtData = ExcelBuilder.excelToDataTable(xlsFile, "Person", true);
+
+                int eRowIndex = 0;
                 foreach (DataRow dr in dtData.Rows)
                 {
+                    eRowIndex++;
+
                     string idCardStr = dr["身份证"] != null ? dr["身份证"].ToString().Trim() : string.Empty;
                     string nameStr = dr["姓名"] != null ? dr["姓名"].ToString().Trim() : string.Empty;
                     string sexStr = dr["性别"] != null ? dr["性别"].ToString().Trim() : string.Empty;
@@ -101,25 +105,25 @@ namespace ProjectContractPlugin.Forms
                         {
                             if (dr[dc.ColumnName] == null || dr[dc.ColumnName].ToString() == string.Empty)
                             {
-                                throw new Exception("'" + dc.ColumnName + "'不能为空！");
+                                throw new Exception("第" + eRowIndex + "行的'" + dc.ColumnName + "'不能为空！");
                             }
                         }
                     }
 
                     if (sexStr != "男" && sexStr != "女")
                     {
-                        throw new Exception("性别只能为'男'或'女'！");
+                        throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "性别只能为'男'或'女'！");
                     }
 
                     int intResult = 0;
                     if (int.TryParse(timeforsubjectStr, out intResult) == false)
                     {
-                        throw new Exception("'每年投入时间'只能是数字！");
+                        throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'每年投入时间'只能是数字！");
                     }
 
                     if (roleNameStr != "负责人" && roleNameStr != "成员")
                     {
-                        throw new Exception("'项目或课题中职务'只能是负责人或成员！");
+                        throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'项目或课题中职务'只能是负责人或成员！");
                     }
 
                     bool isOK = false;
@@ -133,12 +137,12 @@ namespace ProjectContractPlugin.Forms
                         }
                         else
                         {
-                            throw new Exception("身份证号有误！");
+                            throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "身份证号有误！");
                         }
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("身份证号有误！");
+                        throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "身份证号有误！");
                     }
 
                     //DateTime dtResult = DateTime.MinValue;
@@ -160,7 +164,7 @@ namespace ProjectContractPlugin.Forms
 
                         if (subjectCount == 0)
                         {
-                            throw new Exception("'课题名称'有误！");
+                            throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'课题名称'有误！");
                         }
                     }
 

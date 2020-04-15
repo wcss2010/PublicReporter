@@ -89,8 +89,12 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                 newPersonList = new List<Persons>();
 
                 DataTable dtData = ExcelBuilder.excelToDataTable(xlsFile, "Person", true);
+
+                int eRowIndex = 0;
                 foreach (DataRow dr in dtData.Rows)
                 {
+                    eRowIndex++;
+
                     string idCardStr = dr["身份证号"] != null ? dr["身份证号"].ToString().Trim() : string.Empty;
                     string nameStr = dr["姓名"] != null ? dr["姓名"].ToString().Trim() : string.Empty;
                     string jobStr = dr["职务/职称"] != null ? dr["职务/职称"].ToString().Trim() : string.Empty;
@@ -103,7 +107,7 @@ namespace ProjectStrategicLeadershipPlugin.Forms
                     {
                         if (dr[dc.ColumnName] == null || dr[dc.ColumnName].ToString() == string.Empty)
                         {
-                            throw new Exception("'" + dc.ColumnName + "'不能为空！");
+                            throw new Exception("第" + eRowIndex + "行的'" + dc.ColumnName + "'不能为空！");
                         }
                     }
                     

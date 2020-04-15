@@ -106,8 +106,12 @@ namespace ProjectReporterPlugin.Forms
                 newPersonList = new List<PersonImportRecord>();
 
                 DataTable dtData = ExcelBuilder.excelToDataTable(xlsFile, "Person", true);
+
+                int eRowIndex = 0;
                 foreach (DataRow dr in dtData.Rows)
                 {
+                    eRowIndex++;
+
                     PersonImportRecord pir = new PersonImportRecord();
 
                     pir.unitName = dr["工作单位"] != null ? dr["工作单位"].ToString() : string.Empty;
@@ -162,25 +166,25 @@ namespace ProjectReporterPlugin.Forms
                         {
                             if (dr[dc.ColumnName] == null || dr[dc.ColumnName].ToString() == string.Empty)
                             {
-                                throw new Exception("'" + dc.ColumnName + "'不能为空！");
+                                throw new Exception("第" + eRowIndex + "行的'" + dc.ColumnName + "'不能为空！");
                             }
                         }
                     }
 
                     if (pir.personSex != "男" && pir.personSex != "女")
                     {
-                        throw new Exception("性别只能为'男'或'女'！");
+                        throw new Exception("第" + eRowIndex + "行的" + pir.personName + "的" + "性别只能为'男'或'女'！");
                     }
 
                     int intResult = 0;
                     if (int.TryParse(pir.timeInProject, out intResult) == false)
                     {
-                        throw new Exception("'每年投入时间'只能是数字！");
+                        throw new Exception("第" + eRowIndex + "行的" + pir.personName + "的" + "'每年投入时间'只能是数字！");
                     }
 
                     if (pir.roleNameStr != "负责人" && pir.roleNameStr != "成员")
                     {
-                        throw new Exception("'项目或课题中职务'只能是负责人或成员！");
+                        throw new Exception("第" + eRowIndex + "行的" + pir.personName + "的" + "'项目或课题中职务'只能是负责人或成员！");
                     }
 
                     bool isOK = false;
@@ -194,12 +198,12 @@ namespace ProjectReporterPlugin.Forms
                         }
                         else
                         {
-                            throw new Exception("身份证号有误！");
+                            throw new Exception("第" + eRowIndex + "行的" + pir.personName + "的" + "身份证号有误！");
                         }
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("身份证号有误！");
+                        throw new Exception("第" + eRowIndex + "行的" + pir.personName + "的" + "身份证号有误！");
                     }
 
                     //DateTime dtResult = DateTime.MinValue;
@@ -221,7 +225,7 @@ namespace ProjectReporterPlugin.Forms
 
                         if (subjectCount == 0)
                         {
-                            throw new Exception("'课题名称'有误！");
+                            throw new Exception("第" + eRowIndex + "行的" + pir.personName + "的" + "'课题名称'有误！");
                         }
                     }
 
