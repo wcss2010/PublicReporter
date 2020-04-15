@@ -393,7 +393,7 @@ namespace PublicReporterLib.Utility
         {
             if (firstRowAsHeader)
             {
-                return excelToDataTableFirstRowAsHeader(sheet, evaluator);
+                return excelToDataTableFirstRowAsHeader(sheet, evaluator, 0, 1);
             }
             else
             {
@@ -401,11 +401,11 @@ namespace PublicReporterLib.Utility
             }
         }
 
-        private static DataTable excelToDataTableFirstRowAsHeader(ISheet sheet, IFormulaEvaluator evaluator)
+        private static DataTable excelToDataTableFirstRowAsHeader(ISheet sheet, IFormulaEvaluator evaluator, int headerIndex, int dataIndex)
         {
             using (DataTable dt = new DataTable())
             {
-                IRow firstRow = sheet.GetRow(0);
+                IRow firstRow = sheet.GetRow(headerIndex);
                 int cellCount = getCellCount(sheet);
 
                 for (int i = 0; i < cellCount; i++)
@@ -423,7 +423,7 @@ namespace PublicReporterLib.Utility
                     }
                 }
 
-                for (int i = sheet.FirstRowNum; i <= sheet.LastRowNum; i++)
+                for (int i = dataIndex; i <= sheet.LastRowNum; i++)
                 {
                     IRow row = sheet.GetRow(i);
                     checkAndFillDataRow(i, row, evaluator, dt);
