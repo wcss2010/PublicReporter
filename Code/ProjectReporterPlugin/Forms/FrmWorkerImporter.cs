@@ -166,7 +166,14 @@ namespace ProjectReporterPlugin.Forms
                         {
                             if (dr[dc.ColumnName] == null || dr[dc.ColumnName].ToString() == string.Empty)
                             {
-                                throw new Exception("第" + eRowIndex + "行的'" + dc.ColumnName + "'不能为空！");
+                                if (string.IsNullOrEmpty(pir.personName))
+                                {
+                                    throw new Exception("第" + eRowIndex + "行的'" + dc.ColumnName + "'不能为空！");
+                                }
+                                else
+                                {
+                                    throw new Exception("第" + eRowIndex + "行的" + pir.personName + "的'" + dc.ColumnName + "'不能为空！");
+                                }
                             }
                         }
                     }
