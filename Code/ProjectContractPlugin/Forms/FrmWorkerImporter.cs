@@ -57,7 +57,7 @@ namespace ProjectContractPlugin.Forms
 
                 DataTable dtData = ExcelBuilder.excelToDataTable(xlsFile, "Person", true);
 
-                int eRowIndex = 0;
+                int eRowIndex = 1;
                 foreach (DataRow dr in dtData.Rows)
                 {
                     eRowIndex++;

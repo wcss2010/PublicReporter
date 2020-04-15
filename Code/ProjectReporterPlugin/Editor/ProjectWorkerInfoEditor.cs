@@ -306,11 +306,7 @@ namespace ProjectReporterPlugin.Editor
                         if (dgvRow.Tag != null)
                         {
                             PersonObject task = (PersonObject)dgvRow.Tag;
-
-                            if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                            {
-                                ConnectionManager.Context.table("Task").where("ID='" + task.TaskObj.ID + "'").delete();
-                            }
+                            ConnectionManager.Context.table("Task").where("ID='" + task.TaskObj.ID + "'").delete();                            
                         }
                     }
 
