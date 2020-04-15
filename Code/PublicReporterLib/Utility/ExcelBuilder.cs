@@ -381,7 +381,15 @@ namespace PublicReporterLib.Utility
             {
                 IWorkbook workbook = WorkbookFactory.Create(fileStream);
 
-                IFormulaEvaluator evaluator = new HSSFFormulaEvaluator(workbook);
+                IFormulaEvaluator evaluator = null;
+                if (workbook is HSSFWorkbook)
+                {
+                    evaluator = new HSSFFormulaEvaluator(workbook);
+                }
+                else
+                {
+                    evaluator = new XSSFFormulaEvaluator(workbook);
+                }
 
                 ISheet sheet = workbook.GetSheet(sheetName);
 
