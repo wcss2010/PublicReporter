@@ -364,7 +364,7 @@ namespace ProjectReporterPlugin.Editor
                 //加载字段
                 string subjectName = dr["课题"] != null ? dr["课题"].ToString() : string.Empty;
                 string stepNum = dr["阶段"] != null ? dr["阶段"].ToString() : string.Empty;
-                string stepContent = dr["完成内容及阶段目标"] != null ? dr["完成内容及阶段目标"].ToString() : string.Empty;
+                string stepContent = dr["阶段目标与研究内容"] != null ? dr["阶段目标与研究内容"].ToString() : string.Empty;
                 string stepResult = dr["阶段成果、考核指标及考核方式"] != null ? dr["阶段成果、考核指标及考核方式"].ToString() : string.Empty;
                 string stepMoney = dr["阶段经费(万)"] != null ? dr["阶段经费(万)"].ToString() : string.Empty;
 
