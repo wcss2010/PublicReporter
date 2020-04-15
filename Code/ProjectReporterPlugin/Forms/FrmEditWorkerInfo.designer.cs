@@ -58,12 +58,12 @@
             this.txtPersonSpecialty = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.lblError = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblError = new System.Windows.Forms.Label();
             this.plContent.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkTimeInYear)).BeginInit();
@@ -72,6 +72,7 @@
             // 
             // plContent
             // 
+            this.plContent.Controls.Add(this.lblError);
             this.plContent.Controls.Add(this.panel1);
             this.plContent.Controls.Add(this.cbxJobInProjects);
             this.plContent.Controls.Add(this.dePersonBirthday);
@@ -412,7 +413,6 @@
             // 
             // plButtons
             // 
-            this.plButtons.Controls.Add(this.lblError);
             this.plButtons.Controls.Add(this.btnOK);
             this.plButtons.Controls.Add(this.btnCancel);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -422,6 +422,15 @@
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(836, 40);
             this.plButtons.TabIndex = 7;
+            // 
+            // lblError
+            // 
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(150, 297);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(167, 19);
+            this.lblError.TabIndex = 33;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnOK
             // 
@@ -480,16 +489,6 @@
             this.label8.Size = new System.Drawing.Size(89, 19);
             this.label8.TabIndex = 8;
             this.label8.Text = "    性别：";
-            // 
-            // lblError
-            // 
-            this.lblError.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(216, 0);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(446, 40);
-            this.lblError.TabIndex = 33;
-            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmEditWorkerInfo
             // 

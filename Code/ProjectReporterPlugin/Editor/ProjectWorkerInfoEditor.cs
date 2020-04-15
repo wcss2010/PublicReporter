@@ -293,5 +293,31 @@ namespace ProjectReporterPlugin.Editor
                 PluginRootObj.refreshEditors();
             }
         }
+
+        private void btnDelAll_Click(object sender, EventArgs e)
+        {
+            if (dgvDetail.SelectedRows.Count >= 1)
+            {
+                if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //删除数据
+                    foreach (DataGridViewRow dgvRow in dgvDetail.SelectedRows)
+                    {
+                        if (dgvRow.Tag != null)
+                        {
+                            PersonObject task = (PersonObject)dgvRow.Tag;
+
+                            if (MessageBox.Show("真的要删除吗?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                ConnectionManager.Context.table("Task").where("ID='" + task.TaskObj.ID + "'").delete();
+                            }
+                        }
+                    }
+
+                    //刷新
+                    refreshView();
+                }
+            }
+        }
     }
 }

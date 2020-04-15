@@ -60,8 +60,8 @@
             this.txtMobilephone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBirthday = new System.Windows.Forms.DateTimePicker();
-            this.lblError = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).BeginInit();
             this.panel1.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -412,19 +412,8 @@
             this.txtBirthday.Size = new System.Drawing.Size(179, 26);
             this.txtBirthday.TabIndex = 31;
             // 
-            // lblError
-            // 
-            this.lblError.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(198, 0);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(446, 40);
-            this.lblError.TabIndex = 32;
-            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // plButtons
             // 
-            this.plButtons.Controls.Add(this.lblError);
             this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Controls.Add(this.btnClose);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -435,11 +424,21 @@
             this.plButtons.Size = new System.Drawing.Size(836, 40);
             this.plButtons.TabIndex = 33;
             // 
+            // lblError
+            // 
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(129, 287);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(203, 19);
+            this.lblError.TabIndex = 34;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 568);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.plButtons);
             this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.panel1);
@@ -517,7 +516,7 @@
         private System.Windows.Forms.TextBox txtMobilephone;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker txtBirthday;
-        private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Panel plButtons;
+        private System.Windows.Forms.Label lblError;
     }
 }

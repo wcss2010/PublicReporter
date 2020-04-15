@@ -38,8 +38,6 @@
             this.btnImporter = new System.Windows.Forms.Button();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.selpersonid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colXingMing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +51,9 @@
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ofdExcelDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnDelAll = new System.Windows.Forms.Button();
             this.plTitle.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -106,12 +107,14 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.Controls.Add(this.btnNewPerson, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnImporter, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnDelAll, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 525);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -124,7 +127,7 @@
             // 
             this.btnNewPerson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNewPerson.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNewPerson.Location = new System.Drawing.Point(1058, 3);
+            this.btnNewPerson.Location = new System.Drawing.Point(958, 3);
             this.btnNewPerson.Name = "btnNewPerson";
             this.btnNewPerson.Size = new System.Drawing.Size(94, 28);
             this.btnNewPerson.TabIndex = 3;
@@ -135,7 +138,7 @@
             // 
             this.btnImporter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnImporter.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnImporter.Location = new System.Drawing.Point(958, 3);
+            this.btnImporter.Location = new System.Drawing.Point(858, 3);
             this.btnImporter.Name = "btnImporter";
             this.btnImporter.Size = new System.Drawing.Size(94, 28);
             this.btnImporter.TabIndex = 4;
@@ -175,7 +178,6 @@
             this.Column2});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 0);
-            this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -197,20 +199,6 @@
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentDoubleClick);
             this.dgvDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetail_RowsAdded);
-            // 
-            // ofdExcelDialog
-            // 
-            this.ofdExcelDialog.Filter = "*.xls|*.xls";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "删除";
-            this.dataGridViewImageColumn1.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
-            this.dataGridViewImageColumn1.MinimumWidth = 45;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 45;
             // 
             // selpersonid
             // 
@@ -329,6 +317,31 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 30;
             // 
+            // ofdExcelDialog
+            // 
+            this.ofdExcelDialog.Filter = "*.xls|*.xls";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "删除";
+            this.dataGridViewImageColumn1.Image = global::ProjectReporterPlugin.Resource.DELETE_16;
+            this.dataGridViewImageColumn1.MinimumWidth = 45;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 45;
+            // 
+            // btnDelAll
+            // 
+            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDelAll.Location = new System.Drawing.Point(1058, 3);
+            this.btnDelAll.Name = "btnDelAll";
+            this.btnDelAll.Size = new System.Drawing.Size(94, 28);
+            this.btnDelAll.TabIndex = 5;
+            this.btnDelAll.Text = "删除选中";
+            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
+            // 
             // ProjectWorkerInfoEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -372,5 +385,6 @@
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn Column2;
+        private System.Windows.Forms.Button btnDelAll;
     }
 }
