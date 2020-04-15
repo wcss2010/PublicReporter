@@ -91,7 +91,7 @@ namespace PublicReporterLib.Utility
         public static void writeSheet(NPOI.XSSF.UserModel.XSSFWorkbook workbook, NPOI.SS.UserModel.ICellStyle normalStyle, NPOI.SS.UserModel.ICellStyle boldStyle, DataTable table)
         {
             //创建Sheet页
-            NPOI.SS.UserModel.ISheet sheet = workbook.CreateSheet();
+            NPOI.SS.UserModel.ISheet sheet = workbook.CreateSheet(table.TableName);
 
             //行号
             int rowIndex = 0;
