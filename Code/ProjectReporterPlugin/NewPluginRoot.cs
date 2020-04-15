@@ -379,6 +379,13 @@ namespace ProjectReporterPlugin
                         return;
                     }
 
+                    string pdfFile = FrmUploadUserPDF.getPDFFile();
+                    if (!File.Exists(pdfFile))
+                    {
+                        MessageBox.Show("对不起，当前没有上传PDF,请点击'上传PDF'按钮！");
+                        return;
+                    }
+
                     string errorPage = string.Empty;
                     if (!isInputCompleted(ref errorPage))
                     {
