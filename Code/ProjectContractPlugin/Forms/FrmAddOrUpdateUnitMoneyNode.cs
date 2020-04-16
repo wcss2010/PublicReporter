@@ -34,22 +34,35 @@ namespace ProjectContractPlugin.Forms
             txtUnitName.Text = unitName;
 
             List<DanWeiJieDianJingFeiBiao> list = ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng = '" + unitName + "'").select("*").getList<DanWeiJieDianJingFeiBiao>(new DanWeiJieDianJingFeiBiao());
-            if (list != null && list.Count >= 1)
+            if (list != null)
             {
                 foreach (KeyValuePair<string, string> kvpp in dictMoneys)
                 {
+                    DanWeiJieDianJingFeiBiao destObj = null;
+
+                    List<object> cells = new List<object>();
+                    cells.Add(kvpp.Value);
+
                     foreach (DanWeiJieDianJingFeiBiao obj in list)
                     {
                         if (kvpp.Key == obj.BoFuBianHao)
                         {
-                            List<object> cells = new List<object>();
-                            cells.Add(kvpp.Value);
-                            cells.Add(obj.JingFei);
-
-                            int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
-                            dgvDetail.Rows[rowIndex].Tag = obj.BoFuBianHao;
+                            destObj = obj;
+                            break;
                         }
                     }
+
+                    if (destObj != null)
+                    {
+                        cells.Add(destObj.JingFei);
+                    }
+                    else
+                    {
+                        cells.Add("0");
+                    }
+
+                    int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
+                    dgvDetail.Rows[rowIndex].Tag = kvpp.Key;
                 }
             }
         }
