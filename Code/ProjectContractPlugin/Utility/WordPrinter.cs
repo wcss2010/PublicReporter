@@ -97,6 +97,9 @@ namespace ProjectContractPlugin.Utility
                 wu.insertValue("基本信息_委托_财务联系电话", proj.WeiTuoDanWeiCaiWuFuZeRenDianHua);
                 wu.insertValue("基本信息_承研_财务联系电话", proj.ChengYanDanWeiCaiWuFuZeRenDianHua);
 
+                wu.insertValue("研究目标_关键词", proj.HeTongGuanJianZi != null ? proj.HeTongGuanJianZi.Replace(";", ",") : string.Empty);
+
+
                 wu.insertValue("共同条款_合同数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
                 wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
                 wu.insertValue("共同条款_合同数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
@@ -119,13 +122,14 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入文本文件
                 wu.insertTxtFile("研究目标", Path.Combine(pt.filesDir, "研究目标.txt"));                
-                wu.insertTxtFile("技术要求及指标_总技术要求", Path.Combine(pt.filesDir, "技术要求.txt"));
+                //wu.insertTxtFile("技术要求及指标_总技术要求", Path.Combine(pt.filesDir, "技术要求.txt"));
                 wu.insertTxtFile("经费预算_双方认为需要说明的经费使用事项", Path.Combine(pt.filesDir, "双方认为需要说明的经费使用事项.txt"));
                 #endregion
 
                 Report(progressDialog, 60, "写入表格数据...", 1000);
                 #region 写入表格数据
 
+                int index = 0;
                 //查找所有表格
                 NodeCollection ncc = wu.Document.WordDoc.GetChildNodes(NodeType.Table, true);
 
@@ -430,7 +434,7 @@ namespace ProjectContractPlugin.Utility
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("节点") && t.GetText().Contains("时间") && t.GetText().Contains("进度要求"))
+                    if (t.GetText().Contains("节点") && t.GetText().Contains("时间") && t.GetText().Contains("预期进展"))
                     {
                         //创建行
                         for (int k = 0; k < jdList.Count - 1; k++)
@@ -466,21 +470,21 @@ namespace ProjectContractPlugin.Utility
                 }
                 #endregion
 
-                #region 插入技术要求数据
-                wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_年度技术要求");
-                //查询数据
-                List<JiShuBiao> jsList = ConnectionManager.Context.table("JiShuBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<JiShuBiao>(new JiShuBiao());
+                #region 插入技术要求数据(已废弃)
+                //wu.Document.WordDocBuilder.MoveToBookmark("技术要求及指标_年度技术要求");
+                ////查询数据
+                //List<JiShuBiao> jsList = ConnectionManager.Context.table("JiShuBiao").orderBy("ZhuangTai,ModifyTime").select("*").getList<JiShuBiao>(new JiShuBiao());
 
-                int index = 1;
-                foreach (JiShuBiao data in jsList)
-                {
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write((index == 1 ? "" : " ") + "(" + index + ") " + data.NianDu + "年度：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.NeiRong, index == jsList.Count ? false : true);
+                //int index = 1;
+                //foreach (JiShuBiao data in jsList)
+                //{
+                //    wu.Document.WordDocBuilder.Font.Bold = true;
+                //    wu.Document.WordDocBuilder.Write((index == 1 ? "" : " ") + "(" + index + ") " + data.NianDu + "年度：");
+                //    wu.Document.WordDocBuilder.Font.Bold = false;
+                //    wu.Document.writeWithNewLine(data.NeiRong, index == jsList.Count ? false : true);
 
-                    index++;
-                }
+                //    index++;
+                //}
                 #endregion
 
                 #region 插入考核方式数据
@@ -490,7 +494,7 @@ namespace ProjectContractPlugin.Utility
                 foreach (ZhiBiaoBiao data in zbbList)
                 {
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write(index + ".指标名称：");
+                    wu.Document.WordDocBuilder.Write("指标" + index + "名称：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.ZhiBiaoMingCheng);
 
@@ -502,7 +506,20 @@ namespace ProjectContractPlugin.Utility
                     wu.Document.WordDocBuilder.Font.Bold = true;
                     wu.Document.WordDocBuilder.Write("(2) 考核方式：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
-                    wu.Document.writeWithNewLine(data.KaoHeFangShi, index == zbbList.Count ? false : true);
+
+                    if (data.KaoHeFangShi != null && data.KaoHeFangShi.Trim().Length >= 1)
+                    {
+                        wu.Document.writeWithNewLine(data.KaoHeFangShi, index == zbbList.Count ? false : true);
+                    }else{
+                        if (index == zbbList.Count)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            wu.Document.WordDocBuilder.Writeln();
+                        }
+                    }
 
                     index++;
                 }
@@ -522,7 +539,7 @@ namespace ProjectContractPlugin.Utility
                     subjectDict[data.BianHao] = subjectRealName;
 
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write(subjectRealName + "：");
+                    wu.Document.WordDocBuilder.Write(subjectRealName + "(" + data.KeTiBaoMiDengJi + ")" + "：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.KeTiMingCheng);
 
