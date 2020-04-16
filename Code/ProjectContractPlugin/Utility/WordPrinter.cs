@@ -3,6 +3,7 @@ using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -121,7 +122,7 @@ namespace ProjectContractPlugin.Utility
                 Report(progressDialog, 40, "写入文档文件...", 1000);
 
                 #region 插入文本文件
-                wu.insertTxtFile("研究目标", Path.Combine(pt.filesDir, "研究目标.txt"));                
+                wu.insertTxtFile("研究目标", Path.Combine(pt.filesDir, "研究目标.txt"));
                 //wu.insertTxtFile("技术要求及指标_总技术要求", Path.Combine(pt.filesDir, "技术要求.txt"));
                 wu.insertTxtFile("经费预算_双方认为需要说明的经费使用事项", Path.Combine(pt.filesDir, "双方认为需要说明的经费使用事项.txt"));
                 #endregion
@@ -510,7 +511,9 @@ namespace ProjectContractPlugin.Utility
                     if (data.KaoHeFangShi != null && data.KaoHeFangShi.Trim().Length >= 1)
                     {
                         wu.Document.writeWithNewLine(data.KaoHeFangShi, index == zbbList.Count ? false : true);
-                    }else{
+                    }
+                    else
+                    {
                         if (index == zbbList.Count)
                         {
                             continue;
@@ -719,63 +722,74 @@ namespace ProjectContractPlugin.Utility
                 }
                 #endregion
 
-                #region 插入课题经费年度分配数据
+                //节点列表
+                List<KeyValuePair<string, string>> dictMoneys = new List<KeyValuePair<string, string>>();
+                List<BoFuBiao> MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+                MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+                index = 0;
+                foreach (BoFuBiao data in MSList)
+                {
+                    index++;
+                    //dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index + "(" + data.BoFuTiaoJian + ")"));
+                    dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index));
+                }
+
+                #region 插入课题经费分配数据
 
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("课题"))
+                    if (t.GetText().Contains("节点x") && t.GetText().Contains("节点") && t.GetText().Contains("课题"))
                     {
-                        Dictionary<int, int> yearAndCell = new Dictionary<int, int>();
+                        Dictionary<string, int> nodeAndCell = new Dictionary<string, int>();
 
                         //添加行和列
-                        List<KeTiJingFeiNianDuBiao> moneyList = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + ktList[0].BianHao + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
-                        if (moneyList != null)
+                        int colCount = dictMoneys.Count + 2;
+                        for (int k = 0; k < ktList.Count - 1; k++)
                         {
-                            int ktCount = moneyList.Count;
-                            for (int k = 0; k < ktList.Count - 1; k++)
+                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                        }
+                        for (int vv = 0; vv < t.Rows.Count; vv++)
+                        {
+                            for (int jj = 0; jj < colCount; jj++)
                             {
-                                t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));                                
-                            }
-                            for (int vv = 0; vv < t.Rows.Count; vv++)
-                            {
-                                for (int jj = 0; jj < ktCount; jj++)
-                                {
-                                    t.Rows[vv].Cells.Add(t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].Clone(true));
-                                }
-                            }
-
-                            wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
-                            wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
-
-                            for (int tt = 1; tt <= ktCount; tt++)
-                            {
-                                yearAndCell[moneyList[tt - 1].NianDu] = tt;
-
-                                wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, moneyList[tt - 1].NianDu + "年度"));
-                                wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
+                                t.Rows[vv].Cells.Add(t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].Clone(true));
                             }
                         }
-                        
+
+                        wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
+                        wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
+
+                        wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "合同验收"));
+                        wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], "黑体", 12);
+
+                        wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
+                        wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
+
+                        for (int tt = 2; tt <= dictMoneys.Count + 1; tt++)
+                        {
+                            nodeAndCell[dictMoneys[tt - 2].Key] = tt;
+
+                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, dictMoneys[tt - 2].Value));
+                            wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
+                        }
+
                         //添加数据
                         int rowIndex = 1;
                         foreach (KeTiBiao subject in ktList)
                         {
-                            moneyList = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
-                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document,"课题" + rowIndex));
+                            List<KeTiJieDianJingFeiBiao> moneyList = ConnectionManager.Context.table("KeTiJieDianJingFeiBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiJieDianJingFeiBiao>(new KeTiJieDianJingFeiBiao());
+                            wu.Document.fillCell(true, t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document, "课题" + rowIndex));
 
-                            int cellIndex = 1;
                             decimal totalMoney = 0;
-                            foreach (KeTiJingFeiNianDuBiao money in moneyList)
+                            foreach (KeTiJieDianJingFeiBiao money in moneyList)
                             {
                                 totalMoney += money.JingFei;
 
-                                if (yearAndCell.ContainsKey(money.NianDu))
+                                if (nodeAndCell.ContainsKey(money.BoFuBianHao))
                                 {
-                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[yearAndCell[money.NianDu]], wu.Document.newParagraph(t.Document, money.JingFei + ""));
+                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[nodeAndCell[money.BoFuBianHao]], wu.Document.newParagraph(t.Document, money.JingFei + ""));
                                 }
-
-                                cellIndex++;
                             }
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[t.Rows[rowIndex].Cells.Count - 1], wu.Document.newParagraph(t.Document, totalMoney + ""));
                             rowIndex++;
@@ -786,134 +800,132 @@ namespace ProjectContractPlugin.Utility
 
                 #region 插入课题经费预算
 
-                foreach (Node node in ncc)
-                {
-                    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("课题XX") && t.GetText().Contains("课题") && t.GetText().Contains("科目名称"))
-                    {
-                        //添加列
-                        for (int kk = 0; kk < t.Rows.Count; kk++)
-                        {
-                            for (int vv = 0; vv < ktList.Count - 1; vv++)
-                            {
-                                t.Rows[kk].Cells.Add(t.Rows[kk].Cells[t.Rows[kk].Cells.Count - 1].Clone(true));
-                            }
-                        }
-                        for (int tt = 1; tt < t.Rows[0].Cells.Count; tt++)
-                        {
-                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, "课题" + tt));
-                            wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
-                        }
+                //foreach (Node node in ncc)
+                //{
+                //    Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
+                //    if (t.GetText().Contains("课题XX") && t.GetText().Contains("课题") && t.GetText().Contains("科目名称"))
+                //    {
+                //        //添加列
+                //        for (int kk = 0; kk < t.Rows.Count; kk++)
+                //        {
+                //            for (int vv = 0; vv < ktList.Count - 1; vv++)
+                //            {
+                //                t.Rows[kk].Cells.Add(t.Rows[kk].Cells[t.Rows[kk].Cells.Count - 1].Clone(true));
+                //            }
+                //        }
+                //        for (int tt = 1; tt < t.Rows[0].Cells.Count; tt++)
+                //        {
+                //            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, "课题" + tt));
+                //            wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
+                //        }
 
-                        //添加数据
-                        int ccIndex = 1;
-                        foreach (KeTiBiao subject in ktList)
-                        {
-                            List<KeTiYuSuanBiao> ktysList = ConnectionManager.Context.table("KeTiYuSuanBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiYuSuanBiao>(new KeTiYuSuanBiao());
-                            Dictionary<string, string> moneyss = new Dictionary<string, string>();
-                            foreach (KeTiYuSuanBiao ysb in ktysList)
-                            {
-                                moneyss[ysb.MingCheng] = ysb.ShuJu;
-                            }
+                //        //添加数据
+                //        int ccIndex = 1;
+                //        foreach (KeTiBiao subject in ktList)
+                //        {
+                //            List<KeTiYuSuanBiao> ktysList = ConnectionManager.Context.table("KeTiYuSuanBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiYuSuanBiao>(new KeTiYuSuanBiao());
+                //            Dictionary<string, string> moneyss = new Dictionary<string, string>();
+                //            foreach (KeTiYuSuanBiao ysb in ktysList)
+                //            {
+                //                moneyss[ysb.MingCheng] = ysb.ShuJu;
+                //            }
 
-                            wu.Document.fillCell(true, t.Rows[1].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money1"]));
-                            wu.Document.fillCell(true, t.Rows[2].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money2"]));
-                            wu.Document.fillCell(true, t.Rows[3].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3"]));
-                            wu.Document.fillCell(true, t.Rows[4].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_1"]));
-                            wu.Document.fillCell(true, t.Rows[5].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_2"]));
-                            wu.Document.fillCell(true, t.Rows[6].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_3"]));
-                            wu.Document.fillCell(true, t.Rows[7].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money4"]));
-                            wu.Document.fillCell(true, t.Rows[8].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5"]));
-                            wu.Document.fillCell(true, t.Rows[9].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5_1"]));
-                            wu.Document.fillCell(true, t.Rows[10].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5_2"]));
-                            wu.Document.fillCell(true, t.Rows[11].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money6"]));
-                            wu.Document.fillCell(true, t.Rows[12].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money7"]));
-                            wu.Document.fillCell(true, t.Rows[13].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money8"]));
-                            wu.Document.fillCell(true, t.Rows[14].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money9"]));
-                            wu.Document.fillCell(true, t.Rows[15].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money10"]));
-                            wu.Document.fillCell(true, t.Rows[16].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money11"]));
-                            wu.Document.fillCell(true, t.Rows[17].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money12"]));
-                            wu.Document.fillCell(true, t.Rows[18].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money13"]));
+                //            wu.Document.fillCell(true, t.Rows[1].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money1"]));
+                //            wu.Document.fillCell(true, t.Rows[2].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money2"]));
+                //            wu.Document.fillCell(true, t.Rows[3].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3"]));
+                //            wu.Document.fillCell(true, t.Rows[4].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_1"]));
+                //            wu.Document.fillCell(true, t.Rows[5].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_2"]));
+                //            wu.Document.fillCell(true, t.Rows[6].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money3_3"]));
+                //            wu.Document.fillCell(true, t.Rows[7].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money4"]));
+                //            wu.Document.fillCell(true, t.Rows[8].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5"]));
+                //            wu.Document.fillCell(true, t.Rows[9].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5_1"]));
+                //            wu.Document.fillCell(true, t.Rows[10].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money5_2"]));
+                //            wu.Document.fillCell(true, t.Rows[11].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money6"]));
+                //            wu.Document.fillCell(true, t.Rows[12].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money7"]));
+                //            wu.Document.fillCell(true, t.Rows[13].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money8"]));
+                //            wu.Document.fillCell(true, t.Rows[14].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money9"]));
+                //            wu.Document.fillCell(true, t.Rows[15].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money10"]));
+                //            wu.Document.fillCell(true, t.Rows[16].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money11"]));
+                //            wu.Document.fillCell(true, t.Rows[17].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money12"]));
+                //            wu.Document.fillCell(true, t.Rows[18].Cells[ccIndex], wu.Document.newParagraph(t.Document, moneyss["Money13"]));
 
-                            ccIndex++;
-                        }
-                    }
-                }
+                //            ccIndex++;
+                //        }
+                //    }
+                //}
                 #endregion
 
-                #region 插入单位经费年度分配
+                #region 插入单位经费分配
 
                 foreach (Node node in ncc)
                 {
                     Aspose.Words.Tables.Table t = (Aspose.Words.Tables.Table)node;
-                    if (t.GetText().Contains("20XX年度") && t.GetText().Contains("年度") && t.GetText().Contains("单位"))
+                    if (t.GetText().Contains("节点x") && t.GetText().Contains("节点") && t.GetText().Contains("单位"))
                     {
-                        Dictionary<int, int> yearAndCell = new Dictionary<int, int>();
+                        Dictionary<string, int> nodeAndCell = new Dictionary<string, int>();
 
                         //读取单位经费数据并进行分类
-                        CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>> unitDict = new CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>>();
-                        List<DanWeiJingFeiNianDuBiao> list = ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").select("*").getList<DanWeiJingFeiNianDuBiao>(new DanWeiJingFeiNianDuBiao());
-                        foreach (DanWeiJingFeiNianDuBiao table in list)
+                        CustomDictionary<string, List<DanWeiJieDianJingFeiBiao>> unitDict = new CustomDictionary<string, List<DanWeiJieDianJingFeiBiao>>();
+                        List<DanWeiJieDianJingFeiBiao> list = ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").select("*").getList<DanWeiJieDianJingFeiBiao>(new DanWeiJieDianJingFeiBiao());
+                        foreach (DanWeiJieDianJingFeiBiao table in list)
                         {
-                            if (unitDict.ContainsKey(table.DanWeiMing))
+                            if (unitDict.ContainsKey(table.DanWeiMingCheng))
                             {
-                                unitDict[table.DanWeiMing].Add(table);
+                                unitDict[table.DanWeiMingCheng].Add(table);
                             }
                             else
                             {
-                                unitDict[table.DanWeiMing] = new List<DanWeiJingFeiNianDuBiao>();
-                                unitDict[table.DanWeiMing].Add(table);
+                                unitDict[table.DanWeiMingCheng] = new List<DanWeiJieDianJingFeiBiao>();
+                                unitDict[table.DanWeiMingCheng].Add(table);
                             }
                         }
 
                         //添加行和列
-                        if (unitDict.Count >= 1)
+                        int colCount = dictMoneys.Count + 2;
+                        for (int k = 0; k < unitDict.Count - 1; k++)
                         {
-                            //添加行
-                            for (int kk = 0; kk < unitDict.Count - 1; kk++)
+                            t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
+                        }
+                        for (int vv = 0; vv < t.Rows.Count; vv++)
+                        {
+                            for (int jj = 0; jj < colCount; jj++)
                             {
-                                t.Rows.Add(t.Rows[t.Rows.Count - 1].Clone(true));
+                                t.Rows[vv].Cells.Add(t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].Clone(true));
                             }
-                            //添加列
-                            for (int jj = 0; jj < t.Rows.Count; jj++)
-                            {
-                                for (int vv = 0; vv < unitDict.Values[0].Count; vv++)
-                                {
-                                    t.Rows[jj].Cells.Add(t.Rows[jj].Cells[t.Rows[jj].Cells.Count - 1].Clone(true));
-                                }
-                            }
+                        }
 
-                            wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
-                            wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
+                        wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
+                        wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
 
-                            int cellIndex = 1;
-                            foreach (DanWeiJingFeiNianDuBiao biao in unitDict.Values[0])
-                            {
-                                yearAndCell[biao.NianDu] = cellIndex;
+                        wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "合同验收"));
+                        wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], "黑体", 12);
 
-                                wu.Document.fillCell(true, t.Rows[0].Cells[cellIndex], wu.Document.newParagraph(t.Document, biao.NianDu + "年度"));
-                                wu.Document.setFontInCell(t.Rows[0].Cells[cellIndex], "黑体", 12);
-                                cellIndex++;
-                            }
+                        wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
+                        wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
+
+                        for (int tt = 2; tt <= dictMoneys.Count + 1; tt++)
+                        {
+                            nodeAndCell[dictMoneys[tt - 2].Key] = tt;
+
+                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, dictMoneys[tt - 2].Value));
+                            wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
                         }
 
                         //添加数据
                         int rowIndex = 1;
-                        foreach (KeyValuePair<string, List<DanWeiJingFeiNianDuBiao>> kvp in unitDict)
+                        foreach (KeyValuePair<string, List<DanWeiJieDianJingFeiBiao>> kvp in unitDict)
                         {
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[0], wu.Document.newParagraph(t.Document, kvp.Key));
-                            int cIndex = 1;
+                            
                             decimal totalMoney = 0;
-                            foreach (DanWeiJingFeiNianDuBiao biao in kvp.Value)
+                            foreach (DanWeiJieDianJingFeiBiao biao in kvp.Value)
                             {
                                 totalMoney += biao.JingFei;
 
-                                if (yearAndCell.ContainsKey(biao.NianDu))
+                                if (nodeAndCell.ContainsKey(biao.BoFuBianHao))
                                 {
-                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[yearAndCell[biao.NianDu]], wu.Document.newParagraph(t.Document, biao.JingFei + ""));
+                                    wu.Document.fillCell(true, t.Rows[rowIndex].Cells[nodeAndCell[biao.BoFuBianHao]], wu.Document.newParagraph(t.Document, biao.JingFei + ""));
                                 }
-
-                                cIndex++;
                             }
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[t.Rows[rowIndex].Cells.Count - 1], wu.Document.newParagraph(t.Document, totalMoney + ""));
                             rowIndex++;
@@ -1018,7 +1030,7 @@ namespace ProjectContractPlugin.Utility
 
                                 table.Rows[rowStart + 2].Cells[1].RemoveAllChildren();
                                 wu.Document.addRangeToNodeCollection(table.Rows[rowStart + 2].Cells[1].ChildNodes, wu.Document.getParagraphListWithNewLine(table.Document, "承担单位\n及通信地址"));
-                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[1],"宋体",10.5);
+                                wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[1], "宋体", 10.5);
                                 ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                 ((Paragraph)table.Rows[rowStart + 2].Cells[1].ChildNodes[1]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                                 //table.Cell(rowStart + 2, 2).VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
@@ -1040,19 +1052,19 @@ namespace ProjectContractPlugin.Utility
 
                                 wu.Document.fillCell(true, table.Rows[rowStart].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShengRi != null ? personObj.ShengRi.ToString("yyyy年MM月dd日") : DateTime.Now.ToString("yyyy年MM月dd日")));
                                 wu.Document.setFontInCell(table.Rows[rowStart].Cells[6], "宋体", 10.5);
-                                
+
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[2], wu.Document.newParagraph(table.Document, personObj.ZhiCheng));
                                 wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[2], "宋体", 10.5);
-                                
+
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[4], wu.Document.newParagraph(table.Document, personObj.DianHua));
                                 wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[4], "宋体", 10.5);
-                                
+
                                 wu.Document.fillCell(true, table.Rows[rowStart + 1].Cells[6], wu.Document.newParagraph(table.Document, personObj.ShouJi));
                                 wu.Document.setFontInCell(table.Rows[rowStart + 1].Cells[6], "宋体", 10.5);
 
                                 wu.Document.fillCell(true, table.Rows[rowStart + 2].Cells[2], wu.Document.newParagraph(table.Document, subjectObj.KeTiFuZeDanWei + "," + subjectObj.KeTiFuZeDanWeiTongXunDiZhi), false);
                                 wu.Document.setFontInCell(table.Rows[rowStart + 2].Cells[2], "宋体", 10.5);
-                                
+
                                 #endregion
 
                                 //合并单元格
