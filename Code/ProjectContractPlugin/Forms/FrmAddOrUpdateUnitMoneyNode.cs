@@ -14,53 +14,41 @@ namespace ProjectContractPlugin.Forms
     public partial class FrmAddOrUpdateUnitMoneyNode : AbstractEditorPlugin.BaseForm
     {
         private string lastUnit;
+        private List<BoFuBiao> MSList;
+        private List<KeyValuePair<string, string>> dictMoneys = new List<KeyValuePair<string, string>>();
+
         public FrmAddOrUpdateUnitMoneyNode(string unitName)
         {
             InitializeComponent();
 
-            try
+            MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+            MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+            int index = 0;
+            foreach (BoFuBiao data in MSList)
             {
-                int start = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year;
-                int end = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJieShuShiJian.Year;
-                for (int kkk = start; kkk <= end; kkk++)
-                {
-                    ((DataGridViewComboBoxColumn)dgvDetail.Columns[0]).Items.Add(kkk.ToString());
-                }
+                index++;
+                dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index + "(" + data.BoFuTiaoJian + ")"));
             }
-            catch (Exception ex) { }
 
             lastUnit = unitName;
             txtUnitName.Text = unitName;
 
-            List<DanWeiJingFeiNianDuBiao> list = ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing = '" + unitName + "'").select("*").getList<DanWeiJingFeiNianDuBiao>(new DanWeiJingFeiNianDuBiao());
+            List<DanWeiJieDianJingFeiBiao> list = ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng = '" + unitName + "'").select("*").getList<DanWeiJieDianJingFeiBiao>(new DanWeiJieDianJingFeiBiao());
             if (list != null && list.Count >= 1)
             {
-                foreach (DanWeiJingFeiNianDuBiao obj in list)
+                foreach (KeyValuePair<string, string> kvpp in dictMoneys)
                 {
-                    List<object> cells = new List<object>();
-                    if (((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJieShuShiJian.Year >= obj.NianDu && obj.NianDu >= ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year)
+                    foreach (DanWeiJieDianJingFeiBiao obj in list)
                     {
-                        cells.Add(obj.NianDu.ToString());
-                    }
-                    else
-                    {
-                        cells.Add(((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year.ToString());
-                    }
-                    cells.Add(obj.JingFei);
-                    dgvDetail.Rows.Add(cells.ToArray());
-                }
-            }
-        }
+                        if (kvpp.Key == obj.BoFuBianHao)
+                        {
+                            List<object> cells = new List<object>();
+                            cells.Add(kvpp.Value);
+                            cells.Add(obj.JingFei);
 
-        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvDetail.Rows.Count >= 1)
-            {
-                if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
-                {
-                    if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                    {
-                        dgvDetail.Rows.RemoveAt(e.RowIndex);
+                            int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
+                            dgvDetail.Rows[rowIndex].Tag = obj.BoFuBianHao;
+                        }
                     }
                 }
             }
@@ -75,8 +63,8 @@ namespace ProjectContractPlugin.Forms
             }
 
             //删除当前课题的所有年度经费
-            ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing = '" + lastUnit + "'").delete();
-            ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing = '" + txtUnitName.Text + "'").delete();
+            ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng = '" + lastUnit + "'").delete();
+            ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng = '" + txtUnitName.Text + "'").delete();
 
             //填写数据
             foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
@@ -89,24 +77,29 @@ namespace ProjectContractPlugin.Forms
                 {
                     continue;
                 }
-                int niandu = 0;
-                decimal jingfei = 0;
-                if (int.TryParse(dgvRow.Cells[0].Value.ToString(), out niandu) == false)
+                if (dgvRow.Tag == null)
                 {
                     continue;
                 }
+                string nodeName = dgvRow.Cells[0].Value.ToString();
+                string nodeID = dgvRow.Tag.ToString();
+                decimal jingfei = 0;
+                //if (int.TryParse(dgvRow.Cells[0].Value.ToString(), out niandu) == false)
+                //{
+                //    continue;
+                //}
                 if (decimal.TryParse(dgvRow.Cells[1].Value.ToString(), out jingfei) == false)
                 {
                     continue;
                 }
 
-                DanWeiJingFeiNianDuBiao obj = new DanWeiJingFeiNianDuBiao();
-                obj.DanWeiMing = txtUnitName.Text;
-                obj.NianDu = dgvRow.Cells[0].Value != null ? int.Parse(dgvRow.Cells[0].Value.ToString()) : DateTime.Now.Year;
+                DanWeiJieDianJingFeiBiao obj = new DanWeiJieDianJingFeiBiao();
+                obj.DanWeiMingCheng = txtUnitName.Text;
+                obj.BoFuBianHao = nodeID;
                 obj.JingFei = dgvRow.Cells[1].Value != null ? decimal.Parse(dgvRow.Cells[1].Value.ToString()) : 0;
                 obj.ZhuangTai = 0;
                 obj.ModifyTime = DateTime.Now;
-                obj.copyTo(ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao")).insert();
+                obj.copyTo(ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao")).insert();
             }
 
             DialogResult = System.Windows.Forms.DialogResult.OK;
