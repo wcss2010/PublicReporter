@@ -225,6 +225,18 @@
     <Compile Include="Editor\TogetherRuleEditor.Designer.cs">
       <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\SubjectMoneyNodeEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\SubjectMoneyNodeEditor.Designer.cs">
+      <DependentUpon>SubjectMoneyNodeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\UnitMoneyNodeEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\UnitMoneyNodeEditor.Designer.cs">
+      <DependentUpon>UnitMoneyNodeEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAddOrUpdateDestNameAndQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +404,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\TogetherRuleEditor.resx">
       <DependentUpon>TogetherRuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SubjectMoneyNodeEditor.resx">
+      <DependentUpon>SubjectMoneyNodeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\UnitMoneyNodeEditor.resx">
+      <DependentUpon>UnitMoneyNodeEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddOrUpdateDestNameAndQuestion.resx">
       <DependentUpon>FrmAddOrUpdateDestNameAndQuestion.cs</DependentUpon>

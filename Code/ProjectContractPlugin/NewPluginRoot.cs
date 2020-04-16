@@ -168,16 +168,24 @@ namespace ProjectContractPlugin
             itemObj = new TreeNode();
             itemObj.Text = "附件";
 
+            //subItemObj = new TreeNode();
+            //subItemObj.Text = "课题经费年度分配表";
+            //itemObj.Nodes.Add(subItemObj);
+
+            //subItemObj = new TreeNode();
+            //subItemObj.Text = "课题经费预算表";
+            //itemObj.Nodes.Add(subItemObj);
+
+            //subItemObj = new TreeNode();
+            //subItemObj.Text = "单位经费年度分配表";
+            //itemObj.Nodes.Add(subItemObj);
+
             subItemObj = new TreeNode();
-            subItemObj.Text = "课题经费年度分配表";
+            subItemObj.Text = "课题经费分配表";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
-            subItemObj.Text = "课题经费预算表";
-            itemObj.Nodes.Add(subItemObj);
-
-            subItemObj = new TreeNode();
-            subItemObj.Text = "单位经费年度分配表";
+            subItemObj.Text = "单位经费分配表";
             itemObj.Nodes.Add(subItemObj);
 
             subItemObj = new TreeNode();
@@ -211,9 +219,14 @@ namespace ProjectContractPlugin
             editorMap.Add("提交要求", new SubmitQuestionEditor());
             editorMap.Add("主要研究人员", new WorkerEditor());
             editorMap.Add("共同条款", new TogetherRuleEditor("共同条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyB.rtf"))));
-            editorMap.Add("课题经费年度分配表", new SubjectMoneyYearEditor());
-            editorMap.Add("课题经费预算表", new SubjectMoneyEditor());
-            editorMap.Add("单位经费年度分配表", new UnitMoneyYearEditor());
+
+            //editorMap.Add("课题经费年度分配表", new SubjectMoneyYearEditor());
+            //editorMap.Add("课题经费预算表", new SubjectMoneyEditor());
+            //editorMap.Add("单位经费年度分配表", new UnitMoneyYearEditor());
+
+            editorMap.Add("课题经费分配表", new SubjectMoneyNodeEditor());
+            editorMap.Add("单位经费分配表", new UnitMoneyNodeEditor());
+
             editorMap.Add("项目经费预算编制说明", new ExtFile2Editor());
             #endregion
 
