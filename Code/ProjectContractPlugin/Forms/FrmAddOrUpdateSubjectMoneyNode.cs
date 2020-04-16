@@ -13,20 +13,21 @@ namespace ProjectContractPlugin.Forms
 {
     public partial class FrmAddOrUpdateSubjectMoneyNode : AbstractEditorPlugin.BaseForm
     {
+        private List<BoFuBiao> MSList;
+        private List<KeyValuePair<string, string>> dictMoneys = new List<KeyValuePair<string, string>>();
+
         public FrmAddOrUpdateSubjectMoneyNode(string subjectId)
         {
             InitializeComponent();
 
-            try
+            MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+            MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+            int index = 0;
+            foreach (BoFuBiao data in MSList)
             {
-                int start = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year;
-                int end = ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJieShuShiJian.Year;
-                for (int kkk = start; kkk <= end; kkk++)
-                {
-                    ((DataGridViewComboBoxColumn)dgvDetail.Columns[0]).Items.Add(kkk.ToString());
-                }
+                index++;
+                dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index + "(" + data.BoFuTiaoJian + ")"));
             }
-            catch (Exception ex) { }
 
             cbxSubjectList.DataSource = ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
             cbxSubjectList.DisplayMember = "KeTiMingCheng";
@@ -35,22 +36,23 @@ namespace ProjectContractPlugin.Forms
             cbxSubjectList.SelectedValue = subjectId;
             cbxSubjectList.Enabled = false;
 
-            List<KeTiJingFeiNianDuBiao> list = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao = '" + subjectId + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
+            List<KeTiJieDianJingFeiBiao> list = ConnectionManager.Context.table("KeTiJieDianJingFeiBiao").where("KeTiBianHao = '" + subjectId + "'").select("*").getList<KeTiJieDianJingFeiBiao>(new KeTiJieDianJingFeiBiao());
             if (list != null && list.Count >= 1)
             {
-                foreach (KeTiJingFeiNianDuBiao obj in list)
+                foreach (KeyValuePair<string, string> kvpp in dictMoneys)
                 {
-                    List<object> cells = new List<object>();
-                    if (((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongJieShuShiJian.Year >= obj.NianDu && obj.NianDu >= ((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year)
+                    foreach (KeTiJieDianJingFeiBiao obj in list)
                     {
-                        cells.Add(obj.NianDu.ToString());
+                        if (kvpp.Key == obj.BoFuBianHao)
+                        {
+                            List<object> cells = new List<object>();
+                            cells.Add(kvpp.Value);
+                            cells.Add(obj.JingFei);
+
+                            int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
+                            dgvDetail.Rows[rowIndex].Tag = obj.BoFuBianHao;
+                        }
                     }
-                    else
-                    {
-                        cells.Add(((JiBenXinXiBiao)PluginRootObj.projectObj).HeTongKaiShiShiJian.Year.ToString());
-                    }
-                    cells.Add(obj.JingFei);
-                    dgvDetail.Rows.Add(cells.ToArray());
                 }
             }
         }
@@ -64,7 +66,7 @@ namespace ProjectContractPlugin.Forms
             }
 
             //删除当前课题的所有年度经费
-            ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao = '" + cbxSubjectList.SelectedValue + "'").delete();
+            ConnectionManager.Context.table("KeTiJieDianJingFeiBiao").where("KeTiBianHao = '" + cbxSubjectList.SelectedValue + "'").delete();
 
             //填写数据
             foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
@@ -77,24 +79,29 @@ namespace ProjectContractPlugin.Forms
                 {
                     continue;
                 }
-                int niandu = 0;
-                decimal jingfei = 0;
-                if (int.TryParse(dgvRow.Cells[0].Value.ToString(), out niandu) == false)
+                if (dgvRow.Tag == null)
                 {
                     continue;
                 }
+                string nodeName = dgvRow.Cells[0].Value.ToString();
+                string nodeID = dgvRow.Tag.ToString();
+                decimal jingfei = 0;
+                //if (int.TryParse(dgvRow.Cells[0].Value.ToString(), out niandu) == false)
+                //{
+                //    continue;
+                //}
                 if (decimal.TryParse(dgvRow.Cells[1].Value.ToString(), out jingfei) == false)
                 {
                     continue;
                 }
 
-                KeTiJingFeiNianDuBiao obj = new KeTiJingFeiNianDuBiao();
+                KeTiJieDianJingFeiBiao obj = new KeTiJieDianJingFeiBiao();
                 obj.KeTiBianHao = cbxSubjectList.SelectedValue.ToString();
-                obj.NianDu = dgvRow.Cells[0].Value != null ? int.Parse(dgvRow.Cells[0].Value.ToString()) : DateTime.Now.Year;
+                obj.BoFuBianHao = nodeID;
                 obj.JingFei = dgvRow.Cells[1].Value != null ? decimal.Parse(dgvRow.Cells[1].Value.ToString()) : 0;
                 obj.ZhuangTai = 0;
                 obj.ModifyTime = DateTime.Now;
-                obj.copyTo(ConnectionManager.Context.table("KeTiJingFeiNianDuBiao")).insert();
+                obj.copyTo(ConnectionManager.Context.table("KeTiJieDianJingFeiBiao")).insert();
             }
 
             DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -103,20 +110,6 @@ namespace ProjectContractPlugin.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             DialogResult = System.Windows.Forms.DialogResult.Cancel;
-        }
-
-        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvDetail.Rows.Count >= 1)
-            {
-                if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
-                {
-                    if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                    {
-                        dgvDetail.Rows.RemoveAt(e.RowIndex);
-                    }
-                }
-            }
         }
     }
 }
