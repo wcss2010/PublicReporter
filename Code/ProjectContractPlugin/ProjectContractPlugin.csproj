@@ -488,6 +488,9 @@
     <None Include="Helper\readonlyD.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Helper\readonlyE.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Helper\secretPaste.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
