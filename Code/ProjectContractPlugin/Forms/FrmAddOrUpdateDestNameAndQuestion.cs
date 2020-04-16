@@ -43,7 +43,6 @@ namespace ProjectContractPlugin.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox1.Text)
-                || String.IsNullOrEmpty(textBox2.Text)
                 ||String.IsNullOrEmpty(txtContent.Text))
             {
                 MessageBox.Show("对不起，请完善内容！", "错误");
