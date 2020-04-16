@@ -46,10 +46,12 @@
             this.txtWorkUnitAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ibEdit3 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,7 +118,7 @@
             this.txtSubjectName.Location = new System.Drawing.Point(148, 10);
             this.txtSubjectName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(647, 26);
+            this.txtSubjectName.Size = new System.Drawing.Size(468, 26);
             this.txtSubjectName.TabIndex = 4;
             // 
             // txtWorkContent
@@ -279,17 +281,6 @@
             this.dgvDetail.TabIndex = 12;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(54, 495);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "单位分工：";
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "单位名称";
@@ -313,11 +304,50 @@
             this.Column3.UseColumnTextForButtonValue = true;
             this.Column3.Width = 60;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label4.Location = new System.Drawing.Point(54, 495);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "单位分工：";
+            // 
+            // ibEdit3
+            // 
+            this.ibEdit3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ibEdit3.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit3.FormattingEnabled = true;
+            this.ibEdit3.ItemHeight = 16;
+            this.ibEdit3.Items.AddRange(new object[] {
+            "公开",
+            "秘密",
+            "机密",
+            "绝密"});
+            this.ibEdit3.Location = new System.Drawing.Point(719, 10);
+            this.ibEdit3.Name = "ibEdit3";
+            this.ibEdit3.Size = new System.Drawing.Size(76, 24);
+            this.ibEdit3.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label9.Location = new System.Drawing.Point(624, 13);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 16);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "保密等级：";
+            // 
             // FrmAddOrUpdateSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 696);
+            this.Controls.Add(this.ibEdit3);
             this.Controls.Add(this.dgvDetail);
             this.Controls.Add(this.txtWorkAddress);
             this.Controls.Add(this.txtWorkOrg);
@@ -335,6 +365,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtWorkDest);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -371,5 +402,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
+        private System.Windows.Forms.ComboBox ibEdit3;
+        private System.Windows.Forms.Label label9;
     }
 }

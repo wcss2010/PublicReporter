@@ -19,9 +19,13 @@ namespace ProjectContractPlugin.Forms
 
             DataObj = obj;
             Count = count;
+
+            ibEdit3.SelectedIndex = 0;
+
             if (DataObj != null)
             {
                 txtSubjectName.Text = DataObj.KeTiMingCheng;
+                ibEdit3.SelectedItem = DataObj.KeTiBaoMiDengJi;
                 txtWorkDest.Text = DataObj.KeTiYanJiuMuBiao;
                 txtWorkContent.Text = DataObj.KeTiYanJiuNeiRong;
                 //txtUnitTask.Text = DataObj.KeTiCanJiaDanWeiFenGong;
@@ -70,6 +74,7 @@ namespace ProjectContractPlugin.Forms
             }
 
             DataObj.KeTiMingCheng = txtSubjectName.Text;
+            DataObj.KeTiBaoMiDengJi = ibEdit3.Text;
             DataObj.KeTiFuZeDanWei = txtWorkUnit.Text;
             DataObj.KeTiFuZeDanWeiTongXunDiZhi = txtWorkUnitAddress.Text;
             DataObj.KeTiSuoShuBuMen = txtWorkOrg.Text;
