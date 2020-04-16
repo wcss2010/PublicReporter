@@ -33,23 +33,23 @@
             this.plContent = new System.Windows.Forms.Panel();
             this.txtContent = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ibEdit1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ibEdit2 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ibEdit3 = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ibEdit4 = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
+            this.ibEdit4 = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ibEdit3 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ibEdit2 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ibEdit1 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ibEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ibEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ibEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ibEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ibEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ibEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ibEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -118,78 +118,43 @@
             this.panel1.Size = new System.Drawing.Size(1063, 28);
             this.panel1.TabIndex = 1;
             // 
-            // btnSave
+            // label5
             // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(976, 0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 28);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label5.Location = new System.Drawing.Point(701, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 28);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "份";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Visible = false;
             // 
-            // label1
+            // ibEdit4
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "本合同一式";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ibEdit1
-            // 
-            this.ibEdit1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit1.Location = new System.Drawing.Point(100, 0);
-            this.ibEdit1.Maximum = new decimal(new int[] {
+            this.ibEdit4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit4.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit4.Location = new System.Drawing.Point(652, 0);
+            this.ibEdit4.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
-            this.ibEdit1.Name = "ibEdit1";
-            this.ibEdit1.Size = new System.Drawing.Size(51, 26);
-            this.ibEdit1.TabIndex = 2;
+            this.ibEdit4.Name = "ibEdit4";
+            this.ibEdit4.Size = new System.Drawing.Size(49, 26);
+            this.ibEdit4.TabIndex = 8;
+            this.ibEdit4.Visible = false;
             // 
-            // label2
+            // label4
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(151, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 28);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "份，具有同等法律效力，委托方执";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ibEdit2
-            // 
-            this.ibEdit2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit2.Location = new System.Drawing.Point(403, 0);
-            this.ibEdit2.Maximum = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.ibEdit2.Name = "ibEdit2";
-            this.ibEdit2.Size = new System.Drawing.Size(49, 26);
-            this.ibEdit2.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label3.Location = new System.Drawing.Point(452, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 28);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "份，承研方执";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label4.Location = new System.Drawing.Point(611, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 28);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "份。";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ibEdit3
             // 
@@ -205,41 +170,78 @@
             this.ibEdit3.Size = new System.Drawing.Size(51, 26);
             this.ibEdit3.TabIndex = 6;
             // 
-            // label4
+            // label3
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(611, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 28);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "份，总体单位执";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label3.Location = new System.Drawing.Point(452, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 28);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "份，承研方执";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ibEdit4
+            // ibEdit2
             // 
-            this.ibEdit4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ibEdit4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.ibEdit4.Location = new System.Drawing.Point(736, 0);
-            this.ibEdit4.Maximum = new decimal(new int[] {
+            this.ibEdit2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit2.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit2.Location = new System.Drawing.Point(403, 0);
+            this.ibEdit2.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
-            this.ibEdit4.Name = "ibEdit4";
-            this.ibEdit4.Size = new System.Drawing.Size(49, 26);
-            this.ibEdit4.TabIndex = 8;
+            this.ibEdit2.Name = "ibEdit2";
+            this.ibEdit2.Size = new System.Drawing.Size(49, 26);
+            this.ibEdit2.TabIndex = 4;
             // 
-            // label5
+            // label2
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label5.Location = new System.Drawing.Point(785, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 28);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "份";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label2.Location = new System.Drawing.Point(151, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(252, 28);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "份，具有同等法律效力，委托方执";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ibEdit1
+            // 
+            this.ibEdit1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ibEdit1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.ibEdit1.Location = new System.Drawing.Point(100, 0);
+            this.ibEdit1.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.ibEdit1.Name = "ibEdit1";
+            this.ibEdit1.Size = new System.Drawing.Size(51, 26);
+            this.ibEdit1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 28);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "本合同一式";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
+            this.btnSave.Location = new System.Drawing.Point(976, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(87, 28);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "保存";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // TogetherRuleEditor
             // 
@@ -252,10 +254,10 @@
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ibEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ibEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ibEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ibEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ibEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ibEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ibEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
