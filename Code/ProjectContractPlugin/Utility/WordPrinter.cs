@@ -544,17 +544,17 @@ namespace ProjectContractPlugin.Utility
                     wu.Document.writeWithNewLine(data.KeTiMingCheng);
 
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write("（1）研究目标：");
+                    wu.Document.WordDocBuilder.Writeln("（1）研究目标");
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.KeTiYanJiuMuBiao);
 
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Writeln("（2）研究内容：");
+                    wu.Document.WordDocBuilder.Writeln("（2）研究内容");
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.KeTiYanJiuNeiRong);
 
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Writeln("（3）参加单位分工：");
+                    wu.Document.WordDocBuilder.Writeln("（3）参加单位分工");
                     wu.Document.WordDocBuilder.Font.Bold = false;
 
                     StringBuilder sbWorkTask = new StringBuilder();
