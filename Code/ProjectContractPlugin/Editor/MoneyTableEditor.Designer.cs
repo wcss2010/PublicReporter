@@ -103,6 +103,7 @@
             this.ibEditMoney5_1 = new System.Windows.Forms.TextBox();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.llReadme = new System.Windows.Forms.LinkLabel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.hSkinTableLayoutPanel2.SuspendLayout();
@@ -1050,6 +1051,7 @@
             // 
             // plButtons
             // 
+            this.plButtons.Controls.Add(this.llReadme);
             this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Location = new System.Drawing.Point(10, 627);
@@ -1067,6 +1069,19 @@
             this.btnSave.TabIndex = 51;
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // llReadme
+            // 
+            this.llReadme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.llReadme.Font = new System.Drawing.Font("仿宋", 12F);
+            this.llReadme.Location = new System.Drawing.Point(842, 0);
+            this.llReadme.Name = "llReadme";
+            this.llReadme.Size = new System.Drawing.Size(129, 30);
+            this.llReadme.TabIndex = 52;
+            this.llReadme.TabStop = true;
+            this.llReadme.Text = "查看注意事项";
+            this.llReadme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llReadme.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llReadme_LinkClicked);
             // 
             // MoneyTableEditor
             // 
@@ -1164,5 +1179,6 @@
         private System.Windows.Forms.TextBox ibEditMoney3_2;
         private System.Windows.Forms.TextBox ibEditMoney3_3;
         private System.Windows.Forms.TextBox ibEditMoney5_1;
+        private System.Windows.Forms.LinkLabel llReadme;
     }
 }

@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using ProjectContractPlugin.DB;
 using ProjectContractPlugin.DB.Entitys;
+using AbstractEditorPlugin.Forms;
+using System.IO;
 
 namespace ProjectContractPlugin.Editor
 {
@@ -258,6 +260,13 @@ namespace ProjectContractPlugin.Editor
             {
                 return true;
             }
+        }
+
+        private void llReadme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmHelpBox helpBox = new FrmHelpBox(Path.Combine(PluginRootObj.RootDir, Path.Combine("Helper", "readonlyE.rtf")));
+            helpBox.Text = "查看注意事项";
+            helpBox.ShowDialog();
         }
     }
 }
