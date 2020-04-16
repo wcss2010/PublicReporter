@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateUnitMoneyUnit : AbstractEditorPlugin.BaseForm
+    public partial class FrmAddOrUpdateUnitMoneyNode : AbstractEditorPlugin.BaseForm
     {
         private string lastUnit;
-        public FrmAddOrUpdateUnitMoneyUnit(string unitName)
+        public FrmAddOrUpdateUnitMoneyNode(string unitName)
         {
             InitializeComponent();
 

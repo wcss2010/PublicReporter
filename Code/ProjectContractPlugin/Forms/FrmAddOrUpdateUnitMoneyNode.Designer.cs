@@ -1,6 +1,6 @@
 ﻿namespace ProjectContractPlugin.Forms
 {
-    partial class FrmAddOrUpdateUnitMoneyUnit
+    partial class FrmAddOrUpdateUnitMoneyNode
     {
         /// <summary>
         /// Required designer variable.

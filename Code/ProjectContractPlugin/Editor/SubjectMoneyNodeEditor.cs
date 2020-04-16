@@ -30,7 +30,7 @@ namespace ProjectContractPlugin.Editor
                     //编辑
 
                     //显示编辑窗体
-                    FrmAddOrUpdateSubjectMoneyUnit form = new FrmAddOrUpdateSubjectMoneyUnit(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
+                    FrmAddOrUpdateSubjectMoneyNode form = new FrmAddOrUpdateSubjectMoneyNode(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
                     if (form.ShowDialog() == DialogResult.OK)
                         //刷新列表
                         refreshView();
@@ -45,7 +45,7 @@ namespace ProjectContractPlugin.Editor
                 //编辑
 
                 //显示编辑窗体
-                FrmAddOrUpdateSubjectMoneyUnit form = new FrmAddOrUpdateSubjectMoneyUnit(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
+                FrmAddOrUpdateSubjectMoneyNode form = new FrmAddOrUpdateSubjectMoneyNode(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
                 form.ShowDialog();
 
                 //刷新列表

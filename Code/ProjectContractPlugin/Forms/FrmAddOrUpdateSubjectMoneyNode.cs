@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ProjectContractPlugin.Forms
 {
-    public partial class FrmAddOrUpdateSubjectMoneyUnit : AbstractEditorPlugin.BaseForm
+    public partial class FrmAddOrUpdateSubjectMoneyNode : AbstractEditorPlugin.BaseForm
     {
-        public FrmAddOrUpdateSubjectMoneyUnit(string subjectId)
+        public FrmAddOrUpdateSubjectMoneyNode(string subjectId)
         {
             InitializeComponent();
 

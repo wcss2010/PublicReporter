@@ -333,17 +333,17 @@
     <Compile Include="Forms\FrmProjectManager.designer.cs">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyUnit.cs">
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyNode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyUnit.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateSubjectMoneyUnit.cs</DependentUpon>
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyNode.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateSubjectMoneyNode.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyUnit.cs">
+    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyNode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyUnit.Designer.cs">
-      <DependentUpon>FrmAddOrUpdateUnitMoneyUnit.cs</DependentUpon>
+    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyNode.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateUnitMoneyNode.cs</DependentUpon>
     </Compile>
     <Compile Include="NewPluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -471,11 +471,11 @@
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectMoneyUnit.resx">
-      <DependentUpon>FrmAddOrUpdateSubjectMoneyUnit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectMoneyNode.resx">
+      <DependentUpon>FrmAddOrUpdateSubjectMoneyNode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddOrUpdateUnitMoneyUnit.resx">
-      <DependentUpon>FrmAddOrUpdateUnitMoneyUnit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateUnitMoneyNode.resx">
+      <DependentUpon>FrmAddOrUpdateUnitMoneyNode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

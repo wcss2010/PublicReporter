@@ -26,7 +26,7 @@ namespace ProjectContractPlugin.Editor
         private void btnNew_Click(object sender, EventArgs e)
         {
             //显示编辑窗体
-            FrmAddOrUpdateUnitMoneyUnit form = new FrmAddOrUpdateUnitMoneyUnit(string.Empty);
+            FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(string.Empty);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
@@ -61,7 +61,7 @@ namespace ProjectContractPlugin.Editor
                     //编辑
 
                     //显示编辑窗体
-                    FrmAddOrUpdateUnitMoneyUnit form = new FrmAddOrUpdateUnitMoneyUnit(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
+                    FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         //刷新列表
@@ -90,7 +90,7 @@ namespace ProjectContractPlugin.Editor
                 //编辑
 
                 //显示编辑窗体
-                FrmAddOrUpdateUnitMoneyUnit form = new FrmAddOrUpdateUnitMoneyUnit(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
+                FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //刷新列表
