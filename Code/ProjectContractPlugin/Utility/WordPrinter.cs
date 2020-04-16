@@ -1088,7 +1088,7 @@ namespace ProjectContractPlugin.Utility
                 #endregion
 
                 #region 插入Doc文件
-                wu.insertFile("主要研究内容_项目分解情况", Path.Combine(pt.filesDir, "项目分解情况.doc"), true);
+                wu.insertFile("主要研究内容_项目分解情况", Path.Combine(pt.filesDir, "批复内容.doc"), true);
                 wu.insertFile("附件2", Path.Combine(pt.filesDir, "项目经费预算编制说明.doc"), false);
                 #endregion
 
