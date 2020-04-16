@@ -33,13 +33,13 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnDelAll = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -115,39 +115,6 @@
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "单位名称";
-            this.Column1.MinimumWidth = 160;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 160;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "年度经费";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Text = "删除";
-            this.Column3.UseColumnTextForButtonValue = true;
-            this.Column3.Width = 5;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Text = "编辑";
-            this.Column4.UseColumnTextForButtonValue = true;
-            this.Column4.Width = 5;
-            // 
             // plButtons
             // 
             this.plButtons.Controls.Add(this.btnNew);
@@ -180,13 +147,46 @@
             this.btnDelAll.Text = "删除选中";
             this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
             // 
-            // UnitMoneyYearEditor
+            // Column1
+            // 
+            this.Column1.HeaderText = "单位名称";
+            this.Column1.MinimumWidth = 160;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 160;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "节点经费";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Text = "删除";
+            this.Column3.UseColumnTextForButtonValue = true;
+            this.Column3.Width = 5;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Text = "编辑";
+            this.Column4.UseColumnTextForButtonValue = true;
+            this.Column4.Width = 5;
+            // 
+            // UnitMoneyNodeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
-            this.Name = "UnitMoneyYearEditor";
+            this.Name = "UnitMoneyNodeEditor";
             this.Size = new System.Drawing.Size(972, 587);
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
@@ -204,10 +204,10 @@
         private System.Windows.Forms.DataGridView dgvDetail;
         private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnDelAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
-        private System.Windows.Forms.Button btnDelAll;
     }
 }

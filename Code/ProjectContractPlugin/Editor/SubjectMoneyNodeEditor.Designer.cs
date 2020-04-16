@@ -131,7 +131,7 @@
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "年度经费";
+            this.Column2.HeaderText = "节点经费";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -144,13 +144,13 @@
             this.Column4.UseColumnTextForButtonValue = true;
             this.Column4.Width = 5;
             // 
-            // SubjectMoneyYearEditor
+            // SubjectMoneyNodeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.plMain);
-            this.Name = "SubjectMoneyYearEditor";
+            this.Name = "SubjectMoneyNodeEditor";
             this.Size = new System.Drawing.Size(973, 591);
             this.plMain.ResumeLayout(false);
             this.plContent.ResumeLayout(false);
