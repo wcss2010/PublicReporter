@@ -14,10 +14,12 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
-            query.set("ModifyTime", DateTime.Now);
             //设置值
+            query.set("ModifyTime", DateTime.Now);
+
             query.set("BianHao", BianHao);
             query.set("KeTiMingCheng", KeTiMingCheng);
+            query.set("KeTiBaoMiDengJi", KeTiBaoMiDengJi);
             query.set("KeTiYanJiuMuBiao", KeTiYanJiuMuBiao);
             query.set("KeTiYanJiuNeiRong", KeTiYanJiuNeiRong);
             query.set("KeTiCanJiaDanWeiFenGong", KeTiCanJiaDanWeiFenGong);
@@ -34,6 +36,7 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public string BianHao { get; set; }
         public string KeTiMingCheng { get; set; }
+        public string KeTiBaoMiDengJi { get; set; }
         public string KeTiYanJiuMuBiao { get; set; }
         public string KeTiYanJiuNeiRong { get; set; }
         public string KeTiCanJiaDanWeiFenGong { get; set; }
@@ -47,8 +50,9 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
-            BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
+            BianHao = source("BianHao").value<string>("");
             KeTiMingCheng = source("KeTiMingCheng").value<string>("");
+            KeTiBaoMiDengJi = source("KeTiBaoMiDengJi").value<string>("");
             KeTiYanJiuMuBiao = source("KeTiYanJiuMuBiao").value<string>("");
             KeTiYanJiuNeiRong = source("KeTiYanJiuNeiRong").value<string>("");
             KeTiCanJiaDanWeiFenGong = source("KeTiCanJiaDanWeiFenGong").value<string>("");
@@ -59,7 +63,6 @@ namespace ProjectContractPlugin.DB.Entitys
             KeTiSuoShuBuMen = source("KeTiSuoShuBuMen").value<string>("");
             KeTiSuoShuDiDian = source("KeTiSuoShuDiDian").value<string>("");
             ZhuangTai = source("ZhuangTai").value<double>(0);
-
             ModifyTime = source("ModifyTime").value<DateTime>(DateTime.Now);
         }
 
