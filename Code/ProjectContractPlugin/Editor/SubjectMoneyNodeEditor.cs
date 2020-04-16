@@ -14,6 +14,8 @@ namespace ProjectContractPlugin.Editor
 {
     public partial class SubjectMoneyNodeEditor : AbstractEditorPlugin.BaseEditor
     {
+        Dictionary<string, string> dictMoneys = new Dictionary<string, string>();
+        private List<BoFuBiao> MSList;
         public SubjectMoneyNodeEditor()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace ProjectContractPlugin.Editor
                     //编辑
 
                     //显示编辑窗体
-                    FrmAddOrUpdateSubjectMoneyYear form = new FrmAddOrUpdateSubjectMoneyYear(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
+                    FrmAddOrUpdateSubjectMoneyUnit form = new FrmAddOrUpdateSubjectMoneyUnit(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
                     if (form.ShowDialog() == DialogResult.OK)
                         //刷新列表
                         refreshView();
@@ -43,7 +45,7 @@ namespace ProjectContractPlugin.Editor
                 //编辑
 
                 //显示编辑窗体
-                FrmAddOrUpdateSubjectMoneyYear form = new FrmAddOrUpdateSubjectMoneyYear(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
+                FrmAddOrUpdateSubjectMoneyUnit form = new FrmAddOrUpdateSubjectMoneyUnit(((KeTiBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao);
                 form.ShowDialog();
 
                 //刷新列表
@@ -55,16 +57,30 @@ namespace ProjectContractPlugin.Editor
         {
             base.refreshView();
 
+            MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+            MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+            int index = 0;
+            foreach (BoFuBiao data in MSList)
+            {
+                index++;
+                dictMoneys[data.BianHao] = "节点" + index + "(" + data.BoFuTiaoJian + ")";
+            }
+
             dgvDetail.Rows.Clear();
             List<KeTiBiao> subjectList = ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
             foreach (KeTiBiao subject in subjectList)
             {
                 //生成年度经费字符
-                List<KeTiJingFeiNianDuBiao> moneyList = ConnectionManager.Context.table("KeTiJingFeiNianDuBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiJingFeiNianDuBiao>(new KeTiJingFeiNianDuBiao());
+                List<KeTiJieDianJingFeiBiao> moneyList = ConnectionManager.Context.table("KeTiJieDianJingFeiBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiJieDianJingFeiBiao>(new KeTiJieDianJingFeiBiao());
                 StringBuilder sb = new StringBuilder();
-                foreach (KeTiJingFeiNianDuBiao money in moneyList)
+                foreach (KeTiJieDianJingFeiBiao money in moneyList)
                 {
-                    sb.Append(money.NianDu).Append("年度：").Append(money.JingFei).AppendLine("万元");
+                    string nodeStr = string.Empty;
+                    if (dictMoneys.ContainsKey(money.BoFuBianHao))
+                    {
+                        nodeStr = dictMoneys[money.BoFuBianHao];
+                        sb.Append(nodeStr).Append("：").Append(money.JingFei).AppendLine("万元");
+                    }
                 }
 
                 List<object> cells = new List<object>();

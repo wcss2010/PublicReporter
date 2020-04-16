@@ -15,6 +15,9 @@ namespace ProjectContractPlugin.Editor
 {
     public partial class UnitMoneyNodeEditor : AbstractEditorPlugin.BaseEditor
     {
+        Dictionary<string, string> dictMoneys = new Dictionary<string, string>();
+        private List<BoFuBiao> MSList;
+
         public UnitMoneyNodeEditor()
         {
             InitializeComponent();
@@ -23,7 +26,7 @@ namespace ProjectContractPlugin.Editor
         private void btnNew_Click(object sender, EventArgs e)
         {
             //显示编辑窗体
-            FrmAddOrUpdateUnitMoneyYear form = new FrmAddOrUpdateUnitMoneyYear(string.Empty);
+            FrmAddOrUpdateUnitMoneyUnit form = new FrmAddOrUpdateUnitMoneyUnit(string.Empty);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
@@ -40,7 +43,7 @@ namespace ProjectContractPlugin.Editor
                     //删除数据
                     foreach (DataGridViewRow dgvRow in dgvDetail.SelectedRows)
                     {
-                        ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing='" + dgvRow.Tag + "'").delete();
+                        ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng='" + dgvRow.Tag + "'").delete();
                     }
 
                     //刷新
@@ -58,7 +61,7 @@ namespace ProjectContractPlugin.Editor
                     //编辑
 
                     //显示编辑窗体
-                    FrmAddOrUpdateUnitMoneyYear form = new FrmAddOrUpdateUnitMoneyYear(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
+                    FrmAddOrUpdateUnitMoneyUnit form = new FrmAddOrUpdateUnitMoneyUnit(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         //刷新列表
@@ -71,7 +74,8 @@ namespace ProjectContractPlugin.Editor
                     if (MessageBox.Show("真的要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //删除数据
-                        ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").where("DanWeiMing='" + dgvDetail.Rows[e.RowIndex].Tag + "'").delete();
+                        ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng='" + dgvDetail.Rows[e.RowIndex].Tag + "'").delete();
+
                         //刷新
                         refreshView();
                     }
@@ -86,7 +90,7 @@ namespace ProjectContractPlugin.Editor
                 //编辑
 
                 //显示编辑窗体
-                FrmAddOrUpdateUnitMoneyYear form = new FrmAddOrUpdateUnitMoneyYear(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
+                FrmAddOrUpdateUnitMoneyUnit form = new FrmAddOrUpdateUnitMoneyUnit(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //刷新列表
@@ -99,30 +103,44 @@ namespace ProjectContractPlugin.Editor
         {
             base.refreshView();
 
-            //读取单位经费数据并进行分类
-            CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>> unitDict = new CustomDictionary<string, List<DanWeiJingFeiNianDuBiao>>();
-            List<DanWeiJingFeiNianDuBiao> list = ConnectionManager.Context.table("DanWeiJingFeiNianDuBiao").select("*").getList<DanWeiJingFeiNianDuBiao>(new DanWeiJingFeiNianDuBiao());
-            foreach (DanWeiJingFeiNianDuBiao table in list)
+            MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+            MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+            int index = 0;
+            foreach (BoFuBiao data in MSList)
             {
-                if (unitDict.ContainsKey(table.DanWeiMing))
+                index++;
+                dictMoneys[data.BianHao] = "节点" + index + "(" + data.BoFuTiaoJian + ")";
+            }
+
+            //读取单位经费数据并进行分类
+            CustomDictionary<string, List<DanWeiJieDianJingFeiBiao>> unitDict = new CustomDictionary<string, List<DanWeiJieDianJingFeiBiao>>();
+            List<DanWeiJieDianJingFeiBiao> list = ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").select("*").getList<DanWeiJieDianJingFeiBiao>(new DanWeiJieDianJingFeiBiao());
+            foreach (DanWeiJieDianJingFeiBiao table in list)
+            {
+                if (unitDict.ContainsKey(table.DanWeiMingCheng))
                 {
-                    unitDict[table.DanWeiMing].Add(table);
+                    unitDict[table.DanWeiMingCheng].Add(table);
                 }
                 else
                 {
-                    unitDict[table.DanWeiMing] = new List<DanWeiJingFeiNianDuBiao>();
-                    unitDict[table.DanWeiMing].Add(table);
+                    unitDict[table.DanWeiMingCheng] = new List<DanWeiJieDianJingFeiBiao>();
+                    unitDict[table.DanWeiMingCheng].Add(table);
                 }
             }
 
             //显示列表
             dgvDetail.Rows.Clear();
-            foreach (KeyValuePair<string, List<DanWeiJingFeiNianDuBiao>> kvp in unitDict)
+            foreach (KeyValuePair<string, List<DanWeiJieDianJingFeiBiao>> kvp in unitDict)
             {
                 StringBuilder sb = new StringBuilder();
-                foreach (DanWeiJingFeiNianDuBiao money in kvp.Value)
+                foreach (DanWeiJieDianJingFeiBiao money in kvp.Value)
                 {
-                    sb.Append(money.NianDu).Append("年度：").Append(money.JingFei).AppendLine("万元");
+                    string nodeStr = string.Empty;
+                    if (dictMoneys.ContainsKey(money.BoFuBianHao))
+                    {
+                        nodeStr = dictMoneys[money.BoFuBianHao];
+                        sb.Append(nodeStr).Append("：").Append(money.JingFei).AppendLine("万元");
+                    }                    
                 }
 
                 List<object> cells = new List<object>();

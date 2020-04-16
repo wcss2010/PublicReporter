@@ -333,6 +333,18 @@
     <Compile Include="Forms\FrmProjectManager.designer.cs">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateSubjectMoneyUnit.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateSubjectMoneyUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddOrUpdateUnitMoneyUnit.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateUnitMoneyUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPluginRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -458,6 +470,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProjectManager.resx">
       <DependentUpon>FrmProjectManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateSubjectMoneyUnit.resx">
+      <DependentUpon>FrmAddOrUpdateSubjectMoneyUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddOrUpdateUnitMoneyUnit.resx">
+      <DependentUpon>FrmAddOrUpdateUnitMoneyUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
