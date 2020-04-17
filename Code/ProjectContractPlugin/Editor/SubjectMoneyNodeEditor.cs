@@ -63,7 +63,8 @@ namespace ProjectContractPlugin.Editor
             foreach (BoFuBiao data in MSList)
             {
                 index++;
-                dictMoneys[data.BianHao] = "节点" + index + "(" + data.BoFuTiaoJian + ")";
+                //dictMoneys[data.BianHao] = "节点" + index + "(" + data.BoFuTiaoJian + ")";
+                dictMoneys[data.BianHao] = data.BoFuTiaoJian;
             }
 
             dgvDetail.Rows.Clear();

@@ -109,7 +109,8 @@ namespace ProjectContractPlugin.Editor
             foreach (BoFuBiao data in MSList)
             {
                 index++;
-                dictMoneys[data.BianHao] = "节点" + index + "(" + data.BoFuTiaoJian + ")";
+                //dictMoneys[data.BianHao] = "节点" + index + "(" + data.BoFuTiaoJian + ")";
+                dictMoneys[data.BianHao] = data.BoFuTiaoJian;
             }
 
             //读取单位经费数据并进行分类
