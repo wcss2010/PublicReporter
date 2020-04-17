@@ -754,6 +754,7 @@ namespace ProjectContractPlugin.Utility
                             for (int jj = 0; jj < colCount; jj++)
                             {
                                 t.Rows[vv].Cells.Add(t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].Clone(true));
+                                t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].CellFormat.Width = 80;
                             }
                         }
 
@@ -765,6 +766,7 @@ namespace ProjectContractPlugin.Utility
 
                         wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
                         wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
+                        t.Rows[0].Cells[1].CellFormat.Width = 80;
 
                         for (int tt = 2; tt <= dictMoneys.Count + 1; tt++)
                         {
@@ -798,7 +800,7 @@ namespace ProjectContractPlugin.Utility
                 }
                 #endregion
 
-                #region 插入课题经费预算
+                #region 插入课题经费预算(已废弃)
 
                 //foreach (Node node in ncc)
                 //{
@@ -891,6 +893,7 @@ namespace ProjectContractPlugin.Utility
                             for (int jj = 0; jj < colCount; jj++)
                             {
                                 t.Rows[vv].Cells.Add(t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].Clone(true));
+                                t.Rows[vv].Cells[t.Rows[vv].Cells.Count - 1].CellFormat.Width = 80;
                             }
                         }
 
@@ -902,6 +905,7 @@ namespace ProjectContractPlugin.Utility
 
                         wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
                         wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
+                        t.Rows[0].Cells[1].CellFormat.Width = 80;
 
                         for (int tt = 2; tt <= dictMoneys.Count + 1; tt++)
                         {
