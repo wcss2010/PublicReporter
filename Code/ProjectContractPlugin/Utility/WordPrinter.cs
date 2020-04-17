@@ -730,9 +730,9 @@ namespace ProjectContractPlugin.Utility
                 foreach (BoFuBiao data in MSList)
                 {
                     index++;
-                    //dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index + "(" + data.BoFuTiaoJian + ")"));
+                    dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index + "(" + data.BoFuTiaoJian + ")"));
                     //dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index));
-                    dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, data.BoFuTiaoJian));
+                    //dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, data.BoFuTiaoJian));
                 }
 
                 #region 插入课题经费分配数据
