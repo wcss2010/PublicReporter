@@ -730,9 +730,9 @@ namespace ProjectContractPlugin.Utility
                 foreach (BoFuBiao data in MSList)
                 {
                     index++;
-                    dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index + "(" + data.BoFuTiaoJian + ")"));
+                    //dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index + "(" + data.BoFuTiaoJian + ")"));
                     //dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, "节点" + index));
-                    //dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, data.BoFuTiaoJian));
+                    dictMoneys.Add(new KeyValuePair<string, string>(data.BianHao, data.BoFuTiaoJian));
                 }
 
                 #region 插入课题经费分配数据
@@ -745,7 +745,7 @@ namespace ProjectContractPlugin.Utility
                         Dictionary<string, int> nodeAndCell = new Dictionary<string, int>();
 
                         //添加行和列
-                        int colCount = dictMoneys.Count + 1;
+                        int colCount = dictMoneys.Count;
                         for (int k = 0; k < ktList.Count - 1; k++)
                         {
                             t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
@@ -765,15 +765,15 @@ namespace ProjectContractPlugin.Utility
                         //wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "合同验收"));
                         //wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], "黑体", 12);
 
-                        wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
-                        wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
+                        //wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
+                        //wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
                         t.Rows[0].Cells[1].CellFormat.Width = 80;
 
-                        for (int tt = 2; tt <= dictMoneys.Count + 1; tt++)
+                        for (int tt = 1; tt <= dictMoneys.Count; tt++)
                         {
-                            nodeAndCell[dictMoneys[tt - 2].Key] = tt;
+                            nodeAndCell[dictMoneys[tt - 1].Key] = tt;
 
-                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, dictMoneys[tt - 2].Value));
+                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, dictMoneys[tt - 1].Value));
                             wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
                         }
 
@@ -884,7 +884,7 @@ namespace ProjectContractPlugin.Utility
                         }
 
                         //添加行和列
-                        int colCount = dictMoneys.Count + 1;
+                        int colCount = dictMoneys.Count;
                         for (int k = 0; k < unitDict.Count - 1; k++)
                         {
                             t.Rows.Add((Aspose.Words.Tables.Row)t.Rows[t.Rows.Count - 1].Clone(true));
@@ -904,15 +904,15 @@ namespace ProjectContractPlugin.Utility
                         //wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "合同验收"));
                         //wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], "黑体", 12);
 
-                        wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
-                        wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
+                        //wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
+                        //wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
                         t.Rows[0].Cells[1].CellFormat.Width = 80;
 
-                        for (int tt = 2; tt <= dictMoneys.Count + 1; tt++)
+                        for (int tt = 1; tt <= dictMoneys.Count; tt++)
                         {
-                            nodeAndCell[dictMoneys[tt - 2].Key] = tt;
+                            nodeAndCell[dictMoneys[tt - 1].Key] = tt;
 
-                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, dictMoneys[tt - 2].Value));
+                            wu.Document.fillCell(true, t.Rows[0].Cells[tt], wu.Document.newParagraph(t.Document, dictMoneys[tt - 1].Value));
                             wu.Document.setFontInCell(t.Rows[0].Cells[tt], "黑体", 12);
                         }
 
