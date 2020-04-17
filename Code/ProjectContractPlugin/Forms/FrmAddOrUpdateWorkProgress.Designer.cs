@@ -42,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label1.Location = new System.Drawing.Point(210, 28);
+            this.label1.Location = new System.Drawing.Point(77, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 16);
@@ -53,19 +53,19 @@
             // 
             this.txtContent.AcceptsReturn = true;
             this.txtContent.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtContent.Location = new System.Drawing.Point(265, 76);
-            this.txtContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContent.Location = new System.Drawing.Point(141, 76);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(4);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtContent.Size = new System.Drawing.Size(648, 136);
+            this.txtContent.Size = new System.Drawing.Size(772, 136);
             this.txtContent.TabIndex = 2;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnSave.Location = new System.Drawing.Point(681, 515);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 43);
             this.btnSave.TabIndex = 3;
@@ -75,12 +75,11 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(97, 137);
+            this.label2.Location = new System.Drawing.Point(13, 129);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 16);
+            this.label2.Size = new System.Drawing.Size(129, 43);
             this.label2.TabIndex = 0;
             this.label2.Text = "阶段目标与研究内容:";
             // 
@@ -88,7 +87,7 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
             this.btnClose.Location = new System.Drawing.Point(799, 515);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 43);
             this.btnClose.TabIndex = 3;
@@ -100,31 +99,30 @@
             // 
             this.textBox3.AcceptsReturn = true;
             this.textBox3.Font = new System.Drawing.Font("仿宋", 12F);
-            this.textBox3.Location = new System.Drawing.Point(265, 249);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Location = new System.Drawing.Point(141, 249);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox3.Size = new System.Drawing.Size(648, 239);
+            this.textBox3.Size = new System.Drawing.Size(772, 239);
             this.textBox3.TabIndex = 8;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(16, 351);
+            this.label4.Location = new System.Drawing.Point(4, 351);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(248, 16);
+            this.label4.Size = new System.Drawing.Size(138, 59);
             this.label4.TabIndex = 9;
             this.label4.Text = "阶段成果、考核指标及考核方式：";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(265, 24);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(141, 24);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(285, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(163, 26);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // FrmAddOrUpdateWorkProgress
@@ -141,7 +139,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddOrUpdateWorkProgress";

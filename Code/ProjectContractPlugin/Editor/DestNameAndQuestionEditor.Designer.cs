@@ -51,7 +51,7 @@
             // 
             // lblInfo
             // 
-            this.lblInfo.AutoHeight = true;
+            this.lblInfo.AutoHeight = false;
             this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
             this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblInfo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -59,8 +59,11 @@
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1160, 51);
+            this.lblInfo.Size = new System.Drawing.Size(1160, 119);
             this.lblInfo.TabIndex = 0;
+            this.lblInfo.Text = "   根据项目批复目标，量化、细化项目技术指标，形成完备的技术指标体系。技术指标填写可分为定量指标和定性指标两类。\r\n   指标要求：针对定量指标，需填写具体指标" +
+    "；针对定性指标，需填写简要的定性描述。\r\n   考核方式：针对定量指标，视情从考核方案、考核标准、考核条件等方面（全部或部分）进行说明；针对定性指标，不用填写考" +
+    "核方式。采用会议评审和专家评审等常规方式的无 需填写。";
             // 
             // plMain
             // 
@@ -80,9 +83,9 @@
             this.plContent.Controls.Add(this.dgvDetail);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 61);
+            this.plContent.Location = new System.Drawing.Point(10, 129);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1160, 592);
+            this.plContent.Size = new System.Drawing.Size(1160, 524);
             this.plContent.TabIndex = 1;
             // 
             // dgvDetail
@@ -113,7 +116,7 @@
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 23;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(1160, 562);
+            this.dgvDetail.Size = new System.Drawing.Size(1160, 494);
             this.dgvDetail.TabIndex = 1;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
@@ -173,7 +176,7 @@
             this.plButtons.Controls.Add(this.btnDelAll);
             this.plButtons.Controls.Add(this.btnSave);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 562);
+            this.plButtons.Location = new System.Drawing.Point(0, 494);
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(1160, 30);
             this.plButtons.TabIndex = 0;
