@@ -52,8 +52,10 @@ namespace ProjectContractPlugin.Editor
                     //显示编辑窗体
                     FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule((BoFuBiao)dgvDetail.Rows[e.RowIndex].Tag);
                     if (form.ShowDialog() == DialogResult.OK)
+                    {
                         //刷新列表
-                        refreshView();
+                        PluginRootObj.refreshEditors();
+                    }
                 }
                 else if (e.ColumnIndex == dgvDetail.Columns.Count - 2)
                 {
@@ -64,7 +66,7 @@ namespace ProjectContractPlugin.Editor
                         ConnectionManager.Context.table("BoFuBiao").where("BianHao='" + ((BoFuBiao)dgvDetail.Rows[e.RowIndex].Tag).BianHao + "'").delete();
 
                         //刷新
-                        refreshView();
+                        PluginRootObj.refreshEditors();
                     }
                 }
             }
@@ -81,7 +83,7 @@ namespace ProjectContractPlugin.Editor
                 form.ShowDialog();
 
                 //刷新列表
-                refreshView();
+                PluginRootObj.refreshEditors();
             }
         }
 
@@ -90,8 +92,10 @@ namespace ProjectContractPlugin.Editor
             //显示编辑窗体
             FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule(null, list.Count);
             if (form.ShowDialog() == DialogResult.OK)
+            {
                 //刷新列表
-                refreshView();
+                PluginRootObj.refreshEditors();
+            }
         }
 
         private void btnDelAll_Click(object sender, EventArgs e)
@@ -107,7 +111,7 @@ namespace ProjectContractPlugin.Editor
                     }
 
                     //刷新
-                    refreshView();
+                    PluginRootObj.refreshEditors();
                 }
             }
         }
@@ -136,8 +140,10 @@ namespace ProjectContractPlugin.Editor
                 //显示编辑窗体
                 FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule(null, statusNum);
                 if (form.ShowDialog() == DialogResult.OK)
+                {
                     //刷新列表
-                    refreshView();
+                    PluginRootObj.refreshEditors();
+                }
 
             }
             else

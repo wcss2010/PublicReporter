@@ -230,6 +230,10 @@ namespace ProjectContractPlugin.Editor
                 {
                     ((SubjectMoneyEditor)be).refreshView();
                 }
+                else if (be is SubjectMoneyNodeEditor)
+                {
+                    ((SubjectMoneyNodeEditor)be).refreshView();
+                }
             }
         }
 
