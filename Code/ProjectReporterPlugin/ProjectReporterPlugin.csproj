@@ -315,8 +315,9 @@
     <None Include="DataTemplete\Current\Files\~%24基础与保障条件.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="DataTemplete\Current\Files\~WRL0001.tmp" />
-    <None Include="DataTemplete\Current\Files\~WRL2054.tmp" />
+    <None Include="DataTemplete\Current\Files\~WRL2054.tmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="DataTemplete\Current\Files\与有关计划关系.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -386,13 +387,13 @@
     <None Include="DataTemplete\Current\Files\课题详细_XX材料性能测试评价与构件考核验证_研究目标.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="DataTemplete\Current\Files\附件2-保密资质.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="DataTemplete\Current\Files\预期效益.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DataTemplete\Current\static.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="DataTemplete\Current\~%24项目申报书.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DataTemplete\Current\项目申报书.doc">

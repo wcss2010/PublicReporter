@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ProjectReporterPlugin.DB;
 using ProjectReporterPlugin.DB.Entitys;
 using ProjectReporterPlugin.Editor;
+using Aspose.Words.Drawing;
 
 namespace ProjectReporterPlugin.Utility
 {
@@ -172,22 +173,22 @@ namespace ProjectReporterPlugin.Utility
 
                 wu.insertFile("附件1", uploadA, true);
 
-                //插入保密资质
-                List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + proj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
-                foreach (ExtFileList efl in list)
-                {
-                    if (efl.IsIgnore == 0)
-                    {
-                        //图片文件
-                        string picFile = Path.Combine(pt.filesDir, efl.RealFileName);
+                ////插入保密资质
+                //List<ExtFileList> list = ConnectionManager.Context.table("ExtFileList").where("ProjectID='" + proj.ID + "'").select("*").getList<ExtFileList>(new ExtFileList());
+                //foreach (ExtFileList efl in list)
+                //{
+                //    if (efl.IsIgnore == 0)
+                //    {
+                //        //图片文件
+                //        string picFile = Path.Combine(pt.filesDir, efl.RealFileName);
 
-                        //检查图片是否存在，如果存在则插入
-                        if (File.Exists(picFile))
-                        {
-                            wu.insertPicture("附件2", picFile);
-                        }
-                    }
-                }
+                //        //检查图片是否存在，如果存在则插入
+                //        if (File.Exists(picFile))
+                //        {
+                //            wu.insertPicture("附件2", picFile);
+                //        }
+                //    }
+                //}
 
                 //处理诚信承诺书
                 string uploadC = Path.Combine(pt.RootDir, Path.Combine("Helper", "chengnuoshu.doc"));
@@ -1104,6 +1105,42 @@ namespace ProjectReporterPlugin.Utility
                 {
                     System.Console.WriteLine(ex.ToString());
                 }
+                #endregion
+
+                #region 生成----(附件文件2)
+
+                //是否允许删除最后一页
+                //bool acceptDeleteEndPage = true;
+
+                string ef2 = Path.Combine(pt.filesDir, "附件2-保密资质") + ".doc";
+                if (File.Exists(ef2))
+                {
+                    wu.insertFile("附件2", ef2, true);
+
+                    //Document tempDoc = new Document(ef2);
+                    //NodeCollection shapes = tempDoc.GetChildNodes(NodeType.Shape, true);
+                    //foreach (Shape shape in shapes)
+                    //{
+                    //    if (shape.HasImage)
+                    //    {
+                    //        acceptDeleteEndPage = false;
+                    //        wu.insertFile("附件2", ef2, true);
+                    //        break;
+                    //    }
+                    //}
+                }
+
+                ////检查是否需要删除
+                //if (acceptDeleteEndPage)
+                //{
+                //    if (wu.Document.WordDocBuilder.MoveToBookmark("附件2"))
+                //    {
+                //        if (wu.Document.WordDocBuilder.CurrentSection != null)
+                //        {
+                //            wu.Document.WordDocBuilder.CurrentSection.Remove();
+                //        }
+                //    }
+                //}
                 #endregion
 
                 Report(progressDialog, 80, "更新目录...", 1000);

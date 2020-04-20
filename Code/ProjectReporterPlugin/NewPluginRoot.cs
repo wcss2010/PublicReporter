@@ -246,7 +246,7 @@ namespace ProjectReporterPlugin
             editorMap.Add("各课题负责人及研究骨干情况表", new ProjectWorkerInfoEditor());
             editorMap.Add("经费预算表", new MoneyTableEditor());
             editorMap.Add("附件1-经费概算", new MoneySummaryEditor());
-            editorMap.Add("附件2-保密资质", new ConfidentialQualificationEditor());
+            editorMap.Add("附件2-保密资质", new DocumentPasteEditor("保密资质复印件", "若该项目内容涉密，请申报单位提供与项目内容密级相应的保密资质复印件", Path.Combine(RootDir, Path.Combine("Helper", "secretPaste.doc")), getDocumentPasteReadmeFile2()));
             #endregion
 
             #region 检查哪个Editor没有设置Name
@@ -389,9 +389,12 @@ namespace ProjectReporterPlugin
                     string errorPage = string.Empty;
                     if (!isInputCompleted(ref errorPage))
                     {
-                        MessageBox.Show("对不起，内容未填写完不能上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MessageBox.Show("请将页签[" + errorPage + "]填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
+                        if (errorPage != "附件2-保密资质")
+                        {
+                            MessageBox.Show("对不起，内容未填写完不能上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("请将页签[" + errorPage + "]填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
                     }
 
                     if (!isRightMoneyOrTime())
@@ -806,6 +809,15 @@ namespace ProjectReporterPlugin
         public string getDocumentPasteReadmeFile()
         {
             return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme.rtf"));
+        }
+
+        /// <summary>
+        /// 获得文档填报说明2
+        /// </summary>
+        /// <returns></returns>
+        public string getDocumentPasteReadmeFile2()
+        {
+            return Path.Combine(RootDir, Path.Combine("Helper", "documentPasteReadme2.rtf"));
         }
 
         /// <summary>
