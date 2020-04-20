@@ -35,7 +35,6 @@
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.ofdSelect = new System.Windows.Forms.OpenFileDialog();
-            this.btnImportReporterDB = new System.Windows.Forms.Button();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +64,6 @@
             // 
             // plButtons
             // 
-            this.plButtons.Controls.Add(this.btnImportReporterDB);
             this.plButtons.Controls.Add(this.btnImport);
             this.plButtons.Controls.Add(this.btnOpen);
             this.plButtons.Controls.Add(this.btnDel);
@@ -116,18 +114,6 @@
             // 
             this.ofdSelect.Filter = "Zip压缩文件(*.zip)|*.zip";
             // 
-            // btnImportReporterDB
-            // 
-            this.btnImportReporterDB.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnImportReporterDB.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnImportReporterDB.Location = new System.Drawing.Point(263, 0);
-            this.btnImportReporterDB.Margin = new System.Windows.Forms.Padding(4);
-            this.btnImportReporterDB.Name = "btnImportReporterDB";
-            this.btnImportReporterDB.Size = new System.Drawing.Size(110, 48);
-            this.btnImportReporterDB.TabIndex = 33;
-            this.btnImportReporterDB.Text = "导入建议书数据包";
-            this.btnImportReporterDB.Click += new System.EventHandler(this.btnImportReporterDB_Click);
-            // 
             // FrmProjectManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -154,6 +140,5 @@
         private System.Windows.Forms.OpenFileDialog ofdSelect;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnImport;
-        private System.Windows.Forms.Button btnImportReporterDB;
     }
 }

@@ -291,8 +291,22 @@ namespace ProjectContractPlugin
                         {
                             try
                             {
-                                //新建项目
-                                rebuildProject("");
+                                FrmNewProject fnp = new FrmNewProject();
+                                if (fnp.ShowDialog() == DialogResult.OK)
+                                {
+                                    //新建项目
+                                    rebuildProject("");
+                                    
+                                    if (fnp.IsUseReporterPKG)
+                                    {
+                                        OpenFileDialog ofd = new OpenFileDialog();
+                                        ofd.Filter = "Zip压缩文件(*.zip)|*.zip";
+                                        if (ofd.ShowDialog() == DialogResult.OK)
+                                        {
+                                            ReporterDBImporter.import(ofd.FileName, ConnectionManager.Context);
+                                        }
+                                    }
+                                }
                             }
                             catch (Exception ex)
                             {

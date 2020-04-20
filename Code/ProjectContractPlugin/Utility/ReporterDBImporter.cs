@@ -10,7 +10,7 @@ namespace ProjectContractPlugin.Utility
 {
     public class ReporterDBImporter
     {
-        public static bool import(string zipFile, string rootDir, string dataDir)
+        public static bool import(string zipFile, Noear.Weed.DbContext context)
         {
             try
             {
@@ -19,15 +19,6 @@ namespace ProjectContractPlugin.Utility
 
                 //建议书DB文件
                 string reporterDBFile = string.Empty;
-
-                //目标目录
-                string destDir = Path.Combine(dataDir, projectGuid + "-" + DateTime.Now.Ticks);
-
-                //目标附件目录
-                string destFilesDir = Path.Combine(destDir, "Files");
-
-                //目标数据文件
-                string destDBFile = Path.Combine(destDir, "static.db");
 
                 #region 解压数据库
                 string localAppDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -43,41 +34,12 @@ namespace ProjectContractPlugin.Utility
 
                 if (File.Exists(reporterDBFile))
                 {
-                    #region 准备数据环境
-                    try
-                    {
-                        Directory.CreateDirectory(destDir);
-                    }
-                    catch (Exception ex) { }
-
-                    string templeteDir = Path.Combine(rootDir, Path.Combine("DataTemplete", "Current"));
-                    try
-                    {
-                        File.Copy(Path.Combine(templeteDir, "static.db"), destDBFile, true);
-                    }
-                    catch (Exception ex) { }
-                    try
-                    {
-                        Directory.CreateDirectory(destFilesDir);
-                    }
-                    catch (Exception ex) { }
-                    #endregion
-
                     //项目或课题表
                     DataList dlProject = getDataList(reporterDBFile, "Project", string.Empty);
                     //金额表
                     DataList dlMoneyAndYear = getDataList(reporterDBFile, "MoneyAndYear", string.Empty);
                     //任务表
                     DataList dlTask = getDataList(reporterDBFile, "Task", string.Empty);
-
-                    //SQLite数据库工厂
-                    System.Data.SQLite.SQLiteFactory factory = new System.Data.SQLite.SQLiteFactory();
-                    //NDEY数据库连接
-                    Noear.Weed.DbContext context = new Noear.Weed.DbContext("main", "Data Source = " + destDBFile, factory);
-                    //是否在执入后执行查询（主要针对Sqlite）
-                    context.IsSupportSelectIdentityAfterInsert = false;
-                    //是否在Dispose后执行GC用于解决Dispose后无法删除的问题（主要针对Sqlite）
-                    context.IsSupportGCAfterDispose = true;
 
                     try
                     {
@@ -89,16 +51,7 @@ namespace ProjectContractPlugin.Utility
                         context.table("RenYuanBiao").delete();
                         context.table("YuSuanBiao").delete();
                         context.table("RenWuBiao").delete();
-                        context.table("BoFuBiao").delete();
-                        context.table("DanWeiJingFeiNianDuBiao").delete();
-                        context.table("JinDuBiao").delete();
-                        context.table("JiShuBiao").delete();
-                        context.table("RenWuBiao").delete();
-                        context.table("TiJiaoYaoQiuBiao").delete();
-                        context.table("ZhiBiaoBiao").delete();
-                        context.table("ZiDianBiao").delete();
                         context.table("KeTiJieDianJingFeiBiao").delete();
-                        context.table("DanWeiJieDianJingFeiBiao").delete();
                         #endregion
 
                         DataItem diProject = null;
@@ -337,12 +290,7 @@ namespace ProjectContractPlugin.Utility
                     }
                     catch (Exception ex)
                     {
-                        System.Console.WriteLine(ex.ToString());
-                    }
-                    finally
-                    {
-                        factory.Dispose();
-                        context.Dispose();
+                        throw ex;
                     }
                 }
             }

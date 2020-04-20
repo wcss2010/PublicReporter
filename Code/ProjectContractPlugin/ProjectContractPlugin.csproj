@@ -309,6 +309,12 @@
     <Compile Include="Forms\FrmInputBox.designer.cs">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmNewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmNewProject.Designer.cs">
+      <DependentUpon>FrmNewProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmPkgExport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmInputBox.resx">
       <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmNewProject.resx">
+      <DependentUpon>FrmNewProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPkgExport.resx">
       <DependentUpon>FrmPkgExport.cs</DependentUpon>

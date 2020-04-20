@@ -246,16 +246,5 @@ namespace ProjectContractPlugin.Forms
                 }
             }
         }
-
-        private void btnImportReporterDB_Click(object sender, EventArgs e)
-        {
-            if (ofdSelect.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (ReporterDBImporter.import(ofdSelect.FileName, PluginRootObj.RootDir, PluginRootObj.baseDir))
-                {
-                    updateProjects();
-                }
-            }
-        }
     }
 }
