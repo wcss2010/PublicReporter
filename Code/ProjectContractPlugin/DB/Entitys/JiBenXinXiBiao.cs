@@ -14,6 +14,9 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
+            //更新保存时间
+            updateSaveDate();
+
             //设置值
             query.set("BianHao", BianHao);
             query.set("HeTongBianHao", HeTongBianHao);

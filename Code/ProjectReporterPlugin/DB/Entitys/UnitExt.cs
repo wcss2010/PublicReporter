@@ -130,8 +130,11 @@ namespace ProjectReporterPlugin.DB.Entitys
         
         #endregion
 
-        public override DbTableQuery copyTo(DbTableQuery query)
+        public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
+            //更新保存时间
+            updateSaveDate();
+
             //设置值
             query.set("ID", ID);
             query.set("UnitName", UnitName);

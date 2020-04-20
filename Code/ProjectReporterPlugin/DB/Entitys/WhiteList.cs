@@ -34,8 +34,11 @@ namespace ProjectReporterPlugin.DB.Entitys
 
         #endregion Model
 
-        public override DbTableQuery copyTo(DbTableQuery query)
+        public override Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query)
         {
+            //更新保存时间
+            updateSaveDate();
+
             query.set("ID", ID);
             query.set("ProjectID", ProjectID);
             query.set("UnitID", UnitID);
