@@ -410,7 +410,7 @@ namespace ProjectReporterPlugin
                     break;
                 case button5_Name:
                     #region 上传PDF
-                    FrmUploadUserPDF pdfForm = new FrmUploadUserPDF("请上传单位盖章后的建议书扫描版PDF", "用户上传的PDF");
+                    FrmUploadUserPDF pdfForm = new FrmUploadUserPDF("请上传单位盖章后的建议书扫描版PDF", "建议书");
                     pdfForm.ShowDialog();
                     #endregion
                     break;
