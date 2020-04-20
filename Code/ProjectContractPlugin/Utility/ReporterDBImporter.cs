@@ -10,7 +10,7 @@ namespace ProjectContractPlugin.Utility
 {
     public class ReporterDBImporter
     {
-        public static bool import(string zipFile, string rootDir,string dataDir)
+        public static bool import(string zipFile, string rootDir, string dataDir)
         {
             try
             {
@@ -125,6 +125,7 @@ namespace ProjectContractPlugin.Utility
                         projectItem.HeTongMiQi = 0;
                         projectItem.HeTongKaiShiShiJian = DateTime.Now;
                         projectItem.HeTongJieShuShiJian = DateTime.Now;
+                        projectItem.HeTongSuoShuLingYu = getValueWithDefault<string>(diProject.get("Domain"), string.Empty);
 
                         DataItem diProjectMaster = getDataItem(reporterDBFile, "Person", "ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + projectID + "')");
                         projectItem.HeTongFuZeRen = diProjectMaster.get("Name") != null ? diProjectMaster.get("Name").ToString() : string.Empty;
@@ -149,8 +150,9 @@ namespace ProjectContractPlugin.Utility
                             string subParentID = di.get("ParentID") != null ? di.get("ParentID").ToString() : string.Empty;
                             if (string.IsNullOrEmpty(subParentID))
                             {
-                                continue;                            
-                            }else
+                                continue;
+                            }
+                            else
                             {
                                 string subjectID = di.get("ID") != null ? di.get("ID").ToString() : string.Empty;
                                 string subjectUnitID = di.get("UnitID") != null ? di.get("UnitID").ToString() : string.Empty;
@@ -163,15 +165,81 @@ namespace ProjectContractPlugin.Utility
                                 keTiBiao.copyTo(context.table("KeTiBiao")).insert();
                             }
                         }
-                        
+
                         //插入人员数据
+                        int displayOrder = 0;
+                        //项目角色
+                        List<DataItem> ignoreList = new List<DataItem>();
                         foreach (DataItem diTask in dlTask.getRows())
                         {
                             DataItem diPerson = getDataItem(reporterDBFile, "Person", "ID = '" + diTask.get("PersonID") + "'");
                             if (diPerson != null && diPerson.count() >= 1)
                             {
+                                string ktPID = getValueWithDefault<string>(diTask.get("ProjectID"), string.Empty);
+
+                                displayOrder++;
                                 RenYuanBiao obj = new RenYuanBiao();
                                 obj.BianHao = Guid.NewGuid().ToString();
+                                obj.ZhuangTai = displayOrder;                                
+                                
+                                obj.XingMing = getValueWithDefault<string>(diPerson.get("Name"), string.Empty);
+                                obj.ShenFenZhengHao = getValueWithDefault<string>(diPerson.get("IDCard"), string.Empty);
+                                obj.XingBie = getValueWithDefault<string>(diPerson.get("Sex"), string.Empty);
+                                obj.ZhiCheng = getValueWithDefault<string>(diPerson.get("Job"), string.Empty);
+                                obj.ZhuanYe = getValueWithDefault<string>(diPerson.get("Specialty"), string.Empty);
+                                obj.MeiNianTouRuShiJian = diTask.getInt("TotalTime");
+                                obj.RenWuFenGong = getValueWithDefault<string>(diTask.get("Content"), string.Empty);
+                                obj.DianHua = getValueWithDefault<string>(diPerson.get("Telephone"), string.Empty);
+                                obj.ShouJi = getValueWithDefault<string>(diPerson.get("MobilePhone"), string.Empty);
+                                obj.ShengRi = DateTime.Parse(getValueWithDefault<string>(diPerson.get("Birthday"), DateTime.Now.ToString()));
+
+                                DataItem diUnit = getDataItem(reporterDBFile, "Unit", "ID='" + diPerson.get("UnitID") + "'");
+                                if (diUnit != null && diUnit.count() >= 1)
+                                {
+                                    obj.GongZuoDanWei = getValueWithDefault<string>(diUnit.get("UnitName"), string.Empty);
+                                }
+                                else
+                                {
+                                    obj.GongZuoDanWei = "未知";
+                                }
+
+                                //设置项目中职务
+                                obj.ZhiWu = getValueWithDefault<string>(diTask.get("Role"), string.Empty);
+
+                                //是否为项目负责人
+                                if (ktPID == projectID)
+                                {
+                                    ignoreList.Add(diTask);
+
+                                    //仅为项目负责人
+                                    obj.ShiXiangMuFuZeRen = "rbIsOnlyProject";
+
+                                    //插入数据
+                                    obj.copyTo(context.table("RenYuanBiao")).insert();
+                                }
+                            }
+                        }
+                        //课题角色
+                        foreach (DataItem diTask in dlTask.getRows())
+                        {
+                            if (ignoreList.Contains(diTask))
+                            {
+                                continue;
+                            }
+
+                            DataItem diPerson = getDataItem(reporterDBFile, "Person", "ID = '" + diTask.get("PersonID") + "'");
+                            if (diPerson != null && diPerson.count() >= 1)
+                            {
+                                if (diTask.get("Type").ToString() == "项目")
+                                {
+                                    continue;
+                                }
+
+                                displayOrder++;
+                                RenYuanBiao obj = new RenYuanBiao();
+                                obj.BianHao = Guid.NewGuid().ToString();
+                                obj.ZhuangTai = displayOrder;
+
                                 obj.KeTiBiaoHao = getValueWithDefault<string>(diTask.get("ProjectID"), string.Empty);
                                 obj.XingMing = getValueWithDefault<string>(diPerson.get("Name"), string.Empty);
                                 obj.ShenFenZhengHao = getValueWithDefault<string>(diPerson.get("IDCard"), string.Empty);
@@ -198,7 +266,7 @@ namespace ProjectContractPlugin.Utility
                                 obj.ZhiWu = getValueWithDefault<string>(diTask.get("Role"), string.Empty);
 
                                 //是否为项目负责人
-                                obj.ShiXiangMuFuZeRen = diTask.get("Type").ToString() == "项目" ? "rbIsProjectAndSubject" : "rbIsOnlySubject";
+                                obj.ShiXiangMuFuZeRen = "rbIsOnlySubject";
 
                                 //插入数据
                                 obj.copyTo(context.table("RenYuanBiao")).insert();
@@ -254,12 +322,16 @@ namespace ProjectContractPlugin.Utility
 
                             foreach (DataItem di in dlMoneyAndYear.getRows())
                             {
-                                YuSuanBiao ysb = new YuSuanBiao();
-                                ysb.BianHao = Guid.NewGuid().ToString();
-                                ysb.MingCheng = nameDicts[getValueWithDefault<string>(di.get("Name"), string.Empty)];
-                                ysb.ShuJu = getValueWithDefault<string>(di.get("Value"), string.Empty);
+                                try
+                                {
+                                    YuSuanBiao ysb = new YuSuanBiao();
+                                    ysb.BianHao = Guid.NewGuid().ToString();
+                                    ysb.MingCheng = nameDicts[getValueWithDefault<string>(di.get("Name"), string.Empty)];
+                                    ysb.ShuJu = getValueWithDefault<string>(di.get("Value"), string.Empty);
 
-                                ysb.copyTo(context.table("YuSuanBiao")).insert();
+                                    ysb.copyTo(context.table("YuSuanBiao")).insert();
+                                }
+                                catch (Exception ex) { }
                             }
                         }
                     }
