@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Noear.Weed;
+using PublicReporterLib;
 
 namespace ProjectContractPlugin.DB.Entitys
 {
@@ -29,5 +30,20 @@ namespace ProjectContractPlugin.DB.Entitys
         }
 
         public DateTime ModifyTime { get; set; }
+
+        /// <summary>
+        /// 更新保存日期
+        /// </summary>
+        protected void updateSaveDate()
+        {
+            try
+            {
+                if (PluginLoader.CurrentPlugin is NewPluginRoot)
+                {
+                    ((NewPluginRoot)PluginLoader.CurrentPlugin).updateSaveDate();
+                }
+            }
+            catch (Exception ex) { }
+        }
     }
 }

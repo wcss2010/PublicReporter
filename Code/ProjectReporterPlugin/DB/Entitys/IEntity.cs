@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Noear.Weed;
+using PublicReporterLib;
 
 namespace ProjectReporterPlugin.DB.Entitys
 {
@@ -26,6 +27,21 @@ namespace ProjectReporterPlugin.DB.Entitys
         public virtual IBinder clone()
         {
             return (IBinder)this.MemberwiseClone();
+        }
+
+        /// <summary>
+        /// 更新保存日期
+        /// </summary>
+        protected void updateSaveDate()
+        {
+            try
+            {
+                if (PluginLoader.CurrentPlugin is NewPluginRoot)
+                {
+                    ((NewPluginRoot)PluginLoader.CurrentPlugin).updateSaveDate();
+                }
+            }
+            catch (Exception ex) { }
         }
     }
 }
