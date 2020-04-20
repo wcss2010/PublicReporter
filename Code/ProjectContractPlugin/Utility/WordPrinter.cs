@@ -713,11 +713,14 @@ namespace ProjectContractPlugin.Utility
                             wu.Document.fillCell(true, t.Rows[rowIndex].Cells[3], wu.Document.newParagraph(t.Document, ConnectionManager.Context.table("RenYuanBiao").where("KeTiBiaoHao='" + ktb.BianHao + "' and ZhiWu='负责人'").select("XingMing").getValue<string>(string.Empty)));
 
                             int displayIndex = 1;
-                            foreach (RenWuBiao rwb in dict[ktb.BianHao])
+                            if (dict.ContainsKey(ktb.BianHao))
                             {
-                                wu.Document.fillCell(startMoney, t.Rows[rowIndex].Cells[4], wu.Document.newParagraph(t.Document, displayIndex + ". " + rwb.DanWeiMing), false);
-                                startMoney = false;
-                                displayIndex++;
+                                foreach (RenWuBiao rwb in dict[ktb.BianHao])
+                                {
+                                    wu.Document.fillCell(startMoney, t.Rows[rowIndex].Cells[4], wu.Document.newParagraph(t.Document, displayIndex + ". " + rwb.DanWeiMing), false);
+                                    startMoney = false;
+                                    displayIndex++;
+                                }
                             }
 
                             rowIndex++;
