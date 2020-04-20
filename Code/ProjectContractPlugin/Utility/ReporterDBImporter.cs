@@ -43,6 +43,8 @@ namespace ProjectContractPlugin.Utility
 
                     try
                     {
+                        JiBenXinXiBiao projectItem = context.table("JiBenXinXiBiao").select("*").getItem<JiBenXinXiBiao>(new JiBenXinXiBiao());
+
                         #region 清空所有数据
                         context.table("JiBenXinXiBiao").delete();
                         context.table("KeTiBiao").delete();
@@ -70,8 +72,7 @@ namespace ProjectContractPlugin.Utility
                             }
                         }
 
-                        //插入项目数据
-                        JiBenXinXiBiao projectItem = new JiBenXinXiBiao();
+                        //插入项目数据                        
                         projectItem.BianHao = projectGuid;
                         projectItem.HeTongMingCheng = diProject.get("Name") != null ? diProject.get("Name").ToString() : string.Empty;
                         projectItem.HeTongMiJi = diProject.get("SecretLevel") != null ? diProject.get("SecretLevel").ToString() : "公开";
@@ -296,7 +297,7 @@ namespace ProjectContractPlugin.Utility
             }
             catch (Exception ex)
             {
-                MessageBox.Show("对不起，导入失败！Ex:" + ex.ToString());
+                System.Console.WriteLine("对不起，导入失败！Ex:" + ex.ToString());
             }
 
             return true;

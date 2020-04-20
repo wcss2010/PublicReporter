@@ -27,6 +27,7 @@ namespace ProjectContractPlugin
         public const string button4_Name = "数据包管理";
         public const string button5_Name = "上传PDF";
         public const string button6_Name = "帮助";
+        private string importZipFile;
 
         public NewPluginRoot()
             : base()
@@ -85,6 +86,12 @@ namespace ProjectContractPlugin
 
                 //打开数据库连接
                 ConnectionManager.Open(dbFile);
+            }
+
+            if (File.Exists(importZipFile))
+            {
+                ReporterDBImporter.import(importZipFile, ConnectionManager.Context);
+                importZipFile = string.Empty;
             }
         }
 
@@ -294,17 +301,22 @@ namespace ProjectContractPlugin
                                 FrmNewProject fnp = new FrmNewProject();
                                 if (fnp.ShowDialog() == DialogResult.OK)
                                 {
-                                    //新建项目
-                                    rebuildProject("");
-                                    
                                     if (fnp.IsUseReporterPKG)
                                     {
                                         OpenFileDialog ofd = new OpenFileDialog();
                                         ofd.Filter = "Zip压缩文件(*.zip)|*.zip";
                                         if (ofd.ShowDialog() == DialogResult.OK)
                                         {
-                                            ReporterDBImporter.import(ofd.FileName, ConnectionManager.Context);
+                                            importZipFile = ofd.FileName;
+
+                                            //新建项目
+                                            rebuildProject("");
                                         }
+                                    }
+                                    else
+                                    {
+                                        //新建项目
+                                        rebuildProject("");
                                     }
                                 }
                             }
