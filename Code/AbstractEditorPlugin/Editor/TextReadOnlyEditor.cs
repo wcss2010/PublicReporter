@@ -107,12 +107,5 @@ namespace AbstractEditorPlugin.Editor
         }
 
         public string RTFFile { get; set; }
-
-        public override void clearView()
-        {
-            base.clearView();
-
-            txtContent.Clear();
-        }
     }
 }
