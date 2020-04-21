@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbFromNormal = new System.Windows.Forms.RadioButton();
+            this.rbFromReportPKG = new System.Windows.Forms.RadioButton();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.rbFromReportPKG = new System.Windows.Forms.RadioButton();
-            this.rbFromNormal = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +44,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(404, 133);
             this.panel1.TabIndex = 0;
+            // 
+            // rbFromNormal
+            // 
+            this.rbFromNormal.AutoSize = true;
+            this.rbFromNormal.Checked = true;
+            this.rbFromNormal.Font = new System.Drawing.Font("宋体", 12F);
+            this.rbFromNormal.Location = new System.Drawing.Point(89, 86);
+            this.rbFromNormal.Name = "rbFromNormal";
+            this.rbFromNormal.Size = new System.Drawing.Size(138, 20);
+            this.rbFromNormal.TabIndex = 0;
+            this.rbFromNormal.TabStop = true;
+            this.rbFromNormal.Text = "示例数据初始化";
+            this.rbFromNormal.UseVisualStyleBackColor = true;
+            // 
+            // rbFromReportPKG
+            // 
+            this.rbFromReportPKG.Font = new System.Drawing.Font("宋体", 12F);
+            this.rbFromReportPKG.Location = new System.Drawing.Point(89, 26);
+            this.rbFromReportPKG.Name = "rbFromReportPKG";
+            this.rbFromReportPKG.Size = new System.Drawing.Size(278, 37);
+            this.rbFromReportPKG.TabIndex = 0;
+            this.rbFromReportPKG.TabStop = true;
+            this.rbFromReportPKG.Text = "建议书数据匹配导入（未匹配部分以示例数据填充）";
+            this.rbFromReportPKG.UseVisualStyleBackColor = true;
             // 
             // btnOK
             // 
@@ -66,31 +90,6 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // rbFromReportPKG
-            // 
-            this.rbFromReportPKG.AutoSize = true;
-            this.rbFromReportPKG.Font = new System.Drawing.Font("宋体", 12F);
-            this.rbFromReportPKG.Location = new System.Drawing.Point(104, 30);
-            this.rbFromReportPKG.Name = "rbFromReportPKG";
-            this.rbFromReportPKG.Size = new System.Drawing.Size(202, 20);
-            this.rbFromReportPKG.TabIndex = 0;
-            this.rbFromReportPKG.TabStop = true;
-            this.rbFromReportPKG.Text = "建议书数据包初始化项目";
-            this.rbFromReportPKG.UseVisualStyleBackColor = true;
-            // 
-            // rbFromNormal
-            // 
-            this.rbFromNormal.AutoSize = true;
-            this.rbFromNormal.Checked = true;
-            this.rbFromNormal.Font = new System.Drawing.Font("宋体", 12F);
-            this.rbFromNormal.Location = new System.Drawing.Point(104, 73);
-            this.rbFromNormal.Name = "rbFromNormal";
-            this.rbFromNormal.Size = new System.Drawing.Size(170, 20);
-            this.rbFromNormal.TabIndex = 0;
-            this.rbFromNormal.TabStop = true;
-            this.rbFromNormal.Text = "示例数据初始化项目";
-            this.rbFromNormal.UseVisualStyleBackColor = true;
             // 
             // FrmNewProject
             // 
