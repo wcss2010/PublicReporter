@@ -249,7 +249,7 @@ namespace ProjectContractPlugin.Utility
                             nameDicts["ProjectRFA1_8"] = "Money10";
                             nameDicts["ProjectRFA1_9"] = "Money11";
                             nameDicts["ProjectRFA2"] = "Money12";
-                            nameDicts["ProjectRFA2_1"] = "Money12_1";
+                            nameDicts["ProjectRFA2_1"] = "Money13";
                             nameDicts["Projectoutlay1"] = "Year1";
                             nameDicts["Projectoutlay2"] = "Year2";
                             nameDicts["Projectoutlay3"] = "Year3";
@@ -272,7 +272,7 @@ namespace ProjectContractPlugin.Utility
                             nameDicts["ProjectRFA1_8rm"] = "Info10";
                             nameDicts["ProjectRFA1_9rm"] = "Info11";
                             nameDicts["ProjectRFA2rm"] = "Info12";
-                            nameDicts["ProjectRFA2_1rm"] = "Info12_1";
+                            nameDicts["ProjectRFA2_1rm"] = "Info13";
 
                             foreach (DataItem di in dlMoneyAndYear.getRows())
                             {
