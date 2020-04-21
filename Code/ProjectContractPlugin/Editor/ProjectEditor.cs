@@ -78,7 +78,7 @@ namespace ProjectContractPlugin.Editor
                 ibEdit16.Text = obj.WeiTuoDanWeiTongXinDiZhi;
                 ibEdit17.Text = obj.WeiTuoDanWeiYouZhengBianMa;
                 ibEdit18.Text = obj.WeiTuoDanWeiZuZhiJiGouDaiMa;
-                ibEdit19.Text = obj.WeiTuoDanWeiShuiHao;
+                //ibEdit19.Text = obj.WeiTuoDanWeiShuiHao;
                 ibEdit20.Text = obj.WeiTuoDanWeiKaiHuMingCheng;
                 ibEdit21.Text = obj.WeiTuoDanWeiKaiHuYingHang;
                 ibEdit22.Text = obj.WeiTuoDanWeiYinHangZhangHao;
@@ -92,7 +92,7 @@ namespace ProjectContractPlugin.Editor
                 ibEdit30.Text = obj.ChengYanDanWeiTongXinDiZhi;
                 ibEdit31.Text = obj.ChengYanDanWeiYouZhengBianMa;
                 ibEdit32.Text = obj.ChengYanDanWeiZuZhiJiGouDaiMa;
-                ibEdit33.Text = obj.ChengYanDanWeiShuiHao;
+                //ibEdit33.Text = obj.ChengYanDanWeiShuiHao;
                 ibEdit34.Text = obj.ChengYanDanWeiKaiHuMingCheng;
                 ibEdit35.Text = obj.ChengYanDanWeiKaiHuYingHang;
                 ibEdit36.Text = obj.ChengYanDanWeiYinHangZhangHao;
@@ -261,16 +261,16 @@ namespace ProjectContractPlugin.Editor
             }
             if (ibEdit18.Text == string.Empty)
             {
-                MessageBox.Show("对不起，请输入委托-单位组织机构代码!");
+                MessageBox.Show("对不起，请输入委托-统一社会信用代码!");
                 result = false;
                 return;
             }
-            if (ibEdit19.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入委托-单位税号!");
-                result = false;
-                return;
-            }
+            //if (ibEdit19.Text == string.Empty)
+            //{
+            //    MessageBox.Show("对不起，请输入委托-单位税号!");
+            //    result = false;
+            //    return;
+            //}
             if (ibEdit20.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入委托-单位开户名称!");
@@ -345,16 +345,16 @@ namespace ProjectContractPlugin.Editor
             }
             if (ibEdit32.Text == string.Empty)
             {
-                MessageBox.Show("对不起，请输入承研-单位组织机构代码!");
+                MessageBox.Show("对不起，请输入承研-统一社会信用代码!");
                 result = false;
                 return;
             }
-            if (ibEdit33.Text == string.Empty)
-            {
-                MessageBox.Show("对不起，请输入承研-单位税号!");
-                result = false;
-                return;
-            }
+            //if (ibEdit33.Text == string.Empty)
+            //{
+            //    MessageBox.Show("对不起，请输入承研-单位税号!");
+            //    result = false;
+            //    return;
+            //}
             if (ibEdit34.Text == string.Empty)
             {
                 MessageBox.Show("对不起，请输入承研-单位开户名称!");
@@ -421,7 +421,7 @@ namespace ProjectContractPlugin.Editor
             obj.WeiTuoDanWeiTongXinDiZhi = ibEdit16.Text;
             obj.WeiTuoDanWeiYouZhengBianMa = ibEdit17.Text;
             obj.WeiTuoDanWeiZuZhiJiGouDaiMa = ibEdit18.Text;
-            obj.WeiTuoDanWeiShuiHao = ibEdit19.Text;
+            //obj.WeiTuoDanWeiShuiHao = ibEdit19.Text;
             obj.WeiTuoDanWeiKaiHuMingCheng = ibEdit20.Text;
             obj.WeiTuoDanWeiKaiHuYingHang = ibEdit21.Text;
             obj.WeiTuoDanWeiYinHangZhangHao = ibEdit22.Text;
@@ -435,7 +435,7 @@ namespace ProjectContractPlugin.Editor
             obj.ChengYanDanWeiTongXinDiZhi = ibEdit30.Text;
             obj.ChengYanDanWeiYouZhengBianMa = ibEdit31.Text;
             obj.ChengYanDanWeiZuZhiJiGouDaiMa = ibEdit32.Text;
-            obj.ChengYanDanWeiShuiHao = ibEdit33.Text;
+            //obj.ChengYanDanWeiShuiHao = ibEdit33.Text;
             obj.ChengYanDanWeiKaiHuMingCheng = ibEdit34.Text;
             obj.ChengYanDanWeiKaiHuYingHang = ibEdit35.Text;
             obj.ChengYanDanWeiYinHangZhangHao = ibEdit36.Text;
