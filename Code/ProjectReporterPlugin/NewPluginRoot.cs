@@ -698,6 +698,9 @@ namespace ProjectReporterPlugin
             //生成报告
             addTopButton(Resource.word, Guid.NewGuid().ToString(), button2_Name, new System.Drawing.Size(53, 56));
 
+            //上传PDF
+            addTopButton(Resource.Q1, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
+
             //导出数据包
             addTopButton(Resource._new, Guid.NewGuid().ToString(), button3_Name, new System.Drawing.Size(53, 56));
 
@@ -706,9 +709,6 @@ namespace ProjectReporterPlugin
 
             //数据包管理
             addTopButton(Resource.manager, Guid.NewGuid().ToString(), button4_Name, new System.Drawing.Size(53, 56));
-
-            //上传PDF
-            addTopButton(Resource.Q1, Guid.NewGuid().ToString(), button5_Name, new System.Drawing.Size(53, 56));
 
             //添加分割符
             addToTopToolStrip(getTopSeparator());
