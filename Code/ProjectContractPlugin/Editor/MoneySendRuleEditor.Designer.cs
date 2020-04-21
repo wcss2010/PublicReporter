@@ -198,6 +198,7 @@
             this.btnNew.Size = new System.Drawing.Size(90, 30);
             this.btnNew.TabIndex = 4;
             this.btnNew.Text = "新增";
+            this.btnNew.Visible = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnDelAll
@@ -219,7 +220,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 30);
             this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "插入";
+            this.btnSave.Text = "新增";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MoneySendRuleEditor
