@@ -412,7 +412,7 @@ namespace ProjectContractPlugin
                     break;
                 case button5_Name:
                     #region 上传PDF
-                    FrmUploadUserPDF pdfForm = new FrmUploadUserPDF("请上传单位盖章后的合同书扫描版PDF", "合同书");
+                    FrmUploadUserPDF pdfForm = new FrmUploadUserPDF("请上传单位盖章后的合同书(最终生效版)扫描版PDF", "合同书");
                     pdfForm.ShowDialog();
                     #endregion
                     break;
