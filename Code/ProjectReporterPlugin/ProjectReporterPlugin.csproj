@@ -496,10 +496,10 @@
     <Content Include="DataTemplete\Current\Files\项目负责人.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\orderEdit.png" />
     <None Include="Resources\Question_162.png" />
     <None Include="Resources\UP_161.png" />
     <None Include="Resources\Question_161.png" />
-    <None Include="Resources\orderEdit.png" />
     <None Include="Resources\DOWN_161.png" />
     <None Include="Resources\DELETE_281.png" />
     <None Include="Resources\DELETE_161.png" />
