@@ -93,6 +93,62 @@ namespace ProjectContractPlugin
                 ReporterDBImporter.import(importZipFile, ConnectionManager.Context);
                 importZipFile = string.Empty;
             }
+
+            //检查是否存在错误数据(主要用于判断部门中的船舶工业和船舶重工二个公司)
+            checkErrorData();
+        }
+
+        /// <summary>
+        /// 的openDB完成后执行，用于检查部门中的船舶工业和船舶重工二个司
+        /// </summary>
+        private void checkErrorData()
+        {
+            List<string> containsList = new List<string>(new string[] { "陆军", "海军", "空军", "火箭军", "战略支援部队", "联勤保障部队", "军委机关直属单位", "军事科学院", "国防大学", "国防科技大学", "武警部队", "教育部", "工信部", "中国科学院", "中国兵器工业集团公司", "中国兵器装备集团公司", "中国船舶集团有限公司", "中国电子科技集团公司", "中国电子信息产业集团公司", "中国航空发动机集团公司", "中国航空工业集团公司", "中国航天科工集团公司", "中国航天科技集团公司", "中国核工业集团公司", "中国工程物理研究院", "其它" });
+
+            #region 处理基本信息中的部门
+            try
+            {
+                JiBenXinXiBiao projs = ConnectionManager.Context.table("JiBenXinXiBiao").select("*").getItem<JiBenXinXiBiao>(new JiBenXinXiBiao());
+                if (!string.IsNullOrEmpty(projs.BianHao))
+                {
+                    if (projs.HeTongSuoShuBuMen == "中国船舶工业集团公司" || projs.HeTongSuoShuBuMen == "中国船舶重工集团公司")
+                    {
+                        projs.HeTongSuoShuBuMen = "中国船舶集团有限公司";
+                        projs.copyTo(ConnectionManager.Context.table("JiBenXinXiBiao")).where("BianHao='" + projs.BianHao + "'").update();
+                    }
+                    else if (!containsList.Contains(projs.HeTongSuoShuBuMen))
+                    {
+                        projs.HeTongSuoShuBuMen = "其它";
+                        projs.copyTo(ConnectionManager.Context.table("JiBenXinXiBiao")).where("BianHao='" + projs.BianHao + "'").update();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            #endregion
+
+            #region 处理课题信息中的部门
+            try
+            {
+                List<KeTiBiao> ketiList = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
+                foreach (KeTiBiao keti in ketiList)
+                {
+                    if (!string.IsNullOrEmpty(keti.BianHao))
+                    {
+                        if (keti.KeTiSuoShuBuMen == "中国船舶工业集团公司" || keti.KeTiSuoShuBuMen == "中国船舶重工集团公司")
+                        {
+                            keti.KeTiSuoShuBuMen = "中国船舶集团有限公司";
+                            keti.copyTo(ConnectionManager.Context.table("KeTiBiao")).where("BianHao='" + keti.BianHao + "'").update();
+                        }
+                        else if (!containsList.Contains(keti.KeTiSuoShuBuMen))
+                        {
+                            keti.KeTiSuoShuBuMen = "其它";
+                            keti.copyTo(ConnectionManager.Context.table("KeTiBiao")).where("BianHao='" + keti.BianHao + "'").update();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            #endregion
         }
 
         /// <summary>
