@@ -9,12 +9,13 @@ using System.Windows.Forms;
 using ProjectContractPlugin.DB;
 using ProjectContractPlugin.DB.Entitys;
 using ProjectContractPlugin.Forms;
+using PublicReporterLib;
 
 namespace ProjectContractPlugin.Editor
 {
     public partial class SubjectMoneyNodeEditor : AbstractEditorPlugin.BaseEditor
     {
-        Dictionary<string, string> dictMoneys = new Dictionary<string, string>();
+        CustomDictionary<string, string> dictMoneys = new CustomDictionary<string, string>();
         private List<BoFuBiao> MSList;
         public SubjectMoneyNodeEditor()
         {
@@ -57,6 +58,7 @@ namespace ProjectContractPlugin.Editor
         {
             base.refreshView();
 
+            dictMoneys = new CustomDictionary<string, string>();
             MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
             MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
@@ -69,18 +71,30 @@ namespace ProjectContractPlugin.Editor
 
             dgvDetail.Rows.Clear();
             List<KeTiBiao> subjectList = ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
+            subjectList = subjectList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+
             foreach (KeTiBiao subject in subjectList)
             {
                 //生成年度经费字符
                 List<KeTiJieDianJingFeiBiao> moneyList = ConnectionManager.Context.table("KeTiJieDianJingFeiBiao").where("KeTiBianHao='" + subject.BianHao + "'").select("*").getList<KeTiJieDianJingFeiBiao>(new KeTiJieDianJingFeiBiao());
                 StringBuilder sb = new StringBuilder();
-                foreach (KeTiJieDianJingFeiBiao money in moneyList)
+                foreach (KeyValuePair<string, string> kvpps in dictMoneys)
                 {
-                    string nodeStr = string.Empty;
-                    if (dictMoneys.ContainsKey(money.BoFuBianHao))
+                    bool isNeedAdd = true;
+                    foreach (KeTiJieDianJingFeiBiao money in moneyList)
                     {
-                        nodeStr = dictMoneys[money.BoFuBianHao];
-                        sb.Append(nodeStr).Append("：").Append(money.JingFei).AppendLine("万元");
+                        string nodeStr = string.Empty;
+                        if (kvpps.Key == money.BoFuBianHao)
+                        {
+                            isNeedAdd = false;
+                            nodeStr = dictMoneys[money.BoFuBianHao];
+                            sb.Append(nodeStr).Append("：").Append(money.JingFei).AppendLine("万元");
+                        }
+                    }
+
+                    if (isNeedAdd)
+                    {
+                        sb.Append(kvpps.Value).Append("：").Append(0).AppendLine("万元");
                     }
                 }
 

@@ -16,8 +16,9 @@ namespace ProjectContractPlugin.Forms
         private string lastUnit;
         private List<BoFuBiao> MSList;
         private List<KeyValuePair<string, string>> dictMoneys = new List<KeyValuePair<string, string>>();
+        private double displayIndexBase;
 
-        public FrmAddOrUpdateUnitMoneyNode(string unitName)
+        public FrmAddOrUpdateUnitMoneyNode(string unitName, double baseNum)
         {
             InitializeComponent();
 
@@ -33,6 +34,7 @@ namespace ProjectContractPlugin.Forms
 
             lastUnit = unitName;
             txtUnitName.Text = unitName;
+            displayIndexBase = baseNum;
 
             List<DanWeiJieDianJingFeiBiao> list = ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng = '" + unitName + "'").select("*").getList<DanWeiJieDianJingFeiBiao>(new DanWeiJieDianJingFeiBiao());
             if (list != null)
@@ -64,6 +66,15 @@ namespace ProjectContractPlugin.Forms
 
                     int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                     dgvDetail.Rows[rowIndex].Tag = kvpp.Key;
+
+                    if (destObj != null)
+                    {
+                        dgvDetail.Rows[rowIndex].Cells[0].Tag = destObj.ZhuangTai;
+                    }
+                    else
+                    {
+                        dgvDetail.Rows[rowIndex].Cells[0].Tag = (displayIndexBase + 0.1);
+                    }
                 }
             }
         }
@@ -80,7 +91,7 @@ namespace ProjectContractPlugin.Forms
             ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng = '" + lastUnit + "'").delete();
             ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").where("DanWeiMingCheng = '" + txtUnitName.Text + "'").delete();
 
-            //填写数据
+            //填写数据            
             foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
             {
                 if (dgvRow.Cells[0].Value == null)
@@ -111,7 +122,15 @@ namespace ProjectContractPlugin.Forms
                 obj.DanWeiMingCheng = txtUnitName.Text;
                 obj.BoFuBianHao = nodeID;
                 obj.JingFei = dgvRow.Cells[1].Value != null ? decimal.Parse(dgvRow.Cells[1].Value.ToString()) : 0;
-                obj.ZhuangTai = 0;
+
+                double statusNum = 0;
+                try
+                {
+                    statusNum = double.Parse(dgvRow.Cells[0].Tag.ToString());
+                }
+                catch (Exception ex) { }
+
+                obj.ZhuangTai = statusNum;
                 obj.ModifyTime = DateTime.Now;
                 obj.copyTo(ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao")).insert();
             }

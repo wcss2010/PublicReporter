@@ -15,7 +15,7 @@ namespace ProjectContractPlugin.Editor
 {
     public partial class UnitMoneyNodeEditor : AbstractEditorPlugin.BaseEditor
     {
-        Dictionary<string, string> dictMoneys = new Dictionary<string, string>();
+        CustomDictionary<string, string> dictMoneys = new CustomDictionary<string, string>();
         private List<BoFuBiao> MSList;
 
         public UnitMoneyNodeEditor()
@@ -25,8 +25,18 @@ namespace ProjectContractPlugin.Editor
 
         private void btnNew_Click(object sender, EventArgs e)
         {
+            double statusNum = 0;
+            if (dgvDetail.SelectedRows.Count == 1)
+            {
+                statusNum = dgvDetail.SelectedRows[0].Index + 1;
+            }
+            else
+            {
+                statusNum = 1;
+            }
+
             //显示编辑窗体
-            FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(string.Empty);
+            FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(string.Empty, statusNum);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 //刷新列表
@@ -61,7 +71,7 @@ namespace ProjectContractPlugin.Editor
                     //编辑
 
                     //显示编辑窗体
-                    FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
+                    FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty, -1);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         //刷新列表
@@ -90,7 +100,7 @@ namespace ProjectContractPlugin.Editor
                 //编辑
 
                 //显示编辑窗体
-                FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty);
+                FrmAddOrUpdateUnitMoneyNode form = new FrmAddOrUpdateUnitMoneyNode(dgvDetail.Rows[e.RowIndex].Tag != null ? dgvDetail.Rows[e.RowIndex].Tag.ToString() : string.Empty, -1);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //刷新列表
@@ -103,6 +113,7 @@ namespace ProjectContractPlugin.Editor
         {
             base.refreshView();
 
+            dictMoneys = new CustomDictionary<string, string>();
             MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
             MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
@@ -116,6 +127,8 @@ namespace ProjectContractPlugin.Editor
             //读取单位经费数据并进行分类
             CustomDictionary<string, List<DanWeiJieDianJingFeiBiao>> unitDict = new CustomDictionary<string, List<DanWeiJieDianJingFeiBiao>>();
             List<DanWeiJieDianJingFeiBiao> list = ConnectionManager.Context.table("DanWeiJieDianJingFeiBiao").select("*").getList<DanWeiJieDianJingFeiBiao>(new DanWeiJieDianJingFeiBiao());
+            list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
+
             foreach (DanWeiJieDianJingFeiBiao table in list)
             {
                 if (unitDict.ContainsKey(table.DanWeiMingCheng))
@@ -134,14 +147,26 @@ namespace ProjectContractPlugin.Editor
             foreach (KeyValuePair<string, List<DanWeiJieDianJingFeiBiao>> kvp in unitDict)
             {
                 StringBuilder sb = new StringBuilder();
-                foreach (DanWeiJieDianJingFeiBiao money in kvp.Value)
+                foreach (KeyValuePair<string, string> kvpps in dictMoneys)
                 {
-                    string nodeStr = string.Empty;
-                    if (dictMoneys.ContainsKey(money.BoFuBianHao))
+                    bool isNeedAdd = true;
+
+                    foreach (DanWeiJieDianJingFeiBiao money in kvp.Value)
                     {
-                        nodeStr = dictMoneys[money.BoFuBianHao];
-                        sb.Append(nodeStr).Append("：").Append(money.JingFei).AppendLine("万元");
-                    }                    
+                        string nodeStr = string.Empty;
+                        if (kvpps.Key == money.BoFuBianHao)
+                        {
+                            isNeedAdd = false;
+
+                            nodeStr = dictMoneys[money.BoFuBianHao];
+                            sb.Append(nodeStr).Append("：").Append(money.JingFei).AppendLine("万元");
+                        }
+                    }
+
+                    if (isNeedAdd)
+                    {
+                        sb.Append(kvpps.Value).Append("：").Append(0).AppendLine("万元");
+                    }
                 }
 
                 List<object> cells = new List<object>();
