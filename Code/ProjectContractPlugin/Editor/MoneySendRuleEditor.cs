@@ -118,9 +118,9 @@ namespace ProjectContractPlugin.Editor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            double statusNum = 0;
             if (dgvDetail.SelectedRows.Count == 1)
             {
-                double statusNum = 0;
                 try
                 {
                     if (dgvDetail.SelectedRows[0].Index + 1 == dgvDetail.Rows.Count)
@@ -136,20 +136,14 @@ namespace ProjectContractPlugin.Editor
                     }
                 }
                 catch (Exception ex) { }
-
-                //显示编辑窗体
-                FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule(null, statusNum);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    //刷新列表
-                    PluginRootObj.refreshEditors();
-                }
-
             }
-            else
+
+            //显示编辑窗体
+            FrmAddOrUpdateMoneySendRule form = new FrmAddOrUpdateMoneySendRule(null, statusNum);
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("请选中需要一条数据，新数据将在其后插入");
-                return;
+                //刷新列表
+                PluginRootObj.refreshEditors();
             }
         }
 
