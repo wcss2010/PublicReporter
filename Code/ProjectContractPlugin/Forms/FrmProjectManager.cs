@@ -56,7 +56,7 @@ namespace ProjectContractPlugin.Forms
         /// </summary>
         /// <param name="projectDir"></param>
         /// <returns></returns>
-        public JiBenXinXiBiao getProjectObject(string projectDir)
+        public static JiBenXinXiBiao getProjectObject(string projectDir)
         {
             JiBenXinXiBiao proj = null;
             string dbFile = System.IO.Path.Combine(projectDir, "static.db");
@@ -94,6 +94,51 @@ namespace ProjectContractPlugin.Forms
             }
 
             return proj;
+        }
+
+        /// <summary>
+        /// 获得数据库版本号
+        /// </summary>
+        /// <param name="projectDir"></param>
+        /// <returns></returns>
+        public static string getProjectVersion(string projectDir)
+        {
+            string versionStr = string.Empty;
+            string dbFile = System.IO.Path.Combine(projectDir, "static.db");
+
+            if (System.IO.File.Exists(dbFile))
+            {
+                System.Data.SQLite.SQLiteFactory factory = new System.Data.SQLite.SQLiteFactory();
+                Noear.Weed.DbContext context = new Noear.Weed.DbContext("main", "Data Source=" + dbFile, factory);
+                context.IsSupportSelectIdentityAfterInsert = false;
+                context.IsSupportGCAfterDispose = true;
+                try
+                {
+                    versionStr = context.table("Version").select("VersionNum").getValue<string>("v1.3");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+                finally
+                {
+                    try
+                    {
+                        factory.Dispose();
+                    }
+                    catch (Exception ex) { }
+                    factory = null;
+
+                    try
+                    {
+                        context.Dispose();
+                    }
+                    catch (Exception ex) { }
+                    context = null;
+                }
+            }
+
+            return versionStr;
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
