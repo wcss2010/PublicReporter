@@ -4,6 +4,7 @@ using ProjectContractPlugin.DB.Entitys;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,6 +12,8 @@ namespace ProjectContractPlugin.Utility
 {
     public class OldContactDBImporter
     {
+        private static Dictionary<string, Dictionary<string, PropertyInfo>> entityDict = new Dictionary<string, Dictionary<string, PropertyInfo>>();
+
         public static bool import(string zipFile, Noear.Weed.DbContext context, NewPluginRoot pluginObj)
         {
             try
@@ -57,261 +60,71 @@ namespace ProjectContractPlugin.Utility
                     }
                     catch (Exception ex) { }
                     #endregion
-
-                    //项目或课题表
-                    DataList dlProject = getDataList(reporterDBFile, "Project", string.Empty);
-                    //金额表
-                    DataList dlMoneyAndYear = getDataList(reporterDBFile, "MoneyAndYear", string.Empty);
-                    //任务表
-                    DataList dlTask = getDataList(reporterDBFile, "Task", string.Empty);
-
+                                       
                     try
                     {
+                        #region 处理项目信息
+                        //提取当前项目的基本信息
                         JiBenXinXiBiao projectItem = context.table("JiBenXinXiBiao").select("*").getItem<JiBenXinXiBiao>(new JiBenXinXiBiao());
 
-                        #region 清空所有数据
-                        context.table("JiBenXinXiBiao").delete();
-                        context.table("KeTiBiao").delete();
-                        context.table("KeTiJingFeiNianDuBiao").delete();
-                        context.table("KeTiYuSuanBiao").delete();
-                        context.table("RenYuanBiao").delete();
-                        context.table("YuSuanBiao").delete();
-                        context.table("RenWuBiao").delete();
-                        context.table("KeTiJieDianJingFeiBiao").delete();
+                        //填充基本信息数据
+                        DataItem diProject = getDataItem(reporterDBFile, "JiBenXinXiBiao", string.Empty);
+                        fillToEntity(projectItem, diProject);
+                        projectItem.copyTo(context.table("JiBenXinXiBiao")).where("BianHao='" + projectItem.BianHao + "'").update();
                         #endregion
 
-                        DataItem diProject = null;
-                        string projectID = string.Empty;
-                        string projectUnitID = string.Empty;
-                        foreach (DataItem di in dlProject.getRows())
+                        #region 类型字典
+                        SortedList<string, DB.Entitys.IEntity> typeDict = new SortedList<string, DB.Entitys.IEntity>();
+                        typeDict["KeTiBiao"] = new KeTiBiao();
+                        typeDict["RenYuanBiao"] = new RenYuanBiao();
+                        typeDict["YuSuanBiao"] = new YuSuanBiao();
+                        typeDict["RenWuBiao"] = new RenWuBiao();
+                        typeDict["BoFuBiao"] = new BoFuBiao();
+                        typeDict["JinDuBiao"] = new JinDuBiao();
+                        typeDict["RenWuBiao"] = new RenWuBiao();
+                        typeDict["TiJiaoYaoQiuBiao"] = new TiJiaoYaoQiuBiao();
+                        typeDict["ZhiBiaoBiao"] = new ZhiBiaoBiao();
+                        typeDict["ZiDianBiao"] = new ZiDianBiao();
+                        typeDict["KeTiJieDianJingFeiBiao"] = new KeTiJieDianJingFeiBiao();
+                        typeDict["DanWeiJieDianJingFeiBiao"] = new DanWeiJieDianJingFeiBiao();
+                        #endregion
+
+                        //导入其它表的数据
+                        foreach (KeyValuePair<string,DB.Entitys.IEntity> kvppp in typeDict)
                         {
-                            string parentID = di.get("ParentID") != null ? di.get("ParentID").ToString() : string.Empty;
-                            if (string.IsNullOrEmpty(parentID))
+                            string tableName = kvppp.Key;
+
+                            try
                             {
-                                projectID = di.get("ID") != null ? di.get("ID").ToString() : string.Empty;
-                                projectUnitID = di.get("UnitID") != null ? di.get("UnitID").ToString() : string.Empty;
-
-                                diProject = di;
-                                break;
-                            }
-                        }
-
-                        //插入项目数据                        
-                        projectItem.BianHao = projectGuid;
-                        projectItem.HeTongMingCheng = diProject.get("Name") != null ? diProject.get("Name").ToString() : string.Empty;
-                        projectItem.HeTongMiJi = diProject.get("SecretLevel") != null ? diProject.get("SecretLevel").ToString() : "公开";
-                        projectItem.HeTongMiQi = 0;
-                        projectItem.HeTongKaiShiShiJian = DateTime.Now;
-                        projectItem.HeTongJieShuShiJian = DateTime.Now;
-                        projectItem.HeTongSuoShuLingYu = getValueWithDefault<string>(diProject.get("Domain"), string.Empty);
-
-                        DataItem diProjectMaster = getDataItem(reporterDBFile, "Person", "ID in (select PersonID from task where Role='负责人' and Type='项目' and ProjectID = '" + projectID + "')");
-                        projectItem.HeTongFuZeRen = diProjectMaster.get("Name") != null ? diProjectMaster.get("Name").ToString() : string.Empty;
-                        projectItem.HeTongFuZeRenShenFenZheng = diProjectMaster.get("IDCard") != null ? diProjectMaster.get("IDCard").ToString() : string.Empty;
-                        projectItem.HeTongFuZeRenDianHua = diProjectMaster.get("Telephone") != null ? diProjectMaster.get("Telephone").ToString() : string.Empty;
-
-                        projectItem.HeTongJiaKuan = decimal.Parse(diProject.get("TotalMoney") != null ? diProject.get("TotalMoney").ToString() : "0");
-
-                        DataItem diProjectUnit = getDataItem(reporterDBFile, "Unit", "ID = '" + projectUnitID + "'");
-                        projectItem.HeTongFuZeDanWei = diProjectUnit.get("UnitName") != null ? diProjectUnit.get("UnitName").ToString() : string.Empty;
-                        projectItem.HeTongFuZeDanWeiChangYongMingCheng = diProjectUnit.get("NormalName") != null ? diProjectUnit.get("NormalName").ToString() : string.Empty;
-                        projectItem.HeTongFuZeDanWeiTongXunDiZhi = diProjectUnit.get("Address") != null ? diProjectUnit.get("Address").ToString() : string.Empty;
-                        projectItem.HeTongFuZeDanWeiLianXiRen = diProjectUnit.get("ContactName") != null ? diProjectUnit.get("ContactName").ToString() : string.Empty;
-                        projectItem.HeTongFuZeDanWeiLianXiRenDianHua = diProjectUnit.get("Telephone") != null ? diProjectUnit.get("Telephone").ToString() : string.Empty;
-
-                        projectItem.HeTongGuanJianZi = diProject.get("Keywords") != null ? diProject.get("Keywords").ToString() : string.Empty;
-                        projectItem.copyTo(context.table("JiBenXinXiBiao")).insert();
-
-                        //插入课题数据
-                        foreach (DataItem di in dlProject.getRows())
-                        {
-                            string subParentID = di.get("ParentID") != null ? di.get("ParentID").ToString() : string.Empty;
-                            if (string.IsNullOrEmpty(subParentID))
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                string subjectID = di.get("ID") != null ? di.get("ID").ToString() : string.Empty;
-                                string subjectUnitID = di.get("UnitID") != null ? di.get("UnitID").ToString() : string.Empty;
-
-                                KeTiBiao keTiBiao = new KeTiBiao();
-                                keTiBiao.BianHao = di.get("ID") != null ? di.get("ID").ToString() : string.Empty;
-                                keTiBiao.KeTiMingCheng = di.get("Name") != null ? di.get("Name").ToString() : string.Empty;
-                                //keTiBiao.KeTiBaoMiDengJi = di.get("") != null ? di.get("").ToString() : string.Empty;
-                                keTiBiao.KeTiFuZeDanWei = getDataValue<string>(reporterDBFile, "Unit", "ID='" + di.get("UnitID") + "'", "UnitName", "未知");
-                                keTiBiao.copyTo(context.table("KeTiBiao")).insert();
-                            }
-                        }
-
-                        //插入人员数据
-                        int displayOrder = 0;
-                        //项目角色
-                        List<DataItem> ignoreList = new List<DataItem>();
-                        foreach (DataItem diTask in dlTask.getRows())
-                        {
-                            DataItem diPerson = getDataItem(reporterDBFile, "Person", "ID = '" + diTask.get("PersonID") + "'");
-                            if (diPerson != null && diPerson.count() >= 1)
-                            {
-                                string ktPID = getValueWithDefault<string>(diTask.get("ProjectID"), string.Empty);
-
-                                displayOrder++;
-                                RenYuanBiao obj = new RenYuanBiao();
-                                obj.BianHao = Guid.NewGuid().ToString();
-                                obj.ZhuangTai = displayOrder;
-
-                                obj.XingMing = getValueWithDefault<string>(diPerson.get("Name"), string.Empty);
-                                obj.ShenFenZhengHao = getValueWithDefault<string>(diPerson.get("IDCard"), string.Empty);
-                                obj.XingBie = getValueWithDefault<string>(diPerson.get("Sex"), string.Empty);
-                                obj.ZhiCheng = getValueWithDefault<string>(diPerson.get("Job"), string.Empty);
-                                obj.ZhuanYe = getValueWithDefault<string>(diPerson.get("Specialty"), string.Empty);
-                                obj.MeiNianTouRuShiJian = diTask.getInt("TotalTime");
-                                obj.RenWuFenGong = getValueWithDefault<string>(diTask.get("Content"), string.Empty);
-                                obj.DianHua = getValueWithDefault<string>(diPerson.get("Telephone"), string.Empty);
-                                obj.ShouJi = getValueWithDefault<string>(diPerson.get("MobilePhone"), string.Empty);
-                                obj.ShengRi = DateTime.Parse(getValueWithDefault<string>(diPerson.get("Birthday"), DateTime.Now.ToString()));
-
-                                DataItem diUnit = getDataItem(reporterDBFile, "Unit", "ID='" + diPerson.get("UnitID") + "'");
-                                if (diUnit != null && diUnit.count() >= 1)
-                                {
-                                    obj.GongZuoDanWei = getValueWithDefault<string>(diUnit.get("UnitName"), string.Empty);
-                                }
-                                else
-                                {
-                                    obj.GongZuoDanWei = "未知";
-                                }
-
-                                //设置项目中职务
-                                obj.ZhiWu = getValueWithDefault<string>(diTask.get("Role"), string.Empty);
-
-                                //是否为项目负责人
-                                if (ktPID == projectID)
-                                {
-                                    ignoreList.Add(diTask);
-
-                                    //仅为项目负责人
-                                    obj.ShiXiangMuFuZeRen = "rbIsOnlyProject";
-
-                                    //插入数据
-                                    obj.copyTo(context.table("RenYuanBiao")).insert();
-                                }
-                            }
-                        }
-                        //课题角色
-                        foreach (DataItem diTask in dlTask.getRows())
-                        {
-                            if (ignoreList.Contains(diTask))
-                            {
-                                continue;
-                            }
-
-                            DataItem diPerson = getDataItem(reporterDBFile, "Person", "ID = '" + diTask.get("PersonID") + "'");
-                            if (diPerson != null && diPerson.count() >= 1)
-                            {
-                                if (diTask.get("Type").ToString() == "项目")
+                                //读取旧的数据
+                                DataList dlData = getDataList(reporterDBFile, tableName, string.Empty);
+                                if (dlData.getRowCount() == 0)
                                 {
                                     continue;
                                 }
 
-                                displayOrder++;
-                                RenYuanBiao obj = new RenYuanBiao();
-                                obj.BianHao = Guid.NewGuid().ToString();
-                                obj.ZhuangTai = displayOrder;
+                                //清空数据
+                                context.table(tableName).delete();
 
-                                obj.KeTiBiaoHao = getValueWithDefault<string>(diTask.get("ProjectID"), string.Empty);
-                                obj.XingMing = getValueWithDefault<string>(diPerson.get("Name"), string.Empty);
-                                obj.ShenFenZhengHao = getValueWithDefault<string>(diPerson.get("IDCard"), string.Empty);
-                                obj.XingBie = getValueWithDefault<string>(diPerson.get("Sex"), string.Empty);
-                                obj.ZhiCheng = getValueWithDefault<string>(diPerson.get("Job"), string.Empty);
-                                obj.ZhuanYe = getValueWithDefault<string>(diPerson.get("Specialty"), string.Empty);
-                                obj.MeiNianTouRuShiJian = diTask.getInt("TotalTime");
-                                obj.RenWuFenGong = getValueWithDefault<string>(diTask.get("Content"), string.Empty);
-                                obj.DianHua = getValueWithDefault<string>(diPerson.get("Telephone"), string.Empty);
-                                obj.ShouJi = getValueWithDefault<string>(diPerson.get("MobilePhone"), string.Empty);
-                                obj.ShengRi = DateTime.Parse(getValueWithDefault<string>(diPerson.get("Birthday"), DateTime.Now.ToString()));
-
-                                DataItem diUnit = getDataItem(reporterDBFile, "Unit", "ID='" + diPerson.get("UnitID") + "'");
-                                if (diUnit != null && diUnit.count() >= 1)
+                                //导入数据
+                                foreach (DataItem di in dlData.getRows())
                                 {
-                                    obj.GongZuoDanWei = getValueWithDefault<string>(diUnit.get("UnitName"), string.Empty);
+                                    try
+                                    {
+                                        //生成实体对象
+                                        DB.Entitys.IEntity entityObj = (DB.Entitys.IEntity)kvppp.Value.clone();
+
+                                        //填充数据
+                                        fillToEntity(entityObj, di);
+
+                                        //插入数据
+                                        entityObj.copyTo(context.table(tableName)).insert();
+                                    }
+                                    catch (Exception ex) { }
                                 }
-                                else
-                                {
-                                    obj.GongZuoDanWei = "未知";
-                                }
-
-                                //设置项目中职务
-                                obj.ZhiWu = getValueWithDefault<string>(diTask.get("Role"), string.Empty);
-
-                                //是否为项目负责人
-                                obj.ShiXiangMuFuZeRen = "rbIsOnlySubject";
-
-                                //插入数据
-                                obj.copyTo(context.table("RenYuanBiao")).insert();
                             }
-                        }
-
-                        //插入经费数据
-                        if (dlMoneyAndYear != null && dlMoneyAndYear.getRowCount() >= 1)
-                        {
-                            //关键字映射表
-                            Dictionary<string, string> nameDicts = new Dictionary<string, string>();
-                            nameDicts["ProjectRFA"] = "Money1";
-                            nameDicts["ProjectRFA1"] = "Money2";
-                            nameDicts["ProjectRFA1_1"] = "Money3";
-                            nameDicts["ProjectRFA1_1_1"] = "Money3_1";
-                            nameDicts["ProjectRFA1_1_2"] = "Money3_2";
-                            nameDicts["ProjectRFA1_1_3"] = "Money3_3";
-                            nameDicts["ProjectRFA1_2"] = "Money4";
-                            nameDicts["ProjectRFA1_3"] = "Money5";
-                            nameDicts["ProjectRFA1_3_1"] = "Money5_1";
-                            nameDicts["ProjectRFA1_3_2"] = "Money5_2";
-                            nameDicts["ProjectRFA1_4"] = "Money6";
-                            nameDicts["ProjectRFA1_5"] = "Money7";
-                            nameDicts["ProjectRFA1_6"] = "Money8";
-                            nameDicts["ProjectRFA1_7"] = "Money9";
-                            nameDicts["ProjectRFA1_8"] = "Money10";
-                            nameDicts["ProjectRFA1_9"] = "Money11";
-                            nameDicts["ProjectRFA2"] = "Money12";
-                            nameDicts["ProjectRFA2_1"] = "Money13";
-                            nameDicts["Projectoutlay1"] = "Year1";
-                            nameDicts["Projectoutlay2"] = "Year2";
-                            nameDicts["Projectoutlay3"] = "Year3";
-                            nameDicts["Projectoutlay4"] = "Year4";
-                            nameDicts["Projectoutlay5"] = "Year5";
-                            nameDicts["ProjectRFArm"] = "Info1";
-                            nameDicts["ProjectRFA1rm"] = "Info2";
-                            nameDicts["ProjectRFA1_1rm"] = "Info3";
-                            nameDicts["ProjectRFA1_1_1rm"] = "Info3_1";
-                            nameDicts["ProjectRFA1_1_2rm"] = "Info3_2";
-                            nameDicts["ProjectRFA1_1_3rm"] = "Info3_3";
-                            nameDicts["ProjectRFA1_2rm"] = "Info4";
-                            nameDicts["ProjectRFA1_3rm"] = "Info5";
-                            nameDicts["ProjectRFA1_3_1rm"] = "Info5_1";
-                            nameDicts["ProjectRFA1_3_2rm"] = "Info5_2";
-                            nameDicts["ProjectRFA1_4rm"] = "Info6";
-                            nameDicts["ProjectRFA1_5rm"] = "Info7";
-                            nameDicts["ProjectRFA1_6rm"] = "Info8";
-                            nameDicts["ProjectRFA1_7rm"] = "Info9";
-                            nameDicts["ProjectRFA1_8rm"] = "Info10";
-                            nameDicts["ProjectRFA1_9rm"] = "Info11";
-                            nameDicts["ProjectRFA2rm"] = "Info12";
-                            nameDicts["ProjectRFA2_1rm"] = "Info13";
-
-                            foreach (DataItem di in dlMoneyAndYear.getRows())
-                            {
-                                try
-                                {
-                                    YuSuanBiao ysb = new YuSuanBiao();
-                                    ysb.BianHao = Guid.NewGuid().ToString();
-                                    ysb.MingCheng = nameDicts[getValueWithDefault<string>(di.get("Name"), string.Empty)];
-                                    ysb.ShuJu = getValueWithDefault<string>(di.get("Value"), string.Empty);
-
-                                    ysb.copyTo(context.table("YuSuanBiao")).insert();
-                                }
-                                catch (Exception ex) { }
-                            }
-                        }
+                            catch (Exception ex) { }
+                        }                        
                     }
                     catch (Exception ex)
                     {
@@ -325,6 +138,86 @@ namespace ProjectContractPlugin.Utility
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 向实体中填充对应的属性值
+        /// </summary>
+        /// <param name="entityObj"></param>
+        /// <param name="dataRecord"></param>
+        private static void fillToEntity(object entityObj, DataItem dataRecord)
+        {
+            Dictionary<string, PropertyInfo> propertyDict = new Dictionary<string, PropertyInfo>();
+
+            #region 取得属性字典
+            Type entityType = entityObj.GetType();
+            PropertyInfo[] piTeams = entityType.GetProperties();
+            
+            if (entityDict.ContainsKey(entityType.FullName))
+            {
+                propertyDict = entityDict[entityType.FullName];
+            }
+            else
+            {
+                entityDict[entityType.FullName] = propertyDict;
+                foreach (PropertyInfo pi in piTeams)
+                {
+                    propertyDict[pi.Name] = pi;
+                }
+            }
+            #endregion
+
+            #region 初始化属性
+            foreach (KeyValuePair<string, PropertyInfo> kvpppp in propertyDict)
+            {
+                try
+                {
+                    string valueType = kvpppp.Value.PropertyType.FullName;
+                    if (valueType == typeof(string).FullName)
+                    {
+                        kvpppp.Value.SetValue(entityObj, string.Empty, null);
+                    }
+                    else if (valueType == typeof(DateTime).FullName)
+                    {
+                        kvpppp.Value.SetValue(entityObj, DateTime.Now, null);
+                    }
+                    else if (valueType == typeof(double).FullName)
+                    {
+                        kvpppp.Value.SetValue(entityObj, 0d, null);
+                    }
+                    else if (valueType == typeof(decimal).FullName)
+                    {
+                        kvpppp.Value.SetValue(entityObj, 0, null);
+                    }
+                    else if (valueType == typeof(int).FullName)
+                    {
+                        kvpppp.Value.SetValue(entityObj, 0, null);
+                    }
+                    else if (valueType == typeof(float).FullName)
+                    {
+                        kvpppp.Value.SetValue(entityObj, 0, null);
+                    }
+                    else if (valueType == typeof(long).FullName)
+                    {
+                        kvpppp.Value.SetValue(entityObj, 0, null);
+                    }
+                }
+                catch (Exception ex) { }
+            }
+            #endregion
+
+            //属性赋值
+            dataRecord.forEach((string cKey, object cVal) =>
+            {
+                if (propertyDict.ContainsKey(cKey))
+                {
+                    try
+                    {
+                        propertyDict[cKey].SetValue(entityObj, cVal, null);
+                    }
+                    catch (Exception ex) { }
+                }
+            });
         }
 
         /// <summary>
