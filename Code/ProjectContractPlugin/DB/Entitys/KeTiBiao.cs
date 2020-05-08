@@ -17,9 +17,9 @@ namespace ProjectContractPlugin.DB.Entitys
             //更新保存时间
             updateSaveDate();
 
-            //设置值
             query.set("ModifyTime", DateTime.Now);
 
+            //设置值
             query.set("BianHao", BianHao);
             query.set("KeTiMingCheng", KeTiMingCheng);
             query.set("KeTiBaoMiDengJi", KeTiBaoMiDengJi);
@@ -27,6 +27,7 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("KeTiYanJiuNeiRong", KeTiYanJiuNeiRong);
             query.set("KeTiCanJiaDanWeiFenGong", KeTiCanJiaDanWeiFenGong);
             query.set("KeTiFuZeDanWei", KeTiFuZeDanWei);
+            query.set("KeTiFuZeDanWeiChangYongMingCheng", KeTiFuZeDanWeiChangYongMingCheng);
             query.set("KeTiFuZeDanWeiTongXunDiZhi", KeTiFuZeDanWeiTongXunDiZhi);
             query.set("KeTiFuZeDanWeiLianXiRen", KeTiFuZeDanWeiLianXiRen);
             query.set("KeTiFuZeDanWeiLianXiRenDianHua", KeTiFuZeDanWeiLianXiRenDianHua);
@@ -44,6 +45,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public string KeTiYanJiuNeiRong { get; set; }
         public string KeTiCanJiaDanWeiFenGong { get; set; }
         public string KeTiFuZeDanWei { get; set; }
+        public string KeTiFuZeDanWeiChangYongMingCheng { get; set; }
         public string KeTiFuZeDanWeiTongXunDiZhi { get; set; }
         public string KeTiFuZeDanWeiLianXiRen { get; set; }
         public string KeTiFuZeDanWeiLianXiRenDianHua { get; set; }
@@ -60,6 +62,7 @@ namespace ProjectContractPlugin.DB.Entitys
             KeTiYanJiuNeiRong = source("KeTiYanJiuNeiRong").value<string>("");
             KeTiCanJiaDanWeiFenGong = source("KeTiCanJiaDanWeiFenGong").value<string>("");
             KeTiFuZeDanWei = source("KeTiFuZeDanWei").value<string>("");
+            KeTiFuZeDanWeiChangYongMingCheng = source("KeTiFuZeDanWeiChangYongMingCheng").value<string>("");
             KeTiFuZeDanWeiTongXunDiZhi = source("KeTiFuZeDanWeiTongXunDiZhi").value<string>("");
             KeTiFuZeDanWeiLianXiRen = source("KeTiFuZeDanWeiLianXiRen").value<string>("");
             KeTiFuZeDanWeiLianXiRenDianHua = source("KeTiFuZeDanWeiLianXiRenDianHua").value<string>("");

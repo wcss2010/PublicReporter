@@ -18,6 +18,7 @@ namespace ProjectContractPlugin.DB.Entitys
             updateSaveDate();
 
             query.set("ModifyTime", DateTime.Now);
+
             //设置值
             query.set("BianHao", BianHao);
             query.set("XingMing", XingMing);
@@ -26,6 +27,7 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("ZhiCheng", ZhiCheng);
             query.set("ZhuanYe", ZhuanYe);
             query.set("GongZuoDanWei", GongZuoDanWei);
+            query.set("GongZuoDanWeiChangYongMingCheng", GongZuoDanWeiChangYongMingCheng);
             query.set("MeiNianTouRuShiJian", MeiNianTouRuShiJian);
             query.set("RenWuFenGong", RenWuFenGong);
             query.set("ShenFenZhengHao", ShenFenZhengHao);
@@ -35,7 +37,7 @@ namespace ProjectContractPlugin.DB.Entitys
             query.set("ZhiWu", ZhiWu);
             query.set("ShiXiangMuFuZeRen", ShiXiangMuFuZeRen);
             query.set("ZhuangTai", ZhuangTai);
-  
+
             return query;
         }
 
@@ -46,6 +48,7 @@ namespace ProjectContractPlugin.DB.Entitys
         public string ZhiCheng { get; set; }
         public string ZhuanYe { get; set; }
         public string GongZuoDanWei { get; set; }
+        public string GongZuoDanWeiChangYongMingCheng { get; set; }
         public int MeiNianTouRuShiJian { get; set; }
         public string RenWuFenGong { get; set; }
         public string ShenFenZhengHao { get; set; }
@@ -58,13 +61,14 @@ namespace ProjectContractPlugin.DB.Entitys
 
         public override void bind(Noear.Weed.GetHandlerEx source)
         {
-            BianHao = source("BianHao").value<string>(Guid.NewGuid().ToString());
+            BianHao = source("BianHao").value<string>("");
             XingMing = source("XingMing").value<string>("");
             ShengRi = source("ShengRi").value<DateTime>(DateTime.Now);
             XingBie = source("XingBie").value<string>("");
             ZhiCheng = source("ZhiCheng").value<string>("");
             ZhuanYe = source("ZhuanYe").value<string>("");
             GongZuoDanWei = source("GongZuoDanWei").value<string>("");
+            GongZuoDanWeiChangYongMingCheng = source("GongZuoDanWeiChangYongMingCheng").value<string>("");
             MeiNianTouRuShiJian = source("MeiNianTouRuShiJian").value<int>(0);
             RenWuFenGong = source("RenWuFenGong").value<string>("");
             ShenFenZhengHao = source("ShenFenZhengHao").value<string>("");
