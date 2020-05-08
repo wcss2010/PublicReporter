@@ -23,10 +23,27 @@ namespace ProjectContractPlugin.Forms
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            IsUseReporterPKG = rbFromReportPKG.Checked;
+            if (rbFromReportPKG.Checked)
+            {
+                ProjectType = NewProjectType.UseReporterPKG;
+            }
+            else if (rbFromOldContactPKG.Checked)
+            {
+                ProjectType = NewProjectType.UseOldContactPKG;
+            }
+            else
+            {
+                ProjectType = NewProjectType.UseNewContactPKG;
+            }
+
             DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
-        public bool IsUseReporterPKG { get; set; }
+        public NewProjectType ProjectType { get; set; }
+    }
+
+    public enum NewProjectType
+    {
+        UseReporterPKG,UseOldContactPKG,UseNewContactPKG
     }
 }

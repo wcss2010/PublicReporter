@@ -362,7 +362,7 @@ namespace ProjectContractPlugin
                                 FrmNewProject fnp = new FrmNewProject();
                                 if (fnp.ShowDialog() == DialogResult.OK)
                                 {
-                                    if (fnp.IsUseReporterPKG)
+                                    if (fnp.ProjectType)
                                     {
                                         OpenFileDialog ofd = new OpenFileDialog();
                                         ofd.Filter = "Zip压缩文件(*.zip)|*.zip";
