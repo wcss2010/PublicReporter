@@ -256,6 +256,20 @@ namespace ProjectContractPlugin.Forms
                         catch (Exception ex) { }
                         new PublicReporterLib.Utility.ZipUtil().UnZipFile(ofd.FileName, decompressTemp, string.Empty, true);
                         
+                        //检查数据库版本
+                        string versionStr = getProjectVersion(decompressTemp);
+                        if (NewPluginRoot.noSupportDBVersionList.Contains(versionStr))
+                        {
+                            //不支持的数据库版本
+                            MessageBox.Show("对不起，当前的数据包版本太低，请使用‘新建项目’中的‘旧的合同书数据匹配导入’选项！");
+                            try
+                            {
+                                Directory.Delete(decompressTemp, true);
+                            }
+                            catch (Exception ex) { }
+                            return;
+                        }
+
                         AbstractEditorPlugin.AbstractPluginRoot.report(senderForm, 30, "创建导入目录...", 600);
 
                         //读取数据对象

@@ -21,6 +21,11 @@ namespace ProjectContractPlugin
 {
     public class NewPluginRoot : AbstractEditorPlugin.AbstractPluginRoot
     {
+        /// <summary>
+        /// 不支持的数据库版本
+        /// </summary>
+        public static List<string> noSupportDBVersionList = new List<string>(new string[] { "v1.1", "v1.2", "v1.3", "v1.4", "v1.5" });
+
         public const string button1_Name = "新建项目";
         public const string button2_Name = "生成报告";
         public const string button3_Name = "导出数据包";
