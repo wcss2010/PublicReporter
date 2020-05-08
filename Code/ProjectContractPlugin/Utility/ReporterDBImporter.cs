@@ -10,7 +10,7 @@ namespace ProjectContractPlugin.Utility
 {
     public class ReporterDBImporter
     {
-        public static bool import(string zipFile, Noear.Weed.DbContext context)
+        public static bool import(string zipFile, Noear.Weed.DbContext context, NewPluginRoot pluginObj)
         {
             try
             {

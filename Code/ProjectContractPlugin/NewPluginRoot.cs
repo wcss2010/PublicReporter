@@ -112,10 +112,10 @@ namespace ProjectContractPlugin
                 switch (importProjectType)
                 {
                     case NewProjectType.UseReporterPKG:
-                        ReporterDBImporter.import(importZipFile, ConnectionManager.Context);
+                        ReporterDBImporter.import(importZipFile, ConnectionManager.Context, this);
                         break;
                     case NewProjectType.UseOldContactPKG:
-                        OldContactDBImporter.import(importZipFile, ConnectionManager.Context);
+                        OldContactDBImporter.import(importZipFile, ConnectionManager.Context, this);
                         break;
                 }                
                 importZipFile = string.Empty;

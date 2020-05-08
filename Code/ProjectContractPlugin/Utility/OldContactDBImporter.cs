@@ -1,4 +1,5 @@
-﻿using Noear.Weed;
+﻿using AbstractEditorPlugin.Utility;
+using Noear.Weed;
 using ProjectContractPlugin.DB.Entitys;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace ProjectContractPlugin.Utility
 {
     public class OldContactDBImporter
     {
-        public static bool import(string zipFile, Noear.Weed.DbContext context)
+        public static bool import(string zipFile, Noear.Weed.DbContext context, NewPluginRoot pluginObj)
         {
             try
             {
@@ -34,6 +35,29 @@ namespace ProjectContractPlugin.Utility
 
                 if (File.Exists(reporterDBFile))
                 {
+                    #region 复制Files目录
+                    string sourceFilesDir = Path.Combine(Path.GetDirectoryName(reporterDBFile), "Files");
+                    try
+                    {
+                        Directory.Delete(pluginObj.filesDir, true);
+                    }
+                    catch (Exception ex) { }
+                    try
+                    {
+                        FileOp.copyDirectory(sourceFilesDir, pluginObj.filesDir, true);
+                    }
+                    catch (Exception ex) { }
+                    #endregion
+
+                    #region 复制PDFFile
+                    string sourcePDFFile = Path.Combine(Path.GetDirectoryName(reporterDBFile), "合同书.pdf");
+                    try
+                    {
+                        File.Copy(sourcePDFFile, Path.Combine(pluginObj.dataDir, "合同书.pdf"), true);
+                    }
+                    catch (Exception ex) { }
+                    #endregion
+
                     //项目或课题表
                     DataList dlProject = getDataList(reporterDBFile, "Project", string.Empty);
                     //金额表
