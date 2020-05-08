@@ -32,7 +32,9 @@ namespace ProjectContractPlugin
         public const string button4_Name = "数据包管理";
         public const string button5_Name = "上传PDF";
         public const string button6_Name = "帮助";
+
         private string importZipFile;
+        private NewProjectType importProjectType;
 
         public NewPluginRoot()
             : base()
@@ -93,14 +95,31 @@ namespace ProjectContractPlugin
                 ConnectionManager.Open(dbFile);
             }
 
-            if (File.Exists(importZipFile))
-            {
-                ReporterDBImporter.import(importZipFile, ConnectionManager.Context);
-                importZipFile = string.Empty;
-            }
+            //检查初始化类型
+            checkInitType();
 
             //检查是否存在错误数据(主要用于判断部门中的船舶工业和船舶重工二个公司)
             checkErrorData();
+        }
+
+        /// <summary>
+        /// 检查数据库初始化类型
+        /// </summary>
+        private void checkInitType()
+        {
+            if (File.Exists(importZipFile))
+            {
+                switch (importProjectType)
+                {
+                    case NewProjectType.UseReporterPKG:
+                        ReporterDBImporter.import(importZipFile, ConnectionManager.Context);
+                        break;
+                    case NewProjectType.UseOldContactPKG:
+                        OldContactDBImporter.import(importZipFile, ConnectionManager.Context);
+                        break;
+                }                
+                importZipFile = string.Empty;
+            }
         }
 
         /// <summary>
@@ -274,7 +293,7 @@ namespace ProjectContractPlugin
             #region 初始化编辑器Map
             editorMap.Add("研究目标", new TextContentEditor("研究目标", "填写批复目标", 999999999));
             editorMap.Add("批复内容", new DocumentPasteEditor("批复内容", "填写批复的研究内容", Path.Combine(RootDir, Path.Combine("Helper", "emptyPaste.doc")), getDocumentPasteReadmeFile()));
-            editorMap.Add("双方认为需要说明的经费使用事项", new TextContentEditor("双方认为需要说明的经费使用事项", "（应明确承研单位，不包括外协单位） 如：××××××单位承担××××××××××研究任务，经费×××万元。",999999999));
+            editorMap.Add("双方认为需要说明的经费使用事项", new TextContentEditor("双方认为需要说明的经费使用事项", "（应明确承研单位，不包括外协单位） 如：××××××单位承担××××××××××研究任务，经费×××万元。", 999999999));
             editorMap.Add("经费管理要求", new TextReadOnlyEditor("经费管理要求", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyA.rtf"))));
             editorMap.Add("附加条款", new TextReadOnlyEditor("附加条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyC.rtf"))));
             editorMap.Add("基本信息", new ProjectEditor());
@@ -362,22 +381,39 @@ namespace ProjectContractPlugin
                                 FrmNewProject fnp = new FrmNewProject();
                                 if (fnp.ShowDialog() == DialogResult.OK)
                                 {
-                                    if (fnp.ProjectType)
-                                    {
-                                        OpenFileDialog ofd = new OpenFileDialog();
-                                        ofd.Filter = "Zip压缩文件(*.zip)|*.zip";
-                                        if (ofd.ShowDialog() == DialogResult.OK)
-                                        {
-                                            importZipFile = ofd.FileName;
+                                    OpenFileDialog ofd = new OpenFileDialog();
+                                    importProjectType = fnp.ProjectType;
 
+                                    switch (importProjectType)
+                                    {
+                                        case NewProjectType.UseReporterPKG:
+                                            ofd = new OpenFileDialog();
+                                            ofd.Filter = "Zip压缩文件(*.zip)|*.zip";
+                                            ofd.Title = "请选择建议书数据包！";
+                                            if (ofd.ShowDialog() == DialogResult.OK)
+                                            {
+                                                importZipFile = ofd.FileName;
+
+                                                //新建项目
+                                                rebuildProject("");
+                                            }
+                                            break;
+                                        case NewProjectType.UseOldContactPKG:
+                                            ofd = new OpenFileDialog();
+                                            ofd.Filter = "Zip压缩文件(*.zip)|*.zip";
+                                            ofd.Title = "请选择旧的合同书数据包！";
+                                            if (ofd.ShowDialog() == DialogResult.OK)
+                                            {
+                                                importZipFile = ofd.FileName;
+
+                                                //新建项目
+                                                rebuildProject("");
+                                            }
+                                            break;
+                                        case NewProjectType.UseNewContactPKG:
                                             //新建项目
                                             rebuildProject("");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        //新建项目
-                                        rebuildProject("");
+                                            break;
                                     }
                                 }
                             }
@@ -457,9 +493,9 @@ namespace ProjectContractPlugin
                     string errorPage = string.Empty;
                     if (!isInputCompleted(ref errorPage))
                     {
-                            MessageBox.Show("对不起，内容未填写完不能上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            MessageBox.Show("请将页签[" + errorPage + "]填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return;                        
+                        MessageBox.Show("对不起，内容未填写完不能上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("请将页签[" + errorPage + "]填写完整再点击上报!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
                     }
 
                     new FrmPkgExport().ShowDialog();

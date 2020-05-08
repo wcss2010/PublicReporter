@@ -358,6 +358,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\OldContactDBImporter.cs" />
     <Compile Include="Utility\ReporterDBImporter.cs" />
     <Compile Include="Utility\WordPrinter.cs" />
     <Compile Include="Utility\WordUtility.cs" />
