@@ -52,6 +52,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ibEdit3 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtWorkNormalUnit = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,7 +161,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label6.Location = new System.Drawing.Point(55, 319);
+            this.label6.Location = new System.Drawing.Point(55, 355);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 16);
@@ -170,7 +172,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label7.Location = new System.Drawing.Point(55, 355);
+            this.label7.Location = new System.Drawing.Point(55, 391);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 16);
@@ -219,7 +221,7 @@
             "中国核工业集团公司",
             "中国工程物理研究院",
             "其它"});
-            this.txtWorkOrg.Location = new System.Drawing.Point(148, 316);
+            this.txtWorkOrg.Location = new System.Drawing.Point(148, 352);
             this.txtWorkOrg.Name = "txtWorkOrg";
             this.txtWorkOrg.Size = new System.Drawing.Size(261, 24);
             this.txtWorkOrg.TabIndex = 10;
@@ -227,7 +229,7 @@
             // txtWorkAddress
             // 
             this.txtWorkAddress.Font = new System.Drawing.Font("仿宋", 12F);
-            this.txtWorkAddress.Location = new System.Drawing.Point(148, 352);
+            this.txtWorkAddress.Location = new System.Drawing.Point(148, 388);
             this.txtWorkAddress.Margin = new System.Windows.Forms.Padding(5);
             this.txtWorkAddress.Name = "txtWorkAddress";
             this.txtWorkAddress.Size = new System.Drawing.Size(519, 27);
@@ -235,7 +237,7 @@
             // 
             // txtWorkUnitAddress
             // 
-            this.txtWorkUnitAddress.Location = new System.Drawing.Point(148, 278);
+            this.txtWorkUnitAddress.Location = new System.Drawing.Point(148, 314);
             this.txtWorkUnitAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtWorkUnitAddress.Name = "txtWorkUnitAddress";
             this.txtWorkUnitAddress.Size = new System.Drawing.Size(647, 26);
@@ -245,7 +247,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label8.Location = new System.Drawing.Point(55, 281);
+            this.label8.Location = new System.Drawing.Point(55, 317);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
@@ -269,14 +271,14 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDetail.Location = new System.Drawing.Point(148, 387);
+            this.dgvDetail.Location = new System.Drawing.Point(148, 424);
             this.dgvDetail.MultiSelect = false;
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.RowHeadersVisible = false;
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 23;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(647, 246);
+            this.dgvDetail.Size = new System.Drawing.Size(647, 209);
             this.dgvDetail.TabIndex = 12;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             // 
@@ -307,7 +309,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(54, 495);
+            this.label4.Location = new System.Drawing.Point(54, 516);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 16);
@@ -341,6 +343,26 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "保密等级：";
             // 
+            // txtWorkNormalUnit
+            // 
+            this.txtWorkNormalUnit.Location = new System.Drawing.Point(148, 276);
+            this.txtWorkNormalUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWorkNormalUnit.Name = "txtWorkNormalUnit";
+            this.txtWorkNormalUnit.Size = new System.Drawing.Size(647, 26);
+            this.txtWorkNormalUnit.TabIndex = 4;
+            this.txtWorkNormalUnit.TextChanged += new System.EventHandler(this.txtWorkUnit_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label10.Location = new System.Drawing.Point(39, 279);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(104, 16);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "单位常用名：";
+            // 
             // FrmAddOrUpdateSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -354,10 +376,12 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtWorkContent);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtWorkUnitAddress);
+            this.Controls.Add(this.txtWorkNormalUnit);
             this.Controls.Add(this.txtWorkUnit);
             this.Controls.Add(this.txtSubjectName);
             this.Controls.Add(this.btnClose);
@@ -403,5 +427,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
         private System.Windows.Forms.ComboBox ibEdit3;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtWorkNormalUnit;
+        private System.Windows.Forms.Label label10;
     }
 }

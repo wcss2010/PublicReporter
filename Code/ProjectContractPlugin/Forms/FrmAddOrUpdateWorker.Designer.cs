@@ -62,6 +62,8 @@
             this.txtBirthday = new System.Windows.Forms.DateTimePicker();
             this.plButtons = new System.Windows.Forms.Panel();
             this.lblError = new System.Windows.Forms.Label();
+            this.txtWorkNormalUnit = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).BeginInit();
             this.panel1.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -196,7 +198,7 @@
             // 
             // txtIDCard
             // 
-            this.txtIDCard.Location = new System.Drawing.Point(132, 257);
+            this.txtIDCard.Location = new System.Drawing.Point(132, 312);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(253, 26);
@@ -207,7 +209,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label8.Location = new System.Drawing.Point(39, 260);
+            this.label8.Location = new System.Drawing.Point(39, 315);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
@@ -216,7 +218,7 @@
             // 
             // txtTask
             // 
-            this.txtTask.Location = new System.Drawing.Point(132, 320);
+            this.txtTask.Location = new System.Drawing.Point(132, 375);
             this.txtTask.Margin = new System.Windows.Forms.Padding(4);
             this.txtTask.Name = "txtTask";
             this.txtTask.Size = new System.Drawing.Size(253, 26);
@@ -226,7 +228,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(39, 324);
+            this.label2.Location = new System.Drawing.Point(39, 379);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
@@ -237,7 +239,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label9.Location = new System.Drawing.Point(476, 322);
+            this.label9.Location = new System.Drawing.Point(476, 377);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 16);
@@ -246,7 +248,7 @@
             // 
             // txtTotalTime
             // 
-            this.txtTotalTime.Location = new System.Drawing.Point(601, 320);
+            this.txtTotalTime.Location = new System.Drawing.Point(601, 375);
             this.txtTotalTime.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalTime.Maximum = new decimal(new int[] {
             999999999,
@@ -264,7 +266,7 @@
             this.cbxSubjects.Items.AddRange(new object[] {
             "负责人",
             "成员"});
-            this.cbxSubjects.Location = new System.Drawing.Point(132, 437);
+            this.cbxSubjects.Location = new System.Drawing.Point(132, 492);
             this.cbxSubjects.Margin = new System.Windows.Forms.Padding(4);
             this.cbxSubjects.Name = "cbxSubjects";
             this.cbxSubjects.Size = new System.Drawing.Size(253, 24);
@@ -274,7 +276,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(490, 440);
+            this.label4.Location = new System.Drawing.Point(490, 495);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 16);
@@ -288,7 +290,7 @@
             this.cbxJobInProjects.Items.AddRange(new object[] {
             "负责人",
             "成员"});
-            this.cbxJobInProjects.Location = new System.Drawing.Point(601, 437);
+            this.cbxJobInProjects.Location = new System.Drawing.Point(601, 492);
             this.cbxJobInProjects.Margin = new System.Windows.Forms.Padding(4);
             this.cbxJobInProjects.Name = "cbxJobInProjects";
             this.cbxJobInProjects.Size = new System.Drawing.Size(179, 24);
@@ -298,7 +300,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(71, 440);
+            this.label10.Location = new System.Drawing.Point(71, 495);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 16);
@@ -310,7 +312,7 @@
             this.panel1.Controls.Add(this.rbIsOnlySubject);
             this.panel1.Controls.Add(this.rbIsProjectAndSubject);
             this.panel1.Controls.Add(this.rbIsOnlyProject);
-            this.panel1.Location = new System.Drawing.Point(132, 376);
+            this.panel1.Location = new System.Drawing.Point(132, 431);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(647, 33);
             this.panel1.TabIndex = 30;
@@ -395,7 +397,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label13.Location = new System.Drawing.Point(538, 260);
+            this.label13.Location = new System.Drawing.Point(538, 315);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 16);
@@ -407,7 +409,7 @@
             this.txtBirthday.CustomFormat = "yyyy年MM月dd日";
             this.txtBirthday.Enabled = false;
             this.txtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtBirthday.Location = new System.Drawing.Point(601, 257);
+            this.txtBirthday.Location = new System.Drawing.Point(601, 312);
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.Size = new System.Drawing.Size(179, 26);
             this.txtBirthday.TabIndex = 31;
@@ -418,7 +420,7 @@
             this.plButtons.Controls.Add(this.btnClose);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plButtons.Location = new System.Drawing.Point(0, 528);
+            this.plButtons.Location = new System.Drawing.Point(0, 543);
             this.plButtons.Margin = new System.Windows.Forms.Padding(4);
             this.plButtons.Name = "plButtons";
             this.plButtons.Size = new System.Drawing.Size(836, 40);
@@ -427,17 +429,38 @@
             // lblError
             // 
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(129, 287);
+            this.lblError.Location = new System.Drawing.Point(129, 342);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(203, 19);
             this.lblError.TabIndex = 34;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtWorkNormalUnit
+            // 
+            this.txtWorkNormalUnit.Font = new System.Drawing.Font("仿宋", 12F);
+            this.txtWorkNormalUnit.Location = new System.Drawing.Point(132, 256);
+            this.txtWorkNormalUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWorkNormalUnit.Name = "txtWorkNormalUnit";
+            this.txtWorkNormalUnit.Size = new System.Drawing.Size(647, 26);
+            this.txtWorkNormalUnit.TabIndex = 35;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label14.Location = new System.Drawing.Point(23, 259);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(104, 19);
+            this.label14.TabIndex = 36;
+            this.label14.Text = "单位常用名：";
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 568);
+            this.ClientSize = new System.Drawing.Size(836, 583);
+            this.Controls.Add(this.txtWorkNormalUnit);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.plButtons);
             this.Controls.Add(this.txtBirthday);
@@ -518,5 +541,7 @@
         private System.Windows.Forms.DateTimePicker txtBirthday;
         private System.Windows.Forms.Panel plButtons;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.TextBox txtWorkNormalUnit;
+        private System.Windows.Forms.Label label14;
     }
 }

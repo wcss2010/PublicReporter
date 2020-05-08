@@ -54,6 +54,7 @@ namespace ProjectContractPlugin.Forms
                 txtJob.Text = DataObj.ZhiCheng;
                 txtSep.Text = DataObj.ZhuanYe;
                 txtWorkUnit.Text = DataObj.GongZuoDanWei;
+                txtWorkNormalUnit.Text = DataObj.GongZuoDanWeiChangYongMingCheng;
                 txtIDCard.Text = DataObj.ShenFenZhengHao;
                 txtTask.Text = DataObj.RenWuFenGong;
                 cbxSexs.SelectedItem = DataObj.XingBie;
@@ -99,6 +100,7 @@ namespace ProjectContractPlugin.Forms
                 || String.IsNullOrEmpty(txtJob.Text)
                 || String.IsNullOrEmpty(txtSep.Text)
                 || String.IsNullOrEmpty(txtWorkUnit.Text)
+                || String.IsNullOrEmpty(txtWorkNormalUnit.Text)
                 || String.IsNullOrEmpty(txtIDCard.Text)
                 || String.IsNullOrEmpty(txtTelephone.Text)
                 || String.IsNullOrEmpty(txtMobilephone.Text)
@@ -119,6 +121,7 @@ namespace ProjectContractPlugin.Forms
                 DataObj.ZhiCheng = txtJob.Text;
                 DataObj.ZhuanYe = txtSep.Text;
                 DataObj.GongZuoDanWei = txtWorkUnit.Text;
+                DataObj.GongZuoDanWeiChangYongMingCheng = txtWorkNormalUnit.Text;
                 DataObj.ShenFenZhengHao = txtIDCard.Text;
                 DataObj.DianHua = txtTelephone.Text;
                 DataObj.ShouJi = txtMobilephone.Text;

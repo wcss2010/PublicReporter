@@ -76,6 +76,7 @@ namespace ProjectReporterPlugin.Editor
                     string personName = string.Empty;
                     string personIdCard = string.Empty;
                     string unitName = string.Empty;
+                    string normalName = string.Empty;
                     //string content = string.Empty;
                     //string unitBankNo = string.Empty;
                     //string unitExtId = string.Empty;
@@ -101,6 +102,7 @@ namespace ProjectReporterPlugin.Editor
                         if (unitObj != null)
                         {
                             unitName = unitObj.UnitName;
+                            normalName = unitObj.NormalName;
                         }
 
                         //if (unitExtObj != null)
@@ -120,6 +122,7 @@ namespace ProjectReporterPlugin.Editor
                     cells.Add(unitName);
                     //cells.Add(unitBankNo);
                     cells.Add("");
+                    cells.Add(normalName);
                     cells.Add(ketiTask.TotalMoney);
                     cells.Add(keti.Type2 == "总体课题");
                     cells.Add("填报课题内容");
@@ -385,9 +388,14 @@ namespace ProjectReporterPlugin.Editor
                         //return;
                         dgvRow.Cells[6].Tag = Guid.NewGuid().ToString();
                     }
-
+                    if (dgvRow.Cells[7].Value == null)
+                    {
+                        MessageBox.Show("对不起,请输入承担单位常用名称!");
+                        result = false;
+                        return;
+                    }
                     decimal totalMoney = 0;
-                    if (dgvRow.Cells[7].Value != null && decimal.TryParse(dgvRow.Cells[7].Value.ToString(), out totalMoney) == false)
+                    if (dgvRow.Cells[8].Value != null && decimal.TryParse(dgvRow.Cells[8].Value.ToString(), out totalMoney) == false)
                     {
                         MessageBox.Show("对不起,请输入正确的研究经费!");
                         result = false;
@@ -437,18 +445,19 @@ namespace ProjectReporterPlugin.Editor
                     proj.Type = "课题";
                     proj.ParentID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj).ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
-                    proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
+                    proj.Type2 = dgvRow.Cells[9].Value != null ? (((bool)dgvRow.Cells[9].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
                     //创建课题单位
                     if (dgvRow.Cells[5].Tag != null && ((Unit)dgvRow.Cells[5].Tag).ID != null)
                     {
                         Unit unitObj = (Unit)dgvRow.Cells[5].Tag;
                         unitObj.UnitName = dgvRow.Cells[5].Value.ToString();
-                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.UnitName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
+                        unitObj.NormalName = dgvRow.Cells[7].Value.ToString();
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.NormalName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
                     }
                     else
                     {
-                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), "未知", "未知", "课题单位", "未知");
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[7].Value.ToString(), "未知", "未知", "课题单位", "未知");
                     }
 
                     //添加或更新课题数据
@@ -610,9 +619,12 @@ namespace ProjectReporterPlugin.Editor
                         //return;
                         dgvRow.Cells[6].Tag = Guid.NewGuid().ToString();
                     }
-
+                    if (dgvRow.Cells[7].Value == null)
+                    {
+                        dgvRow.Cells[7].Value = string.Empty;
+                    }
                     decimal totalMoney = 0;
-                    if (dgvRow.Cells[7].Value != null && decimal.TryParse(dgvRow.Cells[7].Value.ToString(), out totalMoney) == false)
+                    if (dgvRow.Cells[8].Value != null && decimal.TryParse(dgvRow.Cells[8].Value.ToString(), out totalMoney) == false)
                     {
                         MessageBox.Show("对不起,请输入正确的研究经费!");
                         return;
@@ -660,18 +672,19 @@ namespace ProjectReporterPlugin.Editor
                     proj.Type = "课题";
                     proj.ParentID = ((Project)PublicReporterLib.PluginLoader.getLocalPluginRoot<NewPluginRoot>().projectObj).ID;
                     proj.UnitID = dgvRow.Cells[6].Tag.ToString();
-                    proj.Type2 = dgvRow.Cells[8].Value != null ? (((bool)dgvRow.Cells[8].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
+                    proj.Type2 = dgvRow.Cells[9].Value != null ? (((bool)dgvRow.Cells[9].Value) == true ? "总体课题" : "非总体课题") : "非总体课题";
 
                     //创建课题单位
                     if (dgvRow.Cells[5].Tag != null && ((Unit)dgvRow.Cells[5].Tag).ID != null)
                     {
                         Unit unitObj = (Unit)dgvRow.Cells[5].Tag;
                         unitObj.UnitName = dgvRow.Cells[5].Value.ToString();
-                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.UnitName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
+                        unitObj.NormalName = dgvRow.Cells[7].Value.ToString();
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), unitObj.UnitName, unitObj.UnitName, unitObj.NormalName, unitObj.ContactName, unitObj.Telephone, unitObj.UnitType, unitObj.Address);
                     }
                     else
                     {
-                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), "未知", "未知", "课题单位", "未知");
+                        ProjectEditor.BuildUnitRecord(dgvRow.Cells[6].Tag.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[5].Value.ToString(), dgvRow.Cells[7].Value.ToString(), "未知", "未知", "课题单位", "未知");
                     }
 
                     //添加或更新课题数据
@@ -806,7 +819,7 @@ namespace ProjectReporterPlugin.Editor
             int result = 1;
             //foreach (DataGridViewRow dgvRow in dgvDetail.Rows)
             //{
-            //    if (dgvRow.Cells[8].Value != null && ((bool)dgvRow.Cells[8].Value) == true)
+            //    if (dgvRow.Cells[9].Value != null && ((bool)dgvRow.Cells[9].Value) == true)
             //    {
             //        result += 1;
             //    }

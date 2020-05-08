@@ -30,6 +30,7 @@ namespace ProjectContractPlugin.Forms
                 txtWorkContent.Text = DataObj.KeTiYanJiuNeiRong;
                 //txtUnitTask.Text = DataObj.KeTiCanJiaDanWeiFenGong;
                 txtWorkUnit.Text = DataObj.KeTiFuZeDanWei;
+                txtWorkNormalUnit.Text = DataObj.KeTiFuZeDanWeiChangYongMingCheng;
                 txtWorkUnitAddress.Text = DataObj.KeTiFuZeDanWeiTongXunDiZhi;
                 txtWorkOrg.Text = DataObj.KeTiSuoShuBuMen;
                 txtWorkAddress.setAddress(DataObj.KeTiSuoShuDiDian);
@@ -65,6 +66,7 @@ namespace ProjectContractPlugin.Forms
                 //|| String.IsNullOrEmpty(txtUnitTask.Text)
                 ||String.IsNullOrEmpty(txtWorkDest.Text)
                 || String.IsNullOrEmpty(txtWorkUnit.Text)
+                || String.IsNullOrEmpty(txtWorkNormalUnit.Text)
                 || String.IsNullOrEmpty(txtWorkUnitAddress.Text)
                 || String.IsNullOrEmpty(txtWorkOrg.Text)
                 || String.IsNullOrEmpty(txtWorkAddress.getAddress()))
@@ -76,6 +78,7 @@ namespace ProjectContractPlugin.Forms
             DataObj.KeTiMingCheng = txtSubjectName.Text;
             DataObj.KeTiBaoMiDengJi = ibEdit3.Text;
             DataObj.KeTiFuZeDanWei = txtWorkUnit.Text;
+            DataObj.KeTiFuZeDanWeiChangYongMingCheng = txtWorkNormalUnit.Text;
             DataObj.KeTiFuZeDanWeiTongXunDiZhi = txtWorkUnitAddress.Text;
             DataObj.KeTiSuoShuBuMen = txtWorkOrg.Text;
             DataObj.KeTiSuoShuDiDian = txtWorkAddress.getAddress();

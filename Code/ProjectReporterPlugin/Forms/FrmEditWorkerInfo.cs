@@ -68,6 +68,7 @@ namespace ProjectReporterPlugin.Forms
                     if (PersonInfo.UnitObj != null)
                     {
                         txtUnitName.Text = PersonInfo.UnitObj.UnitName;
+                        txtUnitNormalName.Text = PersonInfo.UnitObj.NormalName;
                         //txtUnitAddress.Text = PersonInfo.UnitObj.Address;
                         //txtUnitContactName.Text = PersonInfo.UnitObj.ContactName;
                         //txtUnitTelephone.Text = PersonInfo.UnitObj.Telephone;
@@ -137,6 +138,11 @@ namespace ProjectReporterPlugin.Forms
             if (string.IsNullOrEmpty(txtUnitName.Text))
             {
                 MessageBox.Show("对不起，请输入单位名称！");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtUnitNormalName.Text))
+            {
+                MessageBox.Show("对不起，请输入单位常用名！");
                 return;
             }
             //if (string.IsNullOrEmpty(txtUnitAddress.Text))
@@ -245,7 +251,7 @@ namespace ProjectReporterPlugin.Forms
             string workUnitID = string.IsNullOrEmpty(PersonInfo.UnitObj.ID) ? Guid.NewGuid().ToString() : PersonInfo.UnitObj.ID;
             //创建工作单位
             //ProjectEditor.BuildUnitRecord(workUnitID, txtUnitName.Text, txtUnitName.Text, txtUnitName.Text, txtUnitContactName.Text, txtUnitTelephone.Text, "课题单位", txtUnitAddress.Text);
-            ProjectEditor.BuildUnitRecord(workUnitID, txtUnitName.Text, txtUnitName.Text, txtUnitName.Text, string.Empty, string.Empty, "课题单位", string.Empty);
+            ProjectEditor.BuildUnitRecord(workUnitID, txtUnitName.Text, txtUnitName.Text, txtUnitNormalName.Text, string.Empty, string.Empty, "课题单位", string.Empty);
 
             //输入人员信息
             PersonInfo.PersonObj = new Person();
