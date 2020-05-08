@@ -72,6 +72,7 @@ namespace ProjectContractPlugin.Forms
                     string telephoneStr = dr["电话"] != null ? dr["电话"].ToString().Trim() : string.Empty;
                     string mobilephoneStr = dr["手机"] != null ? dr["手机"].ToString().Trim() : string.Empty;
                     string workunitStr = dr["工作单位"] != null ? dr["工作单位"].ToString().Trim() : string.Empty;
+                    string workNormalUnitStr = dr["工作单位常用名"] != null ? dr["工作单位常用名"].ToString().Trim() : string.Empty;
                     string timeforsubjectStr = dr["每年投入时间"] != null ? dr["每年投入时间"].ToString().Trim() : string.Empty;
                     string taskcontentStr = dr["任务分工"] != null ? dr["任务分工"].ToString().Trim() : string.Empty;
 
@@ -186,6 +187,7 @@ namespace ProjectContractPlugin.Forms
                     ppObj.DianHua = telephoneStr;
                     ppObj.ShouJi = mobilephoneStr;
                     ppObj.GongZuoDanWei = workunitStr;
+                    ppObj.GongZuoDanWeiChangYongMingCheng = workNormalUnitStr;
                     ppObj.MeiNianTouRuShiJian = int.Parse(timeforsubjectStr);
                     ppObj.RenWuFenGong = taskcontentStr;
 

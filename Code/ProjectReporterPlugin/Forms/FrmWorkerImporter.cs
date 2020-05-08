@@ -60,7 +60,7 @@ namespace ProjectReporterPlugin.Forms
                     po.TaskObj = ConnectionManager.Context.table("Task").where("IDCard='" + newObj.personIDCard + "' and ProjectID in (select ID from Project where Name = '" + (string.IsNullOrEmpty(newObj.subjectStr) ? ((Project)PluginRootObj.projectObj).Name : newObj.subjectStr) + "')").select("*").getItem<Task>(new Task());
 
                     //更新数据
-                    insertOrUpdatePerson(po, newObj.unitName, newObj.unitAddress, newObj.unitContact, newObj.unitTelephone, newObj.personName, newObj.personIDCard, newObj.personJob, newObj.personSpecialty, newObj.personSex, DateTime.Parse(newObj.personBirthday), newObj.personTelephone, newObj.personMobilePhone, newObj.personAddress, int.Parse(newObj.timeInProject), newObj.taskInProject, newObj.roleNameStr, subjectID, newObj.roletypeOnlyProjectStr == "是", newObj.roletypeProjectAndSubjectStr == "是", newObj.roletypeOnlySubjectStr == "是");
+                    insertOrUpdatePerson(po, newObj.unitName, newObj.unitNormalName, newObj.unitAddress, newObj.unitContact, newObj.unitTelephone, newObj.personName, newObj.personIDCard, newObj.personJob, newObj.personSpecialty, newObj.personSex, DateTime.Parse(newObj.personBirthday), newObj.personTelephone, newObj.personMobilePhone, newObj.personAddress, int.Parse(newObj.timeInProject), newObj.taskInProject, newObj.roleNameStr, subjectID, newObj.roletypeOnlyProjectStr == "是", newObj.roletypeProjectAndSubjectStr == "是", newObj.roletypeOnlySubjectStr == "是");
                 }
                 catch (Exception ex)
                 {
@@ -115,6 +115,7 @@ namespace ProjectReporterPlugin.Forms
                     PersonImportRecord pir = new PersonImportRecord();
 
                     pir.unitName = dr["工作单位"] != null ? dr["工作单位"].ToString() : string.Empty;
+                    pir.unitNormalName = dr["工作单位常用名"] != null ? dr["工作单位常用名"].ToString().Trim() : string.Empty;
                     //string unitType = dr["隶属部门"] != null ? dr["隶属部门"].ToString() : string.Empty;
                     pir.unitType = "其它";
                     //pir.unitAddress = dr["单位通信地址"] != null ? dr["单位通信地址"].ToString() : string.Empty;
@@ -319,7 +320,7 @@ namespace ProjectReporterPlugin.Forms
         /// <param name="isOnlyProject"></param>
         /// <param name="isProjectAndSubject"></param>
         /// <param name="isOnlySubject"></param>
-        private void insertOrUpdatePerson(PersonObject newPersonInfo,string unitName, string unitAddress, string unitContactName, string unitTelephone, string personName, string personIDCard, string personJob, string personSpecialty, string personSex, DateTime personBirthday, string personTelephone, string personMobilePhone, string personAddress, int workTimeInYear, string taskContent, string jobInProjects, string subjectID, bool isOnlyProject, bool isProjectAndSubject, bool isOnlySubject)
+        private void insertOrUpdatePerson(PersonObject newPersonInfo,string unitName, string unitNormalName,string unitAddress, string unitContactName, string unitTelephone, string personName, string personIDCard, string personJob, string personSpecialty, string personSex, DateTime personBirthday, string personTelephone, string personMobilePhone, string personAddress, int workTimeInYear, string taskContent, string jobInProjects, string subjectID, bool isOnlyProject, bool isProjectAndSubject, bool isOnlySubject)
         {
             //项目负责人显示序号
             int masterDiaplayOrder = 0;
@@ -354,7 +355,7 @@ namespace ProjectReporterPlugin.Forms
             //工作单位ID
             string workUnitID = string.IsNullOrEmpty(newPersonInfo.UnitObj.ID) ? Guid.NewGuid().ToString() : newPersonInfo.UnitObj.ID;
             //创建工作单位
-            ProjectEditor.BuildUnitRecord(workUnitID, unitName, unitName, unitName, unitContactName, unitTelephone, "课题单位", unitAddress);
+            ProjectEditor.BuildUnitRecord(workUnitID, unitName, unitName, unitNormalName, unitContactName, unitTelephone, "课题单位", unitAddress);
 
             //输入人员信息
             newPersonInfo.PersonObj = new Person();
@@ -482,6 +483,7 @@ namespace ProjectReporterPlugin.Forms
     public class PersonImportRecord
     {
         public string unitName;
+        public string unitNormalName;
         public string unitType;
         public string unitAddress;
         public string unitContact;
