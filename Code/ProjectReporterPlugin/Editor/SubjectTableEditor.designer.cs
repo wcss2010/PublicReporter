@@ -265,7 +265,7 @@
             // colKetiNormalUnit
             // 
             this.colKetiNormalUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKetiNormalUnit.HeaderText = "负责单位常用名";
+            this.colKetiNormalUnit.HeaderText = "承担单位常用名";
             this.colKetiNormalUnit.Name = "colKetiNormalUnit";
             // 
             // colNeiRong
