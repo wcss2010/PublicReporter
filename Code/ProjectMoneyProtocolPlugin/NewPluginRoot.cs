@@ -44,7 +44,7 @@ namespace ProjectMoneyProtocolPlugin
 
         public override string DefaultTitle
         {
-            get { return "基础加强计划技术领域基金项目协议书（1.1版）"; }
+            get { return "基础加强计划技术领域基金项目协议书（1.0版）"; }
         }
 
         /// <summary>
