@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C49657CA-E53A-4393-BC2B-3F44ABAE0CDA}</ProjectGuid>
+    <ProjectGuid>{C49657CA-E53A-4393-BC2B-7T56ABAE7CBW}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectContractPlugin</RootNamespace>
-    <AssemblyName>ProjectContractPlugin</AssemblyName>
+    <RootNamespace>ProjectMoneyProtocolPlugin</RootNamespace>
+    <AssemblyName>ProjectMoneyProtocolPlugin</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Release_App\Plugins\ProjectContractPlugin\</OutputPath>
+    <OutputPath>..\..\Release_App\Plugins\ProjectMoneyProtocolPlugin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -24,14 +24,14 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Release_App\Plugins\ProjectContractPlugin\</OutputPath>
+    <OutputPath>..\..\Release_App\Plugins\ProjectMoneyProtocolPlugin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Release_App\Plugins\ProjectContractPlugin\</OutputPath>
+    <OutputPath>..\..\Release_App\Plugins\ProjectMoneyProtocolPlugin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -39,7 +39,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>..\..\Release_App\Plugins\ProjectContractPlugin\</OutputPath>
+    <OutputPath>..\..\Release_App\Plugins\ProjectMoneyProtocolPlugin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
