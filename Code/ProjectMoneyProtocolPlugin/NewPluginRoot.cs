@@ -204,9 +204,9 @@ namespace ProjectMoneyProtocolPlugin
             subItemObj.Text = "批复内容";
             itemObj.Nodes.Add(subItemObj);
 
-            subItemObj = new TreeNode();
-            subItemObj.Text = "课题设置";
-            itemObj.Nodes.Add(subItemObj);
+            //subItemObj = new TreeNode();
+            //subItemObj.Text = "课题设置";
+            //itemObj.Nodes.Add(subItemObj);
 
             itemObj = new TreeNode();
             itemObj.Text = "主要指标及有关要求";
@@ -267,17 +267,17 @@ namespace ProjectMoneyProtocolPlugin
             //subItemObj.Text = "单位经费年度分配表";
             //itemObj.Nodes.Add(subItemObj);
 
-            subItemObj = new TreeNode();
-            subItemObj.Text = "课题经费分配表";
-            itemObj.Nodes.Add(subItemObj);
+            //subItemObj = new TreeNode();
+            //subItemObj.Text = "课题经费分配表";
+            //itemObj.Nodes.Add(subItemObj);
 
-            subItemObj = new TreeNode();
-            subItemObj.Text = "单位经费分配表";
-            itemObj.Nodes.Add(subItemObj);
+            //subItemObj = new TreeNode();
+            //subItemObj.Text = "单位经费分配表";
+            //itemObj.Nodes.Add(subItemObj);
 
-            subItemObj = new TreeNode();
-            subItemObj.Text = "项目经费预算编制说明";
-            itemObj.Nodes.Add(subItemObj);
+            //subItemObj = new TreeNode();
+            //subItemObj.Text = "项目经费预算编制说明";
+            //itemObj.Nodes.Add(subItemObj);
 
             firstNode.Nodes.Add(itemObj);
 
@@ -297,7 +297,7 @@ namespace ProjectMoneyProtocolPlugin
             editorMap.Add("经费管理要求", new TextReadOnlyEditor("经费管理要求", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyA.rtf"))));
             editorMap.Add("附加条款", new TextReadOnlyEditor("附加条款", "", Path.Combine(RootDir, Path.Combine("Helper", "readonlyC.rtf"))));
             editorMap.Add("基本信息", new ProjectEditor());
-            editorMap.Add("课题设置", new SubjectEditor());
+            //editorMap.Add("课题设置", new SubjectEditor());
             //editorMap.Add("技术要求", new TechnologyQuestionEditor());
             editorMap.Add("主要指标及有关要求", new DestNameAndQuestionEditor());
             editorMap.Add("研究进度安排", new WorkProgressEditor());
@@ -311,10 +311,10 @@ namespace ProjectMoneyProtocolPlugin
             //editorMap.Add("课题经费预算表", new SubjectMoneyEditor());
             //editorMap.Add("单位经费年度分配表", new UnitMoneyYearEditor());
 
-            editorMap.Add("课题经费分配表", new SubjectMoneyNodeEditor());
-            editorMap.Add("单位经费分配表", new UnitMoneyNodeEditor());
+            //editorMap.Add("课题经费分配表", new SubjectMoneyNodeEditor());
+            //editorMap.Add("单位经费分配表", new UnitMoneyNodeEditor());
 
-            editorMap.Add("项目经费预算编制说明", new ExtFile2Editor());
+            //editorMap.Add("项目经费预算编制说明", new ExtFile2Editor());
             #endregion
 
             #region 检查哪个Editor没有设置Name
