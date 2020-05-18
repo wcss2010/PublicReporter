@@ -504,7 +504,8 @@ namespace ProjectMoneyProtocolPlugin.Utility
                     wu.Document.writeWithNewLine(data.ZhiBiaoMingCheng);
 
                     wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write("(1) 指标要求：");
+                    //wu.Document.WordDocBuilder.Write("(1) 指标要求：");
+                    wu.Document.WordDocBuilder.Write("指标要求：");
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.ZhiBiaoYaoQiu);
 
