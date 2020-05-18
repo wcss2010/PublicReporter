@@ -252,8 +252,8 @@ namespace ProjectMoneyProtocolPlugin
             itemObj.Text = "附加条款";
             firstNode.Nodes.Add(itemObj);
 
-            itemObj = new TreeNode();
-            itemObj.Text = "附件";
+            //itemObj = new TreeNode();
+            //itemObj.Text = "附件";
 
             //subItemObj = new TreeNode();
             //subItemObj.Text = "课题经费年度分配表";
@@ -279,7 +279,7 @@ namespace ProjectMoneyProtocolPlugin
             //subItemObj.Text = "项目经费预算编制说明";
             //itemObj.Nodes.Add(subItemObj);
 
-            firstNode.Nodes.Add(itemObj);
+            //firstNode.Nodes.Add(itemObj);
 
             Parent_LeftTreeView.Nodes.Add(firstNode);
             firstNode.ExpandAll();

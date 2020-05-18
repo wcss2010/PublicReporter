@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C49657CA-E53A-4393-BC2B-7T56ABAE7CBW}</ProjectGuid>
+    <ProjectGuid>{C49657CA-E53A-4393-BC2B-000000000000}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjectMoneyProtocolPlugin</RootNamespace>
@@ -497,13 +497,7 @@
     <None Include="DataTemplete\Current\Files\批复内容.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="DataTemplete\Current\Files\项目经费预算编制说明.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="DataTemplete\Current\static.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="DataTemplete\Current\合同书.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Helper\documentPasteReadme.rtf">

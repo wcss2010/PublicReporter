@@ -217,16 +217,16 @@ namespace ProjectMoneyProtocolPlugin.Forms
                     newPersonList.Add(ppObj);
                 }
 
-                //查询研究内容列表
-                List<KeTiBiao> subjectList = ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
-                //生成研究内容X字典
-                int kindex = 0;
-                Dictionary<string, string> ktDict = new Dictionary<string, string>();
-                foreach (KeTiBiao ktb in subjectList)
-                {
-                    kindex++;
-                    ktDict[ktb.BianHao] = "课题" + kindex;
-                }
+                ////查询研究内容列表
+                //List<KeTiBiao> subjectList = ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
+                ////生成研究内容X字典
+                //int kindex = 0;
+                //Dictionary<string, string> ktDict = new Dictionary<string, string>();
+                //foreach (KeTiBiao ktb in subjectList)
+                //{
+                //    kindex++;
+                //    ktDict[ktb.BianHao] = "课题" + kindex;
+                //}
                 dgvDetail.Rows.Clear();
                 foreach (RenYuanBiao pObj in newPersonList)
                 {
@@ -241,14 +241,16 @@ namespace ProjectMoneyProtocolPlugin.Forms
                     cells.Add(pObj.RenWuFenGong);
                     cells.Add(pObj.ShenFenZhengHao);
 
-                    if (pObj.ShiXiangMuFuZeRen == FrmAddOrUpdateWorker.isOnlyProject)
-                    {
-                        cells.Add("项目负责人");
-                    }
-                    else
-                    {
-                        cells.Add((pObj.ShiXiangMuFuZeRen == FrmAddOrUpdateWorker.isProjectAndSubject ? "项目负责人兼" : "") + ((ktDict.ContainsKey(pObj.KeTiBiaoHao) ? ktDict[pObj.KeTiBiaoHao] : string.Empty) + pObj.ZhiWu));
-                    }
+                    //if (pObj.ShiXiangMuFuZeRen == FrmAddOrUpdateWorker.isOnlyProject)
+                    //{
+                    //    cells.Add("项目负责人");
+                    //}
+                    //else
+                    //{
+                    //    cells.Add((pObj.ShiXiangMuFuZeRen == FrmAddOrUpdateWorker.isProjectAndSubject ? "项目负责人兼" : "") + ((ktDict.ContainsKey(pObj.KeTiBiaoHao) ? ktDict[pObj.KeTiBiaoHao] : string.Empty) + pObj.ZhiWu));
+                    //}
+
+                    cells.Add(pObj.ZhiWu);
 
                     int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                     dgvDetail.Rows[rowIndex].Tag = pObj;

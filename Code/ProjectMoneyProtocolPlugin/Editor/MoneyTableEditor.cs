@@ -190,8 +190,8 @@ namespace ProjectMoneyProtocolPlugin.Editor
                 yearTotalMoneys += decimal.Parse(ibEditYear1.Text);
                 yearTotalMoneys += decimal.Parse(ibEditYear2.Text);
                 yearTotalMoneys += decimal.Parse(ibEditYear3.Text);
-                yearTotalMoneys += decimal.Parse(ibEditYear4.Text);
-                yearTotalMoneys += decimal.Parse(ibEditYear5.Text);
+                //yearTotalMoneys += decimal.Parse(ibEditYear4.Text);
+                //yearTotalMoneys += decimal.Parse(ibEditYear5.Text);
             }
             catch (Exception ex) { }
 

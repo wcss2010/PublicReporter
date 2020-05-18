@@ -319,13 +319,13 @@ namespace ProjectMoneyProtocolPlugin.Utility
                         t.Rows[t.Rows.Count - 2].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName3"] + "年度"));
                         ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[2].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
-                        t.Rows[t.Rows.Count - 2].Cells[3].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName4"] + "年度"));
-                        ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                        //t.Rows[t.Rows.Count - 2].Cells[3].RemoveAllChildren();
+                        //t.Rows[t.Rows.Count - 2].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName4"] + "年度"));
+                        //((Paragraph)t.Rows[t.Rows.Count - 2].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
-                        t.Rows[t.Rows.Count - 2].Cells[4].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 2].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName5"] + "年度"));
-                        ((Paragraph)t.Rows[t.Rows.Count - 2].Cells[4].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                        //t.Rows[t.Rows.Count - 2].Cells[4].RemoveAllChildren();
+                        //t.Rows[t.Rows.Count - 2].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["YearName5"] + "年度"));
+                        //((Paragraph)t.Rows[t.Rows.Count - 2].Cells[4].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
                         //年度金额
                         t.Rows[t.Rows.Count - 1].Cells[0].RemoveAllChildren();
@@ -340,13 +340,13 @@ namespace ProjectMoneyProtocolPlugin.Utility
                         t.Rows[t.Rows.Count - 1].Cells[2].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year3"]));
                         ((Paragraph)t.Rows[t.Rows.Count - 1].Cells[2].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
-                        t.Rows[t.Rows.Count - 1].Cells[3].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year4"]));
-                        ((Paragraph)t.Rows[t.Rows.Count - 1].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                        //t.Rows[t.Rows.Count - 1].Cells[3].RemoveAllChildren();
+                        //t.Rows[t.Rows.Count - 1].Cells[3].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year4"]));
+                        //((Paragraph)t.Rows[t.Rows.Count - 1].Cells[3].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
 
-                        t.Rows[t.Rows.Count - 1].Cells[4].RemoveAllChildren();
-                        t.Rows[t.Rows.Count - 1].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year5"]));
-                        ((Paragraph)t.Rows[t.Rows.Count - 1].Cells[4].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                        //t.Rows[t.Rows.Count - 1].Cells[4].RemoveAllChildren();
+                        //t.Rows[t.Rows.Count - 1].Cells[4].AppendChild(wu.Document.newParagraph(t.Document, tempDict["Year5"]));
+                        //((Paragraph)t.Rows[t.Rows.Count - 1].Cells[4].ChildNodes[0]).ParagraphFormat.Alignment = ParagraphAlignment.Center;
                         break;
                     }
                 }
