@@ -33,16 +33,16 @@
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.plButtons = new System.Windows.Forms.Panel();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnDelAll = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.plButtons = new System.Windows.Forms.Panel();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelAll = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -59,11 +59,9 @@
             this.lblInfo.Location = new System.Drawing.Point(10, 10);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblInfo.Size = new System.Drawing.Size(1160, 119);
+            this.lblInfo.Size = new System.Drawing.Size(1160, 63);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "   根据项目批复目标，量化、细化项目技术指标，形成完备的技术指标体系。技术指标填写可分为定量指标和定性指标两类。\r\n   指标要求：针对定量指标，需填写具体指标" +
-    "；针对定性指标，需填写简要的定性描述。\r\n   考核方式：针对定量指标，视情从考核方案、考核标准、考核条件等方面（全部或部分）进行说明；针对定性指标，不用填写考" +
-    "核方式。采用会议评审和专家评审等常规方式的无需填写。";
+            this.lblInfo.Text = "技术指标尽量细化和量化；\r\n技术指标可分为定量指标和定性指标两类，填写要求不同。";
             // 
             // plMain
             // 
@@ -83,9 +81,9 @@
             this.plContent.Controls.Add(this.dgvDetail);
             this.plContent.Controls.Add(this.plButtons);
             this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContent.Location = new System.Drawing.Point(10, 129);
+            this.plContent.Location = new System.Drawing.Point(10, 73);
             this.plContent.Name = "plContent";
-            this.plContent.Size = new System.Drawing.Size(1160, 524);
+            this.plContent.Size = new System.Drawing.Size(1160, 580);
             this.plContent.TabIndex = 1;
             // 
             // dgvDetail
@@ -116,55 +114,10 @@
             this.dgvDetail.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetail.RowTemplate.Height = 23;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(1160, 494);
+            this.dgvDetail.Size = new System.Drawing.Size(1160, 550);
             this.dgvDetail.TabIndex = 1;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
-            // 
-            // plButtons
-            // 
-            this.plButtons.Controls.Add(this.btnNew);
-            this.plButtons.Controls.Add(this.btnDelAll);
-            this.plButtons.Controls.Add(this.btnSave);
-            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plButtons.Location = new System.Drawing.Point(0, 494);
-            this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(1160, 30);
-            this.plButtons.TabIndex = 0;
-            // 
-            // btnNew
-            // 
-            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnNew.Location = new System.Drawing.Point(890, 0);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(90, 30);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "新增";
-            this.btnNew.Visible = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnDelAll
-            // 
-            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelAll.Location = new System.Drawing.Point(980, 0);
-            this.btnDelAll.Name = "btnDelAll";
-            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
-            this.btnDelAll.TabIndex = 2;
-            this.btnDelAll.Text = "删除选中";
-            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(1070, 0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 30);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "新增";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Column1
             // 
@@ -215,6 +168,51 @@
             this.Column6.Text = "编辑";
             this.Column6.UseColumnTextForButtonValue = true;
             this.Column6.Width = 5;
+            // 
+            // plButtons
+            // 
+            this.plButtons.Controls.Add(this.btnNew);
+            this.plButtons.Controls.Add(this.btnDelAll);
+            this.plButtons.Controls.Add(this.btnSave);
+            this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButtons.Location = new System.Drawing.Point(0, 550);
+            this.plButtons.Name = "plButtons";
+            this.plButtons.Size = new System.Drawing.Size(1160, 30);
+            this.plButtons.TabIndex = 0;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNew.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnNew.Location = new System.Drawing.Point(890, 0);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(90, 30);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "新增";
+            this.btnNew.Visible = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnDelAll
+            // 
+            this.btnDelAll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDelAll.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDelAll.Location = new System.Drawing.Point(980, 0);
+            this.btnDelAll.Name = "btnDelAll";
+            this.btnDelAll.Size = new System.Drawing.Size(90, 30);
+            this.btnDelAll.TabIndex = 2;
+            this.btnDelAll.Text = "删除选中";
+            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSave.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(1070, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "新增";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // DestNameAndQuestionEditor
             // 
