@@ -24,7 +24,7 @@ namespace ProjectMoneyProtocolPlugin.Editor
             base.refreshView();
 
             dgvDetail.Rows.Clear();
-            list = ProjectContractPlugin.DB.ConnectionManager.Context.table("TiJiaoYaoQiuBiao").select("*").getList<TiJiaoYaoQiuBiao>(new TiJiaoYaoQiuBiao());
+            list = ProjectMoneyProtocolPlugin.DB.ConnectionManager.Context.table("TiJiaoYaoQiuBiao").select("*").getList<TiJiaoYaoQiuBiao>(new TiJiaoYaoQiuBiao());
             list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
             foreach (TiJiaoYaoQiuBiao data in list)

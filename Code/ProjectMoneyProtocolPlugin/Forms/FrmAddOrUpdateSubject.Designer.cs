@@ -42,7 +42,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtWorkUnit = new System.Windows.Forms.TextBox();
             this.txtWorkOrg = new System.Windows.Forms.ComboBox();
-            this.txtWorkAddress = new ProjectContractPlugin.Editor.ProjectAddressEditor();
+            this.txtWorkAddress = new ProjectMoneyProtocolPlugin.Editor.ProjectAddressEditor();
             this.txtWorkUnitAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvDetail = new System.Windows.Forms.DataGridView();

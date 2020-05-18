@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditDocument = new System.Windows.Forms.Button();
             this.plMain = new System.Windows.Forms.Panel();
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectMoneyProtocolPlugin.Controls.AutoHeightLabel();
             this.plContent.SuspendLayout();
             this.plButtons.SuspendLayout();
             this.plMain.SuspendLayout();

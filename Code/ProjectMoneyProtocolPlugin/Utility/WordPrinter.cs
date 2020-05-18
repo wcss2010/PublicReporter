@@ -731,7 +731,7 @@ namespace ProjectMoneyProtocolPlugin.Utility
 
                 //节点列表
                 List<KeyValuePair<string, string>> dictMoneys = new List<KeyValuePair<string, string>>();
-                List<BoFuBiao> MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+                List<BoFuBiao> MSList = ProjectMoneyProtocolPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
                 MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
                 index = 0;
                 foreach (BoFuBiao data in MSList)

@@ -153,7 +153,7 @@ namespace ProjectMoneyProtocolPlugin
             #region 处理课题信息中的部门
             try
             {
-                List<KeTiBiao> ketiList = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
+                List<KeTiBiao> ketiList = ProjectMoneyProtocolPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
                 foreach (KeTiBiao keti in ketiList)
                 {
                     if (!string.IsNullOrEmpty(keti.BianHao))

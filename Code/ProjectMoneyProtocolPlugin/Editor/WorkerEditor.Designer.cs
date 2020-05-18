@@ -37,7 +37,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelAll = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectMoneyProtocolPlugin.Controls.AutoHeightLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();

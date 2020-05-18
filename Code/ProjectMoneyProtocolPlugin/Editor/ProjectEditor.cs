@@ -31,7 +31,7 @@ namespace ProjectMoneyProtocolPlugin.Editor
             {
                 bool result = true;
                 onSaveEvent(ref result);
-                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectContractPlugin.NewPluginRoot>().refreshEditors();
+                PublicReporterLib.PluginLoader.getLocalPluginRoot<ProjectMoneyProtocolPlugin.NewPluginRoot>().refreshEditors();
             }
             catch (Exception ex)
             {

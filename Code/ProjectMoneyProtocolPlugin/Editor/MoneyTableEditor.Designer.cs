@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectMoneyProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.hSkinTableLayoutPanel2 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
+            this.hSkinTableLayoutPanel2 = new ProjectMoneyProtocolPlugin.Controls.HSkinTableLayoutPanel();
             this.ibEditYear5 = new System.Windows.Forms.TextBox();
             this.ibEditYear4 = new System.Windows.Forms.TextBox();
             this.ibEditYear3 = new System.Windows.Forms.TextBox();
@@ -43,7 +43,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.hSkinTableLayoutPanel1 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
+            this.hSkinTableLayoutPanel1 = new ProjectMoneyProtocolPlugin.Controls.HSkinTableLayoutPanel();
             this.ibEditMoney5_2 = new System.Windows.Forms.TextBox();
             this.ibEditInfo3_1 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();

@@ -30,7 +30,7 @@
 		{
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
-            this.hSkinTableLayoutPanel1 = new ProjectContractPlugin.Controls.HSkinTableLayoutPanel();
+            this.hSkinTableLayoutPanel1 = new ProjectMoneyProtocolPlugin.Controls.HSkinTableLayoutPanel();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -112,21 +112,21 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.ibEdit41 = new ProjectContractPlugin.Editor.ProjectAddressEditor();
+            this.ibEdit41 = new ProjectMoneyProtocolPlugin.Editor.ProjectAddressEditor();
             this.label31 = new System.Windows.Forms.Label();
             this.ibEdit40 = new System.Windows.Forms.ComboBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.ibEdit42 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.ibEdit43 = new ProjectContractPlugin.Editor.ProjectKeyEditor();
+            this.ibEdit43 = new ProjectMoneyProtocolPlugin.Editor.ProjectKeyEditor();
             this.panel11 = new System.Windows.Forms.Panel();
             this.ibEdit44 = new System.Windows.Forms.TextBox();
             this.llUnitNameForExample = new System.Windows.Forms.LinkLabel();
             this.label37 = new System.Windows.Forms.Label();
             this.plButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectMoneyProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain.SuspendLayout();
             this.plContent.SuspendLayout();
             this.hSkinTableLayoutPanel1.SuspendLayout();

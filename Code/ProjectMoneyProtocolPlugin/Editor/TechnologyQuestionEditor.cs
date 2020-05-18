@@ -23,7 +23,7 @@ namespace ProjectMoneyProtocolPlugin.Editor
             base.refreshView();
 
             dgvDetail.Rows.Clear();
-            list = ProjectContractPlugin.DB.ConnectionManager.Context.table("JiShuBiao").select("*").getList<JiShuBiao>(new JiShuBiao());
+            list = ProjectMoneyProtocolPlugin.DB.ConnectionManager.Context.table("JiShuBiao").select("*").getList<JiShuBiao>(new JiShuBiao());
             list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
             foreach (JiShuBiao data in list)

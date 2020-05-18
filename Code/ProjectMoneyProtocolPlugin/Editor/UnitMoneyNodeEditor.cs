@@ -114,7 +114,7 @@ namespace ProjectMoneyProtocolPlugin.Editor
             base.refreshView();
 
             dictMoneys = new CustomDictionary<string, string>();
-            MSList = ProjectContractPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
+            MSList = ProjectMoneyProtocolPlugin.DB.ConnectionManager.Context.table("BoFuBiao").select("*").getList<BoFuBiao>(new BoFuBiao());
             MSList = MSList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             int index = 0;
             foreach (BoFuBiao data in MSList)

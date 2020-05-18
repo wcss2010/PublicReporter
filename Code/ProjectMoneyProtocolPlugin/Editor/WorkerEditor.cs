@@ -24,7 +24,7 @@ namespace ProjectMoneyProtocolPlugin.Editor
             base.refreshView();
 
             //查询课题列表
-            ktList = ProjectContractPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
+            ktList = ProjectMoneyProtocolPlugin.DB.ConnectionManager.Context.table("KeTiBiao").select("*").getList<KeTiBiao>(new KeTiBiao());
             ktList = ktList.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             
             //生成课题X字典
@@ -37,7 +37,7 @@ namespace ProjectMoneyProtocolPlugin.Editor
             }
 
             //查询人员列表
-            personList = ProjectContractPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
+            personList = ProjectMoneyProtocolPlugin.DB.ConnectionManager.Context.table("RenYuanBiao").select("*").getList<RenYuanBiao>(new RenYuanBiao());
             //list = list.OrderBy(t => t.ZhuangTai).ThenBy(p => p.ModifyTime).ToList();
             personList = personList.OrderBy(t => t.ZhuangTai).ToList();
 
@@ -307,9 +307,9 @@ namespace ProjectMoneyProtocolPlugin.Editor
 
         private void dgvDetail_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectContractPlugin.Resource.Question_162;
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectContractPlugin.Resource.DELETE_28;
-            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectContractPlugin.Resource.orderEdit;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 1, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectMoneyProtocolPlugin.Resource.Question_162;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 2, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectMoneyProtocolPlugin.Resource.DELETE_28;
+            ((DataGridView)sender)[((DataGridView)sender).Columns.Count - 3, e.RowIndex == 0 ? e.RowIndex : e.RowIndex].Value = global::ProjectMoneyProtocolPlugin.Resource.orderEdit;
         }
     }
 }
