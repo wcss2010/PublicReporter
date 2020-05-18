@@ -24,7 +24,7 @@ namespace ProjectMoneyProtocolPlugin
         /// <summary>
         /// 不支持的数据库版本
         /// </summary>
-        public static List<string> noSupportDBVersionList = new List<string>(new string[] { "v1.1", "v1.2", "v1.3", "v1.4", "v1.5" });
+        public static List<string> noSupportDBVersionList = new List<string>(new string[] { "v1.0" });
 
         public const string button1_Name = "新建项目";
         public const string button2_Name = "生成报告";
@@ -44,7 +44,7 @@ namespace ProjectMoneyProtocolPlugin
 
         public override string DefaultTitle
         {
-            get { return "重点基础研究项目合同书信息填报系统（1.5.1版）"; }
+            get { return "基础加强计划技术领域基金项目协议书（1.1版）"; }
         }
 
         /// <summary>
