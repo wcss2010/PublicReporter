@@ -459,7 +459,7 @@ namespace ProjectMoneyProtocolPlugin.Utility
                             t.Rows[rowStart].Cells[1].CellFormat.VerticalAlignment = Aspose.Words.Tables.CellVerticalAlignment.Center;
 
                             t.Rows[rowStart].Cells[2].RemoveAllChildren();
-                            Paragraph p = wu.Document.newParagraph(t.Document, "阶段目标与研究内容：");
+                            Paragraph p = wu.Document.newParagraph(t.Document, "研究内容：");
                             ((Run)p.ChildNodes[0]).Font.Bold = true;
                             t.Rows[rowStart].Cells[2].AppendChild(p);
                             wu.Document.addRangeToNodeCollection(t.Rows[rowStart].Cells[2].ChildNodes, wu.Document.getParagraphListWithNewLine(t.Document, data.JieDuanMuBiao));
@@ -508,25 +508,25 @@ namespace ProjectMoneyProtocolPlugin.Utility
                     wu.Document.WordDocBuilder.Font.Bold = false;
                     wu.Document.writeWithNewLine(data.ZhiBiaoYaoQiu);
 
-                    wu.Document.WordDocBuilder.Font.Bold = true;
-                    wu.Document.WordDocBuilder.Write("(2) 考核方式：");
-                    wu.Document.WordDocBuilder.Font.Bold = false;
+                    //wu.Document.WordDocBuilder.Font.Bold = true;
+                    //wu.Document.WordDocBuilder.Write("(2) 考核方式：");
+                    //wu.Document.WordDocBuilder.Font.Bold = false;
 
-                    if (data.KaoHeFangShi != null && data.KaoHeFangShi.Trim().Length >= 1)
-                    {
-                        wu.Document.writeWithNewLine(data.KaoHeFangShi, index == zbbList.Count ? false : true);
-                    }
-                    else
-                    {
-                        if (index == zbbList.Count)
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            wu.Document.WordDocBuilder.Writeln();
-                        }
-                    }
+                    //if (data.KaoHeFangShi != null && data.KaoHeFangShi.Trim().Length >= 1)
+                    //{
+                    //    wu.Document.writeWithNewLine(data.KaoHeFangShi, index == zbbList.Count ? false : true);
+                    //}
+                    //else
+                    //{
+                    //    if (index == zbbList.Count)
+                    //    {
+                    //        continue;
+                    //    }
+                    //    else
+                    //    {
+                    //        wu.Document.WordDocBuilder.Writeln();
+                    //    }
+                    //}
 
                     index++;
                 }

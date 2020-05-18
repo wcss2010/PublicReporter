@@ -76,12 +76,12 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label2.Location = new System.Drawing.Point(13, 129);
+            this.label2.Location = new System.Drawing.Point(47, 127);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 43);
+            this.label2.Size = new System.Drawing.Size(86, 21);
             this.label2.TabIndex = 0;
-            this.label2.Text = "阶段目标与研究内容:";
+            this.label2.Text = "研究内容:";
             // 
             // btnClose
             // 
@@ -113,7 +113,7 @@
             this.label4.Location = new System.Drawing.Point(4, 351);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 59);
+            this.label4.Size = new System.Drawing.Size(138, 43);
             this.label4.TabIndex = 9;
             this.label4.Text = "阶段成果、考核指标及考核方式：";
             // 
