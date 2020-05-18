@@ -2,7 +2,7 @@ using System;
 using System.Data;
 using System.Text;
 
-namespace ProjectContractPlugin.DB.Entitys 
+namespace ProjectMoneyProtocolPlugin.DB.Entitys 
 {
     /// <summary>
     /// 类JiBenXinXiBiao。

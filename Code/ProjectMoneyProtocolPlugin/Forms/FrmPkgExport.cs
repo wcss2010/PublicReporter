@@ -1,4 +1,4 @@
-﻿using ProjectContractPlugin.Utility;
+﻿using ProjectMoneyProtocolPlugin.Utility;
 using SuperCodeFactoryUILib.Forms;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectMoneyProtocolPlugin.Forms
 {
     public partial class FrmPkgExport : AbstractEditorPlugin.BaseForm
     {

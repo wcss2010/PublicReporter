@@ -6,12 +6,12 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using PublicReporterLib;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.DB;
 using AbstractEditorPlugin.Forms;
 using System.IO;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class ProjectEditor : AbstractEditorPlugin.BaseEditor
     {

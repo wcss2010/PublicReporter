@@ -6,18 +6,18 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using ProjectContractPlugin.Controls;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Editor;
-using ProjectContractPlugin.Forms;
-using ProjectContractPlugin.Utility;
+using ProjectMoneyProtocolPlugin.Controls;
+using ProjectMoneyProtocolPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.Editor;
+using ProjectMoneyProtocolPlugin.Forms;
+using ProjectMoneyProtocolPlugin.Utility;
 using AbstractEditorPlugin.Editor;
 using AbstractEditorPlugin;
 using AbstractEditorPlugin.Utility;
 using AbstractEditorPlugin.Forms;
 
-namespace ProjectContractPlugin
+namespace ProjectMoneyProtocolPlugin
 {
     public class NewPluginRoot : AbstractEditorPlugin.AbstractPluginRoot
     {

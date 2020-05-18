@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class ProjectKeyEditor : UserControl
     {

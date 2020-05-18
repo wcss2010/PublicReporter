@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Controls
+namespace ProjectMoneyProtocolPlugin.Controls
 {
     public class TextBoxExt : TextBox
     {

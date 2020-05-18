@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectMoneyProtocolPlugin.Forms
 {
     public partial class FrmInputBox : AbstractEditorPlugin.BaseForm
     {

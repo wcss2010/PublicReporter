@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Forms
+﻿namespace ProjectMoneyProtocolPlugin.Forms
 {
     partial class FrmAddOrUpdateUnitMoneyYear
     {

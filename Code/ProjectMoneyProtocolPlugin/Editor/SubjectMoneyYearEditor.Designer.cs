@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectMoneyProtocolPlugin.Editor
 {
     partial class SubjectMoneyYearEditor
     {

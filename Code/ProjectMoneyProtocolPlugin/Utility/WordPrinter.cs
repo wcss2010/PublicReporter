@@ -8,13 +8,13 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Editor;
+using ProjectMoneyProtocolPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.Editor;
 using System.Data;
 using PublicReporterLib;
 
-namespace ProjectContractPlugin.Utility
+namespace ProjectMoneyProtocolPlugin.Utility
 {
     public class WordPrinter
     {

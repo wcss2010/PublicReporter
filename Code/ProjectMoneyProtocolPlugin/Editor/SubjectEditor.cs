@@ -2,15 +2,15 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Forms;
-using ProjectContractPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.Forms;
+using ProjectMoneyProtocolPlugin.DB;
 using PublicReporterLib;
 using System.IO;
 using System.Text;
 using AbstractEditorPlugin;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class SubjectEditor : AbstractEditorPlugin.BaseEditor
     {

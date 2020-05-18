@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectContractPlugin {
+namespace ProjectMoneyProtocolPlugin {
     using System;
     
     

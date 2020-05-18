@@ -6,7 +6,7 @@ using System.IO;
 using Aspose.Words;
 using Microsoft.Win32;
 
-namespace ProjectContractPlugin.Utility
+namespace ProjectMoneyProtocolPlugin.Utility
 {
     public class WordUtility
     {

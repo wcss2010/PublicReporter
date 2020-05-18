@@ -9,11 +9,11 @@ using System.IO;
 using PublicReporterLib;
 using System.Diagnostics;
 using Aspose.Words;
-using ProjectContractPlugin.Controls;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.Controls;
+using ProjectMoneyProtocolPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     /// <summary>
     /// 文档编辑控件

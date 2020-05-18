@@ -10,7 +10,7 @@ using System.Diagnostics;
 using PublicReporterLib;
 using Aspose.Words;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class ExtFile2Editor : AbstractEditorPlugin.BaseEditor
     {

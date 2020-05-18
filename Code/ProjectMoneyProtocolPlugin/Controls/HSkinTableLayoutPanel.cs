@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Controls
+namespace ProjectMoneyProtocolPlugin.Controls
 {
 	public class HSkinTableLayoutPanel : TableLayoutPanel
 	{

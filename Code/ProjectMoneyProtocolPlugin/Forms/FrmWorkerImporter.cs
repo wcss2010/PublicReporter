@@ -1,6 +1,6 @@
 ﻿using AbstractEditorPlugin.Utility;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
 using PublicReporterLib.Utility;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Forms
+namespace ProjectMoneyProtocolPlugin.Forms
 {
     public partial class FrmWorkerImporter : AbstractEditorPlugin.BaseForm
     {

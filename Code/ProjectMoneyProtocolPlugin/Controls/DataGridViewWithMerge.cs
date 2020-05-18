@@ -10,7 +10,7 @@ using System.Collections;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace ProjectContractPlugin.Controls
+namespace ProjectMoneyProtocolPlugin.Controls
 {
     public class DataGridViewWithMerge : DataGridView
     {

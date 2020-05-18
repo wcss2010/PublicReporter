@@ -6,11 +6,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
-using ProjectContractPlugin.Forms;
+using ProjectMoneyProtocolPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.Forms;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class SubjectMoneyYearEditor : AbstractEditorPlugin.BaseEditor
     {

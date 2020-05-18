@@ -1,4 +1,4 @@
-﻿namespace ProjectContractPlugin.Editor
+﻿namespace ProjectMoneyProtocolPlugin.Editor
 {
     partial class TogetherRuleEditor
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblInfo = new ProjectContractPlugin.Controls.AutoHeightLabel();
+            this.lblInfo = new ProjectMoneyProtocolPlugin.Controls.AutoHeightLabel();
             this.plMain = new System.Windows.Forms.Panel();
             this.plContent = new System.Windows.Forms.Panel();
             this.txtContent = new System.Windows.Forms.RichTextBox();
@@ -264,7 +264,7 @@
 
         #endregion
 
-        private ProjectContractPlugin.Controls.AutoHeightLabel lblInfo;
+        private ProjectMoneyProtocolPlugin.Controls.AutoHeightLabel lblInfo;
         private System.Windows.Forms.Panel plMain;
         private System.Windows.Forms.Panel plContent;
         private System.Windows.Forms.RichTextBox txtContent;

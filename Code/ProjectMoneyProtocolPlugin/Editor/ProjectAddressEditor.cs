@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PublicReporterLib.ControlAndForms;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class ProjectAddressEditor : AddressControl
     {

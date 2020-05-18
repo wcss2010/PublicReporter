@@ -5,12 +5,12 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB;
-using ProjectContractPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.DB;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
 using AbstractEditorPlugin.Forms;
 using System.IO;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class MoneyTableEditor : AbstractEditorPlugin.BaseEditor
     {

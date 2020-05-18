@@ -6,9 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ProjectContractPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
 
-namespace ProjectContractPlugin.Editor
+namespace ProjectMoneyProtocolPlugin.Editor
 {
     public partial class MoneyTableControl : UserControl
     {

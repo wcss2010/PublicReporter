@@ -4,7 +4,7 @@ using System.Text;
 using Noear.Weed;
 using PublicReporterLib;
 
-namespace ProjectContractPlugin.DB.Entitys
+namespace ProjectMoneyProtocolPlugin.DB.Entitys
 {
     /// <summary>
     /// 数据实体抽象类

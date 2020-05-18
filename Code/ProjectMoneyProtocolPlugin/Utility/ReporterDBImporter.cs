@@ -1,12 +1,12 @@
 ﻿using Noear.Weed;
-using ProjectContractPlugin.DB.Entitys;
+using ProjectMoneyProtocolPlugin.DB.Entitys;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjectContractPlugin.Utility
+namespace ProjectMoneyProtocolPlugin.Utility
 {
     public class ReporterDBImporter
     {

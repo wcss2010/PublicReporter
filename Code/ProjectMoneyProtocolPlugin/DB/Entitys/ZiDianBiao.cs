@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjectContractPlugin.DB.Entitys
+namespace ProjectMoneyProtocolPlugin.DB.Entitys
 {
     /// <summary>
     /// 类ZiDianBiao。
