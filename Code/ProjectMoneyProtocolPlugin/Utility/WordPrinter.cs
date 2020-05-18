@@ -21,7 +21,7 @@ namespace ProjectMoneyProtocolPlugin.Utility
         /// <summary>
         /// Doc输出文件名
         /// </summary>
-        public static string outputDocFileName = "合同书.doc";
+        public static string outputDocFileName = "协议书.doc";
 
         /// <summary>
         /// 经费概算附件
@@ -46,7 +46,7 @@ namespace ProjectMoneyProtocolPlugin.Utility
             Report(progressDialog, 10, "准备Word...", 1000);
 
             //创建word文档
-            string fileName = proj.BianHao + "-合同书.docx";
+            string fileName = proj.BianHao + "-协议书.docx";
             WordUtility wu = new WordUtility();
             wu.createNewDocument(Path.Combine(Path.Combine(pt.RootDir, "Helper"), "template.doc"));
 
@@ -57,17 +57,17 @@ namespace ProjectMoneyProtocolPlugin.Utility
                 Report(progressDialog, 30, "写入基本信息...", 1000);
 
                 #region 固定文本替换
-                wu.insertValue("首页_合同编号", proj.HeTongBianHao);
+                wu.insertValue("首页_协议编号", proj.HeTongBianHao);
                 wu.insertValue("首页_密级", proj.HeTongMiJi);
                 wu.insertValue("首页_密级期限", proj.HeTongMiQi.ToString());
-                wu.insertValue("首页_合同名称", proj.HeTongMingCheng);
+                wu.insertValue("首页_协议名称", proj.HeTongMingCheng);
                 wu.insertValue("首页_承研单位", proj.ChengYanDanWeiMingCheng);
                 wu.insertValue("首页_项目负责人", proj.HeTongFuZeRen);
                 wu.insertValue("首页_起止时间", proj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + proj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
-                wu.insertValue("基本信息_合同编号", proj.HeTongBianHao);
-                wu.insertValue("基本信息_合同名称", proj.HeTongMingCheng);
+                wu.insertValue("基本信息_协议编号", proj.HeTongBianHao);
+                wu.insertValue("基本信息_协议名称", proj.HeTongMingCheng);
                 wu.insertValue("基本信息_起止时间", proj.HeTongKaiShiShiJian.ToString("yyyy年MM月dd日") + " 至" + proj.HeTongJieShuShiJian.ToString("yyyy年MM月dd日"));
-                wu.insertValue("基本信息_合同价款", proj.HeTongJiaKuan.ToString());
+                wu.insertValue("基本信息_协议价款", proj.HeTongJiaKuan.ToString());
                 wu.insertValue("基本信息_经费管理模式", proj.HeTongJingFeiGuanLiMoShi);
                 wu.insertValue("基本信息_委托_单位名称", proj.WeiTuoDanWeiMingCheng);
                 wu.insertValue("基本信息_承研_单位名称", proj.ChengYanDanWeiMingCheng);
@@ -101,10 +101,10 @@ namespace ProjectMoneyProtocolPlugin.Utility
                 wu.insertValue("研究目标_关键词", proj.HeTongGuanJianZi != null ? proj.HeTongGuanJianZi.Replace(";", ",") : string.Empty);
 
 
-                wu.insertValue("共同条款_合同数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
-                wu.insertValue("共同条款_合同数字4", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字1", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode1Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字2", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode2Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字3", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode3Key + "'").select("ShuJu").getValue<string>("0"));
+                wu.insertValue("共同条款_协议数字4", ConnectionManager.Context.table("ZiDianBiao").where("MingCheng='" + TogetherRuleEditor.TRCode4Key + "'").select("ShuJu").getValue<string>("0"));
 
                 RenYuanBiao masterPerson = ConnectionManager.Context.table("RenYuanBiao").where("ShiXiangMuFuZeRen='rbIsOnlyProject' or ShiXiangMuFuZeRen='rbIsProjectAndSubject'").select("*").getItem<RenYuanBiao>(new RenYuanBiao());
                 wu.insertValue("附件3_联系方式_姓名", masterPerson.XingMing);
@@ -769,10 +769,10 @@ namespace ProjectMoneyProtocolPlugin.Utility
                         wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
                         wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
 
-                        //wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "合同验收"));
+                        //wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "协议验收"));
                         //wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], "黑体", 12);
 
-                        //wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
+                        //wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "协议签订"));
                         //wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
                         t.Rows[0].Cells[1].CellFormat.Width = 80;
 
@@ -908,10 +908,10 @@ namespace ProjectMoneyProtocolPlugin.Utility
                         wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], wu.Document.newParagraph(t.Document, "合计"));
                         wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 1], "黑体", 12);
 
-                        //wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "合同验收"));
+                        //wu.Document.fillCell(true, t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], wu.Document.newParagraph(t.Document, "协议验收"));
                         //wu.Document.setFontInCell(t.Rows[0].Cells[t.Rows[0].Cells.Count - 2], "黑体", 12);
 
-                        //wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "合同签订"));
+                        //wu.Document.fillCell(true, t.Rows[0].Cells[1], wu.Document.newParagraph(t.Document, "协议签订"));
                         //wu.Document.setFontInCell(t.Rows[0].Cells[1], "黑体", 12);
                         t.Rows[0].Cells[1].CellFormat.Width = 80;
 
@@ -1176,7 +1176,7 @@ namespace ProjectMoneyProtocolPlugin.Utility
                 wu.killWinWordProcess();
 
                 //保存word
-                string docFile = Path.Combine(pt.dataDir, "合同书.doc");
+                string docFile = Path.Combine(pt.dataDir, "协议书.doc");
                 wu.saveDocument(docFile);
                 Process.Start(docFile);
                 #endregion

@@ -228,7 +228,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "本合同一式";
+            this.label1.Text = "本协议一式";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnSave

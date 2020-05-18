@@ -401,7 +401,7 @@ namespace ProjectMoneyProtocolPlugin
                                         case NewProjectType.UseOldContactPKG:
                                             ofd = new OpenFileDialog();
                                             ofd.Filter = "Zip压缩文件(*.zip)|*.zip";
-                                            ofd.Title = "请选择旧的合同书数据包！";
+                                            ofd.Title = "请选择旧的协议书数据包！";
                                             if (ofd.ShowDialog() == DialogResult.OK)
                                             {
                                                 importZipFile = ofd.FileName;
@@ -509,7 +509,7 @@ namespace ProjectMoneyProtocolPlugin
                     break;
                 case button5_Name:
                     #region 上传PDF
-                    FrmUploadUserPDF pdfForm = new FrmUploadUserPDF("请上传单位盖章后的合同书(最终生效版)扫描版PDF", "合同书");
+                    FrmUploadUserPDF pdfForm = new FrmUploadUserPDF("请上传单位盖章后的协议书(最终生效版)扫描版PDF", "协议书");
                     pdfForm.ShowDialog();
                     #endregion
                     break;

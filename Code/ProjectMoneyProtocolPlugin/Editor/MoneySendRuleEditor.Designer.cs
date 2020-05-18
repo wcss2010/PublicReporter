@@ -62,7 +62,7 @@
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(1152, 51);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "节点设置：5年期合同可共设置3-5个节点，4年期合同可共设置3-4个节点。";
+            this.lblInfo.Text = "节点设置：5年期协议可共设置3-5个节点，4年期协议可共设置3-4个节点。";
             // 
             // plMain
             // 

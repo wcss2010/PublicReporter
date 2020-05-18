@@ -101,7 +101,7 @@
             this.rbFromOldContactPKG.Size = new System.Drawing.Size(278, 37);
             this.rbFromOldContactPKG.TabIndex = 1;
             this.rbFromOldContactPKG.TabStop = true;
-            this.rbFromOldContactPKG.Text = "旧的合同书数据匹配导入（未匹配部分以示例数据填充）";
+            this.rbFromOldContactPKG.Text = "旧的协议书数据匹配导入（未匹配部分以示例数据填充）";
             this.rbFromOldContactPKG.UseVisualStyleBackColor = true;
             // 
             // FrmNewProject

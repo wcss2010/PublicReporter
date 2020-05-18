@@ -355,7 +355,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "合同编号";
+            this.label1.Text = "协议编号";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -367,7 +367,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 25);
             this.label2.TabIndex = 0;
-            this.label2.Text = "合同名称";
+            this.label2.Text = "协议名称";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -415,7 +415,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 25);
             this.label6.TabIndex = 0;
-            this.label6.Text = "合同价款";
+            this.label6.Text = "协议价款";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -1346,7 +1346,7 @@
             this.lblInfo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(966, 72);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "合同书是开展合同过程管理和监督评估的重要依据，请科学严谨、实事求是填写合同书，表述要清晰准确。";
+            this.lblInfo.Text = "协议书是开展协议过程管理和监督评估的重要依据，请科学严谨、实事求是填写协议书，表述要清晰准确。";
             // 
             // ProjectEditor
             // 

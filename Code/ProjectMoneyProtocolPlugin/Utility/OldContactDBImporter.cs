@@ -53,10 +53,10 @@ namespace ProjectMoneyProtocolPlugin.Utility
                     #endregion
 
                     #region 复制PDFFile
-                    string sourcePDFFile = Path.Combine(Path.GetDirectoryName(reporterDBFile), "合同书.pdf");
+                    string sourcePDFFile = Path.Combine(Path.GetDirectoryName(reporterDBFile), "协议书.pdf");
                     try
                     {
-                        File.Copy(sourcePDFFile, Path.Combine(pluginObj.dataDir, "合同书.pdf"), true);
+                        File.Copy(sourcePDFFile, Path.Combine(pluginObj.dataDir, "协议书.pdf"), true);
                     }
                     catch (Exception ex) { }
                     #endregion

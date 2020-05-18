@@ -261,7 +261,7 @@ namespace ProjectMoneyProtocolPlugin.Forms
                         if (NewPluginRoot.noSupportDBVersionList.Contains(versionStr))
                         {
                             //不支持的数据库版本
-                            MessageBox.Show("对不起，当前的数据包版本太低，请使用‘新建项目’中的‘旧的合同书数据匹配导入’选项！");
+                            MessageBox.Show("对不起，当前的数据包版本太低，请使用‘新建项目’中的‘旧的协议书数据匹配导入’选项！");
                             try
                             {
                                 Directory.Delete(decompressTemp, true);
