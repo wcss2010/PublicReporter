@@ -76,24 +76,25 @@ namespace ProjectMoneyProtocolPlugin.Forms
                     string timeforsubjectStr = dr["每年投入时间"] != null ? dr["每年投入时间"].ToString().Trim() : string.Empty;
                     string taskcontentStr = dr["任务分工"] != null ? dr["任务分工"].ToString().Trim() : string.Empty;
 
-                    string subjectStr = dr["课题名称(如是仅为项目负责人则为空)"] != null ? dr["课题名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
-                    string roletypeOnlyProjectStr = dr["仅为项目负责人"] != null ? dr["仅为项目负责人"].ToString().Trim() : string.Empty;
-                    string roletypeProjectAndSubjectStr = dr["项目负责人兼课题角色"] != null ? dr["项目负责人兼课题角色"].ToString().Trim() : string.Empty;
-                    string roletypeOnlySubjectStr = dr["仅为课题角色"] != null ? dr["仅为课题角色"].ToString().Trim() : string.Empty;
-                    string roleNameStr = dr["项目或课题中职务（负责人或成员）"] != null ? dr["项目或课题中职务（负责人或成员）"].ToString().Trim() : string.Empty;
+                    //string subjectStr = dr["课题名称(如是仅为项目负责人则为空)"] != null ? dr["课题名称(如是仅为项目负责人则为空)"].ToString().Trim() : string.Empty;
+                    //string roletypeOnlyProjectStr = dr["仅为项目负责人"] != null ? dr["仅为项目负责人"].ToString().Trim() : string.Empty;
+                    //string roletypeProjectAndSubjectStr = dr["项目负责人兼课题角色"] != null ? dr["项目负责人兼课题角色"].ToString().Trim() : string.Empty;
+                    //string roletypeOnlySubjectStr = dr["仅为课题角色"] != null ? dr["仅为课题角色"].ToString().Trim() : string.Empty;
+                    //string roleNameStr = dr["项目或课题中职务（负责人或成员）"] != null ? dr["项目或课题中职务（负责人或成员）"].ToString().Trim() : string.Empty;
+                    string roleNameStr = dr["项目中职务"] != null ? dr["项目中职务"].ToString().Trim() : string.Empty;
 
-                    if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
-                    {
-                        roletypeOnlyProjectStr = "否";
-                    }
-                    if (string.IsNullOrEmpty(roletypeProjectAndSubjectStr))
-                    {
-                        roletypeProjectAndSubjectStr = "否";
-                    }
-                    if (string.IsNullOrEmpty(roletypeOnlySubjectStr))
-                    {
-                        roletypeOnlySubjectStr = "否";
-                    }
+                    //if (string.IsNullOrEmpty(roletypeOnlyProjectStr))
+                    //{
+                    //    roletypeOnlyProjectStr = "否";
+                    //}
+                    //if (string.IsNullOrEmpty(roletypeProjectAndSubjectStr))
+                    //{
+                    //    roletypeProjectAndSubjectStr = "否";
+                    //}
+                    //if (string.IsNullOrEmpty(roletypeOnlySubjectStr))
+                    //{
+                    //    roletypeOnlySubjectStr = "否";
+                    //}
 
                     //检查非空
                     foreach (DataColumn dc in dr.Table.Columns)
@@ -129,10 +130,10 @@ namespace ProjectMoneyProtocolPlugin.Forms
                         throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'每年投入时间'只能是数字！");
                     }
 
-                    if (roleNameStr != "负责人" && roleNameStr != "成员")
-                    {
-                        throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'项目或课题中职务'只能是负责人或成员！");
-                    }
+                    //if (roleNameStr != "负责人" && roleNameStr != "成员")
+                    //{
+                    //    throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'项目或课题中职务'只能是负责人或成员！");
+                    //}
 
                     bool isOK = false;
                     GetIDCardInfoCls gci = new GetIDCardInfoCls();
@@ -159,22 +160,22 @@ namespace ProjectMoneyProtocolPlugin.Forms
                     //    throw new Exception("'出生年月'格式有误！例如：" + DateTime.Now.ToShortDateString());
                     //}
 
-                    //判断研究内容名称是否正确
-                    if (roletypeOnlyProjectStr.Contains("否"))
-                    {
-                        int subjectCount = 0;
-                        object countObj = ConnectionManager.Context.table("KeTiBiao").where("KeTiMingCheng='" + subjectStr + "'").select("count(*)").getValue();
-                        try
-                        {
-                            subjectCount = int.Parse(countObj.ToString());
-                        }
-                        catch (Exception ex) { }
+                    ////判断研究内容名称是否正确
+                    //if (roletypeOnlyProjectStr.Contains("否"))
+                    //{
+                    //    int subjectCount = 0;
+                    //    object countObj = ConnectionManager.Context.table("KeTiBiao").where("KeTiMingCheng='" + subjectStr + "'").select("count(*)").getValue();
+                    //    try
+                    //    {
+                    //        subjectCount = int.Parse(countObj.ToString());
+                    //    }
+                    //    catch (Exception ex) { }
 
-                        if (subjectCount == 0)
-                        {
-                            throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'课题名称'有误！");
-                        }
-                    }
+                    //    if (subjectCount == 0)
+                    //    {
+                    //        throw new Exception("第" + eRowIndex + "行的" + nameStr + "的" + "'课题名称'有误！");
+                    //    }
+                    //}
 
                     #region 生成Persons对象
                     RenYuanBiao ppObj = new RenYuanBiao();
@@ -191,23 +192,23 @@ namespace ProjectMoneyProtocolPlugin.Forms
                     ppObj.MeiNianTouRuShiJian = int.Parse(timeforsubjectStr);
                     ppObj.RenWuFenGong = taskcontentStr;
 
-                    //课题ID
-                    ppObj.KeTiBiaoHao = ConnectionManager.Context.table("KeTiBiao").where("KeTiMingCheng='" + subjectStr + "'").select("BianHao").getValue<string>(defaultSubjectID);
+                    ////课题ID
+                    //ppObj.KeTiBiaoHao = ConnectionManager.Context.table("KeTiBiao").where("KeTiMingCheng='" + subjectStr + "'").select("BianHao").getValue<string>(defaultSubjectID);
 
-                    //角色类型
-                    if (roletypeOnlyProjectStr.Contains("是"))
-                    {
-                        ppObj.ShiXiangMuFuZeRen = FrmAddOrUpdateWorker.isOnlyProject;
-                        roleNameStr = "成员";
-                    }
-                    else if (roletypeProjectAndSubjectStr.Contains("是"))
-                    {
-                        ppObj.ShiXiangMuFuZeRen = FrmAddOrUpdateWorker.isProjectAndSubject;
-                    }
-                    else
-                    {
-                        ppObj.ShiXiangMuFuZeRen = FrmAddOrUpdateWorker.isOnlySubject;
-                    }
+                    ////角色类型
+                    //if (roletypeOnlyProjectStr.Contains("是"))
+                    //{
+                    //    ppObj.ShiXiangMuFuZeRen = FrmAddOrUpdateWorker.isOnlyProject;
+                    //    roleNameStr = "成员";
+                    //}
+                    //else if (roletypeProjectAndSubjectStr.Contains("是"))
+                    //{
+                    //    ppObj.ShiXiangMuFuZeRen = FrmAddOrUpdateWorker.isProjectAndSubject;
+                    //}
+                    //else
+                    //{
+                    //    ppObj.ShiXiangMuFuZeRen = FrmAddOrUpdateWorker.isOnlySubject;
+                    //}
 
                     //角色名称
                     ppObj.ZhiWu = roleNameStr;

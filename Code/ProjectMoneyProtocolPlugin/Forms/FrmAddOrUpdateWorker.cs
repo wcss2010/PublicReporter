@@ -41,9 +41,9 @@ namespace ProjectMoneyProtocolPlugin.Forms
 
         private void initData()
         {
-            cbxSubjects.DisplayMember = "KeTiMingCheng";
-            cbxSubjects.ValueMember = "BianHao";
-            cbxSubjects.DataSource = List;
+            //cbxSubjects.DisplayMember = "KeTiMingCheng";
+            //cbxSubjects.ValueMember = "BianHao";
+            //cbxSubjects.DataSource = List;
 
             if (DataObj != null)
             {
@@ -58,24 +58,25 @@ namespace ProjectMoneyProtocolPlugin.Forms
                 txtIDCard.Text = DataObj.ShenFenZhengHao;
                 txtTask.Text = DataObj.RenWuFenGong;
                 cbxSexs.SelectedItem = DataObj.XingBie;
-                cbxSubjects.SelectedValue = DataObj.KeTiBiaoHao;
-                cbxJobInProjects.SelectedItem = DataObj.ZhiWu;
                 txtTotalTime.Value = DataObj.MeiNianTouRuShiJian;
                 txtTelephone.Text = DataObj.DianHua;
                 txtMobilephone.Text = DataObj.ShouJi;
+                txtJobs.Text = DataObj.ZhiWu;
 
-                if (DataObj.ShiXiangMuFuZeRen == rbIsOnlyProject.Name)
-                {
-                    rbIsOnlyProject.Checked = true;
-                }
-                else if (DataObj.ShiXiangMuFuZeRen == rbIsOnlySubject.Name)
-                {
-                    rbIsOnlySubject.Checked = true;
-                }
-                else if (DataObj.ShiXiangMuFuZeRen == rbIsProjectAndSubject.Name)
-                {
-                    rbIsProjectAndSubject.Checked = true;
-                }
+                //cbxSubjects.SelectedValue = DataObj.KeTiBiaoHao;
+                //cbxJobInProjects.SelectedItem = DataObj.ZhiWu;
+                //if (DataObj.ShiXiangMuFuZeRen == rbIsOnlyProject.Name)
+                //{
+                //    rbIsOnlyProject.Checked = true;
+                //}
+                //else if (DataObj.ShiXiangMuFuZeRen == rbIsOnlySubject.Name)
+                //{
+                //    rbIsOnlySubject.Checked = true;
+                //}
+                //else if (DataObj.ShiXiangMuFuZeRen == rbIsProjectAndSubject.Name)
+                //{
+                //    rbIsProjectAndSubject.Checked = true;
+                //}
             }
             else
             {
@@ -106,7 +107,7 @@ namespace ProjectMoneyProtocolPlugin.Forms
                 || String.IsNullOrEmpty(txtMobilephone.Text)
                 || String.IsNullOrEmpty(txtTask.Text)
                 || (cbxSexs.SelectedItem == null && rbIsOnlyProject.Checked == false)
-                || (cbxJobInProjects.SelectedItem == null && rbIsOnlyProject.Checked == false)
+                //|| (cbxJobInProjects.SelectedItem == null && rbIsOnlyProject.Checked == false)
                 || String.IsNullOrEmpty(txtTotalTime.Value.ToString())
 
                 )
@@ -127,9 +128,12 @@ namespace ProjectMoneyProtocolPlugin.Forms
                 DataObj.ShouJi = txtMobilephone.Text;
                 DataObj.RenWuFenGong = txtTask.Text;
                 DataObj.XingBie = cbxSexs.SelectedItem.ToString();
-                DataObj.KeTiBiaoHao = cbxSubjects.SelectedValue.ToString();
-                DataObj.ZhiWu = cbxJobInProjects.SelectedItem != null ? cbxJobInProjects.SelectedItem.ToString() : "负责人";
                 DataObj.MeiNianTouRuShiJian = Convert.ToInt32(txtTotalTime.Value);
+
+                //DataObj.KeTiBiaoHao = cbxSubjects.SelectedValue.ToString();
+                //DataObj.ZhiWu = cbxJobInProjects.SelectedItem != null ? cbxJobInProjects.SelectedItem.ToString() : "负责人";
+
+                DataObj.ZhiWu = txtJobs.Text;
 
                 if (string.IsNullOrEmpty(DataObj.BianHao))
                 {
@@ -148,26 +152,26 @@ namespace ProjectMoneyProtocolPlugin.Forms
 
         private void rbIsOnlySubjectMaster_CheckedChanged(object sender, EventArgs e)
         {
-            if (((RadioButton)sender).Checked)
-            {
-                DataObj.ShiXiangMuFuZeRen = ((RadioButton)sender).Name;
+            //if (((RadioButton)sender).Checked)
+            //{
+            //    DataObj.ShiXiangMuFuZeRen = ((RadioButton)sender).Name;
 
-                if (((RadioButton)sender).Name == "rbIsOnlyProject")
-                {
-                    if (cbxSubjects.Items.Count >= 1)
-                    {
-                        cbxSubjects.SelectedItem = cbxSubjects.Items[0];
-                    }
-                    cbxSubjects.Enabled = false;
-                    cbxJobInProjects.SelectedItem = "成员";
-                    cbxJobInProjects.Enabled = false;
-                }
-                else
-                {
-                    cbxSubjects.Enabled = true;
-                    cbxJobInProjects.Enabled = true;
-                }
-            }
+            //    if (((RadioButton)sender).Name == "rbIsOnlyProject")
+            //    {
+            //        if (cbxSubjects.Items.Count >= 1)
+            //        {
+            //            cbxSubjects.SelectedItem = cbxSubjects.Items[0];
+            //        }
+            //        cbxSubjects.Enabled = false;
+            //        cbxJobInProjects.SelectedItem = "成员";
+            //        cbxJobInProjects.Enabled = false;
+            //    }
+            //    else
+            //    {
+            //        cbxSubjects.Enabled = true;
+            //        cbxJobInProjects.Enabled = true;
+            //    }
+            //}
         }
 
         private void txtIDCard_TextChanged(object sender, EventArgs e)

@@ -57,14 +57,15 @@ namespace ProjectMoneyProtocolPlugin.Editor
                 cells.Add(data.RenWuFenGong);
                 cells.Add(data.ShenFenZhengHao);
 
-                if (data.ShiXiangMuFuZeRen == "rbIsOnlyProject")
-                {
-                    cells.Add("项目负责人");
-                }
-                else
-                {
-                    cells.Add((data.ShiXiangMuFuZeRen == "rbIsProjectAndSubject" ? "项目负责人兼" : "") + ((ktDict.ContainsKey(data.KeTiBiaoHao) ? ktDict[data.KeTiBiaoHao] : string.Empty) + data.ZhiWu));
-                }
+                //if (data.ShiXiangMuFuZeRen == "rbIsOnlyProject")
+                //{
+                //    cells.Add("项目负责人");
+                //}
+                //else
+                //{
+                //    cells.Add((data.ShiXiangMuFuZeRen == "rbIsProjectAndSubject" ? "项目负责人兼" : "") + ((ktDict.ContainsKey(data.KeTiBiaoHao) ? ktDict[data.KeTiBiaoHao] : string.Empty) + data.ZhiWu));
+                //}
+                cells.Add(data.ZhiWu);
 
                 int rowIndex = dgvDetail.Rows.Add(cells.ToArray());
                 dgvDetail.Rows[rowIndex].Tag = data;

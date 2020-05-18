@@ -64,6 +64,8 @@
             this.lblError = new System.Windows.Forms.Label();
             this.txtWorkNormalUnit = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtJobs = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalTime)).BeginInit();
             this.panel1.SuspendLayout();
             this.plButtons.SuspendLayout();
@@ -85,7 +87,7 @@
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnSave.Location = new System.Drawing.Point(644, 0);
+            this.btnSave.Location = new System.Drawing.Point(618, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 40);
@@ -98,7 +100,7 @@
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.Font = new System.Drawing.Font("仿宋", 12F);
-            this.btnClose.Location = new System.Drawing.Point(740, 0);
+            this.btnClose.Location = new System.Drawing.Point(714, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(96, 40);
@@ -266,22 +268,24 @@
             this.cbxSubjects.Items.AddRange(new object[] {
             "负责人",
             "成员"});
-            this.cbxSubjects.Location = new System.Drawing.Point(132, 492);
+            this.cbxSubjects.Location = new System.Drawing.Point(962, 262);
             this.cbxSubjects.Margin = new System.Windows.Forms.Padding(4);
             this.cbxSubjects.Name = "cbxSubjects";
             this.cbxSubjects.Size = new System.Drawing.Size(253, 24);
             this.cbxSubjects.TabIndex = 25;
+            this.cbxSubjects.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label4.Location = new System.Drawing.Point(490, 495);
+            this.label4.Location = new System.Drawing.Point(1320, 265);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 16);
             this.label4.TabIndex = 24;
             this.label4.Text = "课题中职务：";
+            this.label4.Visible = false;
             // 
             // cbxJobInProjects
             // 
@@ -290,32 +294,35 @@
             this.cbxJobInProjects.Items.AddRange(new object[] {
             "负责人",
             "成员"});
-            this.cbxJobInProjects.Location = new System.Drawing.Point(601, 492);
+            this.cbxJobInProjects.Location = new System.Drawing.Point(1431, 262);
             this.cbxJobInProjects.Margin = new System.Windows.Forms.Padding(4);
             this.cbxJobInProjects.Name = "cbxJobInProjects";
             this.cbxJobInProjects.Size = new System.Drawing.Size(179, 24);
             this.cbxJobInProjects.TabIndex = 27;
+            this.cbxJobInProjects.Visible = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("仿宋", 12F);
-            this.label10.Location = new System.Drawing.Point(71, 495);
+            this.label10.Location = new System.Drawing.Point(901, 265);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 16);
             this.label10.TabIndex = 26;
             this.label10.Text = "课题：";
+            this.label10.Visible = false;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.rbIsOnlySubject);
             this.panel1.Controls.Add(this.rbIsProjectAndSubject);
             this.panel1.Controls.Add(this.rbIsOnlyProject);
-            this.panel1.Location = new System.Drawing.Point(132, 431);
+            this.panel1.Location = new System.Drawing.Point(962, 201);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(647, 33);
             this.panel1.TabIndex = 30;
+            this.panel1.Visible = false;
             // 
             // rbIsOnlySubject
             // 
@@ -420,10 +427,10 @@
             this.plButtons.Controls.Add(this.btnClose);
             this.plButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plButtons.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plButtons.Location = new System.Drawing.Point(0, 543);
+            this.plButtons.Location = new System.Drawing.Point(0, 487);
             this.plButtons.Margin = new System.Windows.Forms.Padding(4);
             this.plButtons.Name = "plButtons";
-            this.plButtons.Size = new System.Drawing.Size(836, 40);
+            this.plButtons.Size = new System.Drawing.Size(810, 40);
             this.plButtons.TabIndex = 33;
             // 
             // lblError
@@ -454,11 +461,30 @@
             this.label14.TabIndex = 36;
             this.label14.Text = "单位常用名：";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("仿宋", 12F);
+            this.label15.Location = new System.Drawing.Point(22, 437);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(104, 16);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "项目中职务：";
+            // 
+            // txtJobs
+            // 
+            this.txtJobs.Location = new System.Drawing.Point(131, 434);
+            this.txtJobs.Margin = new System.Windows.Forms.Padding(4);
+            this.txtJobs.Name = "txtJobs";
+            this.txtJobs.Size = new System.Drawing.Size(648, 26);
+            this.txtJobs.TabIndex = 22;
+            // 
             // FrmAddOrUpdateWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 583);
+            this.ClientSize = new System.Drawing.Size(810, 527);
             this.Controls.Add(this.txtWorkNormalUnit);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblError);
@@ -470,8 +496,10 @@
             this.Controls.Add(this.cbxSubjects);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTotalTime);
+            this.Controls.Add(this.txtJobs);
             this.Controls.Add(this.txtTask);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtIDCard);
             this.Controls.Add(this.label8);
@@ -543,5 +571,7 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.TextBox txtWorkNormalUnit;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtJobs;
     }
 }
